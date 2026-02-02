@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdminPortal>
+    <PriceRuleInfo>
+        <PriceRule>
+            <Name>AP145 - Automation Test</Name>
+            <Position>1</Position>
+            <Apply_rule_if>ALL of the conditions are TRUE</Apply_rule_if>
+            <Conditions>
+                <Condition>
+                    <Attribute>Vehicle model</Attribute>
+                    <Operator>Is equal to</Operator>
+                    <Value>Automation Test</Value>
+                </Condition>
+                <Condition>
+                    <Attribute>Dealer id</Attribute>
+                    <Operator>In</Operator>
+                    <Value>Automation Test</Value>
+                </Condition>
+            </Conditions>
+            <Apply>Fixed amount discount</Apply>
+            <Amount>100</Amount>
+            <Stop_further_processing>true</Stop_further_processing>
+        </PriceRule>
+    </PriceRuleInfo>
+    <PriceRuleInfo>
+        <PriceRule>
+            <Name>AP312 - Automation Test</Name>
+            <Position>999</Position>
+            <Apply_rule_if>ANY of the conditions are TRUE</Apply_rule_if>
+            <Conditions>
+                <Condition>
+                    <Attribute>Program id</Attribute>
+                    <Operator>Is equal to</Operator>
+                    <Value>3</Value>
+                </Condition>
+            </Conditions>
+            <Apply>Fixed amount surcharge</Apply>
+            <Amount>50</Amount>
+            <Stop_further_processing>true</Stop_further_processing>
+        </PriceRule>
+    </PriceRuleInfo>
+</AdminPortal>

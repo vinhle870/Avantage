@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdminPortal>
+    <DealerInfo>
+        <Dealer>
+            <Email>vinhle870@gmail.com</Email>
+            <Name>vinh</Name>
+            <Phone>99999</Phone>
+            <Fax>00000</Fax>
+            <Company_name></Company_name>
+            <Address>Address</Address>
+            <City>ccc</City>
+            <Province>British Columbia</Province>
+            <Postal_code>22222</Postal_code>
+            <Internal_id>15071987</Internal_id>
+            <Contact_title>Director</Contact_title>
+            <License_no>123456789</License_no>
+            <Registration_GST>GST</Registration_GST>
+            <Registration_PST>PST</Registration_PST>
+            <IsShowTaxInfo>True</IsShowTaxInfo>
+            <Group>Group A</Group>
+            <Notes>11111</Notes>
+            <Humania_Commission_Rate>A - 20%</Humania_Commission_Rate>
+        </Dealer>
+    </DealerInfo>
+    <ProgramInfo>
+        <Program>
+            <Name>Automation Test</Name>
+            <Description>Automation Test</Description>
+            <Code>Automation Test</Code>
+            <WarrantyCondition>
+                <Name>VLE2</Name>
+                <Description/>
+                <English_Pdf/>
+                <French_Pdf/>
+            </WarrantyCondition>
+            <Wholesaler>
+                <Name/>
+            </Wholesaler>
+            <ProgramOptions>
+                <ProgOption>
+                    <Name/>
+                    <Code/>
+                    <ProgramTerms>
+                        <ProgTerm>
+                            <Eligibility_Years/>
+                            <Eligibility_KmPerHr/>
+                            <Term_Months/>
+                            <Term_Km/>
+                            <Franchise_Amount/>
+                            <Repair_Amount_Per_Visit/>
+                            <Repair_Amount_Total/>
+                            <Repair_Amount_Text/>
+                            <Eligibility_Category/>
+                            <FuelType_Eligibility/>
+                            <Vehicle_type/>
+                        </ProgTerm>
+                    </ProgramTerms>
+                </ProgOption>
+            </ProgramOptions>
+        </Program>
+    </ProgramInfo>
+    <PriceRuleInfo>
+        <PriceRule>
+            <Name>Automation Test</Name>
+            <Position>999</Position>
+            <Apply_rule_if>ALL of the conditions are TRUE</Apply_rule_if>
+            <Conditions>
+                <Condition>
+                    <Attribute>Vehicle model</Attribute>
+                    <Operator>Is equal to</Operator>
+                    <Value>Automation Test</Value>
+                </Condition>
+                <Condition>
+                    <Attribute>Dealer id</Attribute>
+                    <Operator>In</Operator>
+                    <Value>Automation Test</Value>
+                </Condition>
+            </Conditions>
+            <Apply>Fixed amount discount</Apply>
+            <Amount>100</Amount>
+            <Stop_further_processing>true</Stop_further_processing>
+        </PriceRule>
+    </PriceRuleInfo>
+</AdminPortal>

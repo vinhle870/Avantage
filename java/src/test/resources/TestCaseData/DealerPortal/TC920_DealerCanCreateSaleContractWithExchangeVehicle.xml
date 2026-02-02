@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DealerPortal>
+    <QuoteInfo>
+        <QuoteClient>
+            <Email>ap_automation_test@yopmail.com</Email>
+            <First_name>Automation Test</First_name>
+            <Last_name>Automation Test</Last_name>
+            <Secondary_owner_or_company>Automation Test</Secondary_owner_or_company>
+            <Distributor_name>Automation Test</Distributor_name>
+            <Address>Automation Test</Address>
+            <Address2>Automation Test 2</Address2>
+            <City>Automation Test</City>
+            <Province>Québec</Province>
+            <Postal_code>12345</Postal_code>
+            <Tel_home>0321654987</Tel_home>
+            <Tel_work>0321654987</Tel_work>
+            <Indian_status_certificate></Indian_status_certificate>
+            <Drivers_license>Automation Test</Drivers_license>
+        </QuoteClient>
+        <QuoteVehicle>
+            <VehicleInfo>
+                <VehicleType>Passenger</VehicleType>
+                <VehicleID></VehicleID>
+                <VIN>33333333</VIN>
+                <Branch>Fiat</Branch>
+                <Model>500</Model>
+                <Year>2015</Year>
+                <Price>10000.00</Price>
+                <Km>20000</Km>
+                <Condition>new</Condition>
+                <FuelType>GASOLINE</FuelType>
+                <Transmission>Automatic</Transmission>
+                <Cylinders>2</Cylinders>
+                <EngineSize>2</EngineSize>
+                <EngineSizeUnit>l</EngineSizeUnit>
+                <Designation>Particular</Designation>
+                <IsTurboEngine>Yes</IsTurboEngine>
+                <Is4X4>Yes</Is4X4>
+                <IsAllWheelDrive>Yes</IsAllWheelDrive>
+                <FullCoverageEndDate>2022-01-01</FullCoverageEndDate>
+                <FullCoverageMaxMile>1111</FullCoverageMaxMile>
+                <PowertrainCoverageEndDate>2022-01-01</PowertrainCoverageEndDate>
+                <PowertrainCoverageMaxMile>1111</PowertrainCoverageMaxMile>
+            </VehicleInfo>
+            <DeliveryDate>2022-06-04</DeliveryDate>
+            <Price>10000.00</Price>
+        </QuoteVehicle>
+        <QuoteWarranty>
+            <WarrantyID></WarrantyID>
+            <ProgramName>Garantie de base AP</ProgramName>
+            <ProgramOption>option 1</ProgramOption>
+            <ProgramDescription>Components 1 to 6</ProgramDescription>
+            <OptionTerm>100m/20000km</OptionTerm>
+            <OptionTermMonth>100</OptionTermMonth>
+            <OptionTermKm>20000</OptionTermKm>
+            <OptionTermPrice>100.00</OptionTermPrice>
+            <OptionTermAmountPerVisit>100.00</OptionTermAmountPerVisit>
+            <ExtraComponents>
+                <ComponnentName>test for warranty component report</ComponnentName>
+                <ComponnentName>2x Claim</ComponnentName>
+            </ExtraComponents>
+            <SalePrice>0.00</SalePrice>
+            <FinancingCompany>BMO</FinancingCompany>
+            <VehicleDeliveryDate>2022-06-04</VehicleDeliveryDate>
+            <SameAsDeliveryDate>true</SameAsDeliveryDate>
+            <WarrantyStartDate>2022-06-04</WarrantyStartDate>
+        </QuoteWarranty>
+        <QuoteFinancing>
+            <DateOfBirth></DateOfBirth>
+            <Type></Type>
+            <BaseAmount></BaseAmount>
+            <CashDown></CashDown>
+            <Residual></Residual>
+            <PaymentFrequency></PaymentFrequency>
+            <TermMonths></TermMonths>
+            <InterestRate></InterestRate>
+            <FinancingCompany></FinancingCompany>
+        </QuoteFinancing>
+        <QuoteSale>
+            <QuoteSaleContract>
+                <ContractNumber>ContractNumber_12345</ContractNumber>
+                <SalesRepName>SalesRepName_VL</SalesRepName>
+                <DeliveredOn>2022-06-10</DeliveredOn>
+                <SignedOn>2022-06-30</SignedOn>
+                <SignedLocation>Signed location</SignedLocation>
+                <DiscountAmount>1000.00</DiscountAmount>
+                <VehicleMarketValue>0.00</VehicleMarketValue>
+                <TransitAmount>0.00</TransitAmount>
+                <RDPRM_Amount>0.00</RDPRM_Amount>
+                <WarrantyAmount></WarrantyAmount>
+                <Accessories></Accessories>
+                <AccessoriesAmount>0.00</AccessoriesAmount>
+                <NewTiresDutyAmount>0.00</NewTiresDutyAmount>
+                <MaintenanceScheduleAmount>0.00</MaintenanceScheduleAmount>
+                <ReplacementInsuranceAmount>0.00</ReplacementInsuranceAmount>
+                <ReplacementInsuranceContractNumber></ReplacementInsuranceContractNumber>
+                <LoanInsuranceAmount>0.00</LoanInsuranceAmount>
+                <LoanInsuranceContractNumber></LoanInsuranceContractNumber>
+                <DepositAmount>0.00</DepositAmount>
+                <OtherClause>111</OtherClause>
+            </QuoteSaleContract>
+            <QuoteExchangeVehicle>
+                <VIN>33333333</VIN>
+                <Branch>Fiat</Branch>
+                <Model>500</Model>
+                <Year>2020</Year>
+                <Cylinders>2</Cylinders>
+                <LicensePlateNumber>12345</LicensePlateNumber>
+                <Km>9999</Km>
+                <RealKilometers>9999</RealKilometers>
+                <IsAccommodationSale>Yes</IsAccommodationSale>
+                <AccommodationSaleContractNumber>8888</AccommodationSaleContractNumber>
+                <TaxRegistration>888</TaxRegistration>
+                <ValueAmount>500.00</ValueAmount>
+                <BalanceAmount>0.00</BalanceAmount>
+                <Bank>888</Bank>
+            </QuoteExchangeVehicle>
+        </QuoteSale>
+    </QuoteInfo>
+</DealerPortal>

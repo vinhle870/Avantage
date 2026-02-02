@@ -1,0 +1,23 @@
+${Vehicle_MAKE} ${Vehicle_MODEL} ${Vehicle_YEAR}
+${Vehicle_Automatic}
+${Vehicle_VIN} ${Vehicle_CYLINDERS} ${Vehicle_ EngineSize} ${Vehicle_ EngineSizeUnit}
+${Vehicle_DeliveredDate} ${Vehicle_km} km
+${Vehicle_Price}
+${ClientLastName} ${ClientFirstName}
+${ClientCompany}
+${ClientAddress}${ClientAddress2}
+${ClientCity}${ClientPROVINCE}${ClientPostal}
+${ClientTelHome}${ClientTelWork}${ClientEmail}
+Eligible for vehicle less than 15 years old and less than 2,800,000 km at the time of purchase
+${ProgramOptionTermMonth} ${ProgramOptionKm} km
+${ProgramOption} ${ProgramDescription} ${ProgramOptionTermPrice}
+${ProgramOptionTermAmountPerVisit} /${ProgramOptionTermAmountTotal}${ProgramOptionTermAmountText}
+Start Date: ${WarrantyStartDate} - End Date: ${WarrantyEndDate}
+Full ${VehicleFullDate} ${VehicleFullKm}
+Powertrain ${VehiclePowertrainDate} ${VehiclePowertrainKm}
+Sale price : $${WarrantyPrice}
+${WarrantyGST}
+${WarrantyPST}
+Total : $${WarrantyTotalPrice}
+${ProgramComponent} ${DealerCompany}${DealerAddress}${DealerCity}, ${DealerProvince}, ${DealerPostalCode}
+${DealerPhone}${DealerRegistrationGST}${DealerRegistrationPST}

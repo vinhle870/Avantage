@@ -1,0 +1,97 @@
+{
+    "admin": {
+        "dealers": [
+            {
+                "email": "test.dealer@example.com",
+                "name": "Test Dealer",
+                "phone": "514-555-0001",
+                "fax": "514-555-0002",
+                "companyName": "Test Dealer Company",
+                "address": "123 Test Street",
+                "city": "Montreal",
+                "province": "Quebec",
+                "postalCode": "H1A 1A1",
+                "internalId": "TEST001",
+                "contactTitle": "Manager",
+                "licenseNo": "LIC123456",
+                "registrationGST": "GST123456",
+                "registrationPST": "PST123456",
+                "group": "Standard",
+                "notes": "Test dealer for automation",
+                "humaniaCommissionRate": "10%"
+            }
+        ],
+        "priceRules": [
+            {
+                "name": "Test Price Rule",
+                "position": "1",
+                "applyRuleIf": "All conditions are true",
+                "conditions": [
+                    {
+                        "attribute": "Vehicle Year",
+                        "operator": "is",
+                        "value": "2024"
+                    }
+                ],
+                "apply": "Fixed Amount",
+                "amount": "100",
+                "stopFurtherProcessing": false
+            }
+        ],
+        "programs": [
+            {
+                "name": "Test Program"
+            }
+        ]
+    },
+    "dealer": {
+        "clients": [
+            {
+                "email": "client@example.com",
+                "firstName": "John",
+                "lastName": "Doe",
+                "secondaryOwnerOrCompany": "",
+                "distributorName": "",
+                "address": "456 Client Ave",
+                "address2": "",
+                "city": "Montreal",
+                "province": "Quebec",
+                "postalCode": "H2B 2B2",
+                "telHome": "514-555-1234",
+                "telWork": "514-555-5678",
+                "indianStatusCertificate": "",
+                "driversLicense": "D1234567890"
+            }
+        ],
+        "vehicles": [
+            {
+                "vin": "1HGBH41JXMN109186",
+                "make": "Honda",
+                "model": "Accord",
+                "year": "2024",
+                "price": "35000",
+                "kilometers": "0",
+                "condition": "New",
+                "fuelType": "Gasoline",
+                "transmission": "Automatic",
+                "cylinders": "4",
+                "engineSize": "2.0",
+                "engineSizeUnit": "L",
+                "designation": "Sedan",
+                "isTurbo": true,
+                "is4x4": false,
+                "isFWD": true
+            }
+        ]
+    },
+    "credentials": {
+        "admin": {
+            "username": "admin@avantage.com",
+            "password": "AdminPass123"
+        },
+        "dealer": {
+            "username": "dealer@avantage.com",
+            "password": "DealerPass123"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0"?><!--encoding="UTF-8"-->
+<Data>
+    <AdminPortal>
+        <Url>https://v2staging.garantieavantageplus.ca/admin/login</Url>
+        <Username>admintest@gmail.com</Username>
+        <Password>admintest</Password>
+    </AdminPortal>
+
+    <DealerPortal>
+        <Url>https://v2staging.garantieavantageplus.ca/login</Url>
+        <Username>vinhle870@gmail.com</Username>
+        <Password>1234567892</Password>
+    </DealerPortal>
+</Data>

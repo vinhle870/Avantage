@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Email" type="xs:string"/>
+  <xs:element name="Name" type="xs:string"/>
+  <xs:element name="Phone" type="xs:string"/>
+  <xs:element name="Fax" type="xs:string"/>
+  <xs:element name="Company_name" type="xs:string"/>
+  <xs:element name="Address" type="xs:string"/>
+  <xs:element name="City" type="xs:string"/>
+  <xs:element name="Province" type="xs:string"/>
+  <xs:element name="Postal_code" type="xs:string"/>
+  <xs:element name="Internal_id" type="xs:string"/>
+  <xs:element name="Contact_title" type="xs:string"/>
+  <xs:element name="License_no" type="xs:string"/>
+  <xs:element name="Registration_GST" type="xs:string"/>
+  <xs:element name="Registration_PST" type="xs:string"/>
+  <xs:element name="Group" type="xs:string"/>
+  <xs:element name="Notes" type="xs:string"/>
+  <xs:element name="Dealer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Email"/>
+        <xs:element ref="Name" minOccurs="0"/>
+        <xs:element ref="Phone" minOccurs="0"/>
+        <xs:element ref="Fax" minOccurs="0"/>
+        <xs:element ref="Company_name" minOccurs="0"/>
+        <xs:element ref="Address" minOccurs="0"/>
+        <xs:element ref="City" minOccurs="0"/>
+        <xs:element ref="Province" minOccurs="0"/>
+        <xs:element ref="Postal_code" minOccurs="0"/>
+        <xs:element ref="Internal_id" minOccurs="0"/>
+        <xs:element ref="Contact_title" minOccurs="0"/>
+        <xs:element ref="License_no" minOccurs="0"/>
+        <xs:element ref="Registration_GST" minOccurs="0"/>
+        <xs:element ref="Registration_PST" minOccurs="0"/>
+        <xs:element ref="Group" minOccurs="0"/>
+        <xs:element ref="Notes" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Description" type="xs:string"/>
+  <xs:element name="English_Pdf" type="xs:string"/>
+  <xs:element name="French_Pdf" type="xs:string"/>
+  <xs:element name="Eligibility_Years" type="xs:string"/>
+  <xs:element name="Eligibility_KmPerHr" type="xs:string"/>
+  <xs:element name="Term_Months" type="xs:string"/>
+  <xs:element name="Term_Km" type="xs:string"/>
+  <xs:element name="Franchise_Amount" type="xs:string"/>
+  <xs:element name="Repair_Amount_Per_Visit" type="xs:string"/>
+  <xs:element name="Repair_Amount_Total" type="xs:string"/>
+  <xs:element name="Repair_Amount_Text" type="xs:string"/>
+  <xs:element name="Eligibility_Category" type="xs:string"/>
+  <xs:element name="FuelType_Eligibility" type="xs:string"/>
+  <xs:element name="Vehicle_type" type="xs:string"/>
+  <xs:element name="ProgTerm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Eligibility_Years"/>
+        <xs:element ref="Eligibility_KmPerHr" minOccurs="0"/>
+        <xs:element ref="Term_Months" minOccurs="0"/>
+        <xs:element ref="Term_Km" minOccurs="0"/>
+        <xs:element ref="Franchise_Amount" minOccurs="0"/>
+        <xs:element ref="Repair_Amount_Per_Visit" minOccurs="0"/>
+        <xs:element ref="Repair_Amount_Total" minOccurs="0"/>
+        <xs:element ref="Repair_Amount_Text" minOccurs="0"/>
+        <xs:element ref="Eligibility_Category" minOccurs="0"/>
+        <xs:element ref="FuelType_Eligibility" minOccurs="0"/>
+        <xs:element ref="Vehicle_type" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Code" type="xs:string"/>
+  <xs:element name="ProgramTerms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ProgTerm" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProgOption">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Code" minOccurs="0"/>
+        <xs:element ref="ProgramTerms" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WarrantyCondition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Description"/>
+        <xs:element ref="English_Pdf"/>
+        <xs:element ref="French_Pdf"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Wholesaler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProgramOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ProgOption" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Program">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Description" minOccurs="0"/>
+        <xs:element ref="Code" minOccurs="0"/>
+        <xs:element ref="WarrantyCondition" minOccurs="0"/>
+        <xs:element ref="Wholesaler" minOccurs="0"/>
+        <xs:element ref="ProgramOptions" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Attribute" type="xs:string"/>
+  <xs:element name="Operator" type="xs:string"/>
+  <xs:element name="Value" type="xs:string"/>
+  <xs:element name="Condition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Attribute"/>
+        <xs:element ref="Operator" minOccurs="0"/>
+        <xs:element ref="Value" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Position" type="xs:string"/>
+  <xs:element name="Apply_rule_if" type="xs:string"/>
+  <xs:element name="Conditions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Condition" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Apply" type="xs:string"/>
+  <xs:element name="Amount" type="xs:string"/>
+  <xs:element name="Stop_further_processing" type="xs:string"/>
+  <xs:element name="PriceRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Position" minOccurs="0"/>
+        <xs:element ref="Apply_rule_if" minOccurs="0"/>
+        <xs:element ref="Conditions" minOccurs="0"/>
+        <xs:element ref="Apply" minOccurs="0"/>
+        <xs:element ref="Amount" minOccurs="0"/>
+        <xs:element ref="Stop_further_processing" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DealerInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Dealer" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProgramInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Program" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PriceRuleInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PriceRule" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdminPortal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DealerInfo"/>
+        <xs:element ref="ProgramInfo"/>
+        <xs:element ref="PriceRuleInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

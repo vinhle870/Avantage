@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <AdminPortal>
+        <Url>https://v2.garantieavantageplus.ca/admin</Url>
+        <Username>ken@garantieavantageplus.ca</Username>
+        <Password>Test1234</Password>
+    </AdminPortal>
+
+    <DealerPortal>
+        <Url>https://v2.garantieavantageplus.ca/</Url>
+        <Username>vinhle870@gmail.com</Username>
+        <Password>Test1234</Password>
+    </DealerPortal>
+</Data>
