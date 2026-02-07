@@ -1,2 +1,2 @@
 // Common Pages - Re-export all page classes
-export { LoginPage } from './LoginPage';
+export { LoginPage } from "./login/Page/LoginPage";

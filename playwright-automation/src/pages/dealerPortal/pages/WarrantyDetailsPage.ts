@@ -3,7 +3,8 @@
  * Page object for viewing and managing warranty details in dealer portal
  */
 
-import { Page, Locator } from '@playwright/test';
+import { Page, Locator } from "@playwright/test";
+import { WarrantyDetailsLocator } from "../locators/WarrantyDetailsLocator";
 
 export class WarrantyDetailsPage {
   private page: Page;
@@ -28,55 +29,83 @@ export class WarrantyDetailsPage {
     this.page = page;
 
     // Initialize locators
-    this.warrantyProgramName = page.locator('[data-testid="warranty-program-name"]');
-    this.warrantyTerm = page.locator('[data-testid="warranty-term"]');
-    this.warrantyStartDate = page.locator('[data-testid="warranty-start-date"]');
-    this.warrantyEndDate = page.locator('[data-testid="warranty-end-date"]');
-    this.totalCoverage = page.locator('[data-testid="total-coverage"]');
-    this.selectedOptions = page.locator('[data-testid="selected-options"]');
-    this.priceBreakdown = page.locator('[data-testid="price-breakdown"]');
-    this.coverageDetails = page.locator('[data-testid="coverage-details"]');
-    this.editButton = page.locator('button:has-text("Edit")');
-    this.deleteButton = page.locator('button:has-text("Delete")');
-    this.backButton = page.locator('button:has-text("Back")');
-    this.printButton = page.locator('button:has-text("Print")');
-    this.successMessage = page.locator('[class*="success"]');
-    this.errorMessage = page.locator('[class*="error"]');
+    this.warrantyProgramName = this.page.locator(
+      WarrantyDetailsLocator.warrantyProgramNameLocator,
+    );
+    this.warrantyTerm = this.page.locator(
+      WarrantyDetailsLocator.warrantyTermLocator,
+    );
+    this.warrantyStartDate = this.page.locator(
+      WarrantyDetailsLocator.warrantyStartDateLocator,
+    );
+    this.warrantyEndDate = this.page.locator(
+      WarrantyDetailsLocator.warrantyEndDateLocator,
+    );
+    this.totalCoverage = this.page.locator(
+      WarrantyDetailsLocator.totalCoverageLocator,
+    );
+    this.selectedOptions = this.page.locator(
+      WarrantyDetailsLocator.selectedOptionsLocator,
+    );
+    this.priceBreakdown = this.page.locator(
+      WarrantyDetailsLocator.priceBreakdownLocator,
+    );
+    this.coverageDetails = this.page.locator(
+      WarrantyDetailsLocator.coverageDetailsLocator,
+    );
+    this.editButton = this.page.locator(
+      WarrantyDetailsLocator.editButtonLocator,
+    );
+    this.deleteButton = this.page.locator(
+      WarrantyDetailsLocator.deleteButtonLocator,
+    );
+    this.backButton = this.page.locator(
+      WarrantyDetailsLocator.backButtonLocator,
+    );
+    this.printButton = this.page.locator(
+      WarrantyDetailsLocator.printButtonLocator,
+    );
+    this.successMessage = this.page.locator(
+      WarrantyDetailsLocator.successMessageLocator,
+    );
+    this.errorMessage = this.page.locator(
+      WarrantyDetailsLocator.errorMessageLocator,
+    );
   }
 
   /**
    * Get warranty program name
    */
   public async getWarrantyProgramName(): Promise<string> {
-    return await this.warrantyProgramName.textContent() || '';
+    return (await this.warrantyProgramName.textContent()) || "";
   }
 
   /**
    * Get warranty term
    */
   public async getWarrantyTerm(): Promise<string> {
-    return await this.warrantyTerm.textContent() || '';
+    return (await this.warrantyTerm.textContent()) || "";
   }
 
   /**
    * Get warranty start date
    */
   public async getWarrantyStartDate(): Promise<string> {
-    return await this.warrantyStartDate.textContent() || '';
+    return (await this.warrantyStartDate.textContent()) || "";
   }
 
   /**
    * Get warranty end date
    */
   public async getWarrantyEndDate(): Promise<string> {
-    return await this.warrantyEndDate.textContent() || '';
+    return (await this.warrantyEndDate.textContent()) || "";
   }
 
   /**
    * Get total coverage amount
    */
   public async getTotalCoverage(): Promise<string> {
-    return await this.totalCoverage.textContent() || '';
+    return (await this.totalCoverage.textContent()) || "";
   }
 
   /**
@@ -102,14 +131,14 @@ export class WarrantyDetailsPage {
   public async getPriceBreakdown(): Promise<any> {
     const breakdown = await this.priceBreakdown.textContent();
     // Parse the breakdown information
-    return breakdown || '';
+    return breakdown || "";
   }
 
   /**
    * Get coverage details
    */
   public async getCoverageDetails(): Promise<string> {
-    return await this.coverageDetails.textContent() || '';
+    return (await this.coverageDetails.textContent()) || "";
   }
 
   /**
@@ -117,7 +146,7 @@ export class WarrantyDetailsPage {
    */
   public async clickEdit(): Promise<void> {
     await this.editButton.click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState("networkidle");
   }
 
   /**
@@ -132,7 +161,7 @@ export class WarrantyDetailsPage {
    */
   public async clickBack(): Promise<void> {
     await this.backButton.click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState("networkidle");
   }
 
   /**
@@ -146,14 +175,14 @@ export class WarrantyDetailsPage {
    * Get success message
    */
   public async getSuccessMessage(): Promise<string> {
-    return await this.successMessage.textContent() || '';
+    return (await this.successMessage.textContent()) || "";
   }
 
   /**
    * Get error message
    */
   public async getErrorMessage(): Promise<string> {
-    return await this.errorMessage.textContent() || '';
+    return (await this.errorMessage.textContent()) || "";
   }
 
   /**
@@ -171,14 +200,16 @@ export class WarrantyDetailsPage {
    * Wait for page to load
    */
   public async waitForPageLoad(): Promise<void> {
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState("networkidle");
   }
 
   /**
    * Export warranty details (if available)
    */
-  public async exportWarrantyDetails(format: 'pdf' | 'excel'): Promise<void> {
-    const exportButton = this.page.locator(`button:has-text("Export as ${format.toUpperCase()}")`);
+  public async exportWarrantyDetails(format: "pdf" | "excel"): Promise<void> {
+    const exportButton = this.page.locator(
+      `button:has-text("Export as ${format.toUpperCase()}")`,
+    );
     if (await exportButton.isVisible()) {
       await exportButton.click();
     } else {
@@ -190,8 +221,10 @@ export class WarrantyDetailsPage {
    * Compare with another warranty
    */
   public async compareWarranty(warrantyId: string): Promise<void> {
-    const compareButton = this.page.locator(`button[data-warranty-id="${warrantyId}"]`);
+    const compareButton = this.page.locator(
+      `button[data-warranty-id="${warrantyId}"]`,
+    );
     await compareButton.click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState("networkidle");
   }
 }
