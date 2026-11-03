@@ -1,0 +1,85 @@
+- generic [active] [ref=f25e1]:
+  - banner [ref=f25e2]:
+    - link [ref=f25e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f25e5]:
+      - searchbox "Search" [ref=f25e7]
+  - generic [ref=f25e8]:
+    - navigation [ref=f25e10]:
+      - list [ref=f25e11]:
+        - listitem [ref=f25e12]:
+          - link " 􏀕 Dashboard" [ref=f25e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f25e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f25e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f25e16]:
+            - generic [ref=f25e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f25e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f25e19]:
+            - generic [ref=f25e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f25e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f25e22]:
+            - generic [ref=f25e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f25e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f25e25]:
+            - generic [ref=f25e26]:  􏃀
+            - text: Users
+        - listitem [ref=f25e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f25e28]:
+            - generic [ref=f25e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f25e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f25e31]:
+            - generic [ref=f25e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f25e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f25e34]:
+            - generic [ref=f25e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f25e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f25e37]:
+            - generic [ref=f25e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f25e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f25e40]:
+            - generic [ref=f25e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f25e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f25e43]:
+            - generic [ref=f25e44]:  􏂎
+            - text: External links
+        - listitem [ref=f25e45]:
+          - link " 􏆫 Language settings" [ref=f25e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set/new/edit
+            - generic [ref=f25e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f25e48]:
+          - link " 􏀑 Logout" [ref=f25e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f25e50]:  􏀑
+            - text: Logout
+    - main [ref=f25e51]:
+      - generic [ref=f25e53]:
+        - navigation [ref=f25e55]:
+          - heading "Create earning set" [level=1] [ref=f25e56]
+          - list
+        - generic [ref=f25e57]:
+          - generic [ref=f25e59]:
+            - generic [ref=f25e60]:
+              - text: Description
+              - generic [ref=f25e62]:
+                - generic [ref=f25e63]: Error
+                - text: This value should not be blank.
+              - text: "*"
+            - textbox "Description Error This value should not be blank. *" [ref=f25e64]
+          - separator [ref=f25e65]
+          - button "Save" [ref=f25e66] [cursor=pointer]
+  - contentinfo [ref=f25e67]:
+    - generic [ref=f25e68]:
+      - link "Avantage Plus System v2.0.0" [ref=f25e69] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

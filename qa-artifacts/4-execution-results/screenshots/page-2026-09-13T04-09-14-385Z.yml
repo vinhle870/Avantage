@@ -1,0 +1,118 @@
+- generic [active] [ref=f47e1]:
+  - banner [ref=f47e2]:
+    - link [ref=f47e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f47e5]:
+      - searchbox "Search" [ref=f47e7]
+      - listitem [ref=f47e8]:
+        - generic [ref=f47e9]: Test QA staging
+  - generic [ref=f47e11]:
+    - navigation [ref=f47e13]:
+      - list [ref=f47e14]:
+        - listitem [ref=f47e15]:
+          - link " 􏀕 Dashboard" [ref=f47e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f47e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f47e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f47e19]:
+            - generic [ref=f47e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f47e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f47e22]:
+            - generic [ref=f47e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f47e24]:
+          - link " 􏗡 Claims" [ref=f47e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f47e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f47e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f47e28]:
+            - generic [ref=f47e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f47e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f47e31]:
+            - generic [ref=f47e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f47e33]:
+          - link " 􏀑 Logout" [ref=f47e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f47e35]:  􏀑
+            - text: Logout
+    - main [ref=f47e36]:
+      - generic [ref=f47e38]:
+        - navigation [ref=f47e40]:
+          - 'heading "Invoice #926" [level=1] [ref=f47e41]'
+          - list [ref=f47e42]:
+            - listitem [ref=f47e43]:
+              - link "Back" [ref=f47e44] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f47e45]:
+              - link " Print" [ref=f47e46] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=f47e47]: 
+                - text: Print
+        - generic [ref=f47e49]:
+          - generic [ref=f47e50]:
+            - generic [ref=f47e51]:
+              - heading "From:" [level=6] [ref=f47e52]
+              - strong [ref=f47e54]: Produits Avantage Plus
+              - generic [ref=f47e55]: "2700 des Entreprises # 102"
+              - generic [ref=f47e56]: Terrebonne QC J6X 4J8, Canada
+              - generic [ref=f47e57]: "Email: info@garantieavantageplus.ca"
+              - generic [ref=f47e58]: "Phone: 1.866.666.0181"
+            - generic [ref=f47e59]:
+              - heading "To:" [level=6] [ref=f47e60]
+              - strong [ref=f47e62]: Offical VinhLe870@gmail.com
+              - generic [ref=f47e63]: Address
+              - generic [ref=f47e64]: 22222 cccc , QC, Canada
+              - generic [ref=f47e65]: "Email: vinhle870@gmail.com"
+              - generic [ref=f47e66]: "Phone: 99999"
+            - generic [ref=f47e67]:
+              - heading "Status:" [level=6] [ref=f47e68]
+              - generic [ref=f47e69]: Payment pending
+          - table [ref=f47e71]:
+            - rowgroup [ref=f47e72]:
+              - row [ref=f47e73]:
+                - columnheader "Description" [ref=f47e74]
+                - columnheader "Total" [ref=f47e75]
+            - rowgroup [ref=f47e76]:
+              - row [ref=f47e77]:
+                - 'cell "Perma Retest0913 Ford Focus 2008 VIN : 1FAHP35NX8W239204 PNA-0000000012 Test QA staging vinhle870@gmail.com" [ref=f47e78]'
+                - cell "$145.00" [ref=f47e79]
+          - generic [ref=f47e80]:
+            - generic [ref=f47e81]:
+              - paragraph [ref=f47e82]: Check payable to
+              - paragraph [ref=f47e83]: "Produits Avantage Plus 2700 des Entreprises # 102 Terrebonne QC J6X 4J8, Canada GST: 144599974RT PST: 1201697189TQ001 Please attach a copy of the original invoice"
+            - table [ref=f47e85]:
+              - rowgroup [ref=f47e86]:
+                - row [ref=f47e87]:
+                  - cell [ref=f47e88]:
+                    - strong [ref=f47e89]: GST (5%)
+                  - cell "$7.25" [ref=f47e90]
+                - row [ref=f47e91]:
+                  - cell [ref=f47e92]:
+                    - strong [ref=f47e93]: PST (9.975%)
+                  - cell "$14.46" [ref=f47e94]
+                - row [ref=f47e95]:
+                  - cell [ref=f47e96]:
+                    - strong [ref=f47e97]: Grand Total
+                  - cell [ref=f47e98]:
+                    - strong [ref=f47e99]: $166.71
+                - row [ref=f47e100]:
+                  - cell [ref=f47e101]:
+                    - strong [ref=f47e102]: Balance
+                  - cell [ref=f47e103]:
+                    - strong [ref=f47e104]: $166.71
+        - generic [ref=f47e106]:
+          - generic [ref=f47e107]:
+            - heading "Invoice created" [level=5] [ref=f47e108]
+            - generic [ref=f47e109]: Sunday, September 13, 2026
+          - link "#PNA-0000000012" [ref=f47e110] [cursor=pointer]:
+            - /url: /quote/6291/permaplate-contract-download
+  - contentinfo [ref=f47e111]:
+    - generic [ref=f47e112]:
+      - link "Avantage Plus System v2.0.0" [ref=f47e113] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

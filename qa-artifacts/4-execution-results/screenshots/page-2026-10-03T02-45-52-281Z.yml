@@ -1,0 +1,250 @@
+- generic [active] [ref=f12e1]:
+  - banner [ref=f12e2]:
+    - button [ref=f12e3] [cursor=pointer]
+    - link [ref=f12e5] [cursor=pointer]:
+      - /url: /
+      - img "Avantage Plus Logo" [ref=f12e6]
+    - list [ref=f12e7]:
+      - searchbox "Search" [ref=f12e9]
+      - listitem [ref=f12e10]:
+        - generic [ref=f12e11]: Test QA staging
+  - generic [ref=f12e13]:
+    - navigation [ref=f12e15]:
+      - list [ref=f12e16]:
+        - listitem [ref=f12e17]:
+          - link " Dashboard" [ref=f12e18] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f12e19]: 
+            - text: Dashboard
+        - listitem [ref=f12e20]:
+          - heading " Vehicles" [level=6] [ref=f12e21]:
+            - generic [ref=f12e22]: 
+            - text: Vehicles
+          - list:
+            - listitem [ref=f12e23]:
+              - link "Inventory" [ref=f12e24] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f12e25]:
+              - link "Quotes" [ref=f12e26] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f12e27]:
+              - link "Insurance Quick Quote" [ref=f12e28] [cursor=pointer]:
+                - /url: /quick-insurance-quote
+            - listitem [ref=f12e29]:
+              - link "Insurance compliance log" [ref=f12e30] [cursor=pointer]:
+                - /url: /insurance-compliance-log
+        - listitem [ref=f12e31]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f12e32]:
+            - generic [ref=f12e33]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f12e34]:
+              - link "Warranty" [ref=f12e35] [cursor=pointer]:
+                - /url: /warranty
+            - listitem [ref=f12e36]:
+              - link "Road Side Protection" [ref=f12e37] [cursor=pointer]:
+                - /url: /road-side-protection-contracts
+            - listitem [ref=f12e38]:
+              - link "Creditors insurance" [ref=f12e39] [cursor=pointer]:
+                - /url: /creditor-insurance-contracts
+            - listitem [ref=f12e40]:
+              - link "Gap Insurance" [ref=f12e41] [cursor=pointer]:
+                - /url: /gap-insurance-contracts
+            - listitem [ref=f12e42]:
+              - link "Esthetic protection" [ref=f12e43] [cursor=pointer]:
+                - /url: /permaplate-contracts
+        - listitem [ref=f12e44]:
+          - link " Claims" [ref=f12e45] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f12e46]: 
+            - text: Claims
+        - listitem [ref=f12e47]:
+          - heading " Billing" [level=6] [ref=f12e48]:
+            - generic [ref=f12e49]: 
+            - text: Billing
+          - list:
+            - listitem [ref=f12e50]:
+              - link "Invoices" [ref=f12e51] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f12e52]:
+              - link "Payment history" [ref=f12e53] [cursor=pointer]:
+                - /url: /invoice/payment-history
+        - listitem [ref=f12e54]:
+          - heading " System preferences" [level=6] [ref=f12e55]:
+            - generic [ref=f12e56]: 
+            - text: System preferences
+          - list:
+            - listitem [ref=f12e57]:
+              - link "Language settings" [ref=f12e58] [cursor=pointer]:
+                - /url: /language?redirectUrl=https://v2staging.garantieavantageplus.ca/creditor-insurance-contracts
+            - listitem [ref=f12e59]:
+              - link "Users" [ref=f12e60] [cursor=pointer]:
+                - /url: /users?redirectUrl=https://v2staging.garantieavantageplus.ca/creditor-insurance-contracts
+        - listitem [ref=f12e61]:
+          - link " Logout" [ref=f12e62] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f12e63]: 
+            - text: Logout
+    - main [ref=f12e64]:
+      - generic [ref=f12e66]:
+        - navigation [ref=f12e68]:
+          - heading "Creditor insurance contracts" [level=1] [ref=f12e69]
+          - list
+        - table [ref=f12e73]:
+          - rowgroup [ref=f12e74]:
+            - row [ref=f12e75]:
+              - columnheader "Contract ID" [ref=f12e76]
+              - columnheader "Borrower" [ref=f12e77]
+              - columnheader "Loan" [ref=f12e78]
+              - columnheader "Coverage" [ref=f12e79]
+              - columnheader "Download" [ref=f12e80]
+          - rowgroup [ref=f12e81]:
+            - row [ref=f12e82]:
+              - cell "AVP000162" [ref=f12e83] [cursor=pointer]
+              - cell "sdfs sdfds" [ref=f12e84] [cursor=pointer]
+              - cell "494.91 $ / 60 months" [ref=f12e85] [cursor=pointer]
+              - cell [ref=f12e86] [cursor=pointer]:
+                - generic [ref=f12e87]:
+                  - generic [ref=f12e88]:
+                    - strong [ref=f12e89]: "Form:"
+                    - text: GC6201MQ
+                  - generic [ref=f12e90]:
+                    - strong [ref=f12e91]: "Rate table:"
+                    - text: PM50
+                  - generic [ref=f12e92]:
+                    - strong [ref=f12e93]: "Language:"
+                    - text: English
+                  - generic [ref=f12e94]:
+                    - strong [ref=f12e95]: "Tax exempt:"
+                    - text: "No"
+                - table [ref=f12e96]:
+                  - rowgroup [ref=f12e97]:
+                    - row [ref=f12e98]:
+                      - columnheader "Coverage Type" [ref=f12e99]
+                      - columnheader "Coverage" [ref=f12e100]
+                      - columnheader "Term Months" [ref=f12e101]
+                      - columnheader "Monthly Premium" [ref=f12e102]
+                      - columnheader "Tax" [ref=f12e103]
+                      - columnheader "Monthly Total" [ref=f12e104]
+                  - rowgroup [ref=f12e105]:
+                    - row [ref=f12e106]:
+                      - cell "Life Decreasing" [ref=f12e107]
+                      - cell "BORROWER" [ref=f12e108]
+                      - cell "60" [ref=f12e109]
+                      - cell "25.98$" [ref=f12e110]
+                      - cell "2.34$" [ref=f12e111]
+                      - cell "28.32$" [ref=f12e112]
+                - table [ref=f12e113]:
+                  - rowgroup [ref=f12e114]:
+                    - row [ref=f12e115]:
+                      - cell "Equivalent Single Premium" [ref=f12e116]
+                      - cell "1,246.30$" [ref=f12e117]
+                    - row [ref=f12e118]:
+                      - cell "Commission (50%)" [ref=f12e119]
+                      - cell "623.15$" [ref=f12e120]
+              - cell [ref=f12e121] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f12e122]:
+                  - /url: /quote/6254/chubb/insurance/contract-pdf
+                  - generic [ref=f12e123]:  􏇁
+                  - text: Download
+            - row [ref=f12e124]:
+              - cell "AVP000161" [ref=f12e125] [cursor=pointer]
+              - cell "sVinhle sdfsd" [ref=f12e126] [cursor=pointer]
+              - cell "494.91 $ / 60 months" [ref=f12e127] [cursor=pointer]
+              - cell [ref=f12e128] [cursor=pointer]:
+                - generic [ref=f12e129]:
+                  - generic [ref=f12e130]:
+                    - strong [ref=f12e131]: "Form:"
+                    - text: GC6201MQ
+                  - generic [ref=f12e132]:
+                    - strong [ref=f12e133]: "Rate table:"
+                    - text: PM30
+                  - generic [ref=f12e134]:
+                    - strong [ref=f12e135]: "Language:"
+                    - text: English
+                  - generic [ref=f12e136]:
+                    - strong [ref=f12e137]: "Tax exempt:"
+                    - text: "No"
+                - table [ref=f12e138]:
+                  - rowgroup [ref=f12e139]:
+                    - row [ref=f12e140]:
+                      - columnheader "Coverage Type" [ref=f12e141]
+                      - columnheader "Coverage" [ref=f12e142]
+                      - columnheader "Term Months" [ref=f12e143]
+                      - columnheader "Monthly Premium" [ref=f12e144]
+                      - columnheader "Tax" [ref=f12e145]
+                      - columnheader "Monthly Total" [ref=f12e146]
+                  - rowgroup [ref=f12e147]:
+                    - row [ref=f12e148]:
+                      - cell "Life Decreasing" [ref=f12e149]
+                      - cell "BORROWER" [ref=f12e150]
+                      - cell "60" [ref=f12e151]
+                      - cell "18.58$" [ref=f12e152]
+                      - cell "1.67$" [ref=f12e153]
+                      - cell "20.25$" [ref=f12e154]
+                - table [ref=f12e155]:
+                  - rowgroup [ref=f12e156]:
+                    - row [ref=f12e157]:
+                      - cell "Equivalent Single Premium" [ref=f12e158]
+                      - cell "891.31$" [ref=f12e159]
+                    - row [ref=f12e160]:
+                      - cell "Commission (30%)" [ref=f12e161]
+                      - cell "267.39$" [ref=f12e162]
+              - cell [ref=f12e163] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f12e164]:
+                  - /url: /quote/6256/chubb/insurance/contract-pdf
+                  - generic [ref=f12e165]:  􏇁
+                  - text: Download
+            - row [ref=f12e166]:
+              - cell "AVP000160" [ref=f12e167] [cursor=pointer]
+              - cell "Marie Tremblay" [ref=f12e168] [cursor=pointer]
+              - cell "494.91 $ / 60 months" [ref=f12e169] [cursor=pointer]
+              - cell [ref=f12e170] [cursor=pointer]:
+                - generic [ref=f12e171]:
+                  - generic [ref=f12e172]:
+                    - strong [ref=f12e173]: "Form:"
+                    - text: GC6201MQ
+                  - generic [ref=f12e174]:
+                    - strong [ref=f12e175]: "Rate table:"
+                    - text: PM50
+                  - generic [ref=f12e176]:
+                    - strong [ref=f12e177]: "Language:"
+                    - text: Français
+                  - generic [ref=f12e178]:
+                    - strong [ref=f12e179]: "Tax exempt:"
+                    - text: "No"
+                - table [ref=f12e180]:
+                  - rowgroup [ref=f12e181]:
+                    - row [ref=f12e182]:
+                      - columnheader "Coverage Type" [ref=f12e183]
+                      - columnheader "Coverage" [ref=f12e184]
+                      - columnheader "Term Months" [ref=f12e185]
+                      - columnheader "Monthly Premium" [ref=f12e186]
+                      - columnheader "Tax" [ref=f12e187]
+                      - columnheader "Monthly Total" [ref=f12e188]
+                  - rowgroup [ref=f12e189]:
+                    - row [ref=f12e190]:
+                      - cell "Life Decreasing" [ref=f12e191]
+                      - cell "BORROWER" [ref=f12e192]
+                      - cell "60" [ref=f12e193]
+                      - cell "25.98$" [ref=f12e194]
+                      - cell "2.34$" [ref=f12e195]
+                      - cell "28.32$" [ref=f12e196]
+                - table [ref=f12e197]:
+                  - rowgroup [ref=f12e198]:
+                    - row [ref=f12e199]:
+                      - cell "Equivalent Single Premium" [ref=f12e200]
+                      - cell "1,246.30$" [ref=f12e201]
+                    - row [ref=f12e202]:
+                      - cell "Commission (50%)" [ref=f12e203]
+                      - cell "623.15$" [ref=f12e204]
+              - cell [ref=f12e205] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f12e206]:
+                  - /url: /quote/6276/chubb/insurance/contract-pdf
+                  - generic [ref=f12e207]:  􏇁
+                  - text: Download
+  - contentinfo [ref=f12e208]:
+    - generic [ref=f12e209]:
+      - link "Avantage Plus System v2.0.0" [ref=f12e210] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

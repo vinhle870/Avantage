@@ -1,0 +1,206 @@
+- generic [active] [ref=f52e1]:
+  - banner [ref=f52e2]:
+    - link [ref=f52e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f52e5]:
+      - searchbox "Search" [ref=f52e7]
+      - listitem [ref=f52e8]:
+        - generic [ref=f52e9]: Test QA staging
+  - generic [ref=f52e11]:
+    - navigation [ref=f52e13]:
+      - list [ref=f52e14]:
+        - listitem [ref=f52e15]:
+          - link " 􏀕 Dashboard" [ref=f52e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f52e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f52e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f52e19]:
+            - generic [ref=f52e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f52e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f52e22]:
+            - generic [ref=f52e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f52e24]:
+          - link " 􏗡 Claims" [ref=f52e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f52e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f52e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f52e28]:
+            - generic [ref=f52e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f52e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f52e31]:
+            - generic [ref=f52e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f52e33]:
+          - link " 􏀑 Logout" [ref=f52e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f52e35]:  􏀑
+            - text: Logout
+    - main [ref=f52e36]:
+      - generic [ref=f52e38]:
+        - alert [ref=f52e39]:
+          - text: Chubb insurance contract created successfully
+          - button "Close" [ref=f52e40] [cursor=pointer]: ×
+        - navigation [ref=f52e42]:
+          - heading "#6254 - sdfs sdfds" [level=1] [ref=f52e43]
+          - list [ref=f52e44]:
+            - listitem [ref=f52e45]:
+              - link "Back" [ref=f52e46] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f52e47]:
+              - link "Send compliance documents" [ref=f52e48] [cursor=pointer]:
+                - /url: /compliance-documents/send?redirectUrl=/quote/6254/details&clientEmail=vinhle0002@yopmail.com
+        - generic [ref=f52e49]:
+          - generic [ref=f52e52]:
+            - navigation [ref=f52e53]:
+              - heading "Client" [level=3] [ref=f52e54]
+              - list [ref=f52e55]:
+                - listitem [ref=f52e56]:
+                  - link "Edit" [ref=f52e57] [cursor=pointer]:
+                    - /url: /quote/6254/client
+            - paragraph [ref=f52e58]:
+              - text: sdfs sdfds
+              - generic [ref=f52e59]:
+                - text: 482/12/2E Ho Chi Minh Québec 070000
+                - generic [ref=f52e60]: 
+                - link "vinhle0002@yopmail.com" [ref=f52e61] [cursor=pointer]:
+                  - /url: mailto:vinhle0002@yopmail.com
+                - generic [ref=f52e62]: 
+                - text: "09292153333"
+          - generic [ref=f52e65]:
+            - navigation [ref=f52e66]:
+              - heading "Vehicle" [level=3] [ref=f52e67]
+              - list [ref=f52e68]:
+                - listitem [ref=f52e69]:
+                  - link "Edit" [ref=f52e70] [cursor=pointer]:
+                    - /url: /quote/6254/vehicle
+            - paragraph [ref=f52e71]:
+              - link "Ford Focus 2008" [ref=f52e72] [cursor=pointer]:
+                - /url: /vehicle/915/details
+              - generic [ref=f52e73]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+            - paragraph [ref=f52e74]:
+              - generic [ref=f52e75]: "Delivery date: Sep 6, 2026 Price: CA$10,000.00"
+          - generic [ref=f52e78]:
+            - navigation [ref=f52e79]:
+              - heading "Warranty" [level=3] [ref=f52e80]
+            - heading "Extended" [level=6] [ref=f52e81]
+            - paragraph [ref=f52e82]:
+              - link " Click here to create a warranty" [ref=f52e83] [cursor=pointer]:
+                - /url: /quote/6254/warranty/edit
+                - generic [ref=f52e84]: 
+                - text: Click here to create a warranty
+            - link "Road Side Protection" [ref=f52e86] [cursor=pointer]:
+              - /url: /quote/6254/road-side-protection
+        - generic [ref=f52e87]:
+          - generic [ref=f52e90]:
+            - navigation [ref=f52e91]:
+              - heading "Financing" [level=3] [ref=f52e92]
+              - link "DYR Rates" [ref=f52e95] [cursor=pointer]:
+                - /url: /quote/6254/dyr-rates
+            - generic [ref=f52e96]:
+              - generic [ref=f52e97]:
+                - heading [level=6] [ref=f52e98]:
+                  - text: Financing 60 months
+                  - link "" [ref=f52e99] [cursor=pointer]:
+                    - /url: /quote/6254/financing
+                - paragraph [ref=f52e101]: AutoCapital Canada
+                - generic [ref=f52e102]:
+                  - generic [ref=f52e103]:
+                    - text: "Type :"
+                    - generic [ref=f52e104]: Financing
+                  - generic [ref=f52e105]:
+                    - text: "Financed amount :"
+                    - generic [ref=f52e106]: 25,000.00$
+                  - generic [ref=f52e107]:
+                    - text: "Residual :"
+                    - generic [ref=f52e108]: 0.00$
+                  - generic [ref=f52e109]:
+                    - text: "Term :"
+                    - generic [ref=f52e110]: "60"
+                  - generic [ref=f52e111]:
+                    - text: "Interest rate :"
+                    - generic [ref=f52e112]: 6.9900%
+                  - generic [ref=f52e113]:
+                    - text: "Payment amount :"
+                    - generic [ref=f52e114]: 494.91$ Monthly
+                - separator [ref=f52e115]
+                - heading "Co-applicant" [level=6] [ref=f52e116]
+                - paragraph [ref=f52e117]: No applicant
+                - link "Add co-applicant" [ref=f52e118] [cursor=pointer]:
+                  - /url: /quote/6254/financing/co-applicant
+              - generic [ref=f52e119]:
+                - heading [level=6] [ref=f52e120]:
+                  - text: Gap Insurance
+                  - link "" [ref=f52e121] [cursor=pointer]:
+                    - /url: /quote/6254/gap-insurance
+                - link "Add gap insurance" [ref=f52e123] [cursor=pointer]:
+                  - /url: /quote/6254/gap-insurance
+                - separator [ref=f52e124]
+                - alert [ref=f52e125]: Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance.
+                - generic [ref=f52e126]:
+                  - heading "Creditors insurance AVP000162" [level=6] [ref=f52e127]
+                  - generic [ref=f52e128]:
+                    - generic [ref=f52e129]:
+                      - strong [ref=f52e130]: "Form:"
+                      - text: GC6201MQ
+                    - generic [ref=f52e131]:
+                      - strong [ref=f52e132]: "Rate table:"
+                      - text: PM50
+                    - generic [ref=f52e133]:
+                      - strong [ref=f52e134]: "Language:"
+                      - text: English
+                    - generic [ref=f52e135]:
+                      - strong [ref=f52e136]: "Tax exempt:"
+                      - text: "No"
+                  - table [ref=f52e137]:
+                    - rowgroup [ref=f52e138]:
+                      - row [ref=f52e139]:
+                        - columnheader "Coverage Type" [ref=f52e140]
+                        - columnheader "Coverage" [ref=f52e141]
+                        - columnheader "Term Months" [ref=f52e142]
+                        - columnheader "Monthly Premium" [ref=f52e143]
+                        - columnheader "Tax" [ref=f52e144]
+                        - columnheader "Monthly Total" [ref=f52e145]
+                    - rowgroup [ref=f52e146]:
+                      - row [ref=f52e147]:
+                        - cell "Life Decreasing" [ref=f52e148]
+                        - cell "BORROWER" [ref=f52e149]
+                        - cell "60" [ref=f52e150]
+                        - cell "25.98$" [ref=f52e151]
+                        - cell "2.34$" [ref=f52e152]
+                        - cell "28.32$" [ref=f52e153]
+                  - table [ref=f52e154]:
+                    - rowgroup [ref=f52e155]:
+                      - row [ref=f52e156]:
+                        - cell "Equivalent Single Premium" [ref=f52e157]
+                        - cell "1,246.30$" [ref=f52e158]
+                      - row [ref=f52e159]:
+                        - cell "Commission (50%)" [ref=f52e160]
+                        - cell "623.15$" [ref=f52e161]
+                  - link "Download PDF " [ref=f52e162] [cursor=pointer]:
+                    - /url: /quote/6254/chubb/insurance/contract-pdf
+                    - text: Download PDF
+                    - generic [ref=f52e163]: 
+          - generic [ref=f52e166]:
+            - navigation [ref=f52e167]:
+              - heading "Sale" [level=3] [ref=f52e168]
+            - generic [ref=f52e169]:
+              - link "Create sale" [ref=f52e170] [cursor=pointer]:
+                - /url: /quote/6254/sales
+              - separator [ref=f52e171]
+              - heading "Exchange vehicle" [level=6] [ref=f52e172]
+              - link "Add exchange vehicle" [ref=f52e173] [cursor=pointer]:
+                - /url: /quote/6254/exchange-vehicle?referer=%252Fquote%252F6254%252Fdetails
+        - generic [ref=f52e177]:
+          - heading "Compliance documents sent" [level=4] [ref=f52e178]
+          - separator [ref=f52e179]
+          - alert [ref=f52e181]: No entities found
+  - contentinfo [ref=f52e182]:
+    - generic [ref=f52e183]:
+      - link "Avantage Plus System v2.0.0" [ref=f52e184] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

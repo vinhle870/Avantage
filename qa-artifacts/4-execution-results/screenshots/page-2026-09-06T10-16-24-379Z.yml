@@ -1,0 +1,215 @@
+- generic [active] [ref=f58e1]:
+  - banner [ref=f58e2]:
+    - link [ref=f58e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f58e5]:
+      - searchbox "Search" [ref=f58e7]
+      - listitem [ref=f58e8]:
+        - generic [ref=f58e9]: Test QA staging
+  - generic [ref=f58e11]:
+    - navigation [ref=f58e13]:
+      - list [ref=f58e14]:
+        - listitem [ref=f58e15]:
+          - link " 􏀕 Dashboard" [ref=f58e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f58e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f58e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f58e19]:
+            - generic [ref=f58e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f58e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f58e22]:
+            - generic [ref=f58e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f58e24]:
+          - link " 􏗡 Claims" [ref=f58e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f58e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f58e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f58e28]:
+            - generic [ref=f58e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f58e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f58e31]:
+            - generic [ref=f58e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f58e33]:
+          - link " 􏀑 Logout" [ref=f58e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f58e35]:  􏀑
+            - text: Logout
+    - main [ref=f58e36]:
+      - generic [ref=f58e38]:
+        - alert [ref=f58e39]:
+          - text: "HTTP/2 400 returned for \"https://creditor-insurance-dev.ken-d1b.workers.dev/contract\". - {\"success\":false,\"response\":\"Contract date entered was at least 10 days older than the original quote date. Please requote in order to continue.\"} (HTTP 400)"
+          - button "Close" [ref=f58e40] [cursor=pointer]: ×
+        - navigation [ref=f58e42]:
+          - heading "#6245 - Vinh LeAVtage" [level=1] [ref=f58e43]
+          - list [ref=f58e44]:
+            - listitem [ref=f58e45]:
+              - link "Back" [ref=f58e46] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f58e47]:
+              - link "Send compliance documents" [ref=f58e48] [cursor=pointer]:
+                - /url: /compliance-documents/send?redirectUrl=/quote/6245/details&clientEmail=vinhleAVtage@yopmail.com
+        - generic [ref=f58e49]:
+          - generic [ref=f58e52]:
+            - navigation [ref=f58e53]:
+              - heading "Client" [level=3] [ref=f58e54]
+              - list [ref=f58e55]:
+                - listitem [ref=f58e56]:
+                  - link "Edit" [ref=f58e57] [cursor=pointer]:
+                    - /url: /quote/6245/client
+            - paragraph [ref=f58e58]:
+              - text: Vinh LeAVtage
+              - generic [ref=f58e59]:
+                - text: 688/57/99 Le Duc Tho, W15, Go Vap, HCM Quebec Québec 070000
+                - generic [ref=f58e60]: 
+                - link "vinhleAVtage@yopmail.com" [ref=f58e61] [cursor=pointer]:
+                  - /url: mailto:vinhleAVtage@yopmail.com
+                - generic [ref=f58e62]: 
+                - text: "09292153333"
+          - generic [ref=f58e65]:
+            - navigation [ref=f58e66]:
+              - heading "Vehicle" [level=3] [ref=f58e67]
+              - list [ref=f58e68]:
+                - listitem [ref=f58e69]:
+                  - link "Edit" [ref=f58e70] [cursor=pointer]:
+                    - /url: /quote/6245/vehicle
+            - paragraph [ref=f58e71]:
+              - link "Ford Focus 2008" [ref=f58e72] [cursor=pointer]:
+                - /url: /vehicle/863/details
+              - generic [ref=f58e73]: "VIN: 1FAHP35NX8W239204 Mileage: 20000km Designation: COMMERCIAL"
+            - paragraph [ref=f58e74]:
+              - generic [ref=f58e75]: "Delivery date: Jul 5, 2026 Price: CA$20,000.00"
+          - generic [ref=f58e78]:
+            - navigation [ref=f58e79]:
+              - heading "Warranty" [level=3] [ref=f58e80]
+            - heading "Extended" [level=6] [ref=f58e81]
+            - text: 26df1-829 20m/20000km
+            - generic [ref=f58e82]:
+              - text: default 1
+              - generic [ref=f58e83]: 
+              - text: Pending approval
+              - link " Pdf" [ref=f58e84] [cursor=pointer]:
+                - /url: /warranty/829/pdf
+                - generic [ref=f58e85]: 
+                - text: Pdf
+              - link " View details" [ref=f58e86] [cursor=pointer]:
+                - /url: /warranty/829
+                - generic [ref=f58e87]: 
+                - text: View details
+            - link "Road Side Protection" [ref=f58e89] [cursor=pointer]:
+              - /url: /quote/6245/road-side-protection
+        - generic [ref=f58e90]:
+          - generic [ref=f58e93]:
+            - navigation [ref=f58e94]:
+              - heading "Financing" [level=3] [ref=f58e95]
+              - link "DYR Rates" [ref=f58e98] [cursor=pointer]:
+                - /url: /quote/6245/dyr-rates
+            - generic [ref=f58e99]:
+              - generic [ref=f58e100]:
+                - heading [level=6] [ref=f58e101]:
+                  - text: Financing 60 months
+                  - link "" [ref=f58e102] [cursor=pointer]:
+                    - /url: /quote/6245/financing
+                - paragraph [ref=f58e104]: AutoCapital Canada
+                - generic [ref=f58e105]:
+                  - generic [ref=f58e106]:
+                    - text: "Type :"
+                    - generic [ref=f58e107]: Financing
+                  - generic [ref=f58e108]:
+                    - text: "Financed amount :"
+                    - generic [ref=f58e109]: 25,000.00$
+                  - generic [ref=f58e110]:
+                    - text: "Residual :"
+                    - generic [ref=f58e111]: 0.00$
+                  - generic [ref=f58e112]:
+                    - text: "Term :"
+                    - generic [ref=f58e113]: "60"
+                  - generic [ref=f58e114]:
+                    - text: "Interest rate :"
+                    - generic [ref=f58e115]: 6.9900%
+                  - generic [ref=f58e116]:
+                    - text: "Payment amount :"
+                    - generic [ref=f58e117]: 494.91$ Monthly
+                - separator [ref=f58e118]
+                - heading "Co-applicant" [level=6] [ref=f58e119]
+                - paragraph [ref=f58e120]: No applicant
+                - link "Add co-applicant" [ref=f58e121] [cursor=pointer]:
+                  - /url: /quote/6245/financing/co-applicant
+              - generic [ref=f58e122]:
+                - heading [level=6] [ref=f58e123]:
+                  - text: Gap Insurance
+                  - link "" [ref=f58e124] [cursor=pointer]:
+                    - /url: /quote/6245/gap-insurance
+                - link "Add gap insurance" [ref=f58e126] [cursor=pointer]:
+                  - /url: /quote/6245/gap-insurance
+                - separator [ref=f58e127]
+                - alert [ref=f58e128]: Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance.
+                - generic [ref=f58e129]:
+                  - heading [level=6] [ref=f58e130]:
+                    - text: Creditors insurance
+                    - link "" [ref=f58e131] [cursor=pointer]:
+                      - /url: /quote/6245/insurance
+                  - generic [ref=f58e133]:
+                    - generic [ref=f58e134]:
+                      - strong [ref=f58e135]: "Form:"
+                      - text: GC6201MQ
+                    - generic [ref=f58e136]:
+                      - strong [ref=f58e137]: "Rate table:"
+                      - text: PM30
+                    - generic [ref=f58e138]:
+                      - strong [ref=f58e139]: "Language:"
+                      - text: Français
+                    - generic [ref=f58e140]:
+                      - strong [ref=f58e141]: "Tax exempt:"
+                      - text: "No"
+                  - table [ref=f58e142]:
+                    - rowgroup [ref=f58e143]:
+                      - row [ref=f58e144]:
+                        - columnheader "Coverage Type" [ref=f58e145]
+                        - columnheader "Coverage" [ref=f58e146]
+                        - columnheader "Term Months" [ref=f58e147]
+                        - columnheader "Monthly Premium" [ref=f58e148]
+                        - columnheader "Tax" [ref=f58e149]
+                        - columnheader "Monthly Total" [ref=f58e150]
+                    - rowgroup [ref=f58e151]:
+                      - row [ref=f58e152]:
+                        - cell "Life Decreasing" [ref=f58e153]
+                        - cell "BORROWER" [ref=f58e154]
+                        - cell "60" [ref=f58e155]
+                        - cell "18.58$" [ref=f58e156]
+                        - cell "1.67$" [ref=f58e157]
+                        - cell "20.25$" [ref=f58e158]
+                  - table [ref=f58e159]:
+                    - rowgroup [ref=f58e160]:
+                      - row [ref=f58e161]:
+                        - cell "Equivalent Single Premium" [ref=f58e162]
+                        - cell "891.31$" [ref=f58e163]
+                      - row [ref=f58e164]:
+                        - cell "Commission (30%)" [ref=f58e165]
+                        - cell "267.39$" [ref=f58e166]
+                  - link "Generate Contract" [ref=f58e167] [cursor=pointer]:
+                    - /url: /quote/6245/insurance/create-contract
+          - generic [ref=f58e170]:
+            - navigation [ref=f58e171]:
+              - heading "Sale" [level=3] [ref=f58e172]
+            - generic [ref=f58e173]:
+              - link "Create sale" [ref=f58e174] [cursor=pointer]:
+                - /url: /quote/6245/sales
+              - separator [ref=f58e175]
+              - heading "Exchange vehicle" [level=6] [ref=f58e176]
+              - link "Add exchange vehicle" [ref=f58e177] [cursor=pointer]:
+                - /url: /quote/6245/exchange-vehicle?referer=%252Fquote%252F6245%252Fdetails
+        - generic [ref=f58e181]:
+          - heading "Compliance documents sent" [level=4] [ref=f58e182]
+          - separator [ref=f58e183]
+          - alert [ref=f58e185]: No entities found
+  - contentinfo [ref=f58e186]:
+    - generic [ref=f58e187]:
+      - link "Avantage Plus System v2.0.0" [ref=f58e188] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

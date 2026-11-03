@@ -1,0 +1,475 @@
+- generic [active] [ref=f55e1]:
+  - banner [ref=f55e2]:
+    - link [ref=f55e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f55e5]:
+      - searchbox "Search" [ref=f55e7]
+      - listitem [ref=f55e8]:
+        - generic [ref=f55e9]: Test QA staging
+  - generic [ref=f55e11]:
+    - navigation [ref=f55e13]:
+      - list [ref=f55e14]:
+        - listitem [ref=f55e15]:
+          - link " 􏀕 Dashboard" [ref=f55e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f55e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f55e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f55e19]:
+            - generic [ref=f55e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f55e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f55e22]:
+            - generic [ref=f55e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f55e24]:
+          - link " 􏗡 Claims" [ref=f55e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f55e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f55e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f55e28]:
+            - generic [ref=f55e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f55e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f55e31]:
+            - generic [ref=f55e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f55e33]:
+          - link " 􏀑 Logout" [ref=f55e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f55e35]:  􏀑
+            - text: Logout
+    - main [ref=f55e36]:
+      - generic [ref=f55e39]:
+        - heading "Hi Vinh Le 1 Welcome to Test QA staging's account" [level=1] [ref=f55e41]
+        - generic [ref=f55e42]:
+          - generic [ref=f55e44]:
+            - generic [ref=f55e46]:
+              - generic [ref=f55e47]: 
+              - paragraph [ref=f55e48]: Warranties
+            - generic [ref=f55e49]:
+              - generic [ref=f55e50]:
+                - generic [ref=f55e51]: "398"
+                - link "Incomplete" [ref=f55e53] [cursor=pointer]:
+                  - /url: /quote
+              - generic [ref=f55e54]:
+                - generic [ref=f55e55]: "275"
+                - link "Pending approval" [ref=f55e57] [cursor=pointer]:
+                  - /url: /warranty
+              - generic [ref=f55e58]:
+                - generic [ref=f55e59]: "89"
+                - link "Approved" [ref=f55e61] [cursor=pointer]:
+                  - /url: /warranty/approved
+          - generic [ref=f55e63]:
+            - generic [ref=f55e65]:
+              - generic [ref=f55e66]: 
+              - link [ref=f55e67] [cursor=pointer]:
+                - /url: /claims
+                - paragraph [ref=f55e68]: Claims
+            - generic [ref=f55e69]:
+              - generic [ref=f55e70]:
+                - generic [ref=f55e71]: "2"
+                - link "Preapproved" [ref=f55e73] [cursor=pointer]:
+                  - /url: /claims/approved
+              - generic [ref=f55e74]:
+                - generic [ref=f55e75]: "2"
+                - link "Authorized" [ref=f55e77] [cursor=pointer]:
+                  - /url: /claims/authorized
+              - generic [ref=f55e78]:
+                - generic [ref=f55e79]: "8"
+                - link "Created" [ref=f55e81] [cursor=pointer]:
+                  - /url: /claims
+              - generic [ref=f55e82]:
+                - generic [ref=f55e83]: "3"
+                - link "Paid" [ref=f55e85] [cursor=pointer]:
+                  - /url: /claims/paid
+        - generic [ref=f55e86]:
+          - link "Create quote" [ref=f55e88] [cursor=pointer]:
+            - /url: /quote
+          - link "Insurance Quick Quote" [ref=f55e90] [cursor=pointer]:
+            - /url: /quick-insurance-quote
+        - generic [ref=f55e92]:
+          - heading "Warranty quotes" [level=5] [ref=f55e93]
+          - heading "Incomplete" [level=6] [ref=f55e94]
+          - table [ref=f55e96]:
+            - rowgroup [ref=f55e97]:
+              - row [ref=f55e98]:
+                - columnheader "Client" [ref=f55e99]
+                - columnheader "Vehicle" [ref=f55e100]
+                - columnheader "Program" [ref=f55e101]
+                - columnheader "Date Created" [ref=f55e102]
+            - rowgroup [ref=f55e103]:
+              - row [ref=f55e104]:
+                - cell [ref=f55e105] [cursor=pointer]:
+                  - text: NonOwner AP2443Test
+                  - generic [ref=f55e106]:
+                    - link "perma.nonowner.0913@yopmail.com" [ref=f55e107]:
+                      - /url: mailto:perma.nonowner.0913@yopmail.com
+                    - link "5145550300" [ref=f55e108]:
+                      - /url: tel:5145550300
+                - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f55e109] [cursor=pointer]'
+                - cell [ref=f55e110] [cursor=pointer]
+                - cell "Sep 13, 2026" [ref=f55e111] [cursor=pointer]
+              - row [ref=f55e112]:
+                - cell [ref=f55e113] [cursor=pointer]:
+                  - text: Perma Retest0913
+                  - generic [ref=f55e114]:
+                    - link "perma.retest.0913@yopmail.com" [ref=f55e115]:
+                      - /url: mailto:perma.retest.0913@yopmail.com
+                    - link "5145550200" [ref=f55e116]:
+                      - /url: tel:5145550200
+                - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f55e117] [cursor=pointer]'
+                - cell "26-860 default 1  Incomplete 20m/20000km" [ref=f55e118] [cursor=pointer]:
+                  - paragraph [ref=f55e119]:
+                    - text: 26-860
+                    - generic [ref=f55e120]: default 1
+                    - generic [ref=f55e121]:
+                      - generic [ref=f55e122]: 
+                      - text: Incomplete
+                    - text: 20m/20000km
+                - cell "Sep 13, 2026" [ref=f55e123] [cursor=pointer]
+              - row [ref=f55e124]:
+                - cell [ref=f55e125] [cursor=pointer]:
+                  - text: Perma Repro
+                  - generic [ref=f55e126]:
+                    - link "perma.repro.0906@yopmail.com" [ref=f55e127]:
+                      - /url: mailto:perma.repro.0906@yopmail.com
+                    - link "5145550200" [ref=f55e128]:
+                      - /url: tel:5145550200
+                - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f55e129] [cursor=pointer]'
+                - cell [ref=f55e130] [cursor=pointer]
+                - cell "Sep 6, 2026" [ref=f55e131] [cursor=pointer]
+              - row [ref=f55e132]:
+                - cell [ref=f55e133] [cursor=pointer]:
+                  - text: Perma Testclient
+                  - generic [ref=f55e134]:
+                    - link "perma.test.0906@yopmail.com" [ref=f55e135]:
+                      - /url: mailto:perma.test.0906@yopmail.com
+                    - link "5145550100" [ref=f55e136]:
+                      - /url: tel:5145550100
+                - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f55e137] [cursor=pointer]'
+                - cell [ref=f55e138] [cursor=pointer]
+                - cell "Sep 6, 2026" [ref=f55e139] [cursor=pointer]
+              - row [ref=f55e140]:
+                - cell [ref=f55e141] [cursor=pointer]:
+                  - text: John Smith
+                  - generic [ref=f55e142]:
+                    - link "client.stage.011@yopmail.com" [ref=f55e143]:
+                      - /url: mailto:client.stage.011@yopmail.com
+                    - link "4165551234" [ref=f55e144]:
+                      - /url: tel:4165551234
+                - cell "-" [ref=f55e145] [cursor=pointer]
+                - cell [ref=f55e146] [cursor=pointer]
+                - cell "Aug 29, 2026" [ref=f55e147] [cursor=pointer]
+          - link "View all" [ref=f55e148] [cursor=pointer]:
+            - /url: /quotes
+        - generic [ref=f55e150]:
+          - heading "Warranty contracts" [level=5] [ref=f55e151]
+          - heading "Pending approval" [level=6] [ref=f55e152]
+          - table [ref=f55e154]:
+            - rowgroup [ref=f55e155]:
+              - row [ref=f55e156]:
+                - columnheader "Client" [ref=f55e157]
+                - columnheader "Dealer" [ref=f55e158]
+                - columnheader "Vehicle" [ref=f55e159]
+                - columnheader "Program" [ref=f55e160]
+                - columnheader "Invoices" [ref=f55e161]
+                - columnheader "Components" [ref=f55e162]
+                - columnheader "Start Date" [ref=f55e163]
+                - columnheader "Created on" [ref=f55e164]
+            - rowgroup [ref=f55e165]:
+              - row [ref=f55e166]:
+                - cell [ref=f55e167] [cursor=pointer]:
+                  - text: Vinh LeAVtage
+                  - generic [ref=f55e168]:
+                    - link "vinhleAVtage@yopmail.com" [ref=f55e169]:
+                      - /url: mailto:vinhleAVtage@yopmail.com
+                    - link "09292153333" [ref=f55e170]:
+                      - /url: tel:09292153333
+                - cell [ref=f55e171] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e172]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e173]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204 Delivery date: Sunday, July 5, 2026" [ref=f55e174] [cursor=pointer]'
+                - cell "26df1-829 20m/20000km" [ref=f55e175] [cursor=pointer]
+                - 'cell "Invoice #909 Payment pending" [ref=f55e176] [cursor=pointer]':
+                  - text: "Invoice #909"
+                  - generic [ref=f55e177]: Payment pending
+                - cell [ref=f55e178] [cursor=pointer]
+                - cell "July 21, 2026 20:00" [ref=f55e179] [cursor=pointer]
+                - cell "July 5, 2026 22:21  Pending approval" [ref=f55e180] [cursor=pointer]:
+                  - text: July 5, 2026 22:21
+                  - generic [ref=f55e181]:
+                    - generic [ref=f55e182]: 
+                    - text: Pending approval
+              - row [ref=f55e183]:
+                - cell [ref=f55e184] [cursor=pointer]:
+                  - text: Vinh Le
+                  - generic [ref=f55e185]:
+                    - link "vinhle@yopmail.com" [ref=f55e186]:
+                      - /url: mailto:vinhle@yopmail.com
+                    - link "09292153333" [ref=f55e187]:
+                      - /url: tel:09292153333
+                - cell [ref=f55e188] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e189]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e190]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 33333333 Delivery date: Tuesday, June 30, 2026" [ref=f55e191] [cursor=pointer]'
+                - cell "APOP01-828 100m/20000km" [ref=f55e192] [cursor=pointer]
+                - 'cell "Invoice #908 Payment pending" [ref=f55e193] [cursor=pointer]':
+                  - text: "Invoice #908"
+                  - generic [ref=f55e194]: Payment pending
+                - cell [ref=f55e195] [cursor=pointer]
+                - cell "July 31, 2026 20:00" [ref=f55e196] [cursor=pointer]
+                - cell "July 5, 2026 22:18  Pending approval" [ref=f55e197] [cursor=pointer]:
+                  - text: July 5, 2026 22:18
+                  - generic [ref=f55e198]:
+                    - generic [ref=f55e199]: 
+                    - text: Pending approval
+              - row [ref=f55e200]:
+                - cell [ref=f55e201] [cursor=pointer]:
+                  - text: client 001Le
+                  - generic [ref=f55e202]:
+                    - link "client@yopmail.com" [ref=f55e203]:
+                      - /url: mailto:client@yopmail.com
+                    - link "0929150309" [ref=f55e204]:
+                      - /url: tel:0929150309
+                - cell [ref=f55e205] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e206]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e207]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 123123123123 Delivery date: Wednesday, May 6, 2026" [ref=f55e208] [cursor=pointer]'
+                - cell "APOP01-826 100m/20000km" [ref=f55e209] [cursor=pointer]
+                - 'cell "Invoice #905 Payment pending" [ref=f55e210] [cursor=pointer]':
+                  - text: "Invoice #905"
+                  - generic [ref=f55e211]: Payment pending
+                - cell [ref=f55e212] [cursor=pointer]
+                - cell "May 10, 2026 20:00" [ref=f55e213] [cursor=pointer]
+                - cell "June 5, 2026 14:25  Pending approval" [ref=f55e214] [cursor=pointer]:
+                  - text: June 5, 2026 14:25
+                  - generic [ref=f55e215]:
+                    - generic [ref=f55e216]: 
+                    - text: Pending approval
+              - row [ref=f55e217]:
+                - cell [ref=f55e218] [cursor=pointer]:
+                  - text: Vinh test
+                  - generic [ref=f55e219]:
+                    - link "vinhl3003@yopmail.com" [ref=f55e220]:
+                      - /url: mailto:vinhl3003@yopmail.com
+                    - link "092929223" [ref=f55e221]:
+                      - /url: tel:092929223
+                - cell [ref=f55e222] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e223]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e224]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 123123123123 Delivery date: Thursday, June 4, 2026" [ref=f55e225] [cursor=pointer]'
+                - cell "APOP01-825 100m/20000km" [ref=f55e226] [cursor=pointer]
+                - 'cell "Invoice #904 Payment pending" [ref=f55e227] [cursor=pointer]':
+                  - text: "Invoice #904"
+                  - generic [ref=f55e228]: Payment pending
+                - cell [ref=f55e229] [cursor=pointer]
+                - cell "June 8, 2026 20:00" [ref=f55e230] [cursor=pointer]
+                - cell "June 5, 2026 14:24  Pending approval" [ref=f55e231] [cursor=pointer]:
+                  - text: June 5, 2026 14:24
+                  - generic [ref=f55e232]:
+                    - generic [ref=f55e233]: 
+                    - text: Pending approval
+              - row [ref=f55e234]:
+                - cell [ref=f55e235] [cursor=pointer]:
+                  - text: vinh le
+                  - generic [ref=f55e236]:
+                    - link "vinhle123@yopmail.com" [ref=f55e237]:
+                      - /url: mailto:vinhle123@yopmail.com
+                    - link "0924234324" [ref=f55e238]:
+                      - /url: tel:0924234324
+                - cell [ref=f55e239] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e240]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e241]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 33333333 Delivery date: Wednesday, May 6, 2026" [ref=f55e242] [cursor=pointer]'
+                - cell "APOP01-824 100m/20000km" [ref=f55e243] [cursor=pointer]
+                - 'cell "Invoice #903 Payment pending" [ref=f55e244] [cursor=pointer]':
+                  - text: "Invoice #903"
+                  - generic [ref=f55e245]: Payment pending
+                - cell [ref=f55e246] [cursor=pointer]
+                - cell "May 10, 2026 20:00" [ref=f55e247] [cursor=pointer]
+                - cell "June 5, 2026 14:23  Pending approval" [ref=f55e248] [cursor=pointer]:
+                  - text: June 5, 2026 14:23
+                  - generic [ref=f55e249]:
+                    - generic [ref=f55e250]: 
+                    - text: Pending approval
+          - link "View all" [ref=f55e251] [cursor=pointer]:
+            - /url: /warranty
+        - generic [ref=f55e253]:
+          - heading "Warranty contracts" [level=5] [ref=f55e254]
+          - heading "Approved" [level=6] [ref=f55e255]
+          - table [ref=f55e257]:
+            - rowgroup [ref=f55e258]:
+              - row [ref=f55e259]:
+                - columnheader "Client" [ref=f55e260]
+                - columnheader "Dealer" [ref=f55e261]
+                - columnheader "Vehicle" [ref=f55e262]
+                - columnheader "Program" [ref=f55e263]
+                - columnheader "Invoices" [ref=f55e264]
+                - columnheader "Components" [ref=f55e265]
+                - columnheader "Start Date" [ref=f55e266]
+                - columnheader "Created on" [ref=f55e267]
+            - rowgroup [ref=f55e268]:
+              - row [ref=f55e269]:
+                - cell [ref=f55e270] [cursor=pointer]:
+                  - text: firstName lastName
+                  - generic [ref=f55e271]:
+                    - link "ap_automation_test@yopmail.com" [ref=f55e272]:
+                      - /url: mailto:ap_automation_test@yopmail.com
+                    - link "11111" [ref=f55e273]:
+                      - /url: tel:11111
+                - cell [ref=f55e274] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e275]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e276]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 33333333 Delivery date: Friday, June 3, 2022" [ref=f55e277] [cursor=pointer]'
+                - cell "APOP01-594 100m/20000km" [ref=f55e278] [cursor=pointer]
+                - 'cell "Invoice #569 Paid Friday, June 5, 2026" [ref=f55e279] [cursor=pointer]':
+                  - text: "Invoice #569"
+                  - paragraph [ref=f55e280]:
+                    - generic [ref=f55e281]: Paid
+                    - text: Friday, June 5, 2026
+                - cell [ref=f55e282] [cursor=pointer]
+                - cell "June 3, 2022 20:00" [ref=f55e283] [cursor=pointer]
+                - cell "April 30, 2023 10:31  Approved" [ref=f55e284] [cursor=pointer]:
+                  - text: April 30, 2023 10:31
+                  - generic [ref=f55e285]:
+                    - generic [ref=f55e286]: 
+                    - text: Approved
+              - row [ref=f55e287]:
+                - cell [ref=f55e288] [cursor=pointer]:
+                  - text: firstName lastName
+                  - generic [ref=f55e289]:
+                    - link "ap_automation_test@yopmail.com" [ref=f55e290]:
+                      - /url: mailto:ap_automation_test@yopmail.com
+                    - link "11111" [ref=f55e291]:
+                      - /url: tel:11111
+                - cell [ref=f55e292] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e293]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e294]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 33333333 Delivery date: Friday, June 3, 2022" [ref=f55e295] [cursor=pointer]'
+                - cell "APOP01-591 100m/20000km" [ref=f55e296] [cursor=pointer]
+                - 'cell "Invoice #566 Paid Friday, June 5, 2026" [ref=f55e297] [cursor=pointer]':
+                  - text: "Invoice #566"
+                  - paragraph [ref=f55e298]:
+                    - generic [ref=f55e299]: Paid
+                    - text: Friday, June 5, 2026
+                - cell [ref=f55e300] [cursor=pointer]
+                - cell "June 3, 2022 20:00" [ref=f55e301] [cursor=pointer]
+                - cell "April 30, 2023 10:03  Approved" [ref=f55e302] [cursor=pointer]:
+                  - text: April 30, 2023 10:03
+                  - generic [ref=f55e303]:
+                    - generic [ref=f55e304]: 
+                    - text: Approved
+              - row [ref=f55e305]:
+                - cell [ref=f55e306] [cursor=pointer]:
+                  - text: firstName lastName
+                  - generic [ref=f55e307]:
+                    - link "ap_automation_test@yopmail.com" [ref=f55e308]:
+                      - /url: mailto:ap_automation_test@yopmail.com
+                    - link "11111" [ref=f55e309]:
+                      - /url: tel:11111
+                - cell [ref=f55e310] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e311]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e312]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 33333333 Delivery date: Friday, June 3, 2022" [ref=f55e313] [cursor=pointer]'
+                - cell "APOP01-593 100m/20000km" [ref=f55e314] [cursor=pointer]
+                - 'cell "Invoice #568 Paid Friday, June 5, 2026" [ref=f55e315] [cursor=pointer]':
+                  - text: "Invoice #568"
+                  - paragraph [ref=f55e316]:
+                    - generic [ref=f55e317]: Paid
+                    - text: Friday, June 5, 2026
+                - cell [ref=f55e318] [cursor=pointer]
+                - cell "June 3, 2022 20:00" [ref=f55e319] [cursor=pointer]
+                - cell "April 30, 2023 10:22  Approved" [ref=f55e320] [cursor=pointer]:
+                  - text: April 30, 2023 10:22
+                  - generic [ref=f55e321]:
+                    - generic [ref=f55e322]: 
+                    - text: Approved
+              - row [ref=f55e323]:
+                - cell [ref=f55e324] [cursor=pointer]:
+                  - text: firstName lastName
+                  - generic [ref=f55e325]:
+                    - link "ap_automation_test@yopmail.com" [ref=f55e326]:
+                      - /url: mailto:ap_automation_test@yopmail.com
+                    - link "11111" [ref=f55e327]:
+                      - /url: tel:11111
+                - cell [ref=f55e328] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e329]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e330]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 33333333 Delivery date: Friday, June 3, 2022" [ref=f55e331] [cursor=pointer]'
+                - cell "APOP01-592 100m/20000km" [ref=f55e332] [cursor=pointer]
+                - 'cell "Invoice #567 Paid Friday, June 5, 2026" [ref=f55e333] [cursor=pointer]':
+                  - text: "Invoice #567"
+                  - paragraph [ref=f55e334]:
+                    - generic [ref=f55e335]: Paid
+                    - text: Friday, June 5, 2026
+                - cell [ref=f55e336] [cursor=pointer]
+                - cell "June 3, 2022 20:00" [ref=f55e337] [cursor=pointer]
+                - cell "April 30, 2023 10:09  Approved" [ref=f55e338] [cursor=pointer]:
+                  - text: April 30, 2023 10:09
+                  - generic [ref=f55e339]:
+                    - generic [ref=f55e340]: 
+                    - text: Approved
+              - row [ref=f55e341]:
+                - cell [ref=f55e342] [cursor=pointer]:
+                  - text: firstName lastName
+                  - generic [ref=f55e343]:
+                    - link "ap_automation_test@yopmail.com" [ref=f55e344]:
+                      - /url: mailto:ap_automation_test@yopmail.com
+                    - link "11111" [ref=f55e345]:
+                      - /url: tel:11111
+                - cell [ref=f55e346] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f55e347]:
+                    - text: created by Le 1 Vinh
+                    - link "vinhle870@gmail.com" [ref=f55e348]:
+                      - /url: mailto:vinhle870@gmail.com
+                - 'cell "Fiat 500 2015 VIN: 33333333 Delivery date: Friday, June 3, 2022" [ref=f55e349] [cursor=pointer]'
+                - cell "APOP01-590 100m/20000km" [ref=f55e350] [cursor=pointer]
+                - 'cell "Invoice #565 Paid Friday, June 5, 2026" [ref=f55e351] [cursor=pointer]':
+                  - text: "Invoice #565"
+                  - paragraph [ref=f55e352]:
+                    - generic [ref=f55e353]: Paid
+                    - text: Friday, June 5, 2026
+                - cell [ref=f55e354] [cursor=pointer]
+                - cell "June 3, 2022 20:00" [ref=f55e355] [cursor=pointer]
+                - cell "April 30, 2023 09:56  Approved" [ref=f55e356] [cursor=pointer]:
+                  - text: April 30, 2023 09:56
+                  - generic [ref=f55e357]:
+                    - generic [ref=f55e358]: 
+                    - text: Approved
+          - link "View all" [ref=f55e359] [cursor=pointer]:
+            - /url: /warranty/approved
+  - contentinfo [ref=f55e360]:
+    - generic [ref=f55e361]:
+      - link "Avantage Plus System v2.0.0" [ref=f55e362] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

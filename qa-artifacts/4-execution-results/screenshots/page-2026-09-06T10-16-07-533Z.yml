@@ -1,0 +1,98 @@
+- generic [active] [ref=f55e1]:
+  - banner [ref=f55e2]:
+    - link [ref=f55e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f55e5]:
+      - searchbox "Search" [ref=f55e7]
+      - listitem [ref=f55e8]:
+        - generic [ref=f55e9]: Test QA staging
+  - generic [ref=f55e11]:
+    - navigation [ref=f55e13]:
+      - list [ref=f55e14]:
+        - listitem [ref=f55e15]:
+          - link " 􏀕 Dashboard" [ref=f55e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f55e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f55e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f55e19]:
+            - generic [ref=f55e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f55e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f55e22]:
+            - generic [ref=f55e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f55e24]:
+          - link " 􏗡 Claims" [ref=f55e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f55e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f55e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f55e28]:
+            - generic [ref=f55e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f55e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f55e31]:
+            - generic [ref=f55e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f55e33]:
+          - link " 􏀑 Logout" [ref=f55e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f55e35]:  􏀑
+            - text: Logout
+    - main [ref=f55e36]:
+      - generic [ref=f55e38]:
+        - navigation [ref=f55e40]:
+          - heading "Insurance for Vinh LeAVtage" [level=1] [ref=f55e41]
+          - list [ref=f55e42]:
+            - listitem [ref=f55e43]:
+              - link "Back" [ref=f55e44] [cursor=pointer]:
+                - /url: /quote/6245/details
+        - generic [ref=f55e47]:
+          - heading "Create Insurance Contract" [level=4] [ref=f55e48]
+          - separator [ref=f55e49]
+          - generic [ref=f55e50]:
+            - generic [ref=f55e51]:
+              - strong [ref=f55e52]: "Form:"
+              - text: GC6201MQ
+            - generic [ref=f55e53]:
+              - strong [ref=f55e54]: "Rate table:"
+              - text: PM30
+            - generic [ref=f55e55]:
+              - strong [ref=f55e56]: "Language:"
+              - text: Français
+            - generic [ref=f55e57]:
+              - strong [ref=f55e58]: "Tax exempt:"
+              - text: "No"
+          - table [ref=f55e59]:
+            - rowgroup [ref=f55e60]:
+              - row [ref=f55e61]:
+                - columnheader "Coverage Type" [ref=f55e62]
+                - columnheader "Coverage" [ref=f55e63]
+                - columnheader "Term Months" [ref=f55e64]
+                - columnheader "Monthly Premium" [ref=f55e65]
+                - columnheader "Tax" [ref=f55e66]
+                - columnheader "Monthly Total" [ref=f55e67]
+            - rowgroup [ref=f55e68]:
+              - row [ref=f55e69]:
+                - cell "Life Decreasing" [ref=f55e70]
+                - cell "BORROWER" [ref=f55e71]
+                - cell "60" [ref=f55e72]
+                - cell "18.58$" [ref=f55e73]
+                - cell "1.67$" [ref=f55e74]
+                - cell "20.25$" [ref=f55e75]
+          - table [ref=f55e76]:
+            - rowgroup [ref=f55e77]:
+              - row [ref=f55e78]:
+                - cell "Equivalent Single Premium" [ref=f55e79]
+                - cell "891.31$" [ref=f55e80]
+              - row [ref=f55e81]:
+                - cell "Commission (30%)" [ref=f55e82]
+                - cell "267.39$" [ref=f55e83]
+          - separator [ref=f55e84]
+          - button "Create Contract" [ref=f55e85] [cursor=pointer]
+  - contentinfo [ref=f55e86]:
+    - generic [ref=f55e87]:
+      - link "Avantage Plus System v2.0.0" [ref=f55e88] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

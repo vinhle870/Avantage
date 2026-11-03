@@ -1,0 +1,127 @@
+- generic [ref=f23e1]:
+  - banner [ref=f23e2]:
+    - link [ref=f23e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f23e5]:
+      - searchbox "Search" [ref=f23e7]
+  - generic [ref=f23e8]:
+    - navigation [ref=f23e10]:
+      - list [ref=f23e11]:
+        - listitem [ref=f23e12]:
+          - link " 􏀕 Dashboard" [ref=f23e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f23e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f23e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f23e16]:
+            - generic [ref=f23e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f23e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f23e19]:
+            - generic [ref=f23e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f23e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f23e22]:
+            - generic [ref=f23e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f23e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f23e25]:
+            - generic [ref=f23e26]:  􏃀
+            - text: Users
+        - listitem [ref=f23e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f23e28]:
+            - generic [ref=f23e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f23e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f23e31]:
+            - generic [ref=f23e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f23e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f23e34]:
+            - generic [ref=f23e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f23e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f23e37]:
+            - generic [ref=f23e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f23e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f23e40]:
+            - generic [ref=f23e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f23e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f23e43]:
+            - generic [ref=f23e44]:  􏂎
+            - text: External links
+        - listitem [ref=f23e45]:
+          - link " 􏆫 Language settings" [ref=f23e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-group
+            - generic [ref=f23e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f23e48]:
+          - link " 􏀑 Logout" [ref=f23e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f23e50]:  􏀑
+            - text: Logout
+    - main [ref=f23e51]:
+      - generic [ref=f23e53]:
+        - navigation [ref=f23e55]:
+          - heading "Earning Groups" [level=1] [ref=f23e56]
+          - list [ref=f23e57]:
+            - listitem [ref=f23e58]:
+              - link "Create New" [ref=f23e59] [cursor=pointer]:
+                - /url: /admin/earning-group/new/edit
+        - table [ref=f23e63]:
+          - rowgroup [ref=f23e64]:
+            - row [ref=f23e65]:
+              - columnheader "Name" [ref=f23e66]
+              - columnheader "Earning curves" [ref=f23e67]
+              - columnheader "Default Earning curve type" [ref=f23e68]
+              - columnheader "Is Enabled?" [ref=f23e69]
+              - columnheader "Actions" [ref=f23e70]
+          - rowgroup [ref=f23e71]:
+            - row [ref=f23e72]:
+              - cell "AV+" [ref=f23e73] [cursor=pointer]
+              - cell [ref=f23e74] [cursor=pointer]:
+                - list [ref=f23e75]:
+                  - listitem [ref=f23e76]: 1 year (0 - 999999)
+                  - listitem [ref=f23e77]: 2 years (0 - 999999)
+                  - listitem [ref=f23e78]: 3 years (0 - 999999)
+                  - listitem [ref=f23e79]: 4 years (0 - 9999999)
+                  - listitem [ref=f23e80]: 5 years (0 - 999999)
+                  - listitem [ref=f23e81]: 6 years (0 - 999999)
+              - cell "Rule of 78" [ref=f23e82] [cursor=pointer]
+              - cell "Yes" [ref=f23e83] [cursor=pointer]
+              - cell [ref=f23e85] [cursor=pointer]:
+                - link "View" [ref=f23e86]:
+                  - /url: /admin/earning-group/1/details
+  - contentinfo [ref=f23e87]:
+    - generic [ref=f23e88]:
+      - link "Avantage Plus System v2.0.0" [ref=f23e89] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - dialog [active] [ref=f23e90]:
+    - document:
+      - generic [ref=f23e92]:
+        - navigation [ref=f23e94]:
+          - heading "Create earning group" [level=1] [ref=f23e95]
+          - list
+        - generic [ref=f23e96]:
+          - generic [ref=f23e97]:
+            - generic [ref=f23e98]:
+              - generic [ref=f23e99]: Name*
+              - textbox "Name*" [ref=f23e100]
+            - generic [ref=f23e101]:
+              - generic [ref=f23e102]: Default Earning Method*
+              - generic [ref=f23e103]:
+                - combobox "Default Earning Method*" [ref=f23e104]:
+                  - option "Pro-Rata" [selected]
+                  - option "Rule of 78"
+                  - option "Reverse rule of 78"
+                - combobox "Pro-Rata" [ref=f23e105] [cursor=pointer]
+          - separator [ref=f23e109]
+          - button "Save" [ref=f23e110] [cursor=pointer]
+  - iframe [ref=f23e112]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f25e1] [cursor=pointer]

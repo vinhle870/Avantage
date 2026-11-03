@@ -1,0 +1,7 @@
+Environment: Dev (https://v2dev.garantieavantageplus.ca)
+Captured: 2026-11-03T04:56Z — dealer 1380 creditor forms set to GC960S:S30 only (account AP0001)
+Direct navigation, attempt 1 (04:55:48Z):
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500
+Modal open from /quick-insurance-quote "Send compliance documents", attempt 2 (04:55:56Z):
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500
+Modal stayed on "Loading..."; the Client name / Client email fields never rendered.

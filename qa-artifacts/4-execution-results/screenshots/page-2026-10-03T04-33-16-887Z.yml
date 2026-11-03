@@ -1,0 +1,235 @@
+- generic [active] [ref=f60e1]:
+  - banner [ref=f60e2]:
+    - link [ref=f60e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f60e5]:
+      - searchbox "Search" [ref=f60e7]
+      - listitem [ref=f60e8]:
+        - generic [ref=f60e9]: Test QA staging
+  - generic [ref=f60e11]:
+    - navigation [ref=f60e13]:
+      - list [ref=f60e14]:
+        - listitem [ref=f60e15]:
+          - link " Dashboard" [ref=f60e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f60e17]: 
+            - text: Dashboard
+        - listitem [ref=f60e18]:
+          - heading " Vehicles" [level=6] [ref=f60e19]:
+            - generic [ref=f60e20]: 
+            - text: Vehicles
+        - listitem [ref=f60e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f60e22]:
+            - generic [ref=f60e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f60e24]:
+          - link " Claims" [ref=f60e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f60e26]: 
+            - text: Claims
+        - listitem [ref=f60e27]:
+          - heading " Billing" [level=6] [ref=f60e28]:
+            - generic [ref=f60e29]: 
+            - text: Billing
+        - listitem [ref=f60e30]:
+          - heading " System preferences" [level=6] [ref=f60e31]:
+            - generic [ref=f60e32]: 
+            - text: System preferences
+        - listitem [ref=f60e33]:
+          - link " Logout" [ref=f60e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f60e35]: 
+            - text: Logout
+    - main [ref=f60e36]:
+      - generic [ref=f60e38]:
+        - navigation [ref=f60e40]
+        - generic [ref=f60e45]:
+          - heading "Financing" [level=4] [ref=f60e46]
+          - generic [ref=f60e47]:
+            - group "Applicant" [ref=f60e48]:
+              - generic [ref=f60e50]:
+                - generic [ref=f60e51]:
+                  - generic [ref=f60e52]: Date of birth*
+                  - textbox "Date of birth*" [ref=f60e54]
+                - generic [ref=f60e55]:
+                  - generic [ref=f60e56]: Province*
+                  - generic [ref=f60e57]:
+                    - combobox "Province*" [ref=f60e58]:
+                      - option "Québec" [selected]
+                      - option "Ontario"
+                      - option "British Columbia"
+                      - option "Alberta"
+                      - option "Manitoba"
+                      - option "Saskatchewan"
+                      - option "Nova Scotia"
+                      - option "New Brunswick"
+                      - option "Newfoundland and Labrador"
+                      - option "Prince Edward Island"
+                      - option "Northwest Territories"
+                      - option "Yukon"
+                      - option "Nanavut"
+                    - combobox "Québec" [ref=f60e59] [cursor=pointer]
+            - generic [ref=f60e63]:
+              - generic [ref=f60e64]: Type*
+              - generic [ref=f60e65]:
+                - combobox "Type*" [ref=f60e66]:
+                  - option "Choose" [selected]
+                  - option "Financing"
+                  - option "Lease"
+                  - option "Finance lease"
+                - combobox "Choose" [ref=f60e67] [cursor=pointer]
+            - generic [ref=f60e71]:
+              - generic [ref=f60e72]: Net amount financed including RDPRM*
+              - textbox "Net amount financed including RDPRM*" [ref=f60e73]
+            - generic [ref=f60e74]:
+              - generic [ref=f60e75]: Residual*
+              - textbox "Residual*" [ref=f60e76]
+            - generic [ref=f60e77]:
+              - generic [ref=f60e78]: Payment frequency*
+              - generic [ref=f60e79]:
+                - combobox "Payment frequency*" [ref=f60e80]:
+                  - option "Choose" [selected]
+                  - option "Monthly"
+                  - option "Bi-Weekly"
+                  - option "Weekly"
+                - combobox "Choose" [ref=f60e81] [cursor=pointer]
+            - generic [ref=f60e85]:
+              - generic [ref=f60e86]: Term months*
+              - generic [ref=f60e87]:
+                - combobox "Term months*" [ref=f60e88]:
+                  - option "3" [selected]
+                  - option "6"
+                  - option "9"
+                  - option "12"
+                  - option "15"
+                  - option "18"
+                  - option "21"
+                  - option "24"
+                  - option "27"
+                  - option "30"
+                  - option "33"
+                  - option "36"
+                  - option "39"
+                  - option "42"
+                  - option "45"
+                  - option "48"
+                  - option "51"
+                  - option "54"
+                  - option "57"
+                  - option "60"
+                  - option "63"
+                  - option "66"
+                  - option "69"
+                  - option "72"
+                  - option "75"
+                  - option "78"
+                  - option "81"
+                  - option "84"
+                  - option "87"
+                  - option "90"
+                  - option "93"
+                  - option "96"
+                  - option "99"
+                  - option "102"
+                  - option "105"
+                  - option "108"
+                  - option "111"
+                  - option "114"
+                  - option "117"
+                  - option "120"
+                  - option "123"
+                  - option "126"
+                  - option "129"
+                  - option "132"
+                  - option "135"
+                  - option "138"
+                  - option "141"
+                  - option "144"
+                  - option "147"
+                  - option "150"
+                  - option "153"
+                  - option "156"
+                  - option "159"
+                  - option "162"
+                  - option "165"
+                  - option "168"
+                  - option "171"
+                  - option "174"
+                  - option "177"
+                  - option "180"
+                  - option "183"
+                  - option "186"
+                  - option "189"
+                  - option "192"
+                  - option "195"
+                  - option "198"
+                  - option "201"
+                  - option "204"
+                  - option "207"
+                  - option "210"
+                  - option "213"
+                  - option "216"
+                  - option "219"
+                  - option "222"
+                  - option "225"
+                  - option "228"
+                  - option "231"
+                  - option "234"
+                  - option "237"
+                  - option "240"
+                - combobox "3" [ref=f60e89] [cursor=pointer]
+            - generic [ref=f60e93]:
+              - generic [ref=f60e94]: Interest rate*
+              - textbox "Interest rate*" [ref=f60e95]
+            - generic [ref=f60e96]:
+              - generic [ref=f60e97]: Financing company*
+              - generic [ref=f60e98]:
+                - combobox "Financing company*" [ref=f60e99]:
+                  - option "Choose" [selected]
+                  - option "AutoCapital Canada 200-11, Church Street Toronto"
+                  - option "Avantage Concessionaire Scotia 7400 Boul des Galeries d’Anjou Suite 430 Montreal"
+                  - option "AVANTAGE Concessionnaire Scotia 4190, Lougheed Hwy, suite 300 Burnaby"
+                  - option "Avantage Plus Testing 1 1"
+                  - option "Axis Auto Finance Lending Corp. 100-7665 rue Larrey Anjou"
+                  - option "Banque Royale 4025-Rue Dorchester Westmount"
+                  - 'option "Banque Scotia Centre de Service au detail (RSC) Transit # 24356\\nStratford Indirect\\nLoans Unit\\n10 Wright Blvd Stratford"'
+                  - option "BMO 2 Place Laval, suite 270 Laval"
+                  - option "BNC 500 Place d'Armes, 16e étage MTL"
+                  - option "BNC 1100 rue University RC MTL"
+                  - 'option "CARFINCO FINANCIAL GROUP INC. #300, 4245-97 Street Edmonton"'
+                  - option "CIBC Auto Finance PO BOX 700 Station A Toronto"
+                  - option "Credit Virage Canada 1870 avenue de Grande Mère Shawinigan"
+                  - option "Crelogix Acceptance Corporation 4445 Lougheed Highway, Suite 900 Burnaby"
+                  - option "FÉDÉRATION DES CAISSES DESJARDINS DU QUÉBEC 450 Boul. de Maisonneuve Ouest Montréal"
+                  - option "Finance Créditfix 1688 boul des Laurentides, Suite 202 Laval"
+                  - option "FINANCEMENT AUTO TD C.P. 4086 Succ. A Toronto"
+                  - option "Financile 4850 Blvd Des Laurentides Laval"
+                  - option "Finauto 200-91 Rue Peel Sherbrooke"
+                  - option "Honda Canada Finance Inc. 1750 rue Eiffel Boucherville"
+                  - option "HWY Finance Inc. 795 boul. Arthur-Sauvé St-Eustache"
+                  - option "I.S.A. Auto Direct 379, rue St-Paul Repentigny"
+                  - option "IA FInancement Auto P.O BOX 61040 \\n511 MAPLE GROVE DRIVE-UNIT 19 OAKVILLE"
+                  - option "Iceberg Finance Inc. 1515, rue St-Jean-Baptiste, bur. 183 Québec"
+                  - option "Iceberg Finance Inc. 2470 Avenue Dalton Québec"
+                  - option "INDUSTRIELLE ALLIANCE, FIDUCIE INC. 1080 GRANDE ALLEE OUEST \\nC.P. 1907 SUCCURSALE TERMINUS QUEBEC"
+                  - option "LendCare Capital Inc 1315 Pickering Parkway, 4th floor Pickering"
+                  - option "Location All Star 7750 Boul. Cousineau St-Hubert"
+                  - option "Nissan Canada Finance P.O. Box 9826, Station T Ottawa"
+                  - option "Québec Auto Finance 4242 Boulevard Bourque, Suite 1 Sherbrooke"
+                  - option "RBC Banque Royale 1 Place Ville-Marie 2e étage aile est Montréal"
+                  - option "Services Financiers Mercedes-Benz 2680 boul Matheson east suite 500 Mississauga"
+                  - option "Yamaha Financial Services 480 Gordon Baker Rd Toronto"
+                - combobox "Choose" [ref=f60e100] [cursor=pointer]
+          - separator [ref=f60e104]
+          - button "Save" [ref=f60e105] [cursor=pointer]
+    - complementary [ref=f60e106]:
+      - tabpanel [ref=f60e108]:
+        - generic [ref=f60e109]:
+          - link "Vehicle" [ref=f60e111] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=f60e112]: "Ford Focus 2008 VIN: 1FAHP35NX8W239204"
+  - contentinfo [ref=f60e113]:
+    - generic [ref=f60e114]:
+      - link "Avantage Plus System v2.0.0" [ref=f60e115] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

@@ -1,0 +1,159 @@
+- generic [active] [ref=f79e1]:
+  - banner [ref=f79e2]:
+    - link [ref=f79e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f79e5]:
+      - searchbox "Search" [ref=f79e7]
+  - generic [ref=f79e8]:
+    - navigation [ref=f79e10]:
+      - list [ref=f79e11]:
+        - listitem [ref=f79e12]:
+          - link " 􏀕 Dashboard" [ref=f79e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f79e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f79e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f79e16]:
+            - generic [ref=f79e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f79e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f79e19]:
+            - generic [ref=f79e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f79e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f79e22]:
+            - generic [ref=f79e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f79e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f79e25]:
+            - generic [ref=f79e26]:  􏃀
+            - text: Users
+        - listitem [ref=f79e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f79e28]:
+            - generic [ref=f79e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f79e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f79e31]:
+            - generic [ref=f79e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f79e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f79e34]:
+            - generic [ref=f79e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f79e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f79e37]:
+            - generic [ref=f79e38]:  􏘤
+            - generic [ref=f79e148]: Risk Management
+          - list [ref=f79e149]:
+            - listitem [ref=f79e150]:
+              - link "Earning Curves" [ref=f79e151] [cursor=pointer]:
+                - /url: /admin/earning-curve
+            - listitem [ref=f79e152]:
+              - link "Earning Sets" [ref=f79e153] [cursor=pointer]:
+                - /url: /admin/earning-set
+            - listitem [ref=f79e154]:
+              - link "Earning Groups" [ref=f79e155] [cursor=pointer]:
+                - /url: /admin/earning-group
+            - listitem [ref=f79e156]:
+              - link "Earning Assignments" [ref=f79e157] [cursor=pointer]:
+                - /url: /admin/earning-assignment
+        - listitem [ref=f79e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f79e40]:
+            - generic [ref=f79e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f79e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f79e43]:
+            - generic [ref=f79e44]:  􏂎
+            - text: External links
+        - listitem [ref=f79e45]:
+          - link " 􏆫 Language settings" [ref=f79e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-curve
+            - generic [ref=f79e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f79e48]:
+          - link " 􏀑 Logout" [ref=f79e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f79e50]:  􏀑
+            - text: Logout
+    - main [ref=f79e51]:
+      - generic [ref=f79e53]:
+        - navigation [ref=f79e55]:
+          - heading "Earning Curves" [level=1] [ref=f79e56]
+          - list [ref=f79e57]:
+            - listitem [ref=f79e58]:
+              - link "Create New" [ref=f79e59] [cursor=pointer]:
+                - /url: /admin/earning-curve/new/edit
+        - table [ref=f79e63]:
+          - rowgroup [ref=f79e64]:
+            - row [ref=f79e65]:
+              - columnheader "Name" [ref=f79e66]
+              - columnheader "Term month" [ref=f79e67]
+              - columnheader "Coverage odometer" [ref=f79e68]
+              - columnheader "Earning curve type" [ref=f79e69]
+              - columnheader "Is Enabled?" [ref=f79e70]
+              - columnheader "Actions" [ref=f79e71]
+          - rowgroup [ref=f79e72]:
+            - row [ref=f79e73]:
+              - cell "6 years" [ref=f79e74] [cursor=pointer]
+              - cell "72" [ref=f79e75] [cursor=pointer]
+              - cell "0 - 999999" [ref=f79e76] [cursor=pointer]
+              - cell "Rule of 78" [ref=f79e77] [cursor=pointer]
+              - cell "Yes" [ref=f79e78] [cursor=pointer]
+              - cell [ref=f79e80] [cursor=pointer]:
+                - link "" [ref=f79e83]:
+                  - /url: /admin/earning-curve/6/edit
+            - row [ref=f79e85]:
+              - cell "5 years" [ref=f79e86] [cursor=pointer]
+              - cell "60" [ref=f79e87] [cursor=pointer]
+              - cell "0 - 999999" [ref=f79e88] [cursor=pointer]
+              - cell "Rule of 78" [ref=f79e89] [cursor=pointer]
+              - cell "Yes" [ref=f79e90] [cursor=pointer]
+              - cell [ref=f79e92] [cursor=pointer]:
+                - link "" [ref=f79e95]:
+                  - /url: /admin/earning-curve/5/edit
+            - row [ref=f79e97]:
+              - cell "4 years" [ref=f79e98] [cursor=pointer]
+              - cell "48" [ref=f79e99] [cursor=pointer]
+              - cell "0 - 9999999" [ref=f79e100] [cursor=pointer]
+              - cell "Rule of 78" [ref=f79e101] [cursor=pointer]
+              - cell "Yes" [ref=f79e102] [cursor=pointer]
+              - cell [ref=f79e104] [cursor=pointer]:
+                - link "" [ref=f79e107]:
+                  - /url: /admin/earning-curve/4/edit
+            - row [ref=f79e109]:
+              - cell "3 years" [ref=f79e110] [cursor=pointer]
+              - cell "36" [ref=f79e111] [cursor=pointer]
+              - cell "0 - 999999" [ref=f79e112] [cursor=pointer]
+              - cell "Rule of 78" [ref=f79e113] [cursor=pointer]
+              - cell "Yes" [ref=f79e114] [cursor=pointer]
+              - cell [ref=f79e116] [cursor=pointer]:
+                - link "" [ref=f79e119]:
+                  - /url: /admin/earning-curve/3/edit
+            - row [ref=f79e121]:
+              - cell "2 years" [ref=f79e122] [cursor=pointer]
+              - cell "24" [ref=f79e123] [cursor=pointer]
+              - cell "0 - 999999" [ref=f79e124] [cursor=pointer]
+              - cell "Rule of 78" [ref=f79e125] [cursor=pointer]
+              - cell "Yes" [ref=f79e126] [cursor=pointer]
+              - cell [ref=f79e128] [cursor=pointer]:
+                - link "" [ref=f79e131]:
+                  - /url: /admin/earning-curve/2/edit
+            - row [ref=f79e133]:
+              - cell "1 year" [ref=f79e134] [cursor=pointer]
+              - cell "12" [ref=f79e135] [cursor=pointer]
+              - cell "0 - 999999" [ref=f79e136] [cursor=pointer]
+              - cell "Rule of 78" [ref=f79e137] [cursor=pointer]
+              - cell "Yes" [ref=f79e138] [cursor=pointer]
+              - cell [ref=f79e140] [cursor=pointer]:
+                - link "" [ref=f79e143]:
+                  - /url: /admin/earning-curve/1/edit
+  - contentinfo [ref=f79e145]:
+    - generic [ref=f79e146]:
+      - link "Avantage Plus System v2.0.0" [ref=f79e147] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - iframe [ref=f79e159]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f81e1] [cursor=pointer]

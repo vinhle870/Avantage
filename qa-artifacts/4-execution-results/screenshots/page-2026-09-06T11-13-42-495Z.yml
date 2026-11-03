@@ -1,0 +1,131 @@
+- generic [active] [ref=f107e1]:
+  - banner [ref=f107e2]:
+    - link [ref=f107e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f107e5]:
+      - searchbox "Search" [ref=f107e7]
+      - listitem [ref=f107e8]:
+        - generic [ref=f107e9]: Test QA staging
+  - generic [ref=f107e11]:
+    - navigation [ref=f107e13]:
+      - list [ref=f107e14]:
+        - listitem [ref=f107e15]:
+          - link " 􏀕 Dashboard" [ref=f107e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f107e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f107e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f107e19]:
+            - generic [ref=f107e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f107e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f107e22]:
+            - generic [ref=f107e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f107e24]:
+          - link " 􏗡 Claims" [ref=f107e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f107e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f107e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f107e28]:
+            - generic [ref=f107e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f107e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f107e31]:
+            - generic [ref=f107e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f107e33]:
+          - link " 􏀑 Logout" [ref=f107e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f107e35]:  􏀑
+            - text: Logout
+    - main [ref=f107e36]:
+      - generic [ref=f107e38]:
+        - navigation [ref=f107e40]:
+          - heading "#6284 - Perma Testclient" [level=1] [ref=f107e41]
+          - list [ref=f107e42]:
+            - listitem [ref=f107e43]:
+              - link "Back" [ref=f107e44] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f107e45]:
+              - link "Send compliance documents" [ref=f107e46] [cursor=pointer]:
+                - /url: /compliance-documents/send?redirectUrl=/quote/6284/details&clientEmail=perma.test.0906@yopmail.com
+        - generic [ref=f107e47]:
+          - generic [ref=f107e50]:
+            - navigation [ref=f107e51]:
+              - heading "Client" [level=3] [ref=f107e52]
+              - list [ref=f107e53]:
+                - listitem [ref=f107e54]:
+                  - link "Edit" [ref=f107e55] [cursor=pointer]:
+                    - /url: /quote/6284/client
+            - paragraph [ref=f107e56]:
+              - text: Perma Testclient
+              - generic [ref=f107e57]:
+                - text: 100 Rue Principale Montreal Québec H2X 1Y4
+                - generic [ref=f107e58]: 
+                - link "perma.test.0906@yopmail.com" [ref=f107e59] [cursor=pointer]:
+                  - /url: mailto:perma.test.0906@yopmail.com
+                - generic [ref=f107e60]: 
+                - text: "5145550100"
+          - generic [ref=f107e63]:
+            - navigation [ref=f107e64]:
+              - heading "Vehicle" [level=3] [ref=f107e65]
+              - list [ref=f107e66]:
+                - listitem [ref=f107e67]:
+                  - link "Edit" [ref=f107e68] [cursor=pointer]:
+                    - /url: /quote/6284/vehicle
+            - paragraph [ref=f107e69]:
+              - link "Ford Focus 2008" [ref=f107e70] [cursor=pointer]:
+                - /url: /vehicle/915/details
+              - generic [ref=f107e71]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+            - paragraph [ref=f107e72]:
+              - generic [ref=f107e73]: "Delivery date: Sep 5, 2026 Price: CA$25,000.00"
+          - generic [ref=f107e76]:
+            - navigation [ref=f107e77]:
+              - heading "Warranty" [level=3] [ref=f107e78]
+            - heading "Extended" [level=6] [ref=f107e79]
+            - paragraph [ref=f107e80]:
+              - link " Click here to create a warranty" [ref=f107e81] [cursor=pointer]:
+                - /url: /quote/6284/warranty/edit
+                - generic [ref=f107e82]: 
+                - text: Click here to create a warranty
+            - link "Road Side Protection" [ref=f107e84] [cursor=pointer]:
+              - /url: /quote/6284/road-side-protection
+            - generic [ref=f107e86]:
+              - heading "Permaplate" [level=5] [ref=f107e87]
+              - paragraph [ref=f107e88]:
+                - text: Peinture – Céramique + Graphene, Extra care (5 ans couverture )
+                - strong [ref=f107e89]: "Cost: 145$"
+              - link "Download" [ref=f107e91] [cursor=pointer]:
+                - /url: /quote/6284/permaplate-contract-download
+        - generic [ref=f107e92]:
+          - generic [ref=f107e95]:
+            - navigation [ref=f107e96]:
+              - heading "Financing" [level=3] [ref=f107e97]
+              - link "DYR Rates" [ref=f107e100] [cursor=pointer]:
+                - /url: /quote/6284/dyr-rates
+            - generic [ref=f107e101]:
+              - generic [ref=f107e102]: 
+              - paragraph [ref=f107e103]: You have not added financing details yet
+              - link "Add a financing" [ref=f107e104] [cursor=pointer]:
+                - /url: /quote/6284/financing
+          - generic [ref=f107e107]:
+            - navigation [ref=f107e108]:
+              - heading "Sale" [level=3] [ref=f107e109]
+            - generic [ref=f107e110]:
+              - link "Create sale" [ref=f107e111] [cursor=pointer]:
+                - /url: /quote/6284/sales
+              - separator [ref=f107e112]
+              - heading "Exchange vehicle" [level=6] [ref=f107e113]
+              - link "Add exchange vehicle" [ref=f107e114] [cursor=pointer]:
+                - /url: /quote/6284/exchange-vehicle?referer=%252Fquote%252F6284%252Fdetails
+        - generic [ref=f107e118]:
+          - heading "Compliance documents sent" [level=4] [ref=f107e119]
+          - separator [ref=f107e120]
+          - alert [ref=f107e122]: No entities found
+  - contentinfo [ref=f107e123]:
+    - generic [ref=f107e124]:
+      - link "Avantage Plus System v2.0.0" [ref=f107e125] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

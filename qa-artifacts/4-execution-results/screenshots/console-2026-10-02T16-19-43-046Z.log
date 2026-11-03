@@ -1,0 +1,7 @@
+[     594ms] ReferenceError: $ is not defined
+    at https://v2staging.garantieavantageplus.ca/login:75:5
+[     619ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://v2staging.garantieavantageplus.ca/login:0
+[   10890ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   10890ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   10890ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   10890ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1

@@ -1,0 +1,97 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - link [ref=f1e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f1e5]:
+      - searchbox "Search" [ref=f1e7]
+  - generic [ref=f1e8]:
+    - navigation [ref=f1e10]:
+      - list [ref=f1e11]:
+        - listitem [ref=f1e12]:
+          - link " 􏀕 Dashboard" [ref=f1e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f1e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f1e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f1e16]:
+            - generic [ref=f1e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f1e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f1e19]:
+            - generic [ref=f1e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f1e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f1e22]:
+            - generic [ref=f1e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f1e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f1e25]:
+            - generic [ref=f1e26]:  􏃀
+            - text: Users
+        - listitem [ref=f1e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f1e28]:
+            - generic [ref=f1e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f1e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f1e31]:
+            - generic [ref=f1e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f1e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f1e34]:
+            - generic [ref=f1e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f1e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f1e37]:
+            - generic [ref=f1e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f1e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f1e40]:
+            - generic [ref=f1e41]:  􏂎
+            - text: External links
+        - listitem [ref=f1e42]:
+          - link " 􏆫 Language settings" [ref=f1e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin
+            - generic [ref=f1e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f1e45]:
+          - link " 􏀑 Logout" [ref=f1e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f1e47]:  􏀑
+            - text: Logout
+    - main [ref=f1e48]:
+      - generic [ref=f1e51]:
+        - heading "Vinh Le 1 Welcome to the admin" [level=1] [ref=f1e53]
+        - generic [ref=f1e56]:
+          - generic [ref=f1e58]:
+            - generic [ref=f1e59]: 
+            - paragraph [ref=f1e60]: Claims
+          - generic [ref=f1e61]:
+            - generic [ref=f1e62]:
+              - generic [ref=f1e63]: "6"
+              - link "Preapproved" [ref=f1e65] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/approved
+            - generic [ref=f1e66]:
+              - generic [ref=f1e67]: "23"
+              - link "Authorized" [ref=f1e69] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/authorized
+            - generic [ref=f1e70]:
+              - generic [ref=f1e71]: "3"
+              - link "Accepted by Dealer" [ref=f1e73] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/dealer_accepted
+            - generic [ref=f1e74]:
+              - generic [ref=f1e75]: "12"
+              - link "Paid" [ref=f1e77] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/paid
+            - generic [ref=f1e78]:
+              - generic [ref=f1e79]: "13"
+              - link "Refused" [ref=f1e81] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/refused
+            - generic [ref=f1e82]:
+              - generic [ref=f1e83]: "130"
+              - link "Submitted" [ref=f1e85] [cursor=pointer]:
+                - /url: /admin/claims
+  - contentinfo [ref=f1e86]:
+    - generic [ref=f1e87]:
+      - link "Avantage Plus System v2.0.0" [ref=f1e88] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

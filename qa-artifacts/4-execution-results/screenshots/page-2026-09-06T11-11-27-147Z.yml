@@ -1,0 +1,131 @@
+- generic [active] [ref=f95e1]:
+  - banner [ref=f95e2]:
+    - link [ref=f95e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f95e5]:
+      - searchbox "Search" [ref=f95e7]
+      - listitem [ref=f95e8]:
+        - generic [ref=f95e9]: Test QA staging
+  - generic [ref=f95e11]:
+    - navigation [ref=f95e13]:
+      - list [ref=f95e14]:
+        - listitem [ref=f95e15]:
+          - link " 􏀕 Dashboard" [ref=f95e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f95e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f95e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f95e19]:
+            - generic [ref=f95e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f95e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f95e22]:
+            - generic [ref=f95e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f95e24]:
+          - link " 􏗡 Claims" [ref=f95e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f95e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f95e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f95e28]:
+            - generic [ref=f95e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f95e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f95e31]:
+            - generic [ref=f95e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f95e33]:
+          - link " 􏀑 Logout" [ref=f95e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f95e35]:  􏀑
+            - text: Logout
+    - main [ref=f95e36]:
+      - generic [ref=f95e38]:
+        - alert [ref=f95e39]:
+          - text: Please add vehicle information first
+          - button "Close" [ref=f95e40] [cursor=pointer]: ×
+        - alert [ref=f95e41]:
+          - text: Please add vehicle information first
+          - button "Close" [ref=f95e42] [cursor=pointer]: ×
+        - alert [ref=f95e43]:
+          - text: Please add vehicle information first
+          - button "Close" [ref=f95e44] [cursor=pointer]: ×
+        - alert [ref=f95e45]:
+          - text: The delivery date has passed the acceptable timeframe. Please update the delivery data and the warranty start date
+          - button "Close" [ref=f95e46] [cursor=pointer]: ×
+        - navigation [ref=f95e48]:
+          - heading "#6284 - Perma Testclient" [level=1] [ref=f95e49]
+          - list [ref=f95e50]:
+            - listitem [ref=f95e51]:
+              - link "Back" [ref=f95e52] [cursor=pointer]:
+                - /url: /quote/6284/details
+            - listitem [ref=f95e53]:
+              - link "Finalize sale":
+                - /url: /quote/6284/finalize
+        - generic [ref=f95e56]:
+          - heading "Program" [level=4] [ref=f95e57]
+          - paragraph [ref=f95e58]: Choose one of the available program.
+          - heading [level=5] [ref=f95e59]:
+            - link "Automation Test Program" [expanded] [ref=f95e60] [cursor=pointer]:
+              - /url: "#program-26"
+          - generic [ref=f95e63]:
+            - paragraph [ref=f95e64]: default 1
+            - generic [ref=f95e68]:
+              - radio "20m/20000km" [ref=f95e69]
+              - text: 20m/20000km
+          - separator [ref=f95e70]
+          - generic [ref=f95e71]:
+            - generic [ref=f95e72]: Sale price*
+            - textbox "Sale price*" [ref=f95e73]
+          - generic [ref=f95e74]:
+            - generic [ref=f95e75]: Financing company
+            - generic [ref=f95e76]:
+              - combobox "Financing company" [ref=f95e77]:
+                - option "Choose" [selected]
+                - option "AutoCapital Canada"
+                - option "Avantage Concessionaire Scotia"
+                - option "AVANTAGE Concessionnaire Scotia"
+                - option "Avantage Plus Testing"
+                - option "Axis Auto Finance Lending Corp."
+                - option "Banque Royale"
+                - option "Banque Scotia"
+                - option "BMO"
+                - option "BNC"
+                - option "BNC"
+                - option "CARFINCO FINANCIAL GROUP INC."
+                - option "CIBC Auto Finance"
+                - option "Credit Virage Canada"
+                - option "Crelogix Acceptance Corporation"
+                - option "FÉDÉRATION DES CAISSES DESJARDINS DU QUÉBEC"
+                - option "Finance Créditfix"
+                - option "FINANCEMENT AUTO TD"
+                - option "Financile"
+                - option "Finauto"
+                - option "Honda Canada Finance Inc."
+                - option "HWY Finance Inc."
+                - option "I.S.A. Auto Direct"
+                - option "IA FInancement Auto"
+                - option "Iceberg Finance Inc."
+                - option "Iceberg Finance Inc."
+                - option "INDUSTRIELLE ALLIANCE, FIDUCIE INC."
+                - option "LendCare Capital Inc"
+                - option "Location All Star"
+                - option "Nissan Canada Finance"
+                - option "Québec Auto Finance"
+                - option "RBC Banque Royale"
+                - option "Services Financiers Mercedes-Benz"
+                - option "Yamaha Financial Services"
+              - combobox "Choose" [ref=f95e78] [cursor=pointer]
+          - generic [ref=f95e82]:
+            - generic [ref=f95e83]: Vehicle Delivery Date
+            - textbox "Vehicle Delivery Date" [ref=f95e85]: 2026-09-06
+          - generic [ref=f95e86]:
+            - generic [ref=f95e87]: Warranty Start Date
+            - textbox "Warranty Start Date" [ref=f95e89]
+          - button "Save" [ref=f95e90] [cursor=pointer]
+  - contentinfo [ref=f95e91]:
+    - generic [ref=f95e92]:
+      - link "Avantage Plus System v2.0.0" [ref=f95e93] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

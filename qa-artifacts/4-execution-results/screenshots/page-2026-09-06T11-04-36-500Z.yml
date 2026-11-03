@@ -1,0 +1,176 @@
+- generic [active] [ref=f56e1]:
+  - banner [ref=f56e2]:
+    - link [ref=f56e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f56e5]:
+      - searchbox "Search" [ref=f56e7]
+      - listitem [ref=f56e8]:
+        - generic [ref=f56e9]: Test QA staging
+  - generic [ref=f56e11]:
+    - navigation [ref=f56e13]:
+      - list [ref=f56e14]:
+        - listitem [ref=f56e15]:
+          - link " 􏀕 Dashboard" [ref=f56e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f56e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f56e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f56e19]:
+            - generic [ref=f56e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f56e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f56e22]:
+            - generic [ref=f56e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f56e24]:
+          - link " 􏗡 Claims" [ref=f56e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f56e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f56e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f56e28]:
+            - generic [ref=f56e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f56e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f56e31]:
+            - generic [ref=f56e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f56e33]:
+          - link " 􏀑 Logout" [ref=f56e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f56e35]:  􏀑
+            - text: Logout
+    - main [ref=f56e36]:
+      - generic [ref=f56e41]:
+        - heading "Permaplate Contract" [level=4] [ref=f56e42]
+        - generic [ref=f56e43]:
+          - heading "Vehicle identification" [level=6] [ref=f56e44]
+          - generic [ref=f56e45]:
+            - generic [ref=f56e47]:
+              - generic [ref=f56e48]: VIN*
+              - textbox "VIN*" [ref=f56e49]: 1FAHP35NX8W239204
+            - generic [ref=f56e51]:
+              - generic [ref=f56e52]: Make*
+              - textbox "Make*" [ref=f56e53]: Ford
+            - generic [ref=f56e55]:
+              - generic [ref=f56e56]: Model*
+              - textbox "Model*" [ref=f56e57]: Focus
+            - generic [ref=f56e59]:
+              - generic [ref=f56e60]: Year*
+              - spinbutton "Year*" [ref=f56e61]: "2008"
+          - generic [ref=f56e62]:
+            - generic [ref=f56e64]:
+              - generic [ref=f56e65]: Odometer at delivery*
+              - spinbutton "Odometer at delivery*" [ref=f56e66]: "5000"
+            - generic [ref=f56e68]:
+              - generic [ref=f56e69]: Delivery date*
+              - textbox "Delivery date*" [ref=f56e70]: 2026-09-06
+        - generic [ref=f56e71]:
+          - heading "Owner information" [level=6] [ref=f56e72]
+          - generic [ref=f56e73]:
+            - generic [ref=f56e75]:
+              - generic [ref=f56e76]: Last name*
+              - textbox "Last name*" [ref=f56e77]: Testclient
+            - generic [ref=f56e79]:
+              - generic [ref=f56e80]: First name*
+              - textbox "First name*" [ref=f56e81]: Perma
+          - generic [ref=f56e84]:
+            - generic [ref=f56e85]: Other name on file (Company's name)
+            - textbox "Other name on file (Company's name)" [ref=f56e86]
+          - generic [ref=f56e89]:
+            - generic [ref=f56e90]: Address*
+            - textbox "Address*" [ref=f56e91]: 100 Rue Principale
+          - generic [ref=f56e92]:
+            - generic [ref=f56e94]:
+              - generic [ref=f56e95]: City*
+              - textbox "City*" [ref=f56e96]: Montreal
+            - generic [ref=f56e98]:
+              - generic [ref=f56e99]: Province*
+              - textbox "Province*" [ref=f56e100]: Québec
+          - generic [ref=f56e103]:
+            - generic [ref=f56e104]: Postal code*
+            - textbox "Postal code*" [ref=f56e105]: H2X 1Y4
+          - generic [ref=f56e106]:
+            - generic [ref=f56e108]:
+              - generic [ref=f56e109]: Phone (res)
+              - textbox "Phone (res)" [ref=f56e110]: "5145550100"
+            - generic [ref=f56e112]:
+              - generic [ref=f56e113]: Phone (cell)
+              - textbox "Phone (cell)" [ref=f56e114]: "5145550101"
+          - generic [ref=f56e117]:
+            - generic [ref=f56e118]: Email
+            - textbox "Email" [ref=f56e119]: perma.test.0906@yopmail.com
+          - generic [ref=f56e122]:
+            - generic [ref=f56e123]: Financing company
+            - generic [ref=f56e124]:
+              - combobox "Financing company" [ref=f56e125]:
+                - option "Choose"
+                - option "AutoCapital Canada" [selected]
+                - option "Avantage Concessionaire Scotia"
+                - option "AVANTAGE Concessionnaire Scotia"
+                - option "Avantage Plus Testing"
+                - option "Axis Auto Finance Lending Corp."
+                - option "Banque Royale"
+                - option "Banque Scotia"
+                - option "BMO"
+                - option "BNC"
+                - option "BNC"
+                - option "CARFINCO FINANCIAL GROUP INC."
+                - option "CIBC Auto Finance"
+                - option "Credit Virage Canada"
+                - option "Crelogix Acceptance Corporation"
+                - option "FÉDÉRATION DES CAISSES DESJARDINS DU QUÉBEC"
+                - option "Finance Créditfix"
+                - option "FINANCEMENT AUTO TD"
+                - option "Financile"
+                - option "Finauto"
+                - option "Honda Canada Finance Inc."
+                - option "HWY Finance Inc."
+                - option "I.S.A. Auto Direct"
+                - option "IA FInancement Auto"
+                - option "Iceberg Finance Inc."
+                - option "Iceberg Finance Inc."
+                - option "INDUSTRIELLE ALLIANCE, FIDUCIE INC."
+                - option "LendCare Capital Inc"
+                - option "Location All Star"
+                - option "Nissan Canada Finance"
+                - option "Québec Auto Finance"
+                - option "RBC Banque Royale"
+                - option "Services Financiers Mercedes-Benz"
+                - option "Yamaha Financial Services"
+              - combobox "AutoCapital Canada 200-11, Church Street" [ref=f56e151] [cursor=pointer]:
+                - generic [ref=f56e129]:
+                  - heading "AutoCapital Canada" [level=6] [ref=f56e152]
+                  - paragraph [ref=f56e153]: 200-11, Church Street
+        - generic [ref=f56e130]:
+          - heading "Program Summary" [level=6] [ref=f56e131]
+          - list [ref=f56e132]:
+            - listitem [ref=f56e133]:
+              - text: "Program Term:"
+              - strong [ref=f56e134]: 10 ans
+            - listitem [ref=f56e135]:
+              - text: "Start Date:"
+              - strong [ref=f56e136]: 2026-09-05
+            - listitem [ref=f56e137]:
+              - text: "End date:"
+              - strong [ref=f56e138]: 2036-09-05
+            - listitem [ref=f56e139]: "Selected protection products:"
+            - list [ref=f56e140]:
+              - listitem [ref=f56e141]: Peinture – Céramique + Graphene
+              - listitem [ref=f56e142]: Extra care (5 ans couverture )
+            - listitem [ref=f56e143]:
+              - strong [ref=f56e144]: "Cost: 145.00$"
+        - separator [ref=f56e145]
+        - button " Generate Contract" [ref=f56e146] [cursor=pointer]:
+          - generic [ref=f56e147]: 
+          - text: Generate Contract
+  - contentinfo [ref=f56e148]:
+    - generic [ref=f56e149]:
+      - link "Avantage Plus System v2.0.0" [ref=f56e150] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - iframe [ref=f56e155]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f58e1] [cursor=pointer]

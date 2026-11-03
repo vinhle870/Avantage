@@ -1,0 +1,71 @@
+- generic [active] [ref=f51e1]:
+  - banner [ref=f51e2]:
+    - link [ref=f51e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f51e5]:
+      - searchbox "Search" [ref=f51e7]
+      - listitem [ref=f51e8]:
+        - generic [ref=f51e9]: Test QA staging
+  - generic [ref=f51e11]:
+    - navigation [ref=f51e13]:
+      - list [ref=f51e14]:
+        - listitem [ref=f51e15]:
+          - link " 􏀕 Dashboard" [ref=f51e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f51e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f51e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f51e19]:
+            - generic [ref=f51e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f51e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f51e22]:
+            - generic [ref=f51e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f51e24]:
+          - link " 􏗡 Claims" [ref=f51e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f51e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f51e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f51e28]:
+            - generic [ref=f51e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f51e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f51e31]:
+            - generic [ref=f51e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f51e33]:
+          - link " 􏀑 Logout" [ref=f51e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f51e35]:  􏀑
+            - text: Logout
+    - main [ref=f51e36]:
+      - generic [ref=f51e38]:
+        - navigation [ref=f51e40]:
+          - heading "Esthetic protection contracts" [level=1] [ref=f51e41]
+          - list
+        - table [ref=f51e45]:
+          - rowgroup [ref=f51e46]:
+            - row [ref=f51e47]:
+              - columnheader "VIN" [ref=f51e48]
+              - columnheader "Client name" [ref=f51e49]
+              - columnheader "Client phone" [ref=f51e50]
+              - columnheader "Contract cost price" [ref=f51e51]
+              - columnheader "Actions" [ref=f51e52]
+          - rowgroup [ref=f51e53]:
+            - row [ref=f51e54]:
+              - cell "1FAHP35NX8W239204" [ref=f51e55] [cursor=pointer]
+              - cell "NonOwner AP2443Test" [ref=f51e56] [cursor=pointer]
+              - cell "5145550301" [ref=f51e57] [cursor=pointer]
+              - cell "0.00$" [ref=f51e58] [cursor=pointer]
+              - cell [ref=f51e59] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f51e60]:
+                  - /url: /quote/6292/permaplate-contract-download
+                  - generic [ref=f51e61]:  􏇁
+                  - text: Download
+  - contentinfo [ref=f51e62]:
+    - generic [ref=f51e63]:
+      - link "Avantage Plus System v2.0.0" [ref=f51e64] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

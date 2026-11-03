@@ -1,0 +1,66 @@
+- generic [active] [ref=f29e1]:
+  - banner [ref=f29e2]:
+    - link [ref=f29e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f29e5]:
+      - searchbox "Search" [ref=f29e7]
+      - listitem [ref=f29e8]:
+        - generic [ref=f29e9]: Test QA staging
+  - generic [ref=f29e11]:
+    - navigation [ref=f29e13]:
+      - list [ref=f29e14]:
+        - listitem [ref=f29e15]:
+          - link " 􏀕 Dashboard" [ref=f29e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f29e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f29e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f29e19]:
+            - generic [ref=f29e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f29e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f29e22]:
+            - generic [ref=f29e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f29e24]:
+          - link " 􏗡 Claims" [ref=f29e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f29e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f29e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f29e28]:
+            - generic [ref=f29e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f29e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f29e31]:
+            - generic [ref=f29e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f29e33]:
+          - link " 􏀑 Logout" [ref=f29e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f29e35]:  􏀑
+            - text: Logout
+    - main [ref=f29e36]:
+      - generic [ref=f29e38]:
+        - navigation [ref=f29e40]:
+          - heading "Permaplate Quote" [level=1] [ref=f29e41]
+          - list [ref=f29e42]:
+            - listitem [ref=f29e43]:
+              - link "Back" [ref=f29e44] [cursor=pointer]:
+                - /url: /quote/6291/details
+        - generic [ref=f29e48]:
+          - heading "Esthetic protection Quote" [level=4] [ref=f29e49]
+          - generic [ref=f29e50]:
+            - generic [ref=f29e51]: Select Term
+            - generic [ref=f29e52]:
+              - radio "10 ans" [ref=f29e53]
+              - generic [ref=f29e54]: 10 ans
+          - 'heading "Cost: 0$" [level=5] [ref=f29e58]'
+          - button " Save" [ref=f29e60] [cursor=pointer]:
+            - generic [ref=f29e61]: 
+            - text: Save
+  - contentinfo [ref=f29e62]:
+    - generic [ref=f29e63]:
+      - link "Avantage Plus System v2.0.0" [ref=f29e64] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

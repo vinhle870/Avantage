@@ -1,0 +1,98 @@
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - link [ref=f7e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f7e5]:
+      - searchbox "Search" [ref=f7e7]
+  - generic [ref=f7e8]:
+    - navigation [ref=f7e10]:
+      - list [ref=f7e11]:
+        - listitem [ref=f7e12]:
+          - link " 􏀕 Dashboard" [ref=f7e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f7e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f7e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f7e16]:
+            - generic [ref=f7e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f7e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f7e19]:
+            - generic [ref=f7e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f7e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f7e22]:
+            - generic [ref=f7e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f7e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f7e25]:
+            - generic [ref=f7e26]:  􏃀
+            - text: Users
+        - listitem [ref=f7e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f7e28]:
+            - generic [ref=f7e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f7e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f7e31]:
+            - generic [ref=f7e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f7e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f7e34]:
+            - generic [ref=f7e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f7e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f7e37]:
+            - generic [ref=f7e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f7e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f7e40]:
+            - generic [ref=f7e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f7e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f7e43]:
+            - generic [ref=f7e44]:  􏂎
+            - text: External links
+        - listitem [ref=f7e45]:
+          - link " 􏆫 Language settings" [ref=f7e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+            - generic [ref=f7e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f7e48]:
+          - link " 􏀑 Logout" [ref=f7e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f7e50]:  􏀑
+            - text: Logout
+    - main [ref=f7e51]:
+      - generic [ref=f7e53]:
+        - navigation [ref=f7e55]:
+          - heading "Earning Sets" [level=1] [ref=f7e56]
+          - list [ref=f7e57]:
+            - listitem [ref=f7e58]:
+              - link "Create New" [ref=f7e59] [cursor=pointer]:
+                - /url: /admin/earning-set/new/edit
+        - table [ref=f7e63]:
+          - rowgroup [ref=f7e64]:
+            - row [ref=f7e65]:
+              - columnheader "Description" [ref=f7e66]
+              - columnheader "Actions" [ref=f7e67]
+          - rowgroup [ref=f7e68]:
+            - row [ref=f7e69]:
+              - cell "Reinsurance" [ref=f7e70] [cursor=pointer]
+              - cell [ref=f7e71] [cursor=pointer]:
+                - link "Edit" [ref=f7e72]:
+                  - /url: /admin/earning-set/3/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+            - row [ref=f7e73]:
+              - cell "Statutory" [ref=f7e74] [cursor=pointer]
+              - cell [ref=f7e75] [cursor=pointer]:
+                - link "Edit" [ref=f7e76]:
+                  - /url: /admin/earning-set/2/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+            - row [ref=f7e77]:
+              - cell "Profit" [ref=f7e78] [cursor=pointer]
+              - cell [ref=f7e79] [cursor=pointer]:
+                - link "Edit" [ref=f7e80]:
+                  - /url: /admin/earning-set/1/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+  - contentinfo [ref=f7e81]:
+    - generic [ref=f7e82]:
+      - link "Avantage Plus System v2.0.0" [ref=f7e83] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

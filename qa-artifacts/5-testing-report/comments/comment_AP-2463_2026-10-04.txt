@@ -1,0 +1,17 @@
+h3. Re-test PASSED — 2026-10-04
+
+*Environment:* Staging (v2staging) · *Build/run:* 5.1.0
+
+||TC ID||What was checked||Status||
+|AP2463_001|Dealer list /permaplate-contracts, row for Perma Testclient (PNA-0000000007, home 5145550100 / work 5145550101): the Client phone cell shows both numbers, labelled|PASS|
+|AP2463_002|Admin list /admin/permaplate-contracts, same contract: the Client cell shows the same two labelled numbers|PASS|
+|AP2463_003|Regression: the five dealer-list columns, the 145.00$ cost and the PDF Download are unchanged; /quote/6284/details still shows the home number 5145550100|PASS|
+
+The reported behaviour no longer occurs: both lists now show "Cell: 5145550101" and "Home: 5145550100" for the same client, matching the agreed fix (list both, labelled Cell and Home). → moved to Done.
+
+*Observations (not blocking):*
+* The numbers are shown as stored (5145550101), not dashed as in the agreed template "Cell: xxx-xxx-xxxx"; a record stored with dashes shows dashes, so formats differ between rows.
+* On the admin list a missing number drops its line (contracts 4 and 14 show only "Home: …"; contract 11 shows no phone), and contract 3 shows "Cell: 3" (bad stored data).
+* The program now displays as "Esthetic protection" in both portals.
+
+Evidence: AP2463_001-step4-pass.png, AP2463_002-step4-pass.png, AP2463_003-step2-pass.png, AP2463_003-step5-pass.png — execution log qa-artifacts/4-execution-results/5.1.0/execution-log_AP-2463_2026-10-04.md

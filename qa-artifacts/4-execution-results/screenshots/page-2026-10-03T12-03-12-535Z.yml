@@ -1,0 +1,119 @@
+- generic [active] [ref=f76e1]:
+  - banner [ref=f76e2]:
+    - link [ref=f76e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f76e5]:
+      - searchbox "Search" [ref=f76e7]
+  - generic [ref=f76e8]:
+    - navigation [ref=f76e10]:
+      - list [ref=f76e11]:
+        - listitem [ref=f76e12]:
+          - link " 􏀕 Dashboard" [ref=f76e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f76e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f76e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f76e16]:
+            - generic [ref=f76e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f76e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f76e19]:
+            - generic [ref=f76e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f76e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f76e22]:
+            - generic [ref=f76e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f76e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f76e25]:
+            - generic [ref=f76e26]:  􏃀
+            - text: Users
+        - listitem [ref=f76e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f76e28]:
+            - generic [ref=f76e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f76e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f76e31]:
+            - generic [ref=f76e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f76e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f76e34]:
+            - generic [ref=f76e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f76e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f76e37]:
+            - generic [ref=f76e38]:  􏘤
+            - generic [ref=f76e92]: Risk Management
+          - list [ref=f76e93]:
+            - listitem [ref=f76e94]:
+              - link "Earning Curves" [ref=f76e95] [cursor=pointer]:
+                - /url: /admin/earning-curve
+            - listitem [ref=f76e96]:
+              - link "Earning Sets" [ref=f76e97] [cursor=pointer]:
+                - /url: /admin/earning-set
+            - listitem [ref=f76e98]:
+              - link "Earning Groups" [ref=f76e99] [cursor=pointer]:
+                - /url: /admin/earning-group
+            - listitem [ref=f76e100]:
+              - link "Earning Assignments" [ref=f76e101] [cursor=pointer]:
+                - /url: /admin/earning-assignment
+        - listitem [ref=f76e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f76e40]:
+            - generic [ref=f76e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f76e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f76e43]:
+            - generic [ref=f76e44]:  􏂎
+            - text: External links
+        - listitem [ref=f76e45]:
+          - link " 􏆫 Language settings" [ref=f76e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin
+            - generic [ref=f76e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f76e48]:
+          - link " 􏀑 Logout" [ref=f76e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f76e50]:  􏀑
+            - text: Logout
+    - main [ref=f76e51]:
+      - generic [ref=f76e54]:
+        - heading "Vinh Le 1 Welcome to the admin" [level=1] [ref=f76e56]
+        - generic [ref=f76e59]:
+          - generic [ref=f76e61]:
+            - generic [ref=f76e62]: 
+            - paragraph [ref=f76e63]: Claims
+          - generic [ref=f76e64]:
+            - generic [ref=f76e65]:
+              - generic [ref=f76e66]: "6"
+              - link "Preapproved" [ref=f76e68] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/approved
+            - generic [ref=f76e69]:
+              - generic [ref=f76e70]: "23"
+              - link "Authorized" [ref=f76e72] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/authorized
+            - generic [ref=f76e73]:
+              - generic [ref=f76e74]: "3"
+              - link "Accepted by Dealer" [ref=f76e76] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/dealer_accepted
+            - generic [ref=f76e77]:
+              - generic [ref=f76e78]: "12"
+              - link "Paid" [ref=f76e80] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/paid
+            - generic [ref=f76e81]:
+              - generic [ref=f76e82]: "13"
+              - link "Refused" [ref=f76e84] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/refused
+            - generic [ref=f76e85]:
+              - generic [ref=f76e86]: "130"
+              - link "Submitted" [ref=f76e88] [cursor=pointer]:
+                - /url: /admin/claims
+  - contentinfo [ref=f76e89]:
+    - generic [ref=f76e90]:
+      - link "Avantage Plus System v2.0.0" [ref=f76e91] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - iframe [ref=f76e103]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f78e1] [cursor=pointer]

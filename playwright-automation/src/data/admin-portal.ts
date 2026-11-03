@@ -1,149 +1,88 @@
 /**
- * Admin Portal Data Models
- * Converted from JAXB-generated Java classes
+ * Admin Portal data models.
+ * Mirrors the JAXB business objects in ProjectContext/BusinessObject/Admin and the
+ * XML files under test-data/TestCaseData/AdminPortal. Every leaf is a string because
+ * the XML is the source of truth; empty elements load as ''.
  */
 
-// Basic Admin Dealer Information
 export interface Dealer {
-  email: string;
-  name?: string;
-  phone?: string;
-  fax?: string;
-  companyName?: string;
-  address?: string;
-  city?: string;
-  province?: string;
-  postalCode?: string;
-  internalId?: string;
-  contactTitle?: string;
-  licenseNo?: string;
-  registrationGst?: string;
-  registrationPst?: string;
-  group?: string;
-  notes?: string;
-}
-
-export interface DealerInfo {
-  id?: string;
-  email: string;
-  name?: string;
-  phone?: string;
-  fax?: string;
-  companyName?: string;
-  address?: string;
-  city?: string;
-  province?: string;
-  postalCode?: string;
-  internalId?: string;
-  contactTitle?: string;
-  licenseNo?: string;
-  registrationGst?: string;
-  registrationPst?: string;
-  group?: string;
-  notes?: string;
-  status?: string;
-}
-
-// Price Rule Models
-export interface Condition {
-  id?: string;
-  name: string;
-  value?: string;
-  operator?: string;
-}
-
-export interface Conditions {
-  condition: Condition[];
-}
-
-export interface PriceRule {
-  id?: string;
-  name: string;
-  description?: string;
-  conditions: Conditions;
-  priceAdjustment: number;
-  adjustmentType?: string; // PERCENTAGE or FIXED
-  startDate?: Date;
-  endDate?: Date;
-  active?: boolean;
-}
-
-export interface PriceRuleInfo extends PriceRule {
-  createdDate?: Date;
-  lastModified?: Date;
-  createdBy?: string;
-}
-
-// Program Models
-export interface ProgOption {
-  id?: string;
-  name: string;
-  description?: string;
-  price: number;
-  coverage?: number; // in months or km
-}
-
-export interface ProgramOptions {
-  progOption: ProgOption[];
-}
-
-export interface ProgTerm {
-  id?: string;
-  termLength: number;
-  unit: string; // MONTHS or KM
-  maxPrice?: number;
-}
-
-export interface ProgramTerms {
-  progTerm: ProgTerm[];
+    email: string;
+    name: string;
+    phone: string;
+    fax: string;
+    companyName: string;
+    address: string;
+    city: string;
+    province: string;
+    postalCode: string;
+    internalId: string;
+    contactTitle: string;
+    licenseNo: string;
+    registrationGST: string;
+    registrationPST: string;
+    isShowTaxInfo: string;
+    group: string;
+    notes: string;
+    humaniaCommissionRate: string;
 }
 
 export interface WarrantyCondition {
-  id?: string;
-  name: string;
-  description?: string;
-  covered: boolean;
+    name: string;
+    description: string;
+    englishPdf: string;
+    frenchPdf: string;
+}
+
+export interface ProgTerm {
+    eligibilityYears: string;
+    eligibilityKmPerHr: string;
+    termMonths: string;
+    termKm: string;
+    franchiseAmount: string;
+    repairAmountPerVisit: string;
+    repairAmountTotal: string;
+    repairAmountText: string;
+    eligibilityCategory: string;
+    fuelTypeEligibility: string;
+    vehicleType: string;
+}
+
+export interface ProgOption {
+    name: string;
+    code: string;
+    programTerms: ProgTerm[];
 }
 
 export interface Program {
-  id?: string;
-  name: string;
-  description?: string;
-  category?: string;
-  options: ProgramOptions;
-  terms: ProgramTerms;
-  warrantyConditions?: WarrantyCondition[];
-  active?: boolean;
+    name: string;
+    description: string;
+    code: string;
+    /** "Warranty start date delay in days" — required by the current program form */
+    warrantyStartDateDelay: string;
+    warrantyCondition: WarrantyCondition;
+    wholesaler: string;
+    programOptions: ProgOption[];
 }
 
-export interface ProgramInfo extends Program {
-  createdDate?: Date;
-  lastModified?: Date;
-  createdBy?: string;
+export interface Condition {
+    attribute: string;
+    operator: string;
+    value: string;
 }
 
-// Wholesaler Model
-export interface Wholesaler {
-  id?: string;
-  email: string;
-  name: string;
-  phone?: string;
-  companyName?: string;
-  address?: string;
-  city?: string;
-  province?: string;
-  postalCode?: string;
-  notes?: string;
-  status?: string;
+export interface PriceRule {
+    name: string;
+    position: string;
+    applyRuleIf: string;
+    conditions: Condition[];
+    apply: string;
+    amount: string;
+    stopFurtherProcessing: string;
 }
 
-// Admin Portal Root
-export interface AdminPortal {
-  dealers?: Dealer[];
-  programs?: Program[];
-  priceRules?: PriceRule[];
-  wholesalers?: Wholesaler[];
-  url?: string;
-  username?: string;
-  password?: string;
+/** Root of an AdminPortal XML file */
+export interface AdminPortalData {
+    dealers: Dealer[];
+    programs: Program[];
+    priceRules: PriceRule[];
 }

@@ -1,0 +1,137 @@
+- generic [active] [ref=f32e1]:
+  - banner [ref=f32e2]:
+    - link [ref=f32e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f32e5]:
+      - searchbox "Search" [ref=f32e7]
+      - listitem [ref=f32e8]:
+        - generic [ref=f32e9]: Test QA staging
+  - generic [ref=f32e11]:
+    - navigation [ref=f32e13]:
+      - list [ref=f32e14]:
+        - listitem [ref=f32e15]:
+          - link " 􏀕 Dashboard" [ref=f32e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f32e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f32e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f32e19]:
+            - generic [ref=f32e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f32e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f32e22]:
+            - generic [ref=f32e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f32e24]:
+          - link " 􏗡 Claims" [ref=f32e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f32e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f32e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f32e28]:
+            - generic [ref=f32e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f32e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f32e31]:
+            - generic [ref=f32e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f32e33]:
+          - link " 􏀑 Logout" [ref=f32e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f32e35]:  􏀑
+            - text: Logout
+    - main [ref=f32e36]:
+      - generic [ref=f32e38]:
+        - alert [ref=f32e39]:
+          - text: Esthetic protection quote saved successfully
+          - button "Close" [ref=f32e40] [cursor=pointer]: ×
+        - navigation [ref=f32e42]:
+          - heading "#6291 - Perma Retest0913" [level=1] [ref=f32e43]
+          - list [ref=f32e44]:
+            - listitem [ref=f32e45]:
+              - link "Back" [ref=f32e46] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f32e47]:
+              - link "Send compliance documents" [ref=f32e48] [cursor=pointer]:
+                - /url: /compliance-documents/send?redirectUrl=/quote/6291/details&clientEmail=perma.retest.0913@yopmail.com
+        - generic [ref=f32e49]:
+          - generic [ref=f32e52]:
+            - navigation [ref=f32e53]:
+              - heading "Client" [level=3] [ref=f32e54]
+              - list [ref=f32e55]:
+                - listitem [ref=f32e56]:
+                  - link "Edit" [ref=f32e57] [cursor=pointer]:
+                    - /url: /quote/6291/client
+            - paragraph [ref=f32e58]:
+              - text: Perma Retest0913
+              - generic [ref=f32e59]:
+                - text: 220 Boulevard Saint-Laurent Montreal Québec H2Y 1Z4
+                - generic [ref=f32e60]: 
+                - link "perma.retest.0913@yopmail.com" [ref=f32e61] [cursor=pointer]:
+                  - /url: mailto:perma.retest.0913@yopmail.com
+                - generic [ref=f32e62]: 
+                - text: "5145550200"
+          - generic [ref=f32e65]:
+            - navigation [ref=f32e66]:
+              - heading "Vehicle" [level=3] [ref=f32e67]
+              - list [ref=f32e68]:
+                - listitem [ref=f32e69]:
+                  - link "Edit" [ref=f32e70] [cursor=pointer]:
+                    - /url: /quote/6291/vehicle
+            - paragraph [ref=f32e71]:
+              - link "Ford Focus 2008" [ref=f32e72] [cursor=pointer]:
+                - /url: /vehicle/915/details
+              - generic [ref=f32e73]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+            - paragraph [ref=f32e74]:
+              - generic [ref=f32e75]: "Delivery date: Sep 12, 2026 Price: CA$10,000.00"
+          - generic [ref=f32e78]:
+            - navigation [ref=f32e79]:
+              - heading "Warranty" [level=3] [ref=f32e80]
+            - heading "Extended" [level=6] [ref=f32e81]
+            - paragraph [ref=f32e82]:
+              - link " Click here to create a warranty" [ref=f32e83] [cursor=pointer]:
+                - /url: /quote/6291/warranty/edit
+                - generic [ref=f32e84]: 
+                - text: Click here to create a warranty
+            - link "Road Side Protection" [ref=f32e86] [cursor=pointer]:
+              - /url: /quote/6291/road-side-protection
+            - generic [ref=f32e88]:
+              - heading "Esthetic protection" [level=5] [ref=f32e89]
+              - paragraph [ref=f32e90]:
+                - text: Peinture – Céramique + Graphene, Extra care (5 ans couverture )
+                - strong [ref=f32e91]: "Cost: 145$"
+              - generic [ref=f32e92]:
+                - link "Edit" [ref=f32e93] [cursor=pointer]:
+                  - /url: /quote/6291/permaplate
+                - link "Create Contract" [ref=f32e94] [cursor=pointer]:
+                  - /url: /quote/6291/permaplate-create-contract
+        - generic [ref=f32e95]:
+          - generic [ref=f32e98]:
+            - navigation [ref=f32e99]:
+              - heading "Financing" [level=3] [ref=f32e100]
+              - link "DYR Rates" [ref=f32e103] [cursor=pointer]:
+                - /url: /quote/6291/dyr-rates
+            - generic [ref=f32e104]:
+              - generic [ref=f32e105]: 
+              - paragraph [ref=f32e106]: You have not added financing details yet
+              - link "Add a financing" [ref=f32e107] [cursor=pointer]:
+                - /url: /quote/6291/financing
+          - generic [ref=f32e110]:
+            - navigation [ref=f32e111]:
+              - heading "Sale" [level=3] [ref=f32e112]
+            - generic [ref=f32e113]:
+              - link "Create sale" [ref=f32e114] [cursor=pointer]:
+                - /url: /quote/6291/sales
+              - separator [ref=f32e115]
+              - heading "Exchange vehicle" [level=6] [ref=f32e116]
+              - link "Add exchange vehicle" [ref=f32e117] [cursor=pointer]:
+                - /url: /quote/6291/exchange-vehicle?referer=%252Fquote%252F6291%252Fdetails
+        - generic [ref=f32e121]:
+          - heading "Compliance documents sent" [level=4] [ref=f32e122]
+          - separator [ref=f32e123]
+          - alert [ref=f32e125]: No entities found
+  - contentinfo [ref=f32e126]:
+    - generic [ref=f32e127]:
+      - link "Avantage Plus System v2.0.0" [ref=f32e128] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

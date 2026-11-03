@@ -1,0 +1,121 @@
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - link [ref=f7e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f7e5]:
+      - searchbox "Search" [ref=f7e7]
+      - listitem [ref=f7e8]:
+        - generic [ref=f7e9]: Test QA staging
+  - generic [ref=f7e11]:
+    - navigation [ref=f7e13]:
+      - list [ref=f7e14]:
+        - listitem [ref=f7e15]:
+          - link " 􏀕 Dashboard" [ref=f7e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f7e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f7e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f7e19]:
+            - generic [ref=f7e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f7e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f7e22]:
+            - generic [ref=f7e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f7e24]:
+          - link " 􏗡 Claims" [ref=f7e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f7e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f7e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f7e28]:
+            - generic [ref=f7e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f7e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f7e31]:
+            - generic [ref=f7e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f7e33]:
+          - link " 􏀑 Logout" [ref=f7e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f7e35]:  􏀑
+            - text: Logout
+    - main [ref=f7e36]:
+      - generic [ref=f7e38]:
+        - alert [ref=f7e39]:
+          - text: Client saved
+          - button "Close" [ref=f7e40] [cursor=pointer]: ×
+        - navigation [ref=f7e42]:
+          - heading "#6291 - Perma Retest0913" [level=1] [ref=f7e43]
+          - list [ref=f7e44]:
+            - listitem [ref=f7e45]:
+              - link "Back" [ref=f7e46] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f7e47]:
+              - link "Send compliance documents" [ref=f7e48] [cursor=pointer]:
+                - /url: /compliance-documents/send?redirectUrl=/quote/6291/details&clientEmail=perma.retest.0913@yopmail.com
+        - generic [ref=f7e49]:
+          - generic [ref=f7e52]:
+            - navigation [ref=f7e53]:
+              - heading "Client" [level=3] [ref=f7e54]
+              - list [ref=f7e55]:
+                - listitem [ref=f7e56]:
+                  - link "Edit" [ref=f7e57] [cursor=pointer]:
+                    - /url: /quote/6291/client
+            - paragraph [ref=f7e58]:
+              - text: Perma Retest0913
+              - generic [ref=f7e59]:
+                - text: 220 Boulevard Saint-Laurent Montreal Québec H2Y 1Z4
+                - generic [ref=f7e60]: 
+                - link "perma.retest.0913@yopmail.com" [ref=f7e61] [cursor=pointer]:
+                  - /url: mailto:perma.retest.0913@yopmail.com
+                - generic [ref=f7e62]: 
+                - text: "5145550200"
+          - generic [ref=f7e65]:
+            - navigation [ref=f7e66]:
+              - heading "Vehicle" [level=3] [ref=f7e67]
+              - list
+            - generic [ref=f7e68]:
+              - generic [ref=f7e69]: 
+              - paragraph [ref=f7e70]: You have not added a vehicle yet
+              - paragraph [ref=f7e71]:
+                - link "Add a vehicle" [ref=f7e72] [cursor=pointer]:
+                  - /url: /quote/6291/vehicle
+          - generic [ref=f7e75]:
+            - navigation [ref=f7e76]:
+              - heading "Warranty" [level=3] [ref=f7e77]
+            - generic [ref=f7e78]:
+              - generic [ref=f7e79]: 
+              - paragraph [ref=f7e80]: You haven't created a warranty yet
+            - link "Road Side Protection" [ref=f7e82] [cursor=pointer]:
+              - /url: /quote/6291/road-side-protection
+        - generic [ref=f7e83]:
+          - generic [ref=f7e86]:
+            - navigation [ref=f7e87]:
+              - heading "Financing" [level=3] [ref=f7e88]
+              - link "DYR Rates" [ref=f7e91] [cursor=pointer]:
+                - /url: /quote/6291/dyr-rates
+            - generic [ref=f7e92]:
+              - generic [ref=f7e93]: 
+              - paragraph [ref=f7e94]: You have not added financing details yet
+              - link "Add a financing":
+                - /url: /quote/6291/financing
+          - generic [ref=f7e97]:
+            - navigation [ref=f7e98]:
+              - heading "Sale" [level=3] [ref=f7e99]
+            - generic [ref=f7e100]:
+              - link "Create sale":
+                - /url: /quote/6291/sales
+              - separator [ref=f7e101]
+              - heading "Exchange vehicle" [level=6] [ref=f7e102]
+              - link "Add exchange vehicle" [ref=f7e103] [cursor=pointer]:
+                - /url: /quote/6291/exchange-vehicle?referer=%252Fquote%252F6291%252Fdetails
+        - generic [ref=f7e107]:
+          - heading "Compliance documents sent" [level=4] [ref=f7e108]
+          - separator [ref=f7e109]
+          - alert [ref=f7e111]: No entities found
+  - contentinfo [ref=f7e112]:
+    - generic [ref=f7e113]:
+      - link "Avantage Plus System v2.0.0" [ref=f7e114] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

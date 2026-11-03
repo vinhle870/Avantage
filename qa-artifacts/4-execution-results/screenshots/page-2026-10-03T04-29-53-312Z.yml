@@ -1,0 +1,168 @@
+- generic [active] [ref=f27e1]:
+  - banner [ref=f27e2]:
+    - button [ref=f27e3] [cursor=pointer]
+    - link [ref=f27e5] [cursor=pointer]:
+      - /url: /
+      - img "Avantage Plus Logo" [ref=f27e6]
+    - list [ref=f27e7]:
+      - searchbox "Search" [ref=f27e9]
+      - listitem [ref=f27e10]:
+        - generic [ref=f27e11]: Test QA staging
+  - generic [ref=f27e13]:
+    - navigation [ref=f27e15]:
+      - list [ref=f27e16]:
+        - listitem [ref=f27e17]:
+          - link " Dashboard" [ref=f27e18] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f27e19]: 
+            - text: Dashboard
+        - listitem [ref=f27e20]:
+          - heading " Vehicles" [level=6] [ref=f27e21]:
+            - generic [ref=f27e22]: 
+            - text: Vehicles
+          - list:
+            - listitem [ref=f27e23]:
+              - link "Inventory" [ref=f27e24] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f27e25]:
+              - link "Quotes" [ref=f27e26] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f27e27]:
+              - link "Insurance Quick Quote" [ref=f27e28] [cursor=pointer]:
+                - /url: /quick-insurance-quote
+            - listitem [ref=f27e29]:
+              - link "Insurance compliance log" [ref=f27e30] [cursor=pointer]:
+                - /url: /insurance-compliance-log
+        - listitem [ref=f27e31]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f27e32]:
+            - generic [ref=f27e33]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f27e34]:
+              - link "Warranty" [ref=f27e35] [cursor=pointer]:
+                - /url: /warranty
+            - listitem [ref=f27e36]:
+              - link "Road Side Protection" [ref=f27e37] [cursor=pointer]:
+                - /url: /road-side-protection-contracts
+            - listitem [ref=f27e38]:
+              - link "Creditors insurance" [ref=f27e39] [cursor=pointer]:
+                - /url: /creditor-insurance-contracts
+            - listitem [ref=f27e40]:
+              - link "Gap Insurance" [ref=f27e41] [cursor=pointer]:
+                - /url: /gap-insurance-contracts
+            - listitem [ref=f27e42]:
+              - link "Esthetic protection" [ref=f27e43] [cursor=pointer]:
+                - /url: /permaplate-contracts
+        - listitem [ref=f27e44]:
+          - link " Claims" [ref=f27e45] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f27e46]: 
+            - text: Claims
+        - listitem [ref=f27e47]:
+          - heading " Billing" [level=6] [ref=f27e48]:
+            - generic [ref=f27e49]: 
+            - text: Billing
+          - list:
+            - listitem [ref=f27e50]:
+              - link "Invoices" [ref=f27e51] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f27e52]:
+              - link "Payment history" [ref=f27e53] [cursor=pointer]:
+                - /url: /invoice/payment-history
+        - listitem [ref=f27e54]:
+          - heading " System preferences" [level=6] [ref=f27e55]:
+            - generic [ref=f27e56]: 
+            - text: System preferences
+          - list:
+            - listitem [ref=f27e57]:
+              - link "Language settings" [ref=f27e58] [cursor=pointer]:
+                - /url: /language?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/new/client
+            - listitem [ref=f27e59]:
+              - link "Users" [ref=f27e60] [cursor=pointer]:
+                - /url: /users?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/new/client
+        - listitem [ref=f27e61]:
+          - link " Logout" [ref=f27e62] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f27e63]: 
+            - text: Logout
+    - main [ref=f27e64]:
+      - generic [ref=f27e66]:
+        - navigation [ref=f27e68]
+        - generic [ref=f27e73]:
+          - heading "Client" [level=4] [ref=f27e74]
+          - generic [ref=f27e75]:
+            - generic [ref=f27e76]:
+              - generic [ref=f27e77]: Email*
+              - textbox "Email*" [ref=f27e78]
+            - generic [ref=f27e79]:
+              - generic [ref=f27e80]: First name*
+              - textbox "First name*" [ref=f27e81]
+            - generic [ref=f27e82]:
+              - generic [ref=f27e83]: Last name*
+              - textbox "Last name*" [ref=f27e84]
+            - generic [ref=f27e85]:
+              - generic [ref=f27e86]: Secondary owner or company
+              - textbox "Secondary owner or company" [ref=f27e87]
+            - generic [ref=f27e88]:
+              - generic [ref=f27e89]: Distributor name
+              - textbox "Distributor name" [ref=f27e90]
+            - generic [ref=f27e91]:
+              - generic [ref=f27e92]: Address*
+              - textbox "Address*" [ref=f27e93]
+            - generic [ref=f27e94]:
+              - generic [ref=f27e95]: Address2
+              - textbox "Address2" [ref=f27e96]
+            - generic [ref=f27e97]:
+              - generic [ref=f27e98]: City*
+              - textbox "City*" [ref=f27e99]
+            - generic [ref=f27e100]:
+              - generic [ref=f27e101]: Province*
+              - generic [ref=f27e102]:
+                - combobox "Province*" [ref=f27e103]:
+                  - option "Choose" [selected]
+                  - option "Québec"
+                  - option "Ontario"
+                  - option "British Columbia"
+                  - option "Alberta"
+                  - option "Manitoba"
+                  - option "Saskatchewan"
+                  - option "Nova Scotia"
+                  - option "New Brunswick"
+                  - option "Newfoundland and Labrador"
+                  - option "Prince Edward Island"
+                  - option "Northwest Territories"
+                  - option "Yukon"
+                  - option "Nanavut"
+                - combobox "Choose" [ref=f27e104] [cursor=pointer]
+            - generic [ref=f27e108]:
+              - generic [ref=f27e109]: Postal code*
+              - textbox "Postal code*" [ref=f27e110]
+            - generic [ref=f27e111]:
+              - generic [ref=f27e112]: Tel home*
+              - textbox "Tel home*" [ref=f27e113]
+            - generic [ref=f27e114]:
+              - generic [ref=f27e115]: Tel work*
+              - textbox "Tel work*" [ref=f27e116]
+            - generic [ref=f27e117]:
+              - generic [ref=f27e118]: Indian status certificate
+              - textbox "Indian status certificate" [ref=f27e119]
+            - generic [ref=f27e120]:
+              - generic [ref=f27e121]: Drivers license
+              - textbox "Drivers license" [ref=f27e122]
+            - generic [ref=f27e124]:
+              - checkbox "I confirm that I have provided a copy of FORM-L25, at the request of Les Produits Avantage Plus Inc., all in accordance with the requirements of the Act respecting the protection of personal information in the private sector.*" [ref=f27e125]
+              - generic [ref=f27e126]:
+                - text: I confirm that I have provided a copy of
+                - link "FORM-L25" [ref=f27e127] [cursor=pointer]:
+                  - /url: /quote/client/pdf-privacy
+                - text: ", at the request of Les Produits Avantage Plus Inc., all in accordance with the requirements of the Act respecting the protection of personal information in the private sector.*"
+            - generic [ref=f27e129]:
+              - checkbox "Send a copy of the privacy policy to the client's email address" [ref=f27e130]
+              - generic [ref=f27e131]: Send a copy of the privacy policy to the client's email address
+          - separator [ref=f27e132]
+          - button "Save" [ref=f27e133] [cursor=pointer]
+  - contentinfo [ref=f27e134]:
+    - generic [ref=f27e135]:
+      - link "Avantage Plus System v2.0.0" [ref=f27e136] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

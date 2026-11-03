@@ -1,0 +1,57 @@
+installation: Cloud
+auth_type: basic
+server: https://garantieavantageplus.atlassian.net
+login: vinhleavantage@gmail.com
+project:
+  key: BAION
+  type: classic
+issue:
+  types:
+    - id: "10000"
+      name: Epic
+      handle: Epic
+      subtask: false
+    - id: "10011"
+      name: Story
+      handle: Story
+      subtask: false
+    - id: "10052"
+      name: Task
+      handle: Task
+      subtask: false
+    - id: "10053"
+      name: Sub-task
+      handle: Sub-task
+      subtask: true
+    - id: "10060"
+      name: Bug
+      handle: Bug
+      subtask: false
+    - id: "10062"
+      name: Idea
+      handle: Idea
+      subtask: false
+    - id: "10098"
+      name: Design
+      handle: Design
+      subtask: false
+    - id: "10137"
+      name: PROD Issues
+      handle: PROD Issues
+      subtask: false
+  fields:
+    custom:
+      - name: Sprint
+        key: customfield_10020
+        schema:
+          datatype: array
+          items: json
+          custom: com.pyxis.greenhopper.jira:gh-sprint
+      - name: QA URL
+        key: customfield_10481
+        schema:
+          datatype: string
+      - name: Feature Branch
+        key: customfield_10415
+        schema:
+          datatype: string

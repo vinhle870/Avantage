@@ -1,0 +1,94 @@
+- generic [active] [ref=f23e1]:
+  - banner [ref=f23e2]:
+    - link [ref=f23e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f23e5]:
+      - searchbox "Search" [ref=f23e7]
+  - generic [ref=f23e8]:
+    - navigation [ref=f23e10]:
+      - list [ref=f23e11]:
+        - listitem [ref=f23e12]:
+          - link " 􏀕 Dashboard" [ref=f23e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f23e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f23e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f23e16]:
+            - generic [ref=f23e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f23e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f23e19]:
+            - generic [ref=f23e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f23e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f23e22]:
+            - generic [ref=f23e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f23e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f23e25]:
+            - generic [ref=f23e26]:  􏃀
+            - text: Users
+        - listitem [ref=f23e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f23e28]:
+            - generic [ref=f23e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f23e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f23e31]:
+            - generic [ref=f23e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f23e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f23e34]:
+            - generic [ref=f23e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f23e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f23e37]:
+            - generic [ref=f23e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f23e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f23e40]:
+            - generic [ref=f23e41]:  􏂎
+            - text: External links
+        - listitem [ref=f23e42]:
+          - link " 􏆫 Language settings" [ref=f23e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/dealer/1380/permaplate
+            - generic [ref=f23e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f23e45]:
+          - link " 􏀑 Logout" [ref=f23e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f23e47]:  􏀑
+            - text: Logout
+    - main [ref=f23e48]:
+      - generic [ref=f23e50]:
+        - navigation [ref=f23e52]:
+          - heading "Eligible Esthetic protection products" [level=1] [ref=f23e53]
+          - list [ref=f23e54]:
+            - listitem [ref=f23e55]:
+              - link "Link a product" [ref=f23e56] [cursor=pointer]:
+                - /url: /admin/dealer/1380/permaplate/link
+        - generic [ref=f23e57]:
+          - list [ref=f23e59]:
+            - listitem [ref=f23e60]:
+              - link "Details" [ref=f23e61] [cursor=pointer]:
+                - /url: /admin/dealer/1380
+            - listitem [ref=f23e62]:
+              - link "Users" [ref=f23e63] [cursor=pointer]:
+                - /url: /admin/dealer/1380/users
+            - listitem [ref=f23e64]:
+              - link "Program eligibility" [ref=f23e65] [cursor=pointer]:
+                - /url: /admin/dealer/1380/program-eligibility
+            - listitem [ref=f23e66]:
+              - link "Customer portal" [ref=f23e67] [cursor=pointer]:
+                - /url: /admin/dealer/1380/customer-portal
+            - listitem [ref=f23e68]:
+              - link "Financing Options" [ref=f23e69] [cursor=pointer]:
+                - /url: /admin/dealer/1380/financing-options
+            - listitem [ref=f23e70]:
+              - link "Esthetic protection" [ref=f23e71] [cursor=pointer]:
+                - /url: /admin/dealer/1380/permaplate
+          - alert [ref=f23e74]: No entities found
+  - contentinfo [ref=f23e75]:
+    - generic [ref=f23e76]:
+      - link "Avantage Plus System v2.0.0" [ref=f23e77] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

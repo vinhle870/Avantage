@@ -1,0 +1,91 @@
+- generic [active] [ref=f58e1]:
+  - banner [ref=f58e2]:
+    - link [ref=f58e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f58e5]:
+      - searchbox "Search" [ref=f58e7]
+      - listitem [ref=f58e8]:
+        - generic [ref=f58e9]: Test QA staging
+  - generic [ref=f58e11]:
+    - navigation [ref=f58e13]:
+      - list [ref=f58e14]:
+        - listitem [ref=f58e15]:
+          - link " 􏀕 Dashboard" [ref=f58e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f58e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f58e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f58e19]:
+            - generic [ref=f58e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f58e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f58e22]:
+            - generic [ref=f58e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f58e24]:
+          - link " 􏗡 Claims" [ref=f58e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f58e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f58e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f58e28]:
+            - generic [ref=f58e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f58e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f58e31]:
+            - generic [ref=f58e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f58e33]:
+          - link " 􏀑 Logout" [ref=f58e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f58e35]:  􏀑
+            - text: Logout
+    - main [ref=f58e36]:
+      - generic [ref=f58e38]:
+        - navigation [ref=f58e40]:
+          - heading "Esthetic protection contracts" [level=1] [ref=f58e41]
+          - list
+        - table [ref=f58e45]:
+          - rowgroup [ref=f58e46]:
+            - row [ref=f58e47]:
+              - columnheader "VIN" [ref=f58e48]
+              - columnheader "Client name" [ref=f58e49]
+              - columnheader "Client phone" [ref=f58e50]
+              - columnheader "Contract cost price" [ref=f58e51]
+              - columnheader "Actions" [ref=f58e52]
+          - rowgroup [ref=f58e53]:
+            - row [ref=f58e54]:
+              - cell "1FAHP35NX8W239204" [ref=f58e55] [cursor=pointer]
+              - cell "NonOwner AP2443Test" [ref=f58e56] [cursor=pointer]
+              - cell "5145550301" [ref=f58e57] [cursor=pointer]
+              - cell "0.00$" [ref=f58e58] [cursor=pointer]
+              - cell [ref=f58e59] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f58e60]:
+                  - /url: /quote/6292/permaplate-contract-download
+                  - generic [ref=f58e61]:  􏇁
+                  - text: Download
+            - row [ref=f58e62]:
+              - cell "1FAHP35NX8W239204" [ref=f58e63] [cursor=pointer]
+              - cell "Perma Retest0913" [ref=f58e64] [cursor=pointer]
+              - cell "5145550201" [ref=f58e65] [cursor=pointer]
+              - cell "145.00$" [ref=f58e66] [cursor=pointer]
+              - cell [ref=f58e67] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f58e68]:
+                  - /url: /quote/6291/permaplate-contract-download
+                  - generic [ref=f58e69]:  􏇁
+                  - text: Download
+            - row [ref=f58e70]:
+              - cell "1FAHP35NX8W239204" [ref=f58e71] [cursor=pointer]
+              - cell "Perma Testclient" [ref=f58e72] [cursor=pointer]
+              - cell "5145550101" [ref=f58e73] [cursor=pointer]
+              - cell "145.00$" [ref=f58e74] [cursor=pointer]
+              - cell [ref=f58e75] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f58e76]:
+                  - /url: /quote/6284/permaplate-contract-download
+                  - generic [ref=f58e77]:  􏇁
+                  - text: Download
+  - contentinfo [ref=f58e78]:
+    - generic [ref=f58e79]:
+      - link "Avantage Plus System v2.0.0" [ref=f58e80] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

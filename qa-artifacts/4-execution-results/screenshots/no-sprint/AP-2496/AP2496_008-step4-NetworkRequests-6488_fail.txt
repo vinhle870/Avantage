@@ -1,0 +1,10 @@
+AP-2496 / AP2496_008 step 3-4 re-capture (R3 round 1, F-1) - Dev (v2dev), read-only
+Captured: 2026-11-01T22:01:59Z to 22:02:13Z (UTC) via the browser's network-request list (browser_network_requests)
+Signed in as the shared dealer account before the requests; quote 6488 details page loaded in the same session (heading "#6488 - Docs Download2496-008B 1FAHP35NX8W239204").
+Only method, URL and status are kept. No cookie, token or credential is recorded.
+
+[GET] https://v2dev.garantieavantageplus.ca/quote/6488/documents/download => [500]
+[GET] https://v2dev.garantieavantageplus.ca/quote/6488/documents/download => [500]
+
+Page shown for both: heading "Erreur Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois."
+Screenshot: AP2496_008-step4-DownloadAllQuote6488-Recapture500_fail.png

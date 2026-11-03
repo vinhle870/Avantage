@@ -1,0 +1,79 @@
+- generic [active] [ref=f51e1]:
+  - banner [ref=f51e2]:
+    - link [ref=f51e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f51e5]:
+      - searchbox "Search" [ref=f51e7]
+      - listitem [ref=f51e8]:
+        - generic [ref=f51e9]: Test QA staging
+  - generic [ref=f51e11]:
+    - navigation [ref=f51e13]:
+      - list [ref=f51e14]:
+        - listitem [ref=f51e15]:
+          - link " Dashboard" [ref=f51e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f51e17]: 
+            - text: Dashboard
+        - listitem [ref=f51e18]:
+          - heading " Vehicles" [level=6] [ref=f51e19]:
+            - generic [ref=f51e20]: 
+            - text: Vehicles
+        - listitem [ref=f51e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f51e22]:
+            - generic [ref=f51e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f51e24]:
+          - link " Claims" [ref=f51e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f51e26]: 
+            - text: Claims
+        - listitem [ref=f51e27]:
+          - heading " Billing" [level=6] [ref=f51e28]:
+            - generic [ref=f51e29]: 
+            - text: Billing
+        - listitem [ref=f51e30]:
+          - heading " System preferences" [level=6] [ref=f51e31]:
+            - generic [ref=f51e32]: 
+            - text: System preferences
+        - listitem [ref=f51e33]:
+          - link " Logout" [ref=f51e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f51e35]: 
+            - text: Logout
+    - main [ref=f51e36]:
+      - generic [ref=f51e38]:
+        - navigation [ref=f51e40]:
+          - heading "Vehicle VIN:1FAHP35NX8W239204" [level=1] [ref=f51e41]
+          - list [ref=f51e42]:
+            - listitem [ref=f51e43]:
+              - link "Back" [ref=f51e44] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f51e45]:
+              - link "Edit vehicle" [ref=f51e46] [cursor=pointer]:
+                - /url: /vehicle/915/edit
+            - listitem [ref=f51e47]:
+              - link "Create quote" [ref=f51e48] [cursor=pointer]:
+                - /url: /quote/new/client?fromVehicleId=915
+        - generic [ref=f51e49]:
+          - list [ref=f51e51]:
+            - listitem [ref=f51e52]:
+              - link "Details" [ref=f51e53] [cursor=pointer]:
+                - /url: /vehicle/915/details
+            - listitem [ref=f51e54]:
+              - link "Window sticker" [ref=f51e55] [cursor=pointer]:
+                - /url: /vehicle/915/window-sticker
+            - listitem [ref=f51e56]:
+              - link "Quotes" [ref=f51e57] [cursor=pointer]:
+                - /url: /vehicle/915/quotes
+          - generic [ref=f51e58]:
+            - heading "Details" [level=3] [ref=f51e59]
+            - paragraph [ref=f51e60]:
+              - link "Ford Focus 2008" [ref=f51e61] [cursor=pointer]:
+                - /url: /vehicle/915/details
+              - generic [ref=f51e62]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+            - heading "Manufacturer warranty" [level=5] [ref=f51e63]
+  - contentinfo [ref=f51e64]:
+    - generic [ref=f51e65]:
+      - link "Avantage Plus System v2.0.0" [ref=f51e66] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

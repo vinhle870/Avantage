@@ -1,0 +1,12 @@
+[    2530ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    2530ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    2530ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    2530ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   21455ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   21455ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   21455ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   21455ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   32043ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   32043ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   32043ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   32043ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1

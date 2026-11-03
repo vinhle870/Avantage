@@ -1,0 +1,151 @@
+- generic [active] [ref=f64e1]:
+  - banner [ref=f64e2]:
+    - link [ref=f64e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f64e5]:
+      - searchbox "Search" [ref=f64e7]
+  - generic [ref=f64e8]:
+    - navigation [ref=f64e10]:
+      - list [ref=f64e11]:
+        - listitem [ref=f64e12]:
+          - link " 􏀕 Dashboard" [ref=f64e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f64e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f64e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f64e16]:
+            - generic [ref=f64e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f64e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f64e19]:
+            - generic [ref=f64e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f64e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f64e22]:
+            - generic [ref=f64e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f64e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f64e25]:
+            - generic [ref=f64e26]:  􏃀
+            - text: Users
+        - listitem [ref=f64e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f64e28]:
+            - generic [ref=f64e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f64e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f64e31]:
+            - generic [ref=f64e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f64e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f64e34]:
+            - generic [ref=f64e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f64e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f64e37]:
+            - generic [ref=f64e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f64e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f64e40]:
+            - generic [ref=f64e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f64e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f64e43]:
+            - generic [ref=f64e44]:  􏂎
+            - text: External links
+        - listitem [ref=f64e45]:
+          - link " 􏆫 Language settings" [ref=f64e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+            - generic [ref=f64e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f64e48]:
+          - link " 􏀑 Logout" [ref=f64e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f64e50]:  􏀑
+            - text: Logout
+    - main [ref=f64e51]:
+      - generic [ref=f64e53]:
+        - navigation [ref=f64e55]:
+          - heading "Earning Sets" [level=1] [ref=f64e56]
+          - list [ref=f64e57]:
+            - listitem [ref=f64e58]:
+              - link "Create New" [ref=f64e59] [cursor=pointer]:
+                - /url: /admin/earning-set/new/edit
+        - generic [ref=f64e61]:
+          - table [ref=f64e63]:
+            - rowgroup [ref=f64e64]:
+              - row [ref=f64e65]:
+                - columnheader "Description" [ref=f64e66]
+                - columnheader "Actions" [ref=f64e67]
+            - rowgroup [ref=f64e68]:
+              - row [ref=f64e69]:
+                - cell "QA-AP2473-S-190147 Échéance à 100% \"test\" & <b>bold</b>" [ref=f64e70] [cursor=pointer]
+                - cell [ref=f64e71] [cursor=pointer]:
+                  - link "Edit" [ref=f64e72]:
+                    - /url: /admin/earning-set/11/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e73]:
+                - cell "QA-AP2473-L256-190043-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" [ref=f64e74] [cursor=pointer]
+                - cell [ref=f64e75] [cursor=pointer]:
+                  - link "Edit" [ref=f64e76]:
+                    - /url: /admin/earning-set/10/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e77]:
+                - cell "QA-AP2473-L-190043-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" [ref=f64e78] [cursor=pointer]
+                - cell [ref=f64e79] [cursor=pointer]:
+                  - link "Edit" [ref=f64e80]:
+                    - /url: /admin/earning-set/9/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e81]:
+                - cell "Q" [ref=f64e82] [cursor=pointer]
+                - cell [ref=f64e83] [cursor=pointer]:
+                  - link "Edit" [ref=f64e84]:
+                    - /url: /admin/earning-set/8/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e85]:
+                - cell "QA-AP2473-D-190013" [ref=f64e86] [cursor=pointer]
+                - cell [ref=f64e87] [cursor=pointer]:
+                  - link "Edit" [ref=f64e88]:
+                    - /url: /admin/earning-set/7/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e89]:
+                - cell "QA-AP2473-D-190013" [ref=f64e90] [cursor=pointer]
+                - cell [ref=f64e91] [cursor=pointer]:
+                  - link "Edit" [ref=f64e92]:
+                    - /url: /admin/earning-set/6/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e93]:
+                - cell "QA-AP2473-E-185855-edited" [ref=f64e94] [cursor=pointer]
+                - cell [ref=f64e95] [cursor=pointer]:
+                  - link "Edit" [ref=f64e96]:
+                    - /url: /admin/earning-set/5/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e97]:
+                - cell "QA-AP2473-185830" [ref=f64e98] [cursor=pointer]
+                - cell [ref=f64e99] [cursor=pointer]:
+                  - link "Edit" [ref=f64e100]:
+                    - /url: /admin/earning-set/4/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e101]:
+                - cell "Reinsurance" [ref=f64e102] [cursor=pointer]
+                - cell [ref=f64e103] [cursor=pointer]:
+                  - link "Edit" [ref=f64e104]:
+                    - /url: /admin/earning-set/3/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+              - row [ref=f64e105]:
+                - cell "Statutory" [ref=f64e106] [cursor=pointer]
+                - cell [ref=f64e107] [cursor=pointer]:
+                  - link "Edit" [ref=f64e108]:
+                    - /url: /admin/earning-set/2/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-set
+          - list [ref=f64e109]:
+            - listitem [ref=f64e110]:
+              - link "1" [ref=f64e111] [cursor=pointer]:
+                - /url: /admin/earning-set?page=1
+            - listitem [ref=f64e112]:
+              - link "2" [ref=f64e113] [cursor=pointer]:
+                - /url: /admin/earning-set?page=2
+            - listitem [ref=f64e114]:
+              - link "Next " [ref=f64e115] [cursor=pointer]:
+                - /url: /admin/earning-set?page=2
+                - text: Next
+                - generic [ref=f64e116]: 
+            - listitem [ref=f64e117]:
+              - link "Last " [ref=f64e118] [cursor=pointer]:
+                - /url: /admin/earning-set?page=2
+                - text: Last
+                - generic [ref=f64e119]: 
+  - contentinfo [ref=f64e120]:
+    - generic [ref=f64e121]:
+      - link "Avantage Plus System v2.0.0" [ref=f64e122] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

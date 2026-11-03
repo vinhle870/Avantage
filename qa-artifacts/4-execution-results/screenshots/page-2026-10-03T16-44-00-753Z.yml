@@ -1,0 +1,94 @@
+- generic [active] [ref=f128e1]:
+  - banner [ref=f128e2]:
+    - link [ref=f128e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f128e5]:
+      - searchbox "Search" [ref=f128e7]
+  - generic [ref=f128e8]:
+    - navigation [ref=f128e10]:
+      - list [ref=f128e11]:
+        - listitem [ref=f128e12]:
+          - link " 􏀕 Dashboard" [ref=f128e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f128e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f128e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f128e16]:
+            - generic [ref=f128e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f128e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f128e19]:
+            - generic [ref=f128e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f128e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f128e22]:
+            - generic [ref=f128e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f128e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f128e25]:
+            - generic [ref=f128e26]:  􏃀
+            - text: Users
+        - listitem [ref=f128e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f128e28]:
+            - generic [ref=f128e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f128e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f128e31]:
+            - generic [ref=f128e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f128e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f128e34]:
+            - generic [ref=f128e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f128e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f128e37]:
+            - generic [ref=f128e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f128e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f128e40]:
+            - generic [ref=f128e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f128e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f128e43]:
+            - generic [ref=f128e44]:  􏂎
+            - text: External links
+        - listitem [ref=f128e45]:
+          - link " 􏆫 Language settings" [ref=f128e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-group/11/details
+            - generic [ref=f128e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f128e48]:
+          - link " 􏀑 Logout" [ref=f128e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f128e50]:  􏀑
+            - text: Logout
+    - main [ref=f128e51]:
+      - generic [ref=f128e53]:
+        - navigation [ref=f128e55]:
+          - heading "Earning Group QA-AP2472-Empty-2339" [level=1] [ref=f128e56]
+          - list [ref=f128e57]:
+            - listitem [ref=f128e58]:
+              - link "Edit" [ref=f128e59] [cursor=pointer]:
+                - /url: /admin/earning-group/11/edit
+        - generic [ref=f128e61]:
+          - generic [ref=f128e63]:
+            - generic [ref=f128e65]:
+              - generic [ref=f128e66]: Earning Curve*
+              - generic [ref=f128e67]:
+                - combobox "Earning Curve*" [ref=f128e68]:
+                  - option "1 year (0 - 999999)" [selected]
+                  - option "2 years (0 - 999999)"
+                  - option "3 years (0 - 999999)"
+                  - option "4 years (0 - 9999999)"
+                  - option "5 years (0 - 999999)"
+                  - option "6 years (0 - 999999)"
+                  - option "QA-AP2472-Curve-A (0 - 50000)"
+                - combobox "1 year (0 - 999999)" [ref=f128e69] [cursor=pointer]
+            - button "Assign" [ref=f128e74] [cursor=pointer]
+          - separator [ref=f128e75]
+          - alert [ref=f128e77]: No entities found
+  - contentinfo [ref=f128e78]:
+    - generic [ref=f128e79]:
+      - link "Avantage Plus System v2.0.0" [ref=f128e80] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

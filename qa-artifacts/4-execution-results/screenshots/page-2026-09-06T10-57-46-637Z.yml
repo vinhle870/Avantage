@@ -1,0 +1,126 @@
+- generic [active] [ref=f14e1]:
+  - banner [ref=f14e2]:
+    - link [ref=f14e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f14e5]:
+      - searchbox "Search" [ref=f14e7]
+      - listitem [ref=f14e8]:
+        - generic [ref=f14e9]: Test QA staging
+  - generic [ref=f14e11]:
+    - navigation [ref=f14e13]:
+      - list [ref=f14e14]:
+        - listitem [ref=f14e15]:
+          - link " 􏀕 Dashboard" [ref=f14e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f14e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f14e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f14e19]:
+            - generic [ref=f14e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f14e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f14e22]:
+            - generic [ref=f14e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f14e24]:
+          - link " 􏗡 Claims" [ref=f14e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f14e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f14e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f14e28]:
+            - generic [ref=f14e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f14e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f14e31]:
+            - generic [ref=f14e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f14e33]:
+          - link " 􏀑 Logout" [ref=f14e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f14e35]:  􏀑
+            - text: Logout
+    - main [ref=f14e36]:
+      - generic [ref=f14e38]:
+        - navigation [ref=f14e40]:
+          - heading "Create a quote" [level=1] [ref=f14e41]
+          - list:
+            - listitem
+        - generic [ref=f14e46]:
+          - heading "Client" [level=4] [ref=f14e47]
+          - generic [ref=f14e48]:
+            - generic [ref=f14e49]:
+              - generic [ref=f14e50]: Email*
+              - textbox "Email*" [ref=f14e51]
+            - generic [ref=f14e52]:
+              - generic [ref=f14e53]: First name*
+              - textbox "First name*" [ref=f14e54]
+            - generic [ref=f14e55]:
+              - generic [ref=f14e56]: Last name*
+              - textbox "Last name*" [ref=f14e57]
+            - generic [ref=f14e58]:
+              - generic [ref=f14e59]: Secondary owner or company
+              - textbox "Secondary owner or company" [ref=f14e60]
+            - generic [ref=f14e61]:
+              - generic [ref=f14e62]: Distributor name
+              - textbox "Distributor name" [ref=f14e63]
+            - generic [ref=f14e64]:
+              - generic [ref=f14e65]: Address*
+              - textbox "Address*" [ref=f14e66]
+            - generic [ref=f14e67]:
+              - generic [ref=f14e68]: Address2
+              - textbox "Address2" [ref=f14e69]
+            - generic [ref=f14e70]:
+              - generic [ref=f14e71]: City*
+              - textbox "City*" [ref=f14e72]
+            - generic [ref=f14e73]:
+              - generic [ref=f14e74]: Province*
+              - generic [ref=f14e75]:
+                - combobox "Province*" [ref=f14e76]:
+                  - option "Choose" [selected]
+                  - option "Québec"
+                  - option "Ontario"
+                  - option "British Columbia"
+                  - option "Alberta"
+                  - option "Manitoba"
+                  - option "Saskatchewan"
+                  - option "Nova Scotia"
+                  - option "New Brunswick"
+                  - option "Newfoundland and Labrador"
+                  - option "Prince Edward Island"
+                  - option "Northwest Territories"
+                  - option "Yukon"
+                  - option "Nanavut"
+                - combobox "Choose" [ref=f14e77] [cursor=pointer]
+            - generic [ref=f14e81]:
+              - generic [ref=f14e82]: Postal code*
+              - textbox "Postal code*" [ref=f14e83]
+            - generic [ref=f14e84]:
+              - generic [ref=f14e85]: Tel home*
+              - textbox "Tel home*" [ref=f14e86]
+            - generic [ref=f14e87]:
+              - generic [ref=f14e88]: Tel work*
+              - textbox "Tel work*" [ref=f14e89]
+            - generic [ref=f14e90]:
+              - generic [ref=f14e91]: Indian status certificate
+              - textbox "Indian status certificate" [ref=f14e92]
+            - generic [ref=f14e93]:
+              - generic [ref=f14e94]: Drivers license
+              - textbox "Drivers license" [ref=f14e95]
+            - generic [ref=f14e97]:
+              - checkbox "I confirm that I have provided a copy of FORM-L25, at the request of Les Produits Avantage Plus Inc., all in accordance with the requirements of the Act respecting the protection of personal information in the private sector.*" [ref=f14e98]
+              - generic [ref=f14e99]:
+                - text: I confirm that I have provided a copy of
+                - link "FORM-L25" [ref=f14e100] [cursor=pointer]:
+                  - /url: /quote/client/pdf-privacy
+                - text: ", at the request of Les Produits Avantage Plus Inc., all in accordance with the requirements of the Act respecting the protection of personal information in the private sector.*"
+            - generic [ref=f14e102]:
+              - checkbox "Send a copy of the privacy policy to the client's email address" [ref=f14e103]
+              - generic [ref=f14e104]: Send a copy of the privacy policy to the client's email address
+          - separator [ref=f14e105]
+          - button "Save" [ref=f14e106] [cursor=pointer]
+  - contentinfo [ref=f14e107]:
+    - generic [ref=f14e108]:
+      - link "Avantage Plus System v2.0.0" [ref=f14e109] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

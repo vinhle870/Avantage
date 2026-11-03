@@ -1,0 +1,143 @@
+- generic [active] [ref=f24e1]:
+  - banner [ref=f24e2]:
+    - button [ref=f24e3] [cursor=pointer]
+    - link [ref=f24e5] [cursor=pointer]:
+      - /url: /
+      - img "Avantage Plus Logo" [ref=f24e6]
+    - list [ref=f24e7]:
+      - searchbox "Search" [ref=f24e9]
+      - listitem [ref=f24e10]:
+        - generic [ref=f24e11]: Test QA staging
+  - generic [ref=f24e13]:
+    - navigation [ref=f24e15]:
+      - list [ref=f24e16]:
+        - listitem [ref=f24e17]:
+          - link " Dashboard" [ref=f24e18] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f24e19]: 
+            - text: Dashboard
+        - listitem [ref=f24e20]:
+          - heading " Vehicles" [level=6] [ref=f24e21]:
+            - generic [ref=f24e22]: 
+            - text: Vehicles
+          - list:
+            - listitem [ref=f24e23]:
+              - link "Inventory" [ref=f24e24] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f24e25]:
+              - link "Quotes" [ref=f24e26] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f24e27]:
+              - link "Insurance Quick Quote" [ref=f24e28] [cursor=pointer]:
+                - /url: /quick-insurance-quote
+            - listitem [ref=f24e29]:
+              - link "Insurance compliance log" [ref=f24e30] [cursor=pointer]:
+                - /url: /insurance-compliance-log
+        - listitem [ref=f24e31]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f24e32]:
+            - generic [ref=f24e33]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f24e34]:
+              - link "Warranty" [ref=f24e35] [cursor=pointer]:
+                - /url: /warranty
+            - listitem [ref=f24e36]:
+              - link "Road Side Protection" [ref=f24e37] [cursor=pointer]:
+                - /url: /road-side-protection-contracts
+            - listitem [ref=f24e38]:
+              - link "Creditors insurance" [ref=f24e39] [cursor=pointer]:
+                - /url: /creditor-insurance-contracts
+            - listitem [ref=f24e40]:
+              - link "Gap Insurance" [ref=f24e41] [cursor=pointer]:
+                - /url: /gap-insurance-contracts
+            - listitem [ref=f24e42]:
+              - link "Esthetic protection" [ref=f24e43] [cursor=pointer]:
+                - /url: /permaplate-contracts
+        - listitem [ref=f24e44]:
+          - link " Claims" [ref=f24e45] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f24e46]: 
+            - text: Claims
+        - listitem [ref=f24e47]:
+          - heading " Billing" [level=6] [ref=f24e48]:
+            - generic [ref=f24e49]: 
+            - text: Billing
+          - list:
+            - listitem [ref=f24e50]:
+              - link "Invoices" [ref=f24e51] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f24e52]:
+              - link "Payment history" [ref=f24e53] [cursor=pointer]:
+                - /url: /invoice/payment-history
+        - listitem [ref=f24e54]:
+          - heading " System preferences" [level=6] [ref=f24e55]:
+            - generic [ref=f24e56]: 
+            - text: System preferences
+          - list:
+            - listitem [ref=f24e57]:
+              - link "Language settings" [ref=f24e58] [cursor=pointer]:
+                - /url: /language?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6257/insurance/create-contract
+            - listitem [ref=f24e59]:
+              - link "Users" [ref=f24e60] [cursor=pointer]:
+                - /url: /users?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6257/insurance/create-contract
+        - listitem [ref=f24e61]:
+          - link " Logout" [ref=f24e62] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f24e63]: 
+            - text: Logout
+    - main [ref=f24e64]:
+      - generic [ref=f24e66]:
+        - navigation [ref=f24e68]:
+          - heading "Insurance for vinh.00003 sdf" [level=1] [ref=f24e69]
+          - list [ref=f24e70]:
+            - listitem [ref=f24e71]:
+              - link "Back" [ref=f24e72] [cursor=pointer]:
+                - /url: /quote/6257/details
+        - generic [ref=f24e75]:
+          - heading "Create Insurance Contract" [level=4] [ref=f24e76]
+          - separator [ref=f24e77]
+          - generic [ref=f24e78]:
+            - generic [ref=f24e79]:
+              - strong [ref=f24e80]: "Form:"
+              - text: GC6201MQ
+            - generic [ref=f24e81]:
+              - strong [ref=f24e82]: "Rate table:"
+              - text: PM50
+            - generic [ref=f24e83]:
+              - strong [ref=f24e84]: "Language:"
+              - text: English
+            - generic [ref=f24e85]:
+              - strong [ref=f24e86]: "Tax exempt:"
+              - text: "No"
+          - table [ref=f24e87]:
+            - rowgroup [ref=f24e88]:
+              - row [ref=f24e89]:
+                - columnheader "Coverage Type" [ref=f24e90]
+                - columnheader "Coverage" [ref=f24e91]
+                - columnheader "Term Months" [ref=f24e92]
+                - columnheader "Monthly Premium" [ref=f24e93]
+                - columnheader "Tax" [ref=f24e94]
+                - columnheader "Monthly Total" [ref=f24e95]
+            - rowgroup [ref=f24e96]:
+              - row [ref=f24e97]:
+                - cell "Life Decreasing" [ref=f24e98]
+                - cell "BORROWER" [ref=f24e99]
+                - cell "60" [ref=f24e100]
+                - cell "25.98$" [ref=f24e101]
+                - cell "2.34$" [ref=f24e102]
+                - cell "28.32$" [ref=f24e103]
+          - table [ref=f24e104]:
+            - rowgroup [ref=f24e105]:
+              - row [ref=f24e106]:
+                - cell "Equivalent Single Premium" [ref=f24e107]
+                - cell "1,246.30$" [ref=f24e108]
+              - row [ref=f24e109]:
+                - cell "Commission (50%)" [ref=f24e110]
+                - cell "623.15$" [ref=f24e111]
+          - separator [ref=f24e112]
+          - button "Create Contract" [ref=f24e113] [cursor=pointer]
+  - contentinfo [ref=f24e114]:
+    - generic [ref=f24e115]:
+      - link "Avantage Plus System v2.0.0" [ref=f24e116] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

@@ -1,0 +1,140 @@
+- generic [ref=f182e1]:
+  - banner [ref=f182e2]:
+    - link [ref=f182e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f182e5]:
+      - searchbox "Search" [ref=f182e7]
+  - generic [ref=f182e8]:
+    - navigation [ref=f182e10]:
+      - list [ref=f182e11]:
+        - listitem [ref=f182e12]:
+          - link " 􏀕 Dashboard" [ref=f182e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f182e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f182e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f182e16]:
+            - generic [ref=f182e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f182e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f182e19]:
+            - generic [ref=f182e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f182e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f182e22]:
+            - generic [ref=f182e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f182e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f182e25]:
+            - generic [ref=f182e26]:  􏃀
+            - text: Users
+        - listitem [ref=f182e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f182e28]:
+            - generic [ref=f182e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f182e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f182e31]:
+            - generic [ref=f182e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f182e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f182e34]:
+            - generic [ref=f182e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f182e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f182e37]:
+            - generic [ref=f182e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f182e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f182e40]:
+            - generic [ref=f182e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f182e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f182e43]:
+            - generic [ref=f182e44]:  􏂎
+            - text: External links
+        - listitem [ref=f182e45]:
+          - link " 􏆫 Language settings" [ref=f182e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-group/15/details
+            - generic [ref=f182e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f182e48]:
+          - link " 􏀑 Logout" [ref=f182e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f182e50]:  􏀑
+            - text: Logout
+    - main [ref=f182e51]:
+      - generic [ref=f182e53]:
+        - alert [ref=f182e54]:
+          - text: Earning curve assigned
+          - button "Close" [ref=f182e55] [cursor=pointer]: ×
+        - navigation [ref=f182e57]:
+          - heading "Earning Group QA-AP2472-Edit-2339" [level=1] [ref=f182e58]
+          - list [ref=f182e59]:
+            - listitem [ref=f182e60]:
+              - link "Edit" [ref=f182e61] [cursor=pointer]:
+                - /url: /admin/earning-group/15/edit
+        - generic [ref=f182e63]:
+          - generic [ref=f182e65]:
+            - generic [ref=f182e67]:
+              - generic [ref=f182e68]: Earning Curve*
+              - generic [ref=f182e69]:
+                - combobox "Earning Curve*" [ref=f182e70]:
+                  - option "1 year (0 - 999999)" [selected]
+                  - option "2 years (0 - 999999)"
+                  - option "3 years (0 - 999999)"
+                  - option "4 years (0 - 9999999)"
+                  - option "5 years (0 - 999999)"
+                  - option "6 years (0 - 999999)"
+                - combobox "1 year (0 - 999999)" [ref=f182e71] [cursor=pointer]
+            - button "Assign" [ref=f182e76] [cursor=pointer]
+          - separator [ref=f182e77]
+          - table [ref=f182e79]:
+            - rowgroup [ref=f182e80]:
+              - row [ref=f182e81]:
+                - columnheader "Name" [ref=f182e82]
+                - columnheader "Term month" [ref=f182e83]
+                - columnheader "Coverage odometer" [ref=f182e84]
+                - columnheader "Earning curve type" [ref=f182e85]
+                - columnheader "Is Enabled?" [ref=f182e86]
+                - columnheader "Actions" [ref=f182e87]
+            - rowgroup [ref=f182e88]:
+              - row [ref=f182e89]:
+                - cell "QA-AP2472-Curve-A" [ref=f182e90] [cursor=pointer]
+                - cell "12" [ref=f182e91] [cursor=pointer]
+                - cell "0 - 50000" [ref=f182e92] [cursor=pointer]
+                - cell "Pro-Rata" [ref=f182e93] [cursor=pointer]
+                - cell "Yes" [ref=f182e94] [cursor=pointer]
+                - cell [ref=f182e96] [cursor=pointer]:
+                  - link "" [ref=f182e98]:
+                    - /url: /admin/earning-group/15/curve/7/unassign
+  - contentinfo [ref=f182e100]:
+    - generic [ref=f182e101]:
+      - link "Avantage Plus System v2.0.0" [ref=f182e102] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - dialog [active] [ref=f182e103]:
+    - document:
+      - generic [ref=f182e105]:
+        - navigation [ref=f182e107]:
+          - 'heading "Earning group #15" [level=1] [ref=f182e108]'
+          - list
+        - generic [ref=f182e109]:
+          - generic [ref=f182e110]:
+            - generic [ref=f182e111]:
+              - generic [ref=f182e112]: Name*
+              - textbox "Name*" [ref=f182e113]: QA-AP2472-Edit-2339
+            - generic [ref=f182e114]:
+              - generic [ref=f182e115]: Default Earning Method*
+              - generic [ref=f182e116]:
+                - combobox "Default Earning Method*" [ref=f182e117]:
+                  - option "Pro-Rata" [selected]
+                  - option "Rule of 78"
+                  - option "Reverse rule of 78"
+                - combobox "Pro-Rata" [ref=f182e118] [cursor=pointer]
+          - separator [ref=f182e122]
+          - button "Save" [ref=f182e123] [cursor=pointer]
+  - iframe [ref=f182e125]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f184e1] [cursor=pointer]

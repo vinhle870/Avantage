@@ -1,0 +1,98 @@
+- generic [active] [ref=f89e1]:
+  - banner [ref=f89e2]:
+    - link [ref=f89e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f89e5]:
+      - searchbox "Search" [ref=f89e7]
+  - generic [ref=f89e8]:
+    - navigation [ref=f89e10]:
+      - list [ref=f89e11]:
+        - listitem [ref=f89e12]:
+          - link " 􏀕 Dashboard" [ref=f89e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f89e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f89e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f89e16]:
+            - generic [ref=f89e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f89e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f89e19]:
+            - generic [ref=f89e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f89e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f89e22]:
+            - generic [ref=f89e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f89e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f89e25]:
+            - generic [ref=f89e26]:  􏃀
+            - text: Users
+        - listitem [ref=f89e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f89e28]:
+            - generic [ref=f89e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f89e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f89e31]:
+            - generic [ref=f89e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f89e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f89e34]:
+            - generic [ref=f89e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f89e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f89e37]:
+            - generic [ref=f89e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f89e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f89e40]:
+            - generic [ref=f89e41]:  􏂎
+            - text: External links
+        - listitem [ref=f89e42]:
+          - link " 􏆫 Language settings" [ref=f89e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/option/18/edit
+            - generic [ref=f89e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f89e45]:
+          - link " 􏀑 Logout" [ref=f89e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f89e47]:  􏀑
+            - text: Logout
+    - main [ref=f89e48]:
+      - generic [ref=f89e50]:
+        - navigation [ref=f89e52]:
+          - 'heading "Edit Option #18" [level=1] [ref=f89e53]'
+          - list
+        - generic [ref=f89e54]:
+          - generic [ref=f89e55]:
+            - generic [ref=f89e56]:
+              - generic [ref=f89e57]: Option name*
+              - textbox "Option name*" [ref=f89e58]: Extra care (5 ans couverture )
+            - generic [ref=f89e59]:
+              - generic [ref=f89e60]: Vehicle age eligibility*
+              - spinbutton "Vehicle age eligibility*" [ref=f89e61]: "0"
+            - generic [ref=f89e62]:
+              - generic [ref=f89e63]: Dealer Cost*
+              - textbox "Dealer Cost*" [ref=f89e64]: "70.00"
+            - generic [ref=f89e66]:
+              - checkbox "Enabled" [checked] [ref=f89e67]
+              - generic [ref=f89e68]: Enabled
+            - generic [ref=f89e69]:
+              - generic [ref=f89e70]: Parent
+              - generic [ref=f89e71]:
+                - combobox "Parent" [ref=f89e72]:
+                  - option
+                  - option "Antirouille – Rust+Sound (combo)"
+                  - option "Autosaver"
+                  - option "Leather / Vinyl protection (Fiberguard)"
+                  - option "Paintguard Ceramic"
+                  - option "Paintguard Express"
+                  - option "Peinture – Céramique + Graphene" [selected]
+                - combobox "Peinture – Céramique + Graphene" [ref=f89e73] [cursor=pointer]
+          - separator [ref=f89e77]
+          - button "Save" [ref=f89e78] [cursor=pointer]
+  - contentinfo [ref=f89e79]:
+    - generic [ref=f89e80]:
+      - link "Avantage Plus System v2.0.0" [ref=f89e81] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

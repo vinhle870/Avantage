@@ -1,0 +1,299 @@
+WARRANTY PROGRAM Administered by Garantie Avantage Plus
+a division of Les produits Avantage Plus
+2700 des Entreprises # 102
+Terrebonne QC J6X 4J8
+Tel : 450 666-0181 Toll Free : 1 866 666-0181
+# DEMANDE: ___________________________ Fax : 450 666-2836
+# CONTRAT: ___________________________ email : info@garantieavantageplus.ca
+VEHICLE IDENTIFICATION
+MAKE MODEL YEAR
+Serial No. CYLINDERS
+☐ Diesel ☐ Injection ☐ Turbo ☐ 4x4 ☐ All Wheel Drive ☐ Automatic ☐ Manual
+DELIVERY DATE ODOMETER AT TIME OF SALE
+PRICE OF VEHICLE (before taxes) CONDITION
+OWNER INFORMATION
+LASTNAME FIRSTNAME
+OTHER NAME ON FILE (company’s included)
+ADDRESS No APP:
+VILLE PROVINCE CODE POSTAL
+TEL. RES. TEL. CELL. EMAIL
+DESCRIPTION OF THE PROGRAM
+WARRANTY TERM (according to the 1st deadline) months or
+COVERED COMPONENTS (Indicated in section A) DEDUCTIBLE (per visit)
+PROGRAM REPAIR MAXIMUM (per visit/cummulative) tax included
+Manufacturer Warranty Expire on or at km
+Additional options selected (for more details, please refer to terms and conditions section 3)
+CLAIMS PROCEDURES
+In the event of a Breakdown, the Vehicle Owner must contact the Administrator either by telephone (1-866-666-0181) or email (info@garantieavantageplus.ca), to notify the Administrator of the Breakdown. The Administrator's agent will refer the Vehicle Owner to
+an Authorized Repair Center where an agent of such Authorized Repair Center will submit an appraisal (at the owner's expense), directly to the Administrator, where the appraisal will be evaluated by an agent of the Administrator. If the repair is approved, an
+authorization number with the reimbursement amount will be assigned to the work order in a printed format to be emailed or faxed to the Authorized Repair Center. Any other form of authorisation, whether assumed, voice, text, or otherwise, will not be
+recognized by the Administrator. In the event the Breakdown occurs outside of working hours and the Vehicle Owner or the Authorized Repair Center is unable to contact the Administrator, the Vehicle Owner may send invoices for the amounts incurred to the
+Administrator for evaluation. The claims process will be followed in the same manner as noted above. Submitting a claim does not guarantee coverage under the warranty program. Please refer to the terms and conditions of the warranty section 1 for the
+definitions in bold used above.
+I accept and understand the provisions provided by the present warranty program and accept the conditions that apply
+Owner’s signature Date
+x
+IMPORTANT - OWNER AND DISTRIBUTOR SIGNATURES ON ADDITIONAL PAGES
+Financing Company (if applicable) Merchant
+# 915
+incomplete
+example
+Fiat 500 2015
+✓ ✓ ✓ ✓
+33333333 2 2 l
+2022-06-04 20000 km
+10000.00 new
+lastName firstName
+company
+Address Address2
+City New Brunswick 12345
+11111 22222 ap_automation_test@yopmail.com
+Eligible for vehicle less than 15 years old and less than 2,800,000 km at the time of purchase
+100 20000 km
+option 1 COMPONENTS_1_TO_6 1000.00
+1000.00 / 1111.00 fff
+Start Date: 2022-06-04
+Full 2022-01-01 1111
+Powertrain 2022-01-01 1111
+Sale price : $21,000.00
+GST : $3,150.00
+Total : $24,150.00
+Les Produits Avantage Plus Inc.,
+2700 Boul. des Entreprises
+Local 102,
+Terrebonne (Québec)
+J6X 4J8
+Test QA staging
+Address
+cccc, QC, 22222
+99999
+Registration GST: GST
+Registration PST: PST
+TERMS AND CONDITIONS OF THE WARRANTY PROGRAM CONTRACT
+Page 1 of 4 1/2024
+1. Definitions
+The following definitions apply to these words frequently used in this warranty program contract.
+o ‘’ Administrator ‘’ : to mean the company doing business under the name Les Produits Avantage Plus, 2700 Boul. des Entreprises Local 102, Terrebonne (Quebec) J6X 4J8, 450-666-0181,
+info@garantieavantageplus.ca or to mean the company 9112-3158 QUÉBEC INC. doing business under the name Les Produits Avantage Plus, 2700 Boul. des Entreprises Local 102,
+Terrebonne (Quebec) J6X 4J8, 450-666-0181, info@garantieavantageplus.ca
+o ‘’ Authorised Distributor ‘’: to mean all licensed merchants of used or new automobiles, motorcycles, recreational vehicles, on or off-road leisure vehicles, power-assisted bicycles, and any
+other vehicle provider authorised to sell warranties via the Administrator portal.
+o ‘’ Authorised Repair Facility ‘’: to mean a licensed repair facility, independent, not managed, or affiliated, but pre-approved by the Administrator on an agreed upon hourly rate and fixed
+profit margin for the verification, maintenance, or reparation requested of the specific type of vehicle covered by this warranty program contract.
+o ‘’ Breakdown ‘’: to mean the failure of a vehicle component to perform the function for which it was constructed, without regards for the causes of failure.
+o ‘’ Covered Components ‘’: to mean the specified parts that will be covered for repair if the terms and conditions of the warranty are followed. The components are itemized and are not
+eligible for all programs.
+o ‘’ Exclusions ‘’: to mean what is not covered by the program. Covered and non-covered Parts, repairs, and reasons deemed ineligible for authorisation by the Administrator, where no
+reimbursement amount will be authorised.
+o ‘’ Vehicle Owner ‘’: to mean the proprietor of the vehicle, the signatory listed as the owner of the vehicle in the identification section of the warranty.
+o ‘’ Waiting period ‘’: to mean the first fifteen (15) days following the delivery date indicated on the warranty.
+Upon receipt of payment for this program from the Authorised Distributor to the Administrator, the Administrator agrees to pay the eligible repair costs for the Breakdown of the covered
+components, including labor and necessary taxes after the Waiting period, specified in the terms and conditions of this contract. The duration of coverage will coincide, in accordance with the
+terms and conditions of the program indicated on the first page of the warranty chosen by the Vehicle Owner. The Administrator will not be held liable for any statement or alleged engagement
+made by the Authorised Distributor in the name of the Administrator for any responsibility greater than this present warranty provides. The Vehicle Owner understands that if the contract has
+not been paid by the Authorized Distributor to the Administrator following its invoice date, the Administrator does not undertake to honor the contract in question, unless an exception is
+granted by the Administrator.
+The Vehicle Owner expressly consents to the Authorized Distributor communicating all information obtained about him, the vehicle, or the finance company to the Administrator. The information
+collected by the Administrator is used to determine eligibility for the program, to maintain the warranty as well as to process claim requests, if applicable. Access to the Vehicle Owner's personal
+information is limited to persons for whom it is necessary to access it in the exercise of their functions. The Vehicle Owner may ask the Administrator to confirm the existence of the personal
+information he holds about him and request a copy. He may also request that inaccurate, incomplete, or ambiguous personal information be rectified. To exercise his rights, the Vehicle Owner
+must contact the responsible person whose contact details are displayed on the Administrator’s website. The Vehicle Owner may also withdraw consent to the use or disclosure of his or her
+personal information, subject to certain conditions and restrictions, which withdrawal of consent could result in termination of warranty service. Particularly due to the use of computer and
+technological systems involving the entry of data and the saving thereof, it is possible that the personal information of the Vehicle Owner is stored or communicated outside of Quebec.
+2. Covered Components
+1. Engine (gas or diesel): Cylinder block and all internal lubricated parts here after listed, camshaft, connecting rods, connecting rod bearings, timing chain and timing chain pinions and
+tensioners, camshaft bearings, camshaft caps, main bearing bushings, front cover, valve covers, valve lifters, cylinder head, rocker arms, valve guides, pistons, oil pump, lifters, valve springs,
+ring gears, rings, push rods, crank shaft, balance shafts.
+2. Automatic Transmission: Housing and all internal lubricated parts her after listed, internal main shaft, bands, valve body, torque converter, bushings, internal clutches, gear sets, vacuum
+modulator, oil pump, governor, internal bearings, drums.
+3. Manuel Transmission: Housing and all internal lubricated parts here after listed, internal main shaft, bushings, forks, gear sets, pinions, internal bearings, synchronizers.
+4. Differential (front and rear): Case and all internal lubricated parts here after listed, final drive housing, gear sets, internal bearings, bushings, limited slip clutch pack, axel shafts.
+5. Transfer Case (including 4x4 and / or all-wheel drive): Case and all internal lubricated parts here after listed, internal main shaft, gear sets, chain and pinions, internal bearings, bushings.
+6. Front Wheel Drive: Case and all internal lubricated parts here after listed, chain and pinions, internal bearings, bushings, gear sets.
+7. Turbo: Housing and all internal lubricated parts including, turbo compressor valves, bypass valves, intercooler.
+8. Supercharger: Housing and all internal lubricated parts including, bypass valves, intercooler.
+9. Direction: Rack and pinion, power steering pump and pulley, cardans (c.v.) (boots not included).
+10. Seals and Gaskets: The seals and gaskets are included in a major breakdown. (Oil pan gasket not included)
+11. Towing: A reimbursement of seventy-five (75$) CAD for the towing of your vehicle for each claim event and if the claim is covered by this warranty and authorised by the Administrator.
+12. Accessory Essential: drive shaft, universal joints, camshaft sensor, crankshaft sensor, wheel cylinders, wheel bearings, front and rear brake calipers, alternator, starter, starter solenoid, air
+conditioning compressor (expansion valve excluded).
+13. Powertrain Essential: steering shaft, sector shaft, hub lock assembly, transfer case actuator, main and intermediate steering shaft, Intake manifold, vacuum pump, exhaust manifold, water
+pump, fuel pump.
+14. Brakes: Brake accumulator, brake proportioning valves, valve bodies, master cylinders, hydraulic pump, power brake booster, brake cable, anti-lock brake sensor (ABS).
+15. Electrical components: Cruise control switch, power door lock actuators, turn signal switches, power window switch, headlight switches, power seat switch, power door lock switches, front
+and rear wiper switch, rear window defroster switch, power sunroof switch, power sunroof motor, heater blower switches, wiper delay sensor, power window motors, front and rear wiper
+motor, power seat switch (gears excluded), front and rear windshield washer pump, voltage regulator.
+16. Air conditioning Plus+: Accumulator, condenser, dryer, compressor clutch, high / low pressure switch, heater blower motor.
+17. Fuel delivery: throttle body positioning sensor, mass air flow sensor, accelerator positioning sensor, injection distributor, injectors, gas admission throttle body, gas lines and couplings.
+18. Ignition system plus +: ignition coils, ignition control modules, knock sensor.
+19. Cooling system: Hydraulic clutch fan, radiator motor fan, air conditioner evaporator (if installed by the manufacturer with original parts), heater core, radiator (except if damaged by
+corrosion), thermo sensors, thermostat.
+20. Suspension: Tie rod ends, idle arms, upper and lower control arms and bushings, spindles, (shocks not included), ball joints, link kits. (Air suspension system and components including
+compressor, springs, valves, sensors, lines, and bellows included only if supplemental option is indicated on the program.
+21. Powertrain Comprehensive: Timing belt and tensioners, engine and transmission oil pans and gaskets (except if damaged externally), engine and transmission mounts (included only in
+major breakdown). Oil filter housing, turbo actuator, variable cam solenoid.
+22. Electric / High-Tech Plus +: Transmission solenoid valves, engine control module (ECM), Transmission control module (TCM), seat warmer element and switches, electric tailgate
+solenoid/motor, USB sockets, auxiliary audio sockets, 12v and 115v power socket outlets, induction phone charger, engine starter push-button.
+23. Cooling system +: Transmission oil coolers, engine oil coolers.
+24. Emissions system: Exhaust gas recirculation valve and coolers (EGR), oxygen sensors, catalytic converters, positive crankcase ventilation valve (PCV).
+Application # 915
+incomplete
+TERMS AND CONDITIONS OF THE WARRANTY PROGRAM CONTRACT
+Page 2 of 4 1/2024
+25. Reimbursement for verification: A reimbursement for the verification fee if the repair has been authorized and completed at an Authorised Repair Facility.
+26. Replacement automobile: Reimbursement for the rental of replacement automobile at thirty (30$) CAD per day – seven (7) days maximum for the duration of this program if the repair is
+covered by this program. It is the responsibility of the Vehicle Owner to declare all invoices necessary and the dates of the rental must correspond with the dates the vehicle is under repair.
+27. Lodging: Reimbursement for lodging if the repair is covered by this program and the Vehicle Owner is 300km from his address indicated in the owner identification section program for fifty
+(50$) CAD per day -four (4) days maximum for the duration of this program. It is the responsibility of the Vehicle Owner to declare all necessary invoices and the dates of the lodging must
+correspond with the dates the vehicle is under repair.
+3. Additional options available (see section Additional benefits included) Fees may apply.
+(Options are not available for all contract types, please contact your distributor for details).
+• No deductible: No franchise amount will be deducted from the authorised amount at time of repair.
+• Unlimited kilometers: no kilometer usage limitations. (Proof of odometer reading may be requested anytime by the Administrator during the terms of the program for the option to be valid.
+Please refer to your Authorised Distributor for option eligibility).
+• 2 x claim: Twice the allowed <program repair maximum> per visit for a claim indicated on page 1 of the contract, section DESCRIPTION OF THE PROGRAM.
+• A.V.N.: The following audio, visual and navigation components - Touchscreen and / or video Entertainment screens. DVD and/ or Blu-ray video disc player. CD reader and changer.
+Bluetooth set to include microphone, hands free phone control and hands-free command control. Collision avoidance system - parking assistance front and / or rear cameras and / or sonar
+sensors. Navigation display system and panel console assembly. GPS navigation system updates and programming (if system assembly is authorized to be replaced). (. Please refer to your
+Authorised Distributor for option eligibility).
+• Suspension +: To include the following parts for adaptive, active, kinetic, double-A, or air (air) suspension systems. Springs (or bellows for air suspension systems), relief and return valves,
+adaptive actuator, sensors, lines, and air suspension compressor.
+• Roadside Service +: Emergency roadside assistance during the terms of the present program available 24 hours a day, 7 days a week, across Canada and the continental United States.
+These services include towing (up to a maximum of 75 km away to a repair center), emergency battery boost, flat tire service, fuel delivery (up to 10 liters), winching service and lock-out
+service.
+o This service is provided by a third party, pre-paid but not managed by the Administrator. Any separately administered invoice to the Vehicle Owner for the use of this service
+cannot be requested for refund. The Vehicle Owner should call 1-888-668-6082 for details.
+• Balance Coverage option: additional coverage for Covered Components 1 thru 24 (up to a maximum amount of 1000$ CAD taxes included) if those components are not already covered
+under the manufacture warranty. The vehicle must be under manufacture warranty to apply.
+• Workshop materials Option: to include the oils, filters, nuts, bolts, washers, silicone, coolants, and alignment necessary to complete the authorised repair for up to a total maximum of one
+hundred (100$ CAD) during the duration of the program selected.
+• Premium reimbursement option: At the end of the term of the warranty contract chosen, the Vehicle Owner will be eligible for a refund of the premium paid for the contract at the time of
+sale. The following terms and conditions will apply.
+o The refund will not exceed the amount, before tax, paid for the warranty indicated on the contract, and will be no more than three thousand (3000$) dollars, before tax.
+o The refund must be requested by the Vehicle Owner and not by any third party within thirty (30) days before the warranty expires.
+o The Vehicle Owner will receive no refund if any Covered Components have been paid by the Administrator.
+o The Vehicle Owner will receive no refund if the warranty has been transferred to a new owner.
+o The Vehicle Owner will not receive any refund if the vehicle has been declared a total loss, reported stolen or seized by a bank or other financial institution.
+4. Parts and Parts repair exclusions
+1. Maintenance and maintenance parts recommended by the manufacturer or otherwise to include tune-ups, adjustments, wheel alignments and balancing, the filling of all fluids to include
+the fluids themselves, such as oils, coolants, refrigerants, additives, freon and fuel.
+2. Brake pads, brake discs, brake drums and shoes, glow plugs, spark plugs, linkage, and wiper blades. The following parts for lighting systems include bulbs, headlight assembly, sensors and
+adaptive headlight positioning arms, lights, and lighting ballast. The following components of the electrical systems to include batteries, cables and wiring, fuses and fuse box, fuel level
+sensor, instrument panel, sunroof frame and mechanism, remote starter, remote control unlock, electronic control unit (BCM) and systems, not mentioned that it controls, and software
+updates. Antennas, speakers, ignition barrel/cylinder, horn, nuts, plugs, bolts, tubes, tubing, piping, and hoses (not listed), belts (not listed) and all workshop equipment.
+3. Frame, body, and vehicle parts to include steering wheel, mirrors, windows, glass and window regulator, seats and seat frames, port stops, fasteners, hinges, latch, lock, and door handles.
+Handbrake device and cable, pedals, paddles, and gear selectors. Tires and tire valves, wheels, rims and hubcaps and all fluid reservoirs.
+4. All cosmetic or cosmetic parts to include adhesives, castings, chrome, trim, ornaments, upholstery, paint, panels, rubber or rubber coating, carpets, sealing moldings, stickers, plastics.
+5. Additional parts and repairs related to the rear defroster, manual and/or dual clutch system (including disc, pressure plate, flywheel), tire pressure monitoring system, safety device system
+and airbag system, repairs related to fluid or air leaks (including minor sweat or moisture), the automatic DRL and night vision system, the spare tire mechanism, the spring-loaded opening
+mechanism of the suitcase, the elements and fans of heated cooling or ventilation seats. Environmental and waste treatment costs including bleed valve, steam cartridge, vent solenoid and
+urea system (for diesel vehicles).
+5. Repair exclusions
+1. Reparation of Covered Components damaged by fire, water, water infiltration, snow, ice, wind, or any other acts of nature.
+2. Reparation of Covered Components damaged by friction, wear, carbon buildup or corrosion (including cable and connector corrosion) any repair damaged by rust, contamination, lack of
+lubricants, quality of lubricants, pre-ignition of the engine or overheating of the engine or any other Covered Component.
+3. Reparation of Covered Components damaged from a non-covered part, mechanical or aesthetic.
+4. Reparation of Covered Components damaged by accident, collision, misuse, abuse, road hazards or lack of maintenance.
+5. Reparation of Covered Components due to the failure of the Vehicle Owner to observe warning signals (lights, indicators, gauges, sound) that could cause further damage to the vehicle by
+continued operation.
+6. Reparation of Covered Components to remedy vehicle performance, resolve compression loss or to reduce excessive oil consumption.
+7. Repair of Covered Components if the vehicle's odometer reading is not functional, if the odometer has been modified in contravention of any applicable law in the Vehicle Owner's
+province of residence, if the odometer has been replaced during the warranty period, or if the information regarding the vehicle's eligibility for the program is falsified or misstated by the
+Authorized Distributor. In the latter case, the Administrator reserves the right to require any proof it deems necessary to determine the actual mileage of the vehicle covered by this
+warranty program at the time of sale.
+8. Reparation of Covered Components due to a Breakdown that occurred before, at time of vehicle purchase or during the Waiting Period.
+9. Reparation of Covered Components if that part is already covered under the original, or extended manufacture warranty.
+10. Reparation of Covered Components if the Authorised Distributor has not paid the Administrator for the warranty program contract.
+11. Reparation of Covered Components if the reparation is needed for a second time within a period of three (3) months or 5000km from the date of the first completed reparation.
+12. Reparation of Covered Components without an authorisation number (to include the authorised reimbursement amount) by the Administrator.
+6. Rules and additional information regarding the warranty program
+Application # 915
+incomplete
+TERMS AND CONDITIONS OF THE WARRANTY PROGRAM CONTRACT
+Page 3 of 4 1/2024
+1. This warranty protects the Covered Components that are no longer covered under the complete manufacturer warranty or manufacture powertrain warranty and will begin on the
+indicated warranty start date. The warranty start date may be revised at any time by the Administrator if the Vehicle Owner, who purchased the vehicle still under manufacture warranty,
+is no longer covered by the manufacture warranty, and can provide proof of odometer reading of the vehicle at that time to the Administrator.
+2. Proof of maintenance and anomaly code information (previous and present recorded by the vehicles monitoring system), can be requested by the Administrator at any time during the
+term of the warranty. The Administrator reserves the right to inspect the vehicle at an Authorised Repair Facility. It is the responsibility of the Vehicle Owner to assure that all the
+maintenance indicators of the vehicle are in working order.
+7. Claim presentation and repair process.
+In the event of a Breakdown, the Vehicle Owner must contact the Administrator either by phone (1-866-666-0181) or by email (info@garantieavantplus.ca), to notify the Administrator of the
+Breakdown. The Administrator's agent will direct the Vehicle Owner to an Authorized Repair Facility where an agent of that Authorized Repair Facility will submit an estimation (at the owner's
+expense), directly to the Administrator, where the estimation will be evaluated by an agent of the Administrator. If the reparation is approved, an authorization number with the reimbursement
+amount will be assigned to the work order in a printed format to be emailed or faxed to the Authorized Repair Facility. Any other form of approval, whether purported, voice, text or otherwise,
+will not be recognized by the Administrator.
+If the Breakdown occurs outside of working hours and the Vehicle Owner or Authorized Repair Facility is unable to contact the Administrator, the Vehicle Owner may send invoices for the amounts
+incurred to the Administrator for evaluation. The claim process will be followed in the same manner as mentioned above.
+Filing a claim does not guarantee coverage under the warranty program.
+8. Rules and additional information regarding the repair process
+1. No work order dated more than thirty (30) days from the date of verification will be accepted by the Administrator.
+2. Invoices for amounts incurred by the Vehicle Owner sent to the Administrator for evaluation more than thirty (30) days from the date of reparation will not be accepted by the Administrator.
+3. For authorizations, the Administrator will reimburse the amount to the Authorized Repair Facility within the time agreed between both parties and if the following documents have been
+returned to the Administrator:
+a. The authorization form signed by the Vehicle Owner.
+b. The Authorized Repair Facility invoice indicating the amount authorized by the Administrator with the Administrator indicated in a visible location on the invoice.
+c. Proof of payment if the Vehicle Owner has paid the invoice in full - in which case the Administrator will reimburse the authorized amount to the Vehicle Owner within thirty (30) to
+forty-five (45) days of receipt of all the required documentation.
+4. The Administrator will not be liable for additional amounts not specified on the authorization form.
+5. The Administrator will not be held responsible for the quality of the material used for the repair.
+6. The Administrator will not be held responsible for any damage caused directly or indirectly to the vehicle by the Authorized Repair Facility or otherwise during or after the repair.
+7. The Vehicle Owner will accept the franchise amount selected on the warranty, that will be automatically deducted from the authorized repair amount.
+8. The Administrator reserves the right to authorize parts that are used, new or re-built for each claim. In the case that the Vehicle Owner wishes to install a different class of part than the one
+authorized by Administrator, the Vehicle Owner must pay the difference between the authorized part and the one requested.
+9. The Vehicle Owner cannot claim any tax reimbursement on amounts the Administrator pays to the Authorised Repair Facility.
+9. Maximum reparation limits
+The Vehicle Owner can declare an unlimited number of claims during the term of their program chosen, however Administrator will not be responsible for more than the lesser of the following
+amounts:
+a. the total indicated (taxes included) on the first page of the contract, section PROGRAM REPAIR MAXMIMUM (per visit/cumulative)
+b. the total indicated (taxes included) on the first page of the contract, section PRICE OF VEHICULE (before taxes).
+c. the total indicated (taxes included) on the sale contract between the Authorized Distributor and the Vehicle Owner.
+10. Vehicle exclusions
+3. The warranty program will not cover the following vehicles:
+a. Passenger and commercial vehicles that have a gross vehicle weight rating (GVWR) greater than 10,000kg, or categorized greater than class 5.
+b. Tractors, heavy equipment vehicles and trucks, ambulances, fire trucks, tow trucks, police vehicles or vehicles installed with a < police pack >, busses, and snow-removal vehicles.
+c. Any vehicle used as a short-term rental vehicle (that has a rental agreement or a lease that is less than 24 months).
+d. Any vehicle that has been repossessed by the bank, financial institution, or returned to the Authorised Distributor.
+e. Any vehicle that has been declared a total loss, partial loss or stolen.
+f. Any Breakdown that occurs outside Canada or the continental United States.
+g. Any vehicle that has been altered or modified from original factory installation, including, but not limited to the manufacture specification restrictions, powertrain performance, ECM
+chip tuning, performance exhaust or air intake system modifications, lifted or lowered suspensions and tire and rim size recommendations.
+h. Any high-performance sports or luxury vehicle that has an MSRP greater than 150,000$ CAD.
+The Authorized Distributor may request an exception to any of these exclusions before having sold the warranty to the Vehicle Owner. In this case, the Authorized Distributor must contact its
+designated representative of the Administrator to request this exception. If approved, the exception will be noted on the warranty contract for the Vehicle Owner prior to final approval. The
+Authorized Distributor is responsible for any additional charges incurred due to these exceptions.
+11. Transfers and Cancellations
+1. Transfers
+a. Only the Vehicle Owner may transfer the warranty to a new owner. Transfer requests must be sent to the Administrator with the full name and address of the new owner including
+the date of purchase and odometer reading at time of transfer. This information must be sent to the Administrator within the first fifteen days (15) following new ownership. An
+Authorised Distributor or Authorised Repair Facility are not eligible for warranty transfers. There will be no fees applied to warranty transfers.
+2. Cancellations
+a. Within the first thirty (30) days following the delivery date of the warranty:
+i. only the Vehicle Owner can request to cancel the warranty directly to the Authorised Distributor. The Administrator is not responsible for the refunds, refusals,
+administrative fees, or any additional fees that the Authorised Distributor may apply.
+Application # 915
+incomplete
+TERMS AND CONDITIONS OF THE WARRANTY PROGRAM CONTRACT
+Page 4 of 4 1/2024
+b. After thirty (30) days, and before the terms of the warranty have expired:
+i. The Vehicle Owner can request to cancel the warranty and the termination of the terms and conditions of its warranty only is the vehicle indicated on the warranty has
+been declared a total loss or declared stolen. In both cases, the Vehicle Owner must provide proof of a declaration made by his or her insurance company and a copy of
+the vehicle registration certificate indicating that the Vehicle Owner is the same as indicated on the warranty contract. The Vehicle Owner must request this and send all
+the required documents by email to the Administrator at the following address remboursements@garantieavantageplus.ca. The reimbursement amount will be prorated
+using a portion of the price paid for the warranty by the Authorized Distributor to the Administrator, based on time and kilometers used, less any claims paid. This final
+amount will be sent to the Vehicle Owner and the warranty contract will be canceled.
+ii. The bank or financial institution may request cancellation and termination of the warranty terms and conditions if the vehicle listed on the warranty has been repossessed
+and has an outstanding loan amount with that bank or financial institution. The bank or financial institution must provide proof that it has repossessed the vehicle with the
+date and mileage indicated at the time of repossession, and send all required documents by email to the Administrator at following address
+remboursements@garantieavantageplus.ca. The reimbursement amount will be prorated using a portion of the price paid for the warranty by the Authorized Distributor
+to the Administrator, based on time and kilometers used, less any claims paid. This final amount will be sent to the bank or financial institutio n and the warranty contract
+will be canceled.
+12. General provisions
+1. This contract constitutes the entire agreement between the Vehicle Owner and the Authorized Distributor regarding the warranty protection. It takes precedence over any verbal or other
+written agreement, representation or promise made before its signature.
+3. Any provision contained in the contract which conflicts with the Consumer Protection Act (Quebec) or a law of another province whose provisions are of public order is automatically
+considered modified to become compliant.
+I accept and understand the provisions provided by the present warranty program and accept the conditions that apply.
+Vehicle Owner ________________________________Date _________________________Authorised Distributor _________________________________________Date_____________________
+Application # 915
+incomplete

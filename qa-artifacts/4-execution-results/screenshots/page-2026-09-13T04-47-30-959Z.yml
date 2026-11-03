@@ -1,0 +1,141 @@
+- generic [active] [ref=f18e1]:
+  - banner [ref=f18e2]:
+    - link [ref=f18e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f18e5]:
+      - searchbox "Search" [ref=f18e7]
+      - listitem [ref=f18e8]:
+        - generic [ref=f18e9]: Test QA staging
+  - generic [ref=f18e11]:
+    - navigation [ref=f18e13]:
+      - list [ref=f18e14]:
+        - listitem [ref=f18e15]:
+          - link " 􏀕 Dashboard" [ref=f18e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f18e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f18e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f18e19]:
+            - generic [ref=f18e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f18e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f18e22]:
+            - generic [ref=f18e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f18e24]:
+          - link " 􏗡 Claims" [ref=f18e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f18e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f18e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f18e28]:
+            - generic [ref=f18e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f18e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f18e31]:
+            - generic [ref=f18e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f18e33]:
+          - link " 􏀑 Logout" [ref=f18e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f18e35]:  􏀑
+            - text: Logout
+    - main [ref=f18e36]:
+      - generic [ref=f18e39]:
+        - heading "Hi Vinh LE 2 Welcome to Test QA staging's account" [level=1] [ref=f18e41]
+        - generic [ref=f18e44]:
+          - generic [ref=f18e46]:
+            - generic [ref=f18e47]: 
+            - paragraph [ref=f18e48]: Warranties
+          - generic [ref=f18e49]:
+            - generic [ref=f18e50]:
+              - generic [ref=f18e51]: "1"
+              - link "Incomplete" [ref=f18e53] [cursor=pointer]:
+                - /url: /quote
+            - generic [ref=f18e54]:
+              - generic [ref=f18e55]: "0"
+              - link "Pending approval" [ref=f18e57] [cursor=pointer]:
+                - /url: /warranty
+            - generic [ref=f18e58]:
+              - generic [ref=f18e59]: "1"
+              - link "Approved" [ref=f18e61] [cursor=pointer]:
+                - /url: /warranty/approved
+        - generic [ref=f18e62]:
+          - link "Create quote" [ref=f18e64] [cursor=pointer]:
+            - /url: /quote
+          - link "Insurance Quick Quote" [ref=f18e66] [cursor=pointer]:
+            - /url: /quick-insurance-quote
+        - generic [ref=f18e68]:
+          - heading "Warranty quotes" [level=5] [ref=f18e69]
+          - heading "Incomplete" [level=6] [ref=f18e70]
+          - table [ref=f18e72]:
+            - rowgroup [ref=f18e73]:
+              - row [ref=f18e74]:
+                - columnheader "Client" [ref=f18e75]
+                - columnheader "Vehicle" [ref=f18e76]
+                - columnheader "Program" [ref=f18e77]
+                - columnheader "Date Created" [ref=f18e78]
+            - rowgroup [ref=f18e79]:
+              - row [ref=f18e80]:
+                - cell [ref=f18e81] [cursor=pointer]:
+                  - text: vinh le
+                  - generic [ref=f18e82]:
+                    - link "vinhle_client2@yopmail.com" [ref=f18e83]:
+                      - /url: mailto:vinhle_client2@yopmail.com
+                    - link "11111" [ref=f18e84]:
+                      - /url: tel:11111
+                - cell "-" [ref=f18e85] [cursor=pointer]
+                - cell [ref=f18e86] [cursor=pointer]
+                - cell "May 7, 2025" [ref=f18e87] [cursor=pointer]
+          - link "View all" [ref=f18e88] [cursor=pointer]:
+            - /url: /quotes
+        - generic [ref=f18e90]:
+          - heading "Warranty contracts" [level=5] [ref=f18e91]
+          - heading "Pending approval" [level=6] [ref=f18e92]
+          - alert [ref=f18e93]: No warranties found
+        - generic [ref=f18e95]:
+          - heading "Warranty contracts" [level=5] [ref=f18e96]
+          - heading "Approved" [level=6] [ref=f18e97]
+          - table [ref=f18e99]:
+            - rowgroup [ref=f18e100]:
+              - row [ref=f18e101]:
+                - columnheader "Client" [ref=f18e102]
+                - columnheader "Dealer" [ref=f18e103]
+                - columnheader "Vehicle" [ref=f18e104]
+                - columnheader "Program" [ref=f18e105]
+                - columnheader "Invoices" [ref=f18e106]
+                - columnheader "Components" [ref=f18e107]
+                - columnheader "Start Date" [ref=f18e108]
+                - columnheader "Created on" [ref=f18e109]
+            - rowgroup [ref=f18e110]:
+              - row [ref=f18e111]:
+                - cell [ref=f18e112] [cursor=pointer]:
+                  - text: Vinh LE AP2
+                  - generic [ref=f18e113]:
+                    - link "vinhle_ap2@gmail.com" [ref=f18e114]:
+                      - /url: mailto:vinhle_ap2@gmail.com
+                    - link:
+                      - /url: "tel:"
+                - cell [ref=f18e115] [cursor=pointer]:
+                  - text: 15071987 Offical VinhLe870@gmail.com
+                  - generic [ref=f18e116]:
+                    - text: created by LE 2 Vinh
+                    - link "vinhle_ap2@yopmail.com" [ref=f18e117]:
+                      - /url: mailto:vinhle_ap2@yopmail.com
+                - 'cell "Chevrolet Bolt EV 2019 VIN: VehicleTest Delivery date: Thursday, August 6, 2020" [ref=f18e118] [cursor=pointer]'
+                - cell "AP-62 12m/20000km" [ref=f18e119] [cursor=pointer]
+                - cell [ref=f18e120] [cursor=pointer]
+                - cell [ref=f18e121] [cursor=pointer]
+                - cell "August 6, 2020 11:00" [ref=f18e122] [cursor=pointer]
+                - cell "August 6, 2020 11:00  Approved" [ref=f18e123] [cursor=pointer]:
+                  - text: August 6, 2020 11:00
+                  - generic [ref=f18e124]:
+                    - generic [ref=f18e125]: 
+                    - text: Approved
+          - link "View all" [ref=f18e126] [cursor=pointer]:
+            - /url: /warranty/approved
+  - contentinfo [ref=f18e127]:
+    - generic [ref=f18e128]:
+      - link "Avantage Plus System v2.0.0" [ref=f18e129] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

@@ -1,0 +1,9 @@
+Environment: Dev (https://v2dev.garantieavantageplus.ca)
+Captured: 2026-11-03T04:55Z — dealer 1380 creditor forms unchanged (GC6201MQ:PM30, GC6201MQ:PM50, AVPG:TGGAP)
+Modal open from /quick-insurance-quote "Send compliance documents":
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500
+Direct navigation, attempt 1:
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500
+Direct navigation, attempt 2 (retry):
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500
+Page body: "Erreur — Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois."

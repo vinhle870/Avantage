@@ -1,0 +1,2536 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Garantie Avantage Plus",
+        "description": "API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "\/api\/accounts": {
+            "get": {
+                "tags": [
+                    "accounts"
+                ],
+                "summary": "Get dealers accounts list",
+                "operationId": "get_app_api_accounts_index__invoke",
+                "responses": {
+                    "200": {
+                        "description": "Returns the list of dealers accounts",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\/components\/schemas\/Dealers"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/api\/admin\/claim-note": {
+            "post": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Add a note to a claim",
+                "operationId": "post_api-admin-add-claim-note",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "required": [
+                                    "claim_id",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "claim_id": {
+                                        "description": "The ID of the claim",
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "description": "The new status of the claim. Values: created, submitted, approved, dealer_accepted, authorized, paid, refused",
+                                        "type": "string",
+                                        "example": "approved"
+                                    },
+                                    "description": {
+                                        "description": "Text field containing description of the note.",
+                                        "type": "string"
+                                    },
+                                    "is_public": {
+                                        "description": "Whether to show in dealer portal or not",
+                                        "type": "boolean",
+                                        "example": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Claim note created successfully",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "noteId": {
+                                            "type": "integer",
+                                            "example": 123
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Claim note added successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Claim not found"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/claim": {
+            "post": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Create a new claim",
+                "operationId": "post_app_api_admin_createclaim__invoke",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "required": [
+                                    "contractNumber",
+                                    "diagnostic"
+                                ],
+                                "properties": {
+                                    "contractNumber": {
+                                        "description": "The full contract number of a warranty contract",
+                                        "type": "string"
+                                    },
+                                    "vehicleKmAtClaim": {
+                                        "description": "Vehicle current mileage",
+                                        "type": "integer"
+                                    },
+                                    "diagnostic": {
+                                        "description": "Text field containing diagnostic of the claim",
+                                        "type": "string"
+                                    },
+                                    "serviceCenterName": {
+                                        "description": "Name of the service center",
+                                        "type": "string"
+                                    },
+                                    "serviceCenterEmail": {
+                                        "description": "Email of the service center",
+                                        "type": "string"
+                                    },
+                                    "serviceCenterId": {
+                                        "description": "ID of the service center",
+                                        "type": "integer"
+                                    },
+                                    "notifyEmail": {
+                                        "description": "Additional email to send notifications when claim is approved",
+                                        "type": "string"
+                                    },
+                                    "technicalAdvisor": {
+                                        "description": "Name of the technical advisor (optional)",
+                                        "type": "string"
+                                    },
+                                    "assignedTo": {
+                                        "description": "User ID to assign the claim to (optional)",
+                                        "type": "integer"
+                                    },
+                                    "items": {
+                                        "description": "JSON string containing array of claim items",
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "itemNonListed": {
+                                                    "type": "string",
+                                                    "example": "string"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "string"
+                                                },
+                                                "partNumber": {
+                                                    "type": "string",
+                                                    "example": "string"
+                                                },
+                                                "itemQuantity": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 1.5
+                                                },
+                                                "itemCost": {
+                                                    "type": "number",
+                                                    "example": 5
+                                                },
+                                                "itemComponent": {
+                                                    "type": "string",
+                                                    "example": "ENGINE"
+                                                },
+                                                "totalPrice": {
+                                                    "type": "number",
+                                                    "example": 7500
+                                                },
+                                                "labor": {
+                                                    "type": "boolean",
+                                                    "example": false
+                                                },
+                                                "itemId": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Claim created successfully",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "claimId": {
+                                            "type": "integer",
+                                            "example": 123
+                                        },
+                                        "assignedTo": {
+                                            "type": "integer",
+                                            "example": 5
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Claim created successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    },
+                    "401": {
+                        "description": "Missing\/Invalid\/Expired api key"
+                    },
+                    "404": {
+                        "description": "Warranty contract or service center not found"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/claim-attachment": {
+            "post": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Create a new claim attachment",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "API Key for authentication",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart\/form-data": {
+                            "schema": {
+                                "required": [
+                                    "claimId",
+                                    "file"
+                                ],
+                                "properties": {
+                                    "claimId": {
+                                        "description": "The ID of the claim",
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "description": "The type of attachment. Defaults to 'other'",
+                                        "type": "string",
+                                        "default": "other",
+                                        "enum": [
+                                            "invoice",
+                                            "work_order",
+                                            "other"
+                                        ]
+                                    },
+                                    "file": {
+                                        "description": "The file to upload (PDF, image, JSON, CSV)",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Attachment created successfully",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "attachmentId": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Attachment uploaded successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request - missing required fields or invalid file"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Claim not found"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/warranty-notes": {
+            "post": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Create a note for a warranty contract",
+                "operationId": "post_api-admin-create-warranty-note",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart\/form-data": {
+                            "schema": {
+                                "required": [
+                                    "warranty_id",
+                                    "title",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "warranty_id": {
+                                        "description": "The ID of the warranty",
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "description": "Title of the note",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Description of the note",
+                                        "type": "string"
+                                    },
+                                    "is_public": {
+                                        "description": "true or false",
+                                        "type": "boolean",
+                                        "example": true
+                                    },
+                                    "file": {
+                                        "description": "PDF file to upload (optional)",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Warranty note created successfully",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "noteId": {
+                                            "type": "integer",
+                                            "example": 123
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Warranty note created successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Warranty contract not found"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/claim-attachment\/download\/{attachmentId}": {
+            "get": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Download a claim attachment",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "API Key for authentication",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "attachmentId",
+                        "in": "path",
+                        "description": "The ID of the attachment to download",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "File download",
+                        "content": {
+                            "application\/octet-stream": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Attachment not found"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/users": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get active admin users",
+                "operationId": "get_app_api_admin_getadminusers__invoke",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "Optional keyword to filter users by email, first name, last name, or full name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of active admin users filtered by keyword",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "1234"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "name@example.com"
+                                            },
+                                            "firstName": {
+                                                "type": "string",
+                                                "example": "Ken"
+                                            },
+                                            "lastName": {
+                                                "type": "string",
+                                                "example": "Nguyen"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Missing\/Invalid\/Expired api key"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/claim\/{id}": {
+            "get": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Get claim details",
+                "operationId": "get_api-admin-get-claim",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The ID of the claim",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Claim details retrieved successfully",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "claimId": {
+                                            "description": "the ID of the claim",
+                                            "type": "string"
+                                        },
+                                        "dealerId": {
+                                            "description": "the ID of the dealer attached to the original warranty contract",
+                                            "type": "integer"
+                                        },
+                                        "createdById": {
+                                            "description": "The user who created the claim",
+                                            "type": "integer"
+                                        },
+                                        "contractNumber": {
+                                            "description": "contract number",
+                                            "type": "string"
+                                        },
+                                        "contractStartDate": {
+                                            "description": "start date",
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "contractEndDate": {
+                                            "description": "end date",
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "contractTermMonths": {
+                                            "description": "number of months covered",
+                                            "type": "integer"
+                                        },
+                                        "contractTermKm": {
+                                            "description": "mileage covered",
+                                            "type": "integer"
+                                        },
+                                        "clientFirstName": {
+                                            "type": "string"
+                                        },
+                                        "clientLastName": {
+                                            "type": "string"
+                                        },
+                                        "vehicleMake": {
+                                            "type": "string"
+                                        },
+                                        "vehicleModel": {
+                                            "type": "string"
+                                        },
+                                        "vehicleYear": {
+                                            "type": "string"
+                                        },
+                                        "vehicleKmAtSale": {
+                                            "type": "integer"
+                                        },
+                                        "vehicleKmAtClaim": {
+                                            "type": "integer"
+                                        },
+                                        "diagnostic": {
+                                            "type": "string"
+                                        },
+                                        "subTotal": {
+                                            "type": "number",
+                                            "format": "decimal"
+                                        },
+                                        "grandTotal": {
+                                            "type": "number",
+                                            "format": "decimal"
+                                        },
+                                        "deductibleAmount": {
+                                            "type": "number",
+                                            "format": "decimal"
+                                        },
+                                        "authorizedAmount": {
+                                            "type": "number",
+                                            "format": "decimal"
+                                        },
+                                        "createdAt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "submittedAt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "approvedAt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "dealerAcceptedAt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "authorizedAt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "paidAt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "refusedAt": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "statusCode": {
+                                            "description": "REPAIR or MAINTENANCE",
+                                            "type": "string"
+                                        },
+                                        "authorizedById": {
+                                            "description": "the user who authorized the claim",
+                                            "type": "integer"
+                                        },
+                                        "authorizationNumber": {
+                                            "description": "authorization number for user",
+                                            "type": "string"
+                                        },
+                                        "warrantyContractId": {
+                                            "type": "integer"
+                                        },
+                                        "serviceCenterName": {
+                                            "type": "string"
+                                        },
+                                        "serviceCenterEmail": {
+                                            "type": "string"
+                                        },
+                                        "notifyEmail": {
+                                            "type": "string"
+                                        },
+                                        "warrantyComponents": {
+                                            "type": "string"
+                                        },
+                                        "vin": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "description": "REPAIR or MAINTENANCE",
+                                            "type": "string"
+                                        },
+                                        "serviceCenterId": {
+                                            "type": "integer"
+                                        },
+                                        "isGoodWill": {
+                                            "type": "boolean"
+                                        },
+                                        "technicalAdvisor": {
+                                            "description": "Name of the technical advisor",
+                                            "type": "string"
+                                        },
+                                        "assignedTo": {
+                                            "description": "User ID the claim is assigned to",
+                                            "type": "integer"
+                                        },
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "description": {
+                                                        "description": "description",
+                                                        "type": "string"
+                                                    },
+                                                    "itemComponent": {
+                                                        "description": "Item component category",
+                                                        "type": "string"
+                                                    },
+                                                    "amount": {
+                                                        "description": "cost",
+                                                        "type": "number",
+                                                        "format": "decimal"
+                                                    },
+                                                    "itemId": {
+                                                        "description": "item ID",
+                                                        "type": "integer"
+                                                    },
+                                                    "itemData": {
+                                                        "description": "item object data",
+                                                        "properties": {
+                                                            "id": {
+                                                                "description": "Id of item",
+                                                                "type": "integer"
+                                                            },
+                                                            "title": {
+                                                                "description": "Title of item",
+                                                                "type": "string"
+                                                            },
+                                                            "translations": {
+                                                                "description": "list of translations",
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "description": "translation object",
+                                                                    "properties": {
+                                                                        "locale": {
+                                                                            "description": "locale",
+                                                                            "type": "string"
+                                                                        },
+                                                                        "title": {
+                                                                            "description": "Title of item",
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "type": "object"
+                                                                }
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "itemNonListed": {
+                                                        "description": "Other item description not in the list of components",
+                                                        "type": "string"
+                                                    },
+                                                    "itemPart": {
+                                                        "description": "The internal ID of the claim item",
+                                                        "type": "string"
+                                                    },
+                                                    "itemQuantity": {
+                                                        "description": "quantity",
+                                                        "type": "number",
+                                                        "format": "decimal"
+                                                    },
+                                                    "itemCost": {
+                                                        "description": "cost",
+                                                        "type": "number",
+                                                        "format": "decimal"
+                                                    },
+                                                    "itemMarkup": {
+                                                        "description": "markup",
+                                                        "type": "number",
+                                                        "format": "decimal"
+                                                    },
+                                                    "laborRate": {
+                                                        "description": "labor rate",
+                                                        "type": "number",
+                                                        "format": "decimal"
+                                                    },
+                                                    "laborHours": {
+                                                        "description": "labor hours",
+                                                        "type": "number",
+                                                        "format": "decimal"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Claim not found"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/claim-item-components": {
+            "get": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Get claim item components categorization list",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "API Key for authentication",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of claim item components",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "title": {
+                                                "type": "string",
+                                                "example": "Engine"
+                                            },
+                                            "translations": {
+                                                "type": "array",
+                                                "items": {
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer",
+                                                            "example": 1
+                                                        },
+                                                        "title": {
+                                                            "type": "string",
+                                                            "example": "Moteur"
+                                                        },
+                                                        "locale": {
+                                                            "type": "string",
+                                                            "example": "fr"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/warranty\/{fullId}\/claims": {
+            "get": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Get claims by warranty contract",
+                "operationId": "get_app_api_admin_getclaimsbywarranty__invoke",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fullId",
+                        "in": "path",
+                        "description": "The full warranty contract ID (e.g., AT-745)",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status_code",
+                        "in": "query",
+                        "description": "Optional status code to filter claims (e.g., submitted, approved, paid)",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of claim IDs filtered by contract ID and optional status code",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "example": [
+                                    1,
+                                    2,
+                                    3,
+                                    4,
+                                    5
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid contract number format"
+                    },
+                    "401": {
+                        "description": "Missing\/Invalid\/Expired api key"
+                    },
+                    "404": {
+                        "description": "Warranty contract not found"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/service-centers": {
+            "get": {
+                "tags": [
+                    "service-center"
+                ],
+                "summary": "Get service centers",
+                "operationId": "get_app_api_admin_getservicecenters__invoke",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "Optional keyword to filter service centers by name or email",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of service centers filtered by keyword",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "example": "1234"
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Service Center Name"
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "example": "service@example.com"
+                                            },
+                                            "address": {
+                                                "type": "string",
+                                                "example": "123 Main St"
+                                            },
+                                            "city": {
+                                                "type": "string",
+                                                "example": "Montreal"
+                                            },
+                                            "postalCode": {
+                                                "type": "string",
+                                                "example": "H1A 1A1"
+                                            },
+                                            "telephone": {
+                                                "type": "string",
+                                                "example": "514-123-4567"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Missing\/Invalid\/Expired api key"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/search-warranty": {
+            "get": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Search warranty contracts by VIN, postal code, or telephone",
+                "operationId": "get_app_api_admin_searchwarranty__invoke",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "Search query - can be VIN (partial match), postal code (full match), or telephone (full match), or",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "5149779847"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of warranty contracts matching the search query",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "contractNumber": {
+                                                        "type": "string",
+                                                        "example": "CVE-815"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Missing query parameter"
+                    },
+                    "401": {
+                        "description": "Missing\/Invalid\/Expired api key"
+                    }
+                }
+            }
+        },
+        "\/api\/admin\/claim\/{claimId}": {
+            "put": {
+                "tags": [
+                    "claim"
+                ],
+                "summary": "Update an existing claim",
+                "operationId": "put_app_api_admin_updateclaim__invoke",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "claimId",
+                        "in": "path",
+                        "description": "The ID of the claim to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "required": [
+                                    "contractNumber",
+                                    "diagnostic"
+                                ],
+                                "properties": {
+                                    "contractNumber": {
+                                        "description": "The full contract number of a warranty contract",
+                                        "type": "string"
+                                    },
+                                    "vehicleKmAtClaim": {
+                                        "description": "Vehicle current mileage",
+                                        "type": "integer"
+                                    },
+                                    "diagnostic": {
+                                        "description": "Text field containing diagnostic of the claim",
+                                        "type": "string"
+                                    },
+                                    "serviceCenterEmail": {
+                                        "description": "Email of the service center to look up in our database",
+                                        "type": "string"
+                                    },
+                                    "serviceCenterId": {
+                                        "description": "ID of the service center to look up in our database",
+                                        "type": "integer"
+                                    },
+                                    "notifyEmail": {
+                                        "description": "Additional email to send notifications when claim is approved",
+                                        "type": "string"
+                                    },
+                                    "technicalAdvisor": {
+                                        "description": "Name of the technical advisor (optional)",
+                                        "type": "string"
+                                    },
+                                    "assignedTo": {
+                                        "description": "User ID to assign the claim to (optional)",
+                                        "type": "integer"
+                                    },
+                                    "workOrder": {
+                                        "description": "The PDF file of the work order",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "items": {
+                                        "description": "JSON string containing array of claim items",
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "string"
+                                                },
+                                                "itemComponent": {
+                                                    "type": "string",
+                                                    "example": "ENGINE"
+                                                },
+                                                "amount": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 1.5
+                                                },
+                                                "itemId": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                },
+                                                "itemNonListed": {
+                                                    "type": "string",
+                                                    "example": "string"
+                                                },
+                                                "itemPart": {
+                                                    "type": "string",
+                                                    "example": "string"
+                                                },
+                                                "itemQuantity": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 1.5
+                                                },
+                                                "itemCost": {
+                                                    "type": "number",
+                                                    "example": 5
+                                                },
+                                                "itemMarkup": {
+                                                    "type": "number",
+                                                    "example": 5
+                                                },
+                                                "laborRate": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 1.5
+                                                },
+                                                "laborHours": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 1.5
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Claim updated successfully (use POST method for multipart\/form-data support)",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "claimId": {
+                                            "type": "integer",
+                                            "example": 123
+                                        },
+                                        "assignedTo": {
+                                            "description": "User ID the claim is assigned to",
+                                            "type": "integer",
+                                            "example": 5
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Claim updated successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    },
+                    "401": {
+                        "description": "Missing\/Invalid\/Expired api key"
+                    },
+                    "404": {
+                        "description": "Claim, warranty contract or service center not found"
+                    }
+                }
+            }
+        },
+        "\/api\/dyr\/{dyrClientId}\/{quoteId}\/eligible-programs": {
+            "get": {
+                "tags": [
+                    "dealyourrate"
+                ],
+                "summary": "Get quotes",
+                "operationId": "get_app_api_dyr_eligibleprograms__invoke",
+                "parameters": [
+                    {
+                        "name": "dyrClientId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "quoteId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns an array of quotes available for the vehicle and client",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\/components\/schemas\/Result"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/api\/make": {
+            "get": {
+                "tags": [
+                    "vehicle"
+                ],
+                "summary": "List of vehicle makes",
+                "operationId": "get_app_api_make_index__invoke",
+                "responses": {
+                    "200": {
+                        "description": "Returns the list of vehicle makes",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\/components\/schemas\/VehicleMake"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/api\/{accountId}\/quote": {
+            "post": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Get quotes",
+                "operationId": "post_app_api_quote_index__invoke",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Quote request",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "properties": {
+                                    "quote_request": {
+                                        "$ref": "#\/components\/schemas\/QuoteRequestType"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns an array of quotes available for the vehicle and client",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#\/components\/schemas\/Result"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/api\/user\/authenticate": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Authenticates a user",
+                "operationId": "post_app_api_user_authenticate__invoke",
+                "requestBody": {
+                    "request": "credentials",
+                    "description": "Authentication request",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns an access token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE0MzQ3Mjc1MzYsInVzZXJuYW1lIjoia29ybGVvbiIsImlhdCI6IjE0MzQ2NDExMzYifQ.nh0L_wuJy6ZKIQWh6OrW5hdLkviTs1_bau2GqYdDCB0Yqy_RplkFghsuqMpsFls8zKEErdX5TYCOR7muX0aQvQxGQ4mpBkvMDhJ4-pE4ct2obeMTr_s4X8nC00rBYPofrOONUOR4utbzvbd4d2xT_tj4TdR_0tsr91Y7VskCRFnoXAnNT-qQb7ci7HIBTbutb9zVStOFejrb4aLbr7Fl4byeIEYgp2Gd7gY"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/api\/user\/refresh-token": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Refreshes a user token",
+                "operationId": "post_app_api_user_refreshtoken__invoke",
+                "requestBody": {
+                    "request": "refreshToken",
+                    "description": "Token request",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "properties": {
+                                    "refresh_token": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns an access token, refresh token",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE0MzQ3Mjc1MzYsInVzZXJuYW1lIjoia29ybGVvbiIsImlhdCI6IjE0MzQ2NDExMzYifQ.nh0L_wuJy6ZKIQWh6OrW5hdLkviTs1_bau2GqYdDCB0Yqy_RplkFghsuqMpsFls8zKEErdX5TYCOR7muX0aQvQxGQ4mpBkvMDhJ4-pE4ct2obeMTr_s4X8nC00rBYPofrOONUOR4utbzvbd4d2xT_tj4TdR_0tsr91Y7VskCRFnoXAnNT-qQb7ci7HIBTbutb9zVStOFejrb4aLbr7Fl4byeIEYgp2Gd7gY"
+                                        },
+                                        "refresh_token": {
+                                            "type": "string",
+                                            "example": "491c7e18098ceb0f916c35d400a623b207e1d9da15bda130fbb62d205ed234607b69e269c03966addf5494f2339c8eb90940ce2ac05b926bccac0c1a9d1424c5"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/api\/check-contract": {
+            "get": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Get full contract ID(s) by VIN and client last name",
+                "operationId": "get_api_check_contract",
+                "parameters": [
+                    {
+                        "name": "vin",
+                        "in": "query",
+                        "description": "Vehicle VIN",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "client_last_name",
+                        "in": "query",
+                        "description": "Client last name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns full contract ID(s)",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "contractNumber": {
+                                                        "type": "string",
+                                                        "example": "ATP-12345"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/api\/{accountId}\/warranty\/{id}": {
+            "get": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Get the warranty details",
+                "operationId": "get_app_api_warranty_details__invoke",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the warranty object",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$ref": "#\/components\/schemas\/WarrantyContract"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/api\/admin\/warranty-pdf\/{fullId}\/{lang}": {
+            "get": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Get a warranty contract PDF content (admin API)",
+                "operationId": "get_app_api_warranty_getcontract__invoke",
+                "parameters": [
+                    {
+                        "name": "X-API-KEY",
+                        "in": "header",
+                        "description": "Admin API access key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "fullId",
+                        "in": "path",
+                        "description": "Full contract id e.g. AT-745",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "path",
+                        "description": "Language: en or fr",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "en",
+                                "fr"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the pdf content of a warranty",
+                        "content": {
+                            "application\/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request"
+                    },
+                    "401": {
+                        "description": "Missing\/Invalid\/Expired api key"
+                    },
+                    "404": {
+                        "description": "Warranty not found"
+                    }
+                }
+            }
+        },
+        "\/api\/{accountId}\/warranty": {
+            "get": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "List the warranties of the specified user.",
+                "operationId": "get_app_api_warranty_index__invoke",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "schema": {
+                            "type": "number",
+                            "default": 50
+                        }
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the warranty contracts of a user",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "results": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#\/components\/schemas\/WarrantyContract"
+                                            }
+                                        },
+                                        "size": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Create a warranty",
+                "operationId": "post_app_api_warranty_post__invoke",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "warranty",
+                    "description": "Warranty request",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "properties": {
+                                    "warranty_contract": {
+                                        "$ref": "#\/components\/schemas\/WarrantyContractType"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns a warranty cost price and PDF content",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "warranty_contract": {
+                                            "$ref": "#\/components\/schemas\/WarrantyContract"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/api\/{accountId}\/warranty\/{id}\/pdf\/{lang}": {
+            "get": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Get a warranty contract PDF content",
+                "operationId": "get_app_api_warranty_pdf__invoke",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "lang",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the pdf content of a warranty",
+                        "content": {
+                            "application\/pdf": {
+                                "schema": {
+                                    "type": "file"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/api\/{accountId}\/warranty\/price": {
+            "post": {
+                "tags": [
+                    "warranty"
+                ],
+                "summary": "Create a warranty",
+                "operationId": "post_app_api_warranty_price__invoke",
+                "parameters": [
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "request": "warranty",
+                    "description": "Warranty request",
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "properties": {
+                                    "warranty_contract": {
+                                        "$ref": "#\/components\/schemas\/WarrantyContractType"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns the cost price for a warranty request",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "price": {
+                                            "type": "number",
+                                            "example": "1000.00"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Program ID not eligible for the requested warranty"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Dealers": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "city": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "province": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            },
+            "Result": {
+                "properties": {
+                    "programId": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "program": {
+                        "type": "string",
+                        "example": "ATP 24\/2000"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "\u00c9ligible pour les v\u00e9hicules de moins de 2 ans et de moins de 2,000 km au moment de l\u2019achat"
+                    },
+                    "termMonths": {
+                        "type": "integer",
+                        "example": "24"
+                    },
+                    "termKm": {
+                        "type": "integer",
+                        "example": "20000"
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "float",
+                        "example": "1000.00"
+                    },
+                    "eligibleComponents": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/Component"
+                        }
+                    },
+                    "eligibleFuelTypes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/Component"
+                        }
+                    },
+                    "maxRetailPrice": {
+                        "type": "number",
+                        "format": "float",
+                        "example": "1000.00"
+                    }
+                },
+                "type": "object"
+            },
+            "VehicleMake": {
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Porsche"
+                    },
+                    "models": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#\/components\/schemas\/VehicleModel"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "QuoteRequestType": {
+                "required": [
+                    "vehicleVIN",
+                    "vehicleMake",
+                    "vehicleModel",
+                    "vehicleYear",
+                    "vehicleTransmission",
+                    "vehicleCylinder",
+                    "vehicleEngineSize",
+                    "vehicleDeliveredAt",
+                    "vehicleSalePrice",
+                    "vehicleKilometers",
+                    "vehicleFuelType",
+                    "vehicleType",
+                    "manufacturerFullDateEnd",
+                    "manufacturerFullKmEnd",
+                    "manufacturerPowertrainDateEnd",
+                    "manufacturerPowertrainKmEnd"
+                ],
+                "properties": {
+                    "vehicleVIN": {
+                        "type": "string"
+                    },
+                    "vehicleMake": {
+                        "description": "Model name from the list of makes\/models API endpoint",
+                        "type": "number"
+                    },
+                    "vehicleModel": {
+                        "description": "Make name from the list of makes\/models API endpoint",
+                        "type": "number"
+                    },
+                    "vehicleYear": {
+                        "type": "number"
+                    },
+                    "vehicleIsDiesel": {
+                        "type": "boolean"
+                    },
+                    "vehicleIsTurbo": {
+                        "type": "boolean"
+                    },
+                    "vehicleIs4x4": {
+                        "type": "boolean"
+                    },
+                    "vehicleIsFWD": {
+                        "type": "boolean"
+                    },
+                    "vehicleTransmission": {
+                        "type": "string",
+                        "enum": [
+                            "automatic",
+                            "manual"
+                        ]
+                    },
+                    "vehicleCylinder": {
+                        "type": "string"
+                    },
+                    "vehicleEngineSize": {
+                        "type": "string"
+                    },
+                    "vehicleDeliveredAt": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "vehicleSalePrice": {
+                        "type": "string"
+                    },
+                    "vehicleKilometers": {
+                        "type": "string"
+                    },
+                    "vehicleFuelType": {
+                        "type": "string",
+                        "enum": [
+                            "GASOLINE",
+                            "BEV",
+                            "DIESEL",
+                            "HYBRID"
+                        ]
+                    },
+                    "vehicleType": {
+                        "type": "string",
+                        "format": "App\\Entity\\VehicleType id",
+                        "example": "PASSENGER"
+                    },
+                    "manufacturerFullDateEnd": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "manufacturerFullKmEnd": {
+                        "type": "number"
+                    },
+                    "manufacturerPowertrainDateEnd": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "manufacturerPowertrainKmEnd": {
+                        "type": "number"
+                    }
+                },
+                "type": "object"
+            },
+            "WarrantyContract": {
+                "required": [
+                    "vehicleMake",
+                    "vehicleModel",
+                    "vehicleYear",
+                    "vehicleVIN",
+                    "clientEmail",
+                    "clientLastName",
+                    "clientFirstName",
+                    "termMonths",
+                    "termKm"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "vehicleMake": {
+                        "type": "string",
+                        "example": "Porsche"
+                    },
+                    "vehicleModel": {
+                        "type": "string",
+                        "example": "911"
+                    },
+                    "vehicleYear": {
+                        "type": "string",
+                        "example": "2021"
+                    },
+                    "vehicleIsDiesel": {
+                        "type": "boolean",
+                        "example": "1"
+                    },
+                    "vehicleIsTurbo": {
+                        "type": "boolean",
+                        "example": "1"
+                    },
+                    "vehicleIs4x4": {
+                        "type": "boolean",
+                        "example": "1"
+                    },
+                    "vehicleIsFWD": {
+                        "type": "boolean",
+                        "example": "1"
+                    },
+                    "vehicleVIN": {
+                        "type": "string",
+                        "example": "WP0ZZZ95ZJN100108"
+                    },
+                    "clientEmail": {
+                        "type": "string",
+                        "example": "test@test.com"
+                    },
+                    "clientLastName": {
+                        "type": "string",
+                        "example": "Smith"
+                    },
+                    "clientFirstName": {
+                        "type": "string",
+                        "example": "John"
+                    },
+                    "clientAddress": {
+                        "type": "string",
+                        "example": "2222 Rue Street",
+                        "nullable": true
+                    },
+                    "clientAddress2": {
+                        "type": "string",
+                        "example": "app 101",
+                        "nullable": true
+                    },
+                    "clientCity": {
+                        "type": "string",
+                        "example": "Montreal",
+                        "nullable": true
+                    },
+                    "clientPostalCode": {
+                        "type": "string",
+                        "example": "H2K4R8",
+                        "nullable": true
+                    },
+                    "clientTelHome": {
+                        "type": "string",
+                        "example": "123-123-1234",
+                        "nullable": true
+                    },
+                    "clientTelWork": {
+                        "type": "string",
+                        "example": "321-321-3214",
+                        "nullable": true
+                    },
+                    "clientIndianStatusCertificate": {
+                        "type": "string",
+                        "example": "916500185",
+                        "nullable": true
+                    },
+                    "termMonths": {
+                        "type": "integer",
+                        "example": "12"
+                    },
+                    "termKm": {
+                        "type": "integer",
+                        "example": "10000"
+                    },
+                    "costPrice": {
+                        "type": "string",
+                        "example": "100.00"
+                    },
+                    "warrantyId": {
+                        "type": "string",
+                        "example": "ATP-100"
+                    },
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "APPROVED",
+                            "PENDING_APPROVAL"
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "WarrantyContractType": {
+                "required": [
+                    "vehicleVIN",
+                    "vehicleModelId",
+                    "vehicleYear",
+                    "vehicleTransmission",
+                    "vehicleCylinder",
+                    "vehicleEngineSize",
+                    "vehicleEngineSizeUnit",
+                    "vehicleDeliveredAt",
+                    "vehicleSalePrice",
+                    "vehicleKilometers",
+                    "vehicleDesignation",
+                    "vehicleCondition",
+                    "clientEmail",
+                    "clientLastName",
+                    "clientFirstName",
+                    "clientCompany",
+                    "clientAddress",
+                    "clientAddress2",
+                    "clientCity",
+                    "clientPostalCode",
+                    "clientProvinceId",
+                    "clientTelHome",
+                    "clientTelWork",
+                    "clientIndianStatusCertificate",
+                    "clientDriversLicense",
+                    "warrantyProgramTermId",
+                    "warrantyExtraComponentIDs",
+                    "warrantySalePrice",
+                    "manufacturerFullDateEnd",
+                    "manufacturerFullKmEnd",
+                    "manufacturerPowertrainDateEnd",
+                    "manufacturerPowertrainKmEnd",
+                    "financingCompanyName",
+                    "financingCompanyAddress",
+                    "financingCompanyCity",
+                    "financingCompanyProvince",
+                    "financingCompanyPostalCode",
+                    "financingCompanyPhone",
+                    "merchantReferenceId"
+                ],
+                "properties": {
+                    "vehicleVIN": {
+                        "type": "string"
+                    },
+                    "vehicleModelId": {
+                        "description": "Model ID from the list of makes\/models API endpoint. If other, use zero (0)",
+                        "type": "number"
+                    },
+                    "vehicleModelName": {
+                        "description": "Specify a model name if model is not from the list of makes\/models API endpoint. (Model ID needs to be set to zero (0)",
+                        "type": "string"
+                    },
+                    "vehicleMakeName": {
+                        "description": "Specify a make name if model is not from the list of makes\/models API endpoint. (Model ID needs to be set to zero (0)",
+                        "type": "string"
+                    },
+                    "vehicleYear": {
+                        "type": "number"
+                    },
+                    "vehicleIsDiesel": {
+                        "type": "boolean"
+                    },
+                    "vehicleIsTurbo": {
+                        "type": "boolean"
+                    },
+                    "vehicleIs4x4": {
+                        "type": "boolean"
+                    },
+                    "vehicleIsFWD": {
+                        "type": "boolean"
+                    },
+                    "vehicleTransmission": {
+                        "type": "string",
+                        "enum": [
+                            "automatic",
+                            "manual"
+                        ]
+                    },
+                    "vehicleCylinder": {
+                        "type": "string"
+                    },
+                    "vehicleEngineSize": {
+                        "type": "string"
+                    },
+                    "vehicleEngineSizeUnit": {
+                        "type": "string"
+                    },
+                    "vehicleDeliveredAt": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "vehicleSalePrice": {
+                        "type": "string",
+                        "example": 100
+                    },
+                    "vehicleKilometers": {
+                        "type": "number"
+                    },
+                    "vehicleDesignation": {
+                        "type": "string",
+                        "enum": [
+                            "PARTICULAR",
+                            "COMMERCIAL"
+                        ]
+                    },
+                    "vehicleCondition": {
+                        "type": "string",
+                        "enum": [
+                            "new",
+                            "used"
+                        ]
+                    },
+                    "clientEmail": {
+                        "type": "string"
+                    },
+                    "clientLastName": {
+                        "type": "string"
+                    },
+                    "clientFirstName": {
+                        "type": "string"
+                    },
+                    "clientCompany": {
+                        "type": "string"
+                    },
+                    "clientAddress": {
+                        "type": "string"
+                    },
+                    "clientAddress2": {
+                        "type": "string"
+                    },
+                    "clientCity": {
+                        "type": "string"
+                    },
+                    "clientPostalCode": {
+                        "type": "string"
+                    },
+                    "clientProvinceId": {
+                        "description": "Province ID from the list of provinces API endpoint",
+                        "type": "number",
+                        "example": 1
+                    },
+                    "clientTelHome": {
+                        "type": "string"
+                    },
+                    "clientTelWork": {
+                        "type": "string"
+                    },
+                    "clientIndianStatusCertificate": {
+                        "type": "string"
+                    },
+                    "clientDriversLicense": {
+                        "type": "string"
+                    },
+                    "warrantyProgramTermId": {
+                        "description": "Program Term ID from the list of terms API endpoint",
+                        "type": "number",
+                        "example": 1
+                    },
+                    "warrantyExtraComponentIDs": {
+                        "description": "Component IDs separated by commas",
+                        "type": "string",
+                        "example": "1,2,3,4"
+                    },
+                    "warrantySalePrice": {
+                        "type": "string",
+                        "example": 100
+                    },
+                    "manufacturerFullDateEnd": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "manufacturerFullKmEnd": {
+                        "type": "number"
+                    },
+                    "manufacturerPowertrainDateEnd": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "manufacturerPowertrainKmEnd": {
+                        "type": "number"
+                    },
+                    "financingCompanyName": {
+                        "type": "string"
+                    },
+                    "financingCompanyAddress": {
+                        "type": "string"
+                    },
+                    "financingCompanyCity": {
+                        "type": "string"
+                    },
+                    "financingCompanyProvince": {
+                        "type": "string"
+                    },
+                    "financingCompanyPostalCode": {
+                        "type": "string"
+                    },
+                    "financingCompanyPhone": {
+                        "type": "string"
+                    },
+                    "merchantReferenceId": {
+                        "type": "string",
+                        "example": ""
+                    }
+                },
+                "type": "object"
+            },
+            "Component": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "NO_DEDUCTIBLE"
+                    }
+                },
+                "type": "object"
+            },
+            "VehicleModel": {
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "911"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "securitySchemes": {
+            "Bearer": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+[    1645ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://v2staging.garantieavantageplus.ca/build/fonts/Simple-Line-Icons.0cb0b9c5.woff2 @ https://v2staging.garantieavantageplus.ca/admin/login:0
+[    2608ms] ReferenceError: $ is not defined
+    at https://v2staging.garantieavantageplus.ca/admin/login:230:5
+[    2612ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ https://v2staging.garantieavantageplus.ca/admin/login:0
+[   23782ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   23782ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   23782ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   23782ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1

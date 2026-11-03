@@ -1,0 +1,252 @@
+- generic [ref=f69e1]:
+  - banner [ref=f69e2]:
+    - link [ref=f69e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f69e5]:
+      - searchbox "Search" [ref=f69e7]
+      - listitem [ref=f69e8]:
+        - generic [ref=f69e9]: Test QA staging
+  - generic [ref=f69e11]:
+    - navigation [ref=f69e13]:
+      - list [ref=f69e14]:
+        - listitem [ref=f69e15]:
+          - link " Dashboard" [ref=f69e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f69e17]: 
+            - text: Dashboard
+        - listitem [ref=f69e18]:
+          - heading " Vehicles" [level=6] [ref=f69e19]:
+            - generic [ref=f69e20]: 
+            - text: Vehicles
+        - listitem [ref=f69e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f69e22]:
+            - generic [ref=f69e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f69e24]:
+          - link " Claims" [ref=f69e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f69e26]: 
+            - text: Claims
+        - listitem [ref=f69e27]:
+          - heading " Billing" [level=6] [ref=f69e28]:
+            - generic [ref=f69e29]: 
+            - text: Billing
+        - listitem [ref=f69e30]:
+          - heading " System preferences" [level=6] [ref=f69e31]:
+            - generic [ref=f69e32]: 
+            - text: System preferences
+        - listitem [ref=f69e33]:
+          - link " Logout" [ref=f69e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f69e35]: 
+            - text: Logout
+    - main [ref=f69e36]:
+      - generic [ref=f69e37]:
+        - generic [ref=f69e38]:
+          - alert [ref=f69e39]:
+            - text: Chubb insurance quote saved successfully
+            - button "Close" [ref=f69e40] [cursor=pointer]: ×
+          - navigation [ref=f69e42]:
+            - heading [level=1] [ref=f69e43]:
+              - text: "#6310 - Retest AP2464C 1FAHP35NX8W239204"
+              - link "" [ref=f69e44] [cursor=pointer]:
+                - /url: /quote/6310/rename
+            - list [ref=f69e46]:
+              - listitem [ref=f69e47]:
+                - link "Back" [ref=f69e48] [cursor=pointer]:
+                  - /url: /quotes
+              - listitem [ref=f69e49]:
+                - link "Send compliance documents" [ref=f69e50] [cursor=pointer]:
+                  - /url: /compliance-documents/send?redirectUrl=/quote/6310/details&clientEmail=retest.ap2464c@yopmail.com
+              - listitem [ref=f69e51]:
+                - link "Archive" [ref=f69e52] [cursor=pointer]:
+                  - /url: /quote/6310/cancel
+          - generic [ref=f69e53]:
+            - generic [ref=f69e55]:
+              - generic [ref=f69e58]:
+                - navigation [ref=f69e59]:
+                  - heading "Vehicle" [level=3] [ref=f69e60]
+                  - list [ref=f69e61]:
+                    - listitem [ref=f69e62]:
+                      - link "Edit" [ref=f69e63] [cursor=pointer]:
+                        - /url: /vehicle/915/edit/PASSENGER
+                - paragraph [ref=f69e64]:
+                  - link "Ford Focus 2008" [ref=f69e65] [cursor=pointer]:
+                    - /url: /vehicle/915/details
+                  - generic [ref=f69e66]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+              - generic [ref=f69e69]:
+                - navigation [ref=f69e70]:
+                  - heading "Financing" [level=3] [ref=f69e71]
+                  - list [ref=f69e72]:
+                    - listitem [ref=f69e73]:
+                      - link "Edit" [ref=f69e74] [cursor=pointer]:
+                        - /url: /quote/6310/financing
+                    - listitem [ref=f69e75]:
+                      - link "DYR Rates" [ref=f69e76] [cursor=pointer]:
+                        - /url: /quote/6310/dyr-rates
+                - generic [ref=f69e78]:
+                  - heading "Financing 60 months" [level=6] [ref=f69e79]
+                  - paragraph [ref=f69e80]: AutoCapital Canada
+                  - generic [ref=f69e81]:
+                    - generic [ref=f69e82]:
+                      - text: "Type :"
+                      - generic [ref=f69e83]: Financing
+                    - generic [ref=f69e84]:
+                      - text: "Financed amount :"
+                      - generic [ref=f69e85]: 25,000.00$
+                    - generic [ref=f69e86]:
+                      - text: "Residual :"
+                      - generic [ref=f69e87]: 0.00$
+                    - generic [ref=f69e88]:
+                      - text: "Term :"
+                      - generic [ref=f69e89]: "60"
+                    - generic [ref=f69e90]:
+                      - text: "Interest rate :"
+                      - generic [ref=f69e91]: 6.9900%
+                    - generic [ref=f69e92]:
+                      - text: "Payment amount :"
+                      - generic [ref=f69e93]: 494.91$ Monthly
+                  - separator [ref=f69e94]
+                  - heading "Co-applicant" [level=6] [ref=f69e95]
+                  - paragraph [ref=f69e96]: No applicant
+                  - link "Add co-applicant" [ref=f69e97] [cursor=pointer]:
+                    - /url: /quote/6310/financing/co-applicant
+              - generic [ref=f69e100]:
+                - navigation [ref=f69e101]:
+                  - heading "Client" [level=3] [ref=f69e102]
+                  - list [ref=f69e103]:
+                    - listitem [ref=f69e104]:
+                      - link "Edit" [ref=f69e105] [cursor=pointer]:
+                        - /url: /quote/6310/client
+                - paragraph [ref=f69e106]:
+                  - text: Retest AP2464C
+                  - generic [ref=f69e107]:
+                    - text: 123 Test St Montreal Québec H1H1H1
+                    - generic [ref=f69e108]: 
+                    - link "retest.ap2464c@yopmail.com" [ref=f69e109] [cursor=pointer]:
+                      - /url: mailto:retest.ap2464c@yopmail.com
+                    - generic [ref=f69e110]: 
+                    - text: "5141234567"
+              - generic [ref=f69e113]:
+                - navigation [ref=f69e114]:
+                  - heading "Sale" [level=3] [ref=f69e115]
+                - generic [ref=f69e116]:
+                  - link "Create sale" [ref=f69e117] [cursor=pointer]:
+                    - /url: /quote/6310/sales
+                  - separator [ref=f69e118]
+                  - heading "Exchange vehicle" [level=6] [ref=f69e119]
+                  - link "Add exchange vehicle" [ref=f69e120] [cursor=pointer]:
+                    - /url: /quote/6310/exchange-vehicle?referer=%252Fquote%252F6310%252Fdetails
+            - generic [ref=f69e123]:
+              - navigation [ref=f69e124]:
+                - heading "Summary of products" [level=3] [ref=f69e125]
+              - table [ref=f69e126]:
+                - rowgroup [ref=f69e127]:
+                  - row [ref=f69e128]:
+                    - cell [ref=f69e129]:
+                      - text: Ford Focus 2008
+                      - generic [ref=f69e130]: "Delivery date: Oct 3, 2026"
+                    - cell "CA$10,000.00" [ref=f69e131]
+                    - cell [ref=f69e132]:
+                      - link "" [ref=f69e133] [cursor=pointer]:
+                        - /url: /quote/6310/vehicle
+                  - row [ref=f69e135]:
+                    - cell "Extended warranty" [ref=f69e136]
+                    - cell "- None Selected -" [ref=f69e138]
+                    - cell [ref=f69e140]:
+                      - link "" [ref=f69e141] [cursor=pointer]:
+                        - /url: /quote/6310/warranty/edit
+                  - row [ref=f69e143]:
+                    - cell "Roadside Protection" [ref=f69e144]
+                    - cell "- None Selected -" [ref=f69e146]
+                    - cell [ref=f69e147]:
+                      - link "" [ref=f69e148] [cursor=pointer]:
+                        - /url: /quote/6310/road-side-protection
+                  - row [ref=f69e150]:
+                    - cell [ref=f69e151]:
+                      - paragraph [ref=f69e152]: Gap Insurance
+                    - cell "- None Selected -" [ref=f69e153]
+                    - cell [ref=f69e154]:
+                      - link "" [ref=f69e155] [cursor=pointer]:
+                        - /url: /quote/6310/gap-insurance
+                  - row [ref=f69e157]:
+                    - cell [ref=f69e158]
+                  - row [ref=f69e159]:
+                    - cell [ref=f69e160]:
+                      - generic [ref=f69e161]:
+                        - text: Creditors insurance
+                        - button "" [expanded] [active] [ref=f69e162] [cursor=pointer]
+                    - cell "CA$18.58 /m" [ref=f69e164]
+                    - cell [ref=f69e165]:
+                      - generic [ref=f69e166]:
+                        - button "" [ref=f69e167] [cursor=pointer]
+                        - text:   
+                  - row [ref=f69e197]:
+                    - 'cell " Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance. Form: GC6201MQ Rate table: PM30 Language: Français Tax exempt: No Coverage Type Coverage Term Months Monthly Premium Tax Monthly Total Life Decreasing BORROWER 60 18.58$ 1.67$ 20.25$ Equivalent Single Premium 891.31$ Commission (30%) 267.39$" [ref=f69e198]':
+                      - generic [ref=f69e171]:
+                        - generic [ref=f69e172]: 
+                        - text: Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance.
+                      - generic [ref=f69e199]:
+                        - generic [ref=f69e200]:
+                          - generic [ref=f69e201]:
+                            - strong [ref=f69e202]: "Form:"
+                            - text: GC6201MQ
+                          - generic [ref=f69e203]:
+                            - strong [ref=f69e204]: "Rate table:"
+                            - text: PM30
+                          - generic [ref=f69e205]:
+                            - strong [ref=f69e206]: "Language:"
+                            - text: Français
+                          - generic [ref=f69e207]:
+                            - strong [ref=f69e208]: "Tax exempt:"
+                            - text: "No"
+                        - table [ref=f69e209]:
+                          - rowgroup [ref=f69e210]:
+                            - row [ref=f69e211]:
+                              - columnheader "Coverage Type" [ref=f69e212]
+                              - columnheader "Coverage" [ref=f69e213]
+                              - columnheader "Term Months" [ref=f69e214]
+                              - columnheader "Monthly Premium" [ref=f69e215]
+                              - columnheader "Tax" [ref=f69e216]
+                              - columnheader "Monthly Total" [ref=f69e217]
+                          - rowgroup [ref=f69e218]:
+                            - row [ref=f69e219]:
+                              - cell "Life Decreasing" [ref=f69e220]
+                              - cell "BORROWER" [ref=f69e221]
+                              - cell "60" [ref=f69e222]
+                              - cell "18.58$" [ref=f69e223]
+                              - cell "1.67$" [ref=f69e224]
+                              - cell "20.25$" [ref=f69e225]
+                        - table [ref=f69e226]:
+                          - rowgroup [ref=f69e227]:
+                            - row [ref=f69e228]:
+                              - cell "Equivalent Single Premium" [ref=f69e229]
+                              - cell "891.31$" [ref=f69e230]
+                            - row [ref=f69e231]:
+                              - cell "Commission (30%)" [ref=f69e232]
+                              - cell "267.39$" [ref=f69e233]
+                  - row [ref=f69e173]:
+                    - cell "Esthetic protection" [ref=f69e174]
+                    - cell "-" [ref=f69e176]
+                    - cell [ref=f69e177]:
+                      - link "" [ref=f69e178] [cursor=pointer]:
+                        - /url: /quote/6310/permaplate
+                  - row [ref=f69e180]:
+                    - cell [ref=f69e181]:
+                      - text: Subtotal
+                      - strong [ref=f69e182]: CA$10,018.58
+                    - cell [ref=f69e183]
+        - generic [ref=f69e187]:
+          - heading "Compliance documents sent" [level=4] [ref=f69e188]
+          - separator [ref=f69e189]
+          - alert [ref=f69e191]: No entities found
+  - contentinfo [ref=f69e192]:
+    - generic [ref=f69e193]:
+      - link "Avantage Plus System v2.0.0" [ref=f69e194] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - iframe [ref=f69e196]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f71e1] [cursor=pointer]

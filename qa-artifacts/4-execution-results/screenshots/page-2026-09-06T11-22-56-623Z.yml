@@ -1,0 +1,131 @@
+- generic [ref=f125e1]:
+  - banner [ref=f125e2]:
+    - link [ref=f125e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f125e5]:
+      - searchbox "Search" [ref=f125e7]
+      - listitem [ref=f125e8]:
+        - generic [ref=f125e9]: Test QA staging
+  - generic [ref=f125e11]:
+    - navigation [ref=f125e13]:
+      - list [ref=f125e14]:
+        - listitem [ref=f125e15]:
+          - link " 􏀕 Dashboard" [ref=f125e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f125e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f125e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f125e19]:
+            - generic [ref=f125e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f125e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f125e22]:
+            - generic [ref=f125e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f125e24]:
+          - link " 􏗡 Claims" [ref=f125e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f125e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f125e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f125e28]:
+            - generic [ref=f125e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f125e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f125e31]:
+            - generic [ref=f125e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f125e33]:
+          - link " 􏀑 Logout" [ref=f125e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f125e35]:  􏀑
+            - text: Logout
+    - main [ref=f125e36]:
+      - generic [ref=f125e38]:
+        - navigation [ref=f125e40]:
+          - heading "Create a quote" [level=1] [ref=f125e41]
+          - list:
+            - listitem
+        - generic [ref=f125e46]:
+          - heading "Client" [level=4] [ref=f125e47]
+          - generic [ref=f125e48]:
+            - generic [ref=f125e49]:
+              - generic [ref=f125e50]: Email*
+              - textbox "Email*" [ref=f125e51]: perma.repro.0906@yopmail.com
+            - generic [ref=f125e52]:
+              - generic [ref=f125e53]: First name*
+              - textbox "First name*" [ref=f125e54]: Perma
+            - generic [ref=f125e55]:
+              - generic [ref=f125e56]: Last name*
+              - textbox "Last name*" [ref=f125e57]: Repro
+            - generic [ref=f125e58]:
+              - generic [ref=f125e59]: Secondary owner or company
+              - textbox "Secondary owner or company" [ref=f125e60]
+            - generic [ref=f125e61]:
+              - generic [ref=f125e62]: Distributor name
+              - textbox "Distributor name" [ref=f125e63]
+            - generic [ref=f125e64]:
+              - generic [ref=f125e65]: Address*
+              - textbox "Address*" [ref=f125e66]: 220 Boulevard Saint-Laurent
+            - generic [ref=f125e67]:
+              - generic [ref=f125e68]: Address2
+              - textbox "Address2" [ref=f125e69]
+            - generic [ref=f125e70]:
+              - generic [ref=f125e71]: City*
+              - textbox "City*" [ref=f125e72]: Montreal
+            - generic [ref=f125e73]:
+              - generic [ref=f125e74]: Province*
+              - generic [ref=f125e75]:
+                - combobox "Province*" [ref=f125e76]:
+                  - option "Choose"
+                  - option "Québec" [selected]
+                  - option "Ontario"
+                  - option "British Columbia"
+                  - option "Alberta"
+                  - option "Manitoba"
+                  - option "Saskatchewan"
+                  - option "Nova Scotia"
+                  - option "New Brunswick"
+                  - option "Newfoundland and Labrador"
+                  - option "Prince Edward Island"
+                  - option "Northwest Territories"
+                  - option "Yukon"
+                  - option "Nanavut"
+                - combobox "Québec" [ref=f125e110] [cursor=pointer]
+            - generic [ref=f125e81]:
+              - generic [ref=f125e82]: Postal code*
+              - textbox "Postal code*" [ref=f125e83]: H2Y 1Z4
+            - generic [ref=f125e84]:
+              - generic [ref=f125e85]: Tel home*
+              - textbox "Tel home*" [ref=f125e86]: "5145550200"
+            - generic [ref=f125e87]:
+              - generic [ref=f125e88]: Tel work*
+              - textbox "Tel work*" [ref=f125e89]: "5145550201"
+            - generic [ref=f125e90]:
+              - generic [ref=f125e91]: Indian status certificate
+              - textbox "Indian status certificate" [ref=f125e92]
+            - generic [ref=f125e93]:
+              - generic [ref=f125e94]: Drivers license
+              - textbox "Drivers license" [ref=f125e95]
+            - generic [ref=f125e97]:
+              - checkbox "I confirm that I have provided a copy of FORM-L25, at the request of Les Produits Avantage Plus Inc., all in accordance with the requirements of the Act respecting the protection of personal information in the private sector.*" [checked] [active] [ref=f125e98]
+              - generic [ref=f125e99]:
+                - text: I confirm that I have provided a copy of
+                - link "FORM-L25" [ref=f125e100] [cursor=pointer]:
+                  - /url: /quote/client/pdf-privacy
+                - text: ", at the request of Les Produits Avantage Plus Inc., all in accordance with the requirements of the Act respecting the protection of personal information in the private sector.*"
+            - generic [ref=f125e102]:
+              - checkbox "Send a copy of the privacy policy to the client's email address" [ref=f125e103]
+              - generic [ref=f125e104]: Send a copy of the privacy policy to the client's email address
+          - separator [ref=f125e105]
+          - button "Save" [ref=f125e106] [cursor=pointer]
+  - contentinfo [ref=f125e107]:
+    - generic [ref=f125e108]:
+      - link "Avantage Plus System v2.0.0" [ref=f125e109] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - iframe [ref=f125e112]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f127e1] [cursor=pointer]

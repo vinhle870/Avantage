@@ -1,0 +1,180 @@
+- generic [active] [ref=f137e1]:
+  - banner [ref=f137e2]:
+    - link [ref=f137e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f137e5]:
+      - searchbox "Search" [ref=f137e7]
+  - generic [ref=f137e8]:
+    - navigation [ref=f137e10]:
+      - list [ref=f137e11]:
+        - listitem [ref=f137e12]:
+          - link " 􏀕 Dashboard" [ref=f137e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f137e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f137e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f137e16]:
+            - generic [ref=f137e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f137e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f137e19]:
+            - generic [ref=f137e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f137e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f137e22]:
+            - generic [ref=f137e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f137e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f137e25]:
+            - generic [ref=f137e26]:  􏃀
+            - text: Users
+        - listitem [ref=f137e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f137e28]:
+            - generic [ref=f137e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f137e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f137e31]:
+            - generic [ref=f137e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f137e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f137e34]:
+            - generic [ref=f137e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f137e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f137e37]:
+            - generic [ref=f137e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f137e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f137e40]:
+            - generic [ref=f137e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f137e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f137e43]:
+            - generic [ref=f137e44]:  􏂎
+            - text: External links
+        - listitem [ref=f137e45]:
+          - link " 􏆫 Language settings" [ref=f137e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-curve/13/edit
+            - generic [ref=f137e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f137e48]:
+          - link " 􏀑 Logout" [ref=f137e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f137e50]:  􏀑
+            - text: Logout
+    - main [ref=f137e51]:
+      - generic [ref=f137e53]:
+        - navigation [ref=f137e55]:
+          - 'heading "Earning curve #13" [level=1] [ref=f137e56]'
+          - list
+        - generic [ref=f137e57]:
+          - generic [ref=f137e58]:
+            - generic [ref=f137e59]: Name*
+            - textbox "Name*" [ref=f137e60]: QA-AP2471-Del-0043
+          - generic [ref=f137e61]:
+            - generic [ref=f137e62]: Term month*
+            - spinbutton "Term month*" [ref=f137e63]: "12"
+          - generic [ref=f137e64]:
+            - generic [ref=f137e65]: Coverage odometer from*
+            - spinbutton "Coverage odometer from*" [ref=f137e66]: "0"
+          - generic [ref=f137e67]:
+            - generic [ref=f137e68]: Coverage odometer to*
+            - spinbutton "Coverage odometer to*" [ref=f137e69]: "10000"
+          - generic [ref=f137e70]:
+            - generic [ref=f137e71]: Earning curve type*
+            - generic [ref=f137e72]:
+              - combobox "Earning curve type*" [ref=f137e73]:
+                - option "Pro-Rata" [selected]
+                - option "Rule of 78"
+                - option "Reverse rule of 78"
+                - option "Custom"
+              - combobox "Pro-Rata" [ref=f137e74] [cursor=pointer]
+          - generic [ref=f137e79]:
+            - checkbox "Is Enabled?" [checked] [ref=f137e80]
+            - generic [ref=f137e81]: Is Enabled?
+          - generic [ref=f137e82]: Earning points
+          - table [ref=f137e83]:
+            - rowgroup [ref=f137e84]:
+              - row [ref=f137e85]:
+                - columnheader "Earning point" [ref=f137e86]
+                - columnheader "Monthly Factor" [ref=f137e87]
+                - columnheader "Cumulative Factor" [ref=f137e88]
+            - rowgroup [ref=f137e89]:
+              - row [ref=f137e90]:
+                - cell "1" [ref=f137e91]
+                - cell [ref=f137e92]:
+                  - spinbutton [ref=f137e93]: "0.0833"
+                - cell [ref=f137e94]:
+                  - spinbutton [ref=f137e95]: "0.0833"
+              - row [ref=f137e96]:
+                - cell "2" [ref=f137e97]
+                - cell [ref=f137e98]:
+                  - spinbutton [ref=f137e99]: "0.0833"
+                - cell [ref=f137e100]:
+                  - spinbutton [ref=f137e101]: "0.1667"
+              - row [ref=f137e102]:
+                - cell "3" [ref=f137e103]
+                - cell [ref=f137e104]:
+                  - spinbutton [ref=f137e105]: "0.0833"
+                - cell [ref=f137e106]:
+                  - spinbutton [ref=f137e107]: "0.2500"
+              - row [ref=f137e108]:
+                - cell "4" [ref=f137e109]
+                - cell [ref=f137e110]:
+                  - spinbutton [ref=f137e111]: "0.0833"
+                - cell [ref=f137e112]:
+                  - spinbutton [ref=f137e113]: "0.3333"
+              - row [ref=f137e114]:
+                - cell "5" [ref=f137e115]
+                - cell [ref=f137e116]:
+                  - spinbutton [ref=f137e117]: "0.0833"
+                - cell [ref=f137e118]:
+                  - spinbutton [ref=f137e119]: "0.4167"
+              - row [ref=f137e120]:
+                - cell "6" [ref=f137e121]
+                - cell [ref=f137e122]:
+                  - spinbutton [ref=f137e123]: "0.0833"
+                - cell [ref=f137e124]:
+                  - spinbutton [ref=f137e125]: "0.5000"
+              - row [ref=f137e126]:
+                - cell "7" [ref=f137e127]
+                - cell [ref=f137e128]:
+                  - spinbutton [ref=f137e129]: "0.0833"
+                - cell [ref=f137e130]:
+                  - spinbutton [ref=f137e131]: "0.5833"
+              - row [ref=f137e132]:
+                - cell "8" [ref=f137e133]
+                - cell [ref=f137e134]:
+                  - spinbutton [ref=f137e135]: "0.0833"
+                - cell [ref=f137e136]:
+                  - spinbutton [ref=f137e137]: "0.6667"
+              - row [ref=f137e138]:
+                - cell "9" [ref=f137e139]
+                - cell [ref=f137e140]:
+                  - spinbutton [ref=f137e141]: "0.0833"
+                - cell [ref=f137e142]:
+                  - spinbutton [ref=f137e143]: "0.7500"
+              - row [ref=f137e144]:
+                - cell "10" [ref=f137e145]
+                - cell [ref=f137e146]:
+                  - spinbutton [ref=f137e147]: "0.0833"
+                - cell [ref=f137e148]:
+                  - spinbutton [ref=f137e149]: "0.8333"
+              - row [ref=f137e150]:
+                - cell "11" [ref=f137e151]
+                - cell [ref=f137e152]:
+                  - spinbutton [ref=f137e153]: "0.0833"
+                - cell [ref=f137e154]:
+                  - spinbutton [ref=f137e155]: "0.9167"
+              - row [ref=f137e156]:
+                - cell "12" [ref=f137e157]
+                - cell [ref=f137e158]:
+                  - spinbutton [ref=f137e159]: "0.0833"
+                - cell [ref=f137e160]:
+                  - spinbutton [ref=f137e161]: "1.0000"
+          - button "Save" [ref=f137e163] [cursor=pointer]
+  - contentinfo [ref=f137e164]:
+    - generic [ref=f137e165]:
+      - link "Avantage Plus System v2.0.0" [ref=f137e166] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

@@ -1,12 +1,6 @@
 import { Page, Locator } from '@playwright/test';
 import { TableComponent } from '../../core/components/TableComponent';
-
-/**
- * Program data interface
- */
-export interface ProgramData {
-    name: string;
-}
+import { Program } from '../../data/admin-portal';
 
 /**
  * Admin Programs Page - Manage programs.
@@ -42,7 +36,7 @@ export class AdminProgramsPage {
     /**
      * Find program info on the list and return row text
      */
-    async findProgramInfoOnList(program: ProgramData): Promise<string> {
+    async findProgramInfoOnList(program: Program): Promise<string> {
         return await this.tblProgramList.getRowTextContent(program.name, '|');
     }
 

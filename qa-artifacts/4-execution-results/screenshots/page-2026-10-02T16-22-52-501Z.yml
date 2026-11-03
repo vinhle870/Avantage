@@ -1,0 +1,168 @@
+- generic [ref=f14e3]:
+  - banner [ref=f14e4]:
+    - generic [ref=f14e5]:
+      - link [ref=f14e7] [cursor=pointer]:
+        - /url: .
+      - navigation [ref=f14e8]:
+        - generic [ref=f14e9]:
+          - link " Home" [ref=f14e10] [cursor=pointer]:
+            - /url: .
+            - generic [ref=f14e11]: 
+            - text: Home
+          - link " Donate" [ref=f14e12] [cursor=pointer]:
+            - /url: donate
+            - generic [ref=f14e13]: 
+            - text: Donate
+          - link " Domains" [ref=f14e14] [cursor=pointer]:
+            - /url: add-domain
+            - generic [ref=f14e15]: 
+            - text: Domains
+          - link " Random" [ref=f14e16] [cursor=pointer]:
+            - /url: email-generator
+            - generic [ref=f14e17]: 
+            - text: Random
+        - generic [ref=f14e22]:
+          - generic [ref=f14e23]:
+            - img "Temporary Email" [ref=f14e24]
+            - text: English
+          - generic [ref=f14e25]: 
+  - main [ref=f14e29]:
+    - generic [ref=f14e31]:
+      - generic [ref=f14e32]: vinhle0002@yopmail.com
+      - generic [ref=f14e33]:
+        - generic [ref=f14e34]:
+          - text: Alias
+          - button "" [ref=f14e35] [cursor=pointer]
+          - text: ":"
+        - generic [ref=f14e37]:
+          - emphasis [ref=f14e38]: alt.e3-1qsk677
+          - text: "@yopmail.com"
+        - button "" [ref=f14e40] [cursor=pointer]
+    - generic [ref=f14e42]:
+      - generic [ref=f14e44]:
+        - generic [ref=f14e45]:
+          - button "" [ref=f14e47] [cursor=pointer]
+          - button "" [disabled] [ref=f14e50]
+          - button "" [ref=f14e54] [cursor=pointer]
+          - generic [ref=f14e56]:
+            - button "" [disabled] [ref=f14e58]
+            - generic [ref=f14e60]: page 1
+            - button "" [disabled] [ref=f14e62]
+          - generic [ref=f14e64]: 1 mail
+          - button "" [ref=f14e67] [cursor=pointer]
+        - iframe [ref=f14e70]:
+          - generic [ref=f15e2]:
+            - generic [ref=f15e3]: today
+            - generic [ref=f15e4]:
+              - checkbox [ref=f15e6]
+              - button "23:22 Systeme Avantage Plus Compliance documents" [ref=f15e7] [cursor=pointer]:
+                - generic [ref=f15e8]:
+                  - generic [ref=f15e9]: 23:22
+                  - generic [ref=f15e10]: Systeme Avantage Plus
+                - generic [ref=f15e11]: Compliance documents
+      - iframe [ref=f14e76]:
+        - generic [ref=f17e1]:
+          - banner [ref=f17e2]:
+            - button "" [ref=f17e4] [cursor=pointer]
+            - generic [ref=f17e6]:
+              - generic [ref=f17e7]:
+                - button " Deliverability" [ref=f17e8] [cursor=pointer]:
+                  - generic [ref=f17e9]: 
+                  - generic [ref=f17e10]: Deliverability
+                - generic [ref=f17e11]:
+                  - button " Reply" [disabled] [ref=f17e12]:
+                    - generic [ref=f17e13]: 
+                    - generic [ref=f17e14]: Reply
+                  - button " Forward" [disabled] [ref=f17e15]:
+                    - generic [ref=f17e16]: 
+                    - generic [ref=f17e17]: Forward
+              - button " Print" [ref=f17e18] [cursor=pointer]:
+                - generic [ref=f17e19]: 
+                - generic [ref=f17e20]: Print
+              - button " Delete" [ref=f17e21] [cursor=pointer]:
+                - generic [ref=f17e22]: 
+                - generic [ref=f17e23]: Delete
+              - button "" [ref=f17e24] [cursor=pointer]
+            - generic [ref=f17e26]:
+              - generic [ref=f17e27]: Compliance documents
+              - generic [ref=f17e28]:
+                - generic [ref=f17e29]: 
+                - generic [ref=f17e30]: "\"garantieavantageplus.ca\" does't seem to be the real sender of this message"
+              - generic [ref=f17e31]:
+                - generic [ref=f17e32]: 
+                - generic [ref=f17e33]: Systeme Avantage Plus <no-reply@garantieavantageplus.ca>
+              - generic [ref=f17e34]:
+                - generic [ref=f17e35]: 
+                - generic [ref=f17e36]: Friday, October 2, 2026 11:22:41 PM
+              - button " Show pictures" [ref=f17e38] [cursor=pointer]:
+                - generic [ref=f17e39]: 
+                - generic [ref=f17e40]: Show pictures
+            - button "" [ref=f17e41] [cursor=pointer]
+            - generic [ref=f17e43]:
+              - link " parlons-assurance-fr.pdf" [ref=f17e44] [cursor=pointer]:
+                - /url: /cid?b=vinhle0002&id=e_ZwLkZQNlZGLlZwDkZQNkZQNlBGRkAj==&cd=a&pj=undefined-13024
+                - generic [ref=f17e45]: 
+                - generic [ref=f17e46]: parlons-assurance-fr.pdf
+              - link " parlons-assurance-en.pdf" [ref=f17e47] [cursor=pointer]:
+                - /url: /cid?b=vinhle0002&id=e_ZwLkZQNlZGLlZwDkZQNkZQNlBGRkAj==&cd=a&pj=undefined-831018
+                - generic [ref=f17e48]: 
+                - generic [ref=f17e49]: parlons-assurance-en.pdf
+              - link " waiver-form-30-fr.pdf" [ref=f17e50] [cursor=pointer]:
+                - /url: /cid?b=vinhle0002&id=e_ZwLkZQNlZGLlZwDkZQNkZQNlBGRkAj==&cd=a&pj=undefined-2379130
+                - generic [ref=f17e51]: 
+                - generic [ref=f17e52]: waiver-form-30-fr.pdf
+              - link " waiver-form-30-en.pdf" [ref=f17e53] [cursor=pointer]:
+                - /url: /cid?b=vinhle0002&id=e_ZwLkZQNlZGLlZwDkZQNkZQNlBGRkAj==&cd=a&pj=undefined-2474102
+                - generic [ref=f17e54]: 
+                - generic [ref=f17e55]: waiver-form-30-en.pdf
+              - link " waiver-form-50-fr.pdf" [ref=f17e56] [cursor=pointer]:
+                - /url: /cid?b=vinhle0002&id=e_ZwLkZQNlZGLlZwDkZQNkZQNlBGRkAj==&cd=a&pj=undefined-2568344
+                - generic [ref=f17e57]: 
+                - generic [ref=f17e58]: waiver-form-50-fr.pdf
+              - link " waiver-form-50-en.pdf" [ref=f17e59] [cursor=pointer]:
+                - /url: /cid?b=vinhle0002&id=e_ZwLkZQNlZGLlZwDkZQNkZQNlBGRkAj==&cd=a&pj=undefined-2666452
+                - generic [ref=f17e60]: 
+                - generic [ref=f17e61]: waiver-form-50-en.pdf
+          - main [ref=f17e62]:
+            - table [ref=f17e66]:
+              - rowgroup [ref=f17e67]:
+                - row [ref=f17e68]:
+                  - cell [ref=f17e69]
+                  - cell [ref=f17e70]:
+                    - generic [ref=f17e71]:
+                      - img "Image" [ref=f17e72]
+                      - table [ref=f17e73]:
+                        - rowgroup [ref=f17e74]:
+                          - row [ref=f17e75]:
+                            - cell [ref=f17e76]:
+                              - table [ref=f17e77]:
+                                - rowgroup [ref=f17e78]:
+                                  - row [ref=f17e79]:
+                                    - cell [ref=f17e80]:
+                                      - paragraph
+                                      - paragraph [ref=f17e81]: Bonjour sVinhle sdfsd,
+                                      - paragraph [ref=f17e82]: "Vous trouverez en pièces jointes les documents suivants, qui contiennent des renseignements importants concernant les produits offerts dans le cadre de la vente de votre véhicule :"
+                                      - paragraph [ref=f17e83]: Sommaire du produit d’assurance créance;
+                                      - list [ref=f17e84]:
+                                        - listitem [ref=f17e85]: Fiche de renseignements produite par l’Autorité des marchés financiers concernant l’assurance créance;
+                                        - listitem [ref=f17e86]: Avis relatif à la garantie légale, tel que requis par l’Office de la protection du consommateur;
+                                        - listitem [ref=f17e87]: Avis de divulgation, lorsque applicable.
+                                      - paragraph [ref=f17e88]: Nous vous invitons à prendre connaissance de ces documents et à vous assurer d’en avoir compris le contenu.
+                                      - paragraph [ref=f17e89]: Merci,
+                                      - text: Hello sVinhle sdfsd,
+                                      - paragraph
+                                      - paragraph [ref=f17e90]: "Please find attached the following documents, which contain important information regarding the products offered in connection with the sale of your vehicle:"
+                                      - paragraph [ref=f17e91]: Product summary for credit insurance;
+                                      - list [ref=f17e92]:
+                                        - listitem [ref=f17e93]: Information sheet issued by the Autorité des marchés financiers regarding credit insurance;
+                                        - listitem [ref=f17e94]: Legal warranty notice, as required by the Office de la protection du consommateur;
+                                        - listitem [ref=f17e95]: Disclosure notice, when applicable.
+                                        - paragraph [ref=f17e96]: Please review these documents carefully and ensure that you understand their contents.
+                                        - paragraph [ref=f17e97]: Thank you,
+                                        - paragraph
+                      - table [ref=f17e99]:
+                        - rowgroup [ref=f17e100]:
+                          - row [ref=f17e101]:
+                            - 'cell "Produits Avantage Plus, 2700 des Entreprises # 102, Terrebonne QC J6X 4J8, Canada" [ref=f17e102]'
+                  - cell [ref=f17e103]
+  - contentinfo [ref=f14e79]

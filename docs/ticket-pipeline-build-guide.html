@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ticket Pipeline Build Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600&display=swap">
+<style>
+/* Layout: one reading column (~68ch) with a contents strip; tables and the diagram scroll inside their own boxes. */
+:root {
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --fg: #1b2128;
+  --muted: #5a6672;
+  --line: #d8dde2;
+  --tint: #eceff2;
+  --accent: #2459c4;
+  --accent-tint: #e3ebfa;
+  --code-bg: #eef1f4;
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161b; --surface: #181d23; --fg: #e3e7eb; --muted: #97a2ad; --line: #2d353e;
+    --tint: #1c222a; --accent: #7ea4f2; --accent-tint: #1d2b45; --code-bg: #20262e; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161b; --surface: #181d23; --fg: #e3e7eb; --muted: #97a2ad; --line: #2d353e;
+  --tint: #1c222a; --accent: #7ea4f2; --accent-tint: #1d2b45; --code-bg: #20262e; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 15px/1.6 var(--font-body);
+  padding-inline: 16px; padding-block: 40px 64px;
+}
+main { max-width: 760px; margin: 0 auto; display: grid; gap: 40px; }
+header { display: grid; gap: 8px; }
+.eyebrow { font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1, h2 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(28px, 5vw, 36px); }
+h2 { font-size: 22px; padding-top: 4px; border-top: 1px solid var(--line); padding-top: 24px; }
+.byline { color: var(--muted); font-size: 13px; }
+p, ul, ol { margin: 0; max-width: 68ch; }
+section { display: grid; gap: 14px; min-width: 0; scroll-margin-top: 16px; }
+ul, ol { padding-left: 22px; display: grid; gap: 6px; }
+ol ul { margin-top: 6px; }
+code { font: 0.86em var(--font-mono); background: var(--code-bg); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; padding: 12px 0; border-block: 1px solid var(--line); }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--accent); }
+.lead { font-size: 17px; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+th { font: 600 12px/1.4 var(--font-body); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); background: var(--tint); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { white-space: nowrap; }
+.gate { display: inline-block; font: 600 12px/1 var(--font-mono); padding: 4px 8px; border-radius: 999px; border: 1px dashed var(--muted); }
+.gate.hard { border: 1.5px solid var(--accent); background: var(--accent-tint); }
+figure { margin: 0; display: grid; gap: 8px; }
+figure .scroll { padding: 8px; }
+figure svg { display: block; width: 100%; min-width: 560px; height: auto; }
+figcaption { font-size: 13px; color: var(--muted); }
+.svg-box { fill: none; stroke: var(--muted); stroke-width: 1.25; }
+.svg-col { fill: var(--tint); stroke: var(--line); }
+.svg-edge { fill: none; stroke: var(--muted); stroke-width: 1.25; }
+.svg-gate { fill: none; stroke: var(--muted); stroke-width: 1.25; stroke-dasharray: 4 3; }
+.svg-gate.hard { fill: var(--accent-tint); stroke: var(--accent); stroke-width: 2; stroke-dasharray: none; }
+.svg-ink { fill: var(--fg); font-family: var(--font-body); }
+.svg-quiet { fill: var(--muted); font-family: var(--font-body); }
+.svg-arrow { fill: var(--muted); }
+footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <span class="eyebrow">QA agent framework · build guide</span>
+  <h1>Ticket-Driven QA Pipeline — Build Guide</h1>
+  <span class="byline">Vinh Le · 3 October 2026</span>
+</header>
+
+<nav aria-label="Contents">
+  <a href="#overview">Overview</a>
+  <a href="#prerequisites">Prerequisites</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#build">Build steps</a>
+  <a href="#porting">Porting</a>
+  <a href="#using">Using it</a>
+  <a href="#troubleshooting">Troubleshooting</a>
+</nav>
+
+<section id="overview">
+  <h2>Overview</h2>
+  <p class="lead">Typing a ticket key such as <code>AP-1234</code> runs the whole test cycle for that one ticket. The agent captures the ticket as a requirement, analyses it, plans and designs test cases, executes them in a real browser, files bugs, writes the test report and posts the result back on the ticket.</p>
+  <p>One new skill, <code>stlc-ticket-pipeline</code>, drives the existing STLC skills in order. It stops at four review gates, keeps every file scoped to the ticket, and resumes where it stopped when you type the key again.</p>
+  <p>This guide is for a QA engineer who already runs this STLC skill framework and wants to add the same one-key pipeline to another project. It covers what to build, which files to change, and the few project-specific settings to fill in.</p>
+</section>
+
+<section id="prerequisites">
+  <h2>Prerequisites</h2>
+  <p>The pipeline only orchestrates; every piece of real work is done by skills the project must already have. Check each row before you start.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Piece</th><th>Path</th><th>What it must provide</th></tr></thead>
+    <tbody>
+      <tr><td>Stage skills s1–s7 + s3b</td><td><code>.claude/skills/stlc-*/</code></td><td>Requirements analyst, test-plan designer, test-case designer and reviewer, manual executor, bug reporter, test reporter, ticket updater</td></tr>
+      <tr><td>Tracker skills</td><td><code>.claude/skills/tracker-*/</code></td><td><code>tracker-get-ticket</code> and <code>tracker-manage-child-ticket</code> (the latter owns every tracker write)</td></tr>
+      <tr><td>Session menu</td><td><code>.claude/skills/agent-coordination/</code></td><td>Entry point that detects the ticket key, plus the c2 environment health check</td></tr>
+      <tr><td>Capability contract</td><td><code>.claude/skills/mcp-tools.md</code></td><td>Resolution rule, capability vocabulary, canonical status/type/priority values</td></tr>
+      <tr><td>Tracker adapter</td><td><code>.claude/skills/providers/&lt;tracker&gt;.md</code></td><td><code>get_ticket</code> with comments, <code>search_tickets</code>, <code>add_comment</code>, <code>set_status</code>, <code>create_ticket</code>, a status Vocabulary map</td></tr>
+      <tr><td>Browser adapter</td><td><code>.claude/skills/providers/playwright.md</code></td><td>Browser capabilities for s4</td></tr>
+      <tr><td>Tool registry</td><td><code>qa-artifacts/qa-config/tools.md</code></td><td><code>tracker</code> and <code>browser</code> rows set to <code>active</code></td></tr>
+      <tr><td>Knowledge registry</td><td><code>qa-artifacts/qa-config/knowledge.md</code></td><td><code>env</code>, <code>test-data</code> and <code>navigation</code> sources bound, so s4 can log in and find its way</td></tr>
+      <tr><td>Credentials</td><td>repo-root <code>.env</code> (gitignored)</td><td>Tracker URL, project key, login and API token</td></tr>
+      <tr><td>Browser server</td><td><code>.mcp.json</code></td><td>Playwright MCP server registered</td></tr>
+    </tbody>
+  </table></div>
+  <p>If <code>browser</code> is not active, the pipeline still runs but stops after test-case review.</p>
+</section>
+
+<section id="architecture">
+  <h2>Architecture</h2>
+  <p>The orchestrator holds no QA logic of its own. It runs each stage skill in a fixed order, checks that the stage's file exists, and stops at a gate where a person should decide.</p>
+  <figure>
+    <div class="scroll">
+    <svg viewBox="0 0 760 648" role="img" aria-label="Four gates, and two of them always wait for a person" font-size="13">
+      <defs><marker id="pipe-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="svg-arrow"/></marker></defs>
+      <text x="24" y="30" font-size="15" font-weight="600" class="svg-ink">Four gates, and two of them always wait for a person</text>
+      <text x="24" y="52" font-size="11.5" class="svg-quiet">One ticket key runs every stage in order. Dashed gates pass on their own with --auto.</text>
+      <rect x="24" y="72" width="216" height="488" rx="8" class="svg-col"/><text x="40" y="94" font-weight="600" class="svg-ink">1 · Understand</text>
+      <rect x="272" y="72" width="216" height="488" rx="8" class="svg-col"/><text x="288" y="94" font-weight="600" class="svg-ink">2 · Design</text>
+      <rect x="520" y="72" width="216" height="488" rx="8" class="svg-col"/><text x="536" y="94" font-weight="600" class="svg-ink">3 · Execute and report</text>
+      <g class="svg-edge">
+        <path d="M132 164V184" marker-end="url(#pipe-arrow)"/><path d="M132 236V256" marker-end="url(#pipe-arrow)"/>
+        <path d="M380 164V184" marker-end="url(#pipe-arrow)"/><path d="M380 236V256" marker-end="url(#pipe-arrow)"/><path d="M380 308V328" marker-end="url(#pipe-arrow)"/>
+        <path d="M628 164V184" marker-end="url(#pipe-arrow)"/><path d="M628 236V256" marker-end="url(#pipe-arrow)"/><path d="M628 282V302" marker-end="url(#pipe-arrow)"/>
+        <path d="M628 354V374" marker-end="url(#pipe-arrow)"/><path d="M628 426V446" marker-end="url(#pipe-arrow)"/><path d="M628 498V518" marker-end="url(#pipe-arrow)"/>
+        <path d="M224 269H256V138H288" marker-end="url(#pipe-arrow)"/><path d="M472 341H504V138H536" marker-end="url(#pipe-arrow)"/>
+      </g>
+      <rect x="40" y="112" width="184" height="52" rx="8" class="svg-box"/><text x="56" y="134" font-weight="600" class="svg-ink">Intake: AP-1234</text><text x="56" y="152" font-size="11.5" class="svg-quiet">ticket → requirement file</text>
+      <rect x="40" y="184" width="184" height="52" rx="8" class="svg-box"/><text x="56" y="206" font-weight="600" class="svg-ink">s1 Analyze</text><text x="56" y="224" font-size="11.5" class="svg-quiet">risks, open questions</text>
+      <rect x="40" y="256" width="184" height="26" rx="13" class="svg-gate"/><text x="56" y="273" font-size="11.5" font-weight="600" class="svg-ink">Gate A · --auto can pass</text>
+      <rect x="288" y="112" width="184" height="52" rx="8" class="svg-box"/><text x="304" y="134" font-weight="600" class="svg-ink">s2 Test plan</text><text x="304" y="152" font-size="11.5" class="svg-quiet">scope, strategy, data</text>
+      <rect x="288" y="184" width="184" height="52" rx="8" class="svg-box"/><text x="304" y="206" font-weight="600" class="svg-ink">s3 Test cases</text><text x="304" y="224" font-size="11.5" class="svg-quiet">steps, data, TC IDs</text>
+      <rect x="288" y="256" width="184" height="52" rx="8" class="svg-box"/><text x="304" y="278" font-weight="600" class="svg-ink">s3b Peer review</text><text x="304" y="296" font-size="11.5" class="svg-quiet">proposes missing cases</text>
+      <rect x="288" y="328" width="184" height="26" rx="13" class="svg-gate"/><text x="304" y="345" font-size="11.5" font-weight="600" class="svg-ink">Gate B · --auto can pass</text>
+      <rect x="536" y="112" width="184" height="52" rx="8" class="svg-box"/><text x="552" y="134" font-weight="600" class="svg-ink">Env health check</text><text x="552" y="152" font-size="11.5" class="svg-quiet">stops if login fails</text>
+      <rect x="536" y="184" width="184" height="52" rx="8" class="svg-box"/><text x="552" y="206" font-weight="600" class="svg-ink">s4 Execute</text><text x="552" y="224" font-size="11.5" class="svg-quiet">browser, in a subagent</text>
+      <rect x="536" y="256" width="184" height="26" rx="13" class="svg-gate hard"/><text x="552" y="273" font-size="11.5" font-weight="600" class="svg-ink">Gate C · always asks</text>
+      <rect x="536" y="302" width="184" height="52" rx="8" class="svg-box"/><text x="552" y="324" font-weight="600" class="svg-ink">s5 Bugs</text><text x="552" y="342" font-size="11.5" class="svg-quiet">dedupe, then file tickets</text>
+      <rect x="536" y="374" width="184" height="52" rx="8" class="svg-box"/><text x="552" y="396" font-weight="600" class="svg-ink">s6 Test report</text><text x="552" y="414" font-size="11.5" class="svg-quiet">metrics and verdict</text>
+      <rect x="536" y="446" width="184" height="52" rx="8" class="svg-box"/><text x="552" y="468" font-weight="600" class="svg-ink">s7 Update ticket</text><text x="552" y="486" font-size="11.5" class="svg-quiet">summary comment on ticket</text>
+      <rect x="536" y="518" width="184" height="26" rx="13" class="svg-gate hard"/><text x="552" y="535" font-size="11.5" font-weight="600" class="svg-ink">Gate D · always asks</text>
+      <rect x="24" y="580" width="712" height="44" rx="8" class="svg-box"/><text x="40" y="606" font-weight="600" class="svg-ink">Run state</text><text x="120" y="606" font-size="11.5" class="svg-quiet">qa-artifacts/.pipeline/AP-1234.md records every stage; typing the key again resumes</text>
+    </svg>
+    </div>
+    <figcaption>Ticket pipeline · 9 stages, 4 gates</figcaption>
+  </figure>
+  <p>Gates A and B are about quality and can pass on their own with <code>--auto</code>. Gates C and D write to the shared tracker, so they always wait for you.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Gate</th><th>When</th><th>What you decide</th></tr></thead>
+    <tbody>
+      <tr><td><span class="gate">A</span></td><td>After analysis</td><td>Continue, post the open questions on the ticket and stop, or stop</td></tr>
+      <tr><td><span class="gate">B</span></td><td>After peer review</td><td>Execute current cases, promote the proposed cases first, or stop to edit</td></tr>
+      <tr><td><span class="gate hard">C</span></td><td>Before filing bugs</td><td>Per failure: file new, comment on an existing duplicate, or not a bug</td></tr>
+      <tr><td><span class="gate hard">D</span></td><td>Before the status change</td><td>Move the ticket to the mapped <code>qa_done</code> status, only when the verdict is PASS</td></tr>
+    </tbody>
+  </table></div>
+  <p>Three design rules keep long runs reliable:</p>
+  <ul>
+    <li><strong>Files are the contract between stages.</strong> Each stage reads the previous stage's files and writes its own, using the per-ticket paths in <code>ticket-scope.md</code>. No stage depends on chat context, so any stage can be re-run alone.</li>
+    <li><strong>A stage is done only when its file is on disk.</strong> The run-state file records each stage as pending, running, done, skipped or failed, and the done-check is re-verified on every resume.</li>
+    <li><strong>Execution runs in a subagent.</strong> Browser snapshots are large; isolating s4 keeps the main context small. The subagent may not ask the user anything; it returns its question, and the orchestrator asks it.</li>
+  </ul>
+  <p>Intake also checks the ticket's status. Anything other than <code>ready_for_qa</code> asks first, and in <code>--auto</code> mode stops after design. A ticket of type <code>bug</code> switches to a re-test flow: it skips analysis, planning and review, and a failure becomes a comment on the same ticket, not a new bug.</p>
+</section>
+
+<section id="build">
+  <h2>Build steps</h2>
+  <p>The build is three new files for the orchestrator, one new shared contract, and small edits to eleven existing files. Copy the new files from the Avantage repo; make the edits by hand, in this order.</p>
+  <ol>
+    <li><strong>Create the per-ticket path contract</strong> <code>.claude/skills/ticket-scope.md</code>.
+      <ul>
+        <li>Defines the tokens <code>{KEY}</code> (ticket key as the tracker returns it), <code>{SPEC}</code> (key without punctuation, the test-case ID prefix), <code>{SLUG}</code>, <code>{RUN}</code> (sprint, else fix version, else asked once) and <code>{DATE}</code>.</li>
+        <li>Lists the path of every artifact per ticket, e.g. <code>qa-artifacts/2-test-plan/{KEY}_test-plan.md</code>, and states that these override each skill's default path.</li>
+        <li>Rule that matters most: never overwrite an existing requirement capture; append a dated section.</li>
+      </ul></li>
+    <li><strong>Create the orchestrator</strong> <code>.claude/skills/stlc-ticket-pipeline/</code>.
+      <ul>
+        <li><code>SKILL.md</code> (≤ 150 lines): inputs and flags, Step 0 provider resolution, run-state load/resume, Intake, the stage loop, close-out, Rules, Next Move.</li>
+        <li><code>routing.md</code>: the Intake procedure, the stage table (skill, inputs, done-check, gate), the four gate definitions, the bug re-test flow and failure handling.</li>
+        <li><code>template.md</code>: the run-state file, the requirement-capture template, the run summary and the ticket comment.</li>
+      </ul></li>
+    <li><strong>Point every stage skill at the contract.</strong> In each of the eight <code>stlc-*</code> stage skills, add one <strong>Ticket scope</strong> blockquote under the purpose line. Three skills get one extra sentence:
+      <ul>
+        <li><code>stlc-requirements-analyst</code>: read only the capture file passed in, not all of <code>requirements/</code>.</li>
+        <li><code>stlc-bug-reporter</code>: apply the Gate C decisions (file new, comment on existing, not a bug).</li>
+        <li><code>stlc-ticket-updater</code>: the target ticket and comment are passed in; still ask before any status change.</li>
+      </ul></li>
+    <li><strong>Add the search capability.</strong> In <code>.claude/skills/mcp-tools.md</code> §3, add <code>tracker.search_tickets</code>; in §7, add the <code>stlc-ticket-pipeline</code> row. Add a <code>tracker.search_tickets</code> row to each tracker adapter's Capability map (see the table below).</li>
+    <li><strong>Route the ticket key.</strong> In <code>agent-coordination/SKILL.md</code>, add <strong>Step 0 — Ticket Key Rule</strong> with the key pattern, an <code>s0</code> menu option in both menus, and the exception in Rules. In <code>agent-coordination/routing.md</code>, map <code>stlc-ticket-pipeline</code> to the "After test report" next-step group. In <code>QA_AGENTS.md</code>, add the bare-ticket-key exception to the auto-invocation rule.</li>
+    <li><strong>Register.</strong> Add the skill to <code>ARCHITECTURE.md</code> (STLC table, shared documents, folder trees), add a load-set row to <code>qa-artifacts/qa-config/knowledge.md</code> §2, and add <code>../ticket-scope.md</code> to the allowed relative-path exceptions in <code>scaffold-skill/checklist.md</code>.</li>
+    <li><strong>Audit.</strong> Run <code>scaffold-skill</code> in REVIEW mode on <code>stlc-ticket-pipeline</code> and fix every failing item.</li>
+  </ol>
+  <div class="scroll"><table>
+    <thead><tr><th>Adapter</th><th><code>tracker.search_tickets</code> implementation</th></tr></thead>
+    <tbody>
+      <tr><td>Jira (CLI)</td><td><code>jira.sh issue list -q '&lt;JQL&gt;' --plain --no-headers --no-truncate --columns key,status,summary</code> with JQL <code>type = Bug AND statusCategory != Done AND text ~ "&lt;3–5 words&gt;"</code> (verified on AP)</td></tr>
+      <tr><td>OpenProject (MCP)</td><td><code>list_project_work_packages</code> with <code>projectId</code>, a <code>subject ~</code> filter and a type/status filter (not yet verified against a live instance)</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="porting">
+  <h2>Porting to another project</h2>
+  <p>Copy all of <code>.claude/skills/</code> unchanged; only the project-owned files below change. No skill file names a provider, a URL or a path that belongs to one project, so the skills stay as they are.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>File</th><th>Change for the new project</th></tr></thead>
+    <tbody>
+      <tr><td><code>qa-artifacts/qa-config/tools.md</code></td><td>Set the <code>tracker</code> row to the new provider (<code>jira</code>, <code>openproject</code>, …) and <code>browser</code> to <code>playwright</code>, both <code>active</code></td></tr>
+      <tr><td>repo-root <code>.env</code></td><td>Tracker URL, project key, login and API token. Never commit it</td></tr>
+      <tr><td><code>qa-artifacts/qa-config/knowledge.md</code></td><td>Bind <code>env</code>, <code>test-data</code>, <code>navigation</code> and <code>domain</code> to the new project's files; keep the <code>stlc-ticket-pipeline</code> load-set row</td></tr>
+      <tr><td><code>qa-artifacts/base-test/</code></td><td>The new app's URLs, accounts, test data and navigation map</td></tr>
+      <tr><td>Tracker adapter Vocabulary map</td><td>Map canonical statuses to the new workflow, at least <code>ready_for_qa</code> (Intake check) and <code>qa_done</code> (Gate D). An unmapped status makes Gate D skip the transition instead of guessing</td></tr>
+      <tr><td><code>.mcp.json</code></td><td>Register the Playwright MCP server</td></tr>
+      <tr><td>Ticket key pattern (<code>agent-coordination</code> Step 0)</td><td>Change only if keys are not <code>ABC-123</code>. An OpenProject project uses bare numbers, so use <code>^#?[0-9]+$</code></td></tr>
+      <tr><td><code>qa-artifacts/.session-state.md</code></td><td>Start empty; <code>stlc-init-workspace</code> seeds it</td></tr>
+    </tbody>
+  </table></div>
+  <p>If the new tracker has no adapter yet, write <code>.claude/skills/providers/&lt;name&gt;.md</code> following the adapter contract in <code>mcp-tools.md</code> §8. Include a <code>tracker.search_tickets</code> row, or mark it <strong>Unsupported</strong>; Gate C then treats every failure as a new bug.</p>
+  <p>Run <code>stlc-init-workspace</code> once to create the <code>qa-artifacts/</code> folders, then try one ticket with <code>--until s3b</code> to check intake and design before you let the pipeline drive a browser.</p>
+</section>
+
+<section id="using">
+  <h2>Using it</h2>
+  <p>Type the ticket key on its own. Add a flag to change how far or how freely the run goes.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>You type</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td><code>AP-1234</code></td><td>Full run, stopping at all four gates</td></tr>
+      <tr><td><code>AP-1234 --auto</code></td><td>Gates A and B take their default; C and D still ask</td></tr>
+      <tr><td><code>AP-1234 --until s3b</code></td><td>Capture, analyse, plan, design and review only; no browser</td></tr>
+      <tr><td><code>AP-1234 --from s4</code></td><td>Re-execute and re-report, keeping earlier artifacts. Use it to re-test after a fix</td></tr>
+      <tr><td><code>AP-1234 --status</code></td><td>Print the run-state table and stop</td></tr>
+      <tr><td><code>AP-1234</code> again after a stop</td><td>Offers to resume from the next pending stage, restart, or stop</td></tr>
+    </tbody>
+  </table></div>
+  <p>The run state lives in <code>qa-artifacts/.pipeline/AP-1234.md</code>. On every start the pipeline re-checks that each <code>done</code> stage's file is still on disk, so a deleted artifact is regenerated, not trusted.</p>
+  <p>One run leaves these files behind:</p>
+  <ul>
+    <li><code>requirements/AP-1234-&lt;slug&gt;.md</code> — the ticket transcribed word for word</li>
+    <li><code>qa-artifacts/1-requirements-analysis/AP-1234_requirements-analysis.md</code></li>
+    <li><code>qa-artifacts/2-test-plan/AP-1234_test-plan.md</code></li>
+    <li><code>qa-artifacts/3-test-cases/AP1234_TestCases_001-005.md</code> (and further batches) plus <code>AP1234_ReviewFindings_&lt;date&gt;.md</code></li>
+    <li><code>qa-artifacts/4-execution-results/&lt;run&gt;/execution-log_AP-1234_&lt;date&gt;.md</code> and screenshots</li>
+    <li><code>qa-artifacts/5-testing-report/AP-1234_bug-report.md</code> and <code>AP-1234_test-report.md</code></li>
+    <li>Bug tickets in the tracker and a summary comment on AP-1234</li>
+  </ul>
+</section>
+
+<section id="troubleshooting">
+  <h2>Troubleshooting and known limitations</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Symptom</th><th>Cause</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Run stops at Intake: "not found"</td><td>Wrong key, or the tracker CLI points at another project</td><td>Run the adapter preflight (<code>jira.sh me</code>) and check the project key in <code>.env</code></td></tr>
+      <tr><td>Run stops after s3b without asking</td><td><code>browser</code> is not <code>active</code>, or <code>--auto</code> saw a status other than <code>ready_for_qa</code></td><td>Bind the browser in <code>tools.md</code>, or move the ticket to the QA status</td></tr>
+      <tr><td>s4 marked <code>failed</code>: environment down</td><td>The c2 health check could not reach the login page</td><td>Fix the environment, then <code>&lt;KEY&gt; --from s4</code></td></tr>
+      <tr><td>Many BLOCKED, few FAIL</td><td>Login, timeouts or 5xx before the step under test</td><td>Expected: these are environment problems, not bugs. Check <code>env</code> and <code>test-data</code></td></tr>
+      <tr><td>Gate D says the status has no mapping</td><td><code>qa_done</code> is not in the adapter's Vocabulary map</td><td>Add the mapping once the team agrees which status means "QA passed"</td></tr>
+      <tr><td>A stage says done but the run marks it failed</td><td>Its artifact is missing from the ticket-scope path</td><td>The stage skill wrote to its default path; check its Ticket scope line</td></tr>
+    </tbody>
+  </table></div>
+  <p>Known limitations:</p>
+  <ul>
+    <li>Attachments are listed by name in the capture, not read. Open any mock-up or spec that matters and add a scope note to the capture by hand.</li>
+    <li>One ticket per run. A sprint-wide run would loop this pipeline over <code>tracker-fetch-sprint-tickets</code> and is not built yet.</li>
+    <li>The duplicate search is keyword-based and can miss a duplicate worded differently; Gate C keeps a person in that decision.</li>
+    <li>Subagent execution for s4 needs a runtime that offers subagents (Claude Code does). Elsewhere s4 runs inline and uses more context.</li>
+  </ul>
+</section>
+
+<footer>Source: <code>.claude/skills/stlc-ticket-pipeline/</code> and <code>.claude/skills/ticket-scope.md</code> in the Avantage QA repo.</footer>
+
+</main>
+</body>
+</html>

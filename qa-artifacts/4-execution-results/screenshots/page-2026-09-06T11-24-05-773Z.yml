@@ -1,0 +1,52 @@
+- generic [active] [ref=f146e1]:
+  - banner [ref=f146e2]:
+    - link [ref=f146e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f146e5]:
+      - searchbox "Search" [ref=f146e7]
+      - listitem [ref=f146e8]:
+        - generic [ref=f146e9]: Test QA staging
+  - generic [ref=f146e11]:
+    - navigation [ref=f146e13]:
+      - list [ref=f146e14]:
+        - listitem [ref=f146e15]:
+          - link " 􏀕 Dashboard" [ref=f146e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f146e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f146e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f146e19]:
+            - generic [ref=f146e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f146e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f146e22]:
+            - generic [ref=f146e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f146e24]:
+          - link " 􏗡 Claims" [ref=f146e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f146e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f146e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f146e28]:
+            - generic [ref=f146e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f146e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f146e31]:
+            - generic [ref=f146e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f146e33]:
+          - link " 􏀑 Logout" [ref=f146e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f146e35]:  􏀑
+            - text: Logout
+    - main [ref=f146e36]:
+      - generic [ref=f146e40]:
+        - heading "Erreur Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois." [level=1] [ref=f146e41]
+        - link "Aller à l'accueil" [ref=f146e42] [cursor=pointer]:
+          - /url: /
+  - contentinfo [ref=f146e55]:
+    - generic [ref=f146e56]:
+      - link "Avantage Plus System v2.0.0" [ref=f146e57] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

@@ -1,0 +1,165 @@
+- generic [active] [ref=f64e1]:
+  - banner [ref=f64e2]:
+    - link [ref=f64e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f64e5]:
+      - searchbox "Search" [ref=f64e7]
+      - listitem [ref=f64e8]:
+        - generic [ref=f64e9]: Test QA staging
+  - generic [ref=f64e11]:
+    - navigation [ref=f64e13]:
+      - list [ref=f64e14]:
+        - listitem [ref=f64e15]:
+          - link " 􏀕 Dashboard" [ref=f64e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f64e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f64e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f64e19]:
+            - generic [ref=f64e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f64e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f64e22]:
+            - generic [ref=f64e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f64e24]:
+          - link " 􏗡 Claims" [ref=f64e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f64e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f64e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f64e28]:
+            - generic [ref=f64e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f64e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f64e31]:
+            - generic [ref=f64e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f64e33]:
+          - link " 􏀑 Logout" [ref=f64e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f64e35]:  􏀑
+            - text: Logout
+    - main [ref=f64e36]:
+      - generic [ref=f64e38]:
+        - alert [ref=f64e39]:
+          - text: The permissions are saved
+          - button "Close" [ref=f64e40] [cursor=pointer]: ×
+        - heading "User management" [level=1] [ref=f64e42]
+        - table [ref=f64e47]:
+          - rowgroup [ref=f64e48]:
+            - row [ref=f64e49]:
+              - columnheader "Name" [ref=f64e50]
+              - columnheader "Email" [ref=f64e51]
+              - columnheader "Roles" [ref=f64e52]
+              - columnheader "Actions" [ref=f64e53]
+          - rowgroup [ref=f64e54]:
+            - row [ref=f64e55]:
+              - cell "Vinh Le 1" [ref=f64e56] [cursor=pointer]
+              - cell "vinhle870@gmail.com" [ref=f64e57] [cursor=pointer]
+              - cell "Payments Claims Account Owner View pricing Window Sticker Sales Contract Receive invoice notifications Quotes Insurance Receive claims notifications User management" [ref=f64e58] [cursor=pointer]:
+                - generic [ref=f64e59]: Payments
+                - generic [ref=f64e60]: Claims
+                - generic [ref=f64e61]: Account Owner
+                - generic [ref=f64e62]: View pricing
+                - generic [ref=f64e63]: Window Sticker
+                - generic [ref=f64e64]: Sales Contract
+                - generic [ref=f64e65]: Receive invoice notifications
+                - generic [ref=f64e66]: Quotes
+                - generic [ref=f64e67]: Insurance
+                - generic [ref=f64e68]: Receive claims notifications
+                - generic [ref=f64e69]: User management
+              - cell [ref=f64e70] [cursor=pointer]:
+                - generic [ref=f64e71]:
+                  - link "" [ref=f64e73]:
+                    - /url: /user/edit-permission/19
+                  - link "" [ref=f64e76]:
+                    - /url: /user/unlink/19
+            - row [ref=f64e78]:
+              - cell "Vinh LE 2" [ref=f64e79] [cursor=pointer]
+              - cell "vinhle_ap2@yopmail.com" [ref=f64e80] [cursor=pointer]
+              - cell "Quotes Payments Claims Insurance View pricing Window Sticker Sales Contract Receive invoice notifications Receive claims notifications Account Owner" [ref=f64e81] [cursor=pointer]:
+                - generic [ref=f64e82]: Quotes
+                - generic [ref=f64e83]: Payments
+                - generic [ref=f64e84]: Claims
+                - generic [ref=f64e85]: Insurance
+                - generic [ref=f64e86]: View pricing
+                - generic [ref=f64e87]: Window Sticker
+                - generic [ref=f64e88]: Sales Contract
+                - generic [ref=f64e89]: Receive invoice notifications
+                - generic [ref=f64e90]: Receive claims notifications
+                - generic [ref=f64e91]: Account Owner
+              - cell [ref=f64e92] [cursor=pointer]:
+                - generic [ref=f64e93]:
+                  - link "" [ref=f64e95]:
+                    - /url: /user/edit-permission/135
+                  - link "" [ref=f64e98]:
+                    - /url: /user/unlink/135
+            - row [ref=f64e100]:
+              - cell "vinh vinh" [ref=f64e101] [cursor=pointer]
+              - cell "test222@gmail.com" [ref=f64e102] [cursor=pointer]
+              - cell "Quotes Payments Claims Insurance Account Owner View pricing Window Sticker Sales Contract Receive invoice notifications" [ref=f64e103] [cursor=pointer]:
+                - generic [ref=f64e104]: Quotes
+                - generic [ref=f64e105]: Payments
+                - generic [ref=f64e106]: Claims
+                - generic [ref=f64e107]: Insurance
+                - generic [ref=f64e108]: Account Owner
+                - generic [ref=f64e109]: View pricing
+                - generic [ref=f64e110]: Window Sticker
+                - generic [ref=f64e111]: Sales Contract
+                - generic [ref=f64e112]: Receive invoice notifications
+              - cell [ref=f64e113] [cursor=pointer]:
+                - generic [ref=f64e114]:
+                  - link "" [ref=f64e116]:
+                    - /url: /user/edit-permission/146
+                  - link "" [ref=f64e119]:
+                    - /url: /user/unlink/146
+            - row [ref=f64e121]:
+              - cell "Ken Nguyen" [ref=f64e122] [cursor=pointer]
+              - cell "ken@nekken.ca" [ref=f64e123] [cursor=pointer]
+              - cell "Quotes Payments Claims Insurance Account Owner View pricing Window Sticker Sales Contract Receive invoice notifications Receive claims notifications Block warranty retail price User management" [ref=f64e124] [cursor=pointer]:
+                - generic [ref=f64e125]: Quotes
+                - generic [ref=f64e126]: Payments
+                - generic [ref=f64e127]: Claims
+                - generic [ref=f64e128]: Insurance
+                - generic [ref=f64e129]: Account Owner
+                - generic [ref=f64e130]: View pricing
+                - generic [ref=f64e131]: Window Sticker
+                - generic [ref=f64e132]: Sales Contract
+                - generic [ref=f64e133]: Receive invoice notifications
+                - generic [ref=f64e134]: Receive claims notifications
+                - generic [ref=f64e135]: Block warranty retail price
+                - generic [ref=f64e136]: User management
+              - cell [ref=f64e137] [cursor=pointer]:
+                - generic [ref=f64e138]:
+                  - link "" [ref=f64e140]:
+                    - /url: /user/edit-permission/212
+                  - link "" [ref=f64e143]:
+                    - /url: /user/unlink/212
+            - row [ref=f64e145]:
+              - cell "Nathalie Lehoux" [ref=f64e146] [cursor=pointer]
+              - cell "nathalie@garantieavantageplus.ca" [ref=f64e147] [cursor=pointer]
+              - cell "Quotes Payments Claims Insurance Account Owner View pricing Window Sticker Sales Contract Receive invoice notifications Receive claims notifications Block warranty retail price User management" [ref=f64e148] [cursor=pointer]:
+                - generic [ref=f64e149]: Quotes
+                - generic [ref=f64e150]: Payments
+                - generic [ref=f64e151]: Claims
+                - generic [ref=f64e152]: Insurance
+                - generic [ref=f64e153]: Account Owner
+                - generic [ref=f64e154]: View pricing
+                - generic [ref=f64e155]: Window Sticker
+                - generic [ref=f64e156]: Sales Contract
+                - generic [ref=f64e157]: Receive invoice notifications
+                - generic [ref=f64e158]: Receive claims notifications
+                - generic [ref=f64e159]: Block warranty retail price
+                - generic [ref=f64e160]: User management
+              - cell [ref=f64e161] [cursor=pointer]:
+                - generic [ref=f64e162]:
+                  - link "" [ref=f64e164]:
+                    - /url: /user/edit-permission/213
+                  - link "" [ref=f64e167]:
+                    - /url: /user/unlink/213
+  - contentinfo [ref=f64e169]:
+    - generic [ref=f64e170]:
+      - link "Avantage Plus System v2.0.0" [ref=f64e171] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

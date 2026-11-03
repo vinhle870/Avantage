@@ -1,0 +1,112 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - link [ref=f1e7] [cursor=pointer]:
+        - /url: .
+      - navigation [ref=f1e8]:
+        - generic [ref=f1e9]:
+          - link " Home" [ref=f1e10] [cursor=pointer]:
+            - /url: .
+            - generic [ref=f1e11]: 
+            - text: Home
+          - link " Donate" [ref=f1e12] [cursor=pointer]:
+            - /url: donate
+            - generic [ref=f1e13]: 
+            - text: Donate
+          - link " Domains" [ref=f1e14] [cursor=pointer]:
+            - /url: add-domain
+            - generic [ref=f1e15]: 
+            - text: Domains
+          - link " Random" [ref=f1e16] [cursor=pointer]:
+            - /url: email-generator
+            - generic [ref=f1e17]: 
+            - text: Random
+        - generic [ref=f1e22]:
+          - generic [ref=f1e23]:
+            - img "Temporary Email" [ref=f1e24]
+            - text: English
+          - generic [ref=f1e25]: 
+  - main [ref=f1e29]:
+    - generic [ref=f1e31]:
+      - generic [ref=f1e32]: vinhle_ap2@yopmail.com
+      - generic [ref=f1e33]:
+        - generic [ref=f1e34]:
+          - text: Alias
+          - button "" [ref=f1e35] [cursor=pointer]
+          - text: ":"
+        - generic [ref=f1e37]:
+          - emphasis [ref=f1e38]: alt.j3-1oo4pv09
+          - text: "@yopmail.com"
+        - button "" [ref=f1e40] [cursor=pointer]
+    - generic [ref=f1e42]:
+      - generic [ref=f1e44]:
+        - generic [ref=f1e45]:
+          - button "" [ref=f1e47] [cursor=pointer]
+          - button "" [disabled] [ref=f1e50]
+          - button "" [ref=f1e54] [cursor=pointer]
+          - generic [ref=f1e56]:
+            - button "" [disabled] [ref=f1e58]
+            - generic [ref=f1e60]: page 1
+            - button "" [disabled] [ref=f1e62]
+          - generic [ref=f1e64]: 2 mails
+          - button "" [ref=f1e67] [cursor=pointer]
+        - iframe [ref=f1e70]:
+          - generic [ref=f2e2]:
+            - generic [ref=f2e3]: today
+            - generic [ref=f2e4]:
+              - checkbox [ref=f2e6]
+              - button "11:47 Systeme Avantage Plus Authentication Code" [ref=f2e7] [cursor=pointer]:
+                - generic [ref=f2e8]:
+                  - generic [ref=f2e9]: 11:47
+                  - generic [ref=f2e10]: Systeme Avantage Plus
+                - generic [ref=f2e11]: Authentication Code
+            - generic [ref=f2e12]:
+              - checkbox [ref=f2e14]
+              - button "11:36 Systeme Avantage Plus Reset Password" [ref=f2e15] [cursor=pointer]:
+                - generic [ref=f2e16]:
+                  - generic [ref=f2e17]: 11:36
+                  - generic [ref=f2e18]: Systeme Avantage Plus
+                - generic [ref=f2e19]: Reset Password
+      - iframe [ref=f1e76]:
+        - generic [ref=f4e1]:
+          - banner [ref=f4e2]:
+            - button "" [ref=f4e4] [cursor=pointer]
+            - generic [ref=f4e6]:
+              - generic [ref=f4e7]:
+                - button " Deliverability" [ref=f4e8] [cursor=pointer]:
+                  - generic [ref=f4e9]: 
+                  - generic [ref=f4e10]: Deliverability
+                - generic [ref=f4e11]:
+                  - button " Reply" [ref=f4e12] [cursor=pointer]:
+                    - generic [ref=f4e13]: 
+                    - generic [ref=f4e14]: Reply
+                  - button " Forward" [ref=f4e15] [cursor=pointer]:
+                    - generic [ref=f4e16]: 
+                    - generic [ref=f4e17]: Forward
+              - button " Print" [ref=f4e18] [cursor=pointer]:
+                - generic [ref=f4e19]: 
+                - generic [ref=f4e20]: Print
+              - button " Delete" [ref=f4e21] [cursor=pointer]:
+                - generic [ref=f4e22]: 
+                - generic [ref=f4e23]: Delete
+              - button "" [ref=f4e24] [cursor=pointer]
+            - generic [ref=f4e26]:
+              - generic [ref=f4e27]: Authentication Code
+              - generic [ref=f4e28]:
+                - generic [ref=f4e29]: 
+                - generic [ref=f4e30]: Systeme Avantage Plus <no-reply@garantieavantageplus.ca>
+              - generic [ref=f4e31]:
+                - generic [ref=f4e32]: 
+                - generic [ref=f4e33]: Sunday, September 13, 2026 11:47:03 AM
+          - main [ref=f4e34]:
+            - generic [ref=f4e37]:
+              - paragraph [ref=f4e38]:
+                - text: Hi
+                - strong [ref=f4e39]: Vinh LE 2
+              - paragraph [ref=f4e40]:
+                - text: "Your two-factor authentication code is:"
+                - strong [ref=f4e41]: "230591"
+              - paragraph [ref=f4e42]: This code will expire in a few minutes.
+              - paragraph [ref=f4e43]: If you did not request this code, please ignore this email.
+              - paragraph [ref=f4e44]: Best regards,
+  - contentinfo [ref=f1e79]

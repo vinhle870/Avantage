@@ -1,0 +1,94 @@
+- generic [active] [ref=f85e1]:
+  - banner [ref=f85e2]:
+    - link [ref=f85e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f85e5]:
+      - searchbox "Search" [ref=f85e7]
+  - generic [ref=f85e8]:
+    - navigation [ref=f85e10]:
+      - list [ref=f85e11]:
+        - listitem [ref=f85e12]:
+          - link " 􏀕 Dashboard" [ref=f85e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f85e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f85e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f85e16]:
+            - generic [ref=f85e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f85e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f85e19]:
+            - generic [ref=f85e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f85e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f85e22]:
+            - generic [ref=f85e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f85e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f85e25]:
+            - generic [ref=f85e26]:  􏃀
+            - text: Users
+        - listitem [ref=f85e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f85e28]:
+            - generic [ref=f85e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f85e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f85e31]:
+            - generic [ref=f85e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f85e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f85e34]:
+            - generic [ref=f85e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f85e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f85e37]:
+            - generic [ref=f85e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f85e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f85e40]:
+            - generic [ref=f85e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f85e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f85e43]:
+            - generic [ref=f85e44]:  􏂎
+            - text: External links
+        - listitem [ref=f85e45]:
+          - link " 􏆫 Language settings" [ref=f85e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-assignment
+            - generic [ref=f85e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f85e48]:
+          - link " 􏀑 Logout" [ref=f85e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f85e50]:  􏀑
+            - text: Logout
+    - main [ref=f85e51]:
+      - generic [ref=f85e53]:
+        - navigation [ref=f85e55]:
+          - heading "Earning Assignments" [level=1] [ref=f85e56]
+          - list [ref=f85e57]:
+            - listitem [ref=f85e58]:
+              - link "Create New" [ref=f85e59] [cursor=pointer]:
+                - /url: /admin/earning-assignment/new/edit
+        - table [ref=f85e63]:
+          - rowgroup [ref=f85e64]:
+            - row [ref=f85e65]:
+              - columnheader "Description" [ref=f85e66]
+              - columnheader "Earning Set" [ref=f85e67]
+              - columnheader "Dealer Group" [ref=f85e68]
+              - columnheader "Is Enabled?" [ref=f85e69]
+              - columnheader "Actions" [ref=f85e70]
+          - rowgroup [ref=f85e71]:
+            - row [ref=f85e72]:
+              - cell "AV+" [ref=f85e73] [cursor=pointer]
+              - cell "Profit" [ref=f85e74] [cursor=pointer]
+              - cell "Group A" [ref=f85e75] [cursor=pointer]
+              - cell "Yes" [ref=f85e76] [cursor=pointer]
+              - cell [ref=f85e78] [cursor=pointer]:
+                - link "View" [ref=f85e79]:
+                  - /url: /admin/earning-assignment/1/details
+  - contentinfo [ref=f85e80]:
+    - generic [ref=f85e81]:
+      - link "Avantage Plus System v2.0.0" [ref=f85e82] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

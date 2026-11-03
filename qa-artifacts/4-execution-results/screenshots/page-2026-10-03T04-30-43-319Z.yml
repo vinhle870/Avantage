@@ -1,0 +1,52 @@
+- generic [active] [ref=f39e1]:
+  - banner [ref=f39e2]:
+    - link [ref=f39e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f39e5]:
+      - searchbox "Search" [ref=f39e7]
+      - listitem [ref=f39e8]:
+        - generic [ref=f39e9]: Test QA staging
+  - generic [ref=f39e11]:
+    - navigation [ref=f39e13]:
+      - list [ref=f39e14]:
+        - listitem [ref=f39e15]:
+          - link " Dashboard" [ref=f39e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f39e17]: 
+            - text: Dashboard
+        - listitem [ref=f39e18]:
+          - heading " Vehicles" [level=6] [ref=f39e19]:
+            - generic [ref=f39e20]: 
+            - text: Vehicles
+        - listitem [ref=f39e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f39e22]:
+            - generic [ref=f39e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f39e24]:
+          - link " Claims" [ref=f39e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f39e26]: 
+            - text: Claims
+        - listitem [ref=f39e27]:
+          - heading " Billing" [level=6] [ref=f39e28]:
+            - generic [ref=f39e29]: 
+            - text: Billing
+        - listitem [ref=f39e30]:
+          - heading " System preferences" [level=6] [ref=f39e31]:
+            - generic [ref=f39e32]: 
+            - text: System preferences
+        - listitem [ref=f39e33]:
+          - link " Logout" [ref=f39e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f39e35]: 
+            - text: Logout
+    - main [ref=f39e36]:
+      - generic [ref=f39e40]:
+        - heading "Erreur Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois." [level=1] [ref=f39e41]
+        - link "Aller à l'accueil" [ref=f39e42] [cursor=pointer]:
+          - /url: /
+  - contentinfo [ref=f39e55]:
+    - generic [ref=f39e56]:
+      - link "Avantage Plus System v2.0.0" [ref=f39e57] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

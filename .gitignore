@@ -1,0 +1,28 @@
+# --- jira-cli (project-scoped, tools/jira-cli) ---
+# Binary is fetched per-machine by tools/jira-cli/install.ps1
+tools/jira-cli/jira.exe
+# Secrets and per-user generated config
+tools/jira-cli/.env
+tools/jira-cli/config.yml
+
+# --- GitHub CLI (project-scoped, tools/gh-cli) ---
+# Binary is fetched per-machine by tools/gh-cli/install.ps1
+tools/gh-cli/gh.exe
+# Login token written by `gh auth login` — a secret
+tools/gh-cli/config/
+
+# --- secrets (root only) ---
+/.env
+*.local.env
+
+# Playwright MCP server logs (disposable)
+playwright-log/
+
+# Worktrees for automation PR branches (stlc-test-automator)
+.worktrees/
+
+# Environment files with credentials
+playwright-automation/.env.staging
+
+# QA account credentials (local only)
+qa-artifacts/base-test/execute.env.md

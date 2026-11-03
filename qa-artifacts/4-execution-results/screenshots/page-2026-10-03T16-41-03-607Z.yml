@@ -1,0 +1,141 @@
+- generic [active] [ref=f68e1]:
+  - banner [ref=f68e2]:
+    - link [ref=f68e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f68e5]:
+      - searchbox "Search" [ref=f68e7]
+  - generic [ref=f68e8]:
+    - navigation [ref=f68e10]:
+      - list [ref=f68e11]:
+        - listitem [ref=f68e12]:
+          - link " 􏀕 Dashboard" [ref=f68e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f68e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f68e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f68e16]:
+            - generic [ref=f68e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f68e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f68e19]:
+            - generic [ref=f68e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f68e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f68e22]:
+            - generic [ref=f68e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f68e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f68e25]:
+            - generic [ref=f68e26]:  􏃀
+            - text: Users
+        - listitem [ref=f68e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f68e28]:
+            - generic [ref=f68e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f68e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f68e31]:
+            - generic [ref=f68e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f68e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f68e34]:
+            - generic [ref=f68e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f68e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f68e37]:
+            - generic [ref=f68e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f68e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f68e40]:
+            - generic [ref=f68e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f68e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f68e43]:
+            - generic [ref=f68e44]:  􏂎
+            - text: External links
+        - listitem [ref=f68e45]:
+          - link " 􏆫 Language settings" [ref=f68e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-group
+            - generic [ref=f68e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f68e48]:
+          - link " 􏀑 Logout" [ref=f68e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f68e50]:  􏀑
+            - text: Logout
+    - main [ref=f68e51]:
+      - generic [ref=f68e53]:
+        - navigation [ref=f68e55]:
+          - heading "Earning Groups" [level=1] [ref=f68e56]
+          - list [ref=f68e57]:
+            - listitem [ref=f68e58]:
+              - link "Create New" [ref=f68e59] [cursor=pointer]:
+                - /url: /admin/earning-group/new/edit
+        - table [ref=f68e63]:
+          - rowgroup [ref=f68e64]:
+            - row [ref=f68e65]:
+              - columnheader "Name" [ref=f68e66]
+              - columnheader "Earning curves" [ref=f68e67]
+              - columnheader "Default Earning curve type" [ref=f68e68]
+              - columnheader "Is Enabled?" [ref=f68e69]
+              - columnheader "Actions" [ref=f68e70]
+          - rowgroup [ref=f68e71]:
+            - row [ref=f68e72]:
+              - cell "QA-AP2472 É & <b>x</b>" [ref=f68e73] [cursor=pointer]
+              - cell "None" [ref=f68e74] [cursor=pointer]
+              - cell "Pro-Rata" [ref=f68e75] [cursor=pointer]
+              - cell "Yes" [ref=f68e76] [cursor=pointer]
+              - cell [ref=f68e78] [cursor=pointer]:
+                - link "View" [ref=f68e79]:
+                  - /url: /admin/earning-group/6/details
+            - row [ref=f68e80]:
+              - cell "QA-AP2472-Long-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" [ref=f68e81] [cursor=pointer]
+              - cell "None" [ref=f68e82] [cursor=pointer]
+              - cell "Pro-Rata" [ref=f68e83] [cursor=pointer]
+              - cell "Yes" [ref=f68e84] [cursor=pointer]
+              - cell [ref=f68e86] [cursor=pointer]:
+                - link "View" [ref=f68e87]:
+                  - /url: /admin/earning-group/5/details
+            - row [ref=f68e88]:
+              - cell "QA-AP2472-Dup-2339" [ref=f68e89] [cursor=pointer]
+              - cell "None" [ref=f68e90] [cursor=pointer]
+              - cell "Pro-Rata" [ref=f68e91] [cursor=pointer]
+              - cell "Yes" [ref=f68e92] [cursor=pointer]
+              - cell [ref=f68e94] [cursor=pointer]:
+                - link "View" [ref=f68e95]:
+                  - /url: /admin/earning-group/4/details
+            - row [ref=f68e96]:
+              - cell "QA-AP2472-Dup-2339" [ref=f68e97] [cursor=pointer]
+              - cell "None" [ref=f68e98] [cursor=pointer]
+              - cell "Pro-Rata" [ref=f68e99] [cursor=pointer]
+              - cell "Yes" [ref=f68e100] [cursor=pointer]
+              - cell [ref=f68e102] [cursor=pointer]:
+                - link "View" [ref=f68e103]:
+                  - /url: /admin/earning-group/3/details
+            - row [ref=f68e104]:
+              - cell "QA-AP2472-RO78-2339" [ref=f68e105] [cursor=pointer]
+              - cell "None" [ref=f68e106] [cursor=pointer]
+              - cell "Rule of 78" [ref=f68e107] [cursor=pointer]
+              - cell "Yes" [ref=f68e108] [cursor=pointer]
+              - cell [ref=f68e110] [cursor=pointer]:
+                - link "View" [ref=f68e111]:
+                  - /url: /admin/earning-group/2/details
+            - row [ref=f68e112]:
+              - cell "AV+" [ref=f68e113] [cursor=pointer]
+              - cell [ref=f68e114] [cursor=pointer]:
+                - list [ref=f68e115]:
+                  - listitem [ref=f68e116]: 1 year (0 - 999999)
+                  - listitem [ref=f68e117]: 2 years (0 - 999999)
+                  - listitem [ref=f68e118]: 3 years (0 - 999999)
+                  - listitem [ref=f68e119]: 4 years (0 - 9999999)
+                  - listitem [ref=f68e120]: 5 years (0 - 999999)
+                  - listitem [ref=f68e121]: 6 years (0 - 999999)
+              - cell "Rule of 78" [ref=f68e122] [cursor=pointer]
+              - cell "Yes" [ref=f68e123] [cursor=pointer]
+              - cell [ref=f68e125] [cursor=pointer]:
+                - link "View" [ref=f68e126]:
+                  - /url: /admin/earning-group/1/details
+  - contentinfo [ref=f68e127]:
+    - generic [ref=f68e128]:
+      - link "Avantage Plus System v2.0.0" [ref=f68e129] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

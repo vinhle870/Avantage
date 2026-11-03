@@ -1,31 +1,7 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { TableComponent } from '../../core/components/TableComponent';
-
-/**
- * Vehicle data interface
- */
-export interface VehicleData {
-    vin: string;
-    make?: string;
-    model?: string;
-    year?: string;
-    price?: string;
-    kilometers?: string;
-    condition?: string;
-    fuelType?: string;
-    transmission?: string;
-    cylinders?: string;
-    engineSize?: string;
-    engineSizeUnit?: string;
-    designation?: string;
-    isTurbo?: boolean;
-    is4x4?: boolean;
-    isFWD?: boolean;
-    manufacturerFullDateEnd?: string;
-    manufacturerFullKmEnd?: string;
-    manufacturerPowertrainDateEnd?: string;
-    manufacturerPowertrainKmEnd?: string;
-}
+import { VehicleInfo } from '../../data/dealer-portal';
+import { selectCheckbox, selectDropdownOption } from '../../core/utils/uiActions';
 
 /**
  * Vehicle Inventory Page - Add and manage vehicles.
@@ -63,7 +39,7 @@ export class VehicleInventoryPage {
     constructor(page: Page) {
         this.page = page;
         this.tblVehicleList = new TableComponent(page, 'table');
-        this.lnkBack = page.locator('a.btn.btn-link.text-dark');
+        this.lnkBack = page.locator("//a[@class='btn btn-link text-dark']");
         this.lnkSelectVehicle = page.locator('#dropdownMenuLink1');
         this.txtVehicleVin = page.locator('#vehicle_VIN');
         this.dpdVehicleMake = page.locator("//div[*[@for='vehicle_make']]/div");
@@ -89,14 +65,14 @@ export class VehicleInventoryPage {
     }
 
     /**
-     * Get add vehicle link for specific type
+     * Get add vehicle link for specific type (e.g. "Passenger")
      */
     getAddVehicleLink(vehicleType: string): Locator {
-        return this.page.locator(`[href="/vehicle/new/edit/${vehicleType.toUpperCase()}"]`);
+        return this.page.locator(`[href='/vehicle/new/edit/${vehicleType.toUpperCase()}']`);
     }
 
     /**
-     * Open add new vehicle page
+     * Open the "select vehicle" menu, then the add form for the vehicle type
      */
     async openAddNewVehiclePage(vehicleType: string): Promise<void> {
         await this.lnkSelectVehicle.click();
@@ -104,51 +80,30 @@ export class VehicleInventoryPage {
     }
 
     /**
-     * Fill new vehicle form
+     * Fill the new vehicle form. Every field is written, like the Java fillNewVehicleInfo.
      */
-    async fillVehicleForm(vehicle: VehicleData, submit: boolean = true): Promise<void> {
+    async fillVehicleForm(vehicle: VehicleInfo, submit: boolean = true): Promise<void> {
         await this.txtVehicleVin.fill(vehicle.vin);
-
-        if (vehicle.make) {
-            await this.dpdVehicleMake.click();
-            await this.page.locator(`li:has-text("${vehicle.make}")`).click();
-        }
-        if (vehicle.model) {
-            await this.dpdVehicleModel.click();
-            await this.page.locator(`li:has-text("${vehicle.model}")`).click();
-        }
-        if (vehicle.year) await this.txtVehicleYear.fill(vehicle.year);
-        if (vehicle.price) await this.txtVehiclePrice.fill(vehicle.price);
-        if (vehicle.kilometers) await this.txtVehicleKM.fill(vehicle.kilometers);
-        if (vehicle.condition) {
-            await this.dpdVehicleCondition.click();
-            await this.page.locator(`li:has-text("${vehicle.condition}")`).click();
-        }
-        if (vehicle.fuelType) {
-            await this.dpdVehicleFuelType.click();
-            await this.page.locator(`li:has-text("${vehicle.fuelType}")`).click();
-        }
-        if (vehicle.transmission) {
-            await this.dpdVehicleTransmission.click();
-            await this.page.locator(`li:has-text("${vehicle.transmission}")`).click();
-        }
-        if (vehicle.cylinders) await this.txtVehicleCylinders.fill(vehicle.cylinders);
-        if (vehicle.engineSize) await this.txtVehicleEngineSize.fill(vehicle.engineSize);
-        if (vehicle.engineSizeUnit) {
-            await this.dpdVehicleEngineSizeUnit.click();
-            await this.page.locator(`li:has-text("${vehicle.engineSizeUnit}")`).click();
-        }
-        if (vehicle.designation) {
-            await this.dpdVehicleDesignation.click();
-            await this.page.locator(`li:has-text("${vehicle.designation}")`).click();
-        }
-        if (vehicle.isTurbo) await this.cbxVehicleIsTurbo.check();
-        if (vehicle.is4x4) await this.cbxVehicleIs4x4.check();
-        if (vehicle.isFWD) await this.cbxVehicleIsFWD.check();
-        if (vehicle.manufacturerFullDateEnd) await this.txtManufacturerFullDateEnd.fill(vehicle.manufacturerFullDateEnd);
-        if (vehicle.manufacturerFullKmEnd) await this.txtManufacturerFullKmEnd.fill(vehicle.manufacturerFullKmEnd);
-        if (vehicle.manufacturerPowertrainDateEnd) await this.txtManufacturerPowertrainDateEnd.fill(vehicle.manufacturerPowertrainDateEnd);
-        if (vehicle.manufacturerPowertrainKmEnd) await this.txtManufacturerPowertrainKmEnd.fill(vehicle.manufacturerPowertrainKmEnd);
+        await selectDropdownOption(this.dpdVehicleMake, vehicle.branch);
+        // Model options load after Make is chosen; selectDropdownOption retries until they appear
+        await selectDropdownOption(this.dpdVehicleModel, vehicle.model);
+        await this.txtVehicleYear.fill(vehicle.year);
+        await this.txtVehiclePrice.fill(vehicle.price);
+        await this.txtVehicleKM.fill(vehicle.km);
+        await selectDropdownOption(this.dpdVehicleCondition, vehicle.condition);
+        await selectDropdownOption(this.dpdVehicleFuelType, vehicle.fuelType);
+        await selectDropdownOption(this.dpdVehicleTransmission, vehicle.transmission);
+        await this.txtVehicleCylinders.fill(vehicle.cylinders);
+        await this.txtVehicleEngineSize.fill(vehicle.engineSize);
+        await selectDropdownOption(this.dpdVehicleEngineSizeUnit, vehicle.engineSizeUnit);
+        await selectDropdownOption(this.dpdVehicleDesignation, vehicle.designation);
+        if (vehicle.isTurboEngine.includes('Yes')) await selectCheckbox(this.cbxVehicleIsTurbo);
+        if (vehicle.is4x4.includes('Yes')) await selectCheckbox(this.cbxVehicleIs4x4);
+        if (vehicle.isAllWheelDrive.includes('Yes')) await selectCheckbox(this.cbxVehicleIsFWD);
+        await this.txtManufacturerFullDateEnd.fill(vehicle.fullCoverageEndDate);
+        await this.txtManufacturerFullKmEnd.fill(vehicle.fullCoverageMaxMile);
+        await this.txtManufacturerPowertrainDateEnd.fill(vehicle.powertrainCoverageEndDate);
+        await this.txtManufacturerPowertrainKmEnd.fill(vehicle.powertrainCoverageMaxMile);
 
         if (submit) {
             await this.btnSave.click();
@@ -160,6 +115,15 @@ export class VehicleInventoryPage {
      */
     async goBack(): Promise<void> {
         await this.lnkBack.click();
+    }
+
+    /**
+     * Inventory ID (first column) of the newest vehicle — the first row of the list
+     */
+    async getNewestVehicleId(): Promise<string> {
+        await this.waitForTableVisible();
+        const firstRow = await this.tblVehicleList.getFirstRow(',');
+        return firstRow.split(',')[0].trim();
     }
 
     /**

@@ -1,0 +1,5 @@
+AP2505_001 step 3 — Environment: Dev — captured 2026-11-03T05:21Z
+Action: quote 6568 /quote/6568/details -> Roadside Protection row ⋯ -> Generate Contract
+Address bar stayed: https://v2dev.garantieavantageplus.ca/quote/6568/details (modal "Loading..." open)
+[GET] https://v2dev.garantieavantageplus.ca/quote/6568/road-side-protection-create-contract => [500]
+Link markup: a.dropdown-item data-toggle="modal" data-target="#myModal" data-href="/quote/6568/road-side-protection-create-contract"

@@ -1,0 +1,198 @@
+- generic [active] [ref=f74e1]:
+  - banner [ref=f74e2]:
+    - link [ref=f74e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f74e5]:
+      - searchbox "Search" [ref=f74e7]
+  - generic [ref=f74e8]:
+    - navigation [ref=f74e10]:
+      - list [ref=f74e11]:
+        - listitem [ref=f74e12]:
+          - link " 􏀕 Dashboard" [ref=f74e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f74e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f74e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f74e16]:
+            - generic [ref=f74e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f74e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f74e19]:
+            - generic [ref=f74e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f74e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f74e22]:
+            - generic [ref=f74e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f74e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f74e25]:
+            - generic [ref=f74e26]:  􏃀
+            - text: Users
+        - listitem [ref=f74e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f74e28]:
+            - generic [ref=f74e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f74e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f74e31]:
+            - generic [ref=f74e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f74e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f74e34]:
+            - generic [ref=f74e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f74e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f74e37]:
+            - generic [ref=f74e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f74e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f74e40]:
+            - generic [ref=f74e41]:  􏂎
+            - text: External links
+        - listitem [ref=f74e42]:
+          - link " 􏆫 Language settings" [ref=f74e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate-contracts
+            - generic [ref=f74e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f74e45]:
+          - link " 􏀑 Logout" [ref=f74e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f74e47]:  􏀑
+            - text: Logout
+    - main [ref=f74e48]:
+      - generic [ref=f74e50]:
+        - navigation [ref=f74e52]:
+          - heading "Permaplate Contracts" [level=1] [ref=f74e53]
+          - list
+        - table [ref=f74e57]:
+          - rowgroup [ref=f74e58]:
+            - row [ref=f74e59]:
+              - columnheader "Client" [ref=f74e60]
+              - columnheader "Dealer" [ref=f74e61]
+              - columnheader "Vehicle" [ref=f74e62]
+              - columnheader "Program" [ref=f74e63]
+              - columnheader "Actions" [ref=f74e64]
+          - rowgroup [ref=f74e65]:
+            - row [ref=f74e66]:
+              - cell [ref=f74e67] [cursor=pointer]:
+                - text: Perma Testclient
+                - generic [ref=f74e68]:
+                  - link "perma.test.0906@yopmail.com" [ref=f74e69]:
+                    - /url: mailto:perma.test.0906@yopmail.com
+                  - link "5145550101" [ref=f74e70]:
+                    - /url: tel:5145550101
+              - cell [ref=f74e71] [cursor=pointer]:
+                - text: Test QA staging
+                - link "vinhle870@gmail.com" [ref=f74e73]:
+                  - /url: mailto:vinhle870@gmail.com
+              - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f74e74] [cursor=pointer]'
+              - cell "10 ans (120 months) Peinture – Céramique + Graphene, Extra care (5 ans couverture )" [ref=f74e75] [cursor=pointer]
+              - cell [ref=f74e76] [cursor=pointer]:
+                - link " 􏁮" [ref=f74e78]:
+                  - /url: /admin/permaplate-contract/7
+            - row [ref=f74e80]:
+              - cell [ref=f74e81] [cursor=pointer]:
+                - text: Ken Nguyen
+                - generic [ref=f74e82]:
+                  - link "ken@nekken.ca" [ref=f74e83]:
+                    - /url: mailto:ken@nekken.ca
+                  - link "124-123-1234" [ref=f74e84]:
+                    - /url: tel:124-123-1234
+              - cell [ref=f74e85] [cursor=pointer]:
+                - text: Permaplate test Drive IP
+                - link "ken+permaplate@garantieavantageplus.ca" [ref=f74e87]:
+                  - /url: mailto:ken+permaplate@garantieavantageplus.ca
+              - 'cell "Acura ILX 2018 VIN: 44444444444" [ref=f74e88] [cursor=pointer]'
+              - cell "3 Ans (Drive IP) (36 months) Antirouille – Rust, Antirouille – Sound, Peinture - Paintguard Express" [ref=f74e89] [cursor=pointer]
+              - cell [ref=f74e90] [cursor=pointer]:
+                - link " 􏁮" [ref=f74e92]:
+                  - /url: /admin/permaplate-contract/6
+            - row [ref=f74e94]:
+              - cell [ref=f74e95] [cursor=pointer]:
+                - text: Ken Nguyen
+                - generic [ref=f74e96]:
+                  - link "ken@nekken.ca" [ref=f74e97]:
+                    - /url: mailto:ken@nekken.ca
+                  - link "124-123-1234" [ref=f74e98]:
+                    - /url: tel:124-123-1234
+              - cell [ref=f74e99] [cursor=pointer]:
+                - text: Permaplate test Drive IP
+                - link "ken+permaplate@garantieavantageplus.ca" [ref=f74e101]:
+                  - /url: mailto:ken+permaplate@garantieavantageplus.ca
+              - 'cell "Acura ILX 2018 VIN: 44444444444" [ref=f74e102] [cursor=pointer]'
+              - cell "3 Ans (Drive IP) (36 months) Antirouille – Rust, Antirouille – Sound, Peinture - Paintguard Express" [ref=f74e103] [cursor=pointer]
+              - cell [ref=f74e104] [cursor=pointer]:
+                - link " 􏁮" [ref=f74e106]:
+                  - /url: /admin/permaplate-contract/5
+            - row [ref=f74e108]:
+              - cell [ref=f74e109] [cursor=pointer]:
+                - text: Ken Nguyen
+                - generic [ref=f74e110]:
+                  - link "ken@nekken.ca" [ref=f74e111]:
+                    - /url: mailto:ken@nekken.ca
+                  - link "5146906330" [ref=f74e112]:
+                    - /url: tel:5146906330
+              - cell [ref=f74e113] [cursor=pointer]:
+                - text: Test Dealer 2
+                - link "ken+dealer@garantieavantageplus.ca" [ref=f74e115]:
+                  - /url: mailto:ken+dealer@garantieavantageplus.ca
+              - 'cell "Honda Civic 2023 VIN: 2HGFE2F29PH106082" [ref=f74e116] [cursor=pointer]'
+              - cell "5 ans (60 months) Intérieur – Fiberguard, Intérieur – Leatherguard, Paintguard premium plus, Extra care (5 ans couverture )" [ref=f74e117] [cursor=pointer]
+              - cell [ref=f74e118] [cursor=pointer]:
+                - link " 􏁮" [ref=f74e120]:
+                  - /url: /admin/permaplate-contract/4
+            - row [ref=f74e122]:
+              - cell [ref=f74e123] [cursor=pointer]:
+                - text: MATHIEU GUILBAULT
+                - generic [ref=f74e124]:
+                  - link "guilbault244@gmail.com" [ref=f74e125]:
+                    - /url: mailto:guilbault244@gmail.com
+                  - link "3" [ref=f74e126]:
+                    - /url: tel:3
+              - cell [ref=f74e127] [cursor=pointer]:
+                - text: Test Dealer 2
+                - link "ken+dealer@garantieavantageplus.ca" [ref=f74e129]:
+                  - /url: mailto:ken+dealer@garantieavantageplus.ca
+              - 'cell "Honda CR-V 2023 VIN: 2hkrs6h90ph200803" [ref=f74e130] [cursor=pointer]'
+              - cell "5 ans (60 months) Fabric Protection (Fiberguard), Leather / Vinyl protection (Fiberguard), Paintguard premium plus" [ref=f74e131] [cursor=pointer]
+              - cell [ref=f74e132] [cursor=pointer]:
+                - link " 􏁮" [ref=f74e134]:
+                  - /url: /admin/permaplate-contract/3
+            - row [ref=f74e136]:
+              - cell [ref=f74e137] [cursor=pointer]:
+                - text: Playwright Tester
+                - generic [ref=f74e138]:
+                  - link "e2e-test+1786132149642@example.com" [ref=f74e139]:
+                    - /url: mailto:e2e-test+1786132149642@example.com
+                  - link "5145551234" [ref=f74e140]:
+                    - /url: tel:5145551234
+              - cell [ref=f74e141] [cursor=pointer]:
+                - text: Test Dealer 2
+                - link "ken+dealer@garantieavantageplus.ca" [ref=f74e143]:
+                  - /url: mailto:ken+dealer@garantieavantageplus.ca
+              - 'cell "Honda CR-V 2024 VIN: BKVG64C7AKB4145G5" [ref=f74e144] [cursor=pointer]'
+              - cell "10 ans (120 months) Electronic Corrosion Control, Fabric Protection (Fiberguard), Leather / Vinyl protection (Fiberguard), Paintguard Ceramic, Paintguard Express, Paintguard premium plus, Rust Inhibitor - Chemical (Rustguard + Soundguard)" [ref=f74e145] [cursor=pointer]
+              - cell [ref=f74e146] [cursor=pointer]:
+                - link " 􏁮" [ref=f74e148]:
+                  - /url: /admin/permaplate-contract/2
+            - row [ref=f74e150]:
+              - cell [ref=f74e151] [cursor=pointer]:
+                - text: Ken Nguyen
+                - generic [ref=f74e152]:
+                  - link "ken@nekken.ca" [ref=f74e153]:
+                    - /url: mailto:ken@nekken.ca
+                  - link "124-123-1234" [ref=f74e154]:
+                    - /url: tel:124-123-1234
+              - cell [ref=f74e155] [cursor=pointer]:
+                - text: Test Dealer 2
+                - link "ken+dealer@garantieavantageplus.ca" [ref=f74e157]:
+                  - /url: mailto:ken+dealer@garantieavantageplus.ca
+              - 'cell "Volkswagen Passat 2012 VIN: 1VWCM7A33CC098850" [ref=f74e158] [cursor=pointer]'
+              - cell "( months)" [ref=f74e159] [cursor=pointer]
+              - cell [ref=f74e160] [cursor=pointer]:
+                - link " 􏁮" [ref=f74e162]:
+                  - /url: /admin/permaplate-contract/1
+  - contentinfo [ref=f74e164]:
+    - generic [ref=f74e165]:
+      - link "Avantage Plus System v2.0.0" [ref=f74e166] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

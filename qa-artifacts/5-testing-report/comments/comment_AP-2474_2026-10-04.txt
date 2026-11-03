@@ -1,0 +1,33 @@
+h3. QA result — PASS (2026-10-04)
+
+*Environment:* Staging (v2staging) · *Run:* 5.2.0 · *Pass rate:* 94.4% (17 of 18; threshold 90%)
+*Result:* 17 PASS · 1 FAIL · 0 BLOCKED · 0 SKIPPED
+
+||TC ID||Title||Priority||Status||Bug||
+|AP2474_001|The admin menu shows "Earning Assignments" under Risk Management, and clicking it opens the Earning Assignments page|Medium|PASS|-|
+|AP2474_002|The Earning Assignments page shows its title, "Create New", the five required columns, and View opens a details page|Medium|PASS|-|
+|AP2474_003|"Create New" opens a modal with Description, Earning Set, Dealer Group, Is Enabled? and Save, listing every set and dealer group|High|PASS|-|
+|AP2474_004|Saving a new assignment opens its "Earning Assignment \{description\}" page with Edit, Add Parameter and the parameter grid|High|PASS|-|
+|AP2474_005|Saving the Create New form with a blank description is refused and no assignment is created|High|PASS|-|
+|AP2474_006|Saving a new assignment with no earning set or dealer group chosen is refused cleanly, without an error page|Medium|FAIL|AP-2482|
+|AP2474_007|Assigning the same earning set to a dealer group that already has it is either refused or saved — the result is recorded|Medium|PASS|-|
+|AP2474_008|"Edit" on the details page opens the assignment pre-filled, and a changed description updates the page title|Medium|PASS|-|
+|AP2474_009|"Add Parameter" opens a modal with all ten fields, the stated options, and defaults 0, 9999999, -1 and 99|High|PASS|-|
+|AP2474_010|Submitting a fully filled parameter adds one row to the parameter grid showing every value and each range as "from - to"|High|PASS|-|
+|AP2474_011|A parameter submitted with the default ranges and a one-day sale period shows "0 - 9999999" and "-1 - 99" in the grid|Medium|PASS|-|
+|AP2474_012|A parameter whose "from" values are greater than its "to" values is refused, or saved — recorded — without an error page|High|PASS|-|
+|AP2474_013|A parameter with letters or a blank in the odometer and model-year fields is refused cleanly, without an error page|Medium|PASS|-|
+|AP2474_014|Clicking the trash-can on a parameter asks for confirmation, and answering No keeps the parameter|Medium|PASS|-|
+|AP2474_015|Confirming the trash-can removes only that parameter, and the assignment and its other parameter remain|Medium|PASS|-|
+|AP2474_016|Adding a parameter identical to one already on the assignment is refused, or saved as a second row — recorded|Medium|PASS|-|
+|AP2474_017|A parameter with "Sale Date from" filled and "Sale Date to" left blank is refused or saved cleanly, without an error page|Medium|PASS|-|
+|AP2474_018|A parameter added to one assignment appears only on that assignment, not on another|Medium|PASS|-|
+
+*Bugs:*
+AP-2482 — Saving a new earning assignment with no Earning Set or no Dealer Group chosen shows an HTTP 500 error page (Medium, Backlog)
+
+*Open questions:* Q-002 — may the same earning set + dealer group be assigned twice? (currently saved without warning) · Q-006 — must each "from" be ≤ its "to"? (inverted ranges currently save) · Q-011 — are identical/overlapping parameters allowed? (currently saved as a second row) · Q-004 — intended behaviour of Edit (tested: pre-filled modal, saves correctly).
+
+Moved to Ready for release and assigned to Ken Nguyen: pass rate and bugs meet the release rule.
+
+Full report: qa-artifacts/5-testing-report/AP-2474_test-report.md

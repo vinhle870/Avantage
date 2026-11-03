@@ -1,0 +1,94 @@
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - link [ref=f7e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f7e5]:
+      - searchbox "Search" [ref=f7e7]
+  - generic [ref=f7e8]:
+    - navigation [ref=f7e10]:
+      - list [ref=f7e11]:
+        - listitem [ref=f7e12]:
+          - link " 􏀕 Dashboard" [ref=f7e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f7e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f7e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f7e16]:
+            - generic [ref=f7e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f7e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f7e19]:
+            - generic [ref=f7e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f7e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f7e22]:
+            - generic [ref=f7e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f7e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f7e25]:
+            - generic [ref=f7e26]:  􏃀
+            - text: Users
+        - listitem [ref=f7e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f7e28]:
+            - generic [ref=f7e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f7e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f7e31]:
+            - generic [ref=f7e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f7e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f7e34]:
+            - generic [ref=f7e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f7e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f7e37]:
+            - generic [ref=f7e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f7e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f7e40]:
+            - generic [ref=f7e41]:  􏂎
+            - text: External links
+        - listitem [ref=f7e42]:
+          - link " 􏆫 Language settings" [ref=f7e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/dealer/1380/permaplate
+            - generic [ref=f7e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f7e45]:
+          - link " 􏀑 Logout" [ref=f7e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f7e47]:  􏀑
+            - text: Logout
+    - main [ref=f7e48]:
+      - generic [ref=f7e50]:
+        - navigation [ref=f7e52]:
+          - heading "Eligible Permaplate products" [level=1] [ref=f7e53]
+          - list [ref=f7e54]:
+            - listitem [ref=f7e55]:
+              - link "Link a product" [ref=f7e56] [cursor=pointer]:
+                - /url: /admin/dealer/1380/permaplate/link
+        - generic [ref=f7e57]:
+          - list [ref=f7e59]:
+            - listitem [ref=f7e60]:
+              - link "Details" [ref=f7e61] [cursor=pointer]:
+                - /url: /admin/dealer/1380
+            - listitem [ref=f7e62]:
+              - link "Users" [ref=f7e63] [cursor=pointer]:
+                - /url: /admin/dealer/1380/users
+            - listitem [ref=f7e64]:
+              - link "Program eligibility" [ref=f7e65] [cursor=pointer]:
+                - /url: /admin/dealer/1380/program-eligibility
+            - listitem [ref=f7e66]:
+              - link "Customer portal" [ref=f7e67] [cursor=pointer]:
+                - /url: /admin/dealer/1380/customer-portal
+            - listitem [ref=f7e68]:
+              - link "Financing Options" [ref=f7e69] [cursor=pointer]:
+                - /url: /admin/dealer/1380/financing-options
+            - listitem [ref=f7e70]:
+              - link "Permaplate Products" [ref=f7e71] [cursor=pointer]:
+                - /url: /admin/dealer/1380/permaplate
+          - alert [ref=f7e74]: No entities found
+  - contentinfo [ref=f7e75]:
+    - generic [ref=f7e76]:
+      - link "Avantage Plus System v2.0.0" [ref=f7e77] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

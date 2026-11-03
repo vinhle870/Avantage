@@ -1,0 +1,6 @@
+Environment: Dev (https://v2dev.garantieavantageplus.ca)
+Captured: 2026-11-03T04:58:50Z — dealer 1380 creditor forms: none selected (account AP0001)
+Modal open from /quick-insurance-quote, attempt 1:
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500
+Direct navigation, attempt 2:
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500

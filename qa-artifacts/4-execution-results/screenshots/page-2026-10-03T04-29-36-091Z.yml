@@ -1,0 +1,101 @@
+- generic [active] [ref=f21e1]:
+  - banner [ref=f21e2]:
+    - button [ref=f21e3] [cursor=pointer]
+    - link [ref=f21e5] [cursor=pointer]:
+      - /url: /
+      - img "Avantage Plus Logo" [ref=f21e6]
+    - list [ref=f21e7]:
+      - searchbox "Search" [ref=f21e9]
+      - listitem [ref=f21e10]:
+        - generic [ref=f21e11]: Test QA staging
+  - generic [ref=f21e13]:
+    - navigation [ref=f21e15]:
+      - list [ref=f21e16]:
+        - listitem [ref=f21e17]:
+          - link " Dashboard" [ref=f21e18] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f21e19]: 
+            - text: Dashboard
+        - listitem [ref=f21e20]:
+          - heading " Vehicles" [level=6] [ref=f21e21]:
+            - generic [ref=f21e22]: 
+            - text: Vehicles
+          - list:
+            - listitem [ref=f21e23]:
+              - link "Inventory" [ref=f21e24] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f21e25]:
+              - link "Quotes" [ref=f21e26] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f21e27]:
+              - link "Insurance Quick Quote" [ref=f21e28] [cursor=pointer]:
+                - /url: /quick-insurance-quote
+            - listitem [ref=f21e29]:
+              - link "Insurance compliance log" [ref=f21e30] [cursor=pointer]:
+                - /url: /insurance-compliance-log
+        - listitem [ref=f21e31]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f21e32]:
+            - generic [ref=f21e33]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f21e34]:
+              - link "Warranty" [ref=f21e35] [cursor=pointer]:
+                - /url: /warranty
+            - listitem [ref=f21e36]:
+              - link "Road Side Protection" [ref=f21e37] [cursor=pointer]:
+                - /url: /road-side-protection-contracts
+            - listitem [ref=f21e38]:
+              - link "Creditors insurance" [ref=f21e39] [cursor=pointer]:
+                - /url: /creditor-insurance-contracts
+            - listitem [ref=f21e40]:
+              - link "Gap Insurance" [ref=f21e41] [cursor=pointer]:
+                - /url: /gap-insurance-contracts
+            - listitem [ref=f21e42]:
+              - link "Esthetic protection" [ref=f21e43] [cursor=pointer]:
+                - /url: /permaplate-contracts
+        - listitem [ref=f21e44]:
+          - link " Claims" [ref=f21e45] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f21e46]: 
+            - text: Claims
+        - listitem [ref=f21e47]:
+          - heading " Billing" [level=6] [ref=f21e48]:
+            - generic [ref=f21e49]: 
+            - text: Billing
+          - list:
+            - listitem [ref=f21e50]:
+              - link "Invoices" [ref=f21e51] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f21e52]:
+              - link "Payment history" [ref=f21e53] [cursor=pointer]:
+                - /url: /invoice/payment-history
+        - listitem [ref=f21e54]:
+          - heading " System preferences" [level=6] [ref=f21e55]:
+            - generic [ref=f21e56]: 
+            - text: System preferences
+          - list:
+            - listitem [ref=f21e57]:
+              - link "Language settings" [ref=f21e58] [cursor=pointer]:
+                - /url: /language?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6308/details
+            - listitem [ref=f21e59]:
+              - link "Users" [ref=f21e60] [cursor=pointer]:
+                - /url: /users?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6308/details
+        - listitem [ref=f21e61]:
+          - link " Logout" [ref=f21e62] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f21e63]: 
+            - text: Logout
+    - main [ref=f21e64]:
+      - generic [ref=f21e66]:
+        - alert [ref=f21e67]:
+          - text: Client saved
+          - button "Close" [ref=f21e68] [cursor=pointer]: ×
+        - generic [ref=f21e70]:
+          - heading "Erreur Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois." [level=1] [ref=f21e71]
+          - link "Aller à l'accueil" [ref=f21e72] [cursor=pointer]:
+            - /url: /
+  - contentinfo [ref=f21e85]:
+    - generic [ref=f21e86]:
+      - link "Avantage Plus System v2.0.0" [ref=f21e87] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

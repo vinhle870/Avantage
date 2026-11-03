@@ -1,0 +1,141 @@
+- generic [active] [ref=f66e1]:
+  - banner [ref=f66e2]:
+    - link [ref=f66e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f66e5]:
+      - searchbox "Search" [ref=f66e7]
+      - listitem [ref=f66e8]:
+        - generic [ref=f66e9]: Test QA staging
+  - generic [ref=f66e11]:
+    - navigation [ref=f66e13]:
+      - list [ref=f66e14]:
+        - listitem [ref=f66e15]:
+          - link " Dashboard" [ref=f66e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f66e17]: 
+            - text: Dashboard
+        - listitem [ref=f66e18]:
+          - heading " Vehicles" [level=6] [ref=f66e19]:
+            - generic [ref=f66e20]: 
+            - text: Vehicles
+        - listitem [ref=f66e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f66e22]:
+            - generic [ref=f66e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f66e24]:
+          - link " Claims" [ref=f66e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f66e26]: 
+            - text: Claims
+        - listitem [ref=f66e27]:
+          - heading " Billing" [level=6] [ref=f66e28]:
+            - generic [ref=f66e29]: 
+            - text: Billing
+        - listitem [ref=f66e30]:
+          - heading " System preferences" [level=6] [ref=f66e31]:
+            - generic [ref=f66e32]: 
+            - text: System preferences
+        - listitem [ref=f66e33]:
+          - link " Logout" [ref=f66e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f66e35]: 
+            - text: Logout
+    - main [ref=f66e36]:
+      - generic [ref=f66e38]:
+        - navigation [ref=f66e40]:
+          - heading "Insurance for Retest AP2464C" [level=1] [ref=f66e41]
+          - list [ref=f66e42]:
+            - listitem [ref=f66e43]:
+              - link "Back" [ref=f66e44] [cursor=pointer]:
+                - /url: /quote/6310/details
+        - generic [ref=f66e47]:
+          - heading "Creditors Insurance Quote" [level=4] [ref=f66e48]
+          - separator [ref=f66e49]
+          - generic [ref=f66e50]:
+            - generic [ref=f66e52]:
+              - generic [ref=f66e53]: Language*
+              - generic [ref=f66e54]:
+                - combobox "Language*" [ref=f66e55]:
+                  - option "English" [selected]
+                  - option "Français"
+                - combobox "English" [ref=f66e56] [cursor=pointer]
+            - generic [ref=f66e61]:
+              - generic [ref=f66e62]: Tax exempt*
+              - generic [ref=f66e63]:
+                - combobox "Tax exempt*" [ref=f66e64]:
+                  - option "Yes"
+                  - option "No" [selected]
+                - combobox "No" [ref=f66e65] [cursor=pointer]
+            - generic [ref=f66e70]:
+              - generic [ref=f66e71]: Form*
+              - generic [ref=f66e72]:
+                - combobox "Form*" [ref=f66e73]:
+                  - option "Monthly Premium PM30" [selected]
+                  - option "Monthly Premium PM50"
+                - combobox "Monthly Premium PM30" [ref=f66e74] [cursor=pointer]
+          - separator [ref=f66e78]
+          - generic [ref=f66e79]:
+            - generic [ref=f66e81]:
+              - generic [ref=f66e82]: Life*
+              - generic [ref=f66e83]:
+                - combobox "Life*" [ref=f66e84]:
+                  - option "Select type" [selected]
+                  - option "Decreasing"
+                - combobox "Select type" [ref=f66e85] [cursor=pointer]
+            - generic [ref=f66e90]:
+              - generic [ref=f66e91]: Life Term*
+              - textbox "Life Term*" [ref=f66e92]
+            - generic [ref=f66e94]:
+              - generic [ref=f66e95]: Life For*
+              - generic [ref=f66e96]:
+                - combobox "Life For*" [ref=f66e97]:
+                  - option "Select coverage" [selected]
+                  - option "Borrower"
+                - combobox "Select coverage" [ref=f66e98] [cursor=pointer]
+          - separator [ref=f66e102]
+          - generic [ref=f66e103]:
+            - generic [ref=f66e105]:
+              - generic [ref=f66e106]: Critical illness*
+              - generic [ref=f66e107]:
+                - combobox "Critical illness*" [ref=f66e108]:
+                  - option "Select type" [selected]
+                  - option "Decreasing"
+                - combobox "Select type" [ref=f66e109] [cursor=pointer]
+            - generic [ref=f66e114]:
+              - generic [ref=f66e115]: Critical illness Term*
+              - textbox "Critical illness Term*" [ref=f66e116]
+            - generic [ref=f66e118]:
+              - generic [ref=f66e119]: Critical illness For*
+              - generic [ref=f66e120]:
+                - combobox "Critical illness For*" [ref=f66e121]:
+                  - option "Select coverage" [selected]
+                  - option "Borrower"
+                - combobox "Select coverage" [ref=f66e122] [cursor=pointer]
+          - separator [ref=f66e126]
+          - generic [ref=f66e127]:
+            - generic [ref=f66e129]:
+              - generic [ref=f66e130]: Disability*
+              - generic [ref=f66e131]:
+                - combobox "Disability*" [ref=f66e132]:
+                  - option "Select type" [selected]
+                  - option "30 Day Retro"
+                  - option "30 Day Elim"
+                  - option "30 Day Elim 12M"
+                - combobox "Select type" [ref=f66e133] [cursor=pointer]
+            - generic [ref=f66e138]:
+              - generic [ref=f66e139]: Disability Term*
+              - textbox "Disability Term*" [ref=f66e140]
+            - generic [ref=f66e142]:
+              - generic [ref=f66e143]: Disability For*
+              - generic [ref=f66e144]:
+                - combobox "Disability For*" [ref=f66e145]:
+                  - option "Select coverage" [selected]
+                  - option "Borrower"
+                - combobox "Select coverage" [ref=f66e146] [cursor=pointer]
+          - separator [ref=f66e150]
+          - button "Get Quote" [ref=f66e151] [cursor=pointer]
+  - contentinfo [ref=f66e152]:
+    - generic [ref=f66e153]:
+      - link "Avantage Plus System v2.0.0" [ref=f66e154] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

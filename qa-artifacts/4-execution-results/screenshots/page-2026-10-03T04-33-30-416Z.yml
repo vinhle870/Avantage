@@ -1,0 +1,204 @@
+- generic [active] [ref=f63e1]:
+  - banner [ref=f63e2]:
+    - link [ref=f63e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f63e5]:
+      - searchbox "Search" [ref=f63e7]
+      - listitem [ref=f63e8]:
+        - generic [ref=f63e9]: Test QA staging
+  - generic [ref=f63e11]:
+    - navigation [ref=f63e13]:
+      - list [ref=f63e14]:
+        - listitem [ref=f63e15]:
+          - link " Dashboard" [ref=f63e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f63e17]: 
+            - text: Dashboard
+        - listitem [ref=f63e18]:
+          - heading " Vehicles" [level=6] [ref=f63e19]:
+            - generic [ref=f63e20]: 
+            - text: Vehicles
+        - listitem [ref=f63e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f63e22]:
+            - generic [ref=f63e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f63e24]:
+          - link " Claims" [ref=f63e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f63e26]: 
+            - text: Claims
+        - listitem [ref=f63e27]:
+          - heading " Billing" [level=6] [ref=f63e28]:
+            - generic [ref=f63e29]: 
+            - text: Billing
+        - listitem [ref=f63e30]:
+          - heading " System preferences" [level=6] [ref=f63e31]:
+            - generic [ref=f63e32]: 
+            - text: System preferences
+        - listitem [ref=f63e33]:
+          - link " Logout" [ref=f63e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f63e35]: 
+            - text: Logout
+    - main [ref=f63e36]:
+      - generic [ref=f63e37]:
+        - generic [ref=f63e38]:
+          - alert [ref=f63e39]:
+            - text: Financing saved
+            - button "Close" [ref=f63e40] [cursor=pointer]: ×
+          - navigation [ref=f63e42]:
+            - heading [level=1] [ref=f63e43]:
+              - text: "#6310 - Retest AP2464C 1FAHP35NX8W239204"
+              - link "" [ref=f63e44] [cursor=pointer]:
+                - /url: /quote/6310/rename
+            - list [ref=f63e46]:
+              - listitem [ref=f63e47]:
+                - link "Back" [ref=f63e48] [cursor=pointer]:
+                  - /url: /quotes
+              - listitem [ref=f63e49]:
+                - link "Send compliance documents" [ref=f63e50] [cursor=pointer]:
+                  - /url: /compliance-documents/send?redirectUrl=/quote/6310/details&clientEmail=retest.ap2464c@yopmail.com
+              - listitem [ref=f63e51]:
+                - link "Archive" [ref=f63e52] [cursor=pointer]:
+                  - /url: /quote/6310/cancel
+          - generic [ref=f63e53]:
+            - generic [ref=f63e55]:
+              - generic [ref=f63e58]:
+                - navigation [ref=f63e59]:
+                  - heading "Vehicle" [level=3] [ref=f63e60]
+                  - list [ref=f63e61]:
+                    - listitem [ref=f63e62]:
+                      - link "Edit" [ref=f63e63] [cursor=pointer]:
+                        - /url: /vehicle/915/edit/PASSENGER
+                - paragraph [ref=f63e64]:
+                  - link "Ford Focus 2008" [ref=f63e65] [cursor=pointer]:
+                    - /url: /vehicle/915/details
+                  - generic [ref=f63e66]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+              - generic [ref=f63e69]:
+                - navigation [ref=f63e70]:
+                  - heading "Financing" [level=3] [ref=f63e71]
+                  - list [ref=f63e72]:
+                    - listitem [ref=f63e73]:
+                      - link "Edit" [ref=f63e74] [cursor=pointer]:
+                        - /url: /quote/6310/financing
+                    - listitem [ref=f63e75]:
+                      - link "DYR Rates" [ref=f63e76] [cursor=pointer]:
+                        - /url: /quote/6310/dyr-rates
+                - generic [ref=f63e78]:
+                  - heading "Financing 60 months" [level=6] [ref=f63e79]
+                  - paragraph [ref=f63e80]: AutoCapital Canada
+                  - generic [ref=f63e81]:
+                    - generic [ref=f63e82]:
+                      - text: "Type :"
+                      - generic [ref=f63e83]: Financing
+                    - generic [ref=f63e84]:
+                      - text: "Financed amount :"
+                      - generic [ref=f63e85]: 25,000.00$
+                    - generic [ref=f63e86]:
+                      - text: "Residual :"
+                      - generic [ref=f63e87]: 0.00$
+                    - generic [ref=f63e88]:
+                      - text: "Term :"
+                      - generic [ref=f63e89]: "60"
+                    - generic [ref=f63e90]:
+                      - text: "Interest rate :"
+                      - generic [ref=f63e91]: 6.9900%
+                    - generic [ref=f63e92]:
+                      - text: "Payment amount :"
+                      - generic [ref=f63e93]: 494.91$ Monthly
+                  - separator [ref=f63e94]
+                  - heading "Co-applicant" [level=6] [ref=f63e95]
+                  - paragraph [ref=f63e96]: No applicant
+                  - link "Add co-applicant" [ref=f63e97] [cursor=pointer]:
+                    - /url: /quote/6310/financing/co-applicant
+              - generic [ref=f63e100]:
+                - navigation [ref=f63e101]:
+                  - heading "Client" [level=3] [ref=f63e102]
+                  - list [ref=f63e103]:
+                    - listitem [ref=f63e104]:
+                      - link "Edit" [ref=f63e105] [cursor=pointer]:
+                        - /url: /quote/6310/client
+                - paragraph [ref=f63e106]:
+                  - text: Retest AP2464C
+                  - generic [ref=f63e107]:
+                    - text: 123 Test St Montreal Québec H1H1H1
+                    - generic [ref=f63e108]: 
+                    - link "retest.ap2464c@yopmail.com" [ref=f63e109] [cursor=pointer]:
+                      - /url: mailto:retest.ap2464c@yopmail.com
+                    - generic [ref=f63e110]: 
+                    - text: "5141234567"
+              - generic [ref=f63e113]:
+                - navigation [ref=f63e114]:
+                  - heading "Sale" [level=3] [ref=f63e115]
+                - generic [ref=f63e116]:
+                  - link "Create sale" [ref=f63e117] [cursor=pointer]:
+                    - /url: /quote/6310/sales
+                  - separator [ref=f63e118]
+                  - heading "Exchange vehicle" [level=6] [ref=f63e119]
+                  - link "Add exchange vehicle" [ref=f63e120] [cursor=pointer]:
+                    - /url: /quote/6310/exchange-vehicle?referer=%252Fquote%252F6310%252Fdetails
+            - generic [ref=f63e123]:
+              - navigation [ref=f63e124]:
+                - heading "Summary of products" [level=3] [ref=f63e125]
+              - table [ref=f63e126]:
+                - rowgroup [ref=f63e127]:
+                  - row [ref=f63e128]:
+                    - cell [ref=f63e129]:
+                      - text: Ford Focus 2008
+                      - generic [ref=f63e130]: "Delivery date: Oct 3, 2026"
+                    - cell "CA$10,000.00" [ref=f63e131]
+                    - cell [ref=f63e132]:
+                      - link "" [ref=f63e133] [cursor=pointer]:
+                        - /url: /quote/6310/vehicle
+                  - row [ref=f63e135]:
+                    - cell "Extended warranty" [ref=f63e136]
+                    - cell "- None Selected -" [ref=f63e138]
+                    - cell [ref=f63e140]:
+                      - link "" [ref=f63e141] [cursor=pointer]:
+                        - /url: /quote/6310/warranty/edit
+                  - row [ref=f63e143]:
+                    - cell "Roadside Protection" [ref=f63e144]
+                    - cell "- None Selected -" [ref=f63e146]
+                    - cell [ref=f63e147]:
+                      - link "" [ref=f63e148] [cursor=pointer]:
+                        - /url: /quote/6310/road-side-protection
+                  - row [ref=f63e150]:
+                    - cell [ref=f63e151]:
+                      - paragraph [ref=f63e152]: Gap Insurance
+                    - cell "- None Selected -" [ref=f63e153]
+                    - cell [ref=f63e154]:
+                      - link "" [ref=f63e155] [cursor=pointer]:
+                        - /url: /quote/6310/gap-insurance
+                  - row [ref=f63e157]:
+                    - cell [ref=f63e158]
+                  - row [ref=f63e159]:
+                    - cell "Creditors insurance" [ref=f63e160]
+                    - cell "- None Selected -" [ref=f63e162]
+                    - cell [ref=f63e163]:
+                      - link "" [ref=f63e164] [cursor=pointer]:
+                        - /url: /quote/6310/insurance
+                  - row [ref=f63e166]:
+                    - cell " Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance." [ref=f63e167]:
+                      - generic [ref=f63e168]:
+                        - generic [ref=f63e169]: 
+                        - text: Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance.
+                  - row [ref=f63e170]:
+                    - cell "Esthetic protection" [ref=f63e171]
+                    - cell "-" [ref=f63e173]
+                    - cell [ref=f63e174]:
+                      - link "" [ref=f63e175] [cursor=pointer]:
+                        - /url: /quote/6310/permaplate
+                  - row [ref=f63e177]:
+                    - cell [ref=f63e178]:
+                      - text: Subtotal
+                      - strong [ref=f63e179]: CA$10,000.00
+                    - cell [ref=f63e180]
+        - generic [ref=f63e184]:
+          - heading "Compliance documents sent" [level=4] [ref=f63e185]
+          - separator [ref=f63e186]
+          - alert [ref=f63e188]: No entities found
+  - contentinfo [ref=f63e189]:
+    - generic [ref=f63e190]:
+      - link "Avantage Plus System v2.0.0" [ref=f63e191] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

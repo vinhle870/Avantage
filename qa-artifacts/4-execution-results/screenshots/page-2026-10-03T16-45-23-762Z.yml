@@ -1,0 +1,196 @@
+- generic [active] [ref=f173e1]:
+  - banner [ref=f173e2]:
+    - link [ref=f173e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f173e5]:
+      - searchbox "Search" [ref=f173e7]
+  - generic [ref=f173e8]:
+    - navigation [ref=f173e10]:
+      - list [ref=f173e11]:
+        - listitem [ref=f173e12]:
+          - link " 􏀕 Dashboard" [ref=f173e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f173e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f173e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f173e16]:
+            - generic [ref=f173e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f173e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f173e19]:
+            - generic [ref=f173e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f173e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f173e22]:
+            - generic [ref=f173e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f173e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f173e25]:
+            - generic [ref=f173e26]:  􏃀
+            - text: Users
+        - listitem [ref=f173e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f173e28]:
+            - generic [ref=f173e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f173e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f173e31]:
+            - generic [ref=f173e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f173e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f173e34]:
+            - generic [ref=f173e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f173e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f173e37]:
+            - generic [ref=f173e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f173e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f173e40]:
+            - generic [ref=f173e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f173e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f173e43]:
+            - generic [ref=f173e44]:  􏂎
+            - text: External links
+        - listitem [ref=f173e45]:
+          - link " 􏆫 Language settings" [ref=f173e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-group
+            - generic [ref=f173e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f173e48]:
+          - link " 􏀑 Logout" [ref=f173e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f173e50]:  􏀑
+            - text: Logout
+    - main [ref=f173e51]:
+      - generic [ref=f173e53]:
+        - navigation [ref=f173e55]:
+          - heading "Earning Groups" [level=1] [ref=f173e56]
+          - list [ref=f173e57]:
+            - listitem [ref=f173e58]:
+              - link "Create New" [ref=f173e59] [cursor=pointer]:
+                - /url: /admin/earning-group/new/edit
+        - generic [ref=f173e61]:
+          - table [ref=f173e63]:
+            - rowgroup [ref=f173e64]:
+              - row [ref=f173e65]:
+                - columnheader "Name" [ref=f173e66]
+                - columnheader "Earning curves" [ref=f173e67]
+                - columnheader "Default Earning curve type" [ref=f173e68]
+                - columnheader "Is Enabled?" [ref=f173e69]
+                - columnheader "Actions" [ref=f173e70]
+            - rowgroup [ref=f173e71]:
+              - row [ref=f173e72]:
+                - cell "QA-AP2472-Unassign-G2-2339" [ref=f173e73] [cursor=pointer]
+                - cell [ref=f173e74] [cursor=pointer]:
+                  - list [ref=f173e75]:
+                    - listitem [ref=f173e76]: QA-AP2472-Curve-A (0 - 50000)
+                - cell "Pro-Rata" [ref=f173e77] [cursor=pointer]
+                - cell "Yes" [ref=f173e78] [cursor=pointer]
+                - cell [ref=f173e80] [cursor=pointer]:
+                  - link "View" [ref=f173e81]:
+                    - /url: /admin/earning-group/14/details
+              - row [ref=f173e82]:
+                - cell "QA-AP2472-Unassign-G1-2339" [ref=f173e83] [cursor=pointer]
+                - cell "None" [ref=f173e84] [cursor=pointer]
+                - cell "Pro-Rata" [ref=f173e85] [cursor=pointer]
+                - cell "Yes" [ref=f173e86] [cursor=pointer]
+                - cell [ref=f173e88] [cursor=pointer]:
+                  - link "View" [ref=f173e89]:
+                    - /url: /admin/earning-group/13/details
+              - row [ref=f173e90]:
+                - cell "QA-AP2472-Cancel2-2339" [ref=f173e91] [cursor=pointer]
+                - cell [ref=f173e92] [cursor=pointer]:
+                  - list [ref=f173e93]:
+                    - listitem [ref=f173e94]: QA-AP2472-Curve-A (0 - 50000)
+                - cell "Pro-Rata" [ref=f173e95] [cursor=pointer]
+                - cell "Yes" [ref=f173e96] [cursor=pointer]
+                - cell [ref=f173e98] [cursor=pointer]:
+                  - link "View" [ref=f173e99]:
+                    - /url: /admin/earning-group/12/details
+              - row [ref=f173e100]:
+                - cell "QA-AP2472-Empty-2339" [ref=f173e101] [cursor=pointer]
+                - cell "None" [ref=f173e102] [cursor=pointer]
+                - cell "Pro-Rata" [ref=f173e103] [cursor=pointer]
+                - cell "Yes" [ref=f173e104] [cursor=pointer]
+                - cell [ref=f173e106] [cursor=pointer]:
+                  - link "View" [ref=f173e107]:
+                    - /url: /admin/earning-group/11/details
+              - row [ref=f173e108]:
+                - cell "QA-AP2472-Dup2-2339" [ref=f173e109] [cursor=pointer]
+                - cell [ref=f173e110] [cursor=pointer]:
+                  - list [ref=f173e111]:
+                    - listitem [ref=f173e112]: QA-AP2472-Curve-A (0 - 50000)
+                - cell "Pro-Rata" [ref=f173e113] [cursor=pointer]
+                - cell "Yes" [ref=f173e114] [cursor=pointer]
+                - cell [ref=f173e116] [cursor=pointer]:
+                  - link "View" [ref=f173e117]:
+                    - /url: /admin/earning-group/10/details
+              - row [ref=f173e118]:
+                - cell "QA-AP2472-Multi-G2-2339" [ref=f173e119] [cursor=pointer]
+                - cell [ref=f173e120] [cursor=pointer]:
+                  - list [ref=f173e121]:
+                    - listitem [ref=f173e122]: QA-AP2472-Curve-A (0 - 50000)
+                - cell "Rule of 78" [ref=f173e123] [cursor=pointer]
+                - cell "Yes" [ref=f173e124] [cursor=pointer]
+                - cell [ref=f173e126] [cursor=pointer]:
+                  - link "View" [ref=f173e127]:
+                    - /url: /admin/earning-group/9/details
+              - row [ref=f173e128]:
+                - cell "QA-AP2472-Multi-G1-2339" [ref=f173e129] [cursor=pointer]
+                - cell [ref=f173e130] [cursor=pointer]:
+                  - list [ref=f173e131]:
+                    - listitem [ref=f173e132]: QA-AP2472-Curve-A (0 - 50000)
+                - cell "Pro-Rata" [ref=f173e133] [cursor=pointer]
+                - cell "Yes" [ref=f173e134] [cursor=pointer]
+                - cell [ref=f173e136] [cursor=pointer]:
+                  - link "View" [ref=f173e137]:
+                    - /url: /admin/earning-group/8/details
+              - row [ref=f173e138]:
+                - cell "QA-AP2472-Assign-2339" [ref=f173e139] [cursor=pointer]
+                - cell [ref=f173e140] [cursor=pointer]:
+                  - list [ref=f173e141]:
+                    - listitem [ref=f173e142]: QA-AP2472-Curve-A (0 - 50000)
+                - cell "Pro-Rata" [ref=f173e143] [cursor=pointer]
+                - cell "Yes" [ref=f173e144] [cursor=pointer]
+                - cell [ref=f173e146] [cursor=pointer]:
+                  - link "View" [ref=f173e147]:
+                    - /url: /admin/earning-group/7/details
+              - row [ref=f173e148]:
+                - cell "QA-AP2472 É & <b>x</b>" [ref=f173e149] [cursor=pointer]
+                - cell "None" [ref=f173e150] [cursor=pointer]
+                - cell "Pro-Rata" [ref=f173e151] [cursor=pointer]
+                - cell "Yes" [ref=f173e152] [cursor=pointer]
+                - cell [ref=f173e154] [cursor=pointer]:
+                  - link "View" [ref=f173e155]:
+                    - /url: /admin/earning-group/6/details
+              - row [ref=f173e156]:
+                - cell "QA-AP2472-Long-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" [ref=f173e157] [cursor=pointer]
+                - cell "None" [ref=f173e158] [cursor=pointer]
+                - cell "Pro-Rata" [ref=f173e159] [cursor=pointer]
+                - cell "Yes" [ref=f173e160] [cursor=pointer]
+                - cell [ref=f173e162] [cursor=pointer]:
+                  - link "View" [ref=f173e163]:
+                    - /url: /admin/earning-group/5/details
+          - list [ref=f173e164]:
+            - listitem [ref=f173e165]:
+              - link "1" [ref=f173e166] [cursor=pointer]:
+                - /url: /admin/earning-group?page=1
+            - listitem [ref=f173e167]:
+              - link "2" [ref=f173e168] [cursor=pointer]:
+                - /url: /admin/earning-group?page=2
+            - listitem [ref=f173e169]:
+              - link "Next " [ref=f173e170] [cursor=pointer]:
+                - /url: /admin/earning-group?page=2
+                - text: Next
+                - generic [ref=f173e171]: 
+            - listitem [ref=f173e172]:
+              - link "Last " [ref=f173e173] [cursor=pointer]:
+                - /url: /admin/earning-group?page=2
+                - text: Last
+                - generic [ref=f173e174]: 
+  - contentinfo [ref=f173e175]:
+    - generic [ref=f173e176]:
+      - link "Avantage Plus System v2.0.0" [ref=f173e177] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

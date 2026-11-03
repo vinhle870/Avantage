@@ -1,0 +1,17 @@
+# QA Review Record — AP-2495
+
+## R2 — Test cases — round 1 — 2026-11-01T01:50:11Z
+Reviewed: qa-artifacts/.pipeline/AP-2495.md, requirements/AP-2495-cannot-view-vehicle-detail-page.md, qa-artifacts/3-test-cases/AP2495_TestCases_001-004.md, qa-artifacts/base-test/test-centralized.md (`test-data`), qa-artifacts/base-test/navigation-map.md (`navigation`), qa-artifacts/base-test/execute.env.md (`env`), qa-artifacts/qa-docs/quote-creation.md (`domain`), .claude/skills/stlc-ticket-pipeline/routing.md §3 Gate B and §4
+Verdict: **APPROVE** · Gate B: Execute the current cases (when the ticket reaches QC) — rule B3
+Findings: 0 blocker · 0 major · 2 minor
+
+This is a bug re-test, so there is no requirements analysis, no test plan and no review-findings file (s1, s2 and s3b are skipped per routing.md §4). With no Pass 1 gap and no Pass 2 proposal, rules B1 and B2 cannot fire and Gate B falls to B3. The four cases were read from disk and checked against the capture: the ticket states only its summary ("Cannot view vehicle detail's page") and the PHP error in `Vehicle/TabsTrait.php`, and every case fails only on objective faults (HTTP 5xx, the French "difficultés techniques" page, the "Too few arguments to function" text, or a page showing a different vehicle from the one opened), while tabs, buttons, routes and page content are record-only. Test data (vehicle 915, VIN, the three tabs and two header actions) comes from `test-data`, the Inventory route from `navigation`, and the `fromVehicleId` route from `domain`; every case is read-only and no credential is written out. The cases can be trusted for execution once the ticket reaches QC; nothing has been executed.
+
+Checklist: 2.1 pass (summary → 001, 003, 004; TabsTrait error → 001, 002; every case cites the summary or the error text) · 2.2 pass (HTTP status, exact error texts, VIN `1FAHP35NX8W239204`, named tabs and buttons) · 2.3 pass (one file, 4 cases, ≤ 5 steps each, IDs AP2495_001–004 with no gaps) · 2.4 not applicable (no analysis, no Blocking question) · 2.5 pass (everything the ticket does not state is record-only) · 2.6 not applicable (s3b skipped, no review findings) · 2.7 pass (vehicle 915 from `test-data`; Vehicle B in AP2495_003 is picked and recorded at run time, read-only; entry routes from `navigation` / `domain`).
+
+| # | Severity | Where | What is wrong | Required fix |
+|---|---|---|---|---|
+| F-1 | Minor | AP2495_TestCases_001-004.md — AP2495_001, "Why this matters" | It says "the bare quote route returns HTTP 500", but `domain` (quote-creation.md line 36) records that the client saves fine on `/quote/new/client` and only the redirect to `/quote/{id}/details` returns HTTP 500. | Reword to "creating a quote without `fromVehicleId` ends in HTTP 500 after the client is saved" on the next s3 touch; no result depends on it. |
+| F-2 | Minor | AP2495_TestCases_001-004.md — AP2495_004 step 3 | The expected result says the edit form "shows vehicle 915's values", but the step-5 verification fails only on a 5xx or the error texts, so it is unclear whether a form showing other values is a FAIL. | At execution, record the values the form shows and judge only by step 5; on the next s3 touch, state in step 3 that the values are recorded. |
+
+Gate B log: no proposals to promote (bug re-test flow, s3b skipped). Execution is deferred: the ticket is in status "QA" and the fix is recorded as deployed only to "develop", so s4 runs only when AP-2495 reaches QC.

@@ -1,0 +1,88 @@
+- generic [active] [ref=f110e1]:
+  - banner [ref=f110e2]:
+    - link [ref=f110e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f110e5]:
+      - searchbox "Search" [ref=f110e7]
+  - generic [ref=f110e8]:
+    - navigation [ref=f110e10]:
+      - list [ref=f110e11]:
+        - listitem [ref=f110e12]:
+          - link " 􏀕 Dashboard" [ref=f110e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f110e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f110e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f110e16]:
+            - generic [ref=f110e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f110e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f110e19]:
+            - generic [ref=f110e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f110e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f110e22]:
+            - generic [ref=f110e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f110e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f110e25]:
+            - generic [ref=f110e26]:  􏃀
+            - text: Users
+        - listitem [ref=f110e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f110e28]:
+            - generic [ref=f110e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f110e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f110e31]:
+            - generic [ref=f110e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f110e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f110e34]:
+            - generic [ref=f110e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f110e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f110e37]:
+            - generic [ref=f110e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f110e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f110e40]:
+            - generic [ref=f110e41]:  􏂎
+            - text: External links
+        - listitem [ref=f110e42]:
+          - link " 􏆫 Language settings" [ref=f110e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/dealer/1380/permaplate/link
+            - generic [ref=f110e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f110e45]:
+          - link " 􏀑 Logout" [ref=f110e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f110e47]:  􏀑
+            - text: Logout
+    - main [ref=f110e48]:
+      - generic [ref=f110e50]:
+        - navigation [ref=f110e52]:
+          - heading "Link a permaplate product to dealer Test QA staging" [level=1] [ref=f110e53]
+          - list
+        - generic [ref=f110e54]:
+          - generic [ref=f110e56]:
+            - generic [ref=f110e57]: Permaplate product*
+            - generic [ref=f110e58]:
+              - combobox "Permaplate product*" [ref=f110e59]:
+                - option "10 ans" [selected]
+                - option "3 ans"
+                - option "3 Ans (Drive IP)"
+                - option "5 ans"
+                - option "Voici Vinh Le Corp traduit en français"
+              - combobox "10 ans" [ref=f110e60] [cursor=pointer]
+          - separator [ref=f110e64]
+          - button "Save" [ref=f110e65] [cursor=pointer]
+  - contentinfo [ref=f110e66]:
+    - generic [ref=f110e67]:
+      - link "Avantage Plus System v2.0.0" [ref=f110e68] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - iframe [ref=f110e70]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f112e1] [cursor=pointer]

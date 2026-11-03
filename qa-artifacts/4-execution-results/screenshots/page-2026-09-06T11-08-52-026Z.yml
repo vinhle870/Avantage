@@ -1,0 +1,92 @@
+- generic [active] [ref=f77e1]:
+  - banner [ref=f77e2]:
+    - link [ref=f77e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f77e5]:
+      - searchbox "Search" [ref=f77e7]
+  - generic [ref=f77e8]:
+    - navigation [ref=f77e10]:
+      - list [ref=f77e11]:
+        - listitem [ref=f77e12]:
+          - link " 􏀕 Dashboard" [ref=f77e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f77e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f77e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f77e16]:
+            - generic [ref=f77e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f77e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f77e19]:
+            - generic [ref=f77e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f77e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f77e22]:
+            - generic [ref=f77e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f77e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f77e25]:
+            - generic [ref=f77e26]:  􏃀
+            - text: Users
+        - listitem [ref=f77e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f77e28]:
+            - generic [ref=f77e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f77e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f77e31]:
+            - generic [ref=f77e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f77e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f77e34]:
+            - generic [ref=f77e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f77e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f77e37]:
+            - generic [ref=f77e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f77e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f77e40]:
+            - generic [ref=f77e41]:  􏂎
+            - text: External links
+        - listitem [ref=f77e42]:
+          - link " 􏆫 Language settings" [ref=f77e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate-contract/7
+            - generic [ref=f77e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f77e45]:
+          - link " 􏀑 Logout" [ref=f77e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f77e47]:  􏀑
+            - text: Logout
+    - main [ref=f77e48]:
+      - generic [ref=f77e50]:
+        - navigation [ref=f77e52]:
+          - heading "Permaplate Contract PNA-0000000007" [level=1] [ref=f77e53]
+          - list
+        - iframe [ref=f77e58]
+        - generic [ref=f77e62]:
+          - heading "Invoices" [level=4] [ref=f77e63]
+          - separator [ref=f77e64]
+          - table [ref=f77e65]:
+            - rowgroup [ref=f77e66]:
+              - row [ref=f77e67]:
+                - columnheader "Invoice ID" [ref=f77e68]
+                - columnheader "Description" [ref=f77e69]
+                - columnheader "Amount" [ref=f77e70]
+                - columnheader "Created at" [ref=f77e71]
+                - columnheader "Status" [ref=f77e72]
+            - rowgroup [ref=f77e73]:
+              - row [ref=f77e74] [cursor=pointer]:
+                - cell [ref=f77e75]:
+                  - text: "921"
+                  - 'link "Permaplate contract #7" [ref=f77e76]':
+                    - /url: /quote/6284/permaplate-contract-download
+                - 'cell "Perma Testclient Ford Focus 2008 VIN : 1FAHP35NX8W239204 PNA-0000000000 Test QA staging vinhle870@gmail.com" [ref=f77e77]'
+                - cell "$166.71" [ref=f77e78]
+                - cell "Sunday, September 6, 2026" [ref=f77e79]
+                - cell "Payment pending" [ref=f77e80]
+  - contentinfo [ref=f77e82]:
+    - generic [ref=f77e83]:
+      - link "Avantage Plus System v2.0.0" [ref=f77e84] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

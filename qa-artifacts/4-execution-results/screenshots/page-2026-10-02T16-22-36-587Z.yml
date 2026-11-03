@@ -1,0 +1,267 @@
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - button [ref=f10e3] [cursor=pointer]
+    - link [ref=f10e5] [cursor=pointer]:
+      - /url: /
+      - img "Avantage Plus Logo" [ref=f10e6]
+    - list [ref=f10e7]:
+      - searchbox "Search" [ref=f10e9]
+      - listitem [ref=f10e10]:
+        - generic [ref=f10e11]: Test QA staging
+  - generic [ref=f10e13]:
+    - navigation [ref=f10e15]:
+      - list [ref=f10e16]:
+        - listitem [ref=f10e17]:
+          - link " Dashboard" [ref=f10e18] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f10e19]: 
+            - text: Dashboard
+        - listitem [ref=f10e20]:
+          - heading " Vehicles" [level=6] [ref=f10e21]:
+            - generic [ref=f10e22]: 
+            - text: Vehicles
+          - list:
+            - listitem [ref=f10e23]:
+              - link "Inventory" [ref=f10e24] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f10e25]:
+              - link "Quotes" [ref=f10e26] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f10e27]:
+              - link "Insurance Quick Quote" [ref=f10e28] [cursor=pointer]:
+                - /url: /quick-insurance-quote
+            - listitem [ref=f10e29]:
+              - link "Insurance compliance log" [ref=f10e30] [cursor=pointer]:
+                - /url: /insurance-compliance-log
+        - listitem [ref=f10e31]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f10e32]:
+            - generic [ref=f10e33]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f10e34]:
+              - link "Warranty" [ref=f10e35] [cursor=pointer]:
+                - /url: /warranty
+            - listitem [ref=f10e36]:
+              - link "Road Side Protection" [ref=f10e37] [cursor=pointer]:
+                - /url: /road-side-protection-contracts
+            - listitem [ref=f10e38]:
+              - link "Creditors insurance" [ref=f10e39] [cursor=pointer]:
+                - /url: /creditor-insurance-contracts
+            - listitem [ref=f10e40]:
+              - link "Gap Insurance" [ref=f10e41] [cursor=pointer]:
+                - /url: /gap-insurance-contracts
+            - listitem [ref=f10e42]:
+              - link "Esthetic protection" [ref=f10e43] [cursor=pointer]:
+                - /url: /permaplate-contracts
+        - listitem [ref=f10e44]:
+          - link " Claims" [ref=f10e45] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f10e46]: 
+            - text: Claims
+        - listitem [ref=f10e47]:
+          - heading " Billing" [level=6] [ref=f10e48]:
+            - generic [ref=f10e49]: 
+            - text: Billing
+          - list:
+            - listitem [ref=f10e50]:
+              - link "Invoices" [ref=f10e51] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f10e52]:
+              - link "Payment history" [ref=f10e53] [cursor=pointer]:
+                - /url: /invoice/payment-history
+        - listitem [ref=f10e54]:
+          - heading " System preferences" [level=6] [ref=f10e55]:
+            - generic [ref=f10e56]: 
+            - text: System preferences
+          - list:
+            - listitem [ref=f10e57]:
+              - link "Language settings" [ref=f10e58] [cursor=pointer]:
+                - /url: /language?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6254/details
+            - listitem [ref=f10e59]:
+              - link "Users" [ref=f10e60] [cursor=pointer]:
+                - /url: /users?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6254/details
+        - listitem [ref=f10e61]:
+          - link " Logout" [ref=f10e62] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f10e63]: 
+            - text: Logout
+    - main [ref=f10e64]:
+      - generic [ref=f10e65]:
+        - generic [ref=f10e66]:
+          - alert [ref=f10e67]:
+            - text: Compliance documents have been sent.
+            - button "Close" [ref=f10e68] [cursor=pointer]: ×
+          - navigation [ref=f10e70]:
+            - heading [level=1] [ref=f10e71]:
+              - text: "#6254 - sdfs sdfds 1FAHP35NX8W239204"
+              - link "" [ref=f10e72] [cursor=pointer]:
+                - /url: /quote/6254/rename
+            - list [ref=f10e74]:
+              - listitem [ref=f10e75]:
+                - link "Back" [ref=f10e76] [cursor=pointer]:
+                  - /url: /quotes
+              - listitem [ref=f10e77]:
+                - link "Send compliance documents" [ref=f10e78] [cursor=pointer]:
+                  - /url: /compliance-documents/send?redirectUrl=/quote/6254/details&clientEmail=vinhle0002@yopmail.com
+              - listitem [ref=f10e79]:
+                - link "Archive" [ref=f10e80] [cursor=pointer]:
+                  - /url: /quote/6254/cancel
+          - generic [ref=f10e81]:
+            - generic [ref=f10e83]:
+              - generic [ref=f10e86]:
+                - navigation [ref=f10e87]:
+                  - heading "Vehicle" [level=3] [ref=f10e88]
+                  - list [ref=f10e89]:
+                    - listitem [ref=f10e90]:
+                      - link "Edit" [ref=f10e91] [cursor=pointer]:
+                        - /url: /vehicle/915/edit/PASSENGER
+                - paragraph [ref=f10e92]:
+                  - link "Ford Focus 2008" [ref=f10e93] [cursor=pointer]:
+                    - /url: /vehicle/915/details
+                  - generic [ref=f10e94]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+              - generic [ref=f10e97]:
+                - navigation [ref=f10e98]:
+                  - heading "Financing" [level=3] [ref=f10e99]
+                  - list [ref=f10e100]:
+                    - listitem [ref=f10e101]:
+                      - link "Edit" [ref=f10e102] [cursor=pointer]:
+                        - /url: /quote/6254/financing
+                    - listitem [ref=f10e103]:
+                      - link "DYR Rates" [ref=f10e104] [cursor=pointer]:
+                        - /url: /quote/6254/dyr-rates
+                - generic [ref=f10e106]:
+                  - heading "Financing 60 months" [level=6] [ref=f10e107]
+                  - paragraph [ref=f10e108]: AutoCapital Canada
+                  - generic [ref=f10e109]:
+                    - generic [ref=f10e110]:
+                      - text: "Type :"
+                      - generic [ref=f10e111]: Financing
+                    - generic [ref=f10e112]:
+                      - text: "Financed amount :"
+                      - generic [ref=f10e113]: 25,000.00$
+                    - generic [ref=f10e114]:
+                      - text: "Residual :"
+                      - generic [ref=f10e115]: 0.00$
+                    - generic [ref=f10e116]:
+                      - text: "Term :"
+                      - generic [ref=f10e117]: "60"
+                    - generic [ref=f10e118]:
+                      - text: "Interest rate :"
+                      - generic [ref=f10e119]: 6.9900%
+                    - generic [ref=f10e120]:
+                      - text: "Payment amount :"
+                      - generic [ref=f10e121]: 494.91$ Monthly
+                  - separator [ref=f10e122]
+                  - heading "Co-applicant" [level=6] [ref=f10e123]
+                  - paragraph [ref=f10e124]: No applicant
+                  - link "Add co-applicant" [ref=f10e125] [cursor=pointer]:
+                    - /url: /quote/6254/financing/co-applicant
+              - generic [ref=f10e128]:
+                - navigation [ref=f10e129]:
+                  - heading "Client" [level=3] [ref=f10e130]
+                  - list [ref=f10e131]:
+                    - listitem [ref=f10e132]:
+                      - link "Edit" [ref=f10e133] [cursor=pointer]:
+                        - /url: /quote/6254/client
+                - paragraph [ref=f10e134]:
+                  - text: sdfs sdfds
+                  - generic [ref=f10e135]:
+                    - text: 482/12/2E Ho Chi Minh Québec 070000
+                    - generic [ref=f10e136]: 
+                    - link "vinhle0002@yopmail.com" [ref=f10e137] [cursor=pointer]:
+                      - /url: mailto:vinhle0002@yopmail.com
+                    - generic [ref=f10e138]: 
+                    - text: "09292153333"
+              - generic [ref=f10e141]:
+                - navigation [ref=f10e142]:
+                  - heading "Sale" [level=3] [ref=f10e143]
+                - generic [ref=f10e144]:
+                  - link "Create sale" [ref=f10e145] [cursor=pointer]:
+                    - /url: /quote/6254/sales
+                  - separator [ref=f10e146]
+                  - heading "Exchange vehicle" [level=6] [ref=f10e147]
+                  - link "Add exchange vehicle" [ref=f10e148] [cursor=pointer]:
+                    - /url: /quote/6254/exchange-vehicle?referer=%252Fquote%252F6254%252Fdetails
+            - generic [ref=f10e151]:
+              - navigation [ref=f10e152]:
+                - heading "Summary of products" [level=3] [ref=f10e153]
+              - table [ref=f10e154]:
+                - rowgroup [ref=f10e155]:
+                  - row [ref=f10e156]:
+                    - cell [ref=f10e157]:
+                      - text: Ford Focus 2008
+                      - generic [ref=f10e158]: "Delivery date: Oct 2, 2026"
+                    - cell "CA$10,000.00" [ref=f10e159]
+                    - cell [ref=f10e160]:
+                      - link "" [ref=f10e161] [cursor=pointer]:
+                        - /url: /quote/6254/vehicle
+                  - row [ref=f10e163]:
+                    - cell "Extended warranty" [ref=f10e164]
+                    - cell "- None Selected -" [ref=f10e166]
+                    - cell [ref=f10e168]:
+                      - link "" [ref=f10e169] [cursor=pointer]:
+                        - /url: /quote/6254/warranty/edit
+                  - row [ref=f10e171]:
+                    - 'cell "Roadside Protection Contract #2698" [ref=f10e172]':
+                      - generic [ref=f10e173]: Roadside Protection
+                      - generic [ref=f10e174]: "Contract #2698"
+                    - cell "CA$25,000.00" [ref=f10e175]
+                    - cell [ref=f10e176]:
+                      - link "" [ref=f10e177] [cursor=pointer]:
+                        - /url: /quote/6254/road-side-protection
+                  - row [ref=f10e179]:
+                    - cell [ref=f10e180]:
+                      - paragraph [ref=f10e181]: Gap Insurance
+                    - cell "- None Selected -" [ref=f10e182]
+                    - cell [ref=f10e183]:
+                      - link "" [ref=f10e184] [cursor=pointer]:
+                        - /url: /quote/6254/gap-insurance
+                  - row [ref=f10e186]:
+                    - cell [ref=f10e187]
+                  - row [ref=f10e188]:
+                    - cell "Creditors insurance  AVP000162" [ref=f10e189]:
+                      - generic [ref=f10e190]:
+                        - text: Creditors insurance
+                        - button "" [ref=f10e191] [cursor=pointer]
+                      - generic [ref=f10e193]: AVP000162
+                    - cell "CA$25.98 /m" [ref=f10e194]
+                    - cell [ref=f10e195]:
+                      - link "" [ref=f10e196] [cursor=pointer]:
+                        - /url: /quote/6254/chubb/insurance/contract-pdf
+                  - row [ref=f10e198]:
+                    - cell " Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance." [ref=f10e199]:
+                      - generic [ref=f10e200]:
+                        - generic [ref=f10e201]: 
+                        - text: Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance.
+                  - row [ref=f10e202]:
+                    - cell "Esthetic protection" [ref=f10e203]
+                    - cell "-" [ref=f10e205]
+                    - cell [ref=f10e206]:
+                      - link "" [ref=f10e207] [cursor=pointer]:
+                        - /url: /quote/6254/permaplate
+                  - row [ref=f10e209]:
+                    - cell [ref=f10e210]:
+                      - text: Subtotal
+                      - strong [ref=f10e211]: CA$35,025.98
+                    - cell [ref=f10e212]
+        - generic [ref=f10e216]:
+          - heading "Compliance documents sent" [level=4] [ref=f10e217]
+          - separator [ref=f10e218]
+          - table [ref=f10e220]:
+            - rowgroup [ref=f10e221]:
+              - row [ref=f10e222]:
+                - columnheader "Log ID" [ref=f10e223]
+                - columnheader "Client Name" [ref=f10e224]
+                - columnheader "Client Email" [ref=f10e225]
+                - columnheader "Sent At" [ref=f10e226]
+            - rowgroup [ref=f10e227]:
+              - row [ref=f10e228]:
+                - cell "24" [ref=f10e229] [cursor=pointer]
+                - cell "sVinhle sdfsd" [ref=f10e230] [cursor=pointer]
+                - cell "vinhle0002@yopmail.com" [ref=f10e231] [cursor=pointer]
+                - cell "Oct 2, 2026, 12:22 PM" [ref=f10e232] [cursor=pointer]
+  - contentinfo [ref=f10e233]:
+    - generic [ref=f10e234]:
+      - link "Avantage Plus System v2.0.0" [ref=f10e235] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

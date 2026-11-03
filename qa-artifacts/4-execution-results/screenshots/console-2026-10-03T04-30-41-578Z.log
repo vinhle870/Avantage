@@ -1,0 +1,19 @@
+[    1636ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://v2staging.garantieavantageplus.ca/quote/6309/details:0
+[    2678ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    2679ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    2679ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    2679ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   62588ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   62588ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   62588ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   62588ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   64583ms] [INFO] Launched external handler for 'mailto:retest.ap2464b@yopmail.com'. @ https://v2staging.garantieavantageplus.ca/quotes:0
+[   68085ms] [ERROR] Failed to load resource: the server responded with a status of 500 () @ https://v2staging.garantieavantageplus.ca/quote/6309/details:0
+[   69074ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   69074ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   69074ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   69074ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   71020ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   71020ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   71020ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[   71020ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1

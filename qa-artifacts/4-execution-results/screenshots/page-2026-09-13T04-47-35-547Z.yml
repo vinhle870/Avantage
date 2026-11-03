@@ -1,0 +1,53 @@
+- generic [active] [ref=f21e1]:
+  - banner [ref=f21e2]:
+    - link [ref=f21e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f21e5]:
+      - searchbox "Search" [ref=f21e7]
+      - listitem [ref=f21e8]:
+        - generic [ref=f21e9]: Test QA staging
+  - generic [ref=f21e11]:
+    - navigation [ref=f21e13]:
+      - list [ref=f21e14]:
+        - listitem [ref=f21e15]:
+          - link " 􏀕 Dashboard" [ref=f21e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f21e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f21e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f21e19]:
+            - generic [ref=f21e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f21e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f21e22]:
+            - generic [ref=f21e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f21e24]:
+          - link " 􏗡 Claims" [ref=f21e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f21e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f21e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f21e28]:
+            - generic [ref=f21e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f21e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f21e31]:
+            - generic [ref=f21e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f21e33]:
+          - link " 􏀑 Logout" [ref=f21e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f21e35]:  􏀑
+            - text: Logout
+    - main [ref=f21e36]:
+      - generic [ref=f21e38]:
+        - navigation [ref=f21e40]:
+          - heading "Esthetic protection contracts" [level=1] [ref=f21e41]
+          - list
+        - alert [ref=f21e45]: No entities found
+  - contentinfo [ref=f21e46]:
+    - generic [ref=f21e47]:
+      - link "Avantage Plus System v2.0.0" [ref=f21e48] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

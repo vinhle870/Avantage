@@ -1,0 +1,218 @@
+- generic [active] [ref=f22e1]:
+  - banner [ref=f22e2]:
+    - link [ref=f22e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f22e5]:
+      - searchbox "Search" [ref=f22e7]
+      - listitem [ref=f22e8]:
+        - generic [ref=f22e9]: Test QA staging
+  - generic [ref=f22e11]:
+    - navigation [ref=f22e13]:
+      - list [ref=f22e14]:
+        - listitem [ref=f22e15]:
+          - link " 􏀕 Dashboard" [ref=f22e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f22e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f22e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f22e19]:
+            - generic [ref=f22e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f22e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f22e22]:
+            - generic [ref=f22e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f22e24]:
+          - link " 􏗡 Claims" [ref=f22e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f22e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f22e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f22e28]:
+            - generic [ref=f22e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f22e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f22e31]:
+            - generic [ref=f22e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f22e33]:
+          - link " 􏀑 Logout" [ref=f22e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f22e35]:  􏀑
+            - text: Logout
+    - main [ref=f22e36]:
+      - generic [ref=f22e38]:
+        - navigation [ref=f22e40]:
+          - heading "#6257 - vinh.00003 sdf" [level=1] [ref=f22e41]
+          - list:
+            - listitem
+        - generic [ref=f22e46]:
+          - heading "Financing" [level=4] [ref=f22e47]
+          - generic [ref=f22e48]:
+            - group "Applicant" [ref=f22e49]:
+              - generic [ref=f22e52]:
+                - generic [ref=f22e53]: Date of birth*
+                - textbox "Date of birth*" [ref=f22e55]: 2026-05-05
+            - generic [ref=f22e56]:
+              - generic [ref=f22e57]: Type*
+              - generic [ref=f22e58]:
+                - combobox "Type*" [ref=f22e59]:
+                  - option "Choose"
+                  - option "Financing"
+                  - option "Lease" [selected]
+                - combobox "Lease" [ref=f22e60] [cursor=pointer]
+            - generic [ref=f22e64]:
+              - generic [ref=f22e65]: Net amount financed including RDPRM*
+              - textbox "Net amount financed including RDPRM*" [ref=f22e66]: "2000.0000"
+            - generic [ref=f22e67]:
+              - generic [ref=f22e68]: Residual*
+              - textbox "Residual*" [ref=f22e69]: "222.00"
+            - generic [ref=f22e70]:
+              - generic [ref=f22e71]: Payment frequency*
+              - generic [ref=f22e72]:
+                - combobox "Payment frequency*" [ref=f22e73]:
+                  - option "Choose"
+                  - option "Monthly" [selected]
+                  - option "Bi-Weekly"
+                  - option "Weekly"
+                - combobox "Monthly" [ref=f22e74] [cursor=pointer]
+            - generic [ref=f22e78]:
+              - generic [ref=f22e79]: Term months*
+              - generic [ref=f22e80]:
+                - combobox "Term months*" [ref=f22e81]:
+                  - option "3" [selected]
+                  - option "6"
+                  - option "9"
+                  - option "12"
+                  - option "15"
+                  - option "18"
+                  - option "21"
+                  - option "24"
+                  - option "27"
+                  - option "30"
+                  - option "33"
+                  - option "36"
+                  - option "39"
+                  - option "42"
+                  - option "45"
+                  - option "48"
+                  - option "51"
+                  - option "54"
+                  - option "57"
+                  - option "60"
+                  - option "63"
+                  - option "66"
+                  - option "69"
+                  - option "72"
+                  - option "75"
+                  - option "78"
+                  - option "81"
+                  - option "84"
+                  - option "87"
+                  - option "90"
+                  - option "93"
+                  - option "96"
+                  - option "99"
+                  - option "102"
+                  - option "105"
+                  - option "108"
+                  - option "111"
+                  - option "114"
+                  - option "117"
+                  - option "120"
+                  - option "123"
+                  - option "126"
+                  - option "129"
+                  - option "132"
+                  - option "135"
+                  - option "138"
+                  - option "141"
+                  - option "144"
+                  - option "147"
+                  - option "150"
+                  - option "153"
+                  - option "156"
+                  - option "159"
+                  - option "162"
+                  - option "165"
+                  - option "168"
+                  - option "171"
+                  - option "174"
+                  - option "177"
+                  - option "180"
+                  - option "183"
+                  - option "186"
+                  - option "189"
+                  - option "192"
+                  - option "195"
+                  - option "198"
+                  - option "201"
+                  - option "204"
+                  - option "207"
+                  - option "210"
+                  - option "213"
+                  - option "216"
+                  - option "219"
+                  - option "222"
+                  - option "225"
+                  - option "228"
+                  - option "231"
+                  - option "234"
+                  - option "237"
+                  - option "240"
+                - combobox "3" [ref=f22e82] [cursor=pointer]
+            - generic [ref=f22e86]:
+              - generic [ref=f22e87]: Interest rate*
+              - textbox "Interest rate*" [ref=f22e88]: "0.02"
+            - generic [ref=f22e89]:
+              - generic [ref=f22e90]: Financing company*
+              - generic [ref=f22e91]:
+                - combobox "Financing company*" [ref=f22e92]:
+                  - option "Choose"
+                  - option "AutoCapital Canada 200-11, Church Street Toronto" [selected]
+                  - option "Avantage Concessionaire Scotia 7400 Boul des Galeries d’Anjou Suite 430 Montreal"
+                  - option "AVANTAGE Concessionnaire Scotia 4190, Lougheed Hwy, suite 300 Burnaby"
+                  - option "Avantage Plus Testing 1 1"
+                  - option "Axis Auto Finance Lending Corp. 100-7665 rue Larrey Anjou"
+                  - option "Banque Royale 4025-Rue Dorchester Westmount"
+                  - 'option "Banque Scotia Centre de Service au detail (RSC) Transit # 24356\\nStratford Indirect\\nLoans Unit\\n10 Wright Blvd Stratford"'
+                  - option "BMO 2 Place Laval, suite 270 Laval"
+                  - option "BNC 500 Place d'Armes, 16e étage MTL"
+                  - option "BNC 1100 rue University RC MTL"
+                  - 'option "CARFINCO FINANCIAL GROUP INC. #300, 4245-97 Street Edmonton"'
+                  - option "CIBC Auto Finance PO BOX 700 Station A Toronto"
+                  - option "Credit Virage Canada 1870 avenue de Grande Mère Shawinigan"
+                  - option "Crelogix Acceptance Corporation 4445 Lougheed Highway, Suite 900 Burnaby"
+                  - option "FÉDÉRATION DES CAISSES DESJARDINS DU QUÉBEC 450 Boul. de Maisonneuve Ouest Montréal"
+                  - option "Finance Créditfix 1688 boul des Laurentides, Suite 202 Laval"
+                  - option "FINANCEMENT AUTO TD C.P. 4086 Succ. A Toronto"
+                  - option "Financile 4850 Blvd Des Laurentides Laval"
+                  - option "Finauto 200-91 Rue Peel Sherbrooke"
+                  - option "Honda Canada Finance Inc. 1750 rue Eiffel Boucherville"
+                  - option "HWY Finance Inc. 795 boul. Arthur-Sauvé St-Eustache"
+                  - option "I.S.A. Auto Direct 379, rue St-Paul Repentigny"
+                  - option "IA FInancement Auto P.O BOX 61040 \\n511 MAPLE GROVE DRIVE-UNIT 19 OAKVILLE"
+                  - option "Iceberg Finance Inc. 1515, rue St-Jean-Baptiste, bur. 183 Québec"
+                  - option "Iceberg Finance Inc. 2470 Avenue Dalton Québec"
+                  - option "INDUSTRIELLE ALLIANCE, FIDUCIE INC. 1080 GRANDE ALLEE OUEST \\nC.P. 1907 SUCCURSALE TERMINUS QUEBEC"
+                  - option "LendCare Capital Inc 1315 Pickering Parkway, 4th floor Pickering"
+                  - option "Location All Star 7750 Boul. Cousineau St-Hubert"
+                  - option "Nissan Canada Finance P.O. Box 9826, Station T Ottawa"
+                  - option "Québec Auto Finance 4242 Boulevard Bourque, Suite 1 Sherbrooke"
+                  - option "RBC Banque Royale 1 Place Ville-Marie 2e étage aile est Montréal"
+                  - option "Services Financiers Mercedes-Benz 2680 boul Matheson east suite 500 Mississauga"
+                  - option "Yamaha Financial Services 480 Gordon Baker Rd Toronto"
+                - combobox "AutoCapital Canada 200-11, Church Street Toronto" [ref=f22e93] [cursor=pointer]
+          - separator [ref=f22e97]
+          - button "Save" [ref=f22e98] [cursor=pointer]
+    - complementary [ref=f22e99]:
+      - tabpanel [ref=f22e101]:
+        - generic [ref=f22e102]:
+          - link "Vehicle" [ref=f22e104] [cursor=pointer]:
+            - /url: "#"
+          - generic [ref=f22e105]: "Fiat 500 2015 VIN: 33333333"
+  - contentinfo [ref=f22e106]:
+    - generic [ref=f22e107]:
+      - link "Avantage Plus System v2.0.0" [ref=f22e108] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

@@ -1,0 +1,7 @@
+Environment: Dev (https://v2dev.garantieavantageplus.ca)
+Captured 2026-11-03 (method, URL, status, content type only)
+GET https://v2dev.garantieavantageplus.ca/quote/6564/gap/insurance/contract-pdf -> 500 text/html (13,329 bytes; GAP contract AVPG000064, AP2504_007 step 5)
+GET https://v2dev.garantieavantageplus.ca/quote/6566/chubb/insurance/contract-pdf -> 500 text/html (13,335 bytes; creditor contract AVP000171, AP2504_011 step 5)
+POST https://v2dev.garantieavantageplus.ca/quote/6564/insurance/create-contract/gap -> 302 -> /quote/6564/details 200 (AP2504_007 step 3)
+POST https://v2dev.garantieavantageplus.ca/quote/6566/insurance/create-contract -> 302 -> /quote/6566/details 200 (AP2504_011 step 3)
+GET https://v2dev.garantieavantageplus.ca/quote/6564/insurance/create-contract/gap -> 302 -> /quote/6564/details 200, flash "Creditor insurance already created" (AP2504_009 step 3)

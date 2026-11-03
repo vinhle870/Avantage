@@ -1,0 +1,269 @@
+- generic [active] [ref=f33e1]:
+  - banner [ref=f33e2]:
+    - button [ref=f33e3] [cursor=pointer]
+    - link [ref=f33e5] [cursor=pointer]:
+      - /url: /
+      - img "Avantage Plus Logo" [ref=f33e6]
+    - list [ref=f33e7]:
+      - searchbox "Search" [ref=f33e9]
+      - listitem [ref=f33e10]:
+        - generic [ref=f33e11]: Test QA staging
+  - generic [ref=f33e13]:
+    - navigation [ref=f33e15]:
+      - list [ref=f33e16]:
+        - listitem [ref=f33e17]:
+          - link " Dashboard" [ref=f33e18] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f33e19]: 
+            - text: Dashboard
+        - listitem [ref=f33e20]:
+          - heading " Vehicles" [level=6] [ref=f33e21]:
+            - generic [ref=f33e22]: 
+            - text: Vehicles
+          - list [ref=f33e23]:
+            - listitem [ref=f33e24]:
+              - link "Inventory" [ref=f33e25] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f33e26]:
+              - link "Quotes" [ref=f33e27] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f33e28]:
+              - link "Insurance Quick Quote" [ref=f33e29] [cursor=pointer]:
+                - /url: /quick-insurance-quote
+            - listitem [ref=f33e30]:
+              - link "Insurance compliance log" [ref=f33e31] [cursor=pointer]:
+                - /url: /insurance-compliance-log
+        - listitem [ref=f33e32]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f33e33]:
+            - generic [ref=f33e34]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f33e35]:
+              - link "Warranty" [ref=f33e36] [cursor=pointer]:
+                - /url: /warranty
+            - listitem [ref=f33e37]:
+              - link "Road Side Protection" [ref=f33e38] [cursor=pointer]:
+                - /url: /road-side-protection-contracts
+            - listitem [ref=f33e39]:
+              - link "Creditors insurance" [ref=f33e40] [cursor=pointer]:
+                - /url: /creditor-insurance-contracts
+            - listitem [ref=f33e41]:
+              - link "Gap Insurance" [ref=f33e42] [cursor=pointer]:
+                - /url: /gap-insurance-contracts
+            - listitem [ref=f33e43]:
+              - link "Esthetic protection" [ref=f33e44] [cursor=pointer]:
+                - /url: /permaplate-contracts
+        - listitem [ref=f33e45]:
+          - link " Claims" [ref=f33e46] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f33e47]: 
+            - text: Claims
+        - listitem [ref=f33e48]:
+          - heading " Billing" [level=6] [ref=f33e49]:
+            - generic [ref=f33e50]: 
+            - text: Billing
+          - list:
+            - listitem [ref=f33e51]:
+              - link "Invoices" [ref=f33e52] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f33e53]:
+              - link "Payment history" [ref=f33e54] [cursor=pointer]:
+                - /url: /invoice/payment-history
+        - listitem [ref=f33e55]:
+          - heading " System preferences" [level=6] [ref=f33e56]:
+            - generic [ref=f33e57]: 
+            - text: System preferences
+          - list:
+            - listitem [ref=f33e58]:
+              - link "Language settings" [ref=f33e59] [cursor=pointer]:
+                - /url: /language?redirectUrl=https://v2staging.garantieavantageplus.ca/quotes
+            - listitem [ref=f33e60]:
+              - link "Users" [ref=f33e61] [cursor=pointer]:
+                - /url: /users?redirectUrl=https://v2staging.garantieavantageplus.ca/quotes
+        - listitem [ref=f33e62]:
+          - link " Logout" [ref=f33e63] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f33e64]: 
+            - text: Logout
+    - main [ref=f33e65]:
+      - generic [ref=f33e67]:
+        - navigation [ref=f33e69]:
+          - heading "Quotes" [level=1] [ref=f33e70]
+          - list [ref=f33e71]:
+            - listitem [ref=f33e72]:
+              - link " Create a quote" [ref=f33e73] [cursor=pointer]:
+                - /url: /quote
+                - generic [ref=f33e74]: 
+                - text: Create a quote
+        - generic [ref=f33e75]:
+          - list [ref=f33e77]:
+            - listitem [ref=f33e78]:
+              - link "Active" [ref=f33e79] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f33e80]:
+              - link "Archived" [ref=f33e81] [cursor=pointer]:
+                - /url: /quotes/archived
+          - generic [ref=f33e82]:
+            - table [ref=f33e84]:
+              - rowgroup [ref=f33e85]:
+                - row [ref=f33e86]:
+                  - columnheader "Vehicle" [ref=f33e87]
+                  - columnheader "Client" [ref=f33e88]
+                  - columnheader "Produits" [ref=f33e89]
+                  - columnheader "Date Created" [ref=f33e90]
+              - rowgroup [ref=f33e91]:
+                - row [ref=f33e92]:
+                  - cell "-" [ref=f33e93] [cursor=pointer]
+                  - cell [ref=f33e94] [cursor=pointer]:
+                    - text: Retest AP2464B
+                    - generic [ref=f33e95]:
+                      - link "retest.ap2464b@yopmail.com" [ref=f33e96]:
+                        - /url: mailto:retest.ap2464b@yopmail.com
+                      - link "5141234567" [ref=f33e97]:
+                        - /url: tel:5141234567
+                  - cell [ref=f33e98] [cursor=pointer]:
+                    - list
+                  - cell "Oct 3, 2026" [ref=f33e99] [cursor=pointer]
+                - row [ref=f33e100]:
+                  - cell "-" [ref=f33e101] [cursor=pointer]
+                  - cell [ref=f33e102] [cursor=pointer]:
+                    - text: Retest AP2464
+                    - generic [ref=f33e103]:
+                      - link "retest.ap2464@yopmail.com" [ref=f33e104]:
+                        - /url: mailto:retest.ap2464@yopmail.com
+                      - link "5141234567" [ref=f33e105]:
+                        - /url: tel:5141234567
+                  - cell [ref=f33e106] [cursor=pointer]:
+                    - list
+                  - cell "Oct 3, 2026" [ref=f33e107] [cursor=pointer]
+                - row [ref=f33e108]:
+                  - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f33e109] [cursor=pointer]'
+                  - cell [ref=f33e111] [cursor=pointer]:
+                    - text: NonOwner AP2443Test
+                    - generic [ref=f33e112]:
+                      - link "perma.nonowner.0913@yopmail.com" [ref=f33e113]:
+                        - /url: mailto:perma.nonowner.0913@yopmail.com
+                      - link "5145550300" [ref=f33e114]:
+                        - /url: tel:5145550300
+                  - cell [ref=f33e115] [cursor=pointer]:
+                    - list
+                  - cell "Sep 13, 2026" [ref=f33e116] [cursor=pointer]
+                - row [ref=f33e117]:
+                  - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f33e118] [cursor=pointer]'
+                  - cell [ref=f33e120] [cursor=pointer]:
+                    - text: Perma Retest0913
+                    - generic [ref=f33e121]:
+                      - link "perma.retest.0913@yopmail.com" [ref=f33e122]:
+                        - /url: mailto:perma.retest.0913@yopmail.com
+                      - link "5145550200" [ref=f33e123]:
+                        - /url: tel:5145550200
+                  - cell [ref=f33e124] [cursor=pointer]:
+                    - list [ref=f33e125]:
+                      - listitem [ref=f33e126]: 26-860
+                  - cell "Sep 13, 2026" [ref=f33e127] [cursor=pointer]
+                - row [ref=f33e128]:
+                  - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f33e129] [cursor=pointer]'
+                  - cell [ref=f33e131] [cursor=pointer]:
+                    - text: Perma Repro
+                    - generic [ref=f33e132]:
+                      - link "perma.repro.0906@yopmail.com" [ref=f33e133]:
+                        - /url: mailto:perma.repro.0906@yopmail.com
+                      - link "5145550200" [ref=f33e134]:
+                        - /url: tel:5145550200
+                  - cell [ref=f33e135] [cursor=pointer]:
+                    - list
+                  - cell "Sep 6, 2026" [ref=f33e136] [cursor=pointer]
+                - row [ref=f33e137]:
+                  - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f33e138] [cursor=pointer]'
+                  - cell [ref=f33e140] [cursor=pointer]:
+                    - text: Perma Testclient
+                    - generic [ref=f33e141]:
+                      - link "perma.test.0906@yopmail.com" [ref=f33e142]:
+                        - /url: mailto:perma.test.0906@yopmail.com
+                      - link "5145550100" [ref=f33e143]:
+                        - /url: tel:5145550100
+                  - cell [ref=f33e144] [cursor=pointer]:
+                    - list
+                  - cell "Sep 6, 2026" [ref=f33e145] [cursor=pointer]
+                - row [ref=f33e146]:
+                  - cell "-" [ref=f33e147] [cursor=pointer]
+                  - cell [ref=f33e148] [cursor=pointer]:
+                    - text: John Smith
+                    - generic [ref=f33e149]:
+                      - link "client.stage.011@yopmail.com" [ref=f33e150]:
+                        - /url: mailto:client.stage.011@yopmail.com
+                      - link "4165551234" [ref=f33e151]:
+                        - /url: tel:4165551234
+                  - cell [ref=f33e152] [cursor=pointer]:
+                    - list
+                  - cell "Aug 29, 2026" [ref=f33e153] [cursor=pointer]
+                - row [ref=f33e154]:
+                  - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f33e155] [cursor=pointer]'
+                  - cell [ref=f33e157] [cursor=pointer]:
+                    - text: Marie Tremblay
+                    - generic [ref=f33e158]:
+                      - link "client.stage.010@yopmail.com" [ref=f33e159]:
+                        - /url: mailto:client.stage.010@yopmail.com
+                      - link "5146906330" [ref=f33e160]:
+                        - /url: tel:5146906330
+                  - cell [ref=f33e161] [cursor=pointer]:
+                    - list [ref=f33e162]:
+                      - listitem [ref=f33e163]: Creditors insurance
+                  - cell "Aug 29, 2026" [ref=f33e164] [cursor=pointer]
+                - row [ref=f33e165]:
+                  - 'cell "Fiat 500 2015 VIN: 33333333" [ref=f33e166] [cursor=pointer]'
+                  - cell [ref=f33e168] [cursor=pointer]:
+                    - text: vinh.00003 sdf
+                    - generic [ref=f33e169]:
+                      - link "vinh.client001@yopmail.com" [ref=f33e170]:
+                        - /url: mailto:vinh.client001@yopmail.com
+                      - link "092-921-5331" [ref=f33e171]:
+                        - /url: tel:092-921-5331
+                  - cell [ref=f33e172] [cursor=pointer]:
+                    - list [ref=f33e173]:
+                      - listitem [ref=f33e174]: AP-856
+                      - listitem [ref=f33e175]: Roadside Protection
+                      - listitem [ref=f33e176]: Creditors insurance
+                  - cell "Jul 25, 2026" [ref=f33e177] [cursor=pointer]
+                - row [ref=f33e178]:
+                  - 'cell "Ford Focus 2008 VIN: 1FAHP35NX8W239204" [ref=f33e179] [cursor=pointer]'
+                  - cell [ref=f33e181] [cursor=pointer]:
+                    - text: sVinhle sdfsd
+                    - generic [ref=f33e182]:
+                      - link "vinh.le.2342423423@yopmail.com" [ref=f33e183]:
+                        - /url: mailto:vinh.le.2342423423@yopmail.com
+                      - link "092-921-5331" [ref=f33e184]:
+                        - /url: tel:092-921-5331
+                  - cell [ref=f33e185] [cursor=pointer]:
+                    - list [ref=f33e186]:
+                      - listitem [ref=f33e187]: Roadside Protection
+                      - listitem [ref=f33e188]: Creditors insurance
+                  - cell "Jul 25, 2026" [ref=f33e189] [cursor=pointer]
+            - list [ref=f33e190]:
+              - listitem [ref=f33e191]:
+                - link "1" [ref=f33e192] [cursor=pointer]:
+                  - /url: /quotes?page=1
+              - listitem [ref=f33e193]:
+                - link "2" [ref=f33e194] [cursor=pointer]:
+                  - /url: /quotes?page=2
+              - listitem [ref=f33e195]:
+                - link "3" [ref=f33e196] [cursor=pointer]:
+                  - /url: /quotes?page=3
+              - listitem [ref=f33e197]:
+                - link "4" [ref=f33e198] [cursor=pointer]:
+                  - /url: /quotes?page=4
+              - listitem [ref=f33e199]:
+                - link "Next " [ref=f33e200] [cursor=pointer]:
+                  - /url: /quotes?page=2
+                  - text: Next
+                  - generic [ref=f33e201]: 
+              - listitem [ref=f33e202]:
+                - link "Last " [ref=f33e203] [cursor=pointer]:
+                  - /url: /quotes?page=40
+                  - text: Last
+                  - generic [ref=f33e204]: 
+  - contentinfo [ref=f33e205]:
+    - generic [ref=f33e206]:
+      - link "Avantage Plus System v2.0.0" [ref=f33e207] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

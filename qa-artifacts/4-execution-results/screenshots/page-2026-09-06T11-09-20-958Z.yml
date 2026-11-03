@@ -1,0 +1,163 @@
+- generic [active] [ref=f83e1]:
+  - banner [ref=f83e2]:
+    - link [ref=f83e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f83e5]:
+      - searchbox "Search" [ref=f83e7]
+  - generic [ref=f83e8]:
+    - navigation [ref=f83e10]:
+      - list [ref=f83e11]:
+        - listitem [ref=f83e12]:
+          - link " 􏀕 Dashboard" [ref=f83e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f83e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f83e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f83e16]:
+            - generic [ref=f83e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f83e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f83e19]:
+            - generic [ref=f83e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f83e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f83e22]:
+            - generic [ref=f83e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f83e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f83e25]:
+            - generic [ref=f83e26]:  􏃀
+            - text: Users
+        - listitem [ref=f83e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f83e28]:
+            - generic [ref=f83e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f83e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f83e31]:
+            - generic [ref=f83e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f83e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f83e34]:
+            - generic [ref=f83e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f83e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f83e37]:
+            - generic [ref=f83e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f83e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f83e40]:
+            - generic [ref=f83e41]:  􏂎
+            - text: External links
+        - listitem [ref=f83e42]:
+          - link " 􏆫 Language settings" [ref=f83e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+            - generic [ref=f83e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f83e45]:
+          - link " 􏀑 Logout" [ref=f83e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f83e47]:  􏀑
+            - text: Logout
+    - main [ref=f83e48]:
+      - generic [ref=f83e50]:
+        - navigation [ref=f83e52]:
+          - heading "Permaplate Terms" [level=1] [ref=f83e53]
+          - list [ref=f83e54]:
+            - listitem [ref=f83e55]:
+              - link "Add new term" [ref=f83e56] [cursor=pointer]:
+                - /url: /admin/permaplate-edit/new/edit
+        - table [ref=f83e60]:
+          - rowgroup [ref=f83e61]:
+            - row [ref=f83e62]:
+              - columnheader "ID" [ref=f83e63]
+              - columnheader "Name" [ref=f83e64]
+              - columnheader "Term in months" [ref=f83e65]
+              - columnheader "Enabled" [ref=f83e66]
+              - columnheader "Translations" [ref=f83e67]
+              - columnheader "Actions" [ref=f83e68]
+          - rowgroup [ref=f83e69]:
+            - row [ref=f83e70]:
+              - cell "1" [ref=f83e71] [cursor=pointer]
+              - cell "3 ans" [ref=f83e72] [cursor=pointer]
+              - cell "36" [ref=f83e73] [cursor=pointer]
+              - cell "Yes" [ref=f83e74] [cursor=pointer]
+              - cell [ref=f83e76] [cursor=pointer]:
+                - generic [ref=f83e77]:
+                  - link "EN" [ref=f83e78]:
+                    - /url: /admin/permaplate/1/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                  - link "FR" [ref=f83e79]:
+                    - /url: /admin/permaplate/1/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+              - cell [ref=f83e80] [cursor=pointer]:
+                - link "Edit" [ref=f83e81]:
+                  - /url: /admin/permaplate-edit/1/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                - link "View details" [ref=f83e82]:
+                  - /url: /admin/permaplate/1/details
+            - row [ref=f83e83]:
+              - cell "5" [ref=f83e84] [cursor=pointer]
+              - cell "3 years" [ref=f83e85] [cursor=pointer]
+              - cell "36" [ref=f83e86] [cursor=pointer]
+              - cell "Yes" [ref=f83e87] [cursor=pointer]
+              - cell [ref=f83e89] [cursor=pointer]:
+                - generic [ref=f83e90]:
+                  - link "EN" [ref=f83e91]:
+                    - /url: /admin/permaplate/5/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                  - link "FR" [ref=f83e92]:
+                    - /url: /admin/permaplate/5/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+              - cell [ref=f83e93] [cursor=pointer]:
+                - link "Edit" [ref=f83e94]:
+                  - /url: /admin/permaplate-edit/5/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                - link "View details" [ref=f83e95]:
+                  - /url: /admin/permaplate/5/details
+            - row [ref=f83e96]:
+              - cell "2" [ref=f83e97] [cursor=pointer]
+              - cell "5 ans" [ref=f83e98] [cursor=pointer]
+              - cell "60" [ref=f83e99] [cursor=pointer]
+              - cell "Yes" [ref=f83e100] [cursor=pointer]
+              - cell [ref=f83e102] [cursor=pointer]:
+                - generic [ref=f83e103]:
+                  - link "EN" [ref=f83e104]:
+                    - /url: /admin/permaplate/2/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                  - link "FR" [ref=f83e105]:
+                    - /url: /admin/permaplate/2/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+              - cell [ref=f83e106] [cursor=pointer]:
+                - link "Edit" [ref=f83e107]:
+                  - /url: /admin/permaplate-edit/2/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                - link "View details" [ref=f83e108]:
+                  - /url: /admin/permaplate/2/details
+            - row [ref=f83e109]:
+              - cell "3" [ref=f83e110] [cursor=pointer]
+              - cell "10 ans" [ref=f83e111] [cursor=pointer]
+              - cell "120" [ref=f83e112] [cursor=pointer]
+              - cell "Yes" [ref=f83e113] [cursor=pointer]
+              - cell [ref=f83e115] [cursor=pointer]:
+                - generic [ref=f83e116]:
+                  - link "EN" [ref=f83e117]:
+                    - /url: /admin/permaplate/3/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                  - link "FR" [ref=f83e118]:
+                    - /url: /admin/permaplate/3/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+              - cell [ref=f83e119] [cursor=pointer]:
+                - link "Edit" [ref=f83e120]:
+                  - /url: /admin/permaplate-edit/3/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                - link "View details" [ref=f83e121]:
+                  - /url: /admin/permaplate/3/details
+            - row [ref=f83e122]:
+              - cell "4" [ref=f83e123] [cursor=pointer]
+              - cell "VinhLe Corp Term" [ref=f83e124] [cursor=pointer]
+              - cell "120" [ref=f83e125] [cursor=pointer]
+              - cell "No" [ref=f83e126] [cursor=pointer]
+              - cell [ref=f83e128] [cursor=pointer]:
+                - generic [ref=f83e129]:
+                  - link "EN" [ref=f83e130]:
+                    - /url: /admin/permaplate/4/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                  - link "FR" [ref=f83e131]:
+                    - /url: /admin/permaplate/4/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+              - cell [ref=f83e132] [cursor=pointer]:
+                - link "Edit" [ref=f83e133]:
+                  - /url: /admin/permaplate-edit/4/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate
+                - link "View details" [ref=f83e134]:
+                  - /url: /admin/permaplate/4/details
+  - contentinfo [ref=f83e135]:
+    - generic [ref=f83e136]:
+      - link "Avantage Plus System v2.0.0" [ref=f83e137] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

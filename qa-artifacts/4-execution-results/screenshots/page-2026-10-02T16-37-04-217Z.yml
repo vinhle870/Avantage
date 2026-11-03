@@ -1,0 +1,242 @@
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - button [ref=f7e3] [cursor=pointer]
+    - link [ref=f7e5] [cursor=pointer]:
+      - /url: /admin
+      - img "Avantage Plus Logo" [ref=f7e6]
+    - list [ref=f7e7]:
+      - searchbox "Search" [ref=f7e9]
+  - generic [ref=f7e10]:
+    - navigation [ref=f7e12]:
+      - list [ref=f7e13]:
+        - listitem [ref=f7e14]:
+          - link " 􏀕 Dashboard" [ref=f7e15] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f7e16]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f7e17]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f7e18]:
+            - generic [ref=f7e19]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f7e20]:
+              - link "Warranties" [ref=f7e21] [cursor=pointer]:
+                - /url: /admin/warranty
+            - listitem [ref=f7e22]:
+              - link "Insurance" [ref=f7e23] [cursor=pointer]:
+                - /url: /admin/insurance
+            - listitem [ref=f7e24]:
+              - link "Sales" [ref=f7e25] [cursor=pointer]:
+                - /url: /admin/sales
+            - listitem [ref=f7e26]:
+              - link "Esthetic protection" [ref=f7e27] [cursor=pointer]:
+                - /url: /admin/permaplate-contracts
+        - listitem [ref=f7e28]:
+          - heading " 􏗡 Claims" [level=6] [ref=f7e29]:
+            - generic [ref=f7e30]:  􏗡
+            - text: Claims
+          - list:
+            - listitem [ref=f7e31]:
+              - link "Repair Claims" [ref=f7e32] [cursor=pointer]:
+                - /url: /admin/claims
+            - listitem [ref=f7e33]:
+              - link "Preapproved Repair Claims" [ref=f7e34] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/approved
+            - listitem [ref=f7e35]:
+              - link "Maintenance Claims" [ref=f7e36] [cursor=pointer]:
+                - /url: /admin/claims/MAINTENANCE
+            - listitem [ref=f7e37]:
+              - link "Claim Items" [ref=f7e38] [cursor=pointer]:
+                - /url: /admin/claim-items
+            - listitem [ref=f7e39]:
+              - link "Service Centers" [ref=f7e40] [cursor=pointer]:
+                - /url: /admin/service-centers
+        - listitem [ref=f7e41]:
+          - heading " 􏓓 Billing" [level=6] [ref=f7e42]:
+            - generic [ref=f7e43]:  􏓓
+            - text: Billing
+          - list:
+            - listitem [ref=f7e44]:
+              - link "Invoices" [ref=f7e45] [cursor=pointer]:
+                - /url: /admin/invoices
+            - listitem [ref=f7e46]:
+              - link "Payment history" [ref=f7e47] [cursor=pointer]:
+                - /url: /admin/invoice/payment-history
+            - listitem [ref=f7e48]:
+              - link "Warranty financing" [ref=f7e49] [cursor=pointer]:
+                - /url: /admin/warranty-financing
+        - listitem [ref=f7e50]:
+          - heading " 􏃀 Users" [level=6] [ref=f7e51]:
+            - generic [ref=f7e52]:  􏃀
+            - text: Users
+          - list:
+            - listitem [ref=f7e53]:
+              - link "Admin Users" [ref=f7e54] [cursor=pointer]:
+                - /url: /admin/admin-users
+            - listitem [ref=f7e55]:
+              - link "Roles" [ref=f7e56] [cursor=pointer]:
+                - /url: /admin/admin-users-roles
+            - listitem [ref=f7e57]:
+              - link "Dealer Users" [ref=f7e58] [cursor=pointer]:
+                - /url: /admin/dealer-users
+            - listitem [ref=f7e59]:
+              - link "Dealers" [ref=f7e60] [cursor=pointer]:
+                - /url: /admin/dealers
+            - listitem [ref=f7e61]:
+              - link "Dealer groups" [ref=f7e62] [cursor=pointer]:
+                - /url: /admin/dealer-groups
+            - listitem [ref=f7e63]:
+              - link "Wholesaler" [ref=f7e64] [cursor=pointer]:
+                - /url: /admin/wholesalers
+        - listitem [ref=f7e65]:
+          - heading " 􏇦 Apps" [level=6] [ref=f7e66]:
+            - generic [ref=f7e67]:  􏇦
+            - text: Apps
+          - list:
+            - listitem [ref=f7e68]:
+              - link "Manage API keys" [ref=f7e69] [cursor=pointer]:
+                - /url: /admin/api-keys
+        - listitem [ref=f7e70]:
+          - heading " 􏂀 Reports" [level=6] [ref=f7e71]:
+            - generic [ref=f7e72]:  􏂀
+            - text: Reports
+          - list:
+            - listitem [ref=f7e73]:
+              - link "Components" [ref=f7e74] [cursor=pointer]:
+                - /url: /admin/report/contract-component
+              - link "Invoices" [ref=f7e75] [cursor=pointer]:
+                - /url: /admin/report/invoice
+              - link "Payments" [ref=f7e76] [cursor=pointer]:
+                - /url: /admin/report/payment
+              - link "Cancellations" [ref=f7e77] [cursor=pointer]:
+                - /url: /admin/report/cancellations
+              - link "Products" [ref=f7e78] [cursor=pointer]:
+                - /url: /admin/report/product
+              - link "Claims" [ref=f7e79] [cursor=pointer]:
+                - /url: /admin/report/claim
+        - listitem [ref=f7e80]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f7e81]:
+            - generic [ref=f7e82]:  􏂅
+            - text: Warranty Configuration
+          - list:
+            - listitem [ref=f7e83]:
+              - link "Programs" [ref=f7e84] [cursor=pointer]:
+                - /url: /admin/programs
+            - listitem [ref=f7e85]:
+              - link "Programs Analytics" [ref=f7e86] [cursor=pointer]:
+                - /url: /admin/programs/analytics
+            - listitem [ref=f7e87]:
+              - link "Program Components" [ref=f7e88] [cursor=pointer]:
+                - /url: /admin/list-program-components
+            - listitem [ref=f7e89]:
+              - link "Warranty Conditions" [ref=f7e90] [cursor=pointer]:
+                - /url: /admin/warranty-conditions
+            - listitem [ref=f7e91]:
+              - link "Coverage components" [ref=f7e92] [cursor=pointer]:
+                - /url: /admin/coverage-components
+            - listitem [ref=f7e93]:
+              - link "Surcharges" [ref=f7e94] [cursor=pointer]:
+                - /url: /admin/surcharges
+        - listitem [ref=f7e95]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f7e96]:
+            - generic [ref=f7e97]:  􏘤
+            - text: Risk Management
+          - list:
+            - listitem [ref=f7e98]:
+              - link "Earning Curves" [ref=f7e99] [cursor=pointer]:
+                - /url: /admin/earning-curve
+            - listitem [ref=f7e100]:
+              - link "Earning Sets" [ref=f7e101] [cursor=pointer]:
+                - /url: /admin/earning-set
+            - listitem [ref=f7e102]:
+              - link "Earning Groups" [ref=f7e103] [cursor=pointer]:
+                - /url: /admin/earning-group
+            - listitem [ref=f7e104]:
+              - link "Earning Assignments" [ref=f7e105] [cursor=pointer]:
+                - /url: /admin/earning-assignment
+        - listitem [ref=f7e106]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f7e107]:
+            - generic [ref=f7e108]:  􏂅
+            - text: Parameters
+          - list:
+            - listitem [ref=f7e109]:
+              - link "Permaplate" [ref=f7e110] [cursor=pointer]:
+                - /url: /admin/permaplate
+            - listitem [ref=f7e111]:
+              - link "Pricing" [ref=f7e112] [cursor=pointer]:
+                - /url: /admin/pricing
+            - listitem [ref=f7e113]:
+              - link "Vehicle Makes" [ref=f7e114] [cursor=pointer]:
+                - /url: /admin/vehicle-make
+            - listitem [ref=f7e115]:
+              - link "Vehicle Models" [ref=f7e116] [cursor=pointer]:
+                - /url: /admin/vehicle-model
+            - listitem [ref=f7e117]:
+              - link "Custom Price Rules" [ref=f7e118] [cursor=pointer]:
+                - /url: /admin/price-rule
+            - listitem [ref=f7e119]:
+              - link "Financing Company" [ref=f7e120] [cursor=pointer]:
+                - /url: /admin/financing-company
+            - listitem [ref=f7e121]:
+              - link "Report Program Components" [ref=f7e122] [cursor=pointer]:
+                - /url: /admin/program-components/report
+            - listitem [ref=f7e123]:
+              - link "Wholesaler" [ref=f7e124] [cursor=pointer]:
+                - /url: /admin/wholesalers
+            - listitem [ref=f7e125]:
+              - link "Vehicle Types" [ref=f7e126] [cursor=pointer]:
+                - /url: /admin/vehicle-type
+            - listitem [ref=f7e127]:
+              - link "Manufacturer Vehicles" [ref=f7e128] [cursor=pointer]:
+                - /url: /admin/manufacturer-vehicle
+        - listitem [ref=f7e129]:
+          - heading " 􏂎 External links" [level=6] [ref=f7e130]:
+            - generic [ref=f7e131]:  􏂎
+            - text: External links
+          - list:
+            - listitem [ref=f7e132]:
+              - link "Mitchell, proDemand" [ref=f7e133] [cursor=pointer]:
+                - /url: https://www.prodemand.com/
+            - listitem [ref=f7e134]:
+              - link "Alldata" [ref=f7e135] [cursor=pointer]:
+                - /url: https://my.alldata.com/migrate/#/home
+            - listitem [ref=f7e136]:
+              - link "Service Manager pro" [ref=f7e137] [cursor=pointer]:
+                - /url: https://www.servicemanagerpro.com/amember/login
+            - listitem [ref=f7e138]:
+              - link "Map des centre de services" [ref=f7e139] [cursor=pointer]:
+                - /url: https://www.google.com/maps/d/u/0/viewer?mid=1DxPJu1HD95HVkS8Hw8u_fJyCpE2S0jZz&ll=46.41914633159682%2C-72.42898157042171&z=12
+            - listitem [ref=f7e140]:
+              - link "Vin decoder carfax" [ref=f7e141] [cursor=pointer]:
+                - /url: https://www.carfax.ca/fr-ca/outils/decoder-niv
+            - listitem [ref=f7e142]:
+              - link "Valeur de véhicule" [ref=f7e143] [cursor=pointer]:
+                - /url: https://www.carfax.ca/fr-ca/combien-vaut-mon-vehicule/valeur-vehicule
+        - listitem [ref=f7e144]:
+          - link " 􏆫 Language settings" [ref=f7e145] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/insurance
+            - generic [ref=f7e146]:  􏆫
+            - text: Language settings
+        - listitem [ref=f7e147]:
+          - link " 􏀑 Logout" [ref=f7e148] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f7e149]:  􏀑
+            - text: Logout
+    - main [ref=f7e150]:
+      - generic [ref=f7e153]:
+        - list [ref=f7e155]:
+          - listitem [ref=f7e156]:
+            - link "Pending approval" [ref=f7e157] [cursor=pointer]:
+              - /url: /admin/insurance
+          - listitem [ref=f7e158]:
+            - link "Approved" [ref=f7e159] [cursor=pointer]:
+              - /url: /admin/insurance/approved
+          - listitem [ref=f7e160]:
+            - link "All" [ref=f7e161] [cursor=pointer]:
+              - /url: /admin/insurance/all
+        - alert [ref=f7e164]: No insurance found
+  - contentinfo [ref=f7e165]:
+    - generic [ref=f7e166]:
+      - link "Avantage Plus System v2.0.0" [ref=f7e167] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

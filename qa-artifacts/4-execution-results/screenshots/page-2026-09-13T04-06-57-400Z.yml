@@ -1,0 +1,15 @@
+- generic [ref=f19e4]:
+  - generic [ref=f19e31]:
+    - heading "Connexion" [level=1] [ref=f19e32]
+    - paragraph [ref=f19e33]: Connectez-vous à votre compte
+    - generic [ref=f19e34]:
+      - generic [ref=f19e35]: 
+      - textbox "Courriel" [ref=f19e38]: vinhle870@gmail.com
+    - generic [ref=f19e39]:
+      - generic [ref=f19e40]: 
+      - textbox "Mot de passe" [ref=f19e43]
+    - generic [ref=f19e44]:
+      - button "Se connecter" [ref=f19e46] [cursor=pointer]
+      - link "Mot de passe oublié?" [ref=f19e48] [cursor=pointer]:
+        - /url: /admin/forgot-password
+  - paragraph [ref=f19e49]: © 2026 Avantage Plus Système - Tous droits réservés.

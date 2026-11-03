@@ -1,0 +1,5 @@
+[    5898ms] [INFO] RTS: shouldLoadV2 - sw: true, bc: true, sse: true, ws: true, fetch: true, localStorage: true @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    5899ms] [INFO] RTS: shouldLoadV2 - window.location.hostname: garantieavantageplus-81162136724445-b4375556d0636f617398170.freshchat.com - proxyDomain: freshchat.com @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    5899ms] [INFO] RTS: shouldLoadV2 - proxy configured: false @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    5899ms] [LOG] RTS_LEGACY is being loaded for RTS-2.0.17 @ https://rts-static-prod.freshworksapi.com/us/rts-min.js:1
+[    7228ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://fc-use1-00-pics-bkt-00.s3.amazonaws.com/62366d589feadc3d140469c1f3402ce992ecf6f75df6359a554535e12c4cc043/f_appLevelPicFull/img_jridt1p42r_6066d5951358f5b7e57909433cd46f08177282f7f0e420efc4bb1881efb3dff2.png:0

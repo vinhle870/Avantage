@@ -1,0 +1,261 @@
+- generic [ref=f41e1]:
+  - banner [ref=f41e2]:
+    - link [ref=f41e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f41e5]:
+      - searchbox "Search" [ref=f41e7]
+      - listitem [ref=f41e8]:
+        - generic [ref=f41e9]: Test QA staging
+  - generic [ref=f41e11]:
+    - navigation [ref=f41e13]:
+      - list [ref=f41e14]:
+        - listitem [ref=f41e15]:
+          - link " 􏀕 Dashboard" [ref=f41e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f41e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f41e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f41e19]:
+            - generic [ref=f41e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f41e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f41e22]:
+            - generic [ref=f41e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f41e24]:
+          - link " 􏗡 Claims" [ref=f41e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f41e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f41e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f41e28]:
+            - generic [ref=f41e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f41e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f41e31]:
+            - generic [ref=f41e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f41e33]:
+          - link " 􏀑 Logout" [ref=f41e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f41e35]:  􏀑
+            - text: Logout
+    - main [ref=f41e36]:
+      - generic [ref=f41e38]:
+        - navigation [ref=f41e40]:
+          - heading "#6291 - Perma Retest0913" [level=1] [ref=f41e41]
+          - list [ref=f41e42]:
+            - listitem [ref=f41e43]:
+              - link "Back" [ref=f41e44] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f41e45]:
+              - link "Send compliance documents" [ref=f41e46] [cursor=pointer]:
+                - /url: /compliance-documents/send?redirectUrl=/quote/6291/details&clientEmail=perma.retest.0913@yopmail.com
+        - generic [ref=f41e47]:
+          - generic [ref=f41e50]:
+            - navigation [ref=f41e51]:
+              - heading "Client" [level=3] [ref=f41e52]
+              - list [ref=f41e53]:
+                - listitem [ref=f41e54]:
+                  - link "Edit" [ref=f41e55] [cursor=pointer]:
+                    - /url: /quote/6291/client
+            - paragraph [ref=f41e56]:
+              - text: Perma Retest0913
+              - generic [ref=f41e57]:
+                - text: 220 Boulevard Saint-Laurent Montreal Québec H2Y 1Z4
+                - generic [ref=f41e58]: 
+                - link "perma.retest.0913@yopmail.com" [ref=f41e59] [cursor=pointer]:
+                  - /url: mailto:perma.retest.0913@yopmail.com
+                - generic [ref=f41e60]: 
+                - text: "5145550200"
+          - generic [ref=f41e63]:
+            - navigation [ref=f41e64]:
+              - heading "Vehicle" [level=3] [ref=f41e65]
+              - list [ref=f41e66]:
+                - listitem [ref=f41e67]:
+                  - link "Edit" [ref=f41e68] [cursor=pointer]:
+                    - /url: /quote/6291/vehicle
+            - paragraph [ref=f41e69]:
+              - link "Ford Focus 2008" [ref=f41e70] [cursor=pointer]:
+                - /url: /vehicle/915/details
+              - generic [ref=f41e71]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+            - paragraph [ref=f41e72]:
+              - generic [ref=f41e73]: "Delivery date: Sep 12, 2026 Price: CA$10,000.00"
+          - generic [ref=f41e76]:
+            - navigation [ref=f41e77]:
+              - heading "Warranty" [level=3] [ref=f41e78]
+            - heading "Extended" [level=6] [ref=f41e79]
+            - paragraph [ref=f41e80]:
+              - link " Click here to create a warranty" [ref=f41e81] [cursor=pointer]:
+                - /url: /quote/6291/warranty/edit
+                - generic [ref=f41e82]: 
+                - text: Click here to create a warranty
+            - link "Road Side Protection" [ref=f41e84] [cursor=pointer]:
+              - /url: /quote/6291/road-side-protection
+            - generic [ref=f41e86]:
+              - heading "Esthetic protection" [level=5] [ref=f41e87]
+              - paragraph [ref=f41e88]:
+                - text: Peinture – Céramique + Graphene, Extra care (5 ans couverture )
+                - strong [ref=f41e89]: "Cost: 145$"
+              - generic [ref=f41e90]:
+                - link "Edit" [ref=f41e91] [cursor=pointer]:
+                  - /url: /quote/6291/permaplate
+                - link "Create Contract" [ref=f41e92] [cursor=pointer]:
+                  - /url: /quote/6291/permaplate-create-contract
+        - generic [ref=f41e93]:
+          - generic [ref=f41e96]:
+            - navigation [ref=f41e97]:
+              - heading "Financing" [level=3] [ref=f41e98]
+              - link "DYR Rates" [ref=f41e101] [cursor=pointer]:
+                - /url: /quote/6291/dyr-rates
+            - generic [ref=f41e102]:
+              - generic [ref=f41e103]: 
+              - paragraph [ref=f41e104]: You have not added financing details yet
+              - link "Add a financing" [ref=f41e105] [cursor=pointer]:
+                - /url: /quote/6291/financing
+          - generic [ref=f41e108]:
+            - navigation [ref=f41e109]:
+              - heading "Sale" [level=3] [ref=f41e110]
+            - generic [ref=f41e111]:
+              - link "Create sale" [ref=f41e112] [cursor=pointer]:
+                - /url: /quote/6291/sales
+              - separator [ref=f41e113]
+              - heading "Exchange vehicle" [level=6] [ref=f41e114]
+              - link "Add exchange vehicle" [ref=f41e115] [cursor=pointer]:
+                - /url: /quote/6291/exchange-vehicle?referer=%252Fquote%252F6291%252Fdetails
+        - generic [ref=f41e119]:
+          - heading "Compliance documents sent" [level=4] [ref=f41e120]
+          - separator [ref=f41e121]
+          - alert [ref=f41e123]: No entities found
+  - contentinfo [ref=f41e124]:
+    - generic [ref=f41e125]:
+      - link "Avantage Plus System v2.0.0" [ref=f41e126] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - dialog [active] [ref=f41e129]:
+    - document:
+      - generic [ref=f41e132]:
+        - heading "Esthetic protection Contract" [level=4] [ref=f41e133]
+        - generic [ref=f41e134]:
+          - heading "Vehicle identification" [level=6] [ref=f41e135]
+          - generic [ref=f41e136]:
+            - generic [ref=f41e138]:
+              - generic [ref=f41e139]: VIN*
+              - textbox "VIN*" [ref=f41e140]: 1FAHP35NX8W239204
+            - generic [ref=f41e142]:
+              - generic [ref=f41e143]: Make*
+              - textbox "Make*" [ref=f41e144]: Ford
+            - generic [ref=f41e146]:
+              - generic [ref=f41e147]: Model*
+              - textbox "Model*" [ref=f41e148]: Focus
+            - generic [ref=f41e150]:
+              - generic [ref=f41e151]: Year*
+              - spinbutton "Year*" [ref=f41e152]: "2008"
+          - generic [ref=f41e153]:
+            - generic [ref=f41e155]:
+              - generic [ref=f41e156]: Odometer at delivery*
+              - spinbutton "Odometer at delivery*" [ref=f41e157]: "5000"
+            - generic [ref=f41e159]:
+              - generic [ref=f41e160]: Delivery date*
+              - textbox "Delivery date*" [ref=f41e161]: 2026-09-13
+        - generic [ref=f41e162]:
+          - heading "Owner information" [level=6] [ref=f41e163]
+          - generic [ref=f41e164]:
+            - generic [ref=f41e166]:
+              - generic [ref=f41e167]: Last name*
+              - textbox "Last name*" [ref=f41e168]: Retest0913
+            - generic [ref=f41e170]:
+              - generic [ref=f41e171]: First name*
+              - textbox "First name*" [ref=f41e172]: Perma
+          - generic [ref=f41e175]:
+            - generic [ref=f41e176]: Other name on file (Company's name)
+            - textbox "Other name on file (Company's name)" [ref=f41e177]
+          - generic [ref=f41e180]:
+            - generic [ref=f41e181]: Address*
+            - textbox "Address*" [ref=f41e182]: 220 Boulevard Saint-Laurent
+          - generic [ref=f41e183]:
+            - generic [ref=f41e185]:
+              - generic [ref=f41e186]: City*
+              - textbox "City*" [ref=f41e187]: Montreal
+            - generic [ref=f41e189]:
+              - generic [ref=f41e190]: Province*
+              - textbox "Province*" [ref=f41e191]: Québec
+          - generic [ref=f41e194]:
+            - generic [ref=f41e195]: Postal code*
+            - textbox "Postal code*" [ref=f41e196]: H2Y 1Z4
+          - generic [ref=f41e197]:
+            - generic [ref=f41e199]:
+              - generic [ref=f41e200]: Phone (res)
+              - textbox "Phone (res)" [ref=f41e201]: "5145550200"
+            - generic [ref=f41e203]:
+              - generic [ref=f41e204]: Phone (cell)
+              - textbox "Phone (cell)" [ref=f41e205]: "5145550201"
+          - generic [ref=f41e208]:
+            - generic [ref=f41e209]: Email
+            - textbox "Email" [ref=f41e210]: perma.retest.0913@yopmail.com
+          - generic [ref=f41e213]:
+            - generic [ref=f41e214]: Financing company
+            - generic [ref=f41e215]:
+              - combobox "Financing company" [ref=f41e216]:
+                - option "Choose" [selected]
+                - option "AutoCapital Canada"
+                - option "Avantage Concessionaire Scotia"
+                - option "AVANTAGE Concessionnaire Scotia"
+                - option "Avantage Plus Testing"
+                - option "Axis Auto Finance Lending Corp."
+                - option "Banque Royale"
+                - option "Banque Scotia"
+                - option "BMO"
+                - option "BNC"
+                - option "BNC"
+                - option "CARFINCO FINANCIAL GROUP INC."
+                - option "CIBC Auto Finance"
+                - option "Credit Virage Canada"
+                - option "Crelogix Acceptance Corporation"
+                - option "FÉDÉRATION DES CAISSES DESJARDINS DU QUÉBEC"
+                - option "Finance Créditfix"
+                - option "FINANCEMENT AUTO TD"
+                - option "Financile"
+                - option "Finauto"
+                - option "Honda Canada Finance Inc."
+                - option "HWY Finance Inc."
+                - option "I.S.A. Auto Direct"
+                - option "IA FInancement Auto"
+                - option "Iceberg Finance Inc."
+                - option "Iceberg Finance Inc."
+                - option "INDUSTRIELLE ALLIANCE, FIDUCIE INC."
+                - option "LendCare Capital Inc"
+                - option "Location All Star"
+                - option "Nissan Canada Finance"
+                - option "Québec Auto Finance"
+                - option "RBC Banque Royale"
+                - option "Services Financiers Mercedes-Benz"
+                - option "Yamaha Financial Services"
+              - combobox "Choose" [ref=f41e217] [cursor=pointer]
+        - generic [ref=f41e221]:
+          - heading "Program Summary" [level=6] [ref=f41e222]
+          - list [ref=f41e223]:
+            - listitem [ref=f41e224]:
+              - text: "Program Term:"
+              - strong [ref=f41e225]: 10 ans
+            - listitem [ref=f41e226]:
+              - text: "Start Date:"
+              - strong [ref=f41e227]: 2026-09-12
+            - listitem [ref=f41e228]:
+              - text: "End date:"
+              - strong [ref=f41e229]: 2036-09-12
+            - listitem [ref=f41e230]: "Selected protection products:"
+            - list [ref=f41e231]:
+              - listitem [ref=f41e232]: Peinture – Céramique + Graphene
+              - listitem [ref=f41e233]: Extra care (5 ans couverture )
+            - listitem [ref=f41e234]:
+              - strong [ref=f41e235]: "Cost: 145.00$"
+        - separator [ref=f41e236]
+        - button " Generate Contract" [ref=f41e237] [cursor=pointer]:
+          - generic [ref=f41e238]: 
+          - text: Generate Contract
+  - iframe [ref=f41e128]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f43e1] [cursor=pointer]

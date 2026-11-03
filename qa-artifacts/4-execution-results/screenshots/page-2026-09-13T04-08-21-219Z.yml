@@ -1,0 +1,209 @@
+- generic [active] [ref=f35e1]:
+  - banner [ref=f35e2]:
+    - link [ref=f35e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f35e5]:
+      - searchbox "Search" [ref=f35e7]
+      - listitem [ref=f35e8]:
+        - generic [ref=f35e9]: Test QA staging
+  - generic [ref=f35e11]:
+    - navigation [ref=f35e13]:
+      - list [ref=f35e14]:
+        - listitem [ref=f35e15]:
+          - link " 􏀕 Dashboard" [ref=f35e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f35e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f35e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f35e19]:
+            - generic [ref=f35e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f35e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f35e22]:
+            - generic [ref=f35e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f35e24]:
+          - link " 􏗡 Claims" [ref=f35e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f35e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f35e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f35e28]:
+            - generic [ref=f35e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f35e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f35e31]:
+            - generic [ref=f35e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f35e33]:
+          - link " 􏀑 Logout" [ref=f35e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f35e35]:  􏀑
+            - text: Logout
+    - main [ref=f35e36]:
+      - generic [ref=f35e38]:
+        - navigation [ref=f35e40]:
+          - heading "Invoices" [level=1] [ref=f35e41]
+          - list [ref=f35e42]:
+            - listitem [ref=f35e43]:
+              - link "" [ref=f35e44] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f35e46]:
+              - link "Make a payment" [ref=f35e47] [cursor=pointer]:
+                - /url: /invoice/select-payment
+        - generic [ref=f35e48]:
+          - list [ref=f35e50]:
+            - listitem [ref=f35e51]:
+              - link "Pending payment" [ref=f35e52] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f35e53]:
+              - link "Paid" [ref=f35e54] [cursor=pointer]:
+                - /url: /invoice/paid
+            - listitem [ref=f35e55]:
+              - link "All" [ref=f35e56] [cursor=pointer]:
+                - /url: /invoice/all
+          - table [ref=f35e59]:
+            - rowgroup [ref=f35e60]:
+              - row [ref=f35e61]:
+                - columnheader "Invoice ID" [ref=f35e62]
+                - columnheader "Description" [ref=f35e63]
+                - columnheader "Amount" [ref=f35e64]
+                - columnheader "Created at" [ref=f35e65]
+                - columnheader "Status" [ref=f35e66]
+            - rowgroup [ref=f35e67]:
+              - row [ref=f35e68] [cursor=pointer]:
+                - cell [ref=f35e69]:
+                  - text: "921"
+                  - link "PNA-0000000007" [ref=f35e70]:
+                    - /url: /quote/6284/permaplate-contract-download
+                - 'cell "Perma Testclient Ford Focus 2008 VIN : 1FAHP35NX8W239204 PNA-0000000000 Test QA staging vinhle870@gmail.com" [ref=f35e71]'
+                - cell "$166.71" [ref=f35e72]
+                - cell "Sunday, September 6, 2026" [ref=f35e73]
+                - cell "Payment pending" [ref=f35e74]
+              - row [ref=f35e76] [cursor=pointer]:
+                - cell [ref=f35e77]:
+                  - text: "909"
+                  - 'link "Warranty #26df1-829" [ref=f35e78]':
+                    - /url: /warranty/829
+                - 'cell "Vinh LeAVtage Ford Focus 2008 20000km VIN : 1FAHP35NX8W239204 Date de livraison: 2026-07-06 26df1- 20m / 20000km - 28743.75$ vinhle870@gmail.com July 21, 2026 20:00" [ref=f35e79]':
+                  - text: "Vinh LeAVtage Ford Focus 2008 20000km VIN : 1FAHP35NX8W239204 Date de livraison: 2026-07-06 26df1- 20m / 20000km - 28743.75$ vinhle870@gmail.com"
+                  - generic [ref=f35e80]: July 21, 2026 20:00
+                - cell "$1,150.00" [ref=f35e81]
+                - cell "Sunday, July 5, 2026" [ref=f35e82]
+                - cell "Payment pending" [ref=f35e83]
+              - row [ref=f35e85] [cursor=pointer]:
+                - cell [ref=f35e86]:
+                  - text: "908"
+                  - 'link "Warranty #APOP01-828" [ref=f35e87]':
+                    - /url: /warranty/828
+                - 'cell "Vinh Le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2026-07-01 APOP01- 100m / 20000km - 1981.01925$ vinhle870@gmail.com July 31, 2026 20:00" [ref=f35e88]':
+                  - text: "Vinh Le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2026-07-01 APOP01- 100m / 20000km - 1981.01925$ vinhle870@gmail.com"
+                  - generic [ref=f35e89]: July 31, 2026 20:00
+                - cell "$1,981.45" [ref=f35e90]
+                - cell "Sunday, July 5, 2026" [ref=f35e91]
+                - cell "Payment pending" [ref=f35e92]
+              - row [ref=f35e94] [cursor=pointer]:
+                - cell [ref=f35e95]:
+                  - text: "859"
+                  - 'link "Warranty #AD-781" [ref=f35e96]':
+                    - /url: /warranty/781
+                - 'cell "sdfsadf sfsdafa Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-12-25 AD- 12m / 20000km - 18153.40275$ vinhle870@gmail.com December 26, 2025 19:00" [ref=f35e97]':
+                  - text: "sdfsadf sfsdafa Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-12-25 AD- 12m / 20000km - 18153.40275$ vinhle870@gmail.com"
+                  - generic [ref=f35e98]: December 26, 2025 19:00
+                - cell "$-57.50" [ref=f35e99]
+                - cell "Thursday, December 25, 2025" [ref=f35e100]
+                - cell "Payment pending" [ref=f35e101]
+              - row [ref=f35e103] [cursor=pointer]:
+                - cell [ref=f35e104]:
+                  - text: "801"
+                  - 'link "Warranty #26df1-727" [ref=f35e105]':
+                    - /url: /warranty/727
+                - 'cell "Vinh LE Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-01-24 26df1- 20m / 20000km - 101.178$ vinhle870@gmail.com March 30, 2025 20:00" [ref=f35e106]':
+                  - text: "Vinh LE Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-01-24 26df1- 20m / 20000km - 101.178$ vinhle870@gmail.com"
+                  - generic [ref=f35e107]: March 30, 2025 20:00
+                - cell "$0.00" [ref=f35e108]
+                - cell "Thursday, January 23, 2025" [ref=f35e109]
+                - cell "Payment pending" [ref=f35e110]
+              - row [ref=f35e112] [cursor=pointer]:
+                - cell [ref=f35e113]:
+                  - text: "797"
+                  - 'link "Warranty #APAP OP3-723" [ref=f35e114]':
+                    - /url: /warranty/723
+                - 'cell "Vinh LE Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-01-17 APAP OP3- 12m / 20000km - 101.178$ vinhle870@gmail.com February 13, 2025 19:00" [ref=f35e115]':
+                  - text: "Vinh LE Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-01-17 APAP OP3- 12m / 20000km - 101.178$ vinhle870@gmail.com"
+                  - generic [ref=f35e116]: February 13, 2025 19:00
+                - cell "$114.98" [ref=f35e117]
+                - cell "Friday, January 17, 2025" [ref=f35e118]
+                - cell "Payment pending" [ref=f35e119]
+              - row [ref=f35e121] [cursor=pointer]:
+                - cell [ref=f35e122]:
+                  - text: "741"
+                  - 'link "Warranty #APOP01-608" [ref=f35e123]':
+                    - /url: /warranty/608
+                - cell "Crédit d’annulation June 3, 2022 20:00" [ref=f35e124]:
+                  - text: Crédit d’annulation
+                  - generic [ref=f35e125]: June 3, 2022 20:00
+                - cell "$158.90" [ref=f35e126]
+                - cell "Friday, June 28, 2024" [ref=f35e127]
+                - cell "Refund Pending" [ref=f35e128]
+              - row [ref=f35e130] [cursor=pointer]:
+                - cell [ref=f35e131]:
+                  - text: "737"
+                  - 'link "Warranty #APOP01-691" [ref=f35e132]':
+                    - /url: /warranty/691
+                - cell "Cancellation refund July 5, 2024 20:00" [ref=f35e133]:
+                  - text: Cancellation refund
+                  - generic [ref=f35e134]: July 5, 2024 20:00
+                - cell "$1,749.69" [ref=f35e135]
+                - cell "Wednesday, June 19, 2024" [ref=f35e136]
+                - cell "Refund Pending" [ref=f35e137]
+              - row [ref=f35e139] [cursor=pointer]:
+                - cell [ref=f35e140]:
+                  - text: "736"
+                  - 'link "Warranty #APOP01-691" [ref=f35e141]':
+                    - /url: /warranty/691
+                - cell "Cancellation refund July 5, 2024 20:00" [ref=f35e142]:
+                  - text: Cancellation refund
+                  - generic [ref=f35e143]: July 5, 2024 20:00
+                - cell "$-1,980.03" [ref=f35e144]
+                - cell "Wednesday, June 19, 2024" [ref=f35e145]
+                - cell "Refund Pending" [ref=f35e146]
+              - row [ref=f35e148] [cursor=pointer]:
+                - cell [ref=f35e149]:
+                  - text: "735"
+                  - 'link "Warranty #APOP01-691" [ref=f35e150]':
+                    - /url: /warranty/691
+                - cell "Cancellation refund July 5, 2024 20:00" [ref=f35e151]:
+                  - text: Cancellation refund
+                  - generic [ref=f35e152]: July 5, 2024 20:00
+                - cell "$1,315.12" [ref=f35e153]
+                - cell "Wednesday, June 19, 2024" [ref=f35e154]
+                - cell "Refund Pending" [ref=f35e155]
+        - list [ref=f35e157]:
+          - listitem [ref=f35e158]:
+            - link "1" [ref=f35e159] [cursor=pointer]:
+              - /url: /invoice?page=1
+          - listitem [ref=f35e160]:
+            - link "2" [ref=f35e161] [cursor=pointer]:
+              - /url: /invoice?page=2
+          - listitem [ref=f35e162]:
+            - link "3" [ref=f35e163] [cursor=pointer]:
+              - /url: /invoice?page=3
+          - listitem [ref=f35e164]:
+            - link "4" [ref=f35e165] [cursor=pointer]:
+              - /url: /invoice?page=4
+          - listitem [ref=f35e166]:
+            - link "Next " [ref=f35e167] [cursor=pointer]:
+              - /url: /invoice?page=2
+              - text: Next
+              - generic [ref=f35e168]: 
+          - listitem [ref=f35e169]:
+            - link "Last " [ref=f35e170] [cursor=pointer]:
+              - /url: /invoice?page=25
+              - text: Last
+              - generic [ref=f35e171]: 
+  - contentinfo [ref=f35e172]:
+    - generic [ref=f35e173]:
+      - link "Avantage Plus System v2.0.0" [ref=f35e174] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

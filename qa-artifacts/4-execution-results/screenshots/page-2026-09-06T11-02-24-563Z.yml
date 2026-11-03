@@ -1,0 +1,93 @@
+- generic [ref=f41e1]:
+  - banner [ref=f41e2]:
+    - link [ref=f41e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f41e5]:
+      - searchbox "Search" [ref=f41e7]
+      - listitem [ref=f41e8]:
+        - generic [ref=f41e9]: Test QA staging
+  - generic [ref=f41e11]:
+    - navigation [ref=f41e13]:
+      - list [ref=f41e14]:
+        - listitem [ref=f41e15]:
+          - link " 􏀕 Dashboard" [ref=f41e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f41e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f41e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f41e19]:
+            - generic [ref=f41e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f41e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f41e22]:
+            - generic [ref=f41e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f41e24]:
+          - link " 􏗡 Claims" [ref=f41e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f41e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f41e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f41e28]:
+            - generic [ref=f41e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f41e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f41e31]:
+            - generic [ref=f41e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f41e33]:
+          - link " 􏀑 Logout" [ref=f41e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f41e35]:  􏀑
+            - text: Logout
+    - main [ref=f41e36]:
+      - generic [ref=f41e38]:
+        - navigation [ref=f41e40]:
+          - heading "Permaplate Quote" [level=1] [ref=f41e41]
+          - list [ref=f41e42]:
+            - listitem [ref=f41e43]:
+              - link "Back" [ref=f41e44] [cursor=pointer]:
+                - /url: /quote/6284/details
+        - generic [ref=f41e48]:
+          - heading "Permaplate Quote" [level=4] [ref=f41e49]
+          - generic [ref=f41e50]:
+            - generic [ref=f41e51]: Select Term
+            - generic [ref=f41e52]:
+              - radio "10 ans" [checked] [ref=f41e53]
+              - generic [ref=f41e54]: 10 ans
+          - generic [ref=f41e65]:
+            - heading "Available Options" [level=5] [ref=f41e66]
+            - generic [ref=f41e67]:
+              - 'checkbox "Antirouille – Rust+Sound (combo) Cost: 80$" [ref=f41e68]'
+              - generic [ref=f41e69]:
+                - strong [ref=f41e70]: Antirouille – Rust+Sound (combo)
+                - text: "Cost: 80$"
+            - generic [ref=f41e71]:
+              - 'checkbox "Autosaver Cost: 40$" [ref=f41e72]'
+              - generic [ref=f41e73]:
+                - strong [ref=f41e74]: Autosaver
+                - text: "Cost: 40$"
+            - generic [ref=f41e75]:
+              - 'checkbox "Peinture – Céramique + Graphene Cost: 75$" [checked] [ref=f41e76]'
+              - generic [ref=f41e77]:
+                - strong [ref=f41e78]: Peinture – Céramique + Graphene
+                - text: "Cost: 75$"
+            - generic [ref=f41e79]:
+              - 'checkbox "Extra care (5 ans couverture ) Cost: 70$" [checked] [active] [ref=f41e80]'
+              - generic [ref=f41e81]:
+                - strong [ref=f41e82]: Extra care (5 ans couverture )
+                - text: "Cost: 70$"
+          - 'heading "Cost: 145$" [level=5] [ref=f41e87]'
+          - button " Save" [ref=f41e60] [cursor=pointer]:
+            - generic [ref=f41e61]: 
+            - text: Save
+  - contentinfo [ref=f41e62]:
+    - generic [ref=f41e63]:
+      - link "Avantage Plus System v2.0.0" [ref=f41e64] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - iframe [ref=f41e84]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f43e1] [cursor=pointer]

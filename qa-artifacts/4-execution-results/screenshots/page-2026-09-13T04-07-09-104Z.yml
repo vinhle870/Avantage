@@ -1,0 +1,97 @@
+- generic [active] [ref=f20e1]:
+  - banner [ref=f20e2]:
+    - link [ref=f20e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f20e5]:
+      - searchbox "Search" [ref=f20e7]
+  - generic [ref=f20e8]:
+    - navigation [ref=f20e10]:
+      - list [ref=f20e11]:
+        - listitem [ref=f20e12]:
+          - link " 􏀕 Dashboard" [ref=f20e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f20e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f20e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f20e16]:
+            - generic [ref=f20e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f20e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f20e19]:
+            - generic [ref=f20e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f20e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f20e22]:
+            - generic [ref=f20e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f20e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f20e25]:
+            - generic [ref=f20e26]:  􏃀
+            - text: Users
+        - listitem [ref=f20e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f20e28]:
+            - generic [ref=f20e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f20e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f20e31]:
+            - generic [ref=f20e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f20e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f20e34]:
+            - generic [ref=f20e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f20e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f20e37]:
+            - generic [ref=f20e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f20e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f20e40]:
+            - generic [ref=f20e41]:  􏂎
+            - text: External links
+        - listitem [ref=f20e42]:
+          - link " 􏆫 Language settings" [ref=f20e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin
+            - generic [ref=f20e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f20e45]:
+          - link " 􏀑 Logout" [ref=f20e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f20e47]:  􏀑
+            - text: Logout
+    - main [ref=f20e48]:
+      - generic [ref=f20e51]:
+        - heading "Vinh Le 1 Welcome to the admin" [level=1] [ref=f20e53]
+        - generic [ref=f20e56]:
+          - generic [ref=f20e58]:
+            - generic [ref=f20e59]: 
+            - paragraph [ref=f20e60]: Claims
+          - generic [ref=f20e61]:
+            - generic [ref=f20e62]:
+              - generic [ref=f20e63]: "6"
+              - link "Preapproved" [ref=f20e65] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/approved
+            - generic [ref=f20e66]:
+              - generic [ref=f20e67]: "23"
+              - link "Authorized" [ref=f20e69] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/authorized
+            - generic [ref=f20e70]:
+              - generic [ref=f20e71]: "3"
+              - link "Accepted by Dealer" [ref=f20e73] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/dealer_accepted
+            - generic [ref=f20e74]:
+              - generic [ref=f20e75]: "12"
+              - link "Paid" [ref=f20e77] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/paid
+            - generic [ref=f20e78]:
+              - generic [ref=f20e79]: "13"
+              - link "Refused" [ref=f20e81] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/refused
+            - generic [ref=f20e82]:
+              - generic [ref=f20e83]: "130"
+              - link "Submitted" [ref=f20e85] [cursor=pointer]:
+                - /url: /admin/claims
+  - contentinfo [ref=f20e86]:
+    - generic [ref=f20e87]:
+      - link "Avantage Plus System v2.0.0" [ref=f20e88] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

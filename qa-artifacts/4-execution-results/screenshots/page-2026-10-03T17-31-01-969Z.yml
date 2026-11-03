@@ -1,0 +1,98 @@
+- generic [active] [ref=f305e1]:
+  - banner [ref=f305e2]:
+    - link [ref=f305e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f305e5]:
+      - searchbox "Search" [ref=f305e7]
+  - generic [ref=f305e8]:
+    - navigation [ref=f305e10]:
+      - list [ref=f305e11]:
+        - listitem [ref=f305e12]:
+          - link " 􏀕 Dashboard" [ref=f305e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f305e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f305e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f305e16]:
+            - generic [ref=f305e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f305e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f305e19]:
+            - generic [ref=f305e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f305e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f305e22]:
+            - generic [ref=f305e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f305e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f305e25]:
+            - generic [ref=f305e26]:  􏃀
+            - text: Users
+        - listitem [ref=f305e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f305e28]:
+            - generic [ref=f305e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f305e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f305e31]:
+            - generic [ref=f305e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f305e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f305e34]:
+            - generic [ref=f305e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f305e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f305e37]:
+            - generic [ref=f305e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f305e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f305e40]:
+            - generic [ref=f305e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f305e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f305e43]:
+            - generic [ref=f305e44]:  􏂎
+            - text: External links
+        - listitem [ref=f305e45]:
+          - link " 􏆫 Language settings" [ref=f305e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-group/11/details
+            - generic [ref=f305e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f305e48]:
+          - link " 􏀑 Logout" [ref=f305e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f305e50]:  􏀑
+            - text: Logout
+    - main [ref=f305e51]:
+      - generic [ref=f305e53]:
+        - alert [ref=f305e54]:
+          - text: Earning curve unassigned
+          - button "Close" [ref=f305e55] [cursor=pointer]: ×
+        - navigation [ref=f305e57]:
+          - heading "Earning Group QA-AP2472-Empty-2339" [level=1] [ref=f305e58]
+          - list [ref=f305e59]:
+            - listitem [ref=f305e60]:
+              - link "Edit" [ref=f305e61] [cursor=pointer]:
+                - /url: /admin/earning-group/11/edit
+        - generic [ref=f305e63]:
+          - generic [ref=f305e65]:
+            - generic [ref=f305e67]:
+              - generic [ref=f305e68]: Earning Curve*
+              - generic [ref=f305e69]:
+                - combobox "Earning Curve*" [ref=f305e70]:
+                  - option "1 year (0 - 999999)" [selected]
+                  - option "2 years (0 - 999999)"
+                  - option "3 years (0 - 999999)"
+                  - option "4 years (0 - 9999999)"
+                  - option "5 years (0 - 999999)"
+                  - option "6 years (0 - 999999)"
+                  - option "QA-AP2472-Curve-A (0 - 50000)"
+                  - option "QA-AP2472-Curve-B-Disabled (0 - 50000)"
+                - combobox "1 year (0 - 999999)" [ref=f305e71] [cursor=pointer]
+            - button "Assign" [ref=f305e76] [cursor=pointer]
+          - separator [ref=f305e77]
+          - alert [ref=f305e79]: No entities found
+  - contentinfo [ref=f305e80]:
+    - generic [ref=f305e81]:
+      - link "Avantage Plus System v2.0.0" [ref=f305e82] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

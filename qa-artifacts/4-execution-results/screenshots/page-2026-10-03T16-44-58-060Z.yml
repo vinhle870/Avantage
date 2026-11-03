@@ -1,0 +1,125 @@
+- generic [ref=f161e1]:
+  - banner [ref=f161e2]:
+    - link [ref=f161e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f161e5]:
+      - searchbox "Search" [ref=f161e7]
+  - generic [ref=f161e8]:
+    - navigation [ref=f161e10]:
+      - list [ref=f161e11]:
+        - listitem [ref=f161e12]:
+          - link " 􏀕 Dashboard" [ref=f161e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f161e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f161e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f161e16]:
+            - generic [ref=f161e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f161e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f161e19]:
+            - generic [ref=f161e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f161e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f161e22]:
+            - generic [ref=f161e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f161e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f161e25]:
+            - generic [ref=f161e26]:  􏃀
+            - text: Users
+        - listitem [ref=f161e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f161e28]:
+            - generic [ref=f161e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f161e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f161e31]:
+            - generic [ref=f161e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f161e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f161e34]:
+            - generic [ref=f161e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f161e36]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f161e37]:
+            - generic [ref=f161e38]:  􏘤
+            - text: Risk Management
+        - listitem [ref=f161e39]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f161e40]:
+            - generic [ref=f161e41]:  􏂅
+            - text: Parameters
+        - listitem [ref=f161e42]:
+          - heading " 􏂎 External links" [level=6] [ref=f161e43]:
+            - generic [ref=f161e44]:  􏂎
+            - text: External links
+        - listitem [ref=f161e45]:
+          - link " 􏆫 Language settings" [ref=f161e46] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/earning-group/13/details
+            - generic [ref=f161e47]:  􏆫
+            - text: Language settings
+        - listitem [ref=f161e48]:
+          - link " 􏀑 Logout" [ref=f161e49] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f161e50]:  􏀑
+            - text: Logout
+    - main [ref=f161e51]:
+      - generic [ref=f161e53]:
+        - navigation [ref=f161e55]:
+          - heading "Earning Group QA-AP2472-Unassign-G1-2339" [level=1] [ref=f161e56]
+          - list [ref=f161e57]:
+            - listitem [ref=f161e58]:
+              - link "Edit" [ref=f161e59] [cursor=pointer]:
+                - /url: /admin/earning-group/13/edit
+        - generic [ref=f161e61]:
+          - generic [ref=f161e63]:
+            - generic [ref=f161e65]:
+              - generic [ref=f161e66]: Earning Curve*
+              - generic [ref=f161e67]:
+                - combobox "Earning Curve*" [ref=f161e68]:
+                  - option "1 year (0 - 999999)" [selected]
+                  - option "2 years (0 - 999999)"
+                  - option "3 years (0 - 999999)"
+                  - option "4 years (0 - 9999999)"
+                  - option "5 years (0 - 999999)"
+                  - option "6 years (0 - 999999)"
+                - combobox "1 year (0 - 999999)" [ref=f161e69] [cursor=pointer]
+            - button "Assign" [ref=f161e74] [cursor=pointer]
+          - separator [ref=f161e75]
+          - table [ref=f161e77]:
+            - rowgroup [ref=f161e78]:
+              - row [ref=f161e79]:
+                - columnheader "Name" [ref=f161e80]
+                - columnheader "Term month" [ref=f161e81]
+                - columnheader "Coverage odometer" [ref=f161e82]
+                - columnheader "Earning curve type" [ref=f161e83]
+                - columnheader "Is Enabled?" [ref=f161e84]
+                - columnheader "Actions" [ref=f161e85]
+            - rowgroup [ref=f161e86]:
+              - row [ref=f161e87]:
+                - cell "QA-AP2472-Curve-A" [ref=f161e88] [cursor=pointer]
+                - cell "12" [ref=f161e89] [cursor=pointer]
+                - cell "0 - 50000" [ref=f161e90] [cursor=pointer]
+                - cell "Pro-Rata" [ref=f161e91] [cursor=pointer]
+                - cell "Yes" [ref=f161e92] [cursor=pointer]
+                - cell [ref=f161e94] [cursor=pointer]:
+                  - link "" [ref=f161e96]:
+                    - /url: /admin/earning-group/13/curve/7/unassign
+  - contentinfo [ref=f161e98]:
+    - generic [ref=f161e99]:
+      - link "Avantage Plus System v2.0.0" [ref=f161e100] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - dialog [active] [ref=f161e101]:
+    - document:
+      - generic [ref=f161e103]:
+        - navigation [ref=f161e105]:
+          - heading "Unassign earning curve" [level=1] [ref=f161e106]
+          - list
+        - generic [ref=f161e107]:
+          - paragraph [ref=f161e108]:
+            - generic [ref=f161e109]: Are you sure you want to delete this record?
+          - separator [ref=f161e110]
+          - button "Continue" [ref=f161e111] [cursor=pointer]
+          - generic [ref=f161e112]: "No"
+  - iframe [ref=f161e115]:
+    - button "Open chat" [ref=f163e1] [cursor=pointer]

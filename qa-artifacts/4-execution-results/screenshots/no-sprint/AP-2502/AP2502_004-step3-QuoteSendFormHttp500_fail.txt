@@ -1,0 +1,6 @@
+Environment: Dev (https://v2dev.garantieavantageplus.ca)
+Captured: 2026-11-03T04:58Z — dealer 1380 creditor forms GC960S:S30 only (account AP0001); quote 6567 created on vehicle 915
+Modal open from /quote/6567/details, attempt 1:
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quote/6567/details&clientEmail=client.stage.2502004@yopmail.com => 500
+Direct navigation, attempt 2:
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quote/6567/details&clientEmail=client.stage.2502004@yopmail.com => 500

@@ -1,0 +1,19 @@
+- generic [ref=f54e4]:
+  - generic [ref=f54e5]:
+    - img "Avantage plus Logo" [ref=f54e7]
+    - link "Français" [ref=f54e9] [cursor=pointer]:
+      - /url: "?_locale=fr"
+  - generic [ref=f54e13]:
+    - heading "Login" [level=1] [ref=f54e14]
+    - paragraph [ref=f54e15]: Login to your account
+    - generic [ref=f54e16]:
+      - generic [ref=f54e17]: 
+      - textbox "Courriel" [ref=f54e20]
+    - generic [ref=f54e21]:
+      - generic [ref=f54e22]: 
+      - textbox "Mot de passe" [ref=f54e25]
+    - generic [ref=f54e26]:
+      - button "Login" [ref=f54e28] [cursor=pointer]
+      - link "Forgot password?" [ref=f54e30] [cursor=pointer]:
+        - /url: /forgot-password
+  - paragraph [ref=f54e31]: © 2026 Avantage Plus Système - All rights reserved

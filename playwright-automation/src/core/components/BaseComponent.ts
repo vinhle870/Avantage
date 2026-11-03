@@ -10,10 +10,13 @@ export class BaseComponent {
     protected locator: Locator;
     protected selector: string;
 
-    constructor(page: Page, selector: string) {
+    /**
+     * @param selector - a selector string, or an existing Locator (e.g. one scoped to a section)
+     */
+    constructor(page: Page, selector: string | Locator) {
         this.page = page;
-        this.selector = selector;
-        this.locator = page.locator(selector);
+        this.selector = selector.toString();
+        this.locator = typeof selector === 'string' ? page.locator(selector) : selector;
     }
 
     /**

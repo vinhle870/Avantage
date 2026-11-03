@@ -1,0 +1,187 @@
+- generic [active] [ref=f86e1]:
+  - banner [ref=f86e2]:
+    - link [ref=f86e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f86e5]:
+      - searchbox "Search" [ref=f86e7]
+  - generic [ref=f86e8]:
+    - navigation [ref=f86e10]:
+      - list [ref=f86e11]:
+        - listitem [ref=f86e12]:
+          - link " 􏀕 Dashboard" [ref=f86e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f86e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f86e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f86e16]:
+            - generic [ref=f86e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f86e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f86e19]:
+            - generic [ref=f86e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f86e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f86e22]:
+            - generic [ref=f86e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f86e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f86e25]:
+            - generic [ref=f86e26]:  􏃀
+            - text: Users
+        - listitem [ref=f86e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f86e28]:
+            - generic [ref=f86e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f86e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f86e31]:
+            - generic [ref=f86e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f86e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f86e34]:
+            - generic [ref=f86e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f86e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f86e37]:
+            - generic [ref=f86e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f86e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f86e40]:
+            - generic [ref=f86e41]:  􏂎
+            - text: External links
+        - listitem [ref=f86e42]:
+          - link " 􏆫 Language settings" [ref=f86e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - generic [ref=f86e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f86e45]:
+          - link " 􏀑 Logout" [ref=f86e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f86e47]:  􏀑
+            - text: Logout
+    - main [ref=f86e48]:
+      - generic [ref=f86e50]:
+        - navigation [ref=f86e52]:
+          - heading "10 ans" [level=1] [ref=f86e53]
+          - list [ref=f86e54]:
+            - listitem [ref=f86e55]:
+              - link "Back" [ref=f86e56] [cursor=pointer]:
+                - /url: /admin/permaplate
+            - listitem [ref=f86e57]:
+              - link "Edit" [ref=f86e58] [cursor=pointer]:
+                - /url: /admin/permaplate-edit/3/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - listitem [ref=f86e59]:
+              - link "Add Option" [ref=f86e60] [cursor=pointer]:
+                - /url: /admin/permaplate/3/option/new/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+        - table [ref=f86e64]:
+          - rowgroup [ref=f86e65]:
+            - row [ref=f86e66]:
+              - columnheader "Option name" [ref=f86e67]
+              - columnheader "Vehicle age eligibility" [ref=f86e68]
+              - columnheader "Dealer Cost" [ref=f86e69]
+              - columnheader "Enabled" [ref=f86e70]
+              - columnheader "Translations" [ref=f86e71]
+              - columnheader "Actions" [ref=f86e72]
+          - rowgroup [ref=f86e73]:
+            - row [ref=f86e74]:
+              - cell "Peinture – Céramique + Graphene" [ref=f86e75] [cursor=pointer]
+              - cell "0" [ref=f86e76] [cursor=pointer]
+              - cell "75.00" [ref=f86e77] [cursor=pointer]
+              - cell "Yes" [ref=f86e78] [cursor=pointer]
+              - cell [ref=f86e80] [cursor=pointer]:
+                - generic [ref=f86e81]:
+                  - link "EN" [ref=f86e82]:
+                    - /url: /admin/permaplate/3/option/17/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+                  - link "FR" [ref=f86e83]:
+                    - /url: /admin/permaplate/3/option/17/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+              - cell [ref=f86e84] [cursor=pointer]:
+                - link "Edit" [ref=f86e85]:
+                  - /url: /admin/permaplate/3/option/17/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - row [ref=f86e86]:
+              - cell "Extra care (5 ans couverture )" [ref=f86e87] [cursor=pointer]
+              - cell "0" [ref=f86e88] [cursor=pointer]
+              - cell "70.00" [ref=f86e89] [cursor=pointer]
+              - cell "Yes" [ref=f86e90] [cursor=pointer]
+              - cell [ref=f86e92] [cursor=pointer]:
+                - generic [ref=f86e93]:
+                  - link "EN" [ref=f86e94]:
+                    - /url: /admin/permaplate/3/option/18/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+                  - link "FR" [ref=f86e95]:
+                    - /url: /admin/permaplate/3/option/18/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+              - cell [ref=f86e96] [cursor=pointer]:
+                - link "Edit" [ref=f86e97]:
+                  - /url: /admin/permaplate/3/option/18/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - row [ref=f86e98]:
+              - cell "Leather / Vinyl protection (Fiberguard)" [ref=f86e99] [cursor=pointer]
+              - cell "0" [ref=f86e100] [cursor=pointer]
+              - cell "70.00" [ref=f86e101] [cursor=pointer]
+              - cell "No" [ref=f86e102] [cursor=pointer]
+              - cell [ref=f86e104] [cursor=pointer]:
+                - generic [ref=f86e105]:
+                  - link "EN" [ref=f86e106]:
+                    - /url: /admin/permaplate/3/option/19/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+                  - link "FR" [ref=f86e107]:
+                    - /url: /admin/permaplate/3/option/19/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+              - cell [ref=f86e108] [cursor=pointer]:
+                - link "Edit" [ref=f86e109]:
+                  - /url: /admin/permaplate/3/option/19/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - row [ref=f86e110]:
+              - cell "Antirouille – Rust+Sound (combo)" [ref=f86e111] [cursor=pointer]
+              - cell "0" [ref=f86e112] [cursor=pointer]
+              - cell "80.00" [ref=f86e113] [cursor=pointer]
+              - cell "Yes" [ref=f86e114] [cursor=pointer]
+              - cell [ref=f86e116] [cursor=pointer]:
+                - generic [ref=f86e117]:
+                  - link "EN" [ref=f86e118]:
+                    - /url: /admin/permaplate/3/option/20/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+                  - link "FR" [ref=f86e119]:
+                    - /url: /admin/permaplate/3/option/20/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+              - cell [ref=f86e120] [cursor=pointer]:
+                - link "Edit" [ref=f86e121]:
+                  - /url: /admin/permaplate/3/option/20/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - row [ref=f86e122]:
+              - cell "Autosaver" [ref=f86e123] [cursor=pointer]
+              - cell "3" [ref=f86e124] [cursor=pointer]
+              - cell "40.00" [ref=f86e125] [cursor=pointer]
+              - cell "Yes" [ref=f86e126] [cursor=pointer]
+              - cell [ref=f86e128] [cursor=pointer]:
+                - generic [ref=f86e129]:
+                  - link "EN" [ref=f86e130]:
+                    - /url: /admin/permaplate/3/option/21/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+                  - link "FR" [ref=f86e131]:
+                    - /url: /admin/permaplate/3/option/21/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+              - cell [ref=f86e132] [cursor=pointer]:
+                - link "Edit" [ref=f86e133]:
+                  - /url: /admin/permaplate/3/option/21/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - row [ref=f86e134]:
+              - cell "Paintguard Ceramic" [ref=f86e135] [cursor=pointer]
+              - cell "0" [ref=f86e136] [cursor=pointer]
+              - cell "75.00" [ref=f86e137] [cursor=pointer]
+              - cell "No" [ref=f86e138] [cursor=pointer]
+              - cell [ref=f86e140] [cursor=pointer]:
+                - generic [ref=f86e141]:
+                  - link "EN" [ref=f86e142]:
+                    - /url: /admin/permaplate/3/option/22/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+                  - link "FR" [ref=f86e143]:
+                    - /url: /admin/permaplate/3/option/22/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+              - cell [ref=f86e144] [cursor=pointer]:
+                - link "Edit" [ref=f86e145]:
+                  - /url: /admin/permaplate/3/option/22/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+            - row [ref=f86e146]:
+              - cell "Paintguard Express" [ref=f86e147] [cursor=pointer]
+              - cell "0" [ref=f86e148] [cursor=pointer]
+              - cell "80.00" [ref=f86e149] [cursor=pointer]
+              - cell "No" [ref=f86e150] [cursor=pointer]
+              - cell [ref=f86e152] [cursor=pointer]:
+                - generic [ref=f86e153]:
+                  - link "EN" [ref=f86e154]:
+                    - /url: /admin/permaplate/3/option/23/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+                  - link "FR" [ref=f86e155]:
+                    - /url: /admin/permaplate/3/option/23/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+              - cell [ref=f86e156] [cursor=pointer]:
+                - link "Edit" [ref=f86e157]:
+                  - /url: /admin/permaplate/3/option/23/edit?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/permaplate/3/details
+  - contentinfo [ref=f86e158]:
+    - generic [ref=f86e159]:
+      - link "Avantage Plus System v2.0.0" [ref=f86e160] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

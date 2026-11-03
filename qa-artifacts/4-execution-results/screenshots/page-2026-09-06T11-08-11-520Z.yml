@@ -1,0 +1,2719 @@
+- generic [active] [ref=f71e1]:
+  - banner [ref=f71e2]:
+    - link [ref=f71e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f71e5]:
+      - searchbox "Search" [ref=f71e7]
+      - listitem [ref=f71e8]:
+        - generic [ref=f71e9]: Test QA staging
+  - generic [ref=f71e11]:
+    - navigation [ref=f71e13]:
+      - list [ref=f71e14]:
+        - listitem [ref=f71e15]:
+          - link " 􏀕 Dashboard" [ref=f71e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f71e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f71e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f71e19]:
+            - generic [ref=f71e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f71e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f71e22]:
+            - generic [ref=f71e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f71e24]:
+          - link " 􏗡 Claims" [ref=f71e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f71e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f71e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f71e28]:
+            - generic [ref=f71e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f71e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f71e31]:
+            - generic [ref=f71e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f71e33]:
+          - link " 􏀑 Logout" [ref=f71e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f71e35]:  􏀑
+            - text: Logout
+    - main [ref=f71e36]:
+      - generic [ref=f71e38]:
+        - navigation [ref=f71e40]:
+          - heading "Make a payment" [level=1] [ref=f71e41]
+          - list [ref=f71e42]:
+            - listitem [ref=f71e43]:
+              - link "Back" [ref=f71e44] [cursor=pointer]:
+                - /url: /invoice
+        - paragraph [ref=f71e45]: Please select the items you would like to pay by using the checkboxes
+        - form [ref=f71e46]:
+          - table [ref=f71e50]:
+            - rowgroup [ref=f71e51]:
+              - row [ref=f71e52]:
+                - columnheader [ref=f71e53]:
+                  - checkbox [ref=f71e54]
+                - columnheader "Invoice ID" [ref=f71e55]
+                - columnheader "Description" [ref=f71e56]
+                - columnheader "Amount" [ref=f71e57]
+                - columnheader "Created at" [ref=f71e58]
+                - columnheader "Status" [ref=f71e59]
+            - rowgroup [ref=f71e60]:
+              - row [ref=f71e61] [cursor=pointer]:
+                - cell [ref=f71e62]:
+                  - checkbox [ref=f71e63]
+                - cell [ref=f71e64]:
+                  - text: "921"
+                  - 'link "Permaplate contract #7" [ref=f71e65]':
+                    - /url: /quote/6284/permaplate-contract-download
+                - 'cell "Perma Testclient Ford Focus 2008 VIN : 1FAHP35NX8W239204 PNA-0000000000 Test QA staging vinhle870@gmail.com" [ref=f71e66]'
+                - cell "$166.71" [ref=f71e67]
+                - cell "Sunday, September 6, 2026" [ref=f71e68]
+                - cell "Payment pending" [ref=f71e69]
+              - row [ref=f71e71] [cursor=pointer]:
+                - cell [ref=f71e72]:
+                  - checkbox [ref=f71e73]
+                - cell [ref=f71e74]:
+                  - text: "909"
+                  - 'link "Warranty #829" [ref=f71e75]':
+                    - /url: /warranty/829
+                - 'cell "Vinh LeAVtage Ford Focus 2008 20000km VIN : 1FAHP35NX8W239204 Date de livraison: 2026-07-06 26df1- 20m / 20000km - 28743.75$ vinhle870@gmail.com" [ref=f71e76]'
+                - cell "$1,150.00" [ref=f71e77]
+                - cell "Sunday, July 5, 2026" [ref=f71e78]
+                - cell "Payment pending" [ref=f71e79]
+              - row [ref=f71e81] [cursor=pointer]:
+                - cell [ref=f71e82]:
+                  - checkbox [ref=f71e83]
+                - cell [ref=f71e84]:
+                  - text: "908"
+                  - 'link "Warranty #828" [ref=f71e85]':
+                    - /url: /warranty/828
+                - 'cell "Vinh Le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2026-07-01 APOP01- 100m / 20000km - 1981.01925$ vinhle870@gmail.com" [ref=f71e86]'
+                - cell "$1,981.45" [ref=f71e87]
+                - cell "Sunday, July 5, 2026" [ref=f71e88]
+                - cell "Payment pending" [ref=f71e89]
+              - row [ref=f71e91] [cursor=pointer]:
+                - cell [ref=f71e92]:
+                  - checkbox [ref=f71e93]
+                - cell [ref=f71e94]:
+                  - text: "859"
+                  - 'link "Warranty #781" [ref=f71e95]':
+                    - /url: /warranty/781
+                - 'cell "sdfsadf sfsdafa Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-12-25 AD- 12m / 20000km - 18153.40275$ vinhle870@gmail.com" [ref=f71e96]'
+                - cell "$0.00" [ref=f71e97]
+                - cell "Thursday, December 25, 2025" [ref=f71e98]
+                - cell "Payment pending" [ref=f71e99]
+              - row [ref=f71e101] [cursor=pointer]:
+                - cell [ref=f71e102]:
+                  - checkbox [ref=f71e103]
+                - cell [ref=f71e104]:
+                  - text: "801"
+                  - 'link "Warranty #727" [ref=f71e105]':
+                    - /url: /warranty/727
+                - 'cell "Vinh LE Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-01-24 26df1- 20m / 20000km - 101.178$ vinhle870@gmail.com" [ref=f71e106]'
+                - cell "$0.00" [ref=f71e107]
+                - cell "Thursday, January 23, 2025" [ref=f71e108]
+                - cell "Payment pending" [ref=f71e109]
+              - row [ref=f71e111] [cursor=pointer]:
+                - cell [ref=f71e112]:
+                  - checkbox [ref=f71e113]
+                - cell [ref=f71e114]:
+                  - text: "797"
+                  - 'link "Warranty #723" [ref=f71e115]':
+                    - /url: /warranty/723
+                - 'cell "Vinh LE Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2025-01-17 APAP OP3- 12m / 20000km - 101.178$ vinhle870@gmail.com" [ref=f71e116]'
+                - cell "$-1.00" [ref=f71e117]
+                - cell "Friday, January 17, 2025" [ref=f71e118]
+                - cell "Payment pending" [ref=f71e119]
+              - row [ref=f71e121] [cursor=pointer]:
+                - cell [ref=f71e122]:
+                  - checkbox [ref=f71e123]
+                - cell [ref=f71e124]:
+                  - text: "564"
+                  - 'link "Warranty #589" [ref=f71e125]':
+                    - /url: /warranty/589
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e126]'
+                - cell "$131.25" [ref=f71e127]
+                - cell "Sunday, April 30, 2023" [ref=f71e128]
+                - cell "Payment pending" [ref=f71e129]
+              - row [ref=f71e131] [cursor=pointer]:
+                - cell [ref=f71e132]:
+                  - checkbox [ref=f71e133]
+                - cell [ref=f71e134]:
+                  - text: "563"
+                  - 'link "Warranty #588" [ref=f71e135]':
+                    - /url: /warranty/588
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e136]'
+                - cell "$131.25" [ref=f71e137]
+                - cell "Sunday, April 30, 2023" [ref=f71e138]
+                - cell "Payment pending" [ref=f71e139]
+              - row [ref=f71e141] [cursor=pointer]:
+                - cell [ref=f71e142]:
+                  - checkbox [ref=f71e143]
+                - cell [ref=f71e144]:
+                  - text: "562"
+                  - 'link "Warranty #587" [ref=f71e145]':
+                    - /url: /warranty/587
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e146]'
+                - cell "$131.25" [ref=f71e147]
+                - cell "Sunday, April 30, 2023" [ref=f71e148]
+                - cell "Payment pending" [ref=f71e149]
+              - row [ref=f71e151] [cursor=pointer]:
+                - cell [ref=f71e152]:
+                  - checkbox [ref=f71e153]
+                - cell [ref=f71e154]:
+                  - text: "561"
+                  - 'link "Warranty #586" [ref=f71e155]':
+                    - /url: /warranty/586
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e156]'
+                - cell "$131.25" [ref=f71e157]
+                - cell "Sunday, April 30, 2023" [ref=f71e158]
+                - cell "Payment pending" [ref=f71e159]
+              - row [ref=f71e161] [cursor=pointer]:
+                - cell [ref=f71e162]:
+                  - checkbox [ref=f71e163]
+                - cell [ref=f71e164]:
+                  - text: "559"
+                  - 'link "Warranty #584" [ref=f71e165]':
+                    - /url: /warranty/584
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e166]'
+                - cell "$131.25" [ref=f71e167]
+                - cell "Sunday, April 30, 2023" [ref=f71e168]
+                - cell "Payment pending" [ref=f71e169]
+              - row [ref=f71e171] [cursor=pointer]:
+                - cell [ref=f71e172]:
+                  - checkbox [ref=f71e173]
+                - cell [ref=f71e174]:
+                  - text: "558"
+                  - 'link "Warranty #583" [ref=f71e175]':
+                    - /url: /warranty/583
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e176]'
+                - cell "$131.25" [ref=f71e177]
+                - cell "Sunday, April 30, 2023" [ref=f71e178]
+                - cell "Payment pending" [ref=f71e179]
+              - row [ref=f71e181] [cursor=pointer]:
+                - cell [ref=f71e182]:
+                  - checkbox [ref=f71e183]
+                - cell [ref=f71e184]:
+                  - text: "557"
+                  - 'link "Warranty #582" [ref=f71e185]':
+                    - /url: /warranty/582
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e186]'
+                - cell "$131.25" [ref=f71e187]
+                - cell "Sunday, April 30, 2023" [ref=f71e188]
+                - cell "Payment pending" [ref=f71e189]
+              - row [ref=f71e191] [cursor=pointer]:
+                - cell [ref=f71e192]:
+                  - checkbox [ref=f71e193]
+                - cell [ref=f71e194]:
+                  - text: "556"
+                  - 'link "Warranty #581" [ref=f71e195]':
+                    - /url: /warranty/581
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e196]'
+                - cell "$131.25" [ref=f71e197]
+                - cell "Sunday, April 30, 2023" [ref=f71e198]
+                - cell "Payment pending" [ref=f71e199]
+              - row [ref=f71e201] [cursor=pointer]:
+                - cell [ref=f71e202]:
+                  - checkbox [ref=f71e203]
+                - cell [ref=f71e204]:
+                  - text: "555"
+                  - 'link "Warranty #580" [ref=f71e205]':
+                    - /url: /warranty/580
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e206]'
+                - cell "$131.25" [ref=f71e207]
+                - cell "Sunday, April 30, 2023" [ref=f71e208]
+                - cell "Payment pending" [ref=f71e209]
+              - row [ref=f71e211] [cursor=pointer]:
+                - cell [ref=f71e212]:
+                  - checkbox [ref=f71e213]
+                - cell [ref=f71e214]:
+                  - text: "554"
+                  - 'link "Warranty #579" [ref=f71e215]':
+                    - /url: /warranty/579
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e216]'
+                - cell "$131.25" [ref=f71e217]
+                - cell "Sunday, April 30, 2023" [ref=f71e218]
+                - cell "Payment pending" [ref=f71e219]
+              - row [ref=f71e221] [cursor=pointer]:
+                - cell [ref=f71e222]:
+                  - checkbox [ref=f71e223]
+                - cell [ref=f71e224]:
+                  - text: "553"
+                  - 'link "Warranty #578" [ref=f71e225]':
+                    - /url: /warranty/578
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e226]'
+                - cell "$131.25" [ref=f71e227]
+                - cell "Sunday, April 30, 2023" [ref=f71e228]
+                - cell "Payment pending" [ref=f71e229]
+              - row [ref=f71e231] [cursor=pointer]:
+                - cell [ref=f71e232]:
+                  - checkbox [ref=f71e233]
+                - cell [ref=f71e234]:
+                  - text: "552"
+                  - 'link "Warranty #577" [ref=f71e235]':
+                    - /url: /warranty/577
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e236]'
+                - cell "$131.25" [ref=f71e237]
+                - cell "Sunday, April 30, 2023" [ref=f71e238]
+                - cell "Payment pending" [ref=f71e239]
+              - row [ref=f71e241] [cursor=pointer]:
+                - cell [ref=f71e242]:
+                  - checkbox [ref=f71e243]
+                - cell [ref=f71e244]:
+                  - text: "551"
+                  - 'link "Warranty #576" [ref=f71e245]':
+                    - /url: /warranty/576
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e246]'
+                - cell "$131.25" [ref=f71e247]
+                - cell "Sunday, April 30, 2023" [ref=f71e248]
+                - cell "Payment pending" [ref=f71e249]
+              - row [ref=f71e251] [cursor=pointer]:
+                - cell [ref=f71e252]:
+                  - checkbox [ref=f71e253]
+                - cell [ref=f71e254]:
+                  - text: "550"
+                  - 'link "Warranty #575" [ref=f71e255]':
+                    - /url: /warranty/575
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e256]'
+                - cell "$131.25" [ref=f71e257]
+                - cell "Sunday, April 30, 2023" [ref=f71e258]
+                - cell "Payment pending" [ref=f71e259]
+              - row [ref=f71e261] [cursor=pointer]:
+                - cell [ref=f71e262]:
+                  - checkbox [ref=f71e263]
+                - cell [ref=f71e264]:
+                  - text: "549"
+                  - 'link "Warranty #574" [ref=f71e265]':
+                    - /url: /warranty/574
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 22050$ vinhle870@gmail.com" [ref=f71e266]'
+                - cell "$143.72" [ref=f71e267]
+                - cell "Sunday, April 30, 2023" [ref=f71e268]
+                - cell "Payment pending" [ref=f71e269]
+              - row [ref=f71e271] [cursor=pointer]:
+                - cell [ref=f71e272]:
+                  - checkbox [ref=f71e273]
+                - cell [ref=f71e274]:
+                  - text: "543"
+                  - 'link "Warranty #567" [ref=f71e275]':
+                    - /url: /warranty/567
+                - 'cell "vinh le MakeExample PWC model 2020 1111km VIN : Date de livraison: 2023-02-04 TP- 12m / 25000km - 113$" [ref=f71e276]'
+                - cell "$107.10" [ref=f71e277]
+                - cell "Friday, February 3, 2023" [ref=f71e278]
+                - cell "Payment pending" [ref=f71e279]
+              - row [ref=f71e281] [cursor=pointer]:
+                - cell [ref=f71e282]:
+                  - checkbox [ref=f71e283]
+                - cell [ref=f71e284]:
+                  - text: "542"
+                  - 'link "Warranty #566" [ref=f71e285]':
+                    - /url: /warranty/566
+                - 'cell "firstName lastName Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 24144.75$" [ref=f71e286]'
+                - cell "$143.75" [ref=f71e287]
+                - cell "Sunday, January 29, 2023" [ref=f71e288]
+                - cell "Payment pending" [ref=f71e289]
+              - row [ref=f71e291] [cursor=pointer]:
+                - cell [ref=f71e292]:
+                  - checkbox [ref=f71e293]
+                - cell [ref=f71e294]:
+                  - text: "541"
+                  - 'link "Warranty #565" [ref=f71e295]':
+                    - /url: /warranty/565
+                - 'cell "Testing Eligibility Mercedes-Benz C-Class 2017 10000km VIN : wddwj4kb2hf391972 Date de livraison: 2021-05-07 AT-22" [ref=f71e296]'
+                - cell "$115.00" [ref=f71e297]
+                - cell "Sunday, January 29, 2023" [ref=f71e298]
+                - cell "Payment pending" [ref=f71e299]
+              - row [ref=f71e301] [cursor=pointer]:
+                - cell [ref=f71e302]:
+                  - checkbox [ref=f71e303]
+                - cell [ref=f71e304]:
+                  - text: "540"
+                  - 'link "Warranty #565" [ref=f71e305]':
+                    - /url: /warranty/565
+                - 'cell "vinh le Forest River RV Berkshire 2020 20000km VIN : 2222 Date de livraison: 2022-11-11 APAP OP3- 12m / 20000km - 2300$" [ref=f71e306]'
+                - cell "$232.30" [ref=f71e307]
+                - cell "Sunday, January 29, 2023" [ref=f71e308]
+                - cell "Payment pending" [ref=f71e309]
+              - row [ref=f71e311] [cursor=pointer]:
+                - cell [ref=f71e312]:
+                  - checkbox [ref=f71e313]
+                - cell [ref=f71e314]:
+                  - text: "539"
+                  - 'link "Warranty #564" [ref=f71e315]':
+                    - /url: /warranty/564
+                - 'cell "vinh le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-11-03 APOP01- 100m / 20000km - 3150$" [ref=f71e316]'
+                - cell "$131.25" [ref=f71e317]
+                - cell "Thursday, November 3, 2022" [ref=f71e318]
+                - cell "Payment pending" [ref=f71e319]
+              - row [ref=f71e321] [cursor=pointer]:
+                - cell [ref=f71e322]:
+                  - checkbox [ref=f71e323]
+                - cell [ref=f71e324]:
+                  - text: "538"
+                  - 'link "Warranty #559" [ref=f71e325]':
+                    - /url: /warranty/559
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 2299.5$" [ref=f71e326]'
+                - cell "$143.72" [ref=f71e327]
+                - cell "Sunday, October 9, 2022" [ref=f71e328]
+                - cell "Payment pending" [ref=f71e329]
+              - row [ref=f71e331] [cursor=pointer]:
+                - cell [ref=f71e332]:
+                  - checkbox [ref=f71e333]
+                - cell [ref=f71e334]:
+                  - text: "537"
+                  - 'link "Warranty #558" [ref=f71e335]':
+                    - /url: /warranty/558
+                - 'cell "vinh le Barletta C-Class 2020 2222km VIN : Date de livraison: 2022-10-09 APOP01- 100m / 20000km - 2299.5$" [ref=f71e336]'
+                - cell "$236.85" [ref=f71e337]
+                - cell "Sunday, October 9, 2022" [ref=f71e338]
+                - cell "Payment pending" [ref=f71e339]
+              - row [ref=f71e341] [cursor=pointer]:
+                - cell [ref=f71e342]:
+                  - checkbox [ref=f71e343]
+                - cell [ref=f71e344]:
+                  - text: "535"
+                  - 'link "Warranty #556" [ref=f71e345]':
+                    - /url: /warranty/556
+                - 'cell "vinh le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-10-09 APOP01- 100m / 20000km - 2260$" [ref=f71e346]'
+                - cell "$141.25" [ref=f71e347]
+                - cell "Sunday, October 9, 2022" [ref=f71e348]
+                - cell "Payment pending" [ref=f71e349]
+              - row [ref=f71e351] [cursor=pointer]:
+                - cell [ref=f71e352]:
+                  - checkbox [ref=f71e353]
+                - cell [ref=f71e354]:
+                  - text: "534"
+                  - 'link "Warranty #555" [ref=f71e355]':
+                    - /url: /warranty/555
+                - cell [ref=f71e356]
+                - cell "$141.25" [ref=f71e357]
+                - cell "Sunday, September 25, 2022" [ref=f71e358]
+                - cell "Payment pending" [ref=f71e359]
+              - row [ref=f71e361] [cursor=pointer]:
+                - cell [ref=f71e362]:
+                  - checkbox [ref=f71e363]
+                - cell [ref=f71e364]:
+                  - text: "533"
+                  - 'link "Warranty #555" [ref=f71e365]':
+                    - /url: /warranty/555
+                - 'cell "vinh le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-09-20 APOP01- 100m / 20000km - 2260$" [ref=f71e366]'
+                - cell "$141.25" [ref=f71e367]
+                - cell "Tuesday, September 20, 2022" [ref=f71e368]
+                - cell "Payment pending" [ref=f71e369]
+              - row [ref=f71e371] [cursor=pointer]:
+                - cell [ref=f71e372]:
+                  - checkbox [ref=f71e373]
+                - cell [ref=f71e374]:
+                  - text: "532"
+                  - 'link "Warranty #554" [ref=f71e375]':
+                    - /url: /warranty/554
+                - 'cell "vinh le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-09-20 APOP01- 100m / 20000km - 2260$" [ref=f71e376]'
+                - cell "$141.25" [ref=f71e377]
+                - cell "Tuesday, September 20, 2022" [ref=f71e378]
+                - cell "Payment pending" [ref=f71e379]
+              - row [ref=f71e381] [cursor=pointer]:
+                - cell [ref=f71e382]:
+                  - checkbox [ref=f71e383]
+                - cell [ref=f71e384]:
+                  - text: "531"
+                  - 'link "Warranty #553" [ref=f71e385]':
+                    - /url: /warranty/553
+                - 'cell "vinh le Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-09-20 APOP01- 100m / 20000km - 2260$" [ref=f71e386]'
+                - cell "$141.25" [ref=f71e387]
+                - cell "Tuesday, September 20, 2022" [ref=f71e388]
+                - cell "Payment pending" [ref=f71e389]
+              - row [ref=f71e391] [cursor=pointer]:
+                - cell [ref=f71e392]:
+                  - checkbox [ref=f71e393]
+                - cell [ref=f71e394]:
+                  - text: "530"
+                  - 'link "Warranty #552" [ref=f71e395]':
+                    - /url: /warranty/552
+                - 'cell "vinh le CHUNFENG HOLDING GROUP HANGZHOU MOTORCYCLES Chunfeng Holding Group Hangzhou Motorcycles 2020 20000km VIN : 11111 Date de livraison: 2022-09-20 APAP OP3- 12m / 20000km - 2260$" [ref=f71e396]'
+                - cell "$226.00" [ref=f71e397]
+                - cell "Tuesday, September 20, 2022" [ref=f71e398]
+                - cell "Payment pending" [ref=f71e399]
+              - row [ref=f71e401] [cursor=pointer]:
+                - cell [ref=f71e402]:
+                  - checkbox [ref=f71e403]
+                - cell [ref=f71e404]:
+                  - text: "529"
+                  - 'link "Warranty #551" [ref=f71e405]':
+                    - /url: /warranty/551
+                - 'cell "vinh le Piaggio Vespa 2020 20000km VIN : 11111 Date de livraison: 2022-09-20 APAP OP2- 24m / 20000km - 2260$" [ref=f71e406]'
+                - cell "$226.00" [ref=f71e407]
+                - cell "Tuesday, September 20, 2022" [ref=f71e408]
+                - cell "Payment pending" [ref=f71e409]
+              - row [ref=f71e411] [cursor=pointer]:
+                - cell [ref=f71e412]:
+                  - checkbox [ref=f71e413]
+                - cell [ref=f71e414]:
+                  - text: "528"
+                  - 'link "Warranty #550" [ref=f71e415]':
+                    - /url: /warranty/550
+                - 'cell "vinh le Lambro Lambrett FLI175 2020 20000km VIN : 11111 Date de livraison: 2022-09-11 APAP OP2- 36m / 20000km - 113$" [ref=f71e416]'
+                - cell "$226.00" [ref=f71e417]
+                - cell "Tuesday, September 20, 2022" [ref=f71e418]
+                - cell "Payment pending" [ref=f71e419]
+              - row [ref=f71e421] [cursor=pointer]:
+                - cell [ref=f71e422]:
+                  - checkbox [ref=f71e423]
+                - cell [ref=f71e424]:
+                  - text: "527"
+                  - 'link "Warranty #549" [ref=f71e425]':
+                    - /url: /warranty/549
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 2000.00$" [ref=f71e426]'
+                - cell "$141.25" [ref=f71e427]
+                - cell "Tuesday, September 20, 2022" [ref=f71e428]
+                - cell "Payment pending" [ref=f71e429]
+              - row [ref=f71e431] [cursor=pointer]:
+                - cell [ref=f71e432]:
+                  - checkbox [ref=f71e433]
+                - cell [ref=f71e434]:
+                  - text: "526"
+                  - 'link "Warranty #548" [ref=f71e435]':
+                    - /url: /warranty/548
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-09-20 APOP01- 100m / 20000km - 2000.00$" [ref=f71e436]'
+                - cell "$141.25" [ref=f71e437]
+                - cell "Tuesday, September 20, 2022" [ref=f71e438]
+                - cell "Payment pending" [ref=f71e439]
+              - row [ref=f71e441] [cursor=pointer]:
+                - cell [ref=f71e442]:
+                  - checkbox [ref=f71e443]
+                - cell [ref=f71e444]:
+                  - text: "525"
+                  - 'link "Warranty #547" [ref=f71e445]':
+                    - /url: /warranty/547
+                - 'cell "Automation Test Automation Test Lambro Lambrett FLI175 2020 20000km VIN : 11111 Date de livraison: 2022-09-20 APAP OP3- 12m / 20000km - 2000.00$" [ref=f71e446]'
+                - cell "$226.00" [ref=f71e447]
+                - cell "Tuesday, September 20, 2022" [ref=f71e448]
+                - cell "Payment pending" [ref=f71e449]
+              - row [ref=f71e451] [cursor=pointer]:
+                - cell [ref=f71e452]:
+                  - checkbox [ref=f71e453]
+                - cell [ref=f71e454]:
+                  - text: "524"
+                  - 'link "Warranty #546" [ref=f71e455]':
+                    - /url: /warranty/546
+                - 'cell "Automation Test Automation Test DUCATI Multistrada 950, Multistrada 1260 2020 20000km VIN : 11111 Date de livraison: 2022-09-20 APAP OP2- 12m / 10000km - 2000.00$" [ref=f71e456]'
+                - cell "$251.99" [ref=f71e457]
+                - cell "Tuesday, September 20, 2022" [ref=f71e458]
+                - cell "Payment pending" [ref=f71e459]
+              - row [ref=f71e461] [cursor=pointer]:
+                - cell [ref=f71e462]:
+                  - checkbox [ref=f71e463]
+                - cell [ref=f71e464]:
+                  - text: "521"
+                  - 'link "Warranty #543" [ref=f71e465]':
+                    - /url: /warranty/543
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 21000.00$" [ref=f71e466]'
+                - cell "$141.25" [ref=f71e467]
+                - cell "Thursday, September 15, 2022" [ref=f71e468]
+                - cell "Payment pending" [ref=f71e469]
+              - row [ref=f71e471] [cursor=pointer]:
+                - cell [ref=f71e472]:
+                  - checkbox [ref=f71e473]
+                - cell [ref=f71e474]:
+                  - text: "520"
+                  - 'link "Warranty #542" [ref=f71e475]':
+                    - /url: /warranty/542
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 21000.00$" [ref=f71e476]'
+                - cell "$141.25" [ref=f71e477]
+                - cell "Thursday, September 15, 2022" [ref=f71e478]
+                - cell "Payment pending" [ref=f71e479]
+              - row [ref=f71e481] [cursor=pointer]:
+                - cell [ref=f71e482]:
+                  - checkbox [ref=f71e483]
+                - cell [ref=f71e484]:
+                  - text: "519"
+                  - 'link "Warranty #541" [ref=f71e485]':
+                    - /url: /warranty/541
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 21000.00$" [ref=f71e486]'
+                - cell "$141.25" [ref=f71e487]
+                - cell "Thursday, September 15, 2022" [ref=f71e488]
+                - cell "Payment pending" [ref=f71e489]
+              - row [ref=f71e491] [cursor=pointer]:
+                - cell [ref=f71e492]:
+                  - checkbox [ref=f71e493]
+                - cell [ref=f71e494]:
+                  - text: "518"
+                  - 'link "Warranty #540" [ref=f71e495]':
+                    - /url: /warranty/540
+                - 'cell "vinh le Axis A20 2020 20000km VIN : Date de livraison: 2022-08-15 APOP01- 100m / 20000km - 2260$" [ref=f71e496]'
+                - cell "$254.25" [ref=f71e497]
+                - cell "Monday, August 15, 2022" [ref=f71e498]
+                - cell "Payment pending" [ref=f71e499]
+              - row [ref=f71e501] [cursor=pointer]:
+                - cell [ref=f71e502]:
+                  - checkbox [ref=f71e503]
+                - cell [ref=f71e504]:
+                  - text: "517"
+                  - 'link "Warranty #539" [ref=f71e505]':
+                    - /url: /warranty/539
+                - 'cell "vinh le Ford 2022 20000km VIN : WF0KXXGCBKBL75257 Date de livraison: 2022-07-06 APOP01- 100m / 20000km - 1130$" [ref=f71e506]'
+                - cell "$259.90" [ref=f71e507]
+                - cell "Monday, August 15, 2022" [ref=f71e508]
+                - cell "Payment pending" [ref=f71e509]
+              - row [ref=f71e511] [cursor=pointer]:
+                - cell [ref=f71e512]:
+                  - checkbox [ref=f71e513]
+                - cell [ref=f71e514]:
+                  - text: "513"
+                  - 'link "Warranty #535" [ref=f71e515]':
+                    - /url: /warranty/535
+                - 'cell "vinh le KAWASAKI Jet Ski STX-15F 2020 20000km VIN : Date de livraison: 2022-07-11 APOP01- 100m / 20000km - 1130$" [ref=f71e516]'
+                - cell "$259.90" [ref=f71e517]
+                - cell "Thursday, July 14, 2022" [ref=f71e518]
+                - cell "Payment pending" [ref=f71e519]
+              - row [ref=f71e521] [cursor=pointer]:
+                - cell [ref=f71e522]:
+                  - checkbox [ref=f71e523]
+                - cell [ref=f71e524]:
+                  - text: "511"
+                  - 'link "Warranty #533" [ref=f71e525]':
+                    - /url: /warranty/533
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 21000.00$" [ref=f71e526]'
+                - cell "$146.90" [ref=f71e527]
+                - cell "Sunday, July 3, 2022" [ref=f71e528]
+                - cell "Payment pending" [ref=f71e529]
+              - row [ref=f71e531] [cursor=pointer]:
+                - cell [ref=f71e532]:
+                  - checkbox [ref=f71e533]
+                - cell [ref=f71e534]:
+                  - text: "510"
+                  - 'link "Warranty #532" [ref=f71e535]':
+                    - /url: /warranty/532
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 2000.00$" [ref=f71e536]'
+                - cell "$146.90" [ref=f71e537]
+                - cell "Thursday, June 30, 2022" [ref=f71e538]
+                - cell "Payment pending" [ref=f71e539]
+              - row [ref=f71e541] [cursor=pointer]:
+                - cell [ref=f71e542]:
+                  - checkbox [ref=f71e543]
+                - cell [ref=f71e544]:
+                  - text: "509"
+                  - 'link "Warranty #531" [ref=f71e545]':
+                    - /url: /warranty/531
+                - 'cell "Automation Test Automation Test ARCTIC CAT Arctic Cat 2011 10000km VIN : 2222 Date de livraison: 2022-06-23 AX- 12m / 20000km - 21000.00$" [ref=f71e546]'
+                - cell "$259.90" [ref=f71e547]
+                - cell "Thursday, June 30, 2022" [ref=f71e548]
+                - cell "Payment pending" [ref=f71e549]
+              - row [ref=f71e551] [cursor=pointer]:
+                - cell [ref=f71e552]:
+                  - checkbox [ref=f71e553]
+                - cell [ref=f71e554]:
+                  - text: "506"
+                  - 'link "Warranty #528" [ref=f71e555]':
+                    - /url: /warranty/528
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 1000.00$" [ref=f71e556]'
+                - cell "$146.90" [ref=f71e557]
+                - cell "Monday, June 13, 2022" [ref=f71e558]
+                - cell "Payment pending" [ref=f71e559]
+              - row [ref=f71e561] [cursor=pointer]:
+                - cell [ref=f71e562]:
+                  - checkbox [ref=f71e563]
+                - cell [ref=f71e564]:
+                  - text: "505"
+                  - 'link "Warranty #527" [ref=f71e565]':
+                    - /url: /warranty/527
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 1000.00$" [ref=f71e566]'
+                - cell "$167.24" [ref=f71e567]
+                - cell "Monday, June 13, 2022" [ref=f71e568]
+                - cell "Payment pending" [ref=f71e569]
+              - row [ref=f71e571] [cursor=pointer]:
+                - cell [ref=f71e572]:
+                  - checkbox [ref=f71e573]
+                - cell [ref=f71e574]:
+                  - text: "504"
+                  - 'link "Warranty #526" [ref=f71e575]':
+                    - /url: /warranty/526
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-04 APOP01- 100m / 20000km - 21000.00$" [ref=f71e576]'
+                - cell "$146.90" [ref=f71e577]
+                - cell "Monday, June 13, 2022" [ref=f71e578]
+                - cell "Payment pending" [ref=f71e579]
+              - row [ref=f71e581] [cursor=pointer]:
+                - cell [ref=f71e582]:
+                  - checkbox [ref=f71e583]
+                - cell [ref=f71e584]:
+                  - text: "503"
+                  - 'link "Warranty #525" [ref=f71e585]':
+                    - /url: /warranty/525
+                - 'cell "Automation Test Automation Test Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-30 APAP OP3- 12m / 20000km - 21000.00$" [ref=f71e586]'
+                - cell "$113.00" [ref=f71e587]
+                - cell "Sunday, June 12, 2022" [ref=f71e588]
+                - cell "Payment pending" [ref=f71e589]
+              - row [ref=f71e591] [cursor=pointer]:
+                - cell [ref=f71e592]:
+                  - checkbox [ref=f71e593]
+                - cell [ref=f71e594]:
+                  - text: "502"
+                  - 'link "Warranty #523" [ref=f71e595]':
+                    - /url: /warranty/523
+                - 'cell "sdfs sdfsdfds Fiat 500 2015 20000km VIN : 33333333 Date de livraison: 2022-06-01 APOP01- 100m / 20000km - 1130$" [ref=f71e596]'
+                - cell "$146.90" [ref=f71e597]
+                - cell "Wednesday, June 8, 2022" [ref=f71e598]
+                - cell "Payment pending" [ref=f71e599]
+              - row [ref=f71e601] [cursor=pointer]:
+                - cell [ref=f71e602]:
+                  - checkbox [ref=f71e603]
+                - cell [ref=f71e604]:
+                  - text: "498"
+                  - 'link "Warranty #519" [ref=f71e605]':
+                    - /url: /warranty/519
+                - 'cell "sdfdsf dfsdf Alumacraft 165 Prowler 2020 1000km VIN : Date de livraison: 2022-04-08 APOP01- 100m / 20000km - 1000.00$" [ref=f71e606]'
+                - cell "$148.05" [ref=f71e607]
+                - cell "Tuesday, April 19, 2022" [ref=f71e608]
+                - cell "Payment pending" [ref=f71e609]
+              - row [ref=f71e611] [cursor=pointer]:
+                - cell [ref=f71e612]:
+                  - checkbox [ref=f71e613]
+                - cell [ref=f71e614]:
+                  - text: "497"
+                  - 'link "Warranty #518" [ref=f71e615]':
+                    - /url: /warranty/518
+                - 'cell "vinh le BMW 128i 2019 20000km VIN : 7800013 Date de livraison: 2022-04-14 AT- 36m / 60000km - 1149.75$" [ref=f71e616]'
+                - cell "$667.80" [ref=f71e617]
+                - cell "Wednesday, April 13, 2022" [ref=f71e618]
+                - cell "Payment pending" [ref=f71e619]
+              - row [ref=f71e621] [cursor=pointer]:
+                - cell [ref=f71e622]:
+                  - checkbox [ref=f71e623]
+                - cell [ref=f71e624]:
+                  - text: "496"
+                  - 'link "Warranty #516" [ref=f71e625]':
+                    - /url: /warranty/516
+                - 'cell "sdfsd sdfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01-516 100m / 20000km - 1149.75$" [ref=f71e626]'
+                - cell "$148.05" [ref=f71e627]
+                - cell "Wednesday, April 13, 2022" [ref=f71e628]
+                - cell "Payment pending" [ref=f71e629]
+              - row [ref=f71e631] [cursor=pointer]:
+                - cell [ref=f71e632]:
+                  - checkbox [ref=f71e633]
+                - cell [ref=f71e634]:
+                  - text: "494"
+                  - 'link "Warranty #516" [ref=f71e635]':
+                    - /url: /warranty/516
+                - 'cell "sdfsd sdfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1149.75$" [ref=f71e636]'
+                - cell "$148.05" [ref=f71e637]
+                - cell "Wednesday, April 6, 2022" [ref=f71e638]
+                - cell "Payment pending" [ref=f71e639]
+              - row [ref=f71e641] [cursor=pointer]:
+                - cell [ref=f71e642]:
+                  - checkbox [ref=f71e643]
+                - cell [ref=f71e644]:
+                  - text: "493"
+                  - 'link "Warranty #515" [ref=f71e645]':
+                    - /url: /warranty/515
+                - 'cell "dfdsf sdfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1130$" [ref=f71e646]'
+                - cell "$159.33" [ref=f71e647]
+                - cell "Wednesday, April 6, 2022" [ref=f71e648]
+                - cell "Payment pending" [ref=f71e649]
+              - row [ref=f71e651] [cursor=pointer]:
+                - cell [ref=f71e652]:
+                  - checkbox [ref=f71e653]
+                - cell [ref=f71e654]:
+                  - text: "492"
+                  - 'link "Warranty #514" [ref=f71e655]':
+                    - /url: /warranty/514
+                - 'cell "sdfsd sdfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1149.75$" [ref=f71e656]'
+                - cell "$148.05" [ref=f71e657]
+                - cell "Wednesday, April 6, 2022" [ref=f71e658]
+                - cell "Payment pending" [ref=f71e659]
+              - row [ref=f71e661] [cursor=pointer]:
+                - cell [ref=f71e662]:
+                  - checkbox [ref=f71e663]
+                - cell [ref=f71e664]:
+                  - text: "491"
+                  - 'link "Warranty #513" [ref=f71e665]':
+                    - /url: /warranty/513
+                - 'cell "sdfsd dfdsf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1150$" [ref=f71e666]'
+                - cell "$162.15" [ref=f71e667]
+                - cell "Wednesday, April 6, 2022" [ref=f71e668]
+                - cell "Payment pending" [ref=f71e669]
+              - row [ref=f71e671] [cursor=pointer]:
+                - cell [ref=f71e672]:
+                  - checkbox [ref=f71e673]
+                - cell [ref=f71e674]:
+                  - text: "490"
+                  - 'link "Warranty #512" [ref=f71e675]':
+                    - /url: /warranty/512
+                - 'cell "dsfds afsdfsdf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1150$" [ref=f71e676]'
+                - cell "$162.15" [ref=f71e677]
+                - cell "Wednesday, April 6, 2022" [ref=f71e678]
+                - cell "Payment pending" [ref=f71e679]
+              - row [ref=f71e681] [cursor=pointer]:
+                - cell [ref=f71e682]:
+                  - checkbox [ref=f71e683]
+                - cell [ref=f71e684]:
+                  - text: "489"
+                  - 'link "Warranty #511" [ref=f71e685]':
+                    - /url: /warranty/511
+                - 'cell "sfs dfdsfs Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1110$" [ref=f71e686]'
+                - cell "$156.51" [ref=f71e687]
+                - cell "Wednesday, April 6, 2022" [ref=f71e688]
+                - cell "Payment pending" [ref=f71e689]
+              - row [ref=f71e691] [cursor=pointer]:
+                - cell [ref=f71e692]:
+                  - checkbox [ref=f71e693]
+                - cell [ref=f71e694]:
+                  - text: "488"
+                  - 'link "Warranty #510" [ref=f71e695]':
+                    - /url: /warranty/510
+                - 'cell "sdfds sdfdsf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1120$" [ref=f71e696]'
+                - cell "$157.92" [ref=f71e697]
+                - cell "Wednesday, April 6, 2022" [ref=f71e698]
+                - cell "Payment pending" [ref=f71e699]
+              - row [ref=f71e701] [cursor=pointer]:
+                - cell [ref=f71e702]:
+                  - checkbox [ref=f71e703]
+                - cell [ref=f71e704]:
+                  - text: "487"
+                  - 'link "Warranty #509" [ref=f71e705]':
+                    - /url: /warranty/509
+                - 'cell "sdfsd sdfdsf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2020-06-06 APOP01- 100m / 20000km - 1120$" [ref=f71e706]'
+                - cell "$157.92" [ref=f71e707]
+                - cell "Wednesday, April 6, 2022" [ref=f71e708]
+                - cell "Payment pending" [ref=f71e709]
+              - row [ref=f71e711] [cursor=pointer]:
+                - cell [ref=f71e712]:
+                  - checkbox [ref=f71e713]
+                - cell [ref=f71e714]:
+                  - text: "486"
+                  - 'link "Warranty #508" [ref=f71e715]':
+                    - /url: /warranty/508
+                - 'cell "sdfs sdfsf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1150$" [ref=f71e716]'
+                - cell "$162.15" [ref=f71e717]
+                - cell "Wednesday, April 6, 2022" [ref=f71e718]
+                - cell "Payment pending" [ref=f71e719]
+              - row [ref=f71e721] [cursor=pointer]:
+                - cell [ref=f71e722]:
+                  - checkbox [ref=f71e723]
+                - cell [ref=f71e724]:
+                  - text: "485"
+                  - 'link "Warranty #507" [ref=f71e725]':
+                    - /url: /warranty/507
+                - 'cell "dfdsfs@sfdsfsd.com sdfdsfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1130$" [ref=f71e726]'
+                - cell "$159.33" [ref=f71e727]
+                - cell "Wednesday, April 6, 2022" [ref=f71e728]
+                - cell "Payment pending" [ref=f71e729]
+              - row [ref=f71e731] [cursor=pointer]:
+                - cell [ref=f71e732]:
+                  - checkbox [ref=f71e733]
+                - cell [ref=f71e734]:
+                  - text: "484"
+                  - 'link "Warranty #506" [ref=f71e735]':
+                    - /url: /warranty/506
+                - 'cell "dsfsd sdfds Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-04-06 APOP01- 100m / 20000km - 1150$" [ref=f71e736]'
+                - cell "$162.15" [ref=f71e737]
+                - cell "Wednesday, April 6, 2022" [ref=f71e738]
+                - cell "Payment pending" [ref=f71e739]
+              - row [ref=f71e741] [cursor=pointer]:
+                - cell [ref=f71e742]:
+                  - checkbox [ref=f71e743]
+                - cell [ref=f71e744]:
+                  - text: "483"
+                  - 'link "Warranty #505" [ref=f71e745]':
+                    - /url: /warranty/505
+                - 'cell "vinh le BMW 128i 2019 20000km VIN : 8949188 Date de livraison: 2022-03-01 APOP01- 100m / 20000km - 1149.75$" [ref=f71e746]'
+                - cell "$162.11" [ref=f71e747]
+                - cell "Wednesday, April 6, 2022" [ref=f71e748]
+                - cell "Payment pending" [ref=f71e749]
+              - row [ref=f71e751] [cursor=pointer]:
+                - cell [ref=f71e752]:
+                  - checkbox [ref=f71e753]
+                - cell [ref=f71e754]:
+                  - text: "479"
+                  - 'link "Warranty #501" [ref=f71e755]':
+                    - /url: /warranty/501
+                - 'cell "vinh le Avalon Pontoon Catalina Platiunum Quad Lounger 2020 22km VIN : Date de livraison: 2022-01-04 APOP01- 100m / 20000km - 1149.75$" [ref=f71e756]'
+                - cell "$148.05" [ref=f71e757]
+                - cell "Tuesday, April 5, 2022" [ref=f71e758]
+                - cell "Payment pending" [ref=f71e759]
+              - row [ref=f71e761] [cursor=pointer]:
+                - cell [ref=f71e762]:
+                  - checkbox [ref=f71e763]
+                - cell [ref=f71e764]:
+                  - text: "452"
+                  - 'link "Warranty #474" [ref=f71e765]':
+                    - /url: /warranty/474
+                - 'cell "vinh le BMW 128i 2019 20000km VIN : 8949188 Date de livraison: 2022-06-05 APOP01- 100m / 20000km - 1050$" [ref=f71e766]'
+                - cell "$449.55" [ref=f71e767]
+                - cell "Friday, April 1, 2022" [ref=f71e768]
+                - cell "Payment pending" [ref=f71e769]
+              - row [ref=f71e771] [cursor=pointer]:
+                - cell [ref=f71e772]:
+                  - checkbox [ref=f71e773]
+                - cell [ref=f71e774]:
+                  - text: "450"
+                  - 'link "Warranty #472" [ref=f71e775]':
+                    - /url: /warranty/472
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 100m / 20000km - 1050$" [ref=f71e776]'
+                - cell "$290.89" [ref=f71e777]
+                - cell "Tuesday, March 29, 2022" [ref=f71e778]
+                - cell "Payment pending" [ref=f71e779]
+              - row [ref=f71e781] [cursor=pointer]:
+                - cell [ref=f71e782]:
+                  - checkbox [ref=f71e783]
+                - cell [ref=f71e784]:
+                  - text: "449"
+                  - 'link "Warranty #471" [ref=f71e785]':
+                    - /url: /warranty/471
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 100m / 20000km - 1050$" [ref=f71e786]'
+                - cell "$290.89" [ref=f71e787]
+                - cell "Tuesday, March 29, 2022" [ref=f71e788]
+                - cell "Payment pending" [ref=f71e789]
+              - row [ref=f71e791] [cursor=pointer]:
+                - cell [ref=f71e792]:
+                  - checkbox [ref=f71e793]
+                - cell [ref=f71e794]:
+                  - text: "448"
+                  - 'link "Warranty #470" [ref=f71e795]':
+                    - /url: /warranty/470
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 100m / 20000km - 1050$" [ref=f71e796]'
+                - cell "$290.89" [ref=f71e797]
+                - cell "Tuesday, March 29, 2022" [ref=f71e798]
+                - cell "Payment pending" [ref=f71e799]
+              - row [ref=f71e801] [cursor=pointer]:
+                - cell [ref=f71e802]:
+                  - checkbox [ref=f71e803]
+                - cell [ref=f71e804]:
+                  - text: "447"
+                  - 'link "Warranty #469" [ref=f71e805]':
+                    - /url: /warranty/469
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1050$" [ref=f71e806]'
+                - cell "$290.89" [ref=f71e807]
+                - cell "Tuesday, March 29, 2022" [ref=f71e808]
+                - cell "Payment pending" [ref=f71e809]
+              - row [ref=f71e811] [cursor=pointer]:
+                - cell [ref=f71e812]:
+                  - checkbox [ref=f71e813]
+                - cell [ref=f71e814]:
+                  - text: "446"
+                  - 'link "Warranty #468" [ref=f71e815]':
+                    - /url: /warranty/468
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1120$" [ref=f71e816]'
+                - cell "$283.36" [ref=f71e817]
+                - cell "Tuesday, March 29, 2022" [ref=f71e818]
+                - cell "Payment pending" [ref=f71e819]
+              - row [ref=f71e821] [cursor=pointer]:
+                - cell [ref=f71e822]:
+                  - checkbox [ref=f71e823]
+                - cell [ref=f71e824]:
+                  - text: "445"
+                  - 'link "Warranty #467" [ref=f71e825]':
+                    - /url: /warranty/467
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1120$" [ref=f71e826]'
+                - cell "$283.36" [ref=f71e827]
+                - cell "Tuesday, March 29, 2022" [ref=f71e828]
+                - cell "Payment pending" [ref=f71e829]
+              - row [ref=f71e831] [cursor=pointer]:
+                - cell [ref=f71e832]:
+                  - checkbox [ref=f71e833]
+                - cell [ref=f71e834]:
+                  - text: "444"
+                  - 'link "Warranty #466" [ref=f71e835]':
+                    - /url: /warranty/466
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1150$" [ref=f71e836]'
+                - cell "$290.95" [ref=f71e837]
+                - cell "Tuesday, March 29, 2022" [ref=f71e838]
+                - cell "Payment pending" [ref=f71e839]
+              - row [ref=f71e841] [cursor=pointer]:
+                - cell [ref=f71e842]:
+                  - checkbox [ref=f71e843]
+                - cell [ref=f71e844]:
+                  - text: "443"
+                  - 'link "Warranty #465" [ref=f71e845]':
+                    - /url: /warranty/465
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1150$" [ref=f71e846]'
+                - cell "$290.95" [ref=f71e847]
+                - cell "Tuesday, March 29, 2022" [ref=f71e848]
+                - cell "Payment pending" [ref=f71e849]
+              - row [ref=f71e851] [cursor=pointer]:
+                - cell [ref=f71e852]:
+                  - checkbox [ref=f71e853]
+                - cell [ref=f71e854]:
+                  - text: "442"
+                  - 'link "Warranty #464" [ref=f71e855]':
+                    - /url: /warranty/464
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1050$" [ref=f71e856]'
+                - cell "$265.65" [ref=f71e857]
+                - cell "Tuesday, March 29, 2022" [ref=f71e858]
+                - cell "Payment pending" [ref=f71e859]
+              - row [ref=f71e861] [cursor=pointer]:
+                - cell [ref=f71e862]:
+                  - checkbox [ref=f71e863]
+                - cell [ref=f71e864]:
+                  - text: "441"
+                  - 'link "Warranty #463" [ref=f71e865]':
+                    - /url: /warranty/463
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1150$" [ref=f71e866]'
+                - cell "$290.95" [ref=f71e867]
+                - cell "Tuesday, March 29, 2022" [ref=f71e868]
+                - cell "Payment pending" [ref=f71e869]
+              - row [ref=f71e871] [cursor=pointer]:
+                - cell [ref=f71e872]:
+                  - checkbox [ref=f71e873]
+                - cell [ref=f71e874]:
+                  - text: "440"
+                  - 'link "Warranty #462" [ref=f71e875]':
+                    - /url: /warranty/462
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1050$" [ref=f71e876]'
+                - cell "$265.65" [ref=f71e877]
+                - cell "Tuesday, March 29, 2022" [ref=f71e878]
+                - cell "Payment pending" [ref=f71e879]
+              - row [ref=f71e881] [cursor=pointer]:
+                - cell [ref=f71e882]:
+                  - checkbox [ref=f71e883]
+                - cell [ref=f71e884]:
+                  - text: "439"
+                  - 'link "Warranty #461" [ref=f71e885]':
+                    - /url: /warranty/461
+                - 'cell "string string BMW 128i 2020 0km VIN : Date de livraison: 2022-03-29 APOP01- 12m / 20000km - 1000$" [ref=f71e886]'
+                - cell "$285.89" [ref=f71e887]
+                - cell "Tuesday, March 29, 2022" [ref=f71e888]
+                - cell "Payment pending" [ref=f71e889]
+              - row [ref=f71e891] [cursor=pointer]:
+                - cell [ref=f71e892]:
+                  - checkbox [ref=f71e893]
+                - cell [ref=f71e894]:
+                  - text: "438"
+                  - 'link "Warranty #460" [ref=f71e895]':
+                    - /url: /warranty/460
+                - 'cell "sdfds sfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-03-27 ATplus- 60m / 100000km - 452$" [ref=f71e896]'
+                - cell "$2,627.25" [ref=f71e897]
+                - cell "Sunday, March 27, 2022" [ref=f71e898]
+                - cell "Payment pending" [ref=f71e899]
+              - row [ref=f71e901] [cursor=pointer]:
+                - cell [ref=f71e902]:
+                  - checkbox [ref=f71e903]
+                - cell [ref=f71e904]:
+                  - text: "437"
+                  - 'link "Warranty #459" [ref=f71e905]':
+                    - /url: /warranty/459
+                - 'cell "dsfsd fdd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-03-27 AT- 12m / 20000km - 230$" [ref=f71e906]'
+                - cell "$1,063.75" [ref=f71e907]
+                - cell "Sunday, March 27, 2022" [ref=f71e908]
+                - cell "Payment pending" [ref=f71e909]
+              - row [ref=f71e911] [cursor=pointer]:
+                - cell [ref=f71e912]:
+                  - checkbox [ref=f71e913]
+                - cell [ref=f71e914]:
+                  - text: "436"
+                  - 'link "Warranty #458" [ref=f71e915]':
+                    - /url: /warranty/458
+                - 'cell "client Vinh POLARIS Sportsman 2019 10000km VIN : 44444444 Date de livraison: 2021-01-11 TestCodeTO2- 12m / 20000km - 555$" [ref=f71e916]'
+                - cell "$0.00" [ref=f71e917]
+                - cell "Sunday, March 27, 2022" [ref=f71e918]
+                - cell "Payment pending" [ref=f71e919]
+              - row [ref=f71e921] [cursor=pointer]:
+                - cell [ref=f71e922]:
+                  - checkbox [ref=f71e923]
+                - cell [ref=f71e924]:
+                  - text: "434"
+                  - 'link "Warranty #456" [ref=f71e925]':
+                    - /url: /warranty/456
+                - 'cell "client 001 Axis A20 2019 21000km VIN : 22222222 Date de livraison: 2021-02-03 AVLBO- 36m / 150km - 2462.25$" [ref=f71e926]'
+                - cell "$160.65" [ref=f71e927]
+                - cell "Sunday, March 27, 2022" [ref=f71e928]
+                - cell "Payment pending" [ref=f71e929]
+              - row [ref=f71e931] [cursor=pointer]:
+                - cell [ref=f71e932]:
+                  - checkbox [ref=f71e933]
+                - cell [ref=f71e934]:
+                  - text: "433"
+                  - 'link "Warranty #455" [ref=f71e935]':
+                    - /url: /warranty/455
+                - 'cell "dfds stet Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-03-27 AD- 36m / 60000km - 224$" [ref=f71e936]'
+                - cell "$336.00" [ref=f71e937]
+                - cell "Sunday, March 27, 2022" [ref=f71e938]
+                - cell "Payment pending" [ref=f71e939]
+              - row [ref=f71e941] [cursor=pointer]:
+                - cell [ref=f71e942]:
+                  - checkbox [ref=f71e943]
+                - cell [ref=f71e944]:
+                  - text: "364"
+                  - 'link "Warranty #386" [ref=f71e945]':
+                    - /url: /warranty/386
+                - 'cell "sfsd sdfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-02-22 AD- 12m / 20000km - 210$" [ref=f71e946]'
+                - cell "$157.50" [ref=f71e947]
+                - cell "Tuesday, February 22, 2022" [ref=f71e948]
+                - cell "Payment pending" [ref=f71e949]
+              - row [ref=f71e951] [cursor=pointer]:
+                - cell [ref=f71e952]:
+                  - checkbox [ref=f71e953]
+                - cell [ref=f71e954]:
+                  - text: "359"
+                  - 'link "Warranty #381" [ref=f71e955]':
+                    - /url: /warranty/381
+                - 'cell "vinh le Audi A5 2015 20000km VIN : 11111 Date de livraison: 2022-02-22 APOP01- 12m / 20000km - 1149.75$ Dealer: Le Van Vinh - Dealer" [ref=f71e956]'
+                - cell "$136.50" [ref=f71e957]
+                - cell "Tuesday, February 22, 2022" [ref=f71e958]
+                - cell "Payment pending" [ref=f71e959]
+              - row [ref=f71e961] [cursor=pointer]:
+                - cell [ref=f71e962]:
+                  - checkbox [ref=f71e963]
+                - cell [ref=f71e964]:
+                  - text: "358"
+                  - 'link "Warranty #380" [ref=f71e965]':
+                    - /url: /warranty/380
+                - 'cell "vinh le Dodge Durango 2010 20000km VIN : 11111 Date de livraison: 2022-02-18 AX- 36m / 60000km - 1050$" [ref=f71e966]'
+                - cell "$444.15" [ref=f71e967]
+                - cell "Tuesday, February 22, 2022" [ref=f71e968]
+                - cell "Payment pending" [ref=f71e969]
+              - row [ref=f71e971] [cursor=pointer]:
+                - cell [ref=f71e972]:
+                  - checkbox [ref=f71e973]
+                - cell [ref=f71e974]:
+                  - text: "357"
+                  - 'link "Warranty #379" [ref=f71e975]':
+                    - /url: /warranty/379
+                - 'cell "vinh le Armadillo Trailer Armadillo 2020 20000km VIN : Date de livraison: 2022-02-18 APAP OP3- 12m / 20000km - 1149.75$ Dealer: Vinh Le vinhle870" [ref=f71e976]'
+                - cell "$105.00" [ref=f71e977]
+                - cell "Friday, February 18, 2022" [ref=f71e978]
+                - cell "Payment pending" [ref=f71e979]
+              - row [ref=f71e981] [cursor=pointer]:
+                - cell [ref=f71e982]:
+                  - checkbox [ref=f71e983]
+                - cell [ref=f71e984]:
+                  - text: "354"
+                  - 'link "Warranty #376" [ref=f71e985]':
+                    - /url: /warranty/376
+                - 'cell "vinh le American Coach American Patriot 2020 20000km VIN : Date de livraison: 2022-02-18 APAP OP3- 12m / 20000km - 2299.5$ Dealer: Vinh Le vinhle870" [ref=f71e986]'
+                - cell "$105.00" [ref=f71e987]
+                - cell "Friday, February 18, 2022" [ref=f71e988]
+                - cell "Payment pending" [ref=f71e989]
+              - row [ref=f71e991] [cursor=pointer]:
+                - cell [ref=f71e992]:
+                  - checkbox [ref=f71e993]
+                - cell [ref=f71e994]:
+                  - text: "351"
+                  - 'link "Warranty #373" [ref=f71e995]':
+                    - /url: /warranty/373
+                - 'cell "vinh le Adventurer Adventurer 2020 20000km VIN : Date de livraison: 2022-02-18 APAP OP3- 12m / 20000km - 1149.75$ Dealer: Vinh Le vinhle870" [ref=f71e996]'
+                - cell "$105.00" [ref=f71e997]
+                - cell "Friday, February 18, 2022" [ref=f71e998]
+                - cell "Payment pending" [ref=f71e999]
+              - row [ref=f71e1001] [cursor=pointer]:
+                - cell [ref=f71e1002]:
+                  - checkbox [ref=f71e1003]
+                - cell [ref=f71e1004]:
+                  - text: "348"
+                  - 'link "Warranty #370" [ref=f71e1005]':
+                    - /url: /warranty/370
+                - 'cell "fdsfs sdfdsfdsfds Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-02-10 APOP01- 12m / 20000km - 210$ Dealer: Vinh Le vinhle870" [ref=f71e1006]'
+                - cell "$136.50" [ref=f71e1007]
+                - cell "Thursday, February 10, 2022" [ref=f71e1008]
+                - cell "Payment pending" [ref=f71e1009]
+              - row [ref=f71e1011] [cursor=pointer]:
+                - cell [ref=f71e1012]:
+                  - checkbox [ref=f71e1013]
+                - cell [ref=f71e1014]:
+                  - text: "337"
+                  - 'link "Warranty #360" [ref=f71e1015]':
+                    - /url: /warranty/360
+                - 'cell "dsfsd sdfds Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-02-06 AX- 12m / 20000km - 105$ Dealer: Vinh Le" [ref=f71e1016]'
+                - cell "$215.25" [ref=f71e1017]
+                - cell "Sunday, February 6, 2022" [ref=f71e1018]
+                - cell "Payment pending" [ref=f71e1019]
+              - row [ref=f71e1021] [cursor=pointer]:
+                - cell [ref=f71e1022]:
+                  - checkbox [ref=f71e1023]
+                - cell [ref=f71e1024]:
+                  - text: "336"
+                  - 'link "Warranty #359" [ref=f71e1025]':
+                    - /url: /warranty/359
+                - 'cell "vinh le Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-02-06 AX- 12m / 20000km - 136.5$ Dealer: Vinh Le" [ref=f71e1026]'
+                - cell "$210.00" [ref=f71e1027]
+                - cell "Sunday, February 6, 2022" [ref=f71e1028]
+                - cell "Payment pending" [ref=f71e1029]
+              - row [ref=f71e1031] [cursor=pointer]:
+                - cell [ref=f71e1032]:
+                  - checkbox [ref=f71e1033]
+                - cell [ref=f71e1034]:
+                  - text: "335"
+                  - 'link "Warranty #357" [ref=f71e1035]':
+                    - /url: /warranty/357
+                - 'cell "vinh le Adventurer Adventurer 2011 20000km VIN : 22222 Date de livraison: 2021-07-03 AVR- 12m / 0km - 1050$ Dealer: Vinh Le" [ref=f71e1036]'
+                - cell "$1,625.40" [ref=f71e1037]
+                - cell "Sunday, February 6, 2022" [ref=f71e1038]
+                - cell "Payment pending" [ref=f71e1039]
+              - row [ref=f71e1041] [cursor=pointer]:
+                - cell [ref=f71e1042]:
+                  - checkbox [ref=f71e1043]
+                - cell [ref=f71e1044]:
+                  - text: "334"
+                  - 'link "Warranty #356" [ref=f71e1045]':
+                    - /url: /warranty/356
+                - 'cell "vinh le Lambro Lambrett FLI175 2020 20km VIN : Date de livraison: 2022-01-19 APAP OP3- 12m / 20000km - 1048.95$ Dealer: Vinh Le" [ref=f71e1046]'
+                - cell "$88.20" [ref=f71e1047]
+                - cell "Sunday, February 6, 2022" [ref=f71e1048]
+                - cell "Payment pending" [ref=f71e1049]
+              - row [ref=f71e1051] [cursor=pointer]:
+                - cell [ref=f71e1052]:
+                  - checkbox [ref=f71e1053]
+                - cell [ref=f71e1054]:
+                  - text: "333"
+                  - 'link "Warranty #355" [ref=f71e1055]':
+                    - /url: /warranty/355
+                - 'cell "vinh le Lambro Lambrett FLI175 2009 2111km VIN : Date de livraison: 2022-01-19 TP- 12m / 1000km - 1050$ Dealer: Vinh Le" [ref=f71e1056]'
+                - cell "$210.00" [ref=f71e1057]
+                - cell "Sunday, February 6, 2022" [ref=f71e1058]
+                - cell "Payment pending" [ref=f71e1059]
+              - row [ref=f71e1061] [cursor=pointer]:
+                - cell [ref=f71e1062]:
+                  - checkbox [ref=f71e1063]
+                - cell [ref=f71e1064]:
+                  - text: "332"
+                  - 'link "Warranty #354" [ref=f71e1065]':
+                    - /url: /warranty/354
+                - 'cell "vinh le Lambro Lambrett FLI175 2020 20km VIN : Date de livraison: 2022-01-21 APAP OP3- 12m / 20000km - 1050$ Dealer: Vinh Le" [ref=f71e1066]'
+                - cell "$88.20" [ref=f71e1067]
+                - cell "Sunday, February 6, 2022" [ref=f71e1068]
+                - cell "Payment pending" [ref=f71e1069]
+              - row [ref=f71e1071] [cursor=pointer]:
+                - cell [ref=f71e1072]:
+                  - checkbox [ref=f71e1073]
+                - cell [ref=f71e1074]:
+                  - text: "331"
+                  - 'link "Warranty #353" [ref=f71e1075]':
+                    - /url: /warranty/353
+                - 'cell "vinh le Lambro Lambrett FLI175 2021 100km VIN : Date de livraison: 2022-01-21 APAP OP3- 12m / 20000km - 1050$ Dealer: Vinh Le" [ref=f71e1076]'
+                - cell "$88.20" [ref=f71e1077]
+                - cell "Sunday, February 6, 2022" [ref=f71e1078]
+                - cell "Payment pending" [ref=f71e1079]
+              - row [ref=f71e1081] [cursor=pointer]:
+                - cell [ref=f71e1082]:
+                  - checkbox [ref=f71e1083]
+                - cell [ref=f71e1084]:
+                  - text: "324"
+                  - 'link "Warranty #346" [ref=f71e1085]':
+                    - /url: /warranty/346
+                - 'cell "vinh le Dodge Dart 2018 12000km VIN : ModelDart-2Ages Date de livraison: 2022-01-21 AX- 24m / 40000km - 574.875$ Dealer: Vinh Le" [ref=f71e1086]'
+                - cell "$402.41" [ref=f71e1087]
+                - cell "Friday, January 21, 2022" [ref=f71e1088]
+                - cell "Payment pending" [ref=f71e1089]
+              - row [ref=f71e1091] [cursor=pointer]:
+                - cell [ref=f71e1092]:
+                  - checkbox [ref=f71e1093]
+                - cell [ref=f71e1094]:
+                  - text: "323"
+                  - 'link "Warranty #345" [ref=f71e1095]':
+                    - /url: /warranty/345
+                - 'cell "sdfds sdfsdf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-01-21 AD- 36m / 60000km - 1149.75$ Dealer: Vinh Le" [ref=f71e1096]'
+                - cell "$326.53" [ref=f71e1097]
+                - cell "Friday, January 21, 2022" [ref=f71e1098]
+                - cell "Payment pending" [ref=f71e1099]
+              - row [ref=f71e1101] [cursor=pointer]:
+                - cell [ref=f71e1102]:
+                  - checkbox [ref=f71e1103]
+                - cell [ref=f71e1104]:
+                  - text: "322"
+                  - 'link "Warranty #344" [ref=f71e1105]':
+                    - /url: /warranty/344
+                - 'cell "sdfds sdfdsf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2022-01-21 APAP OP3- 12m / 10000km - 1149.75$ Dealer: Vinh Le" [ref=f71e1106]'
+                - cell "$96.58" [ref=f71e1107]
+                - cell "Friday, January 21, 2022" [ref=f71e1108]
+                - cell "Payment pending" [ref=f71e1109]
+              - row [ref=f71e1111] [cursor=pointer]:
+                - cell [ref=f71e1112]:
+                  - checkbox [ref=f71e1113]
+                - cell [ref=f71e1114]:
+                  - text: "321"
+                  - 'link "Warranty #343" [ref=f71e1115]':
+                    - /url: /warranty/343
+                - 'cell "dsfdsf sfdsf Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2021-02-03 APOP01- 12m / 20000km - 1418.7915$ Dealer: Vinh Le" [ref=f71e1116]'
+                - cell "$170.16" [ref=f71e1117]
+                - cell "Friday, January 21, 2022" [ref=f71e1118]
+                - cell "Payment pending" [ref=f71e1119]
+              - row [ref=f71e1121] [cursor=pointer]:
+                - cell [ref=f71e1122]:
+                  - checkbox [ref=f71e1123]
+                - cell [ref=f71e1124]:
+                  - text: "320"
+                  - 'link "Warranty #342" [ref=f71e1125]':
+                    - /url: /warranty/342
+                - 'cell "Vinh Le Acura ILX 2019 10000km VIN : testing Date de livraison: 2022-01-21 APAP OP3- 12m / 10000km - 1149.75$ Dealer: Vinh Le" [ref=f71e1126]'
+                - cell "$96.58" [ref=f71e1127]
+                - cell "Friday, January 21, 2022" [ref=f71e1128]
+                - cell "Payment pending" [ref=f71e1129]
+              - row [ref=f71e1131] [cursor=pointer]:
+                - cell [ref=f71e1132]:
+                  - checkbox [ref=f71e1133]
+                - cell [ref=f71e1134]:
+                  - text: "319"
+                  - 'link "Warranty #341" [ref=f71e1135]':
+                    - /url: /warranty/341
+                - 'cell "vĩnh lê BMW 128i 2015 20000km VIN : 1123456789 Date de livraison: 2022-01-03 APOP01- 12m / 20000km - 1149.75$ Dealer: Vinh Le" [ref=f71e1136]'
+                - cell "$131.07" [ref=f71e1137]
+                - cell "Friday, January 21, 2022" [ref=f71e1138]
+                - cell "Payment pending" [ref=f71e1139]
+              - row [ref=f71e1141] [cursor=pointer]:
+                - cell [ref=f71e1142]:
+                  - checkbox [ref=f71e1143]
+                - cell [ref=f71e1144]:
+                  - text: "318"
+                  - 'link "Warranty #340" [ref=f71e1145]':
+                    - /url: /warranty/340
+                - 'cell "vinh le Lambro Lambrett FLI175 2020 200km VIN : 111111111 Date de livraison: 2022-01-21 APAP OP3- 12m / 20000km - 1149.75$ Dealer: Vinh Le" [ref=f71e1146]'
+                - cell "$96.58" [ref=f71e1147]
+                - cell "Thursday, January 20, 2022" [ref=f71e1148]
+                - cell "Payment pending" [ref=f71e1149]
+              - row [ref=f71e1151] [cursor=pointer]:
+                - cell [ref=f71e1152]:
+                  - checkbox [ref=f71e1153]
+                - cell [ref=f71e1154]:
+                  - text: "316"
+                  - 'link "Warranty #336" [ref=f71e1155]':
+                    - /url: /warranty/336
+                - 'cell "string string BMW 128i 2020 100km VIN : 111111111 Date de livraison: 2022-01-19 AT- 36m / 60000km - 100$ Dealer: Vinh Le" [ref=f71e1156]'
+                - cell "$656.25" [ref=f71e1157]
+                - cell "Wednesday, January 19, 2022" [ref=f71e1158]
+                - cell "Payment pending" [ref=f71e1159]
+              - row [ref=f71e1161] [cursor=pointer]:
+                - cell [ref=f71e1162]:
+                  - checkbox [ref=f71e1163]
+                - cell [ref=f71e1164]:
+                  - text: "315"
+                  - 'link "Warranty #335" [ref=f71e1165]':
+                    - /url: /warranty/335
+                - 'cell "string string BMW 128i 2020 100km VIN : 111111111 Date de livraison: 2022-01-19 AT- 36m / 60000km - 100$ Dealer: Vinh Le" [ref=f71e1166]'
+                - cell "$656.25" [ref=f71e1167]
+                - cell "Tuesday, January 18, 2022" [ref=f71e1168]
+                - cell "Payment pending" [ref=f71e1169]
+              - row [ref=f71e1171] [cursor=pointer]:
+                - cell [ref=f71e1172]:
+                  - checkbox [ref=f71e1173]
+                - cell [ref=f71e1174]:
+                  - text: "314"
+                  - 'link "Warranty #331" [ref=f71e1175]':
+                    - /url: /warranty/331
+                - 'cell "vinh le BMW 128i 2015 20000km VIN : 1123456789 Date de livraison: 2021-12-12 APAP OP3-331 12m / 20000km - 105.00$" [ref=f71e1176]'
+                - cell "$0.00" [ref=f71e1177]
+                - cell "Sunday, January 16, 2022" [ref=f71e1178]
+                - cell "Payment pending" [ref=f71e1179]
+              - row [ref=f71e1181] [cursor=pointer]:
+                - cell [ref=f71e1182]:
+                  - checkbox [ref=f71e1183]
+                - cell [ref=f71e1184]:
+                  - text: "312"
+                  - 'link "Warranty #330" [ref=f71e1185]':
+                    - /url: /warranty/330
+                - 'cell "sdfsd sfsd Toyota FJ Cruiser 2019 9000km VIN : 38282828282 Date de livraison: 2020-07-11 ATplus- 24m / 40000km - 1050$ Dealer: Vinh Le" [ref=f71e1186]'
+                - cell "$1,782.90" [ref=f71e1187]
+                - cell "Thursday, January 13, 2022" [ref=f71e1188]
+                - cell "Payment pending" [ref=f71e1189]
+              - row [ref=f71e1191] [cursor=pointer]:
+                - cell [ref=f71e1192]:
+                  - checkbox [ref=f71e1193]
+                - cell [ref=f71e1194]:
+                  - text: "310"
+                  - 'link "Warranty #323" [ref=f71e1195]':
+                    - /url: /warranty/323
+                - 'cell "sdfsd sdfdsfs BMW 128i 2009 20000km VIN : 12345678908 Date de livraison: 2022-01-03 TP- 12m / 1000km - 8400$ Dealer: VL SegWay - Dealer #2" [ref=f71e1196]'
+                - cell "$210.00" [ref=f71e1197]
+                - cell "Monday, January 3, 2022" [ref=f71e1198]
+                - cell "Payment pending" [ref=f71e1199]
+              - row [ref=f71e1201] [cursor=pointer]:
+                - cell [ref=f71e1202]:
+                  - checkbox [ref=f71e1203]
+                - cell [ref=f71e1204]:
+                  - text: "303"
+                  - 'link "Warranty #316" [ref=f71e1205]':
+                    - /url: /warranty/316
+                - 'cell "dsfs dfdsf Dodge Dakota 2011 20000km VIN : 2222 Date de livraison: 2021-10-07 TP- 12m / 1000km - 2100$" [ref=f71e1206]'
+                - cell "$234.15" [ref=f71e1207]
+                - cell "Sunday, December 12, 2021" [ref=f71e1208]
+                - cell "Payment pending" [ref=f71e1209]
+              - row [ref=f71e1211] [cursor=pointer]:
+                - cell [ref=f71e1212]:
+                  - checkbox [ref=f71e1213]
+                - cell [ref=f71e1214]:
+                  - text: "302"
+                  - 'link "Warranty #315" [ref=f71e1215]':
+                    - /url: /warranty/315
+                - 'cell "sfs sdfdsf Dodge Dart 2018 12000km VIN : ModelDart-2Ages Date de livraison: 2021-12-12 TP- 12m / 1000km - 1120$" [ref=f71e1216]'
+                - cell "$249.76" [ref=f71e1217]
+                - cell "Sunday, December 12, 2021" [ref=f71e1218]
+                - cell "Payment pending" [ref=f71e1219]
+              - row [ref=f71e1221] [cursor=pointer]:
+                - cell [ref=f71e1222]:
+                  - checkbox [ref=f71e1223]
+                - cell [ref=f71e1224]:
+                  - text: "301"
+                  - 'link "Warranty #314" [ref=f71e1225]':
+                    - /url: /warranty/314
+                - 'cell "sdfsf fsdfds Dodge Dart 2009 15000km VIN : 12345678908 Date de livraison: 2021-12-12 TP- 12m / 1000km - 1150$" [ref=f71e1226]'
+                - cell "$256.45" [ref=f71e1227]
+                - cell "Sunday, December 12, 2021" [ref=f71e1228]
+                - cell "Payment pending" [ref=f71e1229]
+              - row [ref=f71e1231] [cursor=pointer]:
+                - cell [ref=f71e1232]:
+                  - checkbox [ref=f71e1233]
+                - cell [ref=f71e1234]:
+                  - text: "299"
+                  - 'link "Warranty #312" [ref=f71e1235]':
+                    - /url: /warranty/312
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 APOP01- 12m / 20000km - 115$" [ref=f71e1236]'
+                - cell "$175.95" [ref=f71e1237]
+                - cell "Monday, December 6, 2021" [ref=f71e1238]
+                - cell "Payment pending" [ref=f71e1239]
+              - row [ref=f71e1241] [cursor=pointer]:
+                - cell [ref=f71e1242]:
+                  - checkbox [ref=f71e1243]
+                - cell [ref=f71e1244]:
+                  - text: "296"
+                  - 'link "Warranty #309" [ref=f71e1245]':
+                    - /url: /warranty/309
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AP- 12m / 20000km - 115$" [ref=f71e1246]'
+                - cell "$175.95" [ref=f71e1247]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1248]
+                - cell "Payment pending" [ref=f71e1249]
+              - row [ref=f71e1251] [cursor=pointer]:
+                - cell [ref=f71e1252]:
+                  - checkbox [ref=f71e1253]
+                - cell [ref=f71e1254]:
+                  - text: "295"
+                  - 'link "Warranty #308" [ref=f71e1255]':
+                    - /url: /warranty/308
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 APAP OP2- 12m / 10000km - 115$" [ref=f71e1256]'
+                - cell "$141.45" [ref=f71e1257]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1258]
+                - cell "Payment pending" [ref=f71e1259]
+              - row [ref=f71e1261] [cursor=pointer]:
+                - cell [ref=f71e1262]:
+                  - checkbox [ref=f71e1263]
+                - cell [ref=f71e1264]:
+                  - text: "294"
+                  - 'link "Warranty #307" [ref=f71e1265]':
+                    - /url: /warranty/307
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AD- 12m / 20000km - 115$" [ref=f71e1266]'
+                - cell "$198.95" [ref=f71e1267]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1268]
+                - cell "Payment pending" [ref=f71e1269]
+              - row [ref=f71e1271] [cursor=pointer]:
+                - cell [ref=f71e1272]:
+                  - checkbox [ref=f71e1273]
+                - cell [ref=f71e1274]:
+                  - text: "293"
+                  - 'link "Warranty #306" [ref=f71e1275]':
+                    - /url: /warranty/306
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AD- 12m / 20000km - 115$" [ref=f71e1276]'
+                - cell "$198.95" [ref=f71e1277]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1278]
+                - cell "Payment pending" [ref=f71e1279]
+              - row [ref=f71e1281] [cursor=pointer]:
+                - cell [ref=f71e1282]:
+                  - checkbox [ref=f71e1283]
+                - cell [ref=f71e1284]:
+                  - text: "292"
+                  - 'link "Warranty #305" [ref=f71e1285]':
+                    - /url: /warranty/305
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AD- 12m / 20000km - 115$" [ref=f71e1286]'
+                - cell "$198.95" [ref=f71e1287]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1288]
+                - cell "Payment pending" [ref=f71e1289]
+              - row [ref=f71e1291] [cursor=pointer]:
+                - cell [ref=f71e1292]:
+                  - checkbox [ref=f71e1293]
+                - cell [ref=f71e1294]:
+                  - text: "291"
+                  - 'link "Warranty #304" [ref=f71e1295]':
+                    - /url: /warranty/304
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AP- 12m / 20000km - 114.975$" [ref=f71e1296]'
+                - cell "$175.95" [ref=f71e1297]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1298]
+                - cell "Payment pending" [ref=f71e1299]
+              - row [ref=f71e1301] [cursor=pointer]:
+                - cell [ref=f71e1302]:
+                  - checkbox [ref=f71e1303]
+                - cell [ref=f71e1304]:
+                  - text: "290"
+                  - 'link "Warranty #303" [ref=f71e1305]':
+                    - /url: /warranty/303
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AP- 12m / 20000km - 100$" [ref=f71e1306]'
+                - cell "$175.95" [ref=f71e1307]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1308]
+                - cell "Payment pending" [ref=f71e1309]
+              - row [ref=f71e1311] [cursor=pointer]:
+                - cell [ref=f71e1312]:
+                  - checkbox [ref=f71e1313]
+                - cell [ref=f71e1314]:
+                  - text: "289"
+                  - 'link "Warranty #302" [ref=f71e1315]':
+                    - /url: /warranty/302
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AP- 12m / 20000km - 100$" [ref=f71e1316]'
+                - cell "$175.95" [ref=f71e1317]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1318]
+                - cell "Payment pending" [ref=f71e1319]
+              - row [ref=f71e1321] [cursor=pointer]:
+                - cell [ref=f71e1322]:
+                  - checkbox [ref=f71e1323]
+                - cell [ref=f71e1324]:
+                  - text: "288"
+                  - 'link "Warranty #301" [ref=f71e1325]':
+                    - /url: /warranty/301
+                - 'cell "string string BMW 128i 0 0km VIN : Date de livraison: 2021-12-01 AP- 12m / 20000km - 100$" [ref=f71e1326]'
+                - cell "$290.95" [ref=f71e1327]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1328]
+                - cell "Payment pending" [ref=f71e1329]
+              - row [ref=f71e1331] [cursor=pointer]:
+                - cell [ref=f71e1332]:
+                  - checkbox [ref=f71e1333]
+                - cell [ref=f71e1334]:
+                  - text: "287"
+                  - 'link "Warranty #300" [ref=f71e1335]':
+                    - /url: /warranty/300
+                - 'cell "string string BMW 128i 0 0km VIN : 1123456789 Date de livraison: 2021-12-01 AP- 12m / 20000km - 100$" [ref=f71e1336]'
+                - cell "$290.95" [ref=f71e1337]
+                - cell "Wednesday, December 1, 2021" [ref=f71e1338]
+                - cell "Payment pending" [ref=f71e1339]
+              - row [ref=f71e1341] [cursor=pointer]:
+                - cell [ref=f71e1342]:
+                  - checkbox [ref=f71e1343]
+                - cell [ref=f71e1344]:
+                  - text: "286"
+                  - 'link "Warranty #299" [ref=f71e1345]':
+                    - /url: /warranty/299
+                - 'cell "Ken Nguyen SEGWAY Snarler 2020 0km VIN : qwerty12345 Date de livraison: 2021-11-19 1- 36m / 0km - 11300$" [ref=f71e1346]'
+                - cell "$2,441.45" [ref=f71e1347]
+                - cell "Thursday, November 18, 2021" [ref=f71e1348]
+                - cell "Payment pending" [ref=f71e1349]
+              - row [ref=f71e1351] [cursor=pointer]:
+                - cell [ref=f71e1352]:
+                  - checkbox [ref=f71e1353]
+                - cell [ref=f71e1354]:
+                  - text: "284"
+                  - 'link "Warranty #297" [ref=f71e1355]':
+                    - /url: /warranty/297
+                - 'cell "test vinh client POLARIS Sportsman 2019 200km VIN : 12345678908 Date de livraison: 2021-10-15 APAP OP2- 12m / 20000km - 229.95$" [ref=f71e1356]'
+                - cell "$141.45" [ref=f71e1357]
+                - cell "Sunday, November 14, 2021" [ref=f71e1358]
+                - cell "Payment pending" [ref=f71e1359]
+              - row [ref=f71e1361] [cursor=pointer]:
+                - cell [ref=f71e1362]:
+                  - checkbox [ref=f71e1363]
+                - cell [ref=f71e1364]:
+                  - text: "274"
+                  - 'link "Warranty #285" [ref=f71e1365]':
+                    - /url: /warranty/285
+                - 'cell "vinh le BMW 128i 2019 20000km VIN : 6655 Date de livraison: 2021-10-15 APAP OP2- 12m / 10000km - 11497.5$" [ref=f71e1366]'
+                - cell "$141.42" [ref=f71e1367]
+                - cell "Sunday, October 17, 2021" [ref=f71e1368]
+                - cell "Payment pending" [ref=f71e1369]
+              - row [ref=f71e1371] [cursor=pointer]:
+                - cell [ref=f71e1372]:
+                  - checkbox [ref=f71e1373]
+                - cell [ref=f71e1374]:
+                  - text: "263"
+                  - 'link "Warranty #276" [ref=f71e1375]':
+                    - /url: /warranty/276
+                - 'cell "vinh le Chevrolet Cruze 2010 5000km VIN : 66666 Date de livraison: 2021-10-15 AX- 12m / 20000km - 11497.5$" [ref=f71e1376]'
+                - cell "$175.91" [ref=f71e1377]
+                - cell "Friday, October 15, 2021" [ref=f71e1378]
+                - cell "Payment pending" [ref=f71e1379]
+              - row [ref=f71e1381] [cursor=pointer]:
+                - cell [ref=f71e1382]:
+                  - checkbox [ref=f71e1383]
+                - cell [ref=f71e1384]:
+                  - text: "261"
+                  - 'link "Warranty #274" [ref=f71e1385]':
+                    - /url: /warranty/274
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 3017997 Date de livraison: 2021-10-14 AD- 36m / 60000km - 1277499.87225$" [ref=f71e1386]'
+                - cell "$371.37" [ref=f71e1387]
+                - cell "Thursday, October 14, 2021" [ref=f71e1388]
+                - cell "Payment pending" [ref=f71e1389]
+              - row [ref=f71e1391] [cursor=pointer]:
+                - cell [ref=f71e1392]:
+                  - checkbox [ref=f71e1393]
+                - cell [ref=f71e1394]:
+                  - text: "253"
+                  - 'link "Warranty #266" [ref=f71e1395]':
+                    - /url: /warranty/266
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 5328267 Date de livraison: 2021-03-18 APAP OP2- 12m / 10000km - 229.95$" [ref=f71e1396]'
+                - cell "$141.42" [ref=f71e1397]
+                - cell "Thursday, October 7, 2021" [ref=f71e1398]
+                - cell "Payment pending" [ref=f71e1399]
+              - row [ref=f71e1401] [cursor=pointer]:
+                - cell [ref=f71e1402]:
+                  - checkbox [ref=f71e1403]
+                - cell [ref=f71e1404]:
+                  - text: "252"
+                  - 'link "Warranty #265" [ref=f71e1405]':
+                    - /url: /warranty/265
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 8367765 Date de livraison: 2021-03-18 APAP OP2- 12m / 10000km - 229.95$" [ref=f71e1406]'
+                - cell "$141.42" [ref=f71e1407]
+                - cell "Thursday, October 7, 2021" [ref=f71e1408]
+                - cell "Payment pending" [ref=f71e1409]
+              - row [ref=f71e1411] [cursor=pointer]:
+                - cell [ref=f71e1412]:
+                  - checkbox [ref=f71e1413]
+                - cell [ref=f71e1414]:
+                  - text: "247"
+                  - 'link "Warranty #260" [ref=f71e1415]':
+                    - /url: /warranty/260
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 1005924 Date de livraison: 2021-03-18 AP- 12m / 20000km - 226$" [ref=f71e1416]'
+                - cell "$229.39" [ref=f71e1417]
+                - cell "Wednesday, September 29, 2021" [ref=f71e1418]
+                - cell "Payment pending" [ref=f71e1419]
+              - row [ref=f71e1421] [cursor=pointer]:
+                - cell [ref=f71e1422]:
+                  - checkbox [ref=f71e1423]
+                - cell [ref=f71e1424]:
+                  - text: "246"
+                  - 'link "Warranty #259" [ref=f71e1425]':
+                    - /url: /warranty/259
+                - 'cell "fdsaf sdfdsfds BMW 128i 2019 20000km VIN : 7025668 Date de livraison: 2021-03-18 APAP OP2- 12m / 10000km - 2636.29$" [ref=f71e1426]'
+                - cell "$113.00" [ref=f71e1427]
+                - cell "Wednesday, September 29, 2021" [ref=f71e1428]
+                - cell "Payment pending" [ref=f71e1429]
+              - row [ref=f71e1431] [cursor=pointer]:
+                - cell [ref=f71e1432]:
+                  - checkbox [ref=f71e1433]
+                - cell [ref=f71e1434]:
+                  - text: "242"
+                  - 'link "Warranty #255" [ref=f71e1435]':
+                    - /url: /warranty/255
+                - 'cell "vinh le Adventurer Adventurer 2011 20000km VIN : 22222 Date de livraison: 2021-07-28 prgm-test- 12m / 100000km - 11300$" [ref=f71e1436]'
+                - cell "$25.99" [ref=f71e1437]
+                - cell "Sunday, September 5, 2021" [ref=f71e1438]
+                - cell "Payment pending" [ref=f71e1439]
+              - row [ref=f71e1441] [cursor=pointer]:
+                - cell [ref=f71e1442]:
+                  - checkbox [ref=f71e1443]
+                - cell [ref=f71e1444]:
+                  - text: "241"
+                  - 'link "Warranty #254" [ref=f71e1445]':
+                    - /url: /warranty/254
+                - 'cell "vinh le BMW 128i 2019 20000km VIN : 1326 Date de livraison: 2021-07-31 AT- 12m / 20000km - 2386.56$" [ref=f71e1446]'
+                - cell "$506.24" [ref=f71e1447]
+                - cell "Wednesday, September 1, 2021" [ref=f71e1448]
+                - cell "Payment pending" [ref=f71e1449]
+              - row [ref=f71e1451] [cursor=pointer]:
+                - cell [ref=f71e1452]:
+                  - checkbox [ref=f71e1453]
+                - cell [ref=f71e1454]:
+                  - text: "239"
+                  - 'link "Warranty #252" [ref=f71e1455]':
+                    - /url: /warranty/252
+                - 'cell "vinh le Adventurer Adventurer 2011 20000km VIN : 22222 Date de livraison: 2021-08-11 prgm-test- 12m / 100000km - 11300$" [ref=f71e1456]'
+                - cell "$25.99" [ref=f71e1457]
+                - cell "Wednesday, August 11, 2021" [ref=f71e1458]
+                - cell "Payment pending" [ref=f71e1459]
+              - row [ref=f71e1461] [cursor=pointer]:
+                - cell [ref=f71e1462]:
+                  - checkbox [ref=f71e1463]
+                - cell [ref=f71e1464]:
+                  - text: "238"
+                  - 'link "Warranty #251" [ref=f71e1465]':
+                    - /url: /warranty/251
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 52923 Date de livraison: 2021-03-19 AD- 12m / 20000km - 200.00$" [ref=f71e1466]'
+                - cell "$195.49" [ref=f71e1467]
+                - cell "Wednesday, August 11, 2021" [ref=f71e1468]
+                - cell "Payment pending" [ref=f71e1469]
+              - row [ref=f71e1471] [cursor=pointer]:
+                - cell [ref=f71e1472]:
+                  - checkbox [ref=f71e1473]
+                - cell [ref=f71e1474]:
+                  - text: "224"
+                  - 'link "Warranty #234" [ref=f71e1475]':
+                    - /url: /warranty/234
+                - 'cell "vinh le Aliner Expedition 2011 20000km VIN : 22222 Date de livraison: 2021-04-28 APAP OP2- 12m / 20000km - 3450$" [ref=f71e1476]'
+                - cell "$141.45" [ref=f71e1477]
+                - cell "Thursday, June 10, 2021" [ref=f71e1478]
+                - cell "Payment pending" [ref=f71e1479]
+              - row [ref=f71e1481] [cursor=pointer]:
+                - cell [ref=f71e1482]:
+                  - checkbox [ref=f71e1483]
+                - cell [ref=f71e1484]:
+                  - text: "223"
+                  - 'link "Warranty #233" [ref=f71e1485]':
+                    - /url: /warranty/233
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 2114888 Date de livraison: 2021-03-19 AD- 12m / 20000km - 230$" [ref=f71e1486]'
+                - cell "$172.50" [ref=f71e1487]
+                - cell "Sunday, June 6, 2021" [ref=f71e1488]
+                - cell "Payment pending" [ref=f71e1489]
+              - row [ref=f71e1491] [cursor=pointer]:
+                - cell [ref=f71e1492]:
+                  - checkbox [ref=f71e1493]
+                - cell [ref=f71e1494]:
+                  - text: "222"
+                  - 'link "Warranty #232" [ref=f71e1495]':
+                    - /url: /warranty/232
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 57404 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1496]'
+                - cell "$172.46" [ref=f71e1497]
+                - cell "Sunday, June 6, 2021" [ref=f71e1498]
+                - cell "Payment pending" [ref=f71e1499]
+              - row [ref=f71e1501] [cursor=pointer]:
+                - cell [ref=f71e1502]:
+                  - checkbox [ref=f71e1503]
+                - cell [ref=f71e1504]:
+                  - text: "208"
+                  - 'link "Warranty #222" [ref=f71e1505]':
+                    - /url: /warranty/222
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 95105 Date de livraison: 2021-03-19 AD-222 12m / 20000km - 226.00$" [ref=f71e1506]'
+                - cell "$169.50" [ref=f71e1507]
+                - cell "Wednesday, May 19, 2021" [ref=f71e1508]
+                - cell "Payment pending" [ref=f71e1509]
+              - row [ref=f71e1511] [cursor=pointer]:
+                - cell [ref=f71e1512]:
+                  - checkbox [ref=f71e1513]
+                - cell [ref=f71e1514]:
+                  - text: "207"
+                  - 'link "Warranty #68" [ref=f71e1515]':
+                    - /url: /warranty/68
+                - 'cell "sdfsd sdfds BMW 318iC 2018 10000km VIN : VINTest09092020 Date de livraison: 2020-09-18 AP-68 12m / 20000km - 24.86$" [ref=f71e1516]'
+                - cell "$141.25" [ref=f71e1517]
+                - cell "Wednesday, May 19, 2021" [ref=f71e1518]
+                - cell "Payment pending" [ref=f71e1519]
+              - row [ref=f71e1521] [cursor=pointer]:
+                - cell [ref=f71e1522]:
+                  - checkbox [ref=f71e1523]
+                - cell [ref=f71e1524]:
+                  - text: "206"
+                  - 'link "Warranty #70" [ref=f71e1525]':
+                    - /url: /warranty/70
+                - 'cell "Vinh Le Chevrolet Silvarado 1500 2015 9000km VIN : 1GC4YPEY1LF130369 Date de livraison: 2020-10-01 AP-70 12m / 20000km - 339.00$" [ref=f71e1526]'
+                - cell "$141.25" [ref=f71e1527]
+                - cell "Wednesday, May 19, 2021" [ref=f71e1528]
+                - cell "Payment pending" [ref=f71e1529]
+              - row [ref=f71e1531] [cursor=pointer]:
+                - cell [ref=f71e1532]:
+                  - checkbox [ref=f71e1533]
+                - cell [ref=f71e1534]:
+                  - text: "197"
+                  - 'link "Warranty #213" [ref=f71e1535]':
+                    - /url: /warranty/213
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 81914 Date de livraison: 2021-03-19 AD- 12m / 20000km - 226$" [ref=f71e1536]'
+                - cell "$195.49" [ref=f71e1537]
+                - cell "Sunday, May 9, 2021" [ref=f71e1538]
+                - cell "Payment pending" [ref=f71e1539]
+              - row [ref=f71e1541] [cursor=pointer]:
+                - cell [ref=f71e1542]:
+                  - checkbox [ref=f71e1543]
+                - cell [ref=f71e1544]:
+                  - text: "196"
+                  - 'link "Warranty #212" [ref=f71e1545]':
+                    - /url: /warranty/212
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 30099 Date de livraison: 2021-03-19 APAP OP2- 12m / 10000km - 226$" [ref=f71e1546]'
+                - cell "$138.99" [ref=f71e1547]
+                - cell "Sunday, May 9, 2021" [ref=f71e1548]
+                - cell "Payment pending" [ref=f71e1549]
+              - row [ref=f71e1551] [cursor=pointer]:
+                - cell [ref=f71e1552]:
+                  - checkbox [ref=f71e1553]
+                - cell [ref=f71e1554]:
+                  - text: "192"
+                  - 'link "Warranty #207" [ref=f71e1555]':
+                    - /url: /warranty/207
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 138315 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1556]'
+                - cell "$172.46" [ref=f71e1557]
+                - cell "Friday, April 23, 2021" [ref=f71e1558]
+                - cell "Payment pending" [ref=f71e1559]
+              - row [ref=f71e1561] [cursor=pointer]:
+                - cell [ref=f71e1562]:
+                  - checkbox [ref=f71e1563]
+                - cell [ref=f71e1564]:
+                  - text: "191"
+                  - 'link "Warranty #206" [ref=f71e1565]':
+                    - /url: /warranty/206
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 33498 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1566]'
+                - cell "$172.46" [ref=f71e1567]
+                - cell "Friday, April 23, 2021" [ref=f71e1568]
+                - cell "Payment pending" [ref=f71e1569]
+              - row [ref=f71e1571] [cursor=pointer]:
+                - cell [ref=f71e1572]:
+                  - checkbox [ref=f71e1573]
+                - cell [ref=f71e1574]:
+                  - text: "190"
+                  - 'link "Warranty #205" [ref=f71e1575]':
+                    - /url: /warranty/205
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 74797 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1576]'
+                - cell "$172.46" [ref=f71e1577]
+                - cell "Friday, April 23, 2021" [ref=f71e1578]
+                - cell "Payment pending" [ref=f71e1579]
+              - row [ref=f71e1581] [cursor=pointer]:
+                - cell [ref=f71e1582]:
+                  - checkbox [ref=f71e1583]
+                - cell [ref=f71e1584]:
+                  - text: "189"
+                  - 'link "Warranty #204" [ref=f71e1585]':
+                    - /url: /warranty/204
+                - 'cell "vinh le Braxton Creek Bushwacker Plus 2011 2000km VIN : 22222 Date de livraison: 2021-04-15 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1586]'
+                - cell "$26.44" [ref=f71e1587]
+                - cell "Friday, April 23, 2021" [ref=f71e1588]
+                - cell "Payment pending" [ref=f71e1589]
+              - row [ref=f71e1591] [cursor=pointer]:
+                - cell [ref=f71e1592]:
+                  - checkbox [ref=f71e1593]
+                - cell [ref=f71e1594]:
+                  - text: "188"
+                  - 'link "Warranty #202" [ref=f71e1595]':
+                    - /url: /warranty/202
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 16813 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1596]'
+                - cell "$172.46" [ref=f71e1597]
+                - cell "Friday, April 23, 2021" [ref=f71e1598]
+                - cell "Payment pending" [ref=f71e1599]
+              - row [ref=f71e1601] [cursor=pointer]:
+                - cell [ref=f71e1602]:
+                  - checkbox [ref=f71e1603]
+                - cell [ref=f71e1604]:
+                  - text: "187"
+                  - 'link "Warranty #199" [ref=f71e1605]':
+                    - /url: /warranty/199
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 80229 Date de livraison: 2021-03-19 APAP OP2- 12m / 10000km - 229.95$" [ref=f71e1606]'
+                - cell "$114.98" [ref=f71e1607]
+                - cell "Friday, April 23, 2021" [ref=f71e1608]
+                - cell "Payment pending" [ref=f71e1609]
+              - row [ref=f71e1611] [cursor=pointer]:
+                - cell [ref=f71e1612]:
+                  - checkbox [ref=f71e1613]
+                - cell [ref=f71e1614]:
+                  - text: "186"
+                  - 'link "Warranty #198" [ref=f71e1615]':
+                    - /url: /warranty/198
+                - 'cell "vinh le Buick Cascada 2010 222222km VIN : 22222 Date de livraison: 2021-04-10 AX- 36m / 60000km - 1277.37225$" [ref=f71e1616]'
+                - cell "$371.37" [ref=f71e1617]
+                - cell "Friday, April 23, 2021" [ref=f71e1618]
+                - cell "Payment pending" [ref=f71e1619]
+              - row [ref=f71e1621] [cursor=pointer]:
+                - cell [ref=f71e1622]:
+                  - checkbox [ref=f71e1623]
+                - cell [ref=f71e1624]:
+                  - text: "182"
+                  - 'link "Warranty #194" [ref=f71e1625]':
+                    - /url: /warranty/194
+                - 'cell "vinh le Coachmen RV Cross Trek 2011 2000km VIN : 22222 Date de livraison: 2021-04-18 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1626]'
+                - cell "$26.44" [ref=f71e1627]
+                - cell "Sunday, April 18, 2021" [ref=f71e1628]
+                - cell "Payment pending" [ref=f71e1629]
+              - row [ref=f71e1631] [cursor=pointer]:
+                - cell [ref=f71e1632]:
+                  - checkbox [ref=f71e1633]
+                - cell [ref=f71e1634]:
+                  - text: "181"
+                  - 'link "Warranty #193" [ref=f71e1635]':
+                    - /url: /warranty/193
+                - 'cell "vinh le Airstream Atlas 2011 2000km VIN : 22222 Date de livraison: 2021-04-18 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1636]'
+                - cell "$26.44" [ref=f71e1637]
+                - cell "Sunday, April 18, 2021" [ref=f71e1638]
+                - cell "Payment pending" [ref=f71e1639]
+              - row [ref=f71e1641] [cursor=pointer]:
+                - cell [ref=f71e1642]:
+                  - checkbox [ref=f71e1643]
+                - cell [ref=f71e1644]:
+                  - text: "180"
+                  - 'link "Warranty #192" [ref=f71e1645]':
+                    - /url: /warranty/192
+                - 'cell "vinh le Airstream Interstate Grand Tour EXT 2011 2000km VIN : 22222 Date de livraison: 2021-04-18 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1646]'
+                - cell "$26.44" [ref=f71e1647]
+                - cell "Sunday, April 18, 2021" [ref=f71e1648]
+                - cell "Payment pending" [ref=f71e1649]
+              - row [ref=f71e1651] [cursor=pointer]:
+                - cell [ref=f71e1652]:
+                  - checkbox [ref=f71e1653]
+                - cell [ref=f71e1654]:
+                  - text: "179"
+                  - 'link "Warranty #191" [ref=f71e1655]':
+                    - /url: /warranty/191
+                - 'cell "vinh le American Coach American Dream 2011 2000km VIN : 22222 Date de livraison: 2021-04-18 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1656]'
+                - cell "$26.44" [ref=f71e1657]
+                - cell "Sunday, April 18, 2021" [ref=f71e1658]
+                - cell "Payment pending" [ref=f71e1659]
+              - row [ref=f71e1661] [cursor=pointer]:
+                - cell [ref=f71e1662]:
+                  - checkbox [ref=f71e1663]
+                - cell [ref=f71e1664]:
+                  - text: "178"
+                  - 'link "Warranty #190" [ref=f71e1665]':
+                    - /url: /warranty/190
+                - 'cell "vinh le Sunset Park RV RUSH 2011 2km VIN : 22222 Date de livraison: 2021-04-18 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1666]'
+                - cell "$26.44" [ref=f71e1667]
+                - cell "Sunday, April 18, 2021" [ref=f71e1668]
+                - cell "Payment pending" [ref=f71e1669]
+              - row [ref=f71e1671] [cursor=pointer]:
+                - cell [ref=f71e1672]:
+                  - checkbox [ref=f71e1673]
+                - cell [ref=f71e1674]:
+                  - text: "177"
+                  - 'link "Warranty #189" [ref=f71e1675]':
+                    - /url: /warranty/189
+                - 'cell "vinh le Jayco Eagle 2011 2000km VIN : 22222 Date de livraison: 2021-04-18 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1676]'
+                - cell "$26.44" [ref=f71e1677]
+                - cell "Sunday, April 18, 2021" [ref=f71e1678]
+                - cell "Payment pending" [ref=f71e1679]
+              - row [ref=f71e1681] [cursor=pointer]:
+                - cell [ref=f71e1682]:
+                  - checkbox [ref=f71e1683]
+                - cell [ref=f71e1684]:
+                  - text: "176"
+                  - 'link "Warranty #188" [ref=f71e1685]':
+                    - /url: /warranty/188
+                - 'cell "vinh le Chalet RV XL 2011 2000km VIN : 22222 Date de livraison: 2021-04-18 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1686]'
+                - cell "$26.44" [ref=f71e1687]
+                - cell "Sunday, April 18, 2021" [ref=f71e1688]
+                - cell "Payment pending" [ref=f71e1689]
+              - row [ref=f71e1691] [cursor=pointer]:
+                - cell [ref=f71e1692]:
+                  - checkbox [ref=f71e1693]
+                - cell [ref=f71e1694]:
+                  - text: "174"
+                  - 'link "Warranty #186" [ref=f71e1695]':
+                    - /url: /warranty/186
+                - 'cell "vinh le Adventurer Adventurer 2011 2000km VIN : 22222 Date de livraison: 2021-04-15 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1696]'
+                - cell "$26.44" [ref=f71e1697]
+                - cell "Sunday, April 18, 2021" [ref=f71e1698]
+                - cell "Payment pending" [ref=f71e1699]
+              - row [ref=f71e1701] [cursor=pointer]:
+                - cell [ref=f71e1702]:
+                  - checkbox [ref=f71e1703]
+                - cell [ref=f71e1704]:
+                  - text: "173"
+                  - 'link "Warranty #185" [ref=f71e1705]':
+                    - /url: /warranty/185
+                - 'cell "vinh le Heartland RV Road Warrior 2020 2000km VIN : 22222 Date de livraison: 2021-04-15 APAP OP2- 12m / 20000km - 1277.37225$" [ref=f71e1706]'
+                - cell "$0.00" [ref=f71e1707]
+                - cell "Thursday, April 15, 2021" [ref=f71e1708]
+                - cell "Payment pending" [ref=f71e1709]
+              - row [ref=f71e1711] [cursor=pointer]:
+                - cell [ref=f71e1712]:
+                  - checkbox [ref=f71e1713]
+                - cell [ref=f71e1714]:
+                  - text: "172"
+                  - 'link "Warranty #184" [ref=f71e1715]':
+                    - /url: /warranty/184
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 67624 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1716]'
+                - cell "$172.46" [ref=f71e1717]
+                - cell "Monday, April 12, 2021" [ref=f71e1718]
+                - cell "Payment pending" [ref=f71e1719]
+              - row [ref=f71e1721] [cursor=pointer]:
+                - cell [ref=f71e1722]:
+                  - checkbox [ref=f71e1723]
+                - cell [ref=f71e1724]:
+                  - text: "171"
+                  - 'link "Warranty #183" [ref=f71e1725]':
+                    - /url: /warranty/183
+                - 'cell "John Width DUCATI Multistrada 950, Multistrada 1260 2020 2222km VIN : 22222 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1726]'
+                - cell "$172.46" [ref=f71e1727]
+                - cell "Saturday, April 10, 2021" [ref=f71e1728]
+                - cell "Payment pending" [ref=f71e1729]
+              - row [ref=f71e1731] [cursor=pointer]:
+                - cell [ref=f71e1732]:
+                  - checkbox [ref=f71e1733]
+                - cell [ref=f71e1734]:
+                  - text: "166"
+                  - 'link "Warranty #178" [ref=f71e1735]':
+                    - /url: /warranty/178
+                - cell [ref=f71e1736]
+                - cell "$143.72" [ref=f71e1737]
+                - cell "Thursday, March 25, 2021" [ref=f71e1738]
+                - cell "Payment pending" [ref=f71e1739]
+              - row [ref=f71e1741] [cursor=pointer]:
+                - cell [ref=f71e1742]:
+                  - checkbox [ref=f71e1743]
+                - cell [ref=f71e1744]:
+                  - text: "165"
+                  - 'link "Warranty #177" [ref=f71e1745]':
+                    - /url: /warranty/177
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 41053 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1746]'
+                - cell "$172.46" [ref=f71e1747]
+                - cell "Thursday, March 25, 2021" [ref=f71e1748]
+                - cell "Payment pending" [ref=f71e1749]
+              - row [ref=f71e1751] [cursor=pointer]:
+                - cell [ref=f71e1752]:
+                  - checkbox [ref=f71e1753]
+                - cell [ref=f71e1754]:
+                  - text: "164"
+                  - 'link "Warranty #176" [ref=f71e1755]':
+                    - /url: /warranty/176
+                - 'cell "John Width BMW 128i 2019 20000km VIN : 28985 Date de livraison: 2021-03-19 AD- 12m / 20000km - 229.95$" [ref=f71e1756]'
+                - cell "$172.46" [ref=f71e1757]
+                - cell "Thursday, March 25, 2021" [ref=f71e1758]
+                - cell "Payment pending" [ref=f71e1759]
+              - row [ref=f71e1761] [cursor=pointer]:
+                - cell [ref=f71e1762]:
+                  - checkbox [ref=f71e1763]
+                - cell [ref=f71e1764]:
+                  - text: "157"
+                  - 'link "Warranty #169" [ref=f71e1765]':
+                    - /url: /warranty/169
+                - 'cell "test 001 client Toyota Avalon 2012 VIN : 12345678908 AT 36m / 60000km" [ref=f71e1766]'
+                - cell "$700.20" [ref=f71e1767]
+                - cell "Monday, March 8, 2021" [ref=f71e1768]
+                - cell "Payment pending" [ref=f71e1769]
+              - row [ref=f71e1771] [cursor=pointer]:
+                - cell [ref=f71e1772]:
+                  - checkbox [ref=f71e1773]
+                - cell [ref=f71e1774]:
+                  - text: "155"
+                  - 'link "Warranty #167" [ref=f71e1775]':
+                    - /url: /warranty/167
+                - 'cell "vinh le ARCTIC CAT Arctic Cat 2017 VIN : 22222 APAP OP2 12m / 10000km" [ref=f71e1776]'
+                - cell "$114.98" [ref=f71e1777]
+                - cell "Thursday, March 4, 2021" [ref=f71e1778]
+                - cell "Payment pending" [ref=f71e1779]
+              - row [ref=f71e1781] [cursor=pointer]:
+                - cell [ref=f71e1782]:
+                  - checkbox [ref=f71e1783]
+                - cell [ref=f71e1784]:
+                  - text: "154"
+                  - 'link "Warranty #166" [ref=f71e1785]':
+                    - /url: /warranty/166
+                - 'cell "vinh le Acura NSX 2017 VIN : 22222 APAP OP2 12m / 10000km" [ref=f71e1786]'
+                - cell "$114.98" [ref=f71e1787]
+                - cell "Thursday, March 4, 2021" [ref=f71e1788]
+                - cell "Payment pending" [ref=f71e1789]
+              - row [ref=f71e1791] [cursor=pointer]:
+                - cell [ref=f71e1792]:
+                  - checkbox [ref=f71e1793]
+                - cell [ref=f71e1794]:
+                  - text: "153"
+                  - 'link "Warranty #165" [ref=f71e1795]':
+                    - /url: /warranty/165
+                - 'cell "vinh le Acura ILX 2017 VIN : 22222 APAP OP2 12m / 10000km" [ref=f71e1796]'
+                - cell "$114.98" [ref=f71e1797]
+                - cell "Thursday, March 4, 2021" [ref=f71e1798]
+                - cell "Payment pending" [ref=f71e1799]
+              - row [ref=f71e1801] [cursor=pointer]:
+                - cell [ref=f71e1802]:
+                  - checkbox [ref=f71e1803]
+                - cell [ref=f71e1804]:
+                  - text: "152"
+                  - 'link "Warranty #164" [ref=f71e1805]':
+                    - /url: /warranty/164
+                - 'cell "vinh le Acura ILX 2017 VIN : 22222 APAP OP2 12m / 10000km" [ref=f71e1806]'
+                - cell "$141.42" [ref=f71e1807]
+                - cell "Thursday, March 4, 2021" [ref=f71e1808]
+                - cell "Payment pending" [ref=f71e1809]
+              - row [ref=f71e1811] [cursor=pointer]:
+                - cell [ref=f71e1812]:
+                  - checkbox [ref=f71e1813]
+                - cell [ref=f71e1814]:
+                  - text: "151"
+                  - 'link "Warranty #163" [ref=f71e1815]':
+                    - /url: /warranty/163
+                - 'cell "vinh le Acura ILX 2017 VIN : 22222 APAP OP2 12m / 10000km" [ref=f71e1816]'
+                - cell "$141.42" [ref=f71e1817]
+                - cell "Thursday, March 4, 2021" [ref=f71e1818]
+                - cell "Payment pending" [ref=f71e1819]
+              - row [ref=f71e1821] [cursor=pointer]:
+                - cell [ref=f71e1822]:
+                  - checkbox [ref=f71e1823]
+                - cell [ref=f71e1824]:
+                  - text: "150"
+                  - 'link "Warranty #162" [ref=f71e1825]':
+                    - /url: /warranty/162
+                - 'cell "vinh le Acura ILX 2017 VIN : 22222 APAP OP2 12m / 10000km" [ref=f71e1826]'
+                - cell "$114.98" [ref=f71e1827]
+                - cell "Thursday, March 4, 2021" [ref=f71e1828]
+                - cell "Payment pending" [ref=f71e1829]
+              - row [ref=f71e1831] [cursor=pointer]:
+                - cell [ref=f71e1832]:
+                  - checkbox [ref=f71e1833]
+                - cell [ref=f71e1834]:
+                  - text: "147"
+                  - 'link "Warranty #159" [ref=f71e1835]':
+                    - /url: /warranty/159
+                - 'cell "sdfds dfsdf Dodge Dart 2017 VIN : 5555555555555555 APAP OP2 12m / 10000km" [ref=f71e1836]'
+                - cell "$114.98" [ref=f71e1837]
+                - cell "Thursday, March 4, 2021" [ref=f71e1838]
+                - cell "Payment pending" [ref=f71e1839]
+              - row [ref=f71e1841] [cursor=pointer]:
+                - cell [ref=f71e1842]:
+                  - checkbox [ref=f71e1843]
+                - cell [ref=f71e1844]:
+                  - text: "145"
+                  - 'link "Warranty #157" [ref=f71e1845]':
+                    - /url: /warranty/157
+                - 'cell "vinh le Acura RDX 2011 VIN : 777777777 APAP OP2 12m / 10000km" [ref=f71e1846]'
+                - cell "$287.44" [ref=f71e1847]
+                - cell "Wednesday, March 3, 2021" [ref=f71e1848]
+                - cell "Payment pending" [ref=f71e1849]
+              - row [ref=f71e1851] [cursor=pointer]:
+                - cell [ref=f71e1852]:
+                  - checkbox [ref=f71e1853]
+                - cell [ref=f71e1854]:
+                  - text: "144"
+                  - 'link "Warranty #156" [ref=f71e1855]':
+                    - /url: /warranty/156
+                - 'cell "vinh le Chevrolet Avalanche 1500 2011 VIN : 1GC4YPEY1LF130369 APAP OP2 12m / 10000km" [ref=f71e1856]'
+                - cell "$313.88" [ref=f71e1857]
+                - cell "Wednesday, March 3, 2021" [ref=f71e1858]
+                - cell "Payment pending" [ref=f71e1859]
+              - row [ref=f71e1861] [cursor=pointer]:
+                - cell [ref=f71e1862]:
+                  - checkbox [ref=f71e1863]
+                - cell [ref=f71e1864]:
+                  - text: "142"
+                  - 'link "Warranty #154" [ref=f71e1865]':
+                    - /url: /warranty/154
+                - cell [ref=f71e1866]
+                - cell "$91.98" [ref=f71e1867]
+                - cell "Wednesday, March 3, 2021" [ref=f71e1868]
+                - cell "Payment pending" [ref=f71e1869]
+              - row [ref=f71e1871] [cursor=pointer]:
+                - cell [ref=f71e1872]:
+                  - checkbox [ref=f71e1873]
+                - cell [ref=f71e1874]:
+                  - text: "139"
+                  - 'link "Warranty #153" [ref=f71e1875]':
+                    - /url: /warranty/153
+                - 'cell "vinh le Acura ILX 2011 VIN : 22222 APAP OP2 12m / 10000km" [ref=f71e1876]'
+                - cell "$287.44" [ref=f71e1877]
+                - cell "Wednesday, March 3, 2021" [ref=f71e1878]
+                - cell "Payment pending" [ref=f71e1879]
+              - row [ref=f71e1881] [cursor=pointer]:
+                - cell [ref=f71e1882]:
+                  - checkbox [ref=f71e1883]
+                - cell [ref=f71e1884]:
+                  - text: "138"
+                  - 'link "Warranty #152" [ref=f71e1885]':
+                    - /url: /warranty/152
+                - 'cell "vinh le Chevrolet Avalanche 1500 2011 VIN : 1GC4YPEY1LF130369 APAP OP2 12m / 10000km" [ref=f71e1886]'
+                - cell "$313.88" [ref=f71e1887]
+                - cell "Wednesday, March 3, 2021" [ref=f71e1888]
+                - cell "Payment pending" [ref=f71e1889]
+              - row [ref=f71e1891] [cursor=pointer]:
+                - cell [ref=f71e1892]:
+                  - checkbox [ref=f71e1893]
+                - cell [ref=f71e1894]:
+                  - text: "135"
+                  - 'link "Warranty #149" [ref=f71e1895]':
+                    - /url: /warranty/149
+                - 'cell "vinh le KAWASAKI Jet Ski STX 160 2012 VIN : 22222 AVLBO 12m / 150km" [ref=f71e1896]'
+                - cell "$344.93" [ref=f71e1897]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1898]
+                - cell "Payment pending" [ref=f71e1899]
+              - row [ref=f71e1901] [cursor=pointer]:
+                - cell [ref=f71e1902]:
+                  - checkbox [ref=f71e1903]
+                - cell [ref=f71e1904]:
+                  - text: "134"
+                  - 'link "Warranty #148" [ref=f71e1905]':
+                    - /url: /warranty/148
+                - 'cell "vinh le Axis A20 2019 VIN : 22222 AP 12m / 20000km" [ref=f71e1906]'
+                - cell "$233.40" [ref=f71e1907]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1908]
+                - cell "Payment pending" [ref=f71e1909]
+              - row [ref=f71e1911] [cursor=pointer]:
+                - cell [ref=f71e1912]:
+                  - checkbox [ref=f71e1913]
+                - cell [ref=f71e1914]:
+                  - text: "133"
+                  - 'link "Warranty #147" [ref=f71e1915]':
+                    - /url: /warranty/147
+                - 'cell "vinh le Sea-Doo Fish Pro 2017 VIN : 22222 AP 12m / 20000km" [ref=f71e1916]'
+                - cell "$233.40" [ref=f71e1917]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1918]
+                - cell "Payment pending" [ref=f71e1919]
+              - row [ref=f71e1921] [cursor=pointer]:
+                - cell [ref=f71e1922]:
+                  - checkbox [ref=f71e1923]
+                - cell [ref=f71e1924]:
+                  - text: "132"
+                  - 'link "Warranty #146" [ref=f71e1925]':
+                    - /url: /warranty/146
+                - 'cell "vinh le Volvo test vehicel type - PWC 2017 VIN : 22222 AP 12m / 20000km" [ref=f71e1926]'
+                - cell "$206.96" [ref=f71e1927]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1928]
+                - cell "Payment pending" [ref=f71e1929]
+              - row [ref=f71e1931] [cursor=pointer]:
+                - cell [ref=f71e1932]:
+                  - checkbox [ref=f71e1933]
+                - cell [ref=f71e1934]:
+                  - text: "131"
+                  - 'link "Warranty #145" [ref=f71e1935]':
+                    - /url: /warranty/145
+                - 'cell "vinh le Barletta Corsa 2018 VIN : 22222 AP 12m / 20000km" [ref=f71e1936]'
+                - cell "$206.96" [ref=f71e1937]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1938]
+                - cell "Payment pending" [ref=f71e1939]
+              - row [ref=f71e1941] [cursor=pointer]:
+                - cell [ref=f71e1942]:
+                  - checkbox [ref=f71e1943]
+                - cell [ref=f71e1944]:
+                  - text: "130"
+                  - 'link "Warranty #144" [ref=f71e1945]':
+                    - /url: /warranty/144
+                - 'cell "vinh le Bayliner 160 Bowrider 2019 VIN : 22222 AP 12m / 20000km" [ref=f71e1946]'
+                - cell "$206.96" [ref=f71e1947]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1948]
+                - cell "Payment pending" [ref=f71e1949]
+              - row [ref=f71e1951] [cursor=pointer]:
+                - cell [ref=f71e1952]:
+                  - checkbox [ref=f71e1953]
+                - cell [ref=f71e1954]:
+                  - text: "129"
+                  - 'link "Warranty #143" [ref=f71e1955]':
+                    - /url: /warranty/143
+                - 'cell "vinh le Axis A20 2020 VIN : 22222 AP 12m / 20000km" [ref=f71e1956]'
+                - cell "$206.96" [ref=f71e1957]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1958]
+                - cell "Payment pending" [ref=f71e1959]
+              - row [ref=f71e1961] [cursor=pointer]:
+                - cell [ref=f71e1962]:
+                  - checkbox [ref=f71e1963]
+                - cell [ref=f71e1964]:
+                  - text: "128"
+                  - 'link "Warranty #142" [ref=f71e1965]':
+                    - /url: /warranty/142
+                - 'cell "vinh le MakeExample PWC model 2019 VIN : 22222 AP 12m / 20000km" [ref=f71e1966]'
+                - cell "$206.96" [ref=f71e1967]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1968]
+                - cell "Payment pending" [ref=f71e1969]
+              - row [ref=f71e1971] [cursor=pointer]:
+                - cell [ref=f71e1972]:
+                  - checkbox [ref=f71e1973]
+                - cell [ref=f71e1974]:
+                  - text: "127"
+                  - 'link "Warranty #141" [ref=f71e1975]':
+                    - /url: /warranty/141
+                - 'cell "vinh le Alumacraft 165 Prowler 2010 VIN : 22222 AP 12m / 20000km" [ref=f71e1976]'
+                - cell "$206.96" [ref=f71e1977]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1978]
+                - cell "Payment pending" [ref=f71e1979]
+              - row [ref=f71e1981] [cursor=pointer]:
+                - cell [ref=f71e1982]:
+                  - checkbox [ref=f71e1983]
+                - cell [ref=f71e1984]:
+                  - text: "125"
+                  - 'link "Warranty #139" [ref=f71e1985]':
+                    - /url: /warranty/139
+                - 'cell "vinh le Axis A20 2019 VIN : 22222222 AP 12m / 20000km" [ref=f71e1986]'
+                - cell "$233.40" [ref=f71e1987]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1988]
+                - cell "Payment pending" [ref=f71e1989]
+              - row [ref=f71e1991] [cursor=pointer]:
+                - cell [ref=f71e1992]:
+                  - checkbox [ref=f71e1993]
+                - cell [ref=f71e1994]:
+                  - text: "124"
+                  - 'link "Warranty #138" [ref=f71e1995]':
+                    - /url: /warranty/138
+                - 'cell "vinh le KAWASAKI Jet Ski STX 160 2019 VIN : 22222222 AP 12m / 20000km" [ref=f71e1996]'
+                - cell "$233.40" [ref=f71e1997]
+                - cell "Tuesday, February 9, 2021" [ref=f71e1998]
+                - cell "Payment pending" [ref=f71e1999]
+              - row [ref=f71e2001] [cursor=pointer]:
+                - cell [ref=f71e2002]:
+                  - checkbox [ref=f71e2003]
+                - cell [ref=f71e2004]:
+                  - text: "123"
+                  - 'link "Warranty #137" [ref=f71e2005]':
+                    - /url: /warranty/137
+                - 'cell "sdfds sdfds KAWASAKI Jet Ski STX 160 2019 VIN : 55555555555 AP 12m / 20000km" [ref=f71e2006]'
+                - cell "$149.47" [ref=f71e2007]
+                - cell "Tuesday, February 9, 2021" [ref=f71e2008]
+                - cell "Payment pending" [ref=f71e2009]
+              - row [ref=f71e2011] [cursor=pointer]:
+                - cell [ref=f71e2012]:
+                  - checkbox [ref=f71e2013]
+                - cell [ref=f71e2014]:
+                  - text: "121"
+                  - 'link "Warranty #135" [ref=f71e2015]':
+                    - /url: /warranty/135
+                - 'cell "dsfds dfds POLARIS Sportsman 2019 VIN : 44444444 002Opt_001 12m / 12000km" [ref=f71e2016]'
+                - cell "$0.00" [ref=f71e2017]
+                - cell "Monday, February 8, 2021" [ref=f71e2018]
+                - cell "Payment pending" [ref=f71e2019]
+              - row [ref=f71e2021] [cursor=pointer]:
+                - cell [ref=f71e2022]:
+                  - checkbox [ref=f71e2023]
+                - cell [ref=f71e2024]:
+                  - text: "120"
+                  - 'link "Warranty #134" [ref=f71e2025]':
+                    - /url: /warranty/134
+                - 'cell "vinh le POLARIS Sportsman 2019 VIN : 44444444 AVLATVUTV 60m / 0km" [ref=f71e2026]'
+                - cell "$732.39" [ref=f71e2027]
+                - cell "Sunday, February 7, 2021" [ref=f71e2028]
+                - cell "Payment pending" [ref=f71e2029]
+              - row [ref=f71e2031] [cursor=pointer]:
+                - cell [ref=f71e2032]:
+                  - checkbox [ref=f71e2033]
+                - cell [ref=f71e2034]:
+                  - text: "118"
+                  - 'link "Warranty #132" [ref=f71e2035]':
+                    - /url: /warranty/132
+                - 'cell "v test01 Toyota FJ Cruiser 2019 VIN : 38282828282 AT 48m / 80000km" [ref=f71e2036]'
+                - cell "$948.54" [ref=f71e2037]
+                - cell "Wednesday, February 3, 2021" [ref=f71e2038]
+                - cell "Payment pending" [ref=f71e2039]
+              - row [ref=f71e2041] [cursor=pointer]:
+                - cell [ref=f71e2042]:
+                  - checkbox [ref=f71e2043]
+                - cell [ref=f71e2044]:
+                  - text: "117"
+                  - 'link "Warranty #131" [ref=f71e2045]':
+                    - /url: /warranty/131
+                - 'cell "fdfs fdsfs Toyota FJ Cruiser 2019 VIN : 38282828282 AX 12m / 20000km" [ref=f71e2046]'
+                - cell "$264.44" [ref=f71e2047]
+                - cell "Wednesday, February 3, 2021" [ref=f71e2048]
+                - cell "Payment pending" [ref=f71e2049]
+              - row [ref=f71e2051] [cursor=pointer]:
+                - cell [ref=f71e2052]:
+                  - checkbox [ref=f71e2053]
+                - cell [ref=f71e2054]:
+                  - text: "116"
+                  - 'link "Warranty #130" [ref=f71e2055]':
+                    - /url: /warranty/130
+                - 'cell "test for testing BMW 230i 2019 VIN : 12345678908 AP 12m / 20000km" [ref=f71e2056]'
+                - cell "$170.16" [ref=f71e2057]
+                - cell "Wednesday, February 3, 2021" [ref=f71e2058]
+                - cell "Payment pending" [ref=f71e2059]
+              - row [ref=f71e2061] [cursor=pointer]:
+                - cell [ref=f71e2062]:
+                  - checkbox [ref=f71e2063]
+                - cell [ref=f71e2064]:
+                  - text: "115"
+                  - 'link "Warranty #129" [ref=f71e2065]':
+                    - /url: /warranty/129
+                - 'cell "vinh le KAWASAKI Jet Ski STX 160 2019 VIN : 22222222 AVLBO 60m / 150km" [ref=f71e2066]'
+                - cell "$91.98" [ref=f71e2067]
+                - cell "Wednesday, February 3, 2021" [ref=f71e2068]
+                - cell "Payment pending" [ref=f71e2069]
+              - row [ref=f71e2071] [cursor=pointer]:
+                - cell [ref=f71e2072]:
+                  - checkbox [ref=f71e2073]
+                - cell [ref=f71e2074]:
+                  - text: "114"
+                  - 'link "Warranty #128" [ref=f71e2075]':
+                    - /url: /warranty/128
+                - 'cell "vinh le Cadillac CTS 2019 VIN : 22222222 APAP OP1 12m / 10000km" [ref=f71e2076]'
+                - cell "$0.00" [ref=f71e2077]
+                - cell "Wednesday, February 3, 2021" [ref=f71e2078]
+                - cell "Payment pending" [ref=f71e2079]
+              - row [ref=f71e2081] [cursor=pointer]:
+                - cell [ref=f71e2082]:
+                  - checkbox [ref=f71e2083]
+                - cell [ref=f71e2084]:
+                  - text: "113"
+                  - 'link "Warranty #127" [ref=f71e2085]':
+                    - /url: /warranty/127
+                - 'cell "dealer test Boat make test Boat model 2018 VIN : 22222222 APAP OP2 12m / 10000km" [ref=f71e2086]'
+                - cell "$0.00" [ref=f71e2087]
+                - cell "Tuesday, January 26, 2021" [ref=f71e2088]
+                - cell "Payment pending" [ref=f71e2089]
+              - row [ref=f71e2091] [cursor=pointer]:
+                - cell [ref=f71e2092]:
+                  - checkbox [ref=f71e2093]
+                - cell [ref=f71e2094]:
+                  - text: "111"
+                  - 'link "Warranty #125" [ref=f71e2095]':
+                    - /url: /warranty/125
+                - 'cell "test test BMW 230i 2019 VIN : 12345678908 AP 12m / 20000km" [ref=f71e2096]'
+                - cell "$114.98" [ref=f71e2097]
+                - cell "Tuesday, January 12, 2021" [ref=f71e2098]
+                - cell "Payment pending" [ref=f71e2099]
+              - row [ref=f71e2101] [cursor=pointer]:
+                - cell [ref=f71e2102]:
+                  - checkbox [ref=f71e2103]
+                - cell [ref=f71e2104]:
+                  - text: "108"
+                  - 'link "Warranty #122" [ref=f71e2105]':
+                    - /url: /warranty/122
+                - 'cell "vinh le Cadillac CTS 2019 VIN : 22222222 APAP OP1 12m / 10000km" [ref=f71e2106]'
+                - cell "$170.16" [ref=f71e2107]
+                - cell "Monday, December 21, 2020" [ref=f71e2108]
+                - cell "Payment pending" [ref=f71e2109]
+              - row [ref=f71e2111] [cursor=pointer]:
+                - cell [ref=f71e2112]:
+                  - checkbox [ref=f71e2113]
+                - cell [ref=f71e2114]:
+                  - text: "107"
+                  - 'link "Warranty #121" [ref=f71e2115]':
+                    - /url: /warranty/121
+                - 'cell "vinh le ARCTIC CAT Arctic Cat 2019 VIN : 12345678 APAP OP2 12m / 10000km" [ref=f71e2116]'
+                - cell "$252.95" [ref=f71e2117]
+                - cell "Friday, December 18, 2020" [ref=f71e2118]
+                - cell "Payment pending" [ref=f71e2119]
+              - row [ref=f71e2121] [cursor=pointer]:
+                - cell [ref=f71e2122]:
+                  - checkbox [ref=f71e2123]
+                - cell [ref=f71e2124]:
+                  - text: "105"
+                  - 'link "Warranty #119" [ref=f71e2125]':
+                    - /url: /warranty/119
+                - 'cell "vinh le Acura RDX 2019 VIN : 12345678 APAP OP2 12m / 10000km" [ref=f71e2126]'
+                - cell "$173.61" [ref=f71e2127]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2128]
+                - cell "Payment pending" [ref=f71e2129]
+              - row [ref=f71e2131] [cursor=pointer]:
+                - cell [ref=f71e2132]:
+                  - checkbox [ref=f71e2133]
+                - cell [ref=f71e2134]:
+                  - text: "104"
+                  - 'link "Warranty #118" [ref=f71e2135]':
+                    - /url: /warranty/118
+                - 'cell "vinh le Acura RDX 2019 VIN : 44444444 APAP OP2 12m / 10000km" [ref=f71e2136]'
+                - cell "$173.61" [ref=f71e2137]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2138]
+                - cell "Payment pending" [ref=f71e2139]
+              - row [ref=f71e2141] [cursor=pointer]:
+                - cell [ref=f71e2142]:
+                  - checkbox [ref=f71e2143]
+                - cell [ref=f71e2144]:
+                  - text: "103"
+                  - 'link "Warranty #117" [ref=f71e2145]':
+                    - /url: /warranty/117
+                - 'cell "vinh le Suzuki SX4 2019 VIN : 44444444 APAP OP2 12m / 10000km" [ref=f71e2146]'
+                - cell "$188.56" [ref=f71e2147]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2148]
+                - cell "Payment pending" [ref=f71e2149]
+              - row [ref=f71e2151] [cursor=pointer]:
+                - cell [ref=f71e2152]:
+                  - checkbox [ref=f71e2153]
+                - cell [ref=f71e2154]:
+                  - text: "102"
+                  - 'link "Warranty #116" [ref=f71e2155]':
+                    - /url: /warranty/116
+                - 'cell "vinh le BMW 318i 2019 VIN : 22222222 APAP OP2 12m / 10000km" [ref=f71e2156]'
+                - cell "$114.98" [ref=f71e2157]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2158]
+                - cell "Payment pending" [ref=f71e2159]
+              - row [ref=f71e2161] [cursor=pointer]:
+                - cell [ref=f71e2162]:
+                  - checkbox [ref=f71e2163]
+                - cell [ref=f71e2164]:
+                  - text: "101"
+                  - 'link "Warranty #115" [ref=f71e2165]':
+                    - /url: /warranty/115
+                - 'cell "vinh le Mercedes-Benz B250 4MATIC 2019 VIN : 11111111 APAP OP2 12m / 10000km" [ref=f71e2166]'
+                - cell "$114.98" [ref=f71e2167]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2168]
+                - cell "Payment pending" [ref=f71e2169]
+              - row [ref=f71e2171] [cursor=pointer]:
+                - cell [ref=f71e2172]:
+                  - checkbox [ref=f71e2173]
+                - cell [ref=f71e2174]:
+                  - text: "100"
+                  - 'link "Warranty #114" [ref=f71e2175]':
+                    - /url: /warranty/114
+                - 'cell "vinh le Audi A8 2019 VIN : 55555555 APAP OP2 12m / 10000km" [ref=f71e2176]'
+                - cell "$114.98" [ref=f71e2177]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2178]
+                - cell "Payment pending" [ref=f71e2179]
+              - row [ref=f71e2181] [cursor=pointer]:
+                - cell [ref=f71e2182]:
+                  - checkbox [ref=f71e2183]
+                - cell [ref=f71e2184]:
+                  - text: "99"
+                  - 'link "Warranty #113" [ref=f71e2185]':
+                    - /url: /warranty/113
+                - 'cell "vinh le Acura ILX 2016 VIN : 11111111 APAP OP2 12m / 10000km" [ref=f71e2186]'
+                - cell "$229.95" [ref=f71e2187]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2188]
+                - cell "Payment pending" [ref=f71e2189]
+              - row [ref=f71e2191] [cursor=pointer]:
+                - cell [ref=f71e2192]:
+                  - checkbox [ref=f71e2193]
+                - cell [ref=f71e2194]:
+                  - text: "98"
+                  - 'link "Warranty #112" [ref=f71e2195]':
+                    - /url: /warranty/112
+                - 'cell "vinh le Acura RDX 2019 VIN : 22222222 APAP OP2 12m / 10000km" [ref=f71e2196]'
+                - cell "$206.96" [ref=f71e2197]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2198]
+                - cell "Payment pending" [ref=f71e2199]
+              - row [ref=f71e2201] [cursor=pointer]:
+                - cell [ref=f71e2202]:
+                  - checkbox [ref=f71e2203]
+                - cell [ref=f71e2204]:
+                  - text: "97"
+                  - 'link "Warranty #111" [ref=f71e2205]':
+                    - /url: /warranty/111
+                - 'cell "vinh le Suzuki Kizashi 2015 VIN : 33333333 APAP OP2 12m / 10000km" [ref=f71e2206]'
+                - cell "$229.95" [ref=f71e2207]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2208]
+                - cell "Payment pending" [ref=f71e2209]
+              - row [ref=f71e2211] [cursor=pointer]:
+                - cell [ref=f71e2212]:
+                  - checkbox [ref=f71e2213]
+                - cell [ref=f71e2214]:
+                  - text: "96"
+                  - 'link "Warranty #110" [ref=f71e2215]':
+                    - /url: /warranty/110
+                - 'cell "vinh le Suzuki SX4 2019 VIN : 22222222 APAP OP2 12m / 10000km" [ref=f71e2216]'
+                - cell "$206.96" [ref=f71e2217]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2218]
+                - cell "Payment pending" [ref=f71e2219]
+              - row [ref=f71e2221] [cursor=pointer]:
+                - cell [ref=f71e2222]:
+                  - checkbox [ref=f71e2223]
+                - cell [ref=f71e2224]:
+                  - text: "95"
+                  - 'link "Warranty #109" [ref=f71e2225]':
+                    - /url: /warranty/109
+                - 'cell "vinh le Suzuki SX4 2019 VIN : 44444444 APAP OP2 12m / 10000km" [ref=f71e2226]'
+                - cell "$206.96" [ref=f71e2227]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2228]
+                - cell "Payment pending" [ref=f71e2229]
+              - row [ref=f71e2231] [cursor=pointer]:
+                - cell [ref=f71e2232]:
+                  - checkbox [ref=f71e2233]
+                - cell [ref=f71e2234]:
+                  - text: "94"
+                  - 'link "Warranty #108" [ref=f71e2235]':
+                    - /url: /warranty/108
+                - 'cell "vinh le BMW 330i 2019 VIN : 44444444 APAP OP2 12m / 10000km" [ref=f71e2236]'
+                - cell "$206.96" [ref=f71e2237]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2238]
+                - cell "Payment pending" [ref=f71e2239]
+              - row [ref=f71e2241] [cursor=pointer]:
+                - cell [ref=f71e2242]:
+                  - checkbox [ref=f71e2243]
+                - cell [ref=f71e2244]:
+                  - text: "93"
+                  - 'link "Warranty #107" [ref=f71e2245]':
+                    - /url: /warranty/107
+                - 'cell "omdfds sdfds Toyota FJ Cruiser 2019 VIN : 38282828282 APAP OP2 12m / 10000km" [ref=f71e2246]'
+                - cell "$211.55" [ref=f71e2247]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2248]
+                - cell "Payment pending" [ref=f71e2249]
+              - row [ref=f71e2251] [cursor=pointer]:
+                - cell [ref=f71e2252]:
+                  - checkbox [ref=f71e2253]
+                - cell [ref=f71e2254]:
+                  - text: "92"
+                  - 'link "Warranty #106" [ref=f71e2255]':
+                    - /url: /warranty/106
+                - 'cell "vinh le BMW 330i 2019 VIN : 22222222 APAP OP2 12m / 10000km" [ref=f71e2256]'
+                - cell "$246.05" [ref=f71e2257]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2258]
+                - cell "Payment pending" [ref=f71e2259]
+              - row [ref=f71e2261] [cursor=pointer]:
+                - cell [ref=f71e2262]:
+                  - checkbox [ref=f71e2263]
+                - cell [ref=f71e2264]:
+                  - text: "91"
+                  - 'link "Warranty #105" [ref=f71e2265]':
+                    - /url: /warranty/105
+                - 'cell "Vinh Le Chevrolet Silvarado 1500 2015 VIN : 1GC4YPEY1LF130369 AT 24m / 40000km" [ref=f71e2266]'
+                - cell "$872.66" [ref=f71e2267]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2268]
+                - cell "Payment pending" [ref=f71e2269]
+              - row [ref=f71e2271] [cursor=pointer]:
+                - cell [ref=f71e2272]:
+                  - checkbox [ref=f71e2273]
+                - cell [ref=f71e2274]:
+                  - text: "90"
+                  - 'link "Warranty #104" [ref=f71e2275]':
+                    - /url: /warranty/104
+                - 'cell "sdfds fdsfsd BMW 230i 2019 VIN : 12345678908 APAP OP2 12m / 10000km" [ref=f71e2276]'
+                - cell "$229.95" [ref=f71e2277]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2278]
+                - cell "Payment pending" [ref=f71e2279]
+              - row [ref=f71e2281] [cursor=pointer]:
+                - cell [ref=f71e2282]:
+                  - checkbox [ref=f71e2283]
+                - cell [ref=f71e2284]:
+                  - text: "89"
+                  - 'link "Warranty #103" [ref=f71e2285]':
+                    - /url: /warranty/103
+                - 'cell "vinh le BMW 330i 2019 VIN : 11111111 APAP OP2 12m / 10000km" [ref=f71e2286]'
+                - cell "$229.95" [ref=f71e2287]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2288]
+                - cell "Payment pending" [ref=f71e2289]
+              - row [ref=f71e2291] [cursor=pointer]:
+                - cell [ref=f71e2292]:
+                  - checkbox [ref=f71e2293]
+                - cell [ref=f71e2294]:
+                  - text: "88"
+                  - 'link "Warranty #102" [ref=f71e2295]':
+                    - /url: /warranty/102
+                - 'cell "vinh le BMW 330i 2018 VIN : 22222222 APAP OP2 12m / 10000km" [ref=f71e2296]'
+                - cell "$229.95" [ref=f71e2297]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2298]
+                - cell "Payment pending" [ref=f71e2299]
+              - row [ref=f71e2301] [cursor=pointer]:
+                - cell [ref=f71e2302]:
+                  - checkbox [ref=f71e2303]
+                - cell [ref=f71e2304]:
+                  - text: "87"
+                  - 'link "Warranty #101" [ref=f71e2305]':
+                    - /url: /warranty/101
+                - 'cell "vinh le BMW 330i 2019 VIN : 33333333 APAP OP1 12m / 10000km" [ref=f71e2306]'
+                - cell "$155.22" [ref=f71e2307]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2308]
+                - cell "Payment pending" [ref=f71e2309]
+              - row [ref=f71e2311] [cursor=pointer]:
+                - cell [ref=f71e2312]:
+                  - checkbox [ref=f71e2313]
+                - cell [ref=f71e2314]:
+                  - text: "86"
+                  - 'link "Warranty #100" [ref=f71e2315]':
+                    - /url: /warranty/100
+                - 'cell "sdfdsf sdfsafsd Toyota FJ Cruiser 2019 VIN : 38282828282 APAP OP2 12m / 10000km" [ref=f71e2316]'
+                - cell "$172.46" [ref=f71e2317]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2318]
+                - cell "Payment pending" [ref=f71e2319]
+              - row [ref=f71e2321] [cursor=pointer]:
+                - cell [ref=f71e2322]:
+                  - checkbox [ref=f71e2323]
+                - cell [ref=f71e2324]:
+                  - text: "85"
+                  - 'link "Warranty #99" [ref=f71e2325]':
+                    - /url: /warranty/99
+                - 'cell "sdfsdfds sdfdsfds Toyota FJ Cruiser 2019 VIN : 38282828282 APAP OP2 12m / 10000km" [ref=f71e2326]'
+                - cell "$229.95" [ref=f71e2327]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2328]
+                - cell "Payment pending" [ref=f71e2329]
+              - row [ref=f71e2331] [cursor=pointer]:
+                - cell [ref=f71e2332]:
+                  - checkbox [ref=f71e2333]
+                - cell [ref=f71e2334]:
+                  - text: "84"
+                  - 'link "Warranty #98" [ref=f71e2335]':
+                    - /url: /warranty/98
+                - 'cell "fdl sdfds BMW 230i 2019 VIN : 12345678908 APAP OP2 12m / 10000km" [ref=f71e2336]'
+                - cell "$172.46" [ref=f71e2337]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2338]
+                - cell "Payment pending" [ref=f71e2339]
+              - row [ref=f71e2341] [cursor=pointer]:
+                - cell [ref=f71e2342]:
+                  - checkbox [ref=f71e2343]
+                - cell [ref=f71e2344]:
+                  - text: "83"
+                  - 'link "Warranty #97" [ref=f71e2345]':
+                    - /url: /warranty/97
+                - 'cell "sdfds sdfsdf BMW 318iC 2018 VIN : VINTest09092020 APAP OP1 36m / 20000km" [ref=f71e2346]'
+                - cell "$114.98" [ref=f71e2347]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2348]
+                - cell "Payment pending" [ref=f71e2349]
+              - row [ref=f71e2351] [cursor=pointer]:
+                - cell [ref=f71e2352]:
+                  - checkbox [ref=f71e2353]
+                - cell [ref=f71e2354]:
+                  - text: "82"
+                  - 'link "Warranty #96" [ref=f71e2355]':
+                    - /url: /warranty/96
+                - 'cell "testes sdsfds Dodge Dart 2017 VIN : 5555555555555555 APAP OP2 12m / 10000km" [ref=f71e2356]'
+                - cell "$172.46" [ref=f71e2357]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2358]
+                - cell "Payment pending" [ref=f71e2359]
+              - row [ref=f71e2361] [cursor=pointer]:
+                - cell [ref=f71e2362]:
+                  - checkbox [ref=f71e2363]
+                - cell [ref=f71e2364]:
+                  - text: "81"
+                  - 'link "Warranty #95" [ref=f71e2365]':
+                    - /url: /warranty/95
+                - 'cell "dffs sdfsd Chevrolet C4 2017 VIN : 12345678 APAP OP1 12m / 10000km" [ref=f71e2366]'
+                - cell "$182.81" [ref=f71e2367]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2368]
+                - cell "Payment pending" [ref=f71e2369]
+              - row [ref=f71e2371] [cursor=pointer]:
+                - cell [ref=f71e2372]:
+                  - checkbox [ref=f71e2373]
+                - cell [ref=f71e2374]:
+                  - text: "80"
+                  - 'link "Warranty #94" [ref=f71e2375]':
+                    - /url: /warranty/94
+                - 'cell "vinh le Acura RDX 2018 VIN : 777777777 APAP OP2 12m / 10000km" [ref=f71e2376]'
+                - cell "$229.95" [ref=f71e2377]
+                - cell "Wednesday, December 16, 2020" [ref=f71e2378]
+                - cell "Payment pending" [ref=f71e2379]
+              - row [ref=f71e2381] [cursor=pointer]:
+                - cell [ref=f71e2382]:
+                  - checkbox [ref=f71e2383]
+                - cell [ref=f71e2384]:
+                  - text: "79"
+                  - 'link "Warranty #93" [ref=f71e2385]':
+                    - /url: /warranty/93
+                - 'cell "sdfds dfds Acura RDX 2018 VIN : 777777777 APAD OP2 12m / 10000km" [ref=f71e2386]'
+                - cell "$0.00" [ref=f71e2387]
+                - cell "Monday, December 14, 2020" [ref=f71e2388]
+                - cell "Payment pending" [ref=f71e2389]
+              - row [ref=f71e2391] [cursor=pointer]:
+                - cell [ref=f71e2392]:
+                  - checkbox [ref=f71e2393]
+                - cell [ref=f71e2394]:
+                  - text: "76"
+                  - 'link "Warranty #91" [ref=f71e2395]':
+                    - /url: /warranty/91
+                - 'cell "sdfds sdfdsf BMW 230i 2015 VIN : 44444444 AP 12m / 20000km" [ref=f71e2396]'
+                - cell "$125.32" [ref=f71e2397]
+                - cell "Monday, December 7, 2020" [ref=f71e2398]
+                - cell "Payment pending" [ref=f71e2399]
+              - row [ref=f71e2401] [cursor=pointer]:
+                - cell [ref=f71e2402]:
+                  - checkbox [ref=f71e2403]
+                - cell [ref=f71e2404]:
+                  - text: "75"
+                  - 'link "Warranty #90" [ref=f71e2405]':
+                    - /url: /warranty/90
+                - 'cell "vinh le Chevrolet C4 2012 VIN : 55555555 AP 12m / 20000km" [ref=f71e2406]'
+                - cell "$125.32" [ref=f71e2407]
+                - cell "Monday, December 7, 2020" [ref=f71e2408]
+                - cell "Payment pending" [ref=f71e2409]
+              - row [ref=f71e2411] [cursor=pointer]:
+                - cell [ref=f71e2412]:
+                  - checkbox [ref=f71e2413]
+                - cell [ref=f71e2414]:
+                  - text: "74"
+                  - 'link "Warranty #89" [ref=f71e2415]':
+                    - /url: /warranty/89
+                - 'cell "sfdsf sdfds Chevrolet C4 2012 VIN : 55555555 AT 24m / 40000km" [ref=f71e2416]'
+                - cell "$585.22" [ref=f71e2417]
+                - cell "Monday, December 7, 2020" [ref=f71e2418]
+                - cell "Payment pending" [ref=f71e2419]
+              - row [ref=f71e2421] [cursor=pointer]:
+                - cell [ref=f71e2422]:
+                  - checkbox [ref=f71e2423]
+                - cell [ref=f71e2424]:
+                  - text: "73"
+                  - 'link "Warranty #88" [ref=f71e2425]':
+                    - /url: /warranty/88
+                - 'cell "vinh le BMW 330i 2019 VIN : 22222222 AP 12m / 20000km" [ref=f71e2426]'
+                - cell "$125.32" [ref=f71e2427]
+                - cell "Thursday, December 3, 2020" [ref=f71e2428]
+                - cell "Payment pending" [ref=f71e2429]
+              - row [ref=f71e2431] [cursor=pointer]:
+                - cell [ref=f71e2432]:
+                  - checkbox [ref=f71e2433]
+                - cell [ref=f71e2434]:
+                  - text: "68"
+                  - 'link "Warranty #86" [ref=f71e2435]':
+                    - /url: /warranty/86
+                - 'cell "dfsd dsfsdfs Dodge Dart 2017 VIN : 5555555555555555 AP 12m / 20000km" [ref=f71e2436]'
+                - cell "$125.32" [ref=f71e2437]
+                - cell "Sunday, November 29, 2020" [ref=f71e2438]
+                - cell "Payment pending" [ref=f71e2439]
+              - row [ref=f71e2441] [cursor=pointer]:
+                - cell [ref=f71e2442]:
+                  - checkbox [ref=f71e2443]
+                - cell [ref=f71e2444]:
+                  - text: "67"
+                  - 'link "Warranty #85" [ref=f71e2445]':
+                    - /url: /warranty/85
+                - 'cell "sdfds sdfds BMW 230i 2019 VIN : 12345678908 AP 12m / 20000km" [ref=f71e2446]'
+                - cell "$125.32" [ref=f71e2447]
+                - cell "Sunday, November 29, 2020" [ref=f71e2448]
+                - cell "Payment pending" [ref=f71e2449]
+              - row [ref=f71e2451] [cursor=pointer]:
+                - cell [ref=f71e2452]:
+                  - checkbox [ref=f71e2453]
+                - cell [ref=f71e2454]:
+                  - text: "66"
+                  - 'link "Warranty #84" [ref=f71e2455]':
+                    - /url: /warranty/84
+                - 'cell "sdfdsf sdfdsfsd Dodge Dart 2009 VIN : 12345678908 AP 12m / 20000km" [ref=f71e2456]'
+                - cell "$125.32" [ref=f71e2457]
+                - cell "Wednesday, November 25, 2020" [ref=f71e2458]
+                - cell "Payment pending" [ref=f71e2459]
+              - row [ref=f71e2461] [cursor=pointer]:
+                - cell [ref=f71e2462]:
+                  - checkbox [ref=f71e2463]
+                - cell [ref=f71e2464]:
+                  - text: "65"
+                  - 'link "Warranty #83" [ref=f71e2465]':
+                    - /url: /warranty/83
+                - 'cell "sdfsd ddsf BMW 230i 2019 VIN : 12345678908 002Opt_001 12m / 12000km" [ref=f71e2466]'
+                - cell "$0.00" [ref=f71e2467]
+                - cell "Wednesday, November 25, 2020" [ref=f71e2468]
+                - cell "Payment pending" [ref=f71e2469]
+  - contentinfo [ref=f71e2471]:
+    - generic [ref=f71e2472]:
+      - link "Avantage Plus System v2.0.0" [ref=f71e2473] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

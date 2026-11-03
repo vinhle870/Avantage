@@ -1,0 +1,10 @@
+AP-2496 / Supplementary S-3 re-capture (R3 round 1, F-1) - Dev (v2dev), read-only
+Captured: 2026-11-01T22:02:14Z to 22:02:23Z (UTC) via the browser's network-request list (browser_network_requests)
+Same signed-in dealer session as AP2496_008-step4-NetworkRequests-6488_fail.txt.
+Only method, URL and status are kept. No cookie, token or credential is recorded.
+
+[GET] https://v2dev.garantieavantageplus.ca/quote/6040/documents/download => [500]
+[GET] https://v2dev.garantieavantageplus.ca/quote/6040/documents/download => [500]
+
+Page shown for both: heading "Erreur Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois."
+Screenshot: Supplementary-Quote6040-DownloadAll500-Recapture.png

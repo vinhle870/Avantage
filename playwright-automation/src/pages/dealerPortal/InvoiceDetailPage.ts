@@ -1,44 +1,17 @@
 import { Page, Locator } from '@playwright/test';
+import { InvoiceOnPage } from '../../data/dealer-portal';
 
 /**
- * Invoice Info data interface
+ * Invoice Detail Page - Invoice shown after the sale is finalized.
+ * Converted from InvoiceDetail_Page.java + InvoiceDetailPage_Func.java.
+ * The page has no ids or test attributes, so these are the legacy absolute XPaths.
  */
-export interface InvoiceInfoData {
-    dealerName?: string;
-    dealerAddress?: string;
-    dealerLocation?: string;
-    dealerEmail?: string;
-    dealerPhone?: string;
-    invoiceDescription?: string;
-    invoiceTotal?: string;
-    invoiceGrandTotal?: string;
-    taxInfo1?: string;
-    taxInfo2?: string;
-    apt1?: string;
-    apt2?: string;
-}
+const INVOICE = 'xpath=/html/body/div[1]/main/div/div/div[3]/div';
 
-/**
- * Dealer Info data interface for verification
- */
-export interface DealerInfoData {
-    name: string;
-    address: string;
-    city: string;
-    postalCode: string;
-    province: string;
-    email: string;
-    phone: string;
-}
-
-/**
- * Invoice Detail Page - View invoice details after sale finalization.
- * Converted from InvoiceDetail_Page.java + InvoiceDetailPage_Func.java
- */
 export class InvoiceDetailPage {
     private page: Page;
 
-    // Locators - Using more stable CSS selectors where possible
+    // Locators
     readonly lblDealerName: Locator;
     readonly lblDealerAddress: Locator;
     readonly lblDealerLocation: Locator;
@@ -51,80 +24,36 @@ export class InvoiceDetailPage {
 
     constructor(page: Page) {
         this.page = page;
-        // Using XPath from original source - these may need adjustment for stability
-        this.lblDealerName = page.locator('main div.container div:nth-child(3) div div:nth-child(2) div:nth-child(2) div:nth-child(1) strong');
-        this.lblDealerAddress = page.locator('main div.container div:nth-child(3) div div:nth-child(2) div:nth-child(2) div:nth-child(2)');
-        this.lblDealerLocation = page.locator('main div.container div:nth-child(3) div div:nth-child(2) div:nth-child(2) div:nth-child(3)');
-        this.lblDealerEmail = page.locator('main div.container div:nth-child(3) div div:nth-child(2) div:nth-child(2) div:nth-child(4)');
-        this.lblDealerPhone = page.locator('main div.container div:nth-child(3) div div:nth-child(2) div:nth-child(2) div:nth-child(5)');
-        this.lblInvoiceDescription = page.locator('main div.container div:nth-child(3) div div:nth-child(3) table tbody tr td:nth-child(1)');
-        this.lblInvoiceTotal = page.locator('main div.container div:nth-child(3) div div:nth-child(3) table tbody tr td:nth-child(2)');
-        this.lblInvoiceGrandTotal = page.locator('main div.container div:nth-child(3) div div:nth-child(4) div:nth-child(2) table tbody tr:nth-child(2) td:nth-child(2) strong').first();
-        this.lblAVAddress = page.locator('main div.container div:nth-child(3) div div:nth-child(4) div:nth-child(1) p:nth-child(2)');
+        this.lblDealerName = page.locator(`${INVOICE}/div[2]/div[2]/div[1]/strong`);
+        this.lblDealerAddress = page.locator(`${INVOICE}/div[2]/div[2]/div[2]`);
+        this.lblDealerLocation = page.locator(`${INVOICE}/div[2]/div[2]/div[3]`);
+        this.lblDealerEmail = page.locator(`${INVOICE}/div[2]/div[2]/div[4]`);
+        this.lblDealerPhone = page.locator(`${INVOICE}/div[2]/div[2]/div[5]`);
+        this.lblInvoiceDescription = page.locator(`${INVOICE}/div[3]/table/tbody/tr/td[1]`).first();
+        this.lblInvoiceTotal = page.locator(`${INVOICE}/div[3]/table/tbody/tr/td[2]`).first();
+        // The grand total is on the 2nd row of the totals table, or the 3rd when a second tax line is shown
+        this.lblInvoiceGrandTotal = page.locator(
+            `${INVOICE}/div[4]/div[2]/table/tbody/tr[2]/td[2]/strong | ` +
+            `/html/body/div[1]/main/div/div/div[3]/div/div[4]/div[2]/table/tbody/tr[3]/td[2]/strong`).first();
+        this.lblAVAddress = page.locator(`${INVOICE}/div[4]/div[1]/p[2]`);
     }
 
     /**
-     * Get all invoice info
+     * Read the invoice values shown on the page
      */
-    async getInvoiceInfo(): Promise<InvoiceInfoData> {
+    async readInvoice(): Promise<InvoiceOnPage> {
+        await this.lblDealerName.waitFor({ state: 'visible' });
+        const text = async (l: Locator) => (await l.innerText()).trim();
         return {
-            dealerName: await this.lblDealerName.textContent() || '',
-            dealerAddress: await this.lblDealerAddress.textContent() || '',
-            dealerLocation: await this.lblDealerLocation.textContent() || '',
-            dealerEmail: await this.lblDealerEmail.textContent() || '',
-            dealerPhone: await this.lblDealerPhone.textContent() || '',
-            invoiceDescription: await this.lblInvoiceDescription.textContent() || '',
-            invoiceTotal: await this.lblInvoiceTotal.textContent() || '',
-            invoiceGrandTotal: await this.lblInvoiceGrandTotal.textContent() || '',
+            dealerName: await text(this.lblDealerName),
+            dealerAddress: await text(this.lblDealerAddress),
+            dealerLocation: await text(this.lblDealerLocation),
+            dealerEmail: await text(this.lblDealerEmail),
+            dealerPhone: await text(this.lblDealerPhone),
+            invoiceDescription: await text(this.lblInvoiceDescription),
+            invoiceTotal: await text(this.lblInvoiceTotal),
+            invoiceGrandTotal: await text(this.lblInvoiceGrandTotal),
+            avAddress: await text(this.lblAVAddress),
         };
-    }
-
-    /**
-     * Verify invoice info against dealer info
-     * Returns empty string if all matches, otherwise returns the field that doesn't match
-     */
-    async verifyInvoiceInfo(invoiceInfo: InvoiceInfoData, dealerInfo: DealerInfoData): Promise<string> {
-        // Province abbreviation mapping
-        const provinceMap: { [key: string]: { abbr: string; gstRate: number; pstRate: number } } = {
-            'Quebec': { abbr: 'QC', gstRate: 0.05, pstRate: 0.09975 },
-            'New Brunswick': { abbr: 'NB', gstRate: 0.15, pstRate: 0 },
-            'Ontario': { abbr: 'ON', gstRate: 0.13, pstRate: 0 },
-            'Nova Scotia': { abbr: 'NS', gstRate: 0.15, pstRate: 0 },
-            'Alberta': { abbr: 'AB', gstRate: 0.05, pstRate: 0 },
-            'British Columbia': { abbr: 'BC', gstRate: 0.05, pstRate: 0.07 },
-            'Manitoba': { abbr: 'MB', gstRate: 0.05, pstRate: 0.07 },
-            'Saskatchewan': { abbr: 'SK', gstRate: 0.05, pstRate: 0.06 },
-            'Prince Edward Island': { abbr: 'PE', gstRate: 0.15, pstRate: 0 },
-            'Newfoundland and Labrador': { abbr: 'NL', gstRate: 0.15, pstRate: 0 },
-            'Nunavut': { abbr: 'NU', gstRate: 0.05, pstRate: 0 },
-            'Yukon': { abbr: 'YT', gstRate: 0.05, pstRate: 0 },
-            'Northwest territories': { abbr: 'NT', gstRate: 0.05, pstRate: 0 },
-        };
-
-        const provinceInfo = provinceMap[dealerInfo.province] || { abbr: '', gstRate: 0, pstRate: 0 };
-
-        if (!invoiceInfo.dealerName?.includes(dealerInfo.name)) return "Dealer's name";
-        if (!invoiceInfo.dealerAddress?.includes(dealerInfo.address)) return "Dealer's address";
-        if (!invoiceInfo.dealerLocation?.includes(dealerInfo.postalCode)) return "Postalcode";
-        if (!invoiceInfo.dealerLocation?.includes(dealerInfo.city)) return "Dealer's city";
-        if (!invoiceInfo.dealerLocation?.includes(provinceInfo.abbr)) return "Dealer's province";
-        if (!invoiceInfo.dealerEmail?.includes(dealerInfo.email)) return "Dealer's email";
-        if (!invoiceInfo.dealerPhone?.includes(dealerInfo.phone)) return "Dealer's phone";
-
-        // Calculate expected grand total
-        const total = parseFloat(invoiceInfo.invoiceTotal?.replace('$', '') || '0');
-        const expectedGrandTotal = total + (total * provinceInfo.gstRate) + (total * provinceInfo.pstRate);
-        const actualGrandTotal = parseFloat(invoiceInfo.invoiceGrandTotal?.replace('$', '') || '0');
-
-        if (Math.abs(expectedGrandTotal - actualGrandTotal) > 0.01) return "Grand total";
-
-        return '';
-    }
-
-    /**
-     * Get AV Address text for tax verification
-     */
-    async getAVAddressText(): Promise<string> {
-        return (await this.lblAVAddress.textContent()) || '';
     }
 }

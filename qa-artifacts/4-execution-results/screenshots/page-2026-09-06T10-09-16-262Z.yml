@@ -1,0 +1,52 @@
+- generic [active] [ref=f16e1]:
+  - banner [ref=f16e2]:
+    - link [ref=f16e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f16e5]:
+      - searchbox "Search" [ref=f16e7]
+      - listitem [ref=f16e8]:
+        - generic [ref=f16e9]: Test QA staging
+  - generic [ref=f16e11]:
+    - navigation [ref=f16e13]:
+      - list [ref=f16e14]:
+        - listitem [ref=f16e15]:
+          - link " 􏀕 Dashboard" [ref=f16e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f16e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f16e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f16e19]:
+            - generic [ref=f16e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f16e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f16e22]:
+            - generic [ref=f16e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f16e24]:
+          - link " 􏗡 Claims" [ref=f16e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f16e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f16e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f16e28]:
+            - generic [ref=f16e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f16e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f16e31]:
+            - generic [ref=f16e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f16e33]:
+          - link " 􏀑 Logout" [ref=f16e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f16e35]:  􏀑
+            - text: Logout
+    - main [ref=f16e36]:
+      - generic [ref=f16e40]:
+        - heading "Erreur Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois." [level=1] [ref=f16e41]
+        - link "Aller à l'accueil" [ref=f16e42] [cursor=pointer]:
+          - /url: /
+  - contentinfo [ref=f16e55]:
+    - generic [ref=f16e56]:
+      - link "Avantage Plus System v2.0.0" [ref=f16e57] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

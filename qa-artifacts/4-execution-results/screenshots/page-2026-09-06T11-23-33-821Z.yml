@@ -1,0 +1,66 @@
+- generic [active] [ref=f137e1]:
+  - banner [ref=f137e2]:
+    - link [ref=f137e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f137e5]:
+      - searchbox "Search" [ref=f137e7]
+      - listitem [ref=f137e8]:
+        - generic [ref=f137e9]: Test QA staging
+  - generic [ref=f137e11]:
+    - navigation [ref=f137e13]:
+      - list [ref=f137e14]:
+        - listitem [ref=f137e15]:
+          - link " 􏀕 Dashboard" [ref=f137e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f137e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f137e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f137e19]:
+            - generic [ref=f137e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f137e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f137e22]:
+            - generic [ref=f137e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f137e24]:
+          - link " 􏗡 Claims" [ref=f137e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f137e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f137e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f137e28]:
+            - generic [ref=f137e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f137e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f137e31]:
+            - generic [ref=f137e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f137e33]:
+          - link " 􏀑 Logout" [ref=f137e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f137e35]:  􏀑
+            - text: Logout
+    - main [ref=f137e36]:
+      - generic [ref=f137e38]:
+        - navigation [ref=f137e40]:
+          - heading "Permaplate Quote" [level=1] [ref=f137e41]
+          - list [ref=f137e42]:
+            - listitem [ref=f137e43]:
+              - link "Back" [ref=f137e44] [cursor=pointer]:
+                - /url: /quote/6285/details
+        - generic [ref=f137e48]:
+          - heading "Permaplate Quote" [level=4] [ref=f137e49]
+          - generic [ref=f137e50]:
+            - generic [ref=f137e51]: Select Term
+            - generic [ref=f137e52]:
+              - radio "10 ans" [ref=f137e53]
+              - generic [ref=f137e54]: 10 ans
+          - 'heading "Cost: 0$" [level=5] [ref=f137e58]'
+          - button " Save" [ref=f137e60] [cursor=pointer]:
+            - generic [ref=f137e61]: 
+            - text: Save
+  - contentinfo [ref=f137e62]:
+    - generic [ref=f137e63]:
+      - link "Avantage Plus System v2.0.0" [ref=f137e64] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

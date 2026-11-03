@@ -1,0 +1,5 @@
+Environment: Dev (https://v2dev.garantieavantageplus.ca)
+Captured 2026-11-03 for AP2504_006 step 3 (method, URL, status only)
+GET https://v2dev.garantieavantageplus.ca/quote/6562/insurance/create-contract/gap -> 200 (page shows "Payment frequency: FREQUENCY_MONTHLY", "Financing type: TYPE_FINANCING")
+GET https://v2dev.garantieavantageplus.ca/quote/6562/insurance/create-contract/gap?_locale=fr -> 200 (same raw codes in French)
+GET https://v2dev.garantieavantageplus.ca/quote/6566/insurance/create-contract -> 200 (creditor page, same raw codes)

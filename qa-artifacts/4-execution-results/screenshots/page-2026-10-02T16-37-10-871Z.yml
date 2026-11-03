@@ -1,0 +1,320 @@
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - button [ref=f10e3] [cursor=pointer]
+    - link [ref=f10e5] [cursor=pointer]:
+      - /url: /admin
+      - img "Avantage Plus Logo" [ref=f10e6]
+    - list [ref=f10e7]:
+      - searchbox "Search" [ref=f10e9]
+  - generic [ref=f10e10]:
+    - navigation [ref=f10e12]:
+      - list [ref=f10e13]:
+        - listitem [ref=f10e14]:
+          - link " 􏀕 Dashboard" [ref=f10e15] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f10e16]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f10e17]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f10e18]:
+            - generic [ref=f10e19]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f10e20]:
+              - link "Warranties" [ref=f10e21] [cursor=pointer]:
+                - /url: /admin/warranty
+            - listitem [ref=f10e22]:
+              - link "Insurance" [ref=f10e23] [cursor=pointer]:
+                - /url: /admin/insurance
+            - listitem [ref=f10e24]:
+              - link "Sales" [ref=f10e25] [cursor=pointer]:
+                - /url: /admin/sales
+            - listitem [ref=f10e26]:
+              - link "Esthetic protection" [ref=f10e27] [cursor=pointer]:
+                - /url: /admin/permaplate-contracts
+        - listitem [ref=f10e28]:
+          - heading " 􏗡 Claims" [level=6] [ref=f10e29]:
+            - generic [ref=f10e30]:  􏗡
+            - text: Claims
+          - list:
+            - listitem [ref=f10e31]:
+              - link "Repair Claims" [ref=f10e32] [cursor=pointer]:
+                - /url: /admin/claims
+            - listitem [ref=f10e33]:
+              - link "Preapproved Repair Claims" [ref=f10e34] [cursor=pointer]:
+                - /url: /admin/claims/REPAIR/approved
+            - listitem [ref=f10e35]:
+              - link "Maintenance Claims" [ref=f10e36] [cursor=pointer]:
+                - /url: /admin/claims/MAINTENANCE
+            - listitem [ref=f10e37]:
+              - link "Claim Items" [ref=f10e38] [cursor=pointer]:
+                - /url: /admin/claim-items
+            - listitem [ref=f10e39]:
+              - link "Service Centers" [ref=f10e40] [cursor=pointer]:
+                - /url: /admin/service-centers
+        - listitem [ref=f10e41]:
+          - heading " 􏓓 Billing" [level=6] [ref=f10e42]:
+            - generic [ref=f10e43]:  􏓓
+            - text: Billing
+          - list:
+            - listitem [ref=f10e44]:
+              - link "Invoices" [ref=f10e45] [cursor=pointer]:
+                - /url: /admin/invoices
+            - listitem [ref=f10e46]:
+              - link "Payment history" [ref=f10e47] [cursor=pointer]:
+                - /url: /admin/invoice/payment-history
+            - listitem [ref=f10e48]:
+              - link "Warranty financing" [ref=f10e49] [cursor=pointer]:
+                - /url: /admin/warranty-financing
+        - listitem [ref=f10e50]:
+          - heading " 􏃀 Users" [level=6] [ref=f10e51]:
+            - generic [ref=f10e52]:  􏃀
+            - text: Users
+          - list:
+            - listitem [ref=f10e53]:
+              - link "Admin Users" [ref=f10e54] [cursor=pointer]:
+                - /url: /admin/admin-users
+            - listitem [ref=f10e55]:
+              - link "Roles" [ref=f10e56] [cursor=pointer]:
+                - /url: /admin/admin-users-roles
+            - listitem [ref=f10e57]:
+              - link "Dealer Users" [ref=f10e58] [cursor=pointer]:
+                - /url: /admin/dealer-users
+            - listitem [ref=f10e59]:
+              - link "Dealers" [ref=f10e60] [cursor=pointer]:
+                - /url: /admin/dealers
+            - listitem [ref=f10e61]:
+              - link "Dealer groups" [ref=f10e62] [cursor=pointer]:
+                - /url: /admin/dealer-groups
+            - listitem [ref=f10e63]:
+              - link "Wholesaler" [ref=f10e64] [cursor=pointer]:
+                - /url: /admin/wholesalers
+        - listitem [ref=f10e65]:
+          - heading " 􏇦 Apps" [level=6] [ref=f10e66]:
+            - generic [ref=f10e67]:  􏇦
+            - text: Apps
+          - list:
+            - listitem [ref=f10e68]:
+              - link "Manage API keys" [ref=f10e69] [cursor=pointer]:
+                - /url: /admin/api-keys
+        - listitem [ref=f10e70]:
+          - heading " 􏂀 Reports" [level=6] [ref=f10e71]:
+            - generic [ref=f10e72]:  􏂀
+            - text: Reports
+          - list:
+            - listitem [ref=f10e73]:
+              - link "Components" [ref=f10e74] [cursor=pointer]:
+                - /url: /admin/report/contract-component
+              - link "Invoices" [ref=f10e75] [cursor=pointer]:
+                - /url: /admin/report/invoice
+              - link "Payments" [ref=f10e76] [cursor=pointer]:
+                - /url: /admin/report/payment
+              - link "Cancellations" [ref=f10e77] [cursor=pointer]:
+                - /url: /admin/report/cancellations
+              - link "Products" [ref=f10e78] [cursor=pointer]:
+                - /url: /admin/report/product
+              - link "Claims" [ref=f10e79] [cursor=pointer]:
+                - /url: /admin/report/claim
+        - listitem [ref=f10e80]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f10e81]:
+            - generic [ref=f10e82]:  􏂅
+            - text: Warranty Configuration
+          - list:
+            - listitem [ref=f10e83]:
+              - link "Programs" [ref=f10e84] [cursor=pointer]:
+                - /url: /admin/programs
+            - listitem [ref=f10e85]:
+              - link "Programs Analytics" [ref=f10e86] [cursor=pointer]:
+                - /url: /admin/programs/analytics
+            - listitem [ref=f10e87]:
+              - link "Program Components" [ref=f10e88] [cursor=pointer]:
+                - /url: /admin/list-program-components
+            - listitem [ref=f10e89]:
+              - link "Warranty Conditions" [ref=f10e90] [cursor=pointer]:
+                - /url: /admin/warranty-conditions
+            - listitem [ref=f10e91]:
+              - link "Coverage components" [ref=f10e92] [cursor=pointer]:
+                - /url: /admin/coverage-components
+            - listitem [ref=f10e93]:
+              - link "Surcharges" [ref=f10e94] [cursor=pointer]:
+                - /url: /admin/surcharges
+        - listitem [ref=f10e95]:
+          - heading " 􏘤 Risk Management" [level=6] [ref=f10e96]:
+            - generic [ref=f10e97]:  􏘤
+            - text: Risk Management
+          - list:
+            - listitem [ref=f10e98]:
+              - link "Earning Curves" [ref=f10e99] [cursor=pointer]:
+                - /url: /admin/earning-curve
+            - listitem [ref=f10e100]:
+              - link "Earning Sets" [ref=f10e101] [cursor=pointer]:
+                - /url: /admin/earning-set
+            - listitem [ref=f10e102]:
+              - link "Earning Groups" [ref=f10e103] [cursor=pointer]:
+                - /url: /admin/earning-group
+            - listitem [ref=f10e104]:
+              - link "Earning Assignments" [ref=f10e105] [cursor=pointer]:
+                - /url: /admin/earning-assignment
+        - listitem [ref=f10e106]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f10e107]:
+            - generic [ref=f10e108]:  􏂅
+            - text: Parameters
+          - list:
+            - listitem [ref=f10e109]:
+              - link "Permaplate" [ref=f10e110] [cursor=pointer]:
+                - /url: /admin/permaplate
+            - listitem [ref=f10e111]:
+              - link "Pricing" [ref=f10e112] [cursor=pointer]:
+                - /url: /admin/pricing
+            - listitem [ref=f10e113]:
+              - link "Vehicle Makes" [ref=f10e114] [cursor=pointer]:
+                - /url: /admin/vehicle-make
+            - listitem [ref=f10e115]:
+              - link "Vehicle Models" [ref=f10e116] [cursor=pointer]:
+                - /url: /admin/vehicle-model
+            - listitem [ref=f10e117]:
+              - link "Custom Price Rules" [ref=f10e118] [cursor=pointer]:
+                - /url: /admin/price-rule
+            - listitem [ref=f10e119]:
+              - link "Financing Company" [ref=f10e120] [cursor=pointer]:
+                - /url: /admin/financing-company
+            - listitem [ref=f10e121]:
+              - link "Report Program Components" [ref=f10e122] [cursor=pointer]:
+                - /url: /admin/program-components/report
+            - listitem [ref=f10e123]:
+              - link "Wholesaler" [ref=f10e124] [cursor=pointer]:
+                - /url: /admin/wholesalers
+            - listitem [ref=f10e125]:
+              - link "Vehicle Types" [ref=f10e126] [cursor=pointer]:
+                - /url: /admin/vehicle-type
+            - listitem [ref=f10e127]:
+              - link "Manufacturer Vehicles" [ref=f10e128] [cursor=pointer]:
+                - /url: /admin/manufacturer-vehicle
+        - listitem [ref=f10e129]:
+          - heading " 􏂎 External links" [level=6] [ref=f10e130]:
+            - generic [ref=f10e131]:  􏂎
+            - text: External links
+          - list:
+            - listitem [ref=f10e132]:
+              - link "Mitchell, proDemand" [ref=f10e133] [cursor=pointer]:
+                - /url: https://www.prodemand.com/
+            - listitem [ref=f10e134]:
+              - link "Alldata" [ref=f10e135] [cursor=pointer]:
+                - /url: https://my.alldata.com/migrate/#/home
+            - listitem [ref=f10e136]:
+              - link "Service Manager pro" [ref=f10e137] [cursor=pointer]:
+                - /url: https://www.servicemanagerpro.com/amember/login
+            - listitem [ref=f10e138]:
+              - link "Map des centre de services" [ref=f10e139] [cursor=pointer]:
+                - /url: https://www.google.com/maps/d/u/0/viewer?mid=1DxPJu1HD95HVkS8Hw8u_fJyCpE2S0jZz&ll=46.41914633159682%2C-72.42898157042171&z=12
+            - listitem [ref=f10e140]:
+              - link "Vin decoder carfax" [ref=f10e141] [cursor=pointer]:
+                - /url: https://www.carfax.ca/fr-ca/outils/decoder-niv
+            - listitem [ref=f10e142]:
+              - link "Valeur de véhicule" [ref=f10e143] [cursor=pointer]:
+                - /url: https://www.carfax.ca/fr-ca/combien-vaut-mon-vehicule/valeur-vehicule
+        - listitem [ref=f10e144]:
+          - link " 􏆫 Language settings" [ref=f10e145] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/dealer/1380/edit
+            - generic [ref=f10e146]:  􏆫
+            - text: Language settings
+        - listitem [ref=f10e147]:
+          - link " 􏀑 Logout" [ref=f10e148] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f10e149]:  􏀑
+            - text: Logout
+    - main [ref=f10e150]:
+      - generic [ref=f10e152]:
+        - navigation [ref=f10e154]:
+          - 'heading "Dealer #1380" [level=1] [ref=f10e155]'
+          - list
+        - generic [ref=f10e156]:
+          - generic [ref=f10e157]:
+            - generic [ref=f10e158]:
+              - generic [ref=f10e159]: Email*
+              - textbox "Email*" [ref=f10e160]: vinhle870@gmail.com
+            - generic [ref=f10e161]:
+              - generic [ref=f10e162]: Name*
+              - textbox "Name*" [ref=f10e163]: Offical VinhLe870@gmail.com
+            - generic [ref=f10e164]:
+              - generic [ref=f10e165]: Phone
+              - textbox "Phone" [ref=f10e166]: "99999"
+            - generic [ref=f10e167]:
+              - generic [ref=f10e168]: Fax
+              - textbox "Fax" [ref=f10e169]: "00000"
+            - generic [ref=f10e170]:
+              - generic [ref=f10e171]: Company name
+              - textbox "Company name" [ref=f10e172]: Test QA staging
+            - generic [ref=f10e173]:
+              - generic [ref=f10e174]: Address
+              - textbox "Address" [ref=f10e175]
+            - generic [ref=f10e176]:
+              - generic [ref=f10e177]: City
+              - textbox "City" [ref=f10e178]: cccc
+            - generic [ref=f10e179]:
+              - generic [ref=f10e180]: Province*
+              - generic [ref=f10e181]:
+                - combobox "Province*" [ref=f10e182]:
+                  - option "Quebec" [selected]
+                  - option "New Brunswick"
+                  - option "Ontario"
+                  - option "Nova Scotia"
+                  - option "Alberta"
+                  - option "British Columbia"
+                  - option "Manitoba"
+                  - option "Saskatchewan"
+                  - option "Prince Edward Island"
+                  - option "Newfoundland and Labrador"
+                  - option "Nunavut"
+                  - option "Yukon"
+                  - option "Northwest territories"
+                - combobox "Quebec" [ref=f10e183] [cursor=pointer]
+            - generic [ref=f10e187]:
+              - generic [ref=f10e188]: Postal code
+              - textbox "Postal code" [ref=f10e189]: "22222"
+            - generic [ref=f10e190]:
+              - generic [ref=f10e191]: Internal id*
+              - textbox "Internal id*" [ref=f10e192]: "15071987"
+            - generic [ref=f10e193]:
+              - generic [ref=f10e194]: Contact title
+              - textbox "Contact title" [ref=f10e195]: Director
+            - generic [ref=f10e196]:
+              - generic [ref=f10e197]: License no
+              - textbox "License no" [ref=f10e198]: "123456789"
+            - generic [ref=f10e199]:
+              - generic [ref=f10e200]: Registration GST
+              - textbox "Registration GST" [ref=f10e201]: GST
+            - generic [ref=f10e202]:
+              - generic [ref=f10e203]: Registration PST
+              - textbox "Registration PST" [ref=f10e204]: PST
+            - generic [ref=f10e206]:
+              - checkbox "Is show tax information" [checked] [ref=f10e207]
+              - generic [ref=f10e208]: Is show tax information
+            - generic [ref=f10e209]:
+              - generic [ref=f10e210]: Group
+              - generic [ref=f10e211]:
+                - combobox "Group" [ref=f10e212]:
+                  - option "Choose group"
+                  - option "Group A"
+                  - option "Group B"
+                  - option "group c"
+                  - option "Group D" [selected]
+                - combobox "Group D" [ref=f10e213] [cursor=pointer]
+            - generic [ref=f10e217]:
+              - generic [ref=f10e218]: Notes*
+              - textbox "Notes*" [ref=f10e219]: "11111"
+            - generic [ref=f10e220]:
+              - generic [ref=f10e221]: Color code
+              - generic [ref=f10e222]:
+                - combobox "Color code" [ref=f10e223]:
+                  - option "Choose" [selected]
+                  - option "Red"
+                  - option "Yellow"
+                  - option "Green"
+                - combobox "Choose" [ref=f10e224] [cursor=pointer]
+          - separator [ref=f10e228]
+          - button "Save" [ref=f10e229] [cursor=pointer]
+  - contentinfo [ref=f10e230]:
+    - generic [ref=f10e231]:
+      - link "Avantage Plus System v2.0.0" [ref=f10e232] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

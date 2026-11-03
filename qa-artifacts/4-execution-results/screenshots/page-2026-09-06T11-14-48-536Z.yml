@@ -1,0 +1,139 @@
+- generic [ref=f113e1]:
+  - banner [ref=f113e2]:
+    - link [ref=f113e3] [cursor=pointer]:
+      - /url: /admin
+    - list [ref=f113e5]:
+      - searchbox "Search" [ref=f113e7]
+  - generic [ref=f113e8]:
+    - navigation [ref=f113e10]:
+      - list [ref=f113e11]:
+        - listitem [ref=f113e12]:
+          - link " 􏀕 Dashboard" [ref=f113e13] [cursor=pointer]:
+            - /url: /admin
+            - generic [ref=f113e14]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f113e15]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f113e16]:
+            - generic [ref=f113e17]:  􏗳
+            - text: Contracts
+        - listitem [ref=f113e18]:
+          - heading " 􏗡 Claims" [level=6] [ref=f113e19]:
+            - generic [ref=f113e20]:  􏗡
+            - text: Claims
+        - listitem [ref=f113e21]:
+          - heading " 􏓓 Billing" [level=6] [ref=f113e22]:
+            - generic [ref=f113e23]:  􏓓
+            - text: Billing
+        - listitem [ref=f113e24]:
+          - heading " 􏃀 Users" [level=6] [ref=f113e25]:
+            - generic [ref=f113e26]:  􏃀
+            - text: Users
+        - listitem [ref=f113e27]:
+          - heading " 􏇦 Apps" [level=6] [ref=f113e28]:
+            - generic [ref=f113e29]:  􏇦
+            - text: Apps
+        - listitem [ref=f113e30]:
+          - heading " 􏂀 Reports" [level=6] [ref=f113e31]:
+            - generic [ref=f113e32]:  􏂀
+            - text: Reports
+        - listitem [ref=f113e33]:
+          - heading " 􏂅 Warranty Configuration" [level=6] [ref=f113e34]:
+            - generic [ref=f113e35]:  􏂅
+            - text: Warranty Configuration
+        - listitem [ref=f113e36]:
+          - heading " 􏂅 Parameters" [level=6] [ref=f113e37]:
+            - generic [ref=f113e38]:  􏂅
+            - text: Parameters
+        - listitem [ref=f113e39]:
+          - heading " 􏂎 External links" [level=6] [ref=f113e40]:
+            - generic [ref=f113e41]:  􏂎
+            - text: External links
+        - listitem [ref=f113e42]:
+          - link " 􏆫 Language settings" [ref=f113e43] [cursor=pointer]:
+            - /url: /admin/language?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/dealer/1380/permaplate
+            - generic [ref=f113e44]:  􏆫
+            - text: Language settings
+        - listitem [ref=f113e45]:
+          - link " 􏀑 Logout" [ref=f113e46] [cursor=pointer]:
+            - /url: /admin/logout
+            - generic [ref=f113e47]:  􏀑
+            - text: Logout
+    - main [ref=f113e48]:
+      - generic [ref=f113e50]:
+        - alert [ref=f113e51]:
+          - text: Permaplate product linked
+          - button "Close" [ref=f113e52] [cursor=pointer]: ×
+        - navigation [ref=f113e54]:
+          - heading "Eligible Permaplate products" [level=1] [ref=f113e55]
+          - list [ref=f113e56]:
+            - listitem [ref=f113e57]:
+              - link "Link a product" [ref=f113e58] [cursor=pointer]:
+                - /url: /admin/dealer/1380/permaplate/link
+        - generic [ref=f113e59]:
+          - list [ref=f113e61]:
+            - listitem [ref=f113e62]:
+              - link "Details" [ref=f113e63] [cursor=pointer]:
+                - /url: /admin/dealer/1380
+            - listitem [ref=f113e64]:
+              - link "Users" [ref=f113e65] [cursor=pointer]:
+                - /url: /admin/dealer/1380/users
+            - listitem [ref=f113e66]:
+              - link "Program eligibility" [ref=f113e67] [cursor=pointer]:
+                - /url: /admin/dealer/1380/program-eligibility
+            - listitem [ref=f113e68]:
+              - link "Customer portal" [ref=f113e69] [cursor=pointer]:
+                - /url: /admin/dealer/1380/customer-portal
+            - listitem [ref=f113e70]:
+              - link "Financing Options" [ref=f113e71] [cursor=pointer]:
+                - /url: /admin/dealer/1380/financing-options
+            - listitem [ref=f113e72]:
+              - link "Permaplate Products" [ref=f113e73] [cursor=pointer]:
+                - /url: /admin/dealer/1380/permaplate
+          - table [ref=f113e76]:
+            - rowgroup [ref=f113e77]:
+              - row [ref=f113e78]:
+                - columnheader "ID" [ref=f113e79]
+                - columnheader "Name" [ref=f113e80]
+                - columnheader "Term in months" [ref=f113e81]
+                - columnheader "Enabled" [ref=f113e82]
+                - columnheader "Translations" [ref=f113e83]
+                - columnheader "Actions" [ref=f113e84]
+            - rowgroup [ref=f113e85]:
+              - row [ref=f113e86]:
+                - cell "3" [ref=f113e87] [cursor=pointer]
+                - cell "10 ans" [ref=f113e88] [cursor=pointer]
+                - cell "120" [ref=f113e89] [cursor=pointer]
+                - cell "Yes" [ref=f113e90] [cursor=pointer]
+                - cell [ref=f113e92] [cursor=pointer]:
+                  - generic [ref=f113e93]:
+                    - link "EN" [ref=f113e94]:
+                      - /url: /admin/permaplate/3/translation?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/dealer/1380/permaplate
+                    - link "FR" [ref=f113e95]:
+                      - /url: /admin/permaplate/3/translation/fr?redirectUrl=https://v2staging.garantieavantageplus.ca/admin/dealer/1380/permaplate
+                - cell [ref=f113e96] [cursor=pointer]:
+                  - link " Unlink" [ref=f113e98]:
+                    - /url: /admin/dealer/1380/permaplate/3/unlink
+                    - generic [ref=f113e99]: 
+                    - text: Unlink
+  - contentinfo [ref=f113e100]:
+    - generic [ref=f113e101]:
+      - link "Avantage Plus System v2.0.0" [ref=f113e102] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - dialog [active] [ref=f113e103]:
+    - document:
+      - generic [ref=f113e105]:
+        - navigation [ref=f113e107]:
+          - heading "Unlink a permaplate product" [level=1] [ref=f113e108]
+          - list
+        - generic [ref=f113e109]:
+          - paragraph [ref=f113e110]:
+            - generic [ref=f113e111]: Please confirm that you want to unlink dealer Test QA staging to the permaplate 10 ans
+          - separator [ref=f113e112]
+          - button "Continue" [ref=f113e113] [cursor=pointer]
+          - generic [ref=f113e114]: "No"
+  - iframe [ref=f113e116]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f115e1] [cursor=pointer]

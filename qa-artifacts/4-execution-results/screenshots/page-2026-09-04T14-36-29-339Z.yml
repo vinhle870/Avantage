@@ -1,0 +1,109 @@
+- generic [active] [ref=f18e1]:
+  - banner [ref=f18e2]:
+    - link [ref=f18e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f18e5]:
+      - searchbox "Search" [ref=f18e7]
+      - listitem [ref=f18e8]:
+        - generic [ref=f18e9]: Test QA staging
+  - generic [ref=f18e11]:
+    - navigation [ref=f18e13]:
+      - list [ref=f18e14]:
+        - listitem [ref=f18e15]:
+          - link " 􏀕 Dashboard" [ref=f18e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f18e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f18e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f18e19]:
+            - generic [ref=f18e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f18e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f18e22]:
+            - generic [ref=f18e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f18e24]:
+          - link " 􏗡 Claims" [ref=f18e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f18e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f18e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f18e28]:
+            - generic [ref=f18e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f18e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f18e31]:
+            - generic [ref=f18e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f18e33]:
+          - link " 􏀑 Logout" [ref=f18e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f18e35]:  􏀑
+            - text: Logout
+    - main [ref=f18e36]:
+      - generic [ref=f18e38]:
+        - navigation [ref=f18e40]:
+          - heading "Creditor insurance contracts" [level=1] [ref=f18e41]
+          - list
+        - table [ref=f18e45]:
+          - rowgroup [ref=f18e46]:
+            - row [ref=f18e47]:
+              - columnheader "Contract ID" [ref=f18e48]
+              - columnheader "Borrower" [ref=f18e49]
+              - columnheader "Loan" [ref=f18e50]
+              - columnheader "Coverage" [ref=f18e51]
+              - columnheader "Download" [ref=f18e52]
+          - rowgroup [ref=f18e53]:
+            - row [ref=f18e54]:
+              - cell "AVP000160" [ref=f18e55] [cursor=pointer]
+              - cell "Marie Tremblay" [ref=f18e56] [cursor=pointer]
+              - cell "494.91 $ / 60 months" [ref=f18e57] [cursor=pointer]
+              - cell [ref=f18e58] [cursor=pointer]:
+                - generic [ref=f18e59]:
+                  - generic [ref=f18e60]:
+                    - strong [ref=f18e61]: "Form:"
+                    - text: GC6201MQ
+                  - generic [ref=f18e62]:
+                    - strong [ref=f18e63]: "Rate table:"
+                    - text: PM50
+                  - generic [ref=f18e64]:
+                    - strong [ref=f18e65]: "Language:"
+                    - text: Français
+                  - generic [ref=f18e66]:
+                    - strong [ref=f18e67]: "Tax exempt:"
+                    - text: "No"
+                - table [ref=f18e68]:
+                  - rowgroup [ref=f18e69]:
+                    - row [ref=f18e70]:
+                      - columnheader "Coverage Type" [ref=f18e71]
+                      - columnheader "Coverage" [ref=f18e72]
+                      - columnheader "Term Months" [ref=f18e73]
+                      - columnheader "Monthly Premium" [ref=f18e74]
+                      - columnheader "Tax" [ref=f18e75]
+                      - columnheader "Monthly Total" [ref=f18e76]
+                  - rowgroup [ref=f18e77]:
+                    - row [ref=f18e78]:
+                      - cell "Life Decreasing" [ref=f18e79]
+                      - cell "BORROWER" [ref=f18e80]
+                      - cell "60" [ref=f18e81]
+                      - cell "25.98$" [ref=f18e82]
+                      - cell "2.34$" [ref=f18e83]
+                      - cell "28.32$" [ref=f18e84]
+                - table [ref=f18e85]:
+                  - rowgroup [ref=f18e86]:
+                    - row [ref=f18e87]:
+                      - cell "Equivalent Single Premium" [ref=f18e88]
+                      - cell "1,246.30$" [ref=f18e89]
+                    - row [ref=f18e90]:
+                      - cell "Commission (50%)" [ref=f18e91]
+                      - cell "623.15$" [ref=f18e92]
+              - cell [ref=f18e93] [cursor=pointer]:
+                - link " 􏇁 Download" [ref=f18e94]:
+                  - /url: /quote/6276/chubb/insurance/contract-pdf
+                  - generic [ref=f18e95]:  􏇁
+                  - text: Download
+  - contentinfo [ref=f18e96]:
+    - generic [ref=f18e97]:
+      - link "Avantage Plus System v2.0.0" [ref=f18e98] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

@@ -1,0 +1,261 @@
+- generic [active] [ref=f27e1]:
+  - banner [ref=f27e2]:
+    - button [ref=f27e3] [cursor=pointer]
+    - link [ref=f27e5] [cursor=pointer]:
+      - /url: /
+      - img "Avantage Plus Logo" [ref=f27e6]
+    - list [ref=f27e7]:
+      - searchbox "Search" [ref=f27e9]
+      - listitem [ref=f27e10]:
+        - generic [ref=f27e11]: Test QA staging
+  - generic [ref=f27e13]:
+    - navigation [ref=f27e15]:
+      - list [ref=f27e16]:
+        - listitem [ref=f27e17]:
+          - link " Dashboard" [ref=f27e18] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f27e19]: 
+            - text: Dashboard
+        - listitem [ref=f27e20]:
+          - heading " Vehicles" [level=6] [ref=f27e21]:
+            - generic [ref=f27e22]: 
+            - text: Vehicles
+          - list:
+            - listitem [ref=f27e23]:
+              - link "Inventory" [ref=f27e24] [cursor=pointer]:
+                - /url: /vehicle/inventory
+            - listitem [ref=f27e25]:
+              - link "Quotes" [ref=f27e26] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f27e27]:
+              - link "Insurance Quick Quote" [ref=f27e28] [cursor=pointer]:
+                - /url: /quick-insurance-quote
+            - listitem [ref=f27e29]:
+              - link "Insurance compliance log" [ref=f27e30] [cursor=pointer]:
+                - /url: /insurance-compliance-log
+        - listitem [ref=f27e31]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f27e32]:
+            - generic [ref=f27e33]:  􏗳
+            - text: Contracts
+          - list:
+            - listitem [ref=f27e34]:
+              - link "Warranty" [ref=f27e35] [cursor=pointer]:
+                - /url: /warranty
+            - listitem [ref=f27e36]:
+              - link "Road Side Protection" [ref=f27e37] [cursor=pointer]:
+                - /url: /road-side-protection-contracts
+            - listitem [ref=f27e38]:
+              - link "Creditors insurance" [ref=f27e39] [cursor=pointer]:
+                - /url: /creditor-insurance-contracts
+            - listitem [ref=f27e40]:
+              - link "Gap Insurance" [ref=f27e41] [cursor=pointer]:
+                - /url: /gap-insurance-contracts
+            - listitem [ref=f27e42]:
+              - link "Esthetic protection" [ref=f27e43] [cursor=pointer]:
+                - /url: /permaplate-contracts
+        - listitem [ref=f27e44]:
+          - link " Claims" [ref=f27e45] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f27e46]: 
+            - text: Claims
+        - listitem [ref=f27e47]:
+          - heading " Billing" [level=6] [ref=f27e48]:
+            - generic [ref=f27e49]: 
+            - text: Billing
+          - list:
+            - listitem [ref=f27e50]:
+              - link "Invoices" [ref=f27e51] [cursor=pointer]:
+                - /url: /invoice
+            - listitem [ref=f27e52]:
+              - link "Payment history" [ref=f27e53] [cursor=pointer]:
+                - /url: /invoice/payment-history
+        - listitem [ref=f27e54]:
+          - heading " System preferences" [level=6] [ref=f27e55]:
+            - generic [ref=f27e56]: 
+            - text: System preferences
+          - list:
+            - listitem [ref=f27e57]:
+              - link "Language settings" [ref=f27e58] [cursor=pointer]:
+                - /url: /language?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6257/details
+            - listitem [ref=f27e59]:
+              - link "Users" [ref=f27e60] [cursor=pointer]:
+                - /url: /users?redirectUrl=https://v2staging.garantieavantageplus.ca/quote/6257/details
+        - listitem [ref=f27e61]:
+          - link " Logout" [ref=f27e62] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f27e63]: 
+            - text: Logout
+    - main [ref=f27e64]:
+      - generic [ref=f27e65]:
+        - generic [ref=f27e66]:
+          - alert [ref=f27e67]:
+            - text: "HTTP/2 400 returned for \"https://creditor-insurance-dev.ken-d1b.workers.dev/contract\". - {\"success\":false,\"response\":\"Contract date entered was at least 10 days older than the original quote date. Please requote in order to continue.\"} (HTTP 400)"
+            - button "Close" [ref=f27e68] [cursor=pointer]: ×
+          - navigation [ref=f27e70]:
+            - heading [level=1] [ref=f27e71]:
+              - text: "#6257 - vinh.00003 sdf 33333333"
+              - link "" [ref=f27e72] [cursor=pointer]:
+                - /url: /quote/6257/rename
+            - list [ref=f27e74]:
+              - listitem [ref=f27e75]:
+                - link "Back" [ref=f27e76] [cursor=pointer]:
+                  - /url: /quotes
+              - listitem [ref=f27e77]:
+                - link "Send compliance documents" [ref=f27e78] [cursor=pointer]:
+                  - /url: /compliance-documents/send?redirectUrl=/quote/6257/details&clientEmail=vinh.client001@yopmail.com
+              - listitem [ref=f27e79]:
+                - link "Archive" [ref=f27e80] [cursor=pointer]:
+                  - /url: /quote/6257/cancel
+          - generic [ref=f27e81]:
+            - generic [ref=f27e83]:
+              - generic [ref=f27e86]:
+                - navigation [ref=f27e87]:
+                  - heading "Vehicle" [level=3] [ref=f27e88]
+                  - list [ref=f27e89]:
+                    - listitem [ref=f27e90]:
+                      - link "Edit" [ref=f27e91] [cursor=pointer]:
+                        - /url: /vehicle/876/edit/PASSENGER
+                - paragraph [ref=f27e92]:
+                  - link "Fiat 500 2015" [ref=f27e93] [cursor=pointer]:
+                    - /url: /vehicle/876/details
+                  - generic [ref=f27e94]: "VIN: 33333333 Mileage: 20000km Designation: PARTICULAR"
+              - generic [ref=f27e97]:
+                - navigation [ref=f27e98]:
+                  - heading "Financing" [level=3] [ref=f27e99]
+                  - list [ref=f27e100]:
+                    - listitem [ref=f27e101]:
+                      - link "Edit" [ref=f27e102] [cursor=pointer]:
+                        - /url: /quote/6257/financing
+                    - listitem [ref=f27e103]:
+                      - link "DYR Rates" [ref=f27e104] [cursor=pointer]:
+                        - /url: /quote/6257/dyr-rates
+                - generic [ref=f27e106]:
+                  - heading "Financing 60 months" [level=6] [ref=f27e107]
+                  - paragraph [ref=f27e108]: AutoCapital Canada
+                  - generic [ref=f27e109]:
+                    - generic [ref=f27e110]:
+                      - text: "Type :"
+                      - generic [ref=f27e111]: Financing
+                    - generic [ref=f27e112]:
+                      - text: "Financed amount :"
+                      - generic [ref=f27e113]: 25,000.00$
+                    - generic [ref=f27e114]:
+                      - text: "Residual :"
+                      - generic [ref=f27e115]: 0.00$
+                    - generic [ref=f27e116]:
+                      - text: "Term :"
+                      - generic [ref=f27e117]: "60"
+                    - generic [ref=f27e118]:
+                      - text: "Interest rate :"
+                      - generic [ref=f27e119]: 6.9900%
+                    - generic [ref=f27e120]:
+                      - text: "Payment amount :"
+                      - generic [ref=f27e121]: 494.91$ Monthly
+                  - separator [ref=f27e122]
+                  - heading "Co-applicant" [level=6] [ref=f27e123]
+                  - paragraph [ref=f27e124]: No applicant
+                  - link "Add co-applicant" [ref=f27e125] [cursor=pointer]:
+                    - /url: /quote/6257/financing/co-applicant
+              - generic [ref=f27e128]:
+                - navigation [ref=f27e129]:
+                  - heading "Client" [level=3] [ref=f27e130]
+                  - list [ref=f27e131]:
+                    - listitem [ref=f27e132]:
+                      - link "Edit" [ref=f27e133] [cursor=pointer]:
+                        - /url: /quote/6257/client
+                - paragraph [ref=f27e134]:
+                  - text: vinh.00003 sdf
+                  - generic [ref=f27e135]:
+                    - text: 482/12/2E Ho Chi Minh Québec 070000
+                    - generic [ref=f27e136]: 
+                    - link "vinh.client001@yopmail.com" [ref=f27e137] [cursor=pointer]:
+                      - /url: mailto:vinh.client001@yopmail.com
+                    - generic [ref=f27e138]: 
+                    - text: 092-921-5331
+              - generic [ref=f27e141]:
+                - navigation [ref=f27e142]:
+                  - heading "Sale" [level=3] [ref=f27e143]
+                - generic [ref=f27e144]:
+                  - link "Create sale" [ref=f27e145] [cursor=pointer]:
+                    - /url: /quote/6257/sales
+                  - separator [ref=f27e146]
+                  - heading "Exchange vehicle" [level=6] [ref=f27e147]
+                  - link "Add exchange vehicle" [ref=f27e148] [cursor=pointer]:
+                    - /url: /quote/6257/exchange-vehicle?referer=%252Fquote%252F6257%252Fdetails
+            - generic [ref=f27e151]:
+              - navigation [ref=f27e152]:
+                - heading "Summary of products" [level=3] [ref=f27e153]
+              - table [ref=f27e154]:
+                - rowgroup [ref=f27e155]:
+                  - row [ref=f27e156]:
+                    - cell [ref=f27e157]:
+                      - text: Fiat 500 2015
+                      - generic [ref=f27e158]: "Delivery date: Jul 24, 2026"
+                    - cell "CA$20,000.00" [ref=f27e159]
+                    - cell [ref=f27e160]:
+                      - link "" [ref=f27e161] [cursor=pointer]:
+                        - /url: /quote/6257/vehicle
+                  - row [ref=f27e163]:
+                    - cell [ref=f27e164]:
+                      - generic [ref=f27e165]:
+                        - text: Extended warranty
+                        - button "" [ref=f27e166] [cursor=pointer]
+                    - cell "CA$1,111.00" [ref=f27e168]
+                    - cell [ref=f27e170]:
+                      - generic [ref=f27e171]:
+                        - button "" [ref=f27e172] [cursor=pointer]
+                        - text:   
+                  - row [ref=f27e174]:
+                    - cell "Roadside Protection" [ref=f27e175]
+                    - cell "CA$2,222.00" [ref=f27e177]
+                    - cell [ref=f27e178]:
+                      - generic [ref=f27e179]:
+                        - button "" [ref=f27e180] [cursor=pointer]
+                        - text:   
+                  - row [ref=f27e182]:
+                    - cell [ref=f27e183]:
+                      - paragraph [ref=f27e184]: Gap Insurance
+                    - cell "- None Selected -" [ref=f27e185]
+                    - cell [ref=f27e186]:
+                      - link "" [ref=f27e187] [cursor=pointer]:
+                        - /url: /quote/6257/gap-insurance
+                  - row [ref=f27e189]:
+                    - cell [ref=f27e190]
+                  - row [ref=f27e191]:
+                    - cell [ref=f27e192]:
+                      - generic [ref=f27e193]:
+                        - text: Creditors insurance
+                        - button "" [ref=f27e194] [cursor=pointer]
+                    - cell "CA$25.98 /m" [ref=f27e196]
+                    - cell [ref=f27e197]:
+                      - generic [ref=f27e198]:
+                        - button "" [ref=f27e199] [cursor=pointer]
+                        - text:   
+                  - row [ref=f27e201]:
+                    - cell " Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance." [ref=f27e202]:
+                      - generic [ref=f27e203]:
+                        - generic [ref=f27e204]: 
+                        - text: Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance.
+                  - row [ref=f27e205]:
+                    - 'cell "Esthetic protection Intérieur – Fiberguard, Intérieur – Leatherguard, Paintguard Ceramic, Paintguard Express, Paintguard premium plus, Rust Inhibitor - Chemical (Rustguard + Soundguard) Cost: CA$250.00$" [ref=f27e206]':
+                      - generic [ref=f27e207]: Esthetic protection
+                      - paragraph [ref=f27e209]: "Intérieur – Fiberguard, Intérieur – Leatherguard, Paintguard Ceramic, Paintguard Express, Paintguard premium plus, Rust Inhibitor - Chemical (Rustguard + Soundguard) Cost: CA$250.00$"
+                    - cell "-" [ref=f27e210]
+                    - cell [ref=f27e211]:
+                      - generic [ref=f27e212]:
+                        - button "" [ref=f27e213] [cursor=pointer]
+                        - text:   
+                  - row [ref=f27e215]:
+                    - cell [ref=f27e216]:
+                      - text: Subtotal
+                      - strong [ref=f27e217]: CA$23,358.98
+                    - cell [ref=f27e218]
+        - generic [ref=f27e222]:
+          - heading "Compliance documents sent" [level=4] [ref=f27e223]
+          - separator [ref=f27e224]
+          - alert [ref=f27e226]: No entities found
+  - contentinfo [ref=f27e227]:
+    - generic [ref=f27e228]:
+      - link "Avantage Plus System v2.0.0" [ref=f27e229] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus

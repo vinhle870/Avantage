@@ -1,0 +1,269 @@
+- generic [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - link [ref=f9e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f9e5]:
+      - searchbox "Search" [ref=f9e7]
+      - listitem [ref=f9e8]:
+        - generic [ref=f9e9]: Test QA staging
+  - generic [ref=f9e11]:
+    - navigation [ref=f9e13]:
+      - list [ref=f9e14]:
+        - listitem [ref=f9e15]:
+          - link " 􏀕 Dashboard" [ref=f9e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f9e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f9e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f9e19]:
+            - generic [ref=f9e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f9e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f9e22]:
+            - generic [ref=f9e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f9e24]:
+          - link " 􏗡 Claims" [ref=f9e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f9e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f9e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f9e28]:
+            - generic [ref=f9e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f9e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f9e31]:
+            - generic [ref=f9e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f9e33]:
+          - link " 􏀑 Logout" [ref=f9e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f9e35]:  􏀑
+            - text: Logout
+    - main [ref=f9e36]:
+      - generic [ref=f9e38]:
+        - alert [ref=f9e39]:
+          - text: Chubb insurance quote saved successfully
+          - button "Close" [ref=f9e40] [cursor=pointer]: ×
+        - navigation [ref=f9e42]:
+          - heading "#6276 - Marie Tremblay" [level=1] [ref=f9e43]
+          - list [ref=f9e44]:
+            - listitem [ref=f9e45]:
+              - link "Back" [ref=f9e46] [cursor=pointer]:
+                - /url: /quotes
+            - listitem [ref=f9e47]:
+              - link "Send compliance documents" [ref=f9e48] [cursor=pointer]:
+                - /url: /compliance-documents/send?redirectUrl=/quote/6276/details&clientEmail=client.stage.010@yopmail.com
+        - generic [ref=f9e49]:
+          - generic [ref=f9e52]:
+            - navigation [ref=f9e53]:
+              - heading "Client" [level=3] [ref=f9e54]
+              - list [ref=f9e55]:
+                - listitem [ref=f9e56]:
+                  - link "Edit" [ref=f9e57] [cursor=pointer]:
+                    - /url: /quote/6276/client
+            - paragraph [ref=f9e58]:
+              - text: Marie Tremblay
+              - generic [ref=f9e59]:
+                - text: 100 rue Principale Terrebonne Québec J6X 4J8
+                - generic [ref=f9e60]: 
+                - link "client.stage.010@yopmail.com" [ref=f9e61] [cursor=pointer]:
+                  - /url: mailto:client.stage.010@yopmail.com
+                - generic [ref=f9e62]: 
+                - text: "5146906330"
+          - generic [ref=f9e65]:
+            - navigation [ref=f9e66]:
+              - heading "Vehicle" [level=3] [ref=f9e67]
+              - list [ref=f9e68]:
+                - listitem [ref=f9e69]:
+                  - link "Edit" [ref=f9e70] [cursor=pointer]:
+                    - /url: /quote/6276/vehicle
+            - paragraph [ref=f9e71]:
+              - link "Ford Focus 2008" [ref=f9e72] [cursor=pointer]:
+                - /url: /vehicle/915/details
+              - generic [ref=f9e73]: "VIN: 1FAHP35NX8W239204 Mileage: 5000km Designation: COMMERCIAL"
+            - paragraph [ref=f9e74]:
+              - generic [ref=f9e75]: "Delivery date: Aug 28, 2026 Price: CA$25,000.00"
+          - generic [ref=f9e78]:
+            - navigation [ref=f9e79]:
+              - heading "Warranty" [level=3] [ref=f9e80]
+            - heading "Extended" [level=6] [ref=f9e81]
+            - paragraph [ref=f9e82]:
+              - link " Click here to create a warranty" [ref=f9e83] [cursor=pointer]:
+                - /url: /quote/6276/warranty/edit
+                - generic [ref=f9e84]: 
+                - text: Click here to create a warranty
+            - link "Road Side Protection" [ref=f9e86] [cursor=pointer]:
+              - /url: /quote/6276/road-side-protection
+        - generic [ref=f9e87]:
+          - generic [ref=f9e90]:
+            - navigation [ref=f9e91]:
+              - heading "Financing" [level=3] [ref=f9e92]
+              - link "DYR Rates" [ref=f9e95] [cursor=pointer]:
+                - /url: /quote/6276/dyr-rates
+            - generic [ref=f9e96]:
+              - generic [ref=f9e97]:
+                - heading [level=6] [ref=f9e98]:
+                  - text: Financing 60 months
+                  - link "" [ref=f9e99] [cursor=pointer]:
+                    - /url: /quote/6276/financing
+                - paragraph [ref=f9e101]: AutoCapital Canada
+                - generic [ref=f9e102]:
+                  - generic [ref=f9e103]:
+                    - text: "Type :"
+                    - generic [ref=f9e104]: Financing
+                  - generic [ref=f9e105]:
+                    - text: "Financed amount :"
+                    - generic [ref=f9e106]: 25,000.00$
+                  - generic [ref=f9e107]:
+                    - text: "Residual :"
+                    - generic [ref=f9e108]: 0.00$
+                  - generic [ref=f9e109]:
+                    - text: "Term :"
+                    - generic [ref=f9e110]: "60"
+                  - generic [ref=f9e111]:
+                    - text: "Interest rate :"
+                    - generic [ref=f9e112]: 6.9900%
+                  - generic [ref=f9e113]:
+                    - text: "Payment amount :"
+                    - generic [ref=f9e114]: 494.91$ Monthly
+                - separator [ref=f9e115]
+                - heading "Co-applicant" [level=6] [ref=f9e116]
+                - paragraph [ref=f9e117]: No applicant
+                - link "Add co-applicant" [ref=f9e118] [cursor=pointer]:
+                  - /url: /quote/6276/financing/co-applicant
+              - generic [ref=f9e119]:
+                - heading [level=6] [ref=f9e120]:
+                  - text: Gap Insurance
+                  - link "" [ref=f9e121] [cursor=pointer]:
+                    - /url: /quote/6276/gap-insurance
+                - link "Add gap insurance" [ref=f9e123] [cursor=pointer]:
+                  - /url: /quote/6276/gap-insurance
+                - separator [ref=f9e124]
+                - alert [ref=f9e125]: Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance.
+                - generic [ref=f9e126]:
+                  - heading [level=6] [ref=f9e127]:
+                    - text: Creditors insurance
+                    - link "" [ref=f9e128] [cursor=pointer]:
+                      - /url: /quote/6276/insurance
+                  - generic [ref=f9e130]:
+                    - generic [ref=f9e131]:
+                      - strong [ref=f9e132]: "Form:"
+                      - text: GC6201MQ
+                    - generic [ref=f9e133]:
+                      - strong [ref=f9e134]: "Rate table:"
+                      - text: PM50
+                    - generic [ref=f9e135]:
+                      - strong [ref=f9e136]: "Language:"
+                      - text: Français
+                    - generic [ref=f9e137]:
+                      - strong [ref=f9e138]: "Tax exempt:"
+                      - text: "No"
+                  - table [ref=f9e139]:
+                    - rowgroup [ref=f9e140]:
+                      - row [ref=f9e141]:
+                        - columnheader "Coverage Type" [ref=f9e142]
+                        - columnheader "Coverage" [ref=f9e143]
+                        - columnheader "Term Months" [ref=f9e144]
+                        - columnheader "Monthly Premium" [ref=f9e145]
+                        - columnheader "Tax" [ref=f9e146]
+                        - columnheader "Monthly Total" [ref=f9e147]
+                    - rowgroup [ref=f9e148]:
+                      - row [ref=f9e149]:
+                        - cell "Life Decreasing" [ref=f9e150]
+                        - cell "BORROWER" [ref=f9e151]
+                        - cell "60" [ref=f9e152]
+                        - cell "25.98$" [ref=f9e153]
+                        - cell "2.34$" [ref=f9e154]
+                        - cell "28.32$" [ref=f9e155]
+                  - table [ref=f9e156]:
+                    - rowgroup [ref=f9e157]:
+                      - row [ref=f9e158]:
+                        - cell "Equivalent Single Premium" [ref=f9e159]
+                        - cell "1,246.30$" [ref=f9e160]
+                      - row [ref=f9e161]:
+                        - cell "Commission (50%)" [ref=f9e162]
+                        - cell "623.15$" [ref=f9e163]
+                  - link "Generate Contract" [ref=f9e164] [cursor=pointer]:
+                    - /url: /quote/6276/insurance/create-contract
+          - generic [ref=f9e167]:
+            - navigation [ref=f9e168]:
+              - heading "Sale" [level=3] [ref=f9e169]
+            - generic [ref=f9e170]:
+              - link "Create sale" [ref=f9e171] [cursor=pointer]:
+                - /url: /quote/6276/sales
+              - separator [ref=f9e172]
+              - heading "Exchange vehicle" [level=6] [ref=f9e173]
+              - link "Add exchange vehicle" [ref=f9e174] [cursor=pointer]:
+                - /url: /quote/6276/exchange-vehicle?referer=%252Fquote%252F6276%252Fdetails
+        - generic [ref=f9e178]:
+          - heading "Compliance documents sent" [level=4] [ref=f9e179]
+          - separator [ref=f9e180]
+          - table [ref=f9e182]:
+            - rowgroup [ref=f9e183]:
+              - row [ref=f9e184]:
+                - columnheader "Log ID" [ref=f9e185]
+                - columnheader "Client Name" [ref=f9e186]
+                - columnheader "Client Email" [ref=f9e187]
+                - columnheader "Sent At" [ref=f9e188]
+            - rowgroup [ref=f9e189]:
+              - row [ref=f9e190]:
+                - cell "17" [ref=f9e191] [cursor=pointer]
+                - cell "Marie Tremblay" [ref=f9e192] [cursor=pointer]
+                - cell "client.stage.010@yopmail.com" [ref=f9e193] [cursor=pointer]
+                - cell "Aug 29, 2026, 11:36 AM" [ref=f9e194] [cursor=pointer]
+  - contentinfo [ref=f9e195]:
+    - generic [ref=f9e196]:
+      - link "Avantage Plus System v2.0.0" [ref=f9e197] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - dialog [active] [ref=f9e200]:
+    - document:
+      - generic [ref=f9e205]:
+        - heading "Create Insurance Contract" [level=4] [ref=f9e206]
+        - separator [ref=f9e207]
+        - generic [ref=f9e208]:
+          - generic [ref=f9e209]:
+            - strong [ref=f9e210]: "Form:"
+            - text: GC6201MQ
+          - generic [ref=f9e211]:
+            - strong [ref=f9e212]: "Rate table:"
+            - text: PM50
+          - generic [ref=f9e213]:
+            - strong [ref=f9e214]: "Language:"
+            - text: Français
+          - generic [ref=f9e215]:
+            - strong [ref=f9e216]: "Tax exempt:"
+            - text: "No"
+        - table [ref=f9e217]:
+          - rowgroup [ref=f9e218]:
+            - row [ref=f9e219]:
+              - columnheader "Coverage Type" [ref=f9e220]
+              - columnheader "Coverage" [ref=f9e221]
+              - columnheader "Term Months" [ref=f9e222]
+              - columnheader "Monthly Premium" [ref=f9e223]
+              - columnheader "Tax" [ref=f9e224]
+              - columnheader "Monthly Total" [ref=f9e225]
+          - rowgroup [ref=f9e226]:
+            - row [ref=f9e227]:
+              - cell "Life Decreasing" [ref=f9e228]
+              - cell "BORROWER" [ref=f9e229]
+              - cell "60" [ref=f9e230]
+              - cell "25.98$" [ref=f9e231]
+              - cell "2.34$" [ref=f9e232]
+              - cell "28.32$" [ref=f9e233]
+        - table [ref=f9e234]:
+          - rowgroup [ref=f9e235]:
+            - row [ref=f9e236]:
+              - cell "Equivalent Single Premium" [ref=f9e237]
+              - cell "1,246.30$" [ref=f9e238]
+            - row [ref=f9e239]:
+              - cell "Commission (50%)" [ref=f9e240]
+              - cell "623.15$" [ref=f9e241]
+        - separator [ref=f9e242]
+        - button "Create Contract" [ref=f9e243] [cursor=pointer]
+  - iframe [ref=f9e199]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f11e1] [cursor=pointer]

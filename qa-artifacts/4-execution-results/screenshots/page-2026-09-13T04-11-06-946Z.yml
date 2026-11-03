@@ -1,0 +1,187 @@
+- generic [ref=f65e1]:
+  - banner [ref=f65e2]:
+    - link [ref=f65e3] [cursor=pointer]:
+      - /url: /
+    - list [ref=f65e5]:
+      - searchbox "Search" [ref=f65e7]
+      - listitem [ref=f65e8]:
+        - generic [ref=f65e9]: Test QA staging
+  - generic [ref=f65e11]:
+    - navigation [ref=f65e13]:
+      - list [ref=f65e14]:
+        - listitem [ref=f65e15]:
+          - link " 􏀕 Dashboard" [ref=f65e16] [cursor=pointer]:
+            - /url: /
+            - generic [ref=f65e17]:  􏀕
+            - text: Dashboard
+        - listitem [ref=f65e18]:
+          - heading " 􏆹 Vehicles" [level=6] [ref=f65e19]:
+            - generic [ref=f65e20]:  􏆹
+            - text: Vehicles
+        - listitem [ref=f65e21]:
+          - heading " 􏗳 Contracts" [level=6] [ref=f65e22]:
+            - generic [ref=f65e23]:  􏗳
+            - text: Contracts
+        - listitem [ref=f65e24]:
+          - link " 􏗡 Claims" [ref=f65e25] [cursor=pointer]:
+            - /url: /claims
+            - generic [ref=f65e26]:  􏗡
+            - text: Claims
+        - listitem [ref=f65e27]:
+          - heading " 􏂝 Billing" [level=6] [ref=f65e28]:
+            - generic [ref=f65e29]:  􏂝
+            - text: Billing
+        - listitem [ref=f65e30]:
+          - heading " 􏂅 System preferences" [level=6] [ref=f65e31]:
+            - generic [ref=f65e32]:  􏂅
+            - text: System preferences
+        - listitem [ref=f65e33]:
+          - link " 􏀑 Logout" [ref=f65e34] [cursor=pointer]:
+            - /url: /logout
+            - generic [ref=f65e35]:  􏀑
+            - text: Logout
+    - main [ref=f65e36]:
+      - generic [ref=f65e38]:
+        - alert [ref=f65e39]:
+          - text: The delivery date has passed the acceptable timeframe. Please update the delivery data and the warranty start date
+          - button "Close" [ref=f65e40] [cursor=pointer]: ×
+        - navigation [ref=f65e42]:
+          - heading "#6291 - Perma Retest0913" [level=1] [ref=f65e43]
+          - list [ref=f65e44]:
+            - listitem [ref=f65e45]:
+              - link "Back" [ref=f65e46] [cursor=pointer]:
+                - /url: /quote/6291/details
+            - listitem [ref=f65e47]:
+              - link "Finalize sale":
+                - /url: /quote/6291/finalize
+        - generic [ref=f65e50]:
+          - heading "Program" [level=4] [ref=f65e51]
+          - paragraph [ref=f65e52]: Choose one of the available program.
+          - heading [level=5] [ref=f65e53]:
+            - link "Automation Test Program" [expanded] [ref=f65e54] [cursor=pointer]:
+              - /url: "#program-26"
+          - generic [ref=f65e57]:
+            - paragraph [ref=f65e58]: default 1
+            - generic [ref=f65e62]:
+              - radio "20m/20000km" [ref=f65e63]
+              - text: 20m/20000km
+          - separator [ref=f65e64]
+          - generic [ref=f65e65]:
+            - generic [ref=f65e66]: Sale price*
+            - textbox "Sale price*" [ref=f65e67]: "1000"
+          - generic [ref=f65e68]:
+            - generic [ref=f65e69]: Financing company
+            - generic [ref=f65e70]:
+              - combobox "Financing company" [ref=f65e71]:
+                - option "Choose" [selected]
+                - option "AutoCapital Canada"
+                - option "Avantage Concessionaire Scotia"
+                - option "AVANTAGE Concessionnaire Scotia"
+                - option "Avantage Plus Testing"
+                - option "Axis Auto Finance Lending Corp."
+                - option "Banque Royale"
+                - option "Banque Scotia"
+                - option "BMO"
+                - option "BNC"
+                - option "BNC"
+                - option "CARFINCO FINANCIAL GROUP INC."
+                - option "CIBC Auto Finance"
+                - option "Credit Virage Canada"
+                - option "Crelogix Acceptance Corporation"
+                - option "FÉDÉRATION DES CAISSES DESJARDINS DU QUÉBEC"
+                - option "Finance Créditfix"
+                - option "FINANCEMENT AUTO TD"
+                - option "Financile"
+                - option "Finauto"
+                - option "Honda Canada Finance Inc."
+                - option "HWY Finance Inc."
+                - option "I.S.A. Auto Direct"
+                - option "IA FInancement Auto"
+                - option "Iceberg Finance Inc."
+                - option "Iceberg Finance Inc."
+                - option "INDUSTRIELLE ALLIANCE, FIDUCIE INC."
+                - option "LendCare Capital Inc"
+                - option "Location All Star"
+                - option "Nissan Canada Finance"
+                - option "Québec Auto Finance"
+                - option "RBC Banque Royale"
+                - option "Services Financiers Mercedes-Benz"
+                - option "Yamaha Financial Services"
+              - combobox "Choose" [ref=f65e72] [cursor=pointer]
+          - generic [ref=f65e76]:
+            - generic [ref=f65e77]: Vehicle Delivery Date
+            - textbox "Vehicle Delivery Date" [ref=f65e79]: 2026-09-13
+          - generic [ref=f65e80]:
+            - generic [ref=f65e81]:
+              - text: Warranty Start Date
+              - generic [ref=f65e83]:
+                - generic [ref=f65e84]: Error
+                - text: This value should not be blank.
+            - textbox "Warranty Start Date Error This value should not be blank." [active] [ref=f65e86]
+          - button "Save" [ref=f65e87] [cursor=pointer]
+  - contentinfo [ref=f65e88]:
+    - generic [ref=f65e89]:
+      - link "Avantage Plus System v2.0.0" [ref=f65e90] [cursor=pointer]:
+        - /url: /
+      - text: © Garantie Avantage Plus
+  - generic [ref=f65e94]:
+    - generic [ref=f65e95]:
+      - generic [ref=f65e96] [cursor=pointer]: 
+      - generic [ref=f65e98] [cursor=pointer]: September 2026
+      - generic [ref=f65e99] [cursor=pointer]: 
+    - table [ref=f65e101]:
+      - rowgroup [ref=f65e102]:
+        - row [ref=f65e103]:
+          - columnheader "S" [ref=f65e104]
+          - columnheader "M" [ref=f65e106]
+          - columnheader "T" [ref=f65e108]
+          - columnheader "W" [ref=f65e110]
+          - columnheader "T" [ref=f65e112]
+          - columnheader "F" [ref=f65e114]
+          - columnheader "S" [ref=f65e116]
+      - rowgroup [ref=f65e118]:
+        - row [ref=f65e119]:
+          - cell [ref=f65e120]
+          - cell [ref=f65e121]
+          - cell "1" [ref=f65e122] [cursor=pointer]
+          - cell "2" [ref=f65e124] [cursor=pointer]
+          - cell "3" [ref=f65e126] [cursor=pointer]
+          - cell "4" [ref=f65e128] [cursor=pointer]
+          - cell "5" [ref=f65e130] [cursor=pointer]
+        - row [ref=f65e132]:
+          - cell "6" [ref=f65e133] [cursor=pointer]
+          - cell "7" [ref=f65e135] [cursor=pointer]
+          - cell "8" [ref=f65e137] [cursor=pointer]
+          - cell "9" [ref=f65e139] [cursor=pointer]
+          - cell "10" [ref=f65e141] [cursor=pointer]
+          - cell "11" [ref=f65e143] [cursor=pointer]
+          - cell "12" [ref=f65e145] [cursor=pointer]
+        - row [ref=f65e147]:
+          - cell "13" [ref=f65e148] [cursor=pointer]
+          - cell "14" [ref=f65e150] [cursor=pointer]
+          - cell "15" [ref=f65e152] [cursor=pointer]
+          - cell "16" [ref=f65e154] [cursor=pointer]
+          - cell "17" [ref=f65e156] [cursor=pointer]
+          - cell "18" [ref=f65e158] [cursor=pointer]
+          - cell "19" [ref=f65e160] [cursor=pointer]
+        - row [ref=f65e162]:
+          - cell "20" [ref=f65e163] [cursor=pointer]
+          - cell "21" [ref=f65e165] [cursor=pointer]
+          - cell "22" [ref=f65e167] [cursor=pointer]
+          - cell "23" [ref=f65e169] [cursor=pointer]
+          - cell "24" [ref=f65e171] [cursor=pointer]
+          - cell "25" [ref=f65e173] [cursor=pointer]
+          - cell "26" [ref=f65e175] [cursor=pointer]
+        - row [ref=f65e177]:
+          - cell "27" [ref=f65e178] [cursor=pointer]
+          - cell "28" [ref=f65e180] [cursor=pointer]
+          - cell "29" [ref=f65e182] [cursor=pointer]
+          - cell "30" [ref=f65e184] [cursor=pointer]
+          - cell [ref=f65e186]
+          - cell [ref=f65e187]
+          - cell [ref=f65e188]
+  - iframe [ref=f65e92]:
+    - generic:
+      - generic:
+        - text:  
+        - button "Open chat" [ref=f67e1] [cursor=pointer]
