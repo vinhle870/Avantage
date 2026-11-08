@@ -1,27 +1,6 @@
-import { Page, Locator, expect } from '@playwright/test';
-
-/**
- * Dealer data interface for form filling
- */
-export interface DealerData {
-    email: string;
-    name: string;
-    phone?: string;
-    fax?: string;
-    companyName?: string;
-    address?: string;
-    city?: string;
-    province?: string;
-    postalCode?: string;
-    internalId?: string;
-    contactTitle?: string;
-    licenseNo?: string;
-    registrationGST?: string;
-    registrationPST?: string;
-    group?: string;
-    notes?: string;
-    humaniaCommissionRate?: string;
-}
+import { Page, Locator } from '@playwright/test';
+import { Dealer } from '../../data/admin-portal';
+import { selectDropdownOption } from '../../core/utils/uiActions';
 
 /**
  * Admin New Dealer Page - Create/Edit dealer form.
@@ -70,45 +49,38 @@ export class AdminNewDealerPage {
         this.dpdGroup = page.locator('#dealer_dealerGroup');
         this.txtNotes = page.locator('#dealer_notes');
         this.dpdHumaniaCommissionRate = page.locator('#dealer_humaniaCommissionRate');
-        this.btnSave = page.locator('[type="submit"]');
+        this.btnSave = page.locator('[type="submit"]').first();
         this.lblDealerSaved = page.locator("//div[@role='alert' and contains(text(), 'Dealer saved')]");
     }
 
     /**
-     * Fill the new dealer form with provided data
+     * Fill the new dealer form. Every field is written, empty values clear the field.
      */
-    async fillNewDealerForm(dealer: DealerData, submit: boolean = true): Promise<void> {
+    async fillNewDealerForm(dealer: Dealer, submit: boolean = true): Promise<void> {
         await this.txtEmail.fill(dealer.email);
         await this.txtName.fill(dealer.name);
-
-        if (dealer.phone) await this.txtPhone.fill(dealer.phone);
-        if (dealer.fax) await this.txtFax.fill(dealer.fax);
-        if (dealer.companyName) await this.txtCompanyName.fill(dealer.companyName);
-        if (dealer.address) await this.txtAddress.fill(dealer.address);
-        if (dealer.city) await this.txtCity.fill(dealer.city);
-        if (dealer.province) await this.dpdProvince.selectOption({ label: dealer.province });
-        if (dealer.postalCode) await this.txtPostalCode.fill(dealer.postalCode);
-        if (dealer.internalId) await this.txtInternalId.fill(dealer.internalId);
-        if (dealer.contactTitle) await this.txtContactTitle.fill(dealer.contactTitle);
-        if (dealer.licenseNo) await this.txtLicenseNo.fill(dealer.licenseNo);
-        if (dealer.registrationGST) await this.txtRegistrationGST.fill(dealer.registrationGST);
-        if (dealer.registrationPST) await this.txtRegistrationPST.fill(dealer.registrationPST);
-        if (dealer.group) await this.dpdGroup.selectOption({ label: dealer.group });
-        if (dealer.notes) await this.txtNotes.fill(dealer.notes);
-        if (dealer.humaniaCommissionRate) {
-            await this.dpdHumaniaCommissionRate.selectOption({ label: dealer.humaniaCommissionRate });
+        await this.txtPhone.fill(dealer.phone);
+        await this.txtFax.fill(dealer.fax);
+        await this.txtCompanyName.fill(dealer.companyName);
+        await this.txtAddress.fill(dealer.address);
+        await this.txtCity.fill(dealer.city);
+        await selectDropdownOption(this.dpdProvince, dealer.province);
+        await this.txtPostalCode.fill(dealer.postalCode);
+        await this.txtInternalId.fill(dealer.internalId);
+        await this.txtContactTitle.fill(dealer.contactTitle);
+        await this.txtLicenseNo.fill(dealer.licenseNo);
+        await this.txtRegistrationGST.fill(dealer.registrationGST);
+        await this.txtRegistrationPST.fill(dealer.registrationPST);
+        await selectDropdownOption(this.dpdGroup, dealer.group);
+        await this.txtNotes.fill(dealer.notes);
+        // The Humania commission rate field was removed from the current form
+        if ((await this.dpdHumaniaCommissionRate.count()) > 0) {
+            await selectDropdownOption(this.dpdHumaniaCommissionRate, dealer.humaniaCommissionRate);
         }
 
         if (submit) {
             await this.btnSave.click();
         }
-    }
-
-    /**
-     * Verify dealer saved message is displayed
-     */
-    async verifyDealerSaved(): Promise<void> {
-        await expect(this.lblDealerSaved).toBeVisible();
     }
 
     /**

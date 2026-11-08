@@ -22,24 +22,18 @@ export class DatePickerComponent extends BaseComponent {
             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         const monthShort = monthNames[parseInt(monthNumber) - 1];
 
-        // Click on navigator to open year selection
-        const navigator = this.locator.locator("div[role='period']");
+        const cell = (pattern: RegExp) =>
+            this.locator.locator('table div').filter({ hasText: pattern }).first();
 
-        // Click twice to get to year selection
+        // Click the period header twice: day view -> month view -> year view
+        const navigator = this.locator.locator("div[role='period']").first();
         await navigator.click();
         await navigator.click();
 
-        // Select year
-        const yearSelector = this.locator.locator(`div:text("${year}")`);
-        await yearSelector.click();
-
-        // Select month
-        const monthSelector = this.locator.locator(`div:text("${monthShort}")`);
-        await monthSelector.click();
-
-        // Select day
-        const daySelector = this.locator.locator(`div:text-is("${parseInt(day)}")`);
-        await daySelector.click();
+        // Year, then month, then day (the calendar may print the day with or without a leading zero)
+        await cell(new RegExp(`^\\s*${year}\\s*$`)).click();
+        await cell(new RegExp(`^\\s*${monthShort}\\s*$`)).click();
+        await cell(new RegExp(`^\\s*0?${parseInt(day, 10)}\\s*$`)).click();
 
         console.log(`Date selected: ${date}`);
     }

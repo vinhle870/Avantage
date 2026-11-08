@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DealerPortal>
+    <VehicleInfo>
+        <VehicleType>Passenger</VehicleType>
+        <VehicleID></VehicleID>
+        <VIN>33333333</VIN>
+        <Branch>Fiat</Branch>
+        <Model>500</Model>
+        <Year>2015</Year>
+        <Price>10000.00</Price>
+        <Km>20000</Km>
+        <Condition>new</Condition>
+        <FuelType>GASOLINE</FuelType>
+        <Transmission>Automatic</Transmission>
+        <Cylinders>2</Cylinders>
+        <EngineSize>2</EngineSize>
+        <EngineSizeUnit>l</EngineSizeUnit>
+        <Designation>Particular</Designation>
+        <IsTurboEngine>Yes</IsTurboEngine>
+        <Is4X4>Yes</Is4X4>
+        <IsAllWheelDrive>Yes</IsAllWheelDrive>
+        <FullCoverageEndDate></FullCoverageEndDate>
+        <FullCoverageMaxMile></FullCoverageMaxMile>
+        <PowertrainCoverageEndDate></PowertrainCoverageEndDate>
+        <PowertrainCoverageMaxMile></PowertrainCoverageMaxMile>
+    </VehicleInfo>
+</DealerPortal>

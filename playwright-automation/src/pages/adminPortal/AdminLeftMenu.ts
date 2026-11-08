@@ -1,69 +1,64 @@
-import { Page, Locator } from '@playwright/test';
+import { Page } from '@playwright/test';
+import { clickSidebarLink } from '../../core/utils/uiActions';
 
 /**
  * Admin Left Menu Panel - Navigation menu for Admin Portal.
- * Converted from Admin_LeftMenuPanel.java + Admin_LeftMenuPanelFunc.java
+ * Converted from Admin_LeftMenuPanel.java + Admin_LeftMenuPanelFunc.java.
+ * Links sit in collapsible sidebar sections (Users, Warranty Configuration, Parameters, ...).
  */
 export class AdminLeftMenu {
     private page: Page;
 
-    // Locators
-    readonly lnkUsers: Locator;
-    readonly lnkPrograms: Locator;
-    readonly lnkProgramComponents: Locator;
-    readonly lnkWarrantyConditions: Locator;
-    readonly lnkLogout: Locator;
-    readonly lnkCustomPriceRules: Locator;
+    static readonly DEALERS = '/admin/dealers';
+    static readonly PROGRAMS = '/admin/programs';
+    static readonly PROGRAM_COMPONENTS = '/admin/list-program-components';
+    static readonly WARRANTY_CONDITIONS = '/admin/warranty-conditions';
+    static readonly CUSTOM_PRICE_RULES = '/admin/price-rule';
+    static readonly LOGOUT = '/admin/logout';
 
     constructor(page: Page) {
         this.page = page;
-        this.lnkUsers = page.locator('[href="/admin/dealers"]');
-        this.lnkPrograms = page.locator('[href="/admin/programs"]');
-        this.lnkProgramComponents = page.locator('[href="/admin/list-program-components"]');
-        this.lnkWarrantyConditions = page.locator('[href="/admin/warranty-conditions"]');
-        this.lnkLogout = page.locator('[href="/admin/logout"]');
-        this.lnkCustomPriceRules = page.locator('[href="/admin/price-rule"]');
     }
 
     /**
-     * Navigate to Users/Dealers page
+     * Navigate to Users > Dealers page
      */
     async goToUsersPage(): Promise<void> {
-        await this.lnkUsers.click();
+        await clickSidebarLink(this.page, AdminLeftMenu.DEALERS);
     }
 
     /**
      * Navigate to Programs page
      */
     async goToProgramsPage(): Promise<void> {
-        await this.lnkPrograms.click();
+        await clickSidebarLink(this.page, AdminLeftMenu.PROGRAMS);
     }
 
     /**
      * Navigate to Program Components page
      */
     async goToProgramComponentsPage(): Promise<void> {
-        await this.lnkProgramComponents.click();
+        await clickSidebarLink(this.page, AdminLeftMenu.PROGRAM_COMPONENTS);
     }
 
     /**
      * Navigate to Warranty Conditions page
      */
     async goToWarrantyConditionsPage(): Promise<void> {
-        await this.lnkWarrantyConditions.click();
+        await clickSidebarLink(this.page, AdminLeftMenu.WARRANTY_CONDITIONS);
     }
 
     /**
      * Navigate to Custom Price Rules page
      */
     async goToPriceRulesPage(): Promise<void> {
-        await this.lnkCustomPriceRules.click();
+        await clickSidebarLink(this.page, AdminLeftMenu.CUSTOM_PRICE_RULES);
     }
 
     /**
      * Logout from admin portal
      */
     async logout(): Promise<void> {
-        await this.lnkLogout.click();
+        await clickSidebarLink(this.page, AdminLeftMenu.LOGOUT);
     }
 }

@@ -1,12 +1,5 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { TableComponent } from '../../core/components/TableComponent';
-
-/**
- * PriceRule data interface
- */
-export interface PriceRuleData {
-    name: string;
-}
 
 /**
  * Admin Price Rules Page - Manage custom price rules.
@@ -39,8 +32,8 @@ export class AdminPriceRulesPage {
     /**
      * Delete a price rule by name
      */
-    async deletePriceRule(priceRule: PriceRuleData, submit: boolean = true): Promise<void> {
-        await this.tblPriceRules.clickOnChildInRow(priceRule.name, "//span[@class='fal fa-trash']");
+    async deletePriceRule(priceRuleName: string, submit: boolean = true): Promise<void> {
+        await this.tblPriceRules.clickOnChildInRow(priceRuleName, "//span[@class='fal fa-trash']");
 
         if (submit) {
             await this.btnDeleteConfirm.click();
@@ -53,13 +46,6 @@ export class AdminPriceRulesPage {
     async isPriceRuleAvailableOnList(name: string): Promise<boolean> {
         const row = await this.tblPriceRules.findRow(name);
         return row !== null;
-    }
-
-    /**
-     * Verify price rule saved message is visible
-     */
-    async verifyPriceRuleSaved(): Promise<void> {
-        await expect(this.lblPriceRuleSaved).toBeVisible();
     }
 
     /**

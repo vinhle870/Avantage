@@ -1,141 +1,155 @@
 /**
- * Dealer Portal Data Models
- * Converted from JAXB-generated Java classes
+ * Dealer Portal data models.
+ * Mirrors the JAXB business objects in ProjectContext/BusinessObject/Dealer and the
+ * XML files under test-data/TestCaseData/DealerPortal. Every leaf is a string because
+ * the XML is the source of truth; empty or missing elements load as ''.
  */
 
-// Quote Client Information
 export interface QuoteClient {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone?: string;
-  address?: string;
-  city?: string;
-  province?: string;
-  postalCode?: string;
-  driverLicense?: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    secondaryOwnerOrCompany: string;
+    distributorName: string;
+    address: string;
+    address2: string;
+    city: string;
+    province: string;
+    postalCode: string;
+    telHome: string;
+    telWork: string;
+    indianStatusCertificate: string;
+    driversLicense: string;
 }
 
-// Vehicle Information
 export interface VehicleInfo {
-  id?: string;
-  vin?: string;
-  make: string;
-  model: string;
-  year: number;
-  bodyType?: string;
-  color?: string;
-  mileage?: number;
-  transmission?: string;
-  engine?: string;
-  price?: number;
-  purchaseDate?: Date;
-  registrationNumber?: string;
+    vehicleType: string;
+    /** Filled at runtime with the inventory ID of the vehicle the test created */
+    vehicleId: string;
+    vin: string;
+    /** Vehicle make — named "Branch" in the legacy XML */
+    branch: string;
+    model: string;
+    year: string;
+    price: string;
+    km: string;
+    condition: string;
+    fuelType: string;
+    transmission: string;
+    cylinders: string;
+    engineSize: string;
+    engineSizeUnit: string;
+    designation: string;
+    isTurboEngine: string;
+    is4x4: string;
+    isAllWheelDrive: string;
+    fullCoverageEndDate: string;
+    fullCoverageMaxMile: string;
+    powertrainCoverageEndDate: string;
+    powertrainCoverageMaxMile: string;
 }
 
-// Quote Vehicle
 export interface QuoteVehicle {
-  id?: string;
-  vehicleInfo: VehicleInfo;
-  tradeInValue?: number;
-  downPayment?: number;
-  loanAmount?: number;
+    vehicleInfo: VehicleInfo;
+    deliveryDate: string;
+    price: string;
 }
 
-export interface QuoteExchangeVehicle extends QuoteVehicle {
-  exchangeValue?: number;
-  exchangeCondition?: string;
-}
-
-// Warranty Information
 export interface QuoteWarranty {
-  id?: string;
-  programName: string;
-  selectedTerm?: string;
-  selectedOptions?: string[];
-  totalPrice: number;
-  startDate?: Date;
-  endDate?: Date;
-  coverageDetails?: string;
-}
-
-// Financing Information
-export interface QuoteFinancing {
-  id?: string;
-  financingType: string; // CASH, LOAN, LEASE
-  loanAmount?: number;
-  downPayment?: number;
-  interestRate?: number;
-  termMonths?: number;
-  monthlyPayment?: number;
-  financingCompany?: string;
-  loanNumber?: string;
-}
-
-// Quote Sale Information
-export interface QuoteSale {
-  id?: string;
-  salePrice: number;
-  saleDate: Date;
-  salesman?: string;
-  dealershipName?: string;
-  notes?: string;
+    warrantyId: string;
+    programName: string;
+    programOption: string;
+    programDescription: string;
+    optionTerm: string;
+    optionTermMonth: string;
+    optionTermKm: string;
+    optionTermPrice: string;
+    optionTermAmountPerVisit: string;
+    optionTermAmountTotal: string;
+    optionTermAmountText: string;
+    extraComponents: string[];
+    salePrice: string;
+    financingCompany: string;
+    vehicleDeliveryDate: string;
+    sameAsDeliveryDate: string;
+    warrantyStartDate: string;
 }
 
 export interface QuoteSaleContract {
-  id?: string;
-  contractNumber: string;
-  contractDate: Date;
-  documentPath?: string;
-  signedDate?: Date;
-  signedBy?: string;
+    contractNumber: string;
+    salesRepName: string;
+    deliveredOn: string;
+    signedOn: string;
+    signedLocation: string;
+    discountAmount: string;
+    vehicleMarketValue: string;
+    transitAmount: string;
+    rdprmAmount: string;
+    warrantyAmount: string;
+    accessories: string;
+    accessoriesAmount: string;
+    newTiresDutyAmount: string;
+    maintenanceScheduleAmount: string;
+    replacementInsuranceAmount: string;
+    replacementInsuranceContractNumber: string;
+    loanInsuranceAmount: string;
+    loanInsuranceContractNumber: string;
+    depositAmount: string;
+    otherClause: string;
 }
 
-// Invoice Information
-export interface InvoiceInfo {
-  id?: string;
-  invoiceNumber: string;
-  invoiceDate: Date;
-  amount: number;
-  status?: string; // DRAFT, FINALIZED, PAID, CANCELLED
-  paidDate?: Date;
-  paymentMethod?: string;
-  notes?: string;
+export interface QuoteExchangeVehicle {
+    vin: string;
+    branch: string;
+    model: string;
+    year: string;
+    cylinders: string;
+    licensePlateNumber: string;
+    km: string;
+    realKilometers: string;
+    isAccommodationSale: string;
+    accommodationSaleContractNumber: string;
+    taxRegistration: string;
+    valueAmount: string;
+    balanceAmount: string;
+    bank: string;
 }
 
-// Extra Components
-export interface ExtraComponents {
-  id?: string;
-  componentName: string;
-  price: number;
-  description?: string;
-  quantity?: number;
+export interface QuoteSale {
+    quoteSaleContract: QuoteSaleContract;
+    quoteExchangeVehicle: QuoteExchangeVehicle;
 }
 
-// Main Quote Information
 export interface QuoteInfo {
-  id?: string;
-  quoteNumber?: string;
-  quoteDate: Date;
-  expiryDate?: Date;
-  quoteClient: QuoteClient;
-  quoteVehicle: QuoteVehicle;
-  quoteWarranty: QuoteWarranty;
-  quoteFinancing: QuoteFinancing;
-  quoteSale: QuoteSale;
-  quoteSaleContract?: QuoteSaleContract;
-  invoiceInfo?: InvoiceInfo;
-  extraComponents?: ExtraComponents[];
-  totalAmount?: number;
-  status?: string; // DRAFT, PENDING, APPROVED, COMPLETED, CANCELLED
-  notes?: string;
+    quoteClient: QuoteClient;
+    quoteVehicle: QuoteVehicle;
+    quoteWarranty: QuoteWarranty;
+    quoteSale: QuoteSale;
 }
 
-// Dealer Portal Root
-export interface DealerPortal {
-  quotes?: QuoteInfo[];
-  inventory?: VehicleInfo[];
-  url?: string;
-  username?: string;
-  password?: string;
+export interface InvoiceInfo {
+    taxInfo1: string;
+    taxInfo2: string;
+    apt1: string;
+    apt2: string;
+}
+
+/** Values read from the invoice detail page */
+export interface InvoiceOnPage {
+    dealerName: string;
+    dealerAddress: string;
+    dealerLocation: string;
+    dealerEmail: string;
+    dealerPhone: string;
+    invoiceDescription: string;
+    invoiceTotal: string;
+    invoiceGrandTotal: string;
+    avAddress: string;
+}
+
+/** Root of a DealerPortal XML file — each file carries only the sections its test needs */
+export interface DealerPortalData {
+    quoteInfo?: QuoteInfo;
+    vehicleInfo?: VehicleInfo;
+    invoiceInfo?: InvoiceInfo;
 }

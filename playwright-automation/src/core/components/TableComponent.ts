@@ -6,7 +6,7 @@ import { BaseComponent } from './BaseComponent';
  * Converted from Java tableImpl.java
  */
 export class TableComponent extends BaseComponent {
-    constructor(page: Page, selector: string) {
+    constructor(page: Page, selector: string | Locator) {
         super(page, selector);
     }
 
@@ -48,8 +48,7 @@ export class TableComponent extends BaseComponent {
         const texts: string[] = [];
 
         for (let i = 0; i < count; i++) {
-            const text = await columns.nth(i).textContent();
-            if (text) texts.push(text);
+            texts.push((await columns.nth(i).innerText()).trim());
         }
 
         return texts.join(separator);
@@ -68,8 +67,8 @@ export class TableComponent extends BaseComponent {
             const colCount = await columns.count();
 
             for (let j = 0; j < colCount; j++) {
-                const text = await columns.nth(j).textContent();
-                if (text?.toLowerCase() === searchValue.toLowerCase()) {
+                const text = (await columns.nth(j).innerText()).trim();
+                if (text.toLowerCase() === searchValue.toLowerCase()) {
                     return row;
                 }
             }
@@ -106,8 +105,7 @@ export class TableComponent extends BaseComponent {
         const texts: string[] = [];
 
         for (let i = 0; i < count; i++) {
-            const text = await columns.nth(i).textContent();
-            if (text) texts.push(text);
+            texts.push((await columns.nth(i).innerText()).trim());
         }
 
         return texts.join(separator);

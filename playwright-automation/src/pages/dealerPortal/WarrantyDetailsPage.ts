@@ -1,197 +1,155 @@
-/**
- * Warranty Details Page
- * Page object for viewing and managing warranty details in dealer portal
- */
-
 import { Page, Locator } from '@playwright/test';
+import { QuoteWarranty } from '../../data/dealer-portal';
+import { DatePickerComponent } from '../../core/components/DatePickerComponent';
+import { downloadEmbeddedPdf } from '../../core/utils/uiActions';
 
+/**
+ * Warranty Details Page - Choose the warranty program/option/term for a quote.
+ * Converted from WarrantyDetails_Page.java + WarrantyDetailsPage_Func.java
+ */
 export class WarrantyDetailsPage {
-  private page: Page;
+    private page: Page;
 
-  // Page elements
-  private readonly warrantyProgramName: Locator;
-  private readonly warrantyTerm: Locator;
-  private readonly warrantyStartDate: Locator;
-  private readonly warrantyEndDate: Locator;
-  private readonly totalCoverage: Locator;
-  private readonly selectedOptions: Locator;
-  private readonly priceBreakdown: Locator;
-  private readonly coverageDetails: Locator;
-  private readonly editButton: Locator;
-  private readonly deleteButton: Locator;
-  private readonly backButton: Locator;
-  private readonly printButton: Locator;
-  private readonly successMessage: Locator;
-  private readonly errorMessage: Locator;
+    // Locators
+    readonly form: Locator;
+    readonly txtSalePrice: Locator;
+    readonly ddlFinancingCompany: Locator;
+    readonly txtVehicleDeliveryDate: Locator;
+    readonly txtWarrantyStartDate: Locator;
+    readonly chkSameAsDeliveryDate: Locator;
+    readonly lnkBackToQuote: Locator;
+    readonly lnkFinalizeSale: Locator;
+    readonly embedPdf: Locator;
+    readonly btnSave: Locator;
+    readonly btnGenerateContract: Locator;
 
-  constructor(page: Page) {
-    this.page = page;
-
-    // Initialize locators
-    this.warrantyProgramName = page.locator('[data-testid="warranty-program-name"]');
-    this.warrantyTerm = page.locator('[data-testid="warranty-term"]');
-    this.warrantyStartDate = page.locator('[data-testid="warranty-start-date"]');
-    this.warrantyEndDate = page.locator('[data-testid="warranty-end-date"]');
-    this.totalCoverage = page.locator('[data-testid="total-coverage"]');
-    this.selectedOptions = page.locator('[data-testid="selected-options"]');
-    this.priceBreakdown = page.locator('[data-testid="price-breakdown"]');
-    this.coverageDetails = page.locator('[data-testid="coverage-details"]');
-    this.editButton = page.locator('button:has-text("Edit")');
-    this.deleteButton = page.locator('button:has-text("Delete")');
-    this.backButton = page.locator('button:has-text("Back")');
-    this.printButton = page.locator('button:has-text("Print")');
-    this.successMessage = page.locator('[class*="success"]');
-    this.errorMessage = page.locator('[class*="error"]');
-  }
-
-  /**
-   * Get warranty program name
-   */
-  public async getWarrantyProgramName(): Promise<string> {
-    return await this.warrantyProgramName.textContent() || '';
-  }
-
-  /**
-   * Get warranty term
-   */
-  public async getWarrantyTerm(): Promise<string> {
-    return await this.warrantyTerm.textContent() || '';
-  }
-
-  /**
-   * Get warranty start date
-   */
-  public async getWarrantyStartDate(): Promise<string> {
-    return await this.warrantyStartDate.textContent() || '';
-  }
-
-  /**
-   * Get warranty end date
-   */
-  public async getWarrantyEndDate(): Promise<string> {
-    return await this.warrantyEndDate.textContent() || '';
-  }
-
-  /**
-   * Get total coverage amount
-   */
-  public async getTotalCoverage(): Promise<string> {
-    return await this.totalCoverage.textContent() || '';
-  }
-
-  /**
-   * Get selected options list
-   */
-  public async getSelectedOptions(): Promise<string[]> {
-    const options = await this.selectedOptions.all();
-    const optionsText: string[] = [];
-
-    for (const option of options) {
-      const text = await option.textContent();
-      if (text) {
-        optionsText.push(text);
-      }
+    constructor(page: Page) {
+        this.page = page;
+        this.form = page.locator('form[name="quote_warranty"]');
+        this.txtSalePrice = page.locator('#quote_warranty_salePrice');
+        this.ddlFinancingCompany = page.locator('#quote_warranty_financingCompany');
+        this.txtVehicleDeliveryDate = page.locator('#quote_warranty_deliveredAt');
+        this.txtWarrantyStartDate = page.locator('#quote_warranty_warrantyStartDate');
+        this.chkSameAsDeliveryDate = page.locator('#quote_warranty_isSameAsDeliveryDate');
+        this.lnkBackToQuote = page.locator('main a[href^="/quote/"][href$="/details"]').first();
+        this.lnkFinalizeSale = page.locator('a[href*=finalize]').first();
+        this.embedPdf = page.locator('embed').first();
+        this.btnSave = page.locator('form[name="quote_warranty"] [type="submit"]').first();
+        // Submit of the "Generate Contract" modal (finalizes the warranty and creates the invoice)
+        this.btnGenerateContract = page.locator('#warranty_finalize_save');
     }
 
-    return optionsText;
-  }
-
-  /**
-   * Get price breakdown details
-   */
-  public async getPriceBreakdown(): Promise<any> {
-    const breakdown = await this.priceBreakdown.textContent();
-    // Parse the breakdown information
-    return breakdown || '';
-  }
-
-  /**
-   * Get coverage details
-   */
-  public async getCoverageDetails(): Promise<string> {
-    return await this.coverageDetails.textContent() || '';
-  }
-
-  /**
-   * Click edit button
-   */
-  public async clickEdit(): Promise<void> {
-    await this.editButton.click();
-    await this.page.waitForLoadState('networkidle');
-  }
-
-  /**
-   * Click delete button
-   */
-  public async clickDelete(): Promise<void> {
-    await this.deleteButton.click();
-  }
-
-  /**
-   * Click back button
-   */
-  public async clickBack(): Promise<void> {
-    await this.backButton.click();
-    await this.page.waitForLoadState('networkidle');
-  }
-
-  /**
-   * Click print button
-   */
-  public async clickPrint(): Promise<void> {
-    await this.printButton.click();
-  }
-
-  /**
-   * Get success message
-   */
-  public async getSuccessMessage(): Promise<string> {
-    return await this.successMessage.textContent() || '';
-  }
-
-  /**
-   * Get error message
-   */
-  public async getErrorMessage(): Promise<string> {
-    return await this.errorMessage.textContent() || '';
-  }
-
-  /**
-   * Verify warranty details are displayed
-   */
-  public async verifyWarrantyDetailsDisplayed(): Promise<boolean> {
-    const programName = await this.getWarrantyProgramName();
-    const term = await this.getWarrantyTerm();
-    const startDate = await this.getWarrantyStartDate();
-
-    return !!programName && !!term && !!startDate;
-  }
-
-  /**
-   * Wait for page to load
-   */
-  public async waitForPageLoad(): Promise<void> {
-    await this.page.waitForLoadState('networkidle');
-  }
-
-  /**
-   * Export warranty details (if available)
-   */
-  public async exportWarrantyDetails(format: 'pdf' | 'excel'): Promise<void> {
-    const exportButton = this.page.locator(`button:has-text("Export as ${format.toUpperCase()}")`);
-    if (await exportButton.isVisible()) {
-      await exportButton.click();
-    } else {
-      throw new Error(`Export as ${format.toUpperCase()} option not available`);
+    /**
+     * Collapsible heading of a program in the warranty form
+     */
+    programHeading(programName: string): Locator {
+        return this.form.locator(`//a[contains(., "${programName}")]`).first();
     }
-  }
 
-  /**
-   * Compare with another warranty
-   */
-  public async compareWarranty(warrantyId: string): Promise<void> {
-    const compareButton = this.page.locator(`button[data-warranty-id="${warrantyId}"]`);
-    await compareButton.click();
-    await this.page.waitForLoadState('networkidle');
-  }
+    /**
+     * Panel the program heading expands (its aria-controls target)
+     */
+    async programPanel(programName: string): Promise<Locator> {
+        const panelId = await this.programHeading(programName).getAttribute('aria-controls');
+        if (!panelId) throw new Error(`Program "${programName}" heading has no aria-controls`);
+        return this.page.locator(`[id="${panelId}"]`);
+    }
+
+    /**
+     * Label of an option term inside a program, e.g. option "option 1", term "100m/20000km"
+     */
+    async optionTermLabel(programName: string, optionName: string, termName: string): Promise<Locator> {
+        const panel = await this.programPanel(programName);
+        return panel
+            .locator(`xpath=.//*[p[contains(., "${optionName}")]]//label[contains(., "${termName}")]`)
+            .first();
+    }
+
+    /**
+     * Checkbox of an extra component, matched on the trimmed label text
+     */
+    extraComponentCheckbox(componentName: string): Locator {
+        return this.form
+            .locator('[class*="component-wrapper"] label')
+            .filter({ hasText: new RegExp(`^\\s*${escapeRegExp(componentName)}\\s*$`) })
+            .first()
+            .locator('input');
+    }
+
+    /**
+     * Select the program option term, extra components, price and dates, then save
+     */
+    async selectWarrantyProgram(warranty: QuoteWarranty, submit: boolean = true): Promise<void> {
+        const term = await this.optionTermLabel(warranty.programName, warranty.programOption, warranty.optionTerm);
+
+        // Expand the program when it is collapsed
+        if (!(await term.isVisible())) {
+            await this.programHeading(warranty.programName).click();
+        }
+        await term.click();
+
+        for (const component of warranty.extraComponents) {
+            if (component !== '') {
+                await this.extraComponentCheckbox(component).click();
+            }
+        }
+
+        await this.txtSalePrice.fill(warranty.salePrice);
+
+        // The current warranty modal takes its dates from the quote vehicle's delivery date;
+        // earlier versions of the form had their own delivery/start date fields
+        if ((await this.txtVehicleDeliveryDate.count()) > 0) {
+            await this.txtVehicleDeliveryDate.fill(warranty.vehicleDeliveryDate);
+
+            // Tabbing out of the delivery date opens the start date calendar, linked by data-guid
+            await this.txtVehicleDeliveryDate.press('Tab');
+            const guid = await this.txtWarrantyStartDate.getAttribute('data-guid');
+            if (!guid) throw new Error('Warranty start date input has no data-guid');
+            await new DatePickerComponent(this.page, `//*[@guid='${guid}']`).pickDate(warranty.warrantyStartDate);
+        }
+
+        if (submit) {
+            await this.btnSave.click();
+        }
+    }
+
+    /**
+     * Back to the quote detail page
+     */
+    async backToQuote(): Promise<void> {
+        // The current app edits the warranty in a modal over the quote detail page
+        if (/\/quote\/\d+\/details/.test(this.page.url())) {
+            await this.page.keyboard.press('Escape');
+            return;
+        }
+        await this.lnkBackToQuote.click();
+    }
+
+    /**
+     * Legacy app: open finalize sale and confirm it
+     */
+    async finalizeSale(submit: boolean = true): Promise<void> {
+        await this.lnkFinalizeSale.click();
+        if (submit) {
+            await this.btnSave.click();
+        }
+    }
+
+    /**
+     * Current app: submit the open "Generate Contract" modal
+     */
+    async generateContract(): Promise<void> {
+        await this.btnGenerateContract.click();
+    }
+
+    /**
+     * Bytes of the warranty contract PDF embedded on the page after saving
+     */
+    async downloadWarrantyContractPdf(): Promise<Buffer> {
+        return await downloadEmbeddedPdf(this.page, this.embedPdf);
+    }
+}
+
+function escapeRegExp(value: string): string {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
