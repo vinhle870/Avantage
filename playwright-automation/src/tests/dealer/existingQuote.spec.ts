@@ -1,50 +1,24 @@
-import { test, expect } from '../../core/fixtures/test-fixtures';
-import { config } from '../../data/config';
-import testData from '../../data/testData.json';
+import { test } from '../../core/fixtures/test-fixtures';
+import { loadDealerAccount, loadQuoteInfo } from '../../data/testDataLoader';
 
 /**
  * Dealer Existing Quote Management Tests
- * Converted from Test_Dealer_ExistingQuoteManage.java
+ * Converted from Test_Dealer_ExistingQuoteManage.java.
+ * Only TC001 is specific to this class; its sale contract tests duplicated the ones in
+ * Test_Dealer_NewQuoteManage.java and are covered by saleContract.spec.ts.
  */
-test.describe('Dealer Existing Quote Management', () => {
+test.describe('Dealer Existing Quote Management @dealer @smoke', () => {
+    test.describe.configure({ timeout: 300_000 });
 
-    test.beforeEach(async ({ page, loginPage }) => {
-        // Navigate to dealer portal and login
-        await page.goto(config.dealerPortalUrl);
-        await loginPage.loginToPortal(
-            testData.credentials.dealer.username,
-            testData.credentials.dealer.password
-        );
-    });
+    test('TC001_SmokeTest_DealerCanCreateNewWarrantyForExistingVehicle', async ({ dealerUser }) => {
+        const quoteInfo = loadQuoteInfo('DealerPortal/TC010_DealerCanFinishQuoteForClient_DealerPortal.xml');
+        const vehicleInfo = quoteInfo.quoteVehicle.vehicleInfo;
 
-    test('TC020 - Dealer can view quotes list', async ({
-        page,
-        dealerLeftMenu,
-        dealerQuotesPage
-    }) => {
-        // Navigate to quotes page
-        await dealerLeftMenu.goToQuotesPage();
+        await dealerUser.loginToDealerPortal();
+        await dealerUser.createNewQuote(quoteInfo, true, 'TC001_SmokeTest_DealerCanCreateNewWarrantyForExistingVehicle');
+        await dealerUser.createNewWarranty(quoteInfo, true);
 
-        // Verify quotes page loaded
-        await expect(dealerQuotesPage.lnkCreateAQuote).toBeVisible();
-    });
-
-    test('TC021 - Dealer can access create quote from quotes page', async ({
-        page,
-        dealerLeftMenu,
-        dealerQuotesPage
-    }) => {
-        // Navigate to quotes page
-        await dealerLeftMenu.goToQuotesPage();
-
-        // Verify create quote link is accessible
-        const isVisible = await dealerQuotesPage.isCreateQuoteLinkVisible();
-        expect(isVisible).toBe(true);
-
-        // Click create quote
-        await dealerQuotesPage.openNewQuotePage();
-
-        // Verify navigation to new quote page
-        await expect(page).toHaveURL(/.*quote.*/);
+        const actual = await dealerUser.downloadAndReadWarrantyContractPdf();
+        await dealerUser.verifyWarrantyContentIsCorrect(actual, quoteInfo, loadDealerAccount(), vehicleInfo);
     });
 });

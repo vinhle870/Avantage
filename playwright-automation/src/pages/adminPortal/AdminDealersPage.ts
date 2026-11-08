@@ -1,4 +1,4 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { TableComponent } from '../../core/components/TableComponent';
 
 /**
@@ -18,7 +18,7 @@ export class AdminDealersPage {
         this.page = page;
         this.lnkAddNewDealer = page.locator('[href="/admin/dealer/new/edit"]');
         this.tblDealers = new TableComponent(page, "//table[@class='table table-striped table-borderless m-0 table-hover']");
-        this.btnDeleteConfirm = page.locator("//button[@type='submit' and @class='btn btn-primary']");
+        this.btnDeleteConfirm = page.locator("//button[@type='submit' and @class='btn btn-primary']").first();
         this.btnDeleteCancel = page.locator('a[data-dismiss="modal"]');
     }
 

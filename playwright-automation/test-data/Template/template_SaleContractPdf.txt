@@ -1,0 +1,171 @@
+VEHICLE SALES CONTRACT
+CONTRAT No. Q.S.T. REGISTRATION No. :
+DEALER LICENSE No. G.S.T. REGISTRATION No. :
+DEALER REPRESENTATIVE DELIVERY DATE
+CONTRACT DATE PLACE OF SIGNING
+IDENTIFICATION OF CLIENT
+LASTNAME FIRSTNAME
+DRIVER LICENSE 2nd CLIENT
+ADDRESS APT No.:
+CITY PROVINCE POSTAL CODE
+RES. PHONE CELL EMAIL
+THE CUSTOMER HEREBY AGREES TO PURCHASE FROM THE DEALER A VEHICLE WHOSE FULL DESCRIPTION
+DESCRIBED ON THE LABEL ANNEXED TO THIS CONTRACT TO BE AN INTEGRAL PART, FOLLOWING THE TERMS AND CONDITIONS
+MENTIONED BELOW:
+IDENTIFICATION OF VEHICLE
+MAKE MODEL YEAR
+VIN CYLINDERS
+☐ Diesel ☐ Injection ☐ Turbo ☐ 4x4 ☐ AWD ☐ Automatique ☐ Manual
+CONDITION ODOMETER READING 
+ANNEXED LABEL No. STOCK No.
+1. DESCRIPTION PRICE DESCRIPTION PRICE
+A. VEHICLE PRICE M. EXTENDED WARRANTY
+B. DISCOUNT IF APPLICABLE N. ACC.
+C. NET SUBTOTAL O. NEW TIRES SPECIFIC DUTY
+D. EXCHANGE P. MAINTENANCE PROGRAM 
+E. SUBTOTAL WITH EXCHANGE Q. G.S.T
+F. G.S.T. R. Q.S.T.
+G. SUBTOTAL before Q.S.T. S. TOTAL
+H. MARKET VALUE
+I . Q.S.T. ASSURANCES
+J. SUBTOTAL T . REPLACEMENT INSURANCE
+K. BALANCE DUE ON EXCHANGE VEHICLE U. LIFE/DISABILITY INSURANCE
+V. 9% INSURANCE TAX
+L. TOTAL W. INSURANCES TOTAL
+NON-TAXABLE
+Z1. TRANSIT
+Z2 . RDPRM
+SOLDE TOTAL Financed Q.S.T. or paid to SAAQ (This amount is an approximate. The paid Q.S.T. 
+amount is calculated by the SAAQ upon registration of the vehicle)
+advance payment
+FINANCED BALANCE (including Q.S.T.)
+PAYABLE BALANCE (excluding Q.S.T.)
+Garantie Avantage Plus
+A division of Produits Avantage Plus Client initial
+2700 des Entreprises # 102
+Terrebonne QC J6X 4J8 Initial of sales representative
+Phone. : 450 666-0181 Toll free : 1 866 666-0181
+Fax : 450 666-2836
+#1
+${Contract_Number}
+${Contract_SalesRepName}
+${Contract_Signedon}${Contract_Signedlocation}
+${Dealer_Name}
+${Dealer_Location}
+${Dealer_PostalCode}
+${Dealer_Phone}
+Hereafter, to be known as 'merchant'
+${Dealer_RegistrationPST}
+${Dealer_LicenseNumber}${Dealer_RegistrationGST}
+${ClientFirstName}${ClientLastName}
+${ClientEmail}
+${ClientAddress}${ClientAddress2}
+${ClientDriverLicense}
+${ClientCity}
+${ClientPhone}
+${ClientPROVINCE}
+${ClientSecOwnerOrComp}
+${ClientPostal}
+${ClientCELL}
+${Vehicle_MAKE} ${Vehicle_MODEL} ${Vehicle_YEAR}
+${Vehicle_VIN} ${Vehicle_CYLINDERS} ${Vehicle_ EngineSize} ${Vehicle_ EngineSizeUnit}
+${Vehicle_Automatic}
+${Vehicle_CONDITION}
+${Contract_DeliveredOn}
+${Vehicle_km} km
+${Vehicle_ID}
+${Vehicle_Price}
+(${Contract_DISCOUNT})
+${Contract_NETSUBTOTAL}
+(${Contract_EXCHANGE})
+${Contract_SUBTOTALWITHEXCHANGE}
+${Contract_F_GST}
+${Contract_G_SUBTOTALBeforeQST}
+${Contract_H_MARKETVALUE}
+${Contract_I_QST}
+${Contract_J_SUBTOTAL}
+${Contract_K_BALANCEDUEONEXCHANGEVEHICLE}
+à ${ExchangeVehicle_Bank}
+${Contract_L_TOTAL}
+${Contract_Z1_TRANSIT}
+${Contract_Z2_RDPRM}
+${Contract_SOLDETOTAL}
+${Contract_M_EXTENDEDWARRANTY}${WarrantID}
+${Contract_N_ACC}${Contract_AccessoriesAmount}
+${Contract_O_NEWTIRESSPECIFICDUTY}
+${Contract_P_MAINTENANCEPROGRAM}
+${Contract_Q_GST}
+${Contract_R_QST}
+${Contract_S_TOTAL}
+${Contract_T_REPLACEMENTINSURANCE}${Contract_ReplacementInsuranceContractNumber}
+${Contract_U_LIFEDISABILITYINSURANCE}${Contract_LoanInsuranceContractNumber}
+${Contract_V_9PERCENTINSURANCETAX}
+${Contract_W_INSURANCESTOTAL}
+${Contract_FinancedQSTOrPaidToSAAQ}
+${Contract_AdvancePayment}
+${Contract_FINANCEDBALANCEIncludingQST}
+${Contract_PAYABLEBALANCEExcludingQST}
+2. CONTRACT EXECUTION Client initial
+If all the clauses indicated on this contract have been met and acknowledged by the mentioned client who still refuses to complete the sale of the 
+vehicle within the delay allowed, the vehicle merchant can force the obligations to the client, or cancel the sale. 
+In the latter, the client must pay a penalty fee, with interest accrued and taxes included of one of the lesser amounts: (1) four-hundred dollars (400$), or 
+(2) two percent (2%) of the sales price of the vehicle indicated. If the vehicle merchant is unable to complete the sale to client for the following 
+unavoidable problems including transport issues, manufacturer issues, fire, labor dispute or any other uncontrollable event, the sale will be cancelled by 
+the vehicle merchant with an obligation to reimburse either the deposit, or the down payment to the client. Trade-in vehicle: If a trade-in vehicle has been 
+given in place of a down payment, or deposit and that vehicle has already been sold by the vehicle merchant to another owner, it will not be required that 
+the vehicle merchant provide the sales price,
+or any other costs incurred regarding the sale of the vehicle to the previous owner.
+The agreed trade-in amount deducted from the new sale will constitute as a full an final release of any claims that the owner of the traded-in vehicle may 
+have against the vehicle merchant or the new owner.
+3 : EXCHANGE VEHICLE > Indicate N/A if no vehicle is given in exchange: [    ]
+3.1 : The client agrees to give, in place of a down payment, the trade-in vehicle indicated :
+MAKE MODEL YEAR
+VIN NUMBER CYLINDERS
+REGISTRATION ODOMETER READING KM
+ACCOMPANIED SALES ? ☐ Yes ☐ No ACTUAL KILOMETERS KM
+☐ See contrat # If required to collect the G.S.T., do not include exhange vehicle information.  Make a separate invoice that 
+includes G.S.T.THE YEAR ALLOCATED TO THE MODEL BY THE MANUFACTURER
+☐ Non registered to G.S.T. ☐ Registered not required to collect
+3.2 the client declares that the trade-in vehicle does not have any other defects, hidden or apparent other than that indicated below :
+3.3 The client declares that he is the sole owner of the trade-in vehicle and that there is no outstanding lien, fees, financing fees or remaining obligations
+concerning the vehicle and that all the payments have been made except the balance $
+3.4 If the trade-in vehicle is delivered after the signing of the present contract, the conditions of the trade-in vehicle indicated on the present contract must be the same, the vehicle shall not have 
+had abnormal use during this delay, received other damages or driven more than 200 kilometers from the reading indicated on this sales contract.
+3.5  If the trade-in vehicle is not in the same condition indicated on present contract, mentioned in clause 3:4, all other clauses related to the trade-in vehicle will be automatically cancelled. 
+All other clauses related to the sale of the vehicle will remain valid.
+4. WARRANTIES
+In addition to the warranty imposed by the law indicated on the window sticker sheet, the following warranties, offered by the merchant, will apply:
+☐ Extended ( for further details, the client is referred to the conditions of the extended warranty attached).
+☐ Other (explain) : Client initial :
+5. SOLIDARITY
+If this contract is signed by more than one party, all will be obligated to the conditions of present contract.
+6 FINANCIAL
+The present contract is :
+☐ completed, or
+☐ conditional to a loan requested by the vehicle merchant or the client for the remaining balance to be financed. The loan must be requested by a financial institution in a reasonably allowed delay following the signing of 
+present contract. If the loan is refused by the financial institution, the present contract will be voided and any down payment or deposit paid will be returned to the client.
+7. ADDITIONNAL CLAUSES
+☐ None
+☐ Additionnal clause : 
+Sales representative CLIENT
+Signature Signature
+Vehicle delivery date Signature
+Notice of Disclaimer: All clients or perspective clients should make sure to check the responsibility of the company mentioned above, and for the accuracy of any information indicated on this
+ sales contract. Les Products Advantage Plus will not be held responsible for any information indicated on the present sales contract that is inaccurate.
+Garantie Avantage Plus
+A division of Produits Avantage Plus
+2700 des Entreprises # 102
+Terrebonne QC J6X 4J8
+Tél. : 450 666-0181 Sans frais : 1 866 666-0181
+Télécopieur : 450 666-2836
+#2
+${ExchangeVehicle_Make_Model}
+${ExchangeVehicle_Vin_CYLINDERS}
+${ExchangeVehicle_LicensePlateNumber_KM}
+${ExchangeVehicle_RealKM}
+${ExchangeVehicle_Year}
+x${ExchangeVehicle_TaxRegistration}
+${ExchangeVehicle_BalanceAmount}
+x
+${Contract_OTHERCLAUSE}
+✓

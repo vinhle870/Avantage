@@ -1,26 +1,6 @@
-import { Page, Locator, expect } from '@playwright/test';
-
-/**
- * Condition data interface
- */
-export interface ConditionData {
-    attribute: string;
-    operator: string;
-    value: string;
-}
-
-/**
- * PriceRule form data interface
- */
-export interface PriceRuleFormData {
-    name: string;
-    position?: string;
-    applyRuleIf?: string;
-    conditions?: ConditionData[];
-    apply?: string;
-    amount?: string;
-    stopFurtherProcessing?: boolean;
-}
+import { Page, Locator } from '@playwright/test';
+import { Condition, PriceRule } from '../../data/admin-portal';
+import { selectCheckbox, selectDropdownOption } from '../../core/utils/uiActions';
 
 /**
  * Admin New Price Rule Page - Create/Edit price rule form.
@@ -36,6 +16,9 @@ export class AdminNewPriceRulePage {
     readonly lnkAddConditions: Locator;
     readonly lnkRemoveConditions: Locator;
     readonly lblConditions: Locator;
+    readonly ddlConditionAttributes: Locator;
+    readonly ddlConditionOperators: Locator;
+    readonly txtConditionValues: Locator;
     readonly dpdApply: Locator;
     readonly txtAmount: Locator;
     readonly cbxStopFurtherProcessing: Locator;
@@ -46,9 +29,13 @@ export class AdminNewPriceRulePage {
         this.txtName = page.locator('#price_rule_name');
         this.txtPosition = page.locator('#price_rule_position');
         this.dpdApplyRuleIf = page.locator('#price_rule_applyRuleIf');
-        this.lnkAddConditions = page.locator("i.fal.fa-plus-circle");
-        this.lnkRemoveConditions = page.locator("i.fal.fa-minus-circle");
-        this.lblConditions = page.locator("label[for='Condition']");
+        this.lnkAddConditions = page.locator("//i[@class='fal fa-plus-circle']").first();
+        this.lnkRemoveConditions = page.locator("//i[@class='fal fa-minus-circle']").first();
+        this.lblConditions = page.locator("//label[@for='Condition']");
+        // One attribute/operator/value per condition card, in page order
+        this.ddlConditionAttributes = page.locator("//select[contains(@id, '_attribute')]");
+        this.ddlConditionOperators = page.locator("//select[contains(@id, '_operator')]");
+        this.txtConditionValues = page.locator("//input[contains(@id, '_value')]");
         this.dpdApply = page.locator('#price_rule_actionType');
         this.txtAmount = page.locator('#price_rule_actionAmount');
         this.cbxStopFurtherProcessing = page.locator('#price_rule_stopFurtherProcessing');
@@ -58,21 +45,15 @@ export class AdminNewPriceRulePage {
     /**
      * Fill the price rule form
      */
-    async fillPriceRuleForm(priceRule: PriceRuleFormData, submit: boolean = true): Promise<void> {
+    async fillPriceRuleForm(priceRule: PriceRule, submit: boolean = true): Promise<void> {
         await this.txtName.fill(priceRule.name);
-
-        if (priceRule.position) await this.txtPosition.fill(priceRule.position);
-        if (priceRule.applyRuleIf) await this.dpdApplyRuleIf.selectOption({ label: priceRule.applyRuleIf });
-
-        if (priceRule.conditions && priceRule.conditions.length > 0) {
-            await this.addAndFillConditions(priceRule.conditions);
-        }
-
-        if (priceRule.apply) await this.dpdApply.selectOption({ label: priceRule.apply });
-        if (priceRule.amount) await this.txtAmount.fill(priceRule.amount);
-
-        if (priceRule.stopFurtherProcessing) {
-            await this.cbxStopFurtherProcessing.check();
+        await this.txtPosition.fill(priceRule.position);
+        await selectDropdownOption(this.dpdApplyRuleIf, priceRule.applyRuleIf);
+        await this.addAndFillConditions(priceRule.conditions);
+        await selectDropdownOption(this.dpdApply, priceRule.apply);
+        await this.txtAmount.fill(priceRule.amount);
+        if (priceRule.stopFurtherProcessing.toLowerCase() === 'true') {
+            await selectCheckbox(this.cbxStopFurtherProcessing);
         }
 
         if (submit) {
@@ -81,28 +62,17 @@ export class AdminNewPriceRulePage {
     }
 
     /**
-     * Add and fill multiple conditions
+     * Fill the conditions; the form starts with one empty condition card
      */
-    async addAndFillConditions(conditions: ConditionData[]): Promise<void> {
+    async addAndFillConditions(conditions: Condition[]): Promise<void> {
         for (let i = 0; i < conditions.length; i++) {
             if (i > 0) {
                 await this.lnkAddConditions.click();
             }
-
             const condition = conditions[i];
-            const cardBody = this.page.locator("div.card-body").nth(i);
-
-            // Fill attribute dropdown
-            const attributeSelect = cardBody.locator("select[id*='_attribute']");
-            await attributeSelect.selectOption({ label: condition.attribute });
-
-            // Fill operator dropdown
-            const operatorSelect = cardBody.locator("select[id*='_operator']");
-            await operatorSelect.selectOption({ label: condition.operator });
-
-            // Fill value input
-            const valueInput = cardBody.locator("input[id*='_value']");
-            await valueInput.fill(condition.value);
+            await this.ddlConditionAttributes.nth(i).selectOption({ label: condition.attribute });
+            await this.ddlConditionOperators.nth(i).selectOption({ label: condition.operator });
+            await this.txtConditionValues.nth(i).fill(condition.value);
         }
     }
 
