@@ -48,14 +48,15 @@ export class WarrantyGenerateContractPage {
         this.frmContract = page.locator('form[name="warranty_finalize"]');
 
         this.lblVehicleSection = page.locator('xpath=//h4[normalize-space()="Vehicle identification"]');
-        this.lblOwnerSection = page.locator('xpath=//h4[normalize-space()="Owner information"]');
+        // Dev renamed "Owner information" → "Owner identification" (2026-11); both accepted
+        this.lblOwnerSection = page.locator('xpath=//h4[normalize-space()="Owner information" or normalize-space()="Owner identification"]');
         this.lblFinancingSection = page.locator('xpath=//h4[normalize-space()="Financing information"]');
         this.txtVehicleVin = page.locator('#warranty_finalize_vehicleVIN');
-        this.txtClientFirstName = page.locator('#warranty_finalize_clientFirstName');
-        this.txtClientLastName = page.locator('#warranty_finalize_clientLastName');
-        this.txtClientCity = page.locator('#warranty_finalize_clientCity');
-        this.txtClientPostalCode = page.locator('#warranty_finalize_clientPostalCode');
-        this.ddlFinancingCompany = page.locator('#warranty_finalize_financingCompany');
+        this.txtClientFirstName = page.locator('#warranty_finalize_ownerFirstName, #warranty_finalize_clientFirstName');
+        this.txtClientLastName = page.locator('#warranty_finalize_ownerLastName, #warranty_finalize_clientLastName');
+        this.txtClientCity = page.locator('#warranty_finalize_ownerCity, #warranty_finalize_clientCity');
+        this.txtClientPostalCode = page.locator('#warranty_finalize_ownerPostalCode, #warranty_finalize_clientPostalCode');
+        this.ddlFinancingCompany = page.locator('#warranty_finalize_financingInformation_financingCompany, #warranty_finalize_financingCompany');
         this.txtFinancingCompanyName = page.locator('#warranty_finalize_financingCompanyName');
         this.txtFinancingCompanyPhone = page.locator('#warranty_finalize_financingCompanyPhone');
         this.txtFinancingCompanyAddress = page.locator('#warranty_finalize_financingCompanyAddress');
@@ -63,7 +64,8 @@ export class WarrantyGenerateContractPage {
         this.txtFinancingCompanyProvince = page.locator('#warranty_finalize_financingCompanyProvince');
         this.txtFinancingCompanyPostalCode = page.locator('#warranty_finalize_financingCompanyPostalCode');
 
-        this.lblProgramSummary = page.locator('xpath=//h3[normalize-space()="Program Summary"]');
+        // Dev renamed "Program Summary" → "Product Summary" (2026-11); both accepted
+        this.lblProgramSummary = page.locator('xpath=//h3[normalize-space()="Program Summary" or normalize-space()="Product Summary"]');
         this.txtStartDate = page.locator('#warranty_finalize_dateStart');
         this.txtSalePrice = page.locator('#warranty_finalize_salePrice');
         this.btnGenerateContract = page.locator('#warranty_finalize_save');

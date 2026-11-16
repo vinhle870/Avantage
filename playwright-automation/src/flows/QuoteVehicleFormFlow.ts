@@ -102,7 +102,7 @@ export class QuoteVehicleFormFlow {
             const quoteId = this.record.currentQuoteId();
             await expect(this.record.lblAlert.first(), 'Save banner').toContainText('Vehicle saved');
             await expect(this.record.lblHeading, 'Quote heading').toHaveText(quoteHeading(quoteId, quoteName));
-            await expect(this.record.lnkVehicleDetails, 'Vehicle on the quote')
+            await expect(this.record.lblVehicleTitle, 'Vehicle on the quote')
                 .toHaveText(`${vehicle.brand} ${vehicle.model} ${vehicle.year}`);
             // Record the quote left on the environment, so the report can list it
             test.info().annotations.push({ type: 'test-data-left', description: `quote ${quoteId} (${this.page.url()})` });
@@ -206,7 +206,7 @@ export class QuoteVehicleFormFlow {
             for (const pass of ['first load', 'reload']) {
                 if (pass === 'reload') await this.record.reload();
                 await expect(this.record.lblHeading, `Heading (${pass})`).toHaveText(quoteHeading(quoteId, quoteName));
-                await expect(this.record.lnkVehicleDetails, `Vehicle (${pass})`)
+                await expect(this.record.lblVehicleTitle, `Vehicle (${pass})`)
                     .toHaveText(`${vehicle.brand} ${vehicle.model} ${vehicle.year}`);
                 await expect(this.record.lblMain, `Empty kilometres shown (${pass})`).toContainText(/Mileage:\s*km/);
             }

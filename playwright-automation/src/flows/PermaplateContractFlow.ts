@@ -128,19 +128,15 @@ export class PermaplateContractFlow {
     /** AP2428_003 step 4: the five vehicle fields are prefilled with the vehicle's values. */
     async verifyVehiclePrefill(vehicle: ContractVehicle): Promise<void> {
         await test.step('VERIFY: Make, Model, VIN, Odometer and Delivery date are prefilled from the vehicle', async () => {
-            await expect(this.contract.txtVehicleMake, 'Make').toHaveValue(vehicle.make);
-            await expect(this.contract.txtVehicleModel, 'Model').toHaveValue(vehicle.model);
+            // Dev redesign (2026-11): the values sit in the collapsed "Vehicle details" panel; only VIN is an input
+            await this.contract.openVehicleDetails();
+            await expect(this.contract.txtVehicleMake, 'Make').toHaveText(vehicle.make);
+            await expect(this.contract.txtVehicleModel, 'Model').toHaveText(vehicle.model);
             await expect(this.contract.txtVehicleVin, 'VIN').toHaveValue(vehicle.vin);
-            await expect(this.contract.txtVehicleOdometer, 'Odometer').toHaveValue(vehicle.odometer);
-            await expect(this.contract.txtDeliveryDate, 'Delivery date').toHaveValue(vehicle.deliveryDate);
-            // Record only (Judgement item posted on AP-2428): Make, Model and Delivery date are read-only today
-            const readOnly = [];
-            for (const [name, field] of [['Make', this.contract.txtVehicleMake], ['Model', this.contract.txtVehicleModel],
-                ['VIN', this.contract.txtVehicleVin], ['Odometer', this.contract.txtVehicleOdometer],
-                ['Delivery date', this.contract.txtDeliveryDate]] as const) {
-                if (await field.getAttribute('readonly') !== null) readOnly.push(name);
-            }
-            test.info().annotations.push({ type: 'Read-only vehicle fields (record only)', description: readOnly.join(', ') || 'none' });
+            await expect(this.contract.txtVehicleOdometer, 'Odometer').toHaveText(vehicle.odometer);
+            await expect(this.contract.txtDeliveryDate, 'Delivery date').toHaveText(vehicle.deliveryDate);
+            // Record only (Judgement item posted on AP-2428): Make, Model, Odometer and Delivery date are read-only text
+            test.info().annotations.push({ type: 'Read-only vehicle fields (record only)', description: 'Make, Model, Odometer, Delivery date' });
         });
     }
 
@@ -168,7 +164,8 @@ export class PermaplateContractFlow {
     async verifyBlankSubmitRefused(quoteId: string, clientName: string): Promise<void> {
         await test.step('VERIFY: the blank form is refused and no contract is created', async () => {
             await expect(this.page, 'Still on the contract form').toHaveURL(new RegExp(`/quote/${quoteId}/permaplate-create-contract$`));
-            await expect(this.contract.lblBlankFieldErrors, '"This value should not be blank." under Last name and VIN').toHaveCount(2);
+            // Last name, VIN and — required since AP-2459 — the Financing company left at "Choose"
+            await expect(this.contract.lblBlankFieldErrors, '"This value should not be blank." under Last name, VIN and Financing company').toHaveCount(3);
             await expect(this.contract.txtOwnerLastName, 'Last name flagged').toHaveClass(/is-invalid/);
             await expect(this.contract.txtVehicleVin, 'VIN flagged').toHaveClass(/is-invalid/);
 
@@ -190,7 +187,7 @@ export class PermaplateContractFlow {
     /** AP2428_014 steps 1 and 3: the "Contract cost price" of the client's row on /permaplate-contracts. */
     async readContractCostPrice(clientName: string): Promise<string> {
         return test.step(`Dealer reads the contract cost price of ${clientName}`, async () => {
-            await this.contract.open(this.url('/permaplate-contracts'));
+            await this.contract.openContractListAt(this.url(''), clientName);
             await expect(this.contract.lblHeading, 'Dealer contract list').toHaveText('Esthetic protection contracts');
             await expect(this.contract.contractRowFor(clientName), `One contract row for ${clientName}`).toHaveCount(1);
             const cost = await this.contract.readContractCostPrice(clientName);

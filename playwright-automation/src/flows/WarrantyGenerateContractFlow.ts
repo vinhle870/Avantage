@@ -127,7 +127,9 @@ export class WarrantyGenerateContractFlow {
             // Q-008 (record only): with no financing the picker is at "Choose" and the six company fields are empty
             await expect(this.contract.ddlFinancingCompany, 'Financing Company picker').toHaveValue('');
             const empty: string[] = [];
+            // Dev's redesign (2026-11) removed the six company text fields (only the picker is left): skip absent ones
             for (const field of this.contract.financingCompanyFields()) {
+                if ((await field.count()) === 0) continue;
                 if ((await field.inputValue()) === '') empty.push((await field.getAttribute('id')) ?? '?');
             }
             test.info().annotations.push({ type: 'Empty financing-company fields (record only, Q-008)', description: empty.join(', ') || 'none' });
