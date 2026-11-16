@@ -316,7 +316,7 @@ export class QuoteFormUiFlow {
             const quoteId = this.record.currentQuoteId();
             await expect(this.record.lblAlert.first(), 'Save banner').toContainText('Vehicle saved');
             await expect(this.record.lblHeading, 'Quote heading with the name').toHaveText(quoteHeading(quoteId, quoteName));
-            await expect(this.record.lnkVehicleDetails, 'Vehicle on the quote')
+            await expect(this.record.lblVehicleTitle, 'Vehicle on the quote')
                 .toHaveText(`${vehicle.brand} ${vehicle.model} ${vehicle.year}`);
             await expect(this.record.lblMain, 'VIN on the quote').toContainText(vin);
             const vehicleId = await this.record.vehicleIdOnQuote();

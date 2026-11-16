@@ -18,6 +18,7 @@ export class DealerQuoteRecordPage {
     readonly lblHeading: Locator;
     readonly lblAlert: Locator;
     readonly lnkVehicleDetails: Locator;
+    readonly lblVehicleTitle: Locator;
     readonly lblMain: Locator;
     readonly btnAddWarranty: Locator;
 
@@ -47,7 +48,9 @@ export class DealerQuoteRecordPage {
 
         this.lblHeading = page.locator('main h1');
         this.lblAlert = page.locator('main [role="alert"]');
-        this.lnkVehicleDetails = page.locator('main a[href^="/vehicle/"][href$="/details"]').first();
+        // Vehicle section: the title is plain text (no longer a link); the Edit link carries the id
+        this.lnkVehicleDetails = page.locator('//main//h3[normalize-space()="Vehicle"]/ancestor::nav[1]//a[starts-with(@href, "/vehicle/")]').first();
+        this.lblVehicleTitle = page.locator('//main//h3[normalize-space()="Vehicle"]/ancestor::nav[1]/following-sibling::h6[1]');
         this.lblMain = page.locator('main');
         this.btnAddWarranty = page.locator('main tr').filter({ hasText: 'Extended warranty' })
             .locator('a[href$="/warranty/edit"]');
@@ -139,10 +142,10 @@ export class DealerQuoteRecordPage {
         await this.page.reload();
     }
 
-    /** Vehicle id from the vehicle link of the quote details page. */
+    /** Vehicle id from the vehicle Edit link of the quote details page (/vehicle/{id}/edit...). */
     async vehicleIdOnQuote(): Promise<number> {
         const href = await this.lnkVehicleDetails.getAttribute('href');
-        return Number(/\/vehicle\/(\d+)\/details/.exec(href ?? '')?.[1] ?? NaN);
+        return Number(/\/vehicle\/(\d+)\//.exec(href ?? '')?.[1] ?? NaN);
     }
 
     async openWarrantyStep(): Promise<void> {

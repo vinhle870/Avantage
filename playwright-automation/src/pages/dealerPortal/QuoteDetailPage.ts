@@ -36,9 +36,9 @@ export class QuoteDetailPage {
         // "Invoice #N ... is created" alert link shown after the contract is generated
         this.lnkGotoInvoice = page.locator('main a[href^="/invoice/"]').first();
         // "Client" section: Add (new quote) or Edit link to /quote/{id}/client
-        this.lnkAddClient = main.locator('a[href^="/quote/"][href$="/client"]').first();
-        // Vehicle section title links to /vehicle/{vehicleId}/details
-        this.lnkVehicleDetails = main.locator('a[href^="/vehicle/"][href$="/details"]').first();
+        this.lnkAddClient = main.locator('a[href^="/quote/"]:is([href$="/client"], [href*="/client?"])').first();
+        // Vehicle section Edit link (/vehicle/{vehicleId}/edit...); the title is no longer a link
+        this.lnkVehicleDetails = page.locator('//main//h3[normalize-space()="Vehicle"]/ancestor::nav[1]//a[starts-with(@href, "/vehicle/")]').first();
         // "Extended warranty" row of the summary, with its ⋯ actions menu
         this.rowWarranty = main.locator('tr').filter({ hasText: 'Extended warranty' }).first();
     }
@@ -66,7 +66,7 @@ export class QuoteDetailPage {
     }
 
     /**
-     * Inventory ID of the quote's vehicle, from the vehicle link (/vehicle/{id}/details)
+     * Inventory ID of the quote's vehicle, from the vehicle Edit link (/vehicle/{id}/edit...)
      */
     async getVehicleId(): Promise<string> {
         const href = (await this.lnkVehicleDetails.getAttribute('href')) ?? '';
