@@ -37,6 +37,7 @@ _Everything the executor needs that the steps themselves do not carry._
 | Date | Change | Reason | Confirmed by |
 |---|---|---|---|
 | 2026-11-01 | Execution Context → Login: the clear-text dealer username and password were removed and replaced with a reference to the `env` source (`execute.env.md`) | Credential policy — a credential must never be copied into an artifact | QA Agent (pipeline s4, dev run), per the batch instruction |
+| 2026-11-07 | Every case's Status reset to `Not Run`; Executed on / Result now hold the previous result for reference only. Execution Log table reset | Retest after fix (orchestrator plan rule P5): AP-2507 is in QC as fixed, so the whole AP-2477 set is re-executed on Dev in a new log dated 2026-11-07 | QA Agent (stlc-worker, s4), per the orchestrator hand-off |
 
 ---
 
@@ -45,9 +46,9 @@ _Everything the executor needs that the steps themselves do not carry._
 | TC ID | Title | Type | Priority | Status |
 |---|---|---|:---:|:---:|
 | AP2477_006 | Saving with Brand and Model but no Year is refused with an error and no quote is created | Negative | Medium | PASS |
-| AP2477_007 | Clicking "Décoder" with a valid VIN fills Brand, Model and Year on the simplified form | Functional | High | FAIL |
-| AP2477_008 | A quote saved after decoding keeps the decoded transmission, engine, fuel, cylinders and turbo on its vehicle | Functional | High | BLOCKED |
-| AP2477_009 | A Quote name typed before clicking "Décoder" is still there afterwards and is saved with the quote | Edge-case | Medium | BLOCKED |
+| AP2477_007 | Clicking "Décoder" with a valid VIN fills Brand, Model and Year on the simplified form | Functional | High | PASS |
+| AP2477_008 | A quote saved after decoding keeps the decoded transmission, engine, fuel, cylinders and turbo on its vehicle | Functional | High | FAIL |
+| AP2477_009 | A Quote name typed before clicking "Décoder" is still there afterwards and is saved with the quote | Edge-case | Medium | PASS |
 | AP2477_010 | The "Décoder" button shows for a car type but not for an RV, boat or construction type | UI | Medium | PASS |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
@@ -70,8 +71,8 @@ _Everything the executor needs that the steps themselves do not carry._
 | **Priority** | Medium |
 | **Status** | PASS |
 | **Blocked by** | — (the user allowed the `/quotes` → "Create a quote" entry on dev on 2026-11-01) |
-| **Executed on** | 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
-| **Result** | PASS — server refused with "This value should not be blank." at Year; Toyota/Corolla kept; no quote created. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
+| **Result** | PASS (2026-11-07) — server refused at Year; Toyota/Corolla kept; no quote created. Previous (2026-11-01): PASS — server refused with "This value should not be blank." at Year; Toyota/Corolla kept; no quote created. |
 
 **Why this matters:** Year drives warranty eligibility (vehicle age). A quote saved without it cannot be priced correctly, and AP2477_005 alone does not prove Year is still required.
 
@@ -102,10 +103,10 @@ _Everything the executor needs that the steps themselves do not carry._
 | **Route** | `/quote/new/edit-vehicle` — Créer une cotation |
 | **Type** | Functional |
 | **Priority** | High |
-| **Status** | FAIL |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
-| **Result** | FAIL — the decoder found Ford / Focus / 2008, but clicking "Décoder" saved quote #6437 at once (POST → 302 → /quote/6437/details) and the form disappeared from the page instead of re-rendering pre-filled. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
+| **Result** | PASS (2026-11-07) — AP-2507 not reproduced: "Décoder" re-posts (POST → 200, no redirect) and re-renders the form with Ford / Focus / 2008; no quote saved. Previous (2026-11-01): FAIL — the decoder found Ford / Focus / 2008, but clicking "Décoder" saved quote #6437 at once (POST → 302 → /quote/6437/details) and the form disappeared from the page instead of re-rendering pre-filled. |
 
 **Why this matters:** The decoder is the fastest way to fill a vehicle correctly. The simplified template could easily break it, because the decoder re-renders the whole form from the server.
 
@@ -136,10 +137,10 @@ _Everything the executor needs that the steps themselves do not carry._
 | **Route** | `/quote/new/edit-vehicle` → `/quote/{id}/details` → the quote's vehicle |
 | **Type** | Functional |
 | **Priority** | High |
-| **Status** | BLOCKED |
-| **Blocked by** | AP2477_007 failure — "Décoder" saves the quote immediately, so the hidden inputs cannot be read and a name cannot be entered before saving |
-| **Executed on** | 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
-| **Result** | BLOCKED — step 1 cannot be done as designed. Observation: vehicle 1067 (auto-saved by the AP2477_007 decode) holds fuel GASOLINE, Automatic, 4 cylinders, 2 L, turbo off; price and km blank. |
+| **Status** | FAIL |
+| **Blocked by** | — (2026-11-01 block by AP-2507 lifted: the decode now re-renders the form) |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
+| **Result** | FAIL (2026-11-07) — quote 6591 / vehicle 1146 keep fuel GASOLINE, Automatic, 4 cylinders, engine size 2, but the decoded engine size unit "kW" was stored as "Litre"; price/km blank. Previous (2026-11-01): BLOCKED — step 1 cannot be done as designed. Observation: vehicle 1067 (auto-saved by the AP2477_007 decode) holds fuel GASOLINE, Automatic, 4 cylinders, 2 L, turbo off; price and km blank. |
 
 **Why this matters:** Fuel type, engine and transmission feed warranty eligibility and pricing. The ticket explicitly requires them to be saved even though they are hidden; if the hidden inputs were dropped, quotes would silently lose them.
 
@@ -171,10 +172,10 @@ _Everything the executor needs that the steps themselves do not carry._
 | **Route** | `/quote/new/edit-vehicle` → `/quote/{id}/details` |
 | **Type** | Edge-case |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | AP2477_007 failure — "Décoder" saves the quote immediately; re-running it would create another quote through the bare /quote entry |
-| **Executed on** | 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
-| **Result** | BLOCKED — not run; depends on the decoder re-rendering the form. |
+| **Status** | PASS |
+| **Blocked by** | — (2026-11-01 block by AP-2507 lifted: the decode now re-renders the form) |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
+| **Result** | PASS (2026-11-07) — the name typed before "Décoder" was kept and saved with quote 6592 (vehicle 1147). Previous (2026-11-01): BLOCKED — not run; depends on the decoder re-rendering the form. |
 
 **Why this matters:** Quote name now sits at the top, so dealers will type it first. The ticket notes that the decoder replaces the whole form and that the name would be lost unless one of three fixes was applied.
 
@@ -208,8 +209,8 @@ _Everything the executor needs that the steps themselves do not carry._
 | **Priority** | Medium |
 | **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
-| **Result** | PASS — "Décoder" and class vinlookup on Passenger; RV CLASS A shows a plain VIN input with no "Décoder" and the same five fields. 23 types listed. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
+| **Result** | PASS (2026-11-07) — "Décoder" and `vinlookup` on Passenger; RV CLASS A has a plain VIN input and the same fields. Previous (2026-11-01): PASS — "Décoder" and class vinlookup on Passenger; RV CLASS A shows a plain VIN input with no "Décoder" and the same five fields. 23 types listed. |
 
 **Why this matters:** The decoder only knows road vehicles. A "Décoder" button on a boat or RV form would do nothing or fill wrong data; a missing button on a car form removes the time-saver.
 
@@ -255,8 +256,8 @@ one we currently have no way of proving works._
 
 | TC ID | Result | Screenshot |
 |---|:---:|---|
-| AP2477_006 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_006-step3-NoNewQuoteNewest6440_pass.png` |
-| AP2477_007 | FAIL | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_007-step3-DecodeSavedQuote6437_fail.png` |
-| AP2477_008 | BLOCKED | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_007-step3-DecodeSavedQuote6437_fail.png` |
-| AP2477_009 | BLOCKED | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_007-step2-FormGoneAfterDecode_fail.png` |
-| AP2477_010 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_010-step5-RvClassANoDecoder_pass.png` |
+| AP2477_006 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_006-step2-YearBlankRefused-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |
+| AP2477_007 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_007-step3-DecodePrefillsFordFocus2008-20261107_pass.png` (2026-11-07; previous 2026-11-01: FAIL) |
+| AP2477_008 | FAIL | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_008-step4-Vehicle1146EngineUnitLitreNotKW-20261107_fail.png` (2026-11-07; previous 2026-11-01: BLOCKED) |
+| AP2477_009 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_009-step4-Quote6592NameSaved-20261107_pass.png` (2026-11-07; previous 2026-11-01: BLOCKED) |
+| AP2477_010 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_010-step5-RvClassANoDecoder-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |

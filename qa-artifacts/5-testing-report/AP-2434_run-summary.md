@@ -1,52 +1,51 @@
 # Run Summary — AP-2434: Admin API: create warranty notes
-Updated: 2026-11-01T01:15:00Z · Run folder: 5.0.0 · Stages run: intake → s3b · Run status: stopped_at_gate
+Updated: 2026-11-15T09:43:35Z · Run folder: 5.0.0 · Stages run: analyze → analyze · Run status: stopped_at_gate
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2434: Admin API: create warranty notes
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 4 REQ · 1 High risks
- Test cases   : 8 designed (all BLOCKED by Q-002) · 8 proposed by review
- Execution    : 0 PASS · 0 FAIL · 0 BLOCKED (not run — design only)
- Bugs         : 0 filed · 0 linked to existing · 0 not a bug
- Corrected    : 8 test cases reworked at s3 (independent R2 review) · 0 retired · re-run 0/0 PASS
- Verdict      : — (not executed)
- Tickets      : AP-2434 unchanged · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s3b (--until s3b — design only, by the run's instruction)
+ Requirements : 4 REQ · 1 High risks (resolved) · 10 questions: 2 Answered, 6 Accepted, 2 Open, 0 Blocking
+ Test cases   : 8 designed · 8 proposed by review (not promoted) — unchanged
+ Execution    : 3 PASS · 5 FAIL · 0 BLOCKED (Environment: Dev, 2026-11-05) — 37.5% — not re-run
+ Bugs         : 3 filed 2026-11-05 (AP-2547 High, AP-2548 Medium, AP-2549 Medium) · untouched in this run
+ Corrected    : 0 test cases corrected · 0 retired · re-run 0/0 PASS
+ Verdict      : FAIL (from the 2026-11-05 run)
+ Tickets      : AP-2434 not changed in this run — stays QC, assignee Vinh Le - QC · nothing posted
+ Stopped at   : analyze (--until analyze) — before Gate A
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Stopped:** at s3b — the run was limited to design (`--until s3b`), so nothing was executed. Resume with "AP-2434" (it continues from s4), but only after QA has a staging admin API key: every test case is BLOCKED without one.
+**Stopped:** at analyze, before Gate A — this run was limited to `--from analyze --until analyze` to re-check the open questions (user instruction of 2026-11-15, "double check all tickets' question"). The independent reviewer (R1) decides Gate A next. Plan, design, execution, bug filing, the report and the ticket update stay done from 2026-11-05: the ticket has not changed in a way that matters, and the orchestrator decided not to re-execute.
 
 **What passed**
-- None. No test case has been executed yet. Eight test cases are designed and approved: a valid API call with the key creates a note that appears on the warranty in the admin area (AP2434_001, public; AP2434_002, private), HTML note text just over 255 characters is kept in full (AP2434_003), and five cases record how the API treats a missing key, a wrong key, missing fields, an unknown warranty ID or an invalid public flag, and a script tag in the HTML (AP2434_004–008).
+- Nothing was executed in this run. The latest results (Environment: Dev, 2026-11-05) stand: a missing or wrong API key is refused with 401 and stores no note (AP2434_004, 005); missing fields return 400 and an unknown warranty 404, with no note stored (AP2434_006, 007 first half).
+- The question re-check: Q-002 (how an admin gets an API key) is now answered by Story AP-2308, and Q-010 (what "public" changes) by Story AP-1596 — only notes marked "Is public" show in the dealer portal.
+- Six questions with no defining Story now take the build's recorded behaviour as the expected result: the success response 201 with `noteId` (Q-003), the 400/404 validation answers (Q-004), the 401 key answers (Q-005), the note's place and fields on the admin warranty page (Q-006), HTML display (Q-008, to be recorded once a body is kept) and the length limit (Q-009, 2,000 characters accepted).
 
 **Failures**
-- None. Execution has not run.
+- No new failures. The five 2026-11-05 FAILs stand: AP2434_001 (Bearer header refused — AP-2549; note body lost — AP-2547), 002, 003 and 008 (note body lost — AP-2547), 007 (`is_public=maybe` → HTTP 500 — AP-2548).
+- Two questions stay open with the ticket's author, Ken Nguyen. Q-001: is the path `/api/admin/warranty/-notes` in the ticket a typo? The build answers 405 there. Q-007: what is `file_content` for, and which field is the note body? The build drops `file_content`, but the ticket says it must keep HTML longer than 255 characters, and the ticket's text wins over what the build does. Both were already asked on the ticket on 2026-11-05 and 2026-11-08, so nothing new was posted.
 
 **Decisions made**
-- Gate A (rule A3, by the reviewer, R1 APPROVE): continue — no Blocking question. Ten questions stay open and were not posted: eight Judgement (the path "/api/admin/warranty/-notes" may be a typo; no success response, validation or key-rejection behaviour is specified; where the note appears and how `description` differs from `file_content`; whether HTML is rendered and scripts removed; the upper length limit) and two Info (how QA gets an API key; what `is_public` changes outside the admin area). They reach the author in the s7 comment.
-- Gate B (rule B3, by the reviewer, R2 round 2 APPROVE): execute the current eight cases. Round 1 returned REWORK because AP2434_003 asserted that a 2,000-character note must be accepted, which the ticket does not say (it says only "more than 255 characters"); the case was corrected so that result is recorded, failing only on silent truncation. Not promoted: French accented text, titles over 255 characters, quotes and SQL-like text (Medium); double submit, empty strings, JSON body, other omitted fields, dealer-side visibility of public notes (Low).
-- Gate B, independent R2 review (REWORK, 1 blocker · 2 major · 4 minor): the cases were reworked at s3 and Gate B rule B3 stands; the s3b coverage review was not re-run. Fixes: every request now sends fields with `curl --form-string` and `-sS` — with `-F`, curl treated each note body starting with `<` as a local file and sent nothing, silently — and a response with no HTTP status line makes the case BLOCKED (environment), not PASS or FAIL. In AP2434_004/005, a note stored after the API refused the key now fails (test plan §3.2). AP2434_001 records both the URL record ID and the displayed warranty number, retries once on "warranty not found", and fails for the path (Q-001) only on a route "not found". Also: how to load the key from `/.env` by variable name, existing note titles recorded before the no-key/wrong-key calls, rendered or raw HTML both counting as a match, and an unknown warranty value built in the same format as `<W>` instead of `999999999`.
-- Gate C: not reached — no execution.
-- Gate D: not reached — AP-2434 was not commented on or moved.
-- Run folder `5.0.0`, taken from the ticket's fix version (the ticket has no sprint). The ticket is in QC, which maps to ready for QA.
-- All eight cases were set BLOCKED at design time by Q-002: there is no admin API key in `/.env` or in any knowledge file, and the API host is only assumed to be the portal host.
+- Q-001 and Q-007 were not marked Accepted, even though no Story defines them. Accepting the build's behaviour would overrule the ticket's own acceptance criterion: its path, and its `file_content` row.
+- Q-004 accepts the 400 and 404 answers but not the HTTP 500 for `is_public=maybe`: a server error is still a failure (AP-2548). Q-008 accepts nothing yet: a script that runs in the admin's browser will still be a failure.
+- AP-2267 (warranty notes with an uploaded file, Done 2025) was not used to answer Q-007. It came before this ticket and does not redesign it.
+- The next design pass turns the record-only steps on the six Accepted questions into record-and-accept steps (run-state warning).
+- The run-state header was corrected: it said "stopped" although every stage through update-ticket was done on 2026-11-05.
 
 **Left behind**
-- Test data on v2staging: None.
-- Observations that are not failures: This is the project's first API-only story — the framework has no `api` capability and the `api-baseline` knowledge source is missing, so the cases send requests with `curl` and save the raw responses as evidence. The admin page that shows a warranty's notes is not mapped yet; AP2434_001 step 1 records it at execution. The ticket clones AP-2371 (Admin API: upload claim attachment, Done), which may show how the team provisions API keys.
+- Test data on Dev (from 2026-11-05, unchanged): warranty notes 64–69 on warranty contract 827 (APOP01-827). Nothing new was created.
+- Bug tickets AP-2547, AP-2548, AP-2549 — not touched in this run.
+- Observation for the QA lead: the comments the QA account posted on AP-2401 and AP-2404 (2026-02-07) show an admin API key and a bearer token in clear text. They were found while reading Stories during the lookup and were not copied anywhere. Revoking that key and editing those comments is the QA lead's decision.
 - Knowledge files added or changed: None.
 
 **Files**
-- [requirement capture](requirements/AP-2434-admin-api-create-warranty-notes.md)
-- [AP-2434_requirements-analysis.md](qa-artifacts/1-requirements-analysis/AP-2434_requirements-analysis.md)
-- [AP-2434_test-plan.md](qa-artifacts/2-test-plan/AP-2434_test-plan.md)
-- [AP2434_TestCases_001-005.md](qa-artifacts/3-test-cases/AP2434_TestCases_001-005.md)
-- [AP2434_TestCases_006-008.md](qa-artifacts/3-test-cases/AP2434_TestCases_006-008.md)
-- [AP2434_ReviewFindings_2026-11-01.md](qa-artifacts/3-test-cases/AP2434_ReviewFindings_2026-11-01.md)
-- [review record](qa-artifacts/7-reviews/AP-2434_review.md)
+- [requirements analysis](qa-artifacts/1-requirements-analysis/AP-2434_requirements-analysis.md) — open questions re-checked, with the queries per question
+- [requirement capture](requirements/AP-2434-admin-api-create-warranty-notes.md) — "Ticket changes since capture — 2026-11-15" appended
 - [run state](qa-artifacts/.pipeline/AP-2434.md)
+- [test report](qa-artifacts/5-testing-report/AP-2434_test-report.md) — unchanged, 2026-11-05
+- [execution log](qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md) — unchanged
 
 ## Automation
 Not run yet.

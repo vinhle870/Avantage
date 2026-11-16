@@ -80,3 +80,23 @@ Other) and File*.
 - The dealer `/claims` list has no "new claim" button — go through the warranty contract.
 - Claims created via the API show `created by User Machine`; some have the literal value
   `string` as an email.
+
+## Dev (v2dev) — Admin API claim and notify email, mapped 2026-11-15 (AP-2374 s4)
+
+- **Creating a claim with a notify email:** `POST /api/admin/claim` (`X-API-KEY`) with
+  `{"contractNumber","diagnostic","vehicleKmAtClaim","notifyEmail","items":[]}` → 201
+  `{"success":true,"claimId":…}`. **`items` must be sent** (an empty array is fine): without it the API answers
+  400 "Invalid items format. Expected JSON array." The claim starts in status **Submitted**, shows "Created By"
+  the API key's user, and gets a private history note "Error processing ticket: No work order items found …".
+- `GET /api/admin/claim/{id}` returns `notifyEmail`, `statusCode`, `contractNumber`, `warrantyContractId`. The
+  notify email is **not shown** on the admin claim details page.
+- **Change status pre-fill with a notify email** (Authorized and Refused forms): `recipientEmails` =
+  `<notifyEmail>, <client email>` — notify first, separated by comma + one space. "Notify by email" ticked.
+  Preapproved and the other statuses have no recipient field (AP-2509).
+- **Sending follows the submitted list:** both addresses get "Claim updated" on Authorized and on Refused;
+  removing the notify address from the field before Save means it gets nothing (the stored notify email is not
+  added back). Email body has no "claim ID … updated to status …" sentence (AP-2374 AP2374_005 FAIL,
+  2026-11-15).
+- **Claim attachments cannot be uploaded on Dev (2026-11-15):** admin Add attachment → HTTP 500 and
+  `POST /api/admin/claim-attachment` → HTTP 500 "Unable to create the
+  \"/var/www/dev/releases/79/src/app/uploads/claim_attachments/\" directory." — a server folder fault.

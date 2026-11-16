@@ -1,7 +1,7 @@
 # Requirements Analysis Report
 
 **Project:** Avantage Plus v2 — Dealer portal, Quote Details page (Jira AP-2493)
-**Date:** 2026-11-01
+**Date:** 2026-11-01 · **Questions re-checked:** 2026-11-15 (knowledge lookup, Step 3c — see *Knowledge lookup — 2026-11-15* below)
 **Analyst:** QA Agent — Requirements Analyst Skill
 **Source files:** `requirements/AP-2493-cancelling-a-product-from-a-quote.md`
 **Total requirements found:** 3
@@ -28,7 +28,13 @@ reporter on 2026-10-17: *"I've modified the AC3 and we're going to **hard delete
 row."* (Q-001, Answered).
 
 No question blocks testing: every acceptance criterion has an expected result written in
-the ticket's own words. Seven Judgement questions and two Info questions remain. The
+the ticket's own words. Seven Judgement questions and two Info questions were raised.
+On 2026-11-15 each of them was searched for in the project's Jira Stories and Tasks (the
+knowledge lookup). No Story or Task defines any of them, so all nine are now **Accepted**:
+the behaviour the Dev build showed in the 2026-11-02 run is the expected result, and none
+of them is posted to the ticket. One limit applies to Q-003: the ticket's own description
+says the Subtotal "reflects only active products", so the Permaplate cost being left out
+of the Subtotal is not accepted — that failure (AP-2516) stands. The
 Judgement questions cover what the ticket does not spell out — the action's label, the
 modal's wording, archived quotes, which amount the Subtotal uses, and whether the
 financing section changes — and the tests will record what the build does on those points
@@ -168,15 +174,57 @@ testable, and the test records what the build does on this point instead of gues
 | # | Question | Raised against | Impact | Status | Answer (quoted, with source) | Assigned to |
 |---|---|---|---|---|---|---|
 | Q-001 | The description says cancelling deletes the row, but the first version of AC 3 said the cancelled row remains in the database. Which applies? | REQ-003 | Blocking | Answered | "I've modified the AC3 and we're going to **hard delete** the row." — ticket comment by Nicolas-Eric Tain, 2026-10-17 | Nicolas-Eric Tain (reporter) |
-| Q-002 | What is the cancel action called and where is it — a "Delete" item in a row dropdown, as a developer comment assumes from the mockup, or something else? | REQ-001 | Judgement | Open | — (Minh Lưu's comment of 2026-10-17 states it only as an assumption "unless you say otherwise"; no reply) | Nicolas-Eric Tain |
-| Q-003 | Which amount of a product makes up the Subtotal (for example the sale price or the cost), and where on the Details page is the Subtotal shown? | REQ-003 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-004 | On an archived quote, should the cancel action be hidden, disabled, or refused? AC 1 only covers non-archived quotes. | REQ-001 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-005 | What should the confirmation modal say, and what are its buttons called? | REQ-002 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-006 | Is the financing (for example the monthly payment) recalculated when a product is cancelled, or does only the Subtotal change? | REQ-003 | Judgement | Open | — (Minh Lưu's comment of 2026-10-17 assumes "only the Subtotal changes (the financing monthly payment is not recalculated)" as an assumption; no reply) | Nicolas-Eric Tain |
-| Q-007 | When a GAP product is cancelled, should a creditor insurance product on the same quote change (its premium includes the GAP amount)? | REQ-003 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-008 | What message, if any, confirms a successful cancellation? | REQ-002 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-009 | For each product, what exactly counts as a "generated contract" (warranty or Permaplate contract, roadside contract ID, GAP or creditor contract number, per Minh Lưu's comment)? | REQ-001 | Info | Open | — (the description's definition — "while it has no generated contract" — is enough to test; the per-product list only affects data setup) | Minh Lưu |
-| Q-010 | Is anything else linked to the deleted product row (documents, compliance sends, invoices) also removed? | REQ-003 | Info | Open | — | Minh Lưu |
+| Q-002 | What is the cancel action called and where is it — a "Delete" item in a row dropdown, as a developer comment assumes from the mockup, or something else? | REQ-001 | Judgement | Accepted | No Story/Task defines it (searched: `delete product quote details`, `cancel product dropdown delete`, `summary of products dropdown`; read AP-2225, AP-2428, AP-2535, AP-2536, AP-2543 — the last three define the **Cancel** button of a *generated contract*, a different function) — current actual result accepted: a red "Delete" item in each product row's "⋯" menu, under Edit and Generate Contract, route `/quote/{id}/cancel-product/{warranty\|roadside\|permaplate\|creditors\|gap}` (execution log 2026-11-02, AP2493_001–005). Matches Minh Lưu's stated assumption of 2026-10-17 | Nicolas-Eric Tain |
+| Q-003 | Which amount of a product makes up the Subtotal (for example the sale price or the cost), and where on the Details page is the Subtotal shown? | REQ-003 | Judgement | Accepted | No Story/Task defines it (searched: `quote subtotal`, `subtotal products quote details`, `Permaplate retail price`, `summary of products`; read AP-2428, AP-2456, AP-2427, AP-2496, AP-2537, AP-1948, AP-98 — none states which product amount feeds the quote details Subtotal; AP-2456 only removes the *retail* price from the Permaplate section) — current actual result accepted: the Subtotal sits at the bottom of the "Summary of products" card and uses the row amount (warranty sale price 1,500, not the cost 1,000; Roadside policy sale price; GAP premium 3,094 before tax; creditor monthly premium) (execution log 2026-11-02, AP2493_009, _014). **Not accepted:** the Permaplate cost being absent from the Subtotal — the ticket's description states "Cancelling a product also removes its amount from the quote Subtotal, so the Subtotal reflects only active products.", so the ticket text wins; AP2493_011/_012 stay FAIL (AP-2516) | Nicolas-Eric Tain |
+| Q-004 | On an archived quote, should the cancel action be hidden, disabled, or refused? AC 1 only covers non-archived quotes. | REQ-001 | Judgement | Accepted | No Story/Task defines it (searched: `archived quote`, `archive quote product`, `archived quote edit product`; read AP-2422, AP-2494, AP-2496, AP-2101, AP-1161 — AP-2422 lets a dealer create a Roadside contract on a finalized quote, nothing on cancelling) — current actual result accepted: "Delete" is offered and enabled on archived quote 6245 (execution log 2026-11-02, AP2493_013) | Nicolas-Eric Tain |
+| Q-005 | What should the confirmation modal say, and what are its buttons called? | REQ-002 | Judgement | Accepted | No Story/Task defines it (searched: `cancel product confirmation modal`, `confirmation modal quote`; read AP-2455, AP-2535, AP-2536, AP-2543 — their modal asks for a cancellation reason on a *generated contract*, not on a non-finalized product) — current actual result accepted: title "Cancel a product - {product}", text "Are you sure you want to cancel this product: {product}?", buttons "Yes, cancel the product" and "No"; no × icon; Escape and a click outside close it (execution log 2026-11-02, AP2493_007, _008) | Nicolas-Eric Tain |
+| Q-006 | Is the financing (for example the monthly payment) recalculated when a product is cancelled, or does only the Subtotal change? | REQ-003 | Judgement | Accepted | No Story/Task defines it (searched: `financing monthly payment recalculated`, `monthly payment quote financing`, `financing recalculate product`; read AP-2499, AP-2504, AP-2405) — current actual result accepted: the financing is not recalculated — payment 494.91$ Monthly before and after the cancellation (execution log 2026-11-02, AP2493_011 step 3). Matches Minh Lưu's stated assumption of 2026-10-17 | Nicolas-Eric Tain |
+| Q-007 | When a GAP product is cancelled, should a creditor insurance product on the same quote change (its premium includes the GAP amount)? | REQ-003 | Judgement | Accepted | No Story/Task defines it (searched: `GAP premium creditor insurance`, `creditor insurance GAP amount`; read AP-2499, AP-2504, AP-2502 — AP-2499 lists the creditor notice "create the GAP insurance first" only as its own open question) — current actual result accepted: the creditor premium stays CA$20.88 /m after the GAP is cancelled (it was 18.58$/m on a quote that never had GAP) (execution log 2026-11-02, AP2493_014) | Nicolas-Eric Tain |
+| Q-008 | What message, if any, confirms a successful cancellation? | REQ-002 | Judgement | Accepted | No Story/Task defines it (searched: `product has been cancelled`, `cancel product success message`, `flash message cancelled`; read AP-2455, AP-2535, AP-2536, AP-2543 — they ask for "a successful flash message" after a *contract* cancellation, with no wording) — current actual result accepted: flash "The product has been cancelled" (execution log 2026-11-02, AP2493_009, _014) | Nicolas-Eric Tain |
+| Q-009 | For each product, what exactly counts as a "generated contract" (warranty or Permaplate contract, roadside contract ID, GAP or creditor contract number, per Minh Lưu's comment)? | REQ-001 | Info | Accepted | No Story/Task defines it (searched: `generated contract product finalized`, `generate contract quote product`; read AP-2503, AP-2504, AP-2505, AP-2506, AP-2494, AP-2496, AP-2225 — they describe how each contract is generated, not when a product counts as finalized for cancellation) — current actual result accepted: a creditor product with a generated Chubb contract (AVP000169) shows only its PDF link and no "⋯"/Delete (execution log 2026-11-02, AP2493_006); the other four products' finalized state is recorded at execution | Minh Lưu |
+| Q-010 | Is anything else linked to the deleted product row (documents, compliance sends, invoices) also removed? | REQ-003 | Info | Accepted | No Story/Task defines it (searched: `delete product documents compliance`, `cancel product invoice documents` — no hits; `hard delete row`, `delete quote product row` — only AP-2493 and AP-2496). AP-2496 (QC) says only what the combined download leaves out: "Given a quote where an optional product was removed before finalization, or a warranty contract is marked cancelled (WarrantyContract::isCancelled() true), When the dealer downloads all documents, Then no page from that product or contract is included, and the remaining documents are still merged." — it does not say whether linked records are removed — current actual result accepted: recorded at execution | Minh Lưu |
+
+### Knowledge lookup — 2026-11-15
+
+Re-check of every `Open` question by the knowledge lookup (SKILL.md Steps 3b–3c), run
+2026-11-15T09:45Z–09:55Z by stlc-ticket-pipeline (`--from analyze --until analyze`, batch
+qa-agent 2026-11-15). Query form, from the Jira adapter: `issuetype in (Story, Task) AND
+text ~ "<words>"`, any status. For every plausible hit the description, the acceptance
+criteria field and all comments were read. A hit counts only when one of its sentences
+states the value, rule or workflow; mentioning the field is not enough.
+
+Before the lookup, the ticket itself was re-read: the description and the three acceptance
+criteria are unchanged, and the only comments added since capture are the QA's own (see
+the capture's *Ticket changes since capture — 2026-11-15*). Neither answers a question.
+
+| # | Word sets tried | Hits read | Result |
+|---|---|---|---|
+| Q-002 | `delete product quote details` · `cancel product dropdown delete` · `summary of products dropdown` | AP-2225, AP-2428, AP-2535, AP-2536, AP-2543 | Not defined → Accepted |
+| Q-003 | `quote subtotal` · `subtotal products quote details` · `Permaplate retail price` · `summary of products` | AP-2428, AP-2456, AP-2427, AP-2496, AP-2537, AP-1948, AP-98, AP-2550, AP-2544 | Not defined → Accepted, Permaplate gap excluded (ticket text wins) |
+| Q-004 | `archived quote` · `archive quote product` · `archived quote edit product` | AP-2422, AP-2494, AP-2496, AP-2101, AP-1161 | Not defined → Accepted |
+| Q-005 | `cancel product confirmation modal` · `confirmation modal quote` | AP-2455, AP-2535, AP-2536, AP-2543, AP-2505, AP-2497, AP-2498, AP-2436 | Not defined → Accepted |
+| Q-006 | `financing monthly payment recalculated` · `monthly payment quote financing` · `financing recalculate product` | AP-2499, AP-2504, AP-2405 | Not defined → Accepted |
+| Q-007 | `GAP premium creditor insurance` · `creditor insurance GAP amount` | AP-2499, AP-2504, AP-2502 | Not defined → Accepted |
+| Q-008 | `product has been cancelled` · `cancel product success message` · `flash message cancelled` | AP-2455, AP-2535, AP-2536, AP-2543, AP-2537 | Not defined → Accepted |
+| Q-009 | `generated contract product finalized` · `generate contract quote product` | AP-2503, AP-2504, AP-2505, AP-2506, AP-2494, AP-2496, AP-2225, AP-2546, AP-2550 | Not defined → Accepted |
+| Q-010 | `delete product documents compliance` (none) · `cancel product invoice documents` (none) · `hard delete row` · `delete quote product row` | AP-2496 | Partly touched (download bundle only) → Accepted |
+
+**Later Stories on cancelling.** AP-2535 *Cancelling a quote's Esthetic protection*
+(Deploy to staging), AP-2536 *Cancelling a quote's Chubb protection (gap/creditor
+insurance)* (PR opened), AP-2543 *Voiding a quote's Roadside protection* (Deploy to
+staging) and AP-2537 *Refunding a quote's Roadside protection* (Backlog) all cancel a
+**generated contract** from its own contract page, with a reason, a "Cancel" button and
+cancellation fields saved on the contract. AP-2493 covers only products **without** a
+contract ("Finalized products keep their existing download action and are out of scope for
+cancellation here."). None of them redesigns AP-2493's function, so none overrides an
+AP-2493 acceptance criterion, and none states a value for Q-002–Q-010.
+
+**What the limits leave in place.** No acceptance criterion of AP-2493 states the result
+any of Q-002–Q-010 asks about, so accepting the actual result changes no verdict except
+where the ticket text speaks: the description's Subtotal sentence keeps AP2493_011 and
+AP2493_012 FAIL (AP-2516, untouched). No question is a contradiction in the ticket's own
+text (Q-001's contradiction was settled by the reporter on 2026-10-17). Nothing was posted
+to Jira.
 
 ---
 
@@ -189,15 +237,15 @@ stands. Each one is a requirement we cannot honestly sign off until it is clarif
 |---|---|:---:|:---:|
 | REQ-001 | Five products reached through different screens; GAP has no mapped quote stage, so preparing every product type may not be possible | High | Open |
 | REQ-001 | Roadside "Save and Generate Contract" may finalize a Roadside product on save | Medium | Open |
-| REQ-001 | Behaviour on an archived quote not stated (Q-004) | Low | Open |
-| REQ-001 | Action label not specified (Q-002) | Low | Open |
+| REQ-001 | Behaviour on an archived quote not stated (Q-004) | Low | Accepted (Q-004, 2026-11-15) |
+| REQ-001 | Action label not specified (Q-002) | Low | Accepted (Q-002, 2026-11-15) |
 | REQ-002 | Ways to dismiss the modal not listed | Medium | Open |
-| REQ-002 | Modal wording not specified (Q-005) | Low | Open |
+| REQ-002 | Modal wording not specified (Q-005) | Low | Accepted (Q-005, 2026-11-15) |
 | REQ-002 | "Unchanged" needs a before/after comparison | Low | Open |
 | REQ-003 | Database row deletion not observable from the UI | High | Open |
-| REQ-003 | Subtotal location and source amount unknown (Q-003) | Medium | Open |
-| REQ-003 | Financing recalculation not stated (Q-006) | Medium | Open |
-| REQ-003 | GAP/creditor interaction not stated (Q-007) | Medium | Open |
+| REQ-003 | Subtotal location and source amount unknown (Q-003) | Medium | Accepted except the Permaplate gap (Q-003, 2026-11-15; AP-2516) |
+| REQ-003 | Financing recalculation not stated (Q-006) | Medium | Accepted (Q-006, 2026-11-15) |
+| REQ-003 | GAP/creditor interaction not stated (Q-007) | Medium | Accepted (Q-007, 2026-11-15) |
 
 ---
 

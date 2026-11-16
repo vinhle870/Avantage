@@ -1,0 +1,4 @@
+AP2506_003 steps 3-4 — Environment: Dev (v2dev) — captured 2026-11-08T03:20Z
+GET https://v2dev.garantieavantageplus.ca/quote/6692/details => 200
+GET https://v2dev.garantieavantageplus.ca/quote/6692/permaplate-create-contract => 200
+Page headings (H4, in order): "Vehicle identification" (left, col-md-7), "Owner identification" (left, col-md-7), "Product Summary" (right, col-md-5); submit button "Generate Contract" (right column)

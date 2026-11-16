@@ -1,50 +1,47 @@
 # Run Summary — AP-2494: Quotes list: replace "Produits" with "Contracts" and add quote search
-Updated: 2026-11-01T21:20:00Z · Run folder: no-sprint · Stages run: s5 → s7 · Run status: complete
+Updated: 2026-11-15T09:56:28Z · Run folder: no-sprint · Stages run: analyze → analyze · Run status: stopped_at_gate
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2494: Quotes list: replace "Produits" with "Contracts" and add quote search
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 5 REQ · 2 High risks
- Test cases   : 19 designed · 7 proposed by review
- Execution    : 14 PASS · 1 FAIL · 4 BLOCKED
- Bugs         : 2 filed · 0 linked to existing · 0 not a bug
+ Requirements : 5 REQ · 1 High risk (1 of 2 closed by Q-010)
+ Test cases   : 19 designed · 7 proposed by review (unchanged — not re-run)
+ Execution    : 14 PASS · 1 FAIL · 4 BLOCKED (2026-11-02 run on Dev — not re-run)
+ Bugs         : 2 filed · 0 linked to existing · 0 not a bug (2026-11-01 run)
  Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS
- Verdict      : FAIL
+ Verdict      : FAIL (2026-11-01 test report — unchanged)
  Tickets      : AP-2494 unchanged · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s7 (complete)
+ Stopped at   : analyze (--until analyze; awaiting Gate A review R1)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Result:** AP-2494 FAIL — 14 of 19 test cases passed on Dev (v2dev), missing the 90% threshold (74%). 2 bugs filed. Ticket comment posted and verified.
+**Stopped:** at analyze — this batch run (qa-agent 2026-11-15, analysis only) re-checked every open question against other Jira Stories and Tasks and stops before Gate A, which the orchestrator's independent reviewer (R1) decides. Resume with "AP-2494".
 
 **What passed**
-- Contracts column: "Produits" is gone and "Contracts" is the third column on both the Active and Archived tabs, and "Contrats" in French (AP2494_001–003).
-- Contract numbers in the column: the extended-warranty ("26df1-844"), creditor-insurance ("AVP000170") and Permaplate ("PNA-0000000019") contract numbers show in their quote's cell, and a quote with no contract shows a blank cell (AP2494_004, _006, _009, _011).
-- Search: quote name, client first name, last name, email, full name and VIN all find the right quotes, partial and in any letter case; a term that matches nothing shows "No entities found" with no error; the search stays on the current tab; and another dealership's client and VIN return nothing (AP2494_013–019).
+- Nothing was executed in this run. The latest execution (Dev, 2026-11-02) stays as it was: 14 of 19 passed — the "Contracts" column on both tabs, the warranty, creditor-insurance and Permaplate contract numbers, the blank cell, and every search (quote name, client name, email, full name, VIN, no-result, current tab only, no other dealership's quotes).
 
 **Failures**
-- AP2494_010 — after a sale `AP2494-S-957` was saved on quote 6480, the quote's Contracts cell still listed only "AVP000170"; archived quotes 6040 and 6041, which carry a warranty, do list their sale numbers. Gate C: filed as AP-2517 (Medium), with Q-003 to the author.
-- AP2494_005, _008, _012 (BLOCKED, not failed) — Dev returns HTTP 500 at `/quote/{id}/road-side-protection-create-contract` (4 tries on quotes 6479 and 6480). Gate C: filed as AP-2518 (High), Relates → AP-2508.
-- AP2494_007 (BLOCKED) — test data not on dev: no GAP contract.
+- AP2494_010 — unchanged: a saved sale number (AP2494-S-957) does not appear in quote 6480's Contracts cell. Gate C (2026-11-01): filed as AP-2517. The 2026-11-15 lookup does not change it, because AC 4 itself says sale contract numbers are shown.
+- AP2494_005, _008, _012 (BLOCKED, roadside HTTP 500, AP-2518) and AP2494_007 (BLOCKED, no GAP contract on Dev) — unchanged.
 
 **Decisions made**
-- Gate A (rule A3, by reviewer R1): continued with no questions posted — 0 Blocking, 13 Judgement, 2 Info.
-- Gate B (rule B1, by reviewer R2, round 3 APPROVE): promoted three Pass 1 gaps and one High proposal (AP2494_019); s3 re-run.
-- Gate C (rules C4 and C3 → E2; by reviewer R3, round 2 APPROVE): AP2494_010 → filed new AP-2517 (no sentence says a saved sale stays off the list; AC 4: "the "Contracts" column shows those contract numbers"); roadside HTTP 500 → filed new AP-2518, linked Relates → AP-2508, which says "No error message and no HTTP 500 appear" — no comment posted on AP-2508.
-- Gate D (rules, automatic; reviewer R4 APPROVE 0/0/0): AP-2494 not moved — pass rate 74% (needs 90%) and AP-2518 (High) blocks AP2494_005, _008 and _012; assignee unchanged. AP-2517 and AP-2518 are in Backlog, so they get no re-test action.
-- Run folder no-sprint (reviewer rule E3); executed on Dev (v2dev) by the user's decision; s4c skipped (no rule C1 decision).
+- Analysis re-run (knowledge lookup, analyst Step 3c, at the user's instruction "double check all tickets' question"): of 15 open questions, 2 are now Answered by other Stories — "finalized" means "has a generated contract" (Q-003, AP-2493) and the quote name is set at the top of the new-quote vehicle form (Q-010, AP-2477); 11 are Accepted, because no Story or Task defines them, so the behaviour seen on Dev on 2026-11-02 is the expected result (Q-001, 002, 004, 005, 007, 008, 009, 011, 012, 013, 014); 2 stay Open because they ask what the author meant by the ticket's own words (Q-006 French header, Q-015 AC 9 wording). None is Blocking. Nothing was posted to Jira.
+- Gate A: not decided in this run — left to the orchestrator's qa-reviewer (R1).
+- Gate B, Gate C, Gate D: not reached in this run (decisions of 2026-11-01 stand).
+- Orchestrator decision: analysis only, no re-execution — plan, design, review-cases, execute, file-bugs, report and update-ticket keep their 2026-11-01 results and were not marked pending. A run-state note asks the next design pass to turn record-only steps on the Accepted questions into record-and-accept steps.
 
 **Left behind**
-- Test data on Dev: quotes 6479–6483; Chubb creditor contract AVP000170 on quote 6480 (created through Chubb's development API); sale AP2494-S-957 on quote 6480; roadside products saved without a contract on 6479 and 6480.
-- Observations that are not failures: a cancelled warranty contract (APOP01-663) still shows in quote 6041's Contracts cell (Q-008); the search covers only the current tab and switching tab drops the term (Q-011); Dev has no GAP insurance contract.
-- Knowledge files added or changed: qa-artifacts/qa-docs/quote-creation.md (R3 F-5 — the "no separate generate/finalize step" line now applies only to the sales page and quotes without a warranty, with the 6040/6041/6480 facts).
+- Test data on Dev: None in this run (the 2026-11-01 run left quotes 6479–6483, Chubb contract AVP000170, sale AP2494-S-957 and roadside products without a contract on 6479 and 6480).
+- Observations that are not failures: the ticket has not changed since capture apart from QA comments, QA screenshots and the links to AP-2517 and AP-2518 (see "Ticket changes since capture — 2026-11-15" in the requirement capture).
+- Knowledge files added or changed: None.
 
 **Files**
 - [AP-2494_test-report.md](qa-artifacts/5-testing-report/AP-2494_test-report.md)
 - [AP-2494_bug-report.md](qa-artifacts/5-testing-report/AP-2494_bug-report.md)
 - [execution log](qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2494_2026-11-02.md)
 - [run state](qa-artifacts/.pipeline/AP-2494.md)
+- [requirements analysis](qa-artifacts/1-requirements-analysis/AP-2494_requirements-analysis.md)
 
 ## Automation
 - Spec: `playwright-automation/src/tests/dealer/quoteListContractsSearch_AP2494.spec.ts`, tag `@AP-2494` (with `QuoteListFlow.ts` and `QuoteListPage.ts`, all new files). Read-only on Dev quotes left by the manual runs; no contract generated; runs on v2dev only.

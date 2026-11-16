@@ -56,8 +56,8 @@ A ticket reference is opaque — never assume it is numeric or hyphenated.
 | Automation report | `stlc-test-automator` | `qa-artifacts/6-automation/{KEY}_automation-report.md` |
 | Automation spec | `stlc-test-automator` | `playwright-automation/src/tests/<portal>/<feature>_{SPEC}.spec.ts`, tagged `@{KEY}` |
 | Review record | `stlc-qa-reviewer` | `qa-artifacts/7-reviews/{KEY}_review.md` (appended, one section per review) |
-| QA batch run state | `stlc-qa-orchestrator` | `qa-artifacts/.pipeline/_batch-{DATE}.md` |
-| QA batch report | `stlc-qa-orchestrator` | `qa-artifacts/5-testing-report/{DATE}_qa-batch-report.md` |
+| QA batch run state | `qa-agent` | `qa-artifacts/.pipeline/_batch-{DATE}.md` |
+| QA batch report | `qa-agent` | `qa-artifacts/5-testing-report/{DATE}_qa-batch-report.md` |
 
 When a stage reads "the latest" execution log for a ticket, it takes the file with the
 newest `{DATE}` in `qa-artifacts/4-execution-results/{RUN}/` whose name contains `_{KEY}_`.

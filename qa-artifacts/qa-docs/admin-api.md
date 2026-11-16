@@ -41,6 +41,16 @@ dev and staging — the endpoint exists and is protected.
 - Store it in the repo-root `/.env` (git-ignored) as **`AVP_ADMIN_API_KEY`**. Never write
   the value into any artifact, log or comment.
 - Creating a key is the QA's decision — no skill creates one.
+- **Dev key in use (2026-11-05):** app name `QA-automation` on v2dev, created by the QA
+  account with the QA's approval, **expires 2026-12-05**. Stored in `/.env` as
+  `AVP_ADMIN_API_KEY`. Checked: `GET /api/admin/search-warranty` returns 401 without it
+  and 400 (authenticated, parameters missing) with it. After it expires, create a new
+  one the same way.
+- How keys work (AP-2308, Done): Admin menu **Apps → Manage API keys** (between USERS and
+  REPORTS). **Create a key** opens a modal with *App name* and *Expires in* (30 days,
+  1 year, never). The key is `bin2hex(random_bytes(32))` — 64 hex characters, shown
+  hidden in the grid with a reveal button. Each key belongs to the admin account that
+  created it and can be deleted from the grid.
 
 ## 3. Endpoints in scope
 
@@ -61,6 +71,21 @@ Not stated by the spec: maximum lengths, whether `warranty_id` is the record id 
 contract number, the allowed file size, or what `is_public` changes in the UI. These stay
 open questions for AP-2434 (record, don't guess).
 
+**Observed on Dev, 2026-11-05 (AP-2434 run, warranty contract 827):**
+
+| Call | Result |
+|---|---|
+| `POST /api/admin/warranty/-notes` (the path as the AP-2434 ticket writes it) | **405 Method Not Allowed**, `Allow: GET` — no POST route there |
+| Valid key, all fields | **201** `{"success":true,"noteId":<n>,"message":"Warranty note created successfully"}` |
+| No `X-API-KEY` header | **401** `{"error":"Missing API key"}` |
+| Wrong key (last character changed) | **401** `{"error":"Invalid API key"}` |
+| `warranty_id` or `title` left out | **400** `{"success":false,"error":"Missing required fields: warranty_id, title, description"}` — the same message whichever field is missing |
+| `warranty_id` that does not exist (`999`) | **404** `{"success":false,"error":"Warranty contract not found"}` |
+| `is_public=maybe` | **500 Internal Server Error** (reproduced twice) |
+| `warranty_id` | The record id from `/admin/warranty/{id}` (e.g. `827`) is accepted; the contract number (`APOP01-827`) was not tried |
+| `file_content` (the ticket's HTML body field) | Accepted without error at 255, 256 and 2,000 characters, but **not stored or shown anywhere** — the note keeps only title, description, is_public (and an optional file) |
+| Admin display | Note appears on `/admin/warranty/{id}` with title, description, Public/Private badge, "Created by <the admin who owns the key>" and local time |
+
 ### 3.2 `GET /api/admin/search-warranty` — search warranty contracts (AP-2435)
 
 | | |
@@ -75,6 +100,24 @@ The response is an **object with an `items` array**, not a bare array — this s
 second AP-2435 contradiction. The spec lists only `contractNumber` per item; any other
 field in a real response is extra (record it). No paging or result-limit field is
 documented.
+
+**Observed on Dev, 2026-11-05 (AP-2435 run, reference contract APOP01-836 — record 836, VIN `BKVG64C7AKB4145G5`, postal `H7L 0C4`, tel home `5146906330`, tel work `124-123-1234`):**
+
+| Call | Result |
+|---|---|
+| `X-API-KEY: <key>` | **200** `{"items":[…]}` |
+| `Authorization: Bearer <key>` (real or wrong key), no `X-API-KEY` | **401** `{"error":"Missing API key"}` — the Bearer header is not read |
+| No key | **401** `{"error":"Missing API key"}` — also from a browser holding an admin portal session |
+| Wrong `X-API-KEY` | **401** `{"error":"Invalid API key"}` |
+| `query=` empty, or no `query` | **400** `{"success":false,"error":"Missing query parameter"}` |
+| No match (`ZZQA2435NOMATCH`) | **200** `{"items":[]}` |
+| VIN | Partial, case-insensitive (`C7AKB4`, `c7akb4`, `KB` all match) |
+| Postal code | Full match, spaces and letter case ignored (`H7L0C4`, `H7L 0C4`, `h7l0c4` match; `H7L` does not) |
+| Telephone | Full match on **tel home and tel work**; spaces, dots, parentheses and hyphens ignored; a `+1` prefix or a 6-digit part does not match |
+| Item fields | 24 per item: `contractNumber`, `date_start`, `vehicle_make`, `vehicle_model`, `vehicle_year`, `vehicle_vin`, `vehicle_kilometers`, `vehicle_price`, `client_email`, `client_last_name`, `client_first_name`, `client_company`, `client_address`, `client_address2`, `client_city`, `client_postal_code`, `client_tel_home`, `client_tel_work`, `term_months`, `term_km`, `franchise_amount`, `repair_amount_per_visit`, `repair_amount_total`, `sale_price` |
+| Result size | **At most 10 items**, ordered by record number, highest first (not by date — corrected 2026-11-05 after AP-2435 R3), no `total`/paging field (`query=1`, `query=A` → 10); matching contracts beyond the 10th are dropped |
+| Contract numbers | Prefixes seen: `APOP01`, `APAP OP3` (contains a space), `ATplus`, `AT`, `AVLmoto`, `CVE`, `VATP`, `26df1` |
+| Response time | 0.6–1.0 s per call |
 
 ## 4. Running the requests safely (Git Bash)
 
@@ -109,3 +152,12 @@ saving a response as evidence, remove any occurrence of the key from it.
 `GET /api/admin/claim-item-components`, `GET /api/admin/warranty/{fullId}/claims`,
 `GET /api/admin/warranty-pdf/{fullId}/{lang}`, `GET /api/admin/users`,
 `GET /api/admin/service-centers` — all `X-API-KEY`. See the raw spec for their fields.
+
+## 6. Claim endpoints on Dev — observed 2026-11-15 (AP-2374)
+
+| Call | Observed |
+|---|---|
+| `POST /api/admin/claim` without `items` | **400** `{"success":false,"error":"Invalid items format. Expected JSON array."}` — send `"items":[]` |
+| `POST /api/admin/claim` with `contractNumber`, `diagnostic`, `vehicleKmAtClaim`, `notifyEmail`, `items:[]` | **201** `{"success":true,"claimId":333,"assignedTo":null,"message":"Claim created successfully"}` |
+| `GET /api/admin/claim/{id}` | **200**, includes `notifyEmail`, `statusCode` (`submitted` on create), `contractNumber`, `warrantyContractId` |
+| `POST /api/admin/claim-attachment` (multipart `claimId`, `type=other`, `file` PNG) | **500** "Failed to upload attachment: Unable to create the …/uploads/claim_attachments/ directory." |

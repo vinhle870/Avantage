@@ -1,0 +1,12 @@
+AP2533_001 step 1 — build check (read-only, no "Décoder" click) — Environment: Dev (v2dev) — 2026-11-07T11:08Z
+Page: https://v2dev.garantieavantageplus.ca/quote/new/edit-vehicle (hard reload; every script re-fetched with cache: reload)
+Scripts loaded and searched for "novalidate":
+- /build/runtime.0c796a0d.js — no novalidate
+- /build/app.18b4959e.js — 3 matches (no separate vinlookup.js):
+  r=t.attr("name"),i={};i=t.serializeArray(),r?i.push({name:r+"[novalidate]",value:!0}):i.push({name:"[novalidate]",value:!0})   (twice, two modules)
+  o=r.find(":input[id='"+i+"_VIN'], :input[id='"+i+"_quote_name'], :input[id='"+i+"__token']").serializeArray();o.push({name:i+"[novalidate]",value:!0}),$.ajax({url:r.at...
+- 2 inline scripts — no novalidate
+- static.cloudflareinsights.com beacon — no novalidate
+- freshchat widget.js and fw-cdn.com/12472362/4882018.js — could not be fetched (third-party, cross-origin)
+Hard-coded "vehicle[novalidate]": not found.
+Result: build-check table row 1 — fix present (key built from the form name). Same bundle as AP2507_001 step 1 at ~10:58Z (app.18b4959e.js), no redeploy in between.

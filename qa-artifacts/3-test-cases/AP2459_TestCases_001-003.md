@@ -52,9 +52,9 @@ records it.
 
 | TC ID | Title | Type | Priority | Status |
 |---|---|---|:---:|:---:|
-| AP2459_001 | Generating an Esthetic protection contract with no financing company chosen no longer shows a server error page | Functional (re-test) | High | Not Run |
-| AP2459_002 | Generating an Esthetic protection contract with a financing company chosen still succeeds and lists the contract | Regression | High | Not Run |
-| AP2459_003 | The PDF of a contract created with no financing company downloads without a server error | Edge-case (regression) | Medium | Not Run |
+| AP2459_001 | Generating an Esthetic protection contract with no financing company chosen no longer shows a server error page | Functional (re-test) | High | PASS |
+| AP2459_002 | Generating an Esthetic protection contract with a financing company chosen still succeeds and lists the contract | Regression | High | PASS |
+| AP2459_003 | The PDF of a contract created with no financing company downloads without a server error | Edge-case (regression) | Medium | SKIPPED |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -74,10 +74,10 @@ records it.
 | **Route** | `/vehicle/915/details` → Create quote → `/quote/{id}/details` → `/quote/{id}/permaplate-create-contract` |
 | **Type** | Functional (re-test of the reported steps) |
 | **Priority** | High |
-| **Status** | Not Run |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-08, Dev (v2dev) |
+| **Result** | PASS — branch (b): blank Financing company refused with "ERROR This value should not be blank." beside the field; POST 200, no 500, no contract (quote 6689) |
 
 **Why this matters:** This is the exact scenario the bug reports — a dealer selling
 Esthetic protection for cash leaves "Financing company" blank and, on 2026-09-06, got a
@@ -120,10 +120,10 @@ fails on the reported crash, or on a refusal that does not say which field is wr
 | **Route** | `/vehicle/915/details` → Create quote → `/quote/{id}/details` → `/quote/{id}/permaplate-create-contract` |
 | **Type** | Regression |
 | **Priority** | High |
-| **Status** | Not Run |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-08, Dev (v2dev) |
+| **Result** | PASS — AutoCapital Canada → PNA-0000000021 and invoice 945 (quote 6690) |
 
 **Why this matters:** The fix touches how the "Financing company" value is read. This case
 makes sure the path that always worked — a dealer who does pick a financing company — was
@@ -164,10 +164,10 @@ contract.
 | **Route** | `/permaplate-contracts` → Download → `/quote/{quoteId}/permaplate-contract-download` |
 | **Type** | Edge-case (regression) |
 | **Priority** | Medium |
-| **Status** | Not Run |
+| **Status** | SKIPPED |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-08, Dev (v2dev) |
+| **Result** | SKIPPED — step 2 rule: the build refuses a blank Financing company, so no contract without one can exist (fallback quote 6691) |
 
 **Why this matters:** The ticket suspects the crash came from the PDF's financing-company
 block. If the fix only made saving tolerant of a blank company, the dealer may get the
@@ -213,6 +213,8 @@ one we currently have no way of proving works._
 
 | TC ID | Result | Screenshot |
 |---|:---:|---|
-| AP2459_001 | _(pending)_ | — |
-| AP2459_002 | _(pending)_ | — |
-| AP2459_003 | _(pending)_ | — |
+| AP2459_001 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2459/AP2459_001-step4-BlankCompanyRefusedWithFieldMessage_pass.png` |
+| AP2459_002 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2459/AP2459_002-step5-ContractRowFinance2459Listed_pass.png` |
+| AP2459_003 | SKIPPED | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2459/AP2459_003-step2-FallbackQuoteRefusedBlankCompany_skipped.png` |
+
+Execution log: `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2459_2026-11-08.md` (Environment: Dev, 2026-11-08). Step substitutions on the current Dev UI are recorded there (no "Create Contract" button — ⋯ → Generate Contract; Financing company now sits in the contract page's "Product Summary").

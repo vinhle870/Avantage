@@ -20,11 +20,11 @@ complete the executor should not need a second file open to run this batch._
 | **Portal** | Dealer | `navigation` |
 | **Entry route** | `/vehicle/915/details` → **Create quote** → `/quote/new/client?fromVehicleId=915` (never a bare `/quote/new/client`, which leaves a quote with no vehicle that returns HTTP 500) → `/quote/{id}/details`, the quote page. On the quote page, the card **"Summary of products"** has the rows **"Gap Insurance"** and **"Creditors insurance"** ("- None Selected -"), each with a **+** button on the right; that button opens the add modal (ticket screenshots image-20261016-161139.png and image-20261016-161228.png). The stand-alone financing page is `/quote/{id}/financing` | `navigation` → `domain` (quote-creation.md); the Summary-of-products card and its GAP / creditors modal are not yet mapped — taken from the ticket screenshots |
 | **Viewport** | 1280 × 800 | `navigation` |
-| **Environment** | v2staging — dealer portal URL from the `env` source | `env` |
+| **Environment** | Dev (v2dev) — the registry's `execution_env`; dealer portal URL from the "Dev Environment" section of the `env` source | `env`, `qa-config/tools.md` |
 | **Login** | The shared dealer account (dealer 1380, "Test QA staging"), Chubb-configured with creditor forms PM30 and PM50, named in the `env` source; the password is read from there at run time and never written into the log | `env`, `domain` (chubb-insurance.md §6) |
 | **Test data** | Vehicle **915** (Ford Focus 2008, VIN `1FAHP35NX8W239204`) — used only as the vehicle each new quote is created from; these cases change a quote's financing, never the vehicle | `test-data` |
 | **Language** | EN for every judgement. The dealer UI may show French labels; `?_locale=en` on any dealer URL switches the session to English | `domain` (quote-creation.md) |
-| **Leaves behind** | One client and one quote per case, plus a financing on the quotes of 003–005; no insurance quote is priced in this file. The `cleanup` source is missing — nothing is removed | `cleanup` (missing) |
+| **Leaves behind** | One client and one quote per case, plus a financing on the quotes of 003–005 (005: a financing with no date of birth, if the build stores it); no insurance quote is priced in this file. The 2026-11-02 run left quotes 6533–6537. The `cleanup` source is missing — nothing is removed | `cleanup` (missing) |
 
 **Shared client values** — used in every case's client form, changing only the last name:
 First name `Gap`, Last name as given in the case, Email `client.stage.NNN@yopmail.com`
@@ -46,8 +46,9 @@ its label).
 |---|---|---|---|
 | 1 | The GAP / creditors add modal (its field labels, submit controls, and how the financing and insurance parts are laid out) is not mapped in `domain` | AP2499_001–005 | Not blocking at design — reached through the **+** buttons shown in the ticket screenshots; the executor maps the modal on first use and writes it back to `domain` |
 | 2 | Whether "Add a financing" / `/quote/{id}/financing` can be used on a brand-new quote (quote-creation.md says the button is "disabled until prerequisites are met") | AP2499_004, AP2499_005 | Not blocking — the step falls back to saving the financing once through the modal and re-opening it |
+| 3 | Whether a financing (and its quote client) without a date of birth can be stored on Dev — an empty date of birth has only been seen on a submit already refused for the residual (R1 F-2) | AP2499_005 | Not blocking at design — step 2 records it; a refusal makes the case BLOCKED with that reason |
 
-> Designed with no case BLOCKED; executed 2026-11-02 on Dev (v2dev) — see the Execution Log below and `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2499_2026-11-02.md`.
+> Designed with no case BLOCKED; executed 2026-11-02 on Dev (v2dev); AP2499_005 re-designed 2026-11-15 and set to Not Run — see the Execution Log below and `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2499_2026-11-02.md`.
 
 ---
 
@@ -59,7 +60,7 @@ its label).
 | AP2499_002 | Adding creditors insurance to a quote with no financing shows the financing form instead of the "Please add a financing" alert | Functional | High | PASS |
 | AP2499_003 | Submitting the financing inside the GAP modal saves it on the quote and moves to the insurance step without leaving the page | Functional | High | FAIL |
 | AP2499_004 | Creditors modal on a quote that has a financing still shows the financing form first, with all eight stored values | Regression | High | FAIL |
-| AP2499_005 | GAP modal on a quote with a stored financing and no residual shows the form first and does not invent a residual | Edge-case | Medium | BLOCKED |
+| AP2499_005 | GAP modal on a quote whose stored financing has no date of birth shows the form first with Date of birth blank | Edge-case | Medium | FAIL |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -226,43 +227,48 @@ financing page on purpose, so the case also proves that page still feeds the mod
 
 ---
 
-### AP2499_005 — GAP modal on a quote with a stored financing and no residual shows the form first and does not invent a residual
+### AP2499_005 — GAP modal on a quote whose stored financing has no date of birth shows the form first with Date of birth blank
 
 | Field | Value |
 |---|---|
 | **TC ID** | AP2499_005 |
-| **Title** | GAP modal on a quote with a stored financing and no residual shows the form first and does not invent a residual |
-| **Requirement** | AP2499 — REQ-003, AC "…any field with no stored value falls back to its normal empty/placeholder state"; REQ-002 (GAP, financing present, Chubb dealer) |
+| **Title** | GAP modal on a quote whose stored financing has no date of birth shows the form first with Date of birth blank |
+| **Requirement** | AP2499 — REQ-003, AC "Prefill from the existing financing": "each field shows the stored value — type, base amount, residual, payment frequency, term months, interest rate, financing company, applicant date of birth — and any field with no stored value falls back to its normal empty/placeholder state"; REQ-002 (GAP, financing present, Chubb dealer). Q-004 Accepted (a field with no value opens blank); Q-011 Accepted (residual required, so it is stored as `0`) |
 | **Route** | `/quote/{id}/financing`, then `/quote/{id}/details` — Summary of products → Gap Insurance **+** |
 | **Type** | Edge-case |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-011 — an empty residual cannot be stored |
-| **Executed on** | 2026-11-02 — Dev (v2dev) |
-| **Result** | BLOCKED — an empty residual cannot be stored ("This value should not be blank.", Q-011) (quote 6537) |
+| **Status** | FAIL |
+| **Blocked by** | — |
+| **Executed on** | 2026-11-15, Dev (v2dev), quote 6710 |
+| **Result** | FAIL — step 4: Date of birth, saved empty, shows today's date 2026-11-15 in the modal — AP-2566 |
 
-**Why this matters:** A prefill that invents a value — a non-zero residual the dealer never
-typed, or a value copied from another quote — would silently change the GAP premium.
-What the "normal empty/placeholder state" looks like is not described (Q-004): an empty
-field, a placeholder text and `0` are all plausible, so those three are recorded, never
-judged. The case fails on the residual only if it shows a non-zero number. If the
-financing page refuses an empty residual, that is recorded for Q-011.
+**Why this matters:** A prefill that invents a value the dealer never typed — a date of
+birth copied from another quote, today's date, or `1990-01-01` from an earlier financing —
+would send a wrong age to the insurer and silently change the GAP premium. The residual
+can no longer be the empty field (it is required, Q-011), so the "no stored value" half of
+the criterion is checked on **Date of birth**, which the criterion names and which is not
+in the required list. On Dev a field with no value opens blank (Q-004, Accepted), so blank
+is asserted. Whether the build stores a financing without a date of birth is not yet shown
+(R1 F-2): step 2 records it, and a refusal makes the case BLOCKED, not FAIL. Once a
+financing exists the modal folds the financing form into one summary line behind
+**Edit** — known bug AP-2526, already failed by AP2499_004 — so this case opens it with
+**Edit** and judges only the field values.
 
 **Test Data:**
 
 | Variable | Value |
 |---|---|
-| Client last name | `Gap2499-005` |
-| Stored financing | Shared financing values F1, but **Residual amount left empty** |
+| Client last name | `Gap2499-005b` (a new client; quote 6537 of the 2026-11-02 run is not reused) |
+| Stored financing | Shared financing values F1 with Residual amount `0` and **Date of birth left empty** |
 
 **Steps:**
 
 | # | Action | Expected Result |
 |---|---|---|
-| 1 | [Pre-Condition] Sign in to the Dealer portal, open `/vehicle/915/details`, click **Create quote**, fill the shared client values (last name `Gap2499-005`) → **Save**, then on `/quote/{id}/vehicle` set Delivered at `2026-11-01`, Price `20000` → **Save** | `/quote/{id}/details` loads; the quote id is recorded |
-| 2 | [Pre-Condition] Open `/quote/{id}/financing`, enter the shared financing values F1 with **Residual amount left empty** → **Save**. If the page refuses the empty residual, record the error text (Q-011) and stop the case as BLOCKED with reason "an empty residual cannot be stored". If the page cannot be used at all, use the GAP **+** modal's financing form instead, as in AP2499_004 step 2 | `/quote/{id}/details` shows a financing on the Financing card; the route used and the residual shown on the card are recorded |
-| 3 | Click the **+** button on the "Gap Insurance" row | A modal opens on the same page without an error page or HTTP 5xx |
-| 4 | [Verification] Inspect the modal from top to bottom | The first block of the modal is the financing form, with the GAP insurance form or results below it. The seven stored fields show their F1 values (base amount 25000, term 60, interest rate 6.99, payment frequency Monthly, date of birth 1990-01-01, the recorded type and company). Residual: if it is empty, shows a placeholder text, or shows `0`, record exactly which for Q-004 — none of these is a failure. The case fails on the residual only if it shows a non-zero number |
+| 1 | [Pre-Condition] Sign in to the Dealer portal, open `/vehicle/915/details`, click **Create quote**, fill the shared client values (last name `Gap2499-005b`) → **Save**, then on `/quote/{id}/vehicle` set Delivered at `2026-11-01`, Price `20000` → **Save** | `/quote/{id}/details` loads with no financing; the quote id and the client e-mail are recorded |
+| 2 | [Pre-Condition] Open `/quote/{id}/financing`, enter F1 but leave **Date of birth** empty (Residual `0`) → **Save**, then read the Financing card and the client block on `/quote/{id}/details`. If the page cannot be used (disabled, redirect or error — record which), enter the same values in the GAP **+** modal's financing form → **Save** and close the modal. **If the save is refused because Date of birth is empty, record the error text and stop: BLOCKED — "a financing without a date of birth cannot be stored on Dev"** | Flash "Financing saved"; the Financing card shows the financing (25,000, 60 months, 6.99, Monthly, the recorded type and company); the route used is recorded, and whether the card or the client block shows any date of birth is recorded |
+| 3 | Click the **+** button on the "Gap Insurance" row and wait for the text "Interest rate". If the "Financing" block is folded into one summary line (AP-2526), record that and click its **Edit** link to show the fields | The modal opens on the same page (URL unchanged) without an error page or HTTP 5xx; the financing fields are visible |
+| 4 | [Verification] Inspect the modal from top to bottom and take a screenshot of it | The "Financing" block is first and the "Gap Insurance Quote" form is below it. The seven stored fields show their values: Type = the recorded type, Net amount 25000, Residual 0, Payment frequency Monthly, Term months 60, Interest rate 6.99, Financing company = the recorded company (number format recorded). **Date of birth is blank** — no date and no other value (Q-004, Accepted). The case fails if Date of birth shows any date, or if any other field is empty or shows a value other than the stored one |
 
 ---
 
@@ -275,7 +281,7 @@ one we currently have no way of proving works._
 |---|:---:|:---:|:---:|:---:|
 | REQ-001 — Financing form replaces the alert | AP2499_001, AP2499_002 | — | — | — |
 | REQ-002 — Financing form always first (GAP/creditors × absent/present, Chubb) | AP2499_001, AP2499_002, AP2499_003 | — | AP2499_005 | AP2499_004 |
-| REQ-003 — Prefill from the stored financing | — | — | AP2499_005 | AP2499_004 |
+| REQ-003 — Prefill from the stored financing (005: Date of birth with no stored value) | — | — | AP2499_005 | AP2499_004 |
 | REQ-004 — Submit saves and continues in the modal | AP2499_003 | — | — | — |
 
 REQ-002 (Humania dealer), REQ-004 (correction), REQ-005 and REQ-006 are covered in
@@ -291,6 +297,8 @@ REQ-002 (Humania dealer), REQ-004 (correction), REQ-005 and REQ-006 are covered 
 | 2026-11-01 | AP2499_001, AP2499_002 | Verification step: judged only that no field shows a stored financing value (text, number and date fields empty or placeholder); each drop-down's opening state (empty, placeholder or pre-selected default) is recorded for Q-004, not judged | Reviewer R2 REWORK F-3 — whether a drop-down opens empty or on a default is Q-004 (Open) |
 | 2026-11-01 | AP2499_002 | Step 2 now says to take the screenshot of the modal that step 4 reads | Reviewer R2 REWORK F-5 |
 | 2026-11-02 | AP2499_005 | **Blocked by** set to "Q-011 — an empty residual cannot be stored" (was "—"); no step or expected result changed | Independent R3 F-3 — the blocker was named only in the Result field |
+| 2026-11-15 | AP2499_005 | Re-designed: the no-stored-value check moves from Residual to **Date of birth** (title, requirement, why, test data, all steps); Residual is stored as `0`; the Q-004 record-only check becomes record-and-accept — Date of birth must be blank; step 2 records whether a financing without a date of birth can be stored (refused → BLOCKED); step 3 opens the folded financing block with **Edit** (known bug AP-2526); new client `Gap2499-005b`. Status back to Not Run; **Blocked by**, **Executed on** and **Result** cleared — the Execution Log row below is the 2026-11-02 run of the old design | 2026-11-15 re-analysis — Q-011 Accepted (residual required); REQ-003 AC 1 names applicant date of birth; reviewer R1 F-2; designer Step 1c (Accepted → record-and-accept) |
+| 2026-11-15 | File | Execution Context: Environment row now Dev (v2dev) (was v2staging); Leaves behind adds the 005 financing without a date of birth; Known blockers row 3 added. AP2499_001–004 unchanged and keep their 2026-11-02 results | Registry `execution_env: Dev`; reviewer R1 F-2 |
 
 ---
 
@@ -304,4 +312,4 @@ REQ-002 (Humania dealer), REQ-004 (correction), REQ-005 and REQ-006 are covered 
 | AP2499_002 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_002-step2-CreditorsModalFinancingForm_pass.png` |
 | AP2499_003 | FAIL | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_003-step5-ReopenedGapModalFinancingSummary_fail.png` |
 | AP2499_004 | FAIL | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_004-step4-FinancingCollapsedToSummary_fail.png` |
-| AP2499_005 | BLOCKED | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_005-step2-EmptyResidualRefused_blocked.png` |
+| AP2499_005 | FAIL | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_005-step4-Nov15-DOBShowsTodayDate_fail.png` (2026-11-15, re-designed case; the 2026-11-02 run of the old design was BLOCKED) |

@@ -1,0 +1,8 @@
+Environment: Dev (v2dev)
+Captured: 2026-11-15T08:51Z (read back from the re-opened form after each save)
+URL: https://v2dev.garantieavantageplus.ca/admin/program-term/16/edit
+Before change   program_term[suggestedRetailPrice] = 1025
+After change    POST save -> /admin/program-terms 200 "Program terms saved"; re-opened value = 1125
+Portal (step 3) Summary Subtotal = CA$1,125.00 (term 16, AT 36m/60000km)
+After restore   POST save -> /admin/program-terms 200 "Program terms saved"; re-opened value = 1025
+Full form after restore identical to before change: programOption=6, eligibilityYears=11, eligibilityKm=180000, termMonths=36, termKm=60000, franchiseAmount=100, repairAmountPerVisit=5000, repairAmountTotal=5000, repairAmountText=(empty), suggestedRetailPrice=1025, eligibilityCategory=A,B,C, fuelTypeEligibility=GASOLINE,DIESEL, vehicleTypeEligibility=PASSENGER

@@ -1,0 +1,15 @@
+HTTP/1.1 500 Internal Server Error
+Date: Thu, 05 Nov 2026 05:30:41 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=PV22FyQr0myAjShANgh8I7evvZXQtUq6hNz5PqSx1D6a8LmT2r%2F7RRI81RvMD%2BcdiHEgCWGO8BFkDz8LzkIKCxWSNKaSlAtZLRh4lxRgzcginm5pFvimFi0fArD1o9e8E0FVHnsyBEYhJvRgy0lB1Q%3D%3D"}]}
+Vary: Accept
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a55977c42e9af44c-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"type":"https:\/\/tools.ietf.org\/html\/rfc2616#section-10","title":"An error occurred","status":500,"detail":"Internal Server Error"}

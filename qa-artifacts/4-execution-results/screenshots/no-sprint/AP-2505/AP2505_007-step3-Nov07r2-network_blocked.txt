@@ -1,0 +1,19 @@
+AP-2505 — re-run after R3 round 1 (F-1), Environment: Dev, 2026-11-07 (UTC 10:35–10:38)
+Request lines only (method, URL, status). No cookies, tokens or credentials.
+
+AP2505_007 step 3 (quote 6597; Stock number STK2505007, In service date 2022-06-01, all else as pre-filled)
+[POST] https://v2dev.garantieavantageplus.ca/quote/6597/road-side-protection-create-contract => [302]
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6597/details => [200]
+  flash on the quote page: "One or more validation errors occurred.The phone number is invalid. Please ensure it follows the format: ###-###-####."
+  pre-filled Home phone sent: 5145550501 (from the quote's client)
+
+AP2505_007 steps 4–5
+[GET]  https://v2dev.garantieavantageplus.ca/road-side-protection-contracts?_locale=en => [200]   rows: 2698, 2697 only
+[GET]  https://v2dev.garantieavantageplus.ca/invoice?_locale=en => [200]                          top invoice: 944
+
+AP2505_008 step 1 fallback (quote 6599; Stock number STK2505008, In service date 2022-06-01, all else as pre-filled)
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6599/details?_locale=en => [200]
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6599/road-side-protection-create-contract => [200]
+[POST] https://v2dev.garantieavantageplus.ca/quote/6599/road-side-protection-create-contract => [302]
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6599/details => [200]
+  same flash: "One or more validation errors occurred.The phone number is invalid. Please ensure it follows the format: ###-###-####."

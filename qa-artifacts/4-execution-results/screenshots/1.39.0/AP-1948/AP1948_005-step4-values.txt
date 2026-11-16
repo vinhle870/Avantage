@@ -1,0 +1,8 @@
+Environment: Dev (v2dev)
+Captured: 2026-11-15T08:52Z-08:53Z (read back from the re-opened form after each save)
+URL: https://v2dev.garantieavantageplus.ca/admin/vehicle-model-edit/3124/edit (Vehicle model #3124, TESLA Model 3)
+Original        vehicle_model[category] = CATEGORY_A (name=Model 3, make=319 TESLA, type=1 Passenger)
+After change    POST save -> /admin/vehicle-model 200 "Vehicle model saved"; re-opened category = CATEGORY_D
+Portal (Y=D)    /customer/1493/quote-request/program 200 - no term card listed
+After restore   POST save -> /admin/vehicle-model 200 "Vehicle model saved"; re-opened category = CATEGORY_A; full form identical to original
+Portal (X=A)    /customer/1493/quote-request/program 200 - terms 16,122,123,124,125,126 listed again

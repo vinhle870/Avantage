@@ -1,0 +1,17 @@
+AP1948_008 Run2 - Dev (v2dev) - captured 2026-11-15T09:57Z-09:59Z
+Admin (read only):
+  /admin/vehicle-model-edit/3127/edit  Model S  category = Category B
+  /admin/vehicle-model-edit/4725/edit  Model X  category = Category B
+  /admin/vehicle-model-edit/4724/edit  X        category = Category B
+  /admin/manufacturer-vehicle/91/edit  2022 TESLA Model S LONG RANGE -> model = 3127 (Model S)
+  /admin/manufacturer-vehicle/94/edit  2022 TESLA Model X Plaid      -> model = 4725 (Model X)
+  /admin/program-term/16/edit   Suggested retail price = 1025  categories = A,B,C
+  /admin/program-term/129/edit  "CVE B 12m/0km" Suggested retail price = 3400  categories = B
+  /admin/program-term/130/edit  "CVE B 24m/0km" Suggested retail price = 3400  categories = B
+  /admin/program-term/131/edit  "CVE B 36m/0km" Suggested retail price = 3500  categories = B
+  /admin/program-term/132/edit  "CVE B 48m/0km" Suggested retail price = 3600  categories = B
+  /admin/program-term/133/edit  "CVE B 60m/0km" Suggested retail price = 3700  categories = B
+Portal Summary (/customer/1493/quote-request/payment, HTTP 200 each):
+  Model S (entry 91, client.stage.1948107): 16 CA$1,025.00 | 129 CA$3,400.00 | 130 CA$3,400.00 | 131 CA$3,500.00 | 132 CA$3,600.00 | 133 CA$3,700.00
+  Model X (entry 94, client.stage.1948108): 16 CA$1,025.00 | 129 CA$3,400.00 | 130 CA$3,400.00 | 131 CA$3,500.00 | 132 CA$3,600.00 | 133 CA$3,700.00
+Comparison: 12 of 12 Subtotals = suggested retail price; difference 0 on every term.

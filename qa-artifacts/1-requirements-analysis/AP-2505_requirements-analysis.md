@@ -1,7 +1,7 @@
 # Requirements Analysis Report
 
 **Project:** Avantage Plus v2 — Dealer portal, quote page → Roadside Protection → "Generate Contract" page `/quote/{quoteId}/road-side-protection-create-contract` (Jira AP-2505)
-**Date:** 2026-11-03
+**Date:** 2026-11-03 · **Updated:** 2026-11-15 (knowledge lookup, SKILL.md Steps 3b–3c — see *Knowledge lookup — 2026-11-15* below the Open Questions)
 **Analyst:** QA Agent — Requirements Analyst Skill
 **Source files:** `requirements/AP-2505-generate-contract-for-a-quotes-roadside.md`
 **Total requirements found:** 4
@@ -211,18 +211,83 @@ testable, and the test records what the build does on this point instead of gues
 
 | # | Question | Raised against | Impact | Status | Answer (quoted, with source) | Assigned to |
 |---|---|---|---|---|---|---|
-| Q-001 | The description says "vehicle and owner information on the left", but AC 2 says "“Owner information”, “Financing information” in the left column, and “Vehicle identification”, “Program Summary” with a “Generate Contract” button in a right column". Which column should hold the "Vehicle identification" section? | REQ-002 | Blocking | Open | — | Nicolas-Eric Tain |
-| Q-002 | AC 1 starts from "a quote with a GAP insurance quote and no contract", while the action is on the Roadside Protection row. Must the quote carry a GAP insurance quote for the roadside "Generate Contract" action to be offered, or is "GAP insurance quote" meant to read "roadside protection product"? | REQ-001 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-003 | "Should match Esthetic Protection" — beyond the dedicated page and the named sections, on which points must the roadside page match the Esthetic protection contract page (heading, field list, read-only fields, Back link)? | REQ-001, REQ-002 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-004 | What should the Program Summary list for a roadside product — program name, tier, term, start date, end date, Policy Sale price, total? | REQ-002 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-005 | Which vehicle and owner fields may the dealer edit on this page, and which are read-only? | REQ-003 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-006 | AC 3 says "a vehicle, a client, or a financing". When the quote has no financing, what does the "Financing information" section show, and can the contract still be generated? | REQ-003, REQ-004 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-007 | Which "financing values" are meant — the financing company (name, address, phone), the loan terms (amount, term, rate, payment), or both — and does "read-only" cover all of them? | REQ-003 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-008 | What are "valid form values"? Which fields are required, and what does the page show when one is emptied before submit? | REQ-004 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-009 | What does "the current process" produce after submit — which page the dealer lands on, which message, whether an invoice is created, and where the AutoShield contract PDF is offered? | REQ-004 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-010 | AC 1 starts from a quote with "no contract". On a quote whose roadside contract already exists, or for a VIN that already has an AutoShield contract, is "Generate Contract" still offered, and what does the address show if opened directly? | REQ-001, REQ-004 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-011 | The description gives the route name "quote-insurance-create-contract", which reads like the creditor-insurance route. Is that the roadside route's internal name? (Not observable in the browser.) | REQ-001 | Info | Open | — | Nicolas-Eric Tain |
-| Q-012 | Does this change also fix AP-2518 (the HTTP 500 on this address on Dev, 2026-11-02), or is that fix expected separately? | REQ-001 – REQ-004 | Info | Open | — | Nicolas-Eric Tain |
+| Q-001 | The description says "vehicle and owner information on the left", but AC 2 says "“Owner information”, “Financing information” in the left column, and “Vehicle identification”, “Program Summary” with a “Generate Contract” button in a right column". Which column should hold the "Vehicle identification" section? | REQ-002 | Blocking | Open | Not a knowledge question: the ticket's own text contradicts itself (description against AC 2), so neither a later Story nor the actual result may choose the column (Step 3b). Lookup run for context only (L4, L5): AP-2544 (Story, Deploy to staging, 2026-11-04) says "THEN the “Vehicle information” card is shown above the “Owner information”" — it names no column and is not used to choose. Still unanswered on AP-2505 (2026-11-15: 4 comments, all from the QA account). | Nicolas-Eric Tain |
+| Q-002 | AC 1 starts from "a quote with a GAP insurance quote and no contract", while the action is on the Roadside Protection row. Must the quote carry a GAP insurance quote for the roadside "Generate Contract" action to be offered, or is "GAP insurance quote" meant to read "roadside protection product"? | REQ-001 | Judgement | Accepted | No Story/Task defines it (searched: L10, L1; read AP-2504, AP-2506, AP-2559 — none states when the roadside "Generate Contract" action is offered) — current actual result accepted: on quote 6595 with no GAP quote, the Roadside ⋯ menu offers "Edit · Generate Contract · Delete" (execution log 2026-11-07, AP2505_002 step 3). This does not choose a reading of AC 1: AP2505_001 still builds AC 1 literally (GAP quote **and** roadside product), and both readings allow the action without a GAP quote. | Nicolas-Eric Tain |
+| Q-003 | "Should match Esthetic Protection" — beyond the dedicated page and the named sections, on which points must the roadside page match the Esthetic protection contract page (heading, field list, read-only fields, Back link)? | REQ-001, REQ-002 | Judgement | Answered | The field lists and read-only rules of the shared sections are defined for every product, Roadside Protection included, by AP-2544, AP-2545 and AP-2546 (Stories, Deploy to staging, the same "check out" page). AP-2544: "THEN the “Vehicule information” card is presented in a form view styled like the “Owner information” card. All inputs are read-only except for the VIN input. Display the input from the form in /vehicle/{vehicleId}/edit (do not include “Manufacturer warranty” section)." AP-2545: "THEN the “Owner information” card show the same input from /quote/{quoteId}/client. The Indian status certificate, Drivers license, and the 2 checkboxes are not shown." AP-2546: see Q-007. Page heading and Back link: no Story/Task defines them (searched: L18, L5, L6) — current actual result accepted: heading "Road Side protection program", "Back" → `/quote/{quoteId}/details` (AP2505_003 step 4, 2026-11-07). | Nicolas-Eric Tain |
+| Q-004 | What should the Program Summary list for a roadside product — program name, tier, term, start date, end date, Policy Sale price, total? | REQ-002 | Judgement | Answered | AP-2544 (Story, Deploy to staging), roadside exception: "The roadside protection requires the VIN and the “In service date” when generating the contract. The Purchase date and Delivery date inputs are move to the “Product Summary”." Searched: L6, L7. No Story/Task defines the other lines (AP-2506 lists the Esthetic page's summary only; AP-2550, In Progress, says "For each program, all specific field for the contract are shown in the “Product summary”" without naming them) — current actual result accepted for them: Road Side Protection Option (tier text), Delivery date, Purchase date, Policy Sale price, Purchase type, Financed amount, Interest rate, Financing company, Stock number, In service date (AP2505_003 step 4, 2026-11-07). The heading stays as AC 2 states it ("Program Summary"); the AC wins. | Nicolas-Eric Tain |
+| Q-005 | Which vehicle and owner fields may the dealer edit on this page, and which are read-only? | REQ-003 | Judgement | Answered | Vehicle — AP-2544 (Story, Deploy to staging): "All inputs are read-only except for the VIN input." and, for Roadside Protection, "The roadside protection requires the VIN and the “In service date” when generating the contract." Owner — AP-2545 (Story, Deploy to staging): "THEN the “Owner information” card show the same input from /quote/{quoteId}/client." and "WHEN a dealer generates a contract and is succesfull. THEN it update the quote’s client information"; AP-2550 (Story, In Progress): "The Owner and Co-owner information can always be updated." Searched: L5, L19, L20. Recorded on 2026-11-07 (AP2505_005 step 3): every vehicle and owner input was editable — this differs from AP-2544 for the vehicle inputs other than VIN (see the lookup notes). | Nicolas-Eric Tain |
+| Q-006 | AC 3 says "a vehicle, a client, or a financing". When the quote has no financing, what does the "Financing information" section show, and can the contract still be generated? | REQ-003, REQ-004 | Judgement | Accepted | No Story/Task defines it (searched: L11, L9; read AP-2546, AP-2559, AP-2225 — AP-2546 covers the pre-filled financing form, AP-2559 hides the card on a quote "without a GAP/Creditor insurance", and AP-2225 still has its own open question on a quote with no financing company) — current actual result accepted: no "Financing information" section; Purchase type "CASH", and Financed amount, Interest rate and Financing company ("Choose") empty, editable and not required, inside "Product Summary"; "Generate Contract" enabled (quote 6596, AP2505_006 steps 4–5, 2026-11-07). Whether the contract is created on such a quote: recorded at execution (it was not submitted). | Nicolas-Eric Tain |
+| Q-007 | Which "financing values" are meant — the financing company (name, address, phone), the loan terms (amount, term, rate, payment), or both — and does "read-only" cover all of them? | REQ-003 | Judgement | Answered | AP-2546 (Story, Deploy to staging, same page), "Exceptions for Roadside protection product": "The roadside protection, use the current financing form and prefill the fields. All fields are required and read-only except the “Financing company”. Only save the financing company in road_side_protection_program" Searched: L8, L9. The values are therefore the fields of the current financing form, pre-filled. On "read-only", AP-2505 AC 3 says "financing is read-only" with no exception; in this ticket the AC wins, and AP-2546's later exception for "Financing company" is reported as a conflict between the two stories, not used to change AP-2505's expected result. | Nicolas-Eric Tain |
+| Q-008 | What are "valid form values"? Which fields are required, and what does the page show when one is emptied before submit? | REQ-004 | Judgement | Answered | AP-2544: "The roadside protection requires the VIN and the “In service date” when generating the contract." AP-2546 (financing form): "All fields are required and read-only except the “Financing company”." Searched: L12, L8. No Story/Task defines the rest — current actual result accepted: Stock number and the owner's Last name are also required; the server re-renders the page with "This value should not be blank." under each empty field, with no error page (AP2505_009 step 3 and AP2505_007 first pass, 2026-11-07); a pre-filled Home phone without dashes is refused with the `###-###-####` message (AP2505_007 round 1). On a quote without financing the financing inputs were not marked required (AP2505_006). | Nicolas-Eric Tain |
+| Q-009 | What does "the current process" produce after submit — which page the dealer lands on, which message, whether an invoice is created, and where the AutoShield contract PDF is offered? | REQ-004 | Judgement | Accepted | No Story/Task defines it for this page with certainty (searched: L14, L15, L21; read AP-2225, AP-2551, AP-2562, AP-2431). The sentences found disagree: AP-2225 (2025, still in QC with 12 open questions — weak evidence): "The user is redirected to the autoShield contract page"; AP-2551 and AP-2562 (2026-11, Deploy to staging, the all-contracts checkout, roadside not named): "THEN all the contract will be generated and the dealer will be redirected to the quote’s details page." / "Then it will create the contracts and redirects to the quote detail". None states the message or the invoice — current actual result accepted: the dealer lands on `/quote/{quoteId}/details` with "The Roadside protection coverage has been saved successfully"; the Roadside row shows "Contract #<id>" (link to `/quote/{quoteId}/auto-shield-contract/{contractId}`, which offers en/fr PDF links) and a download icon; **no invoice** is created (top of `/invoice/all` still 944) (AP2505_007 round 3 and AP2505_008, 2026-11-07). | Nicolas-Eric Tain |
+| Q-010 | AC 1 starts from a quote with "no contract". On a quote whose roadside contract already exists, or for a VIN that already has an AutoShield contract, is "Generate Contract" still offered, and what does the address show if opened directly? | REQ-001, REQ-004 | Judgement | Accepted | No Story/Task defines it (searched: L13, L22; read AP-2431, AP-2493 — AP-2493 says only "Finalized products keep their existing download action and are out of scope for cancellation here.") — current actual result accepted: once contract 2782 exists, the Roadside row has no ⋯ menu and no "Generate Contract", only "Contract #2782" and a PDF download icon; the typed address answers 302 → `/quote/6597/auto-shield-contract/2782`, with no message and no second contract (AP2505_010, 2026-11-07). A second quote on a VIN that already has a contract: recorded at execution (not run). | Nicolas-Eric Tain |
+| Q-011 | The description gives the route name "quote-insurance-create-contract", which reads like the creditor-insurance route. Is that the roadside route's internal name? (Not observable in the browser.) | REQ-001 | Info | Answered | AP-2504 (Story, QC — a sibling story; its own open question is about AC 1's row, not the route): "The route /quote/{quoteId}/insurance/create-contract/{type} (quote-insurance-create-contract) stays the same." Searched: L16, L17. The name belongs to the GAP/Creditor insurance route; it changes no result in this ticket. | Nicolas-Eric Tain |
+| Q-012 | Does this change also fix AP-2518 (the HTTP 500 on this address on Dev, 2026-11-02), or is that fix expected separately? | REQ-001 – REQ-004 | Info | Open | Not a knowledge question (it asks about another ticket's fix plan); no lookup run. For the record: AP-2518's symptom did not reproduce on Dev on 2026-11-07 (comment 19512 on AP-2518). | Nicolas-Eric Tain |
+
+---
+
+## Knowledge lookup — 2026-11-15
+
+Run under SKILL.md Steps 3b–3c at the user's instruction of 2026-11-15 (batch qa-agent:
+"double check all tickets' question"). Every question that was `Open` was re-checked.
+Nothing was posted to Jira. AP-2505 itself has not changed since 2026-11-08 (status QC,
+4 comments, all from the QA account — none answers a question).
+
+**Queries tried.** Each is `issuetype in (Story, Task) AND text ~ "<words>"` on project AP,
+any status — the adapter's *knowledge lookup* query.
+
+| # | Words | Plausible hits read |
+|---|---|---|
+| L1 | roadside generate contract | AP-2544, AP-2545, AP-2546 (AP-2537 title only — refund) |
+| L2 | road side protection contract | AP-2225, AP-2431 |
+| L3 | AutoShield contract | AP-2225, AP-2431 (AP-2543, AP-2237 titles only — void/cancel) |
+| L4 | vehicle identification owner information column | AP-2503, AP-2504, AP-2506 |
+| L5 | check out page contract | AP-2544, AP-2545, AP-2546, AP-2559, AP-2562 |
+| L6 | Program Summary contract | AP-2506, AP-2550 |
+| L7 | Product Summary roadside | AP-2544, AP-2498 |
+| L8 | financing information read-only | AP-2546 |
+| L9 | financing company roadside | AP-2546 |
+| L10 | generate contract GAP insurance | AP-2504, AP-2559 |
+| L11 | contract without financing | AP-2225, AP-2559 |
+| L12 | In service date required | AP-2544 |
+| L13 | contract already exists generate | none plausible (AP-2504, AP-2428, AP-2446 — other products) |
+| L14 | autoshield contract page PDF | AP-2225, AP-2431 |
+| L15 | roadside invoice | none (AP-670 — unrelated) |
+| L16 | quote-insurance-create-contract | AP-2504 |
+| L17 | road-side-protection-create-contract | AP-2225, AP-2431 (AP-2424 title only) |
+| L18 | Esthetic protection contract page | AP-2506 |
+| L19 | owner information client update contract | AP-2545 |
+| L20 | vehicle information read-only VIN | AP-2544 |
+| L21 | generate contract redirect quote detail | AP-2551, AP-2562 |
+| L22 | roadside contract details existing | AP-2431, AP-2493 |
+
+**Per question:** Q-001 — L4, L5 (context only; a contradiction stays Open) · Q-002 — L10, L1
+· Q-003 — L18, L5, L6 · Q-004 — L6, L7 · Q-005 — L5, L19, L20 · Q-006 — L11, L9 · Q-007 —
+L8, L9 · Q-008 — L12, L8 · Q-009 — L14, L15, L21 · Q-010 — L13, L22 · Q-011 — L16, L17 ·
+Q-012 — not run (not a knowledge question).
+
+**Result:** Q-001 stays Blocking and `Open` (the ticket contradicts itself). Six questions
+are `Answered` by a Story: Q-003, Q-004, Q-005, Q-007 and Q-008 from AP-2544, AP-2545 and
+AP-2546, and Q-011 from AP-2504. Four are `Accepted`: Q-002, Q-006, Q-009 and Q-010.
+Q-012 (Info) stays `Open` because it is not a knowledge question. No test case becomes
+runnable: AP2505_004 stays BLOCKED by Q-001.
+
+**Notes for the next design pass (not acted on here):**
+- AP-2544, AP-2545 and AP-2546 (created 2026-11-04, Deploy to staging) change the same
+  page for every product. Where they differ from AP-2505's own text, the AC wins in this
+  ticket. AC 2 names "Program Summary", while AP-2544 and AP-2550 say "Product Summary".
+  AC 3 says "financing is read-only", while AP-2546 exempts "Financing company". Both
+  points touch the open bugs AP-2553 (AC 2 headings) and AP-2554 (AC 3), which were not
+  touched.
+- The answers to Q-005 and Q-008 give expected results that the current cases only
+  record. On 2026-11-07 the vehicle inputs other than VIN were editable (AP-2544 says
+  read-only), the owner section showed Drivers license (AP-2545 says not shown), and the
+  financing inputs were not required on a quote without financing (AP-2546 says "All
+  fields are required"). Judging them needs a design change. Whether AP-2544–AP-2546 are
+  in AP-2505's scope is the orchestrator's decision.
+- AP-2559 (created 2026-11-09) hides the "Financing information" card on a quote "without
+  a GAP/Creditor insurance". On such a roadside quote this would conflict with AC 2's
+  left-column "Financing information". Recorded only.
 
 ---
 
@@ -252,4 +317,4 @@ stands. Each one is a requirement we cannot honestly sign off until it is clarif
 - [x] Testability risks have been logged
 - [x] Open questions have been assigned to stakeholders
 - [ ] Recommended test types reviewed by QA Lead
-- [ ] Ready to proceed to Test Plan Design — one Blocking question (Q-001) is open on REQ-002 only; the other requirements can proceed (Gate A rule A2)
+- [ ] Ready to proceed to Test Plan Design — one Blocking question (Q-001) is open on REQ-002 only; the other requirements can proceed (Gate A rule A2). Re-checked 2026-11-15 by the knowledge lookup: Q-001 still Blocking and Open, Q-012 (Info) Open; every other question Answered or Accepted

@@ -84,9 +84,9 @@ saved, mark it **BLOCKED — AP-2508**.
 |---|---|---|:---:|:---:|
 | AP2505_001 | On a quote with a GAP quote and a roadside product, "Generate Contract" opens the roadside contract page in the same tab, not a pop-up | Functional | High | FAIL |
 | AP2505_002 | On a quote with a roadside product but no GAP quote, the roadside contract page still opens as a full page at its address | Edge-case | Medium | FAIL |
-| AP2505_003 | The roadside contract page shows owner and financing on the left, and Program Summary with "Generate Contract" on the right | UI | Medium | BLOCKED |
+| AP2505_003 | The roadside contract page shows owner and financing on the left, and Program Summary with "Generate Contract" on the right | UI | Medium | FAIL |
 | AP2505_004 | The roadside contract page shows "Vehicle identification" in the column the author confirms | UI | Medium | BLOCKED |
-| AP2505_005 | The roadside contract page is pre-filled with the quote's vehicle, client and financing, and the financing cannot be changed | Functional | High | BLOCKED |
+| AP2505_005 | The roadside contract page is pre-filled with the quote's vehicle, client and financing, and the financing cannot be changed | Functional | High | FAIL |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -102,6 +102,7 @@ saved, mark it **BLOCKED — AP-2508**.
 | 2026-11-03 | — (Execution Context) | "Known bugs": AP-2518 split stated per case and step (FAIL: 001 step 3, 002 step 4, 010 step 3, 006 step 3 only if specific to no financing; BLOCKED: 003–005 and 007–009 step 2), identical in both files and the test plan | Review R2 round 1, F-3 |
 | 2026-11-03 | — (Execution Context) | "Leaves behind": adds the fallback quotes of AP2505_003–005 and the +100 VIN change | Review R2 round 1, F-6 |
 | 2026-11-03 | AP2505_003, AP2505_004, AP2505_005 | Test Data: quote A is reused only when its Roadside Protection row shows the saved product with a "⋯" menu and no contract; otherwise the case builds its own quote | Review R2 round 1, F-7 |
+| 2026-11-07 | All (AP2505_001 – AP2505_005) | Status reset to Not Run (AP2505_004 stays BLOCKED — Q-001 still unanswered on 2026-11-07); the 2026-11-03 result is kept in each case's Result line as "previous run" | Retest after fix (plan rule P6): Ken Nguyen moved AP-2505 QC → Deploy to staging → QC on 2026-11-04; re-executed in full on the current Dev build |
 
 ---
 
@@ -121,8 +122,8 @@ saved, mark it **BLOCKED — AP-2508**.
 | **Priority** | High |
 | **Status** | FAIL |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | FAIL at step 3 — ⋯ → Generate Contract opened a pop-up stuck on "Loading..." and the page GET returned HTTP 500 (quote 6568); step 4 typed address also HTTP 500. Compare with AP-2518 at Gate C |
+| **Executed on** | 2026-11-07 — Environment: Dev — execution-log_AP-2505_2026-11-07.md (previous: 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md) |
+| **Result** | FAIL at steps 3 and 5 — the page now opens in the same tab as a full page (HTTP 200, quote 6593; AP-2518 not reproduced), but it has no "Program Summary" section (titled "Product Summary") (previous run 2026-11-03: FAIL at step 3 — ⋯ → Generate Contract opened a pop-up stuck on "Loading..." and the page GET returned HTTP 500 (quote 6568); step 4 typed address also HTTP 500. Compare with AP-2518 at Gate C) |
 
 **Why this matters:** This is the whole point of the story: the action must open a full
 page in the same tab, not a pop-up. The quote is built exactly as AC 1 states it — with a
@@ -164,8 +165,8 @@ unsubmitted, by AP2505_003 – _005.
 | **Priority** | Medium |
 | **Status** | FAIL |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | FAIL at step 4 — same pop-up and HTTP 500 (quote 6569); step 3 recorded: Generate Contract is offered without a GAP quote (Q-002) |
+| **Executed on** | 2026-11-07 — Environment: Dev — execution-log_AP-2505_2026-11-07.md (previous: 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md) |
+| **Result** | FAIL at step 5 — Generate Contract offered without a GAP quote (Q-002) and the page opens (200, quote 6595), but no "Program Summary" section ("Product Summary") (previous run 2026-11-03: FAIL at step 4 — same pop-up and HTTP 500 (quote 6569); step 3 recorded: Generate Contract is offered without a GAP quote (Q-002)) |
 
 **Why this matters:** AC 1 starts from "a quote with a GAP insurance quote", but a dealer
 can sell roadside protection without GAP. Whether the action is offered without a GAP
@@ -204,10 +205,10 @@ FAIL, compared with AP-2518 at Gate C.
 | **Route** | `/quote/{id}/road-side-protection-create-contract` |
 | **Type** | UI |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
+| **Status** | FAIL |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — AP-2518: contract page HTTP 500 at setup step 2 (quote A 6568) |
+| **Executed on** | 2026-11-07 — Environment: Dev — execution-log_AP-2505_2026-11-07.md (previous: 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md) |
+| **Result** | FAIL at step 3 — left column holds "Vehicle identification" and "Owner identification"; no "Financing information" section; right column "Product Summary" + Generate Contract (quote 6593) (previous run 2026-11-03: BLOCKED — AP-2518: contract page HTTP 500 at setup step 2 (quote A 6568)) |
 
 **Why this matters:** The layout is the visible point of the story. Owner information on
 the left and the Program Summary with the button on the right are stated in both places;
@@ -246,8 +247,8 @@ AP-2518.
 | **Priority** | Medium |
 | **Status** | BLOCKED |
 | **Blocked by** | Q-001 (Blocking — unanswered) |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — Q-001 (Blocking, unanswered); not attempted |
+| **Executed on** | 2026-11-07 — Environment: Dev — execution-log_AP-2505_2026-11-07.md (previous: 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md) |
+| **Result** | BLOCKED — Q-001 (Blocking, still unanswered 2026-11-07). Observed (not judged): "Vehicle identification" is the first section of the left column (previous run 2026-11-03: BLOCKED — Q-001 (Blocking, unanswered); not attempted) |
 
 **Why this matters:** The two sources contradict each other on the vehicle section's
 column, so no result can be judged until the author answers Q-001 (posted on AP-2505 on
@@ -281,10 +282,10 @@ setup: an HTTP 500 makes the case BLOCKED — AP-2518.
 | **Route** | `/quote/{id}/road-side-protection-create-contract` |
 | **Type** | Functional · Negative |
 | **Priority** | High |
-| **Status** | BLOCKED |
+| **Status** | FAIL |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — AP-2518: contract page HTTP 500 at setup step 2 (quote A 6568) |
+| **Executed on** | 2026-11-07 — Environment: Dev — execution-log_AP-2505_2026-11-07.md (previous: 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md) |
+| **Result** | FAIL at steps 3 and 5 — Financing company shown empty ("Choose") though AutoCapital Canada was entered; Financed amount, Interest rate, Purchase type and Financing company all editable (quote 6593) (previous run 2026-11-03: BLOCKED — AP-2518: contract page HTTP 500 at setup step 2 (quote A 6568)) |
 
 **Why this matters:** A wrong VIN, client name or lender on the page goes straight onto
 the AutoShield contract. Every value is compared with what the case itself entered when it

@@ -3,7 +3,7 @@
 **Project:** Avantage Plus v2 — Admin Portal, dealer-user management
 **Requirement:** AP2441 — Admin: Manage user permissions from a User Details Page
 **Source:** `requirements/AP-2441-admin-manage-user-permissions-from-a.md`; `qa-artifacts/1-requirements-analysis/AP-2441_requirements-analysis.md`; `qa-artifacts/2-test-plan/AP-2441_test-plan.md`
-**Date:** 2026-11-01 (reworked the same day for the orchestrator R2 review findings F-2 and F-4)
+**Date:** 2026-11-01 (reworked the same day for the orchestrator R2 round 1 findings F-2 and F-4); reworked 2026-11-04 for the R2 round 2 findings F-1, F-3 and F-4 — execution on Dev
 **Designed by:** QA Agent — Test Case Designer Skill
 **TC Range:** AP2441_006 to AP2441_010 (5 test cases)
 **Coverage:** Functional · Negative · Edge-case
@@ -21,9 +21,9 @@ executor should not need a second file open to run this batch._
 | **Portal** | Admin Portal | `navigation` §1 |
 | **Entry route** | `/admin/login`, then `/admin/dealer-users` — the dealer users list. **Its search box only works when the form is submitted**: type the email and press Enter or the search button; a `?…_search[...]=` parameter in the URL is silently ignored. The **Dealer User Details page** is opened by clicking the user's row in that list; its own route is **not known** (not yet mapped — record it and write it back to `domain`). The **Dealer Details > Users** page is `/admin/dealer/1510/users` (URL in the ticket's screenshot of 2026-08-23); if the Users tab link is not visible, open `/admin/dealer/1510/edit` (Dealer Details, `domain` admin-portal.md 2026-10-03) and click the **"Users"** tab, or type `/admin/dealer/1510/users` directly. The **"Link user"** button is at the top right of the Dealer Details > Users page (ticket attachment `image-20260817-141357.png`); its form has not been mapped | `navigation`, `domain` (admin-portal.md), `env`, ticket attachments |
 | **Viewport** | 1280 × 800 | `navigation` §1, registry `admin_viewport` |
-| **Environment** | Staging (v2staging) — base URL in the `env` source | `env` |
+| **Environment** | Dev (v2dev) — the `execution_env` in tools.md; base URL in the `env` source, Dev Environment section | `qa-config/tools.md` (`execution_env`), `env` |
 | **Login** | The Admin Portal login in the `env` source (Portals table, "Admin Portal" row). Never copy it into the log | `env` |
-| **Test data** | **Test user:** `vinhle8702@gmail.com`, displayed "Vinh le2 Vinh Le2" (dealer-user row 110 in `/admin/dealer-users`, seen 2026-08-29). **Test dealer:** **1510**, "Vinh le 2". Both come from this ticket's own QA screenshot; no other ticket uses them. **Do not use dealer 1380** — it is the shared dealership other tickets test on. Neither the user nor its link to dealer 1510 is in the `test-data`, `navigation` or `domain` source, so step 1 of AP2441_006–009 checks them first. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer and never switch to dealer 1380 to make the data.** After execution, s4 records the pair in the `test-data` source | ticket capture, test plan §8 |
+| **Test data** | **Test user:** `vinhle8702@gmail.com`, displayed "Vinh le2 Vinh Le2". **Test dealer:** **1510**, "Vinh le 2". Both come from this ticket's own QA screenshot and were seen **only on Staging** (dealer-user row 110 in `/admin/dealer-users`, 2026-08-29); **they are unverified on Dev**, and no other ticket uses them. **Do not use dealer 1380** — it is the shared dealership other tickets test on. Neither the user nor its link to dealer 1510 is in the `test-data`, `navigation` or `domain` source for any environment, so on Dev step 1 of AP2441_006–009 is expected to decide it. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing on Dev: vinhle8702@gmail.com not linked to dealer 1510". Never link the user to the dealer to create missing data — linking is allowed only to restore a link the case removed itself (AP2441_007 step 4, AP2441_008 step 2); never create dealer 1510 data; never switch to dealer 1380.** After execution, s4 records what it found on Dev in the `test-data` source as a dated `Dev` entry | ticket capture (Staging), test plan §8, `qa-config/tools.md` |
 | **Language** | The admin login page is in French ("Courriel", "Mot de passe", "Se connecter"); the admin pages in the ticket's screenshots are in English. Run in English | `navigation` §1, ticket attachments |
 | **Leaves behind** | Nothing when every restore step succeeds. AP2441_006 changes nothing; AP2441_007 removes and re-creates the test user's link to dealer 1510 with the same roles; AP2441_008 re-links only if Unlink acts without a confirmation. AP2441_009/010 are read-only. `cleanup` is `missing` on this project, so each case restores its own changes | test plan §8.1, `cleanup` (missing) |
 
@@ -39,9 +39,12 @@ crossed-link icon. Hover each button and use its tooltip; if a button has no too
 to the Dealer Details > Users button with the same icon, and record that the match was made by
 icon.
 
-**Known blockers:** None at design time. AP2441_010 needs a dealer user linked to two or
-more dealers; its first step finds one by a read-only search, and the case is BLOCKED at run
-time only if none exists.
+**Known blockers:** None filed. **Test data unverified on Dev:** the dealer 1510 /
+`vinhle8702@gmail.com` pair was seen only on Staging; on Dev the step-1 check of AP2441_006–009
+decides it, and if the pair is missing those cases are BLOCKED "test data missing on Dev:
+vinhle8702@gmail.com not linked to dealer 1510" — never FAIL, never a re-link, never dealer 1380.
+AP2441_010 needs a dealer user linked to two or more dealers; its first step finds one on Dev
+by a read-only search, and the case is BLOCKED at run time only if none exists.
 
 ---
 
@@ -49,11 +52,11 @@ time only if none exists.
 
 | TC ID | Title | Type | Priority | Status |
 |---|---|---|:---:|:---:|
-| AP2441_006 | Closing Edit Permissions on the User Details page without saving leaves the user's roles unchanged | Negative | Medium | Not Run |
-| AP2441_007 | Unlink from the User Details page removes the user from that dealer on both pages (then re-linked) | Functional | High | Not Run |
-| AP2441_008 | Cancelling Unlink on the User Details page keeps the user linked to the dealer | Negative | Medium | Not Run |
-| AP2441_009 | Clicking a dealer row on the User Details page opens that dealer's details page | Functional | Medium | Not Run |
-| AP2441_010 | For a user with several dealers, clicking the last dealer row opens that dealer, not the first | Edge-case | Low | Not Run |
+| AP2441_006 | Closing Edit Permissions on the User Details page without saving leaves the user's roles unchanged | Negative | Medium | PASS |
+| AP2441_007 | Unlink from the User Details page removes the user from that dealer on both pages (then re-linked) | Functional | High | PASS |
+| AP2441_008 | Cancelling Unlink on the User Details page keeps the user linked to the dealer | Negative | Medium | PASS |
+| AP2441_009 | Clicking a dealer row on the User Details page opens that dealer's details page | Functional | Medium | PASS |
+| AP2441_010 | For a user with several dealers, clicking the last dealer row opens that dealer, not the first | Edge-case | Low | PASS |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -73,10 +76,16 @@ time only if none exists.
 | **Route** | Dealer User Details page of `vinhle8702@gmail.com`; reference `/admin/dealer/1510/users` |
 | **Type** | Negative |
 | **Priority** | Medium |
-| **Status** | Not Run |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-04, Dev (v2dev) — execution-log_AP-2441_2026-11-04.md |
+| **Result** | PASS |
+
+**Revisions:**
+
+| Date | Change | Reason | Confirmed by |
+|---|---|---|---|
+| 2026-11-04 | Step 1: BLOCKED reason now "test data missing on Dev: ..."; no-link rule reworded to "never link the user to the dealer to create missing data, never create dealer 1510 data, never switch to dealer 1380" | R2 round 2 F-1 (execution moved to Dev; the test-data pair is unverified there) and F-4 (wording) | Orchestrator qa-reviewer, R2 round 2 (2026-11-04T16:04:26Z) |
 
 **Why this matters:** An administrator who opens the permissions form by mistake and backs
 out must not change the user's access. A form that saves on close, or a half-applied change,
@@ -94,7 +103,7 @@ would grant or remove access nobody chose.
 
 | # | Action | Expected Result |
 |---|---|---|
-| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer and never switch to dealer 1380 to make the data.** Then write down, in order, every role badge on the "Vinh le2 Vinh Le2" row | The original roles are recorded |
+| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing on Dev: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer to create missing data, never create dealer 1510 data and never switch to dealer 1380.** Then write down, in order, every role badge on the "Vinh le2 Vinh Le2" row | The original roles are recorded |
 | 2 | Open `/admin/dealer-users`, type `vinhle8702@gmail.com` in the search box and submit it, click the "Vinh le2 Vinh Le2" row, then click the **"Edit Permissions"** button in the dealer 1510 row | The permissions form opens for Vinh le2 Vinh Le2 at dealer 1510 "Vinh le 2" |
 | 3 | Switch **"Window Sticker"** to the opposite state, then leave **without saving**: click "Cancel" or the close (×) control if the form has one, otherwise the browser's Back button | The form closes without saving and without an error page; record which control was used and where the browser lands (Q-003) |
 | 4 | [Verification] Open `/admin/dealer/1510/users` and read the "Vinh le2 Vinh Le2" row | The role badges are exactly the step-1 list — "Window Sticker" is unchanged. If they differ, record the difference and restore the step-1 roles with the row's "Edit Permissions" button before continuing |
@@ -111,10 +120,16 @@ would grant or remove access nobody chose.
 | **Route** | Dealer User Details page of `vinhle8702@gmail.com`; reference and restore `/admin/dealer/1510/users` |
 | **Type** | Functional |
 | **Priority** | High |
-| **Status** | Not Run |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-04, Dev (v2dev) — execution-log_AP-2441_2026-11-04.md |
+| **Result** | PASS |
+
+**Revisions:**
+
+| Date | Change | Reason | Confirmed by |
+|---|---|---|---|
+| 2026-11-04 | Step 1: BLOCKED reason now "test data missing on Dev: ..."; no-link rule reworded to "never link the user to the dealer to create missing data, never create dealer 1510 data, never switch to dealer 1380" | R2 round 2 F-1 (execution moved to Dev; the test-data pair is unverified there) and F-4 (wording) | Orchestrator qa-reviewer, R2 round 2 (2026-11-04T16:04:26Z) |
 
 **Why this matters:** Unlink takes a user's access to a dealership away. If the button on
 the user's page removed the user from a different dealer — or removed a different user from
@@ -134,7 +149,7 @@ test user's only known link, the link the other cases rely on.
 
 | # | Action | Expected Result |
 |---|---|---|
-| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer and never switch to dealer 1380 to make the data.** On that page write down the "Vinh le2 Vinh Le2" row's role badges and the names of all users listed. Then open `/admin/dealer-users`, search `vinhle8702@gmail.com` (submit the form), open the "Vinh le2 Vinh Le2" row and write down every dealer in its "Dealers" table | The original roles, the dealer's user list and the user's dealer list are recorded |
+| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing on Dev: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer to create missing data, never create dealer 1510 data and never switch to dealer 1380.** On that page write down the "Vinh le2 Vinh Le2" row's role badges and the names of all users listed. Then open `/admin/dealer-users`, search `vinhle8702@gmail.com` (submit the form), open the "Vinh le2 Vinh Le2" row and write down every dealer in its "Dealers" table | The original roles, the dealer's user list and the user's dealer list are recorded |
 | 2 | Click the **"Unlink"** button in the dealer 1510 row. If a confirmation appears, record its title and full wording (Q-004), then confirm it | The browser does not go to the dealer details page instead; no error page or HTTP 5xx; record any message and where the browser lands (Q-003) |
 | 3 | Open the test user's User Details page again (search `vinhle8702@gmail.com` on `/admin/dealer-users`) and then `/admin/dealer/1510/users`; **take a screenshot of each** | The user's "Dealers" table no longer lists dealer 1510, and every other dealer from step 1 is still listed. The dealer 1510 Users tab no longer lists "Vinh le2 Vinh Le2", and every other user from step 1 is still listed. Record-only: what the User Details page shows if no dealer is left, or whether the user is still found in `/admin/dealer-users` (Q-005) |
 | 4 | Restore: on `/admin/dealer/1510/users` click **"Link user"**, choose or enter `vinhle8702@gmail.com`, grant the step-1 roles (in the Link user form if it offers roles; otherwise afterwards with the row's "Edit Permissions" button), and save | "Vinh le2 Vinh Le2" is listed again on the dealer 1510 Users tab. If the user cannot be found or linked, stop, record why, and suspend the run (test plan §6) |
@@ -152,10 +167,16 @@ test user's only known link, the link the other cases rely on.
 | **Route** | Dealer User Details page of `vinhle8702@gmail.com`; reference `/admin/dealer/1510/users` |
 | **Type** | Negative |
 | **Priority** | Medium |
-| **Status** | Not Run |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-04, Dev (v2dev) — execution-log_AP-2441_2026-11-04.md |
+| **Result** | PASS |
+
+**Revisions:**
+
+| Date | Change | Reason | Confirmed by |
+|---|---|---|---|
+| 2026-11-04 | Step 1: BLOCKED reason now "test data missing on Dev: ..."; no-link rule reworded to "never link the user to the dealer to create missing data, never create dealer 1510 data, never switch to dealer 1380" | R2 round 2 F-1 (execution moved to Dev; the test-data pair is unverified there) and F-4 (wording) | Orchestrator qa-reviewer, R2 round 2 (2026-11-04T16:04:26Z) |
 
 **Why this matters:** The Unlink button sits in a row of small, unlabelled icons next to
 Edit Permissions. If a mis-click cannot be backed out of, an administrator will remove a
@@ -174,7 +195,7 @@ existence and wording are recorded, and only the outcome of cancelling it is jud
 
 | # | Action | Expected Result |
 |---|---|---|
-| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer and never switch to dealer 1380 to make the data.** Then write down the "Vinh le2 Vinh Le2" row's role badges; then open `/admin/dealer-users`, search `vinhle8702@gmail.com` (submit the form) and open the "Vinh le2 Vinh Le2" row | The original roles are recorded; the User Details page lists dealer 1510 "Vinh le 2" |
+| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing on Dev: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer to create missing data, never create dealer 1510 data and never switch to dealer 1380.** Then write down the "Vinh le2 Vinh Le2" row's role badges; then open `/admin/dealer-users`, search `vinhle8702@gmail.com` (submit the form) and open the "Vinh le2 Vinh Le2" row | The original roles are recorded; the User Details page lists dealer 1510 "Vinh le 2" |
 | 2 | Click the **"Unlink"** button in the dealer 1510 row | Record whether a confirmation appears, with its title, wording and buttons (Q-004). **If no confirmation appears and the row disappears at once**, record it, restore the link — on `/admin/dealer/1510/users` click "Link user", link `vinhle8702@gmail.com` and grant the step-1 roles — and end the case as SKIPPED, reason "Unlink has no confirmation to cancel" |
 | 3 | Cancel the confirmation — click "No", "Cancel" or the close (×) control | The confirmation closes without an error page; record where the browser is |
 | 4 | [Verification] Reload the User Details page, then open `/admin/dealer/1510/users` | The User Details page still lists dealer 1510 "Vinh le 2", and the dealer 1510 Users tab still lists "Vinh le2 Vinh Le2" with exactly the step-1 role badges |
@@ -191,10 +212,16 @@ existence and wording are recorded, and only the outcome of cancelling it is jud
 | **Route** | Dealer User Details page of `vinhle8702@gmail.com` |
 | **Type** | Functional |
 | **Priority** | Medium |
-| **Status** | Not Run |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-04, Dev (v2dev) — execution-log_AP-2441_2026-11-04.md |
+| **Result** | PASS |
+
+**Revisions:**
+
+| Date | Change | Reason | Confirmed by |
+|---|---|---|---|
+| 2026-11-04 | Step 1: BLOCKED reason now "test data missing on Dev: ..."; no-link rule reworded to "never link the user to the dealer to create missing data, never create dealer 1510 data, never switch to dealer 1380" | R2 round 2 F-1 (execution moved to Dev; the test-data pair is unverified there) and F-4 (wording) | Orchestrator qa-reviewer, R2 round 2 (2026-11-04T16:04:26Z) |
 
 **Why this matters:** The row click is the administrator's shortcut from a user to one of
 their dealerships. A row that opens nothing, or the wrong dealer, sends them to change the
@@ -213,7 +240,7 @@ the rest.
 
 | # | Action | Expected Result |
 |---|---|---|
-| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer and never switch to dealer 1380 to make the data.** Then open `/admin/dealer-users`, search `vinhle8702@gmail.com` (submit the form) and open the "Vinh le2 Vinh Le2" row | The User Details page lists dealer 1510 "Vinh le 2" in its "Dealers" table |
+| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source and open `/admin/dealer/1510/users`. **If `/admin/dealer/1510/users` does not open or does not list "Vinh le2 Vinh Le2", stop and record the case BLOCKED — "test data missing on Dev: vinhle8702@gmail.com not linked to dealer 1510"; never link the user to the dealer to create missing data, never create dealer 1510 data and never switch to dealer 1380.** Then open `/admin/dealer-users`, search `vinhle8702@gmail.com` (submit the form) and open the "Vinh le2 Vinh Le2" row | The User Details page lists dealer 1510 "Vinh le 2" in its "Dealers" table |
 | 2 | Click the **dealer name cell "Vinh le 2"** of the dealer 1510 row — not one of the action buttons | The browser leaves the User Details page and opens a dealer page, without an error page or HTTP 5xx |
 | 3 | [Verification] Read the page heading and URL | The page belongs to dealer 1510: its heading names the dealer "Vinh le 2" and the URL contains `/admin/dealer/1510`. Record-only: the exact URL and which tab is active (Details, Users or another), since the ticket does not name the route |
 
@@ -229,10 +256,16 @@ the rest.
 | **Route** | Dealer User Details page of a user with ≥ 2 dealers (opened from `/admin/dealer-users`) |
 | **Type** | Edge-case |
 | **Priority** | Low |
-| **Status** | Not Run |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Executed on** | 2026-11-04, Dev (v2dev) — execution-log_AP-2441_2026-11-04.md |
+| **Result** | PASS |
+
+**Revisions:**
+
+| Date | Change | Reason | Confirmed by |
+|---|---|---|---|
+| 2026-11-04 | Step 1 and Test Data: skip any user linked to dealer 1380 or named for another ticket in `test-data`; the user is searched on Dev | R2 round 2 F-3 | Orchestrator qa-reviewer, R2 round 2 (2026-11-04T16:04:26Z) |
 
 **Why this matters:** With only one dealer row, a link hard-wired to the first dealer would
 still look correct. Clicking the last of several rows catches that. The case is
@@ -242,13 +275,13 @@ still look correct. Clicking the last of several rows catches that. The case is
 
 | Variable | Value |
 |---|---|
-| Multi-dealer user | Any existing dealer user whose Dealers table has two or more rows — found in step 1 (the one used for AP2441_002 may be reused), recorded in the log |
+| Multi-dealer user | Any existing dealer user on Dev whose Dealers table has two or more rows — not one linked to dealer 1380 and not one named for another ticket in `test-data`; found in step 1 (the one used for AP2441_002 may be reused), recorded in the log |
 
 **Steps:**
 
 | # | Action | Expected Result |
 |---|---|---|
-| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source, open `/admin/dealer-users` and open users one by one (at most the first 3 pages) until one's User Details page shows **two or more** dealer rows; write down the Dealer ID and Name of the first and the last row. If none is found, record the case as BLOCKED — "no dealer user with two or more dealers found" | A User Details page with at least two dealer rows is open; the first and last dealers are recorded |
+| 1 | [Pre-Condition] Log in at `/admin/login` with the Admin Portal login from the `env` source, open `/admin/dealer-users` and open users one by one (at most the first 3 pages) until one's User Details page shows **two or more** dealer rows. **Skip any user whose Dealers table includes dealer 1380 or who is named for another ticket in the `test-data` source.** Write down the Dealer ID and Name of the first and the last row. If none is found, record the case as BLOCKED — "no dealer user with two or more dealers found" | A User Details page with at least two dealer rows is open; the first and last dealers are recorded |
 | 2 | Click the **Name cell** of the **last** dealer row — not one of the action buttons | The browser opens a dealer page without an error page or HTTP 5xx |
 | 3 | [Verification] Read the page heading and URL | The heading names the **last** row's dealer and the URL contains `/admin/dealer/{its Dealer ID}` — not the first row's dealer. Record the URL |
 
@@ -280,8 +313,8 @@ _AP2441_011 is not counted as REQ-002 coverage: its only REQ-002 point — the "
 
 | TC ID | Result | Screenshot |
 |---|:---:|---|
-| AP2441_006 | _(pending)_ | — |
-| AP2441_007 | _(pending)_ | — |
-| AP2441_008 | _(pending)_ | — |
-| AP2441_009 | _(pending)_ | — |
-| AP2441_010 | _(pending)_ | — |
+| AP2441_006 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2441/AP2441_006-step4-RolesUnchangedAfterClose_pass.png` |
+| AP2441_007 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2441/AP2441_007-step5-RelinkedTwelveRoles_pass.png` |
+| AP2441_008 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2441/AP2441_008-step4-StillLinkedAfterCancel_pass.png` |
+| AP2441_009 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2441/AP2441_009-step3-RowOpensDealer1510Details_pass.png` |
+| AP2441_010 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2441/AP2441_010-step3-LastRowOpensDealer1518_pass.png` |

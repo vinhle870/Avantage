@@ -1,0 +1,10 @@
+AP2374_006 step 2 - claim attachment, Dev (v2dev), claim 333, file AP2374-attachment.png (PNG, 53,853 bytes), type Other
+Captured 2026-11-15 (UTC). Method, URL and status only.
+
+(a) Admin portal Add attachment - 2026-11-15T10:21:17Z
+GET  https://v2dev.garantieavantageplus.ca/admin/claim/333/upload-attachment => 200
+POST https://v2dev.garantieavantageplus.ca/admin/claim/333/upload-attachment => 500 (page "Erreur - Désolé, l'application éprouve des difficultés techniques.")
+
+(b) Admin API - 2026-11-15T10:21:28Z
+POST https://v2dev.garantieavantageplus.ca/api/admin/claim-attachment => 500
+Response body: {"success":false,"error":"Failed to upload attachment: Unable to create the \"/var/www/dev/releases/79/src/app/uploads/claim_attachments/\" directory."}

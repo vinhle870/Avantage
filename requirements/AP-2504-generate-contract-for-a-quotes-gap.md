@@ -78,3 +78,38 @@ link is given in the field.
 > `/quote/{quoteId}/insurance/create-contract` (no `{type}`). (3) The ticket gives no list
 > of Program Summary lines for GAP or creditor insurance (AP-2506 lists five for Esthetic
 > protection; this ticket lists none). (4) "financing is read-only" is stated in AC 3 only.
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:48:25-05:00 · **Previous capture:** 2026-11-03 · **Re-read:** 2026-11-15T09:28Z
+
+No Jira change to the description, the acceptance criteria, the attachments, the status
+(QC) or the assignee (Ken Nguyen). The two comments added since capture are the QA's own
+and hold no answer; no one outside QA has commented:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-02 | Vinh Le - QC (QA account) | QA result comment 19462: FAIL 9/11 on Dev; AP-2538 – AP-2541 filed; 13 open questions listed |
+| 2026-11-08 | Vinh Le - QC (QA account) | QA questions comment 19533 with screenshots for Q-001 – Q-012; asks the reporter to answer. No answer has been posted |
+
+> **2026-11-15 — knowledge lookup (no Jira change, nothing posted).** On the QA's instruction
+> of 2026-11-15 ("double check all tickets' question and continue testing for the
+> blocked/untest test cases"), every open question was re-checked with the analyst's
+> Step 3c knowledge lookup: Jira Story and Task tickets were searched for a sentence that
+> defines each answer. **Q-006, Q-009 and Q-011** are now `Answered` by quoted sentences
+> from AP-2544, AP-2545, AP-2550 (the standardised contract "check out" page, which names
+> GAP and Creditor Insurance) and AP-2431 (the GAP contract list's PDF download).
+> **Q-002 – Q-005, Q-007, Q-008, Q-010, Q-012 and Q-013** found no defining Story/Task and
+> are `Accepted`: the build's current actual result, recorded in the execution log of
+> 2026-11-03, is the expected result. **Q-001 stays `Blocking` + `Open`:** it is not a gap in
+> product knowledge but a contradiction in this ticket's own text — AC 1 starts from "a
+> quote with a GAP insurance quote" and expects the GAP address, yet names "the Extended
+> Warranty row actions", while the description names "the “Generate Contract” action for
+> GAP product". The lookup found nothing that settles it, and the actual result is never
+> used to choose between the two readings. AP2504_002 stays BLOCKED. The acceptance
+> criteria text above still wins over any actual result, and the filed bugs (AP-2538,
+> AP-2539, AP-2540, AP-2541 and the setup-path bugs) are unchanged. Details and every
+> query tried: `qa-artifacts/1-requirements-analysis/AP-2504_requirements-analysis.md` →
+> *Knowledge lookup — 2026-11-15*.

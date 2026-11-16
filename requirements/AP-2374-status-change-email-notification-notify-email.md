@@ -89,3 +89,29 @@ Given/When/Then text in the description above is the acceptance criteria:
 | 2025-12-17 | Vinh Le - QC | Points Ken Nguyen to bug AP-2382 for review. |
 | 2025-12-18 | Ken Nguyen | Struck-through text: ~~"actually I updated the ACs to work with “Authorized” status only"~~; then: "I’ve fixed the issue now,it should work for all statuses" — "can you test with that status and with multiple emails see if it works?" |
 | 2026-01-07 | Vinh Le - QC | Says the missing message text "The claim ID 48618 has been updated to status {{STATUS}}" is still happening on STAGE, and that the email content is incorrect — it "should only be “The claim ID 48618 has been updated to status {{STATUS}}” instead of the content as screenshot"; asks Ken to confirm (screenshot image-20260107-175918.png). No reply in the ticket. |
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08 (Jira "updated" date) · **Previous capture:** 2026-11-01
+
+No change to the description or acceptance criteria. Status QC, assignee Ken Nguyen — unchanged. The new comments since capture are all the QA's own and answer no question:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 | Vinh Le - QC | Comment 19433 — posts Blocking question Q-001 (message wording). |
+| 2026-11-01 | Vinh Le - QC | Comment 19445 — QA result FAIL on Dev; posts Q-010 (where notify_email is set). |
+| 2026-11-08 | Vinh Le - QC | "QA questions — screenshots": re-posts Q-001–Q-010 with a screenshot each; asks Ken Nguyen to answer. |
+
+> **2026-11-15 — knowledge lookup (stlc-requirements-analyst Step 3c), no Jira change.**
+> Every Open question was searched in Jira Stories and Tasks (queries recorded in the
+> analysis, *Knowledge lookup log — 2026-11-15*). Two are defined elsewhere:
+> **Q-010** — AP-2357 *Admin API: create claim*: "notifyEmail | string | Additional email
+> to send notifications when clain is approved" and "a new field called notify_email is
+> saved" (AP-2372 *Admin API: Replace Claim* has the same field) — the claim's notify email
+> is set through the Admin API. **Q-009** — AP-2387 *Claim PDF changes* defines the claim
+> PDF content (status before "contract information", status colour, logo on top).
+> Q-001–Q-008 are not defined by any Story or Task and are accepted as the build behaves,
+> except where this ticket's AC states the result (AC 4's sentence is still required).
+> Nothing was posted to Jira.

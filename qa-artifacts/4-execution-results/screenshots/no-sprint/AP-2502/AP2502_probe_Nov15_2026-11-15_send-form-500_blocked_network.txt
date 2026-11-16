@@ -1,0 +1,4 @@
+AP-2502 Gate B probe (repeat of the 2026-11-07 R2 condition) - Environment: Dev - 2026-11-15T11:27:44Z
+Dealer account logged in through the login form; dealer 1380 configuration not changed; nothing typed or pressed on the probe page.
+GET https://v2dev.garantieavantageplus.ca/compliance-documents/send?redirectUrl=/quick-insurance-quote => 500
+Page body: "Erreur - Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois."

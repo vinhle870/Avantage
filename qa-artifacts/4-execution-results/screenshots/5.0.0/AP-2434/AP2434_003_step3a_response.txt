@@ -1,0 +1,14 @@
+HTTP/1.1 201 Created
+Date: Thu, 05 Nov 2026 05:29:15 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=lWPiJclRMjpd2S6b5aakrEdHyaH9gV%2FeV0y0FZ%2F%2FE0H7l3Ti6DuwYSBYEzHqgmSrSXqU6bDPhQm9heNdkqhnpAsuBy6hx0U60l26y%2FZkNcDiZv1JtAa4eLUTir3P2rsA0rWHRUE3uimGC9HFIR5IQw%3D%3D"}]}
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a55975ac3c75fd64-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"success":true,"noteId":66,"message":"Warranty note created successfully"}

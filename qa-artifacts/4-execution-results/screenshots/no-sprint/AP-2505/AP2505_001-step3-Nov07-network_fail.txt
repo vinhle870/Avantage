@@ -1,0 +1,7 @@
+AP2505_001 step 3 / step 4 — Environment: Dev — 2026-11-07 (request lines only: method, URL, status)
+Menu link markup: a.dropdown-item small, href=/quote/6593/road-side-protection-create-contract, no data-toggle, no data-target, no target
+Click "Generate Contract" -> address bar changed to /quote/6593/road-side-protection-create-contract (same tab, tab count 1, no modal open)
+GET https://v2dev.garantieavantageplus.ca/quote/6593/road-side-protection-create-contract => 200
+Typed address (step 4): GET https://v2dev.garantieavantageplus.ca/quote/6593/road-side-protection-create-contract => 200
+AP-2518 cross-check (2026-11-03 quotes): GET /quote/6568/road-side-protection-create-contract => 200 ; GET /quote/6570/road-side-protection-create-contract => 200
+Headings on the page: H1 "Road Side protection program", H4 "Vehicle identification", H4 "Owner identification", H4 "Product Summary"; text "Program Summary" count = 0; button "Generate Contract" count = 1

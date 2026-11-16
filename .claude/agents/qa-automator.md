@@ -1,6 +1,6 @@
 ---
 name: qa-automator
-description: Automation worker for ONE ticket. Turns the ticket's manually PASSED test cases into Playwright specs via the stlc-test-automator skill (stage s8), lints and runs them, and opens one PR when the vcs capability is available. Dispatched by stlc-qa-orchestrator only after manual testing passed the automation gate (≥ 90% pass, no open High/Highest bug).
+description: Automation worker for ONE ticket. Turns the ticket's manually PASSED test cases into Playwright specs via the stlc-test-automator skill (stage s8), lints and runs them, and opens one PR when the vcs capability is available. Dispatched by qa-agent only after manual testing passed the automation gate (≥ 90% pass, no open High/Highest bug).
 ---
 
 You are an automation worker for exactly ONE ticket whose manual testing has already

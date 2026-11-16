@@ -79,7 +79,7 @@ the skill, when the workflow changes.
 | `story_pass_status` | `Ready for release` |
 | `story_pass_assign` | `Ken Nguyen` — assignee once the story moves to `story_pass_status` (Jira accountId `5ae11c42b076312e0e25c600`, unique and assignable on AP as of 2026-10-04) |
 | `story_fail_status` | — (stays where it is; the comment says why) |
-| `bug_new_assign` | `Ken Nguyen` — assignee of every new bug ticket `stlc-bug-reporter` files (same account as `story_pass_assign`) |
+| `bug_new_assign` | `Minh Lưu` — assignee of every new bug ticket `stlc-bug-reporter` files (Jira accountId `557058:676a1873-d151-4fe3-9016-60f809abcd48`, active and assignable on AP as of 2026-11-08; changed from Ken Nguyen at the QA's request) |
 | `bug_pass_status` | `Done` |
 | `bug_fail_status` | `In Progress` |
 | `bug_fail_assign` | the developer — see `stlc-ticket-pipeline/routing.md` §3.3 |
@@ -99,7 +99,7 @@ How `stlc-ticket-pipeline` decides gates A–C. The rule tables themselves are i
 
 ### QA orchestrator selection
 
-Which tickets `stlc-qa-orchestrator` picks up. This project does not use sprints.
+Which tickets `qa-agent` picks up. This project does not use sprints.
 
 | Setting | Value |
 |---|---|

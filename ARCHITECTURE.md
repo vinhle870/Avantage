@@ -48,10 +48,10 @@ Executed in sequence to complete one full test cycle.
 | 7 | `stlc-ticket-updater` | `.claude/skills/stlc-ticket-updater/SKILL.md` | Updates tickets in the bound tracker |
 | 8 | `stlc-test-automator` | `.claude/skills/stlc-test-automator/SKILL.md` | Playwright spec in `playwright-automation/src/tests/` tagged `@{KEY}` + `qa-artifacts/6-automation/{KEY}_automation-report.md`. Automates only test cases that PASSED manually, then opens **one GitHub PR per ticket** into `dev` (built in a git worktree, only the ticket's files staged) and never merges it. `--fix-pr` addresses the QA's PR comments or a merge conflict |
 | ✓ | `stlc-qa-reviewer` | `.claude/skills/stlc-qa-reviewer/SKILL.md` | Independent reviewer that approves every gate when `gate_mode: reviewer`: R1 analysis (A) · R2 test cases (B) · R3 execution results + screenshots (C) · R4 outcome plan (D) · R5 automation specs, re-run by itself. Verdict APPROVE / REWORK (≤ 2 rounds) / PARK. Writes `qa-artifacts/7-reviews/{KEY}_review.md`. Never edits what it reviews |
-| ▶▶ | `stlc-qa-orchestrator` | `.claude/skills/stlc-qa-orchestrator/SKILL.md` | Orchestrates three subagents (`.claude/agents/`) for every ticket in QC or assigned to the QA account: **`stlc-worker`** runs the STLC stages intake → s7, each dispatch ending where a review is due; **`qa-reviewer`** independently decides every checkpoint — R1 analysis, R2 test cases, R3 results, R4 ticket outcome, R5 automation specs — up to 3 rounds, rework sent back to the producer; `/stlc-qa-orchestrator AP-1234` runs one ticket this way; **`qa-automator`** runs s8 only when manual testing passed ≥ 90% with no open High/Highest bug. Posts a status card per ticket at each phase in the chat. Writes `qa-artifacts/.pipeline/_batch-{DATE}.md` and `qa-artifacts/5-testing-report/{DATE}_qa-batch-report.md` |
+| ▶▶ | `qa-agent` | `.claude/skills/qa-agent/SKILL.md` | Orchestrates three subagents (`.claude/agents/`) for every ticket in QC or assigned to the QA account: **`stlc-worker`** runs the STLC stages intake → s7, each dispatch ending where a review is due; **`qa-reviewer`** independently decides every checkpoint — R1 analysis, R2 test cases, R3 results, R4 ticket outcome, R5 automation specs — up to 3 rounds, rework sent back to the producer; `/qa-agent AP-1234` runs one ticket this way; **`qa-automator`** runs s8 only when manual testing passed ≥ 90% with no open High/Highest bug. Posts a status card per ticket at each phase in the chat. Writes `qa-artifacts/.pipeline/_batch-{DATE}.md` and `qa-artifacts/5-testing-report/{DATE}_qa-batch-report.md` |
 | ▶ | `stlc-ticket-pipeline` | `.claude/skills/stlc-ticket-pipeline/SKILL.md` | Orchestrates Intake → 1 → 2 → 3 → 3b → 4 → 4c → 5 → 6 → 7 for one ticket key (4c corrects and re-runs test cases whose bug was confirmed not valid), with review gates and resume. Writes `requirements/{KEY}-{SLUG}.md`, `qa-artifacts/.pipeline/{KEY}.md` and, at the end of every run, `qa-artifacts/5-testing-report/{KEY}_run-summary.md`; every other artifact comes from the stage skills |
 
-### Subagents (`.claude/agents/`) — dispatched by `stlc-qa-orchestrator`
+### Subagents (`.claude/agents/`) — dispatched by `qa-agent`
 
 | Agent | File | Runs | Returns |
 |---|---|---|---|
@@ -77,7 +77,7 @@ The agents carry the standing rules (execution environment, credential handling,
 > re-test comment + close / re-open and re-assign. All artifacts follow the
 > per-ticket paths in `.claude/skills/ticket-scope.md`.
 
-> **▶▶ QA batch — orchestrator-workers.** `stlc-qa-orchestrator` selects every open
+> **▶▶ QA batch — orchestrator-workers.** `qa-agent` selects every open
 > ticket in the ready-for-QA status (`QC`) or assigned to the QA account — the selection
 > lives in the registry's *QA orchestrator selection*, since this project has no
 > sprints — plans every ticket by a fixed rule table (`routing.md` §1: skip · design-only ·
@@ -137,7 +137,7 @@ OpenProject, Jira, or any provider with an adapter.
 | Skill | SKILL.md | Purpose |
 |---|---|---|
 | `automation-framework-builder` | `.claude/skills/automation-framework-builder/SKILL.md` | Scaffold a Playwright + POM + Builder framework project |
-| `scaffold-skill` | `.claude/skills/scaffold-skill/SKILL.md` | Create or audit a new agent skill following GOLDEN best practices |
+| `scaffold-skill` | `.claude/skills/scaffold-skill/SKILL.md` | Create or audit a new agent skill following GOLDEN best practices; Defect mode traces a skill's misbehaviour in real use to its cause and proposes the fix (Skill Defect Rule in QA_AGENTS.md) |
 
 Support files:
 ```
@@ -151,8 +151,9 @@ Support files:
 
 .claude/skills/scaffold-skill/
 ├── SKILL.md
-├── create.md      ← creation workflow
-└── checklist.md   ← GOLDEN quality checklist
+├── create.md        ← creation workflow
+├── defect-audit.md  ← Defect mode: trace a misbehaviour to its cause, propose the fix
+└── checklist.md     ← GOLDEN quality checklist
 ```
 
 ---
@@ -384,7 +385,7 @@ Avantage/                            ← project root
 │   ├── checklists.md   ← severities, R1–R5 checklists, E1–E5 reviewer rules
 │   └── template.md     ← review record, verdict block
 │
-├── stlc-qa-orchestrator/                    ← [STLC ▶▶ orchestrator-workers]
+├── qa-agent/                    ← [STLC ▶▶ orchestrator-workers]
 │   ├── SKILL.md
 │   ├── routing.md      ← selection, planning rules, wave order, worker hand-offs, result checks, PR follow-up
 │   └── template.md     ← batch run state, batch report, closing report
@@ -398,7 +399,8 @@ Avantage/                            ← project root
 │
 ├── tracker-manage-child-ticket/             ← [Tracker]
 │   ├── SKILL.md
-│   └── template.md
+│   ├── template.md
+│   └── scripts/highlight-image.ps1          ← red box on a question screenshot
 │
 ├── automation-framework-builder/            ← [Infrastructure]
 │   ├── SKILL.md
@@ -409,5 +411,6 @@ Avantage/                            ← project root
 └── scaffold-skill/                          ← [Infrastructure]
     ├── SKILL.md
     ├── create.md
+    ├── defect-audit.md
     └── checklist.md
 ```

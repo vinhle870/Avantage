@@ -141,8 +141,13 @@ h3. QA result — {{verdict}} · {{environment name}} · {{DATE}}
 *Bugs:* {{"REF (Priority) — title" per line, or "None"}}
 *Questions:* {{[~accountid:…]}} {{only Blocking questions and Judgement questions whose answer changes a result — "Q-00N — question" one line each, at most 3; or "None"}}
 
+{{per listed question: "*Q-00N* — <what the red box shows>" then "!{{KEY}}_Q-00N_highlighted.png|width=700!" — routing.md Gate A → *Question screenshot*}}
+
 *Next:* {{Moved to STORY_PASS_STATUS. | Stays in <status> — re-test after <bug refs fixed / Q-00N answered / change deployed>.}}
 ```
+
+Every listed question carries its highlighted screenshot. These image lines are not
+counted in the 20-line limit.
 
 A Judgement question that only records behaviour is not listed — it stays in the
 requirements analysis and test report.

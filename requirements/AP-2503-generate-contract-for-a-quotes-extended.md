@@ -73,3 +73,35 @@ The ticket's development panel shows 1 pull request, state MERGED (last updated
 > two statements do not name the same sections. The first criterion also speaks of "the
 > quote PDF preview" and the second of "a preview of the contract". Recorded as written;
 > no reading is chosen here.
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** not re-read by this run — the qa-agent batch plan check of 2026-11-15 found the ticket unchanged (status QC, no description or acceptance-criteria change, no comment since QA comment 19456 of 2026-11-02) · **Previous capture:** 2026-11-01
+
+No Jira change. The description and the acceptance criteria above stand as transcribed.
+
+New comments since capture:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-02 | Vinh Le - QC (QA account) | QA result comment 19456: FAIL 7/10 on Dev (v2dev); bugs AP-2530, AP-2531, AP-2532 linked; the 11 open questions listed |
+
+**Answer from the QA to the open questions Q-001 – Q-011** (given in chat to the qa-agent
+orchestrator on 2026-11-15, not posted on the ticket), word for word:
+
+> "AP-2503: according to the question: all current behavior actual result is correct as expected."
+> — the QA, in chat, 2026-11-15
+
+> **Scope of this answer (the QA's decision for the 2026-11-15 batch):** the answer covers
+> the open questions only. For each question, the behaviour Dev (v2dev) showed in the
+> execution log of 2026-11-02 (`qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2503_2026-11-02.md`)
+> is the expected behaviour; where that log does not record the behaviour, the next
+> execution records it and accepts it as the expected value. The answer does **not** reject
+> the filed bugs: AP-2530 (Program Summary lacks the vehicle delivery date — AC 2), AP-2531
+> (VIN and delivery date editable — AC 3) and AP-2532 (a quote without financing cannot be
+> submitted — required financing-company fields) stay open and valid. **Where the
+> acceptance criteria text itself states the expected result, the acceptance criterion wins
+> over the current behaviour.** No bug status is changed. This replaces no earlier
+> statement in this file; it settles the questions the 2026-11-01 analysis left open.

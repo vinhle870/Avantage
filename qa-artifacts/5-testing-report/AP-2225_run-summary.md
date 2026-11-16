@@ -1,59 +1,65 @@
 # Run Summary — AP-2225: Dealer Area: AutoShield create contract
-Updated: 2026-11-01T16:52:00Z · Run folder: 3.0.0 · Stages run: s5 → s7 · Run status: complete
-Tested on: Dev (v2dev)
+Updated: 2026-11-15T09:45:11Z · Run folder: 3.0.0 · Stages run: analyze only (knowledge lookup) · Run status: stopped_at_gate · Environment: Dev (not used — no browser in this run)
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2225: Dealer Area: AutoShield create contract
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 6 REQ · 3 High risks
- Test cases   : 15 designed · 8 proposed by review (3 promoted)
- Execution    : 1 PASS · 7 FAIL · 7 BLOCKED (Dev, v2dev)
- Bugs         : 1 filed (AP-2508) · 0 linked to existing · 0 not a bug
+ Requirements : 6 REQ · 3 High risks · 13 questions (3 Answered, 8 Accepted, 2 Open, 0 Blocking)
+ Test cases   : 15 designed (unchanged in this run) · 8 proposed by review (3 promoted)
+ Execution    : not run this time — kept 2026-11-01 results on Dev (v2dev): 1 PASS · 7 FAIL · 7 BLOCKED
+ Bugs         : 0 filed · 0 linked to existing · 0 not a bug (AP-2508 stays open, not touched)
  Corrected    : 0 test cases rewritten · 0 retired · re-run —
- Verdict      : FAIL
- Tickets      : AP-2225 unchanged (QC) · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s7 (complete)
+ Verdict      : — (report stage not run; the 2026-11-01 verdict FAIL stands)
+ Tickets      : AP-2225 unchanged (QC, Ken Nguyen) · 0 bugs updated (0 → Done, 0 → In Progress)
+ Stopped at   : analyze (--until analyze; Gate A waits for the reviewer R1)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Result:** AP-2225 FAIL — 1 of 15 test cases passed on Dev (v2dev), missing the 90% threshold. 1 bug filed (AP-2508). Ticket comment posted and verified.
+**Stopped:** at analyze. The batch of 2026-11-15 asked for every open question to be double-checked against Jira Stories and Tasks. The re-checked analysis now waits for its independent review (Gate A).
 
 **What passed**
-- AutoShield product list (AP2225_001): the Road side protection page of a new quote on Dev lists five AutoShield products, each with a price, so Dev is connected to AutoShield and a dealer can see what coverage is on offer.
+- Nothing was executed in this run. Kept from 2026-11-01 on Dev: the Road side protection page lists five AutoShield products, each with a price (AP2225_001).
 
 **Failures**
-- AP2225_002 — the page shows only VIN (correct) and Year; Stock Number, Condition, Odometer Reading, the four dates, Interest Rate, Sale Price (CAD), Financing Company and the financing amounts are missing. Gate C: filed as AP-2508.
-- AP2225_003 — the page has no client section or client field, so the dealer cannot check the client details that go on the contract. Gate C: filed as AP-2508.
-- AP2225_005 — there is no Odometer Reading or Stock Number field to override, so "override and Save" cannot be exercised. Gate C: filed as AP-2508.
-- AP2225_006 — there is no Sale Price (CAD) or Delivery Date field; the only price field is the AutoShield "Policy Sale price". Gate C: filed as AP-2508.
-- AP2225_007 — the only button is "Save" ("Sauvegarder" in French); there is no "Generate Contract" / "Générer le contrat" button and no "Save and Generate Contract". Gate C: filed as AP-2508.
-- AP2225_008 — there is no Odometer Reading field to empty. Gate C: filed as AP-2508.
-- AP2225_014 — the dealer cannot override odometer, stock number or sale price, because none of those fields exists, and no contract button exists. Gate C: filed as AP-2508.
-- These fields and the "Save and Generate Contract" button were on staging on 2026-07-25 (QA comment on AP-2423) and 2026-08-29 (staging page map) and are missing from the current build on Dev, which carries the later AP-2423, AP-2424 and AP-2498 changes. AP-2508 asks the developer whether they were removed on purpose and, if so, which control now creates the contract.
+- None in this run. The seven 2026-11-01 FAILs (AP2225_002, _003, _005, _006, _007, _008, _014) stand under bug AP-2508 (High, Backlog), which this run did not touch.
 
 **Decisions made**
-- Gate A (rule A3, by the reviewer, earlier run): continue — 12 open questions (9 Judgement, 3 Info), none Blocking; none posted.
-- Gate B (rule B1, by the reviewer, earlier run, round 3 independent APPROVE): execute the current cases.
-- Gate C (rule C4, by the independent reviewer R3, APPROVE 0/0/4): one new bug for all seven FAILs — no sentence in the capture or a non-developer comment says the page should lack these fields or the button (C1 not met), and the open-bug search for "road side", "roadside", "autoshield" and "generate contract" found only AP-2488, AP-2461 and AP-2459 on other screens (C2, C3 not met). Filed AP-2508 (High), relates to AP-2225, assigned to Ken Nguyen (bug_new_assign), six screenshots embedded and verified. The planned "no standalone Save" bug was not filed, because Save exists on Dev.
-- Gate D (rules, automatic; R4 by the reviewer inline, APPROVE 0/0/1): AP-2225 not moved — pass rate 6.7% (needs 90%) and AP-2508 (High) blocks AP2225_009–013 and AP2225_015. Status stays QC, assignee Ken Nguyen. Result comment posted (id 19444) and read back with all 15 rows. No bug ticket action: AP-2508 is new (Backlog).
-- E4 answer applied (R3): "Save" was never pressed in place of Generate Contract. AP2225_009–013 and AP2225_015 stay BLOCKED by AP-2508; re-run them with "AP-2225 --from s4" once a build with a contract-generating control is on the test environment or a developer names that control on AP-2508.
-- Environment: Dev (v2dev) by the user's decision. R3 corrections applied in the bug and the test report: the failures are described as missing from the current build, not as Dev lagging behind staging (F-1); contracts #2697 and #2698 were created on staging, not on Dev (F-2); AP-2508 is named as the blocker of AP2225_009–013 and _015 (F-3).
-- s4c skipped: Gate C has no C1 ("not a bug") decision.
+- Knowledge lookup (analysis Step 3c). Each open question was searched in Jira Story and Task tickets, at any status, with at least two word sets. The plausible hits were read. Nothing was posted to Jira.
+  - Answered by a Story: Q-006 (AP-2226: the AutoShield Lender ID is a field on the Admin financing-company edit page), Q-012 (AP-2431: the Road side protection contracts list shows every dealer program that has a contract ID) and Q-013, split out of Q-008 (AP-2188: every product the AutoShield quote returns is listed, each tier labelled tier + term + suggested price).
+  - Accepted, because no Story or Task defines them: Q-001, Q-003, Q-004, Q-005, Q-007, Q-008, Q-009 and Q-010. The behaviour the build shows is accepted as the expected result. Each takes the value recorded in the 2026-11-01 execution log, or is recorded at the next execution.
+  - Still Open, because they are not knowledge questions: Q-002 asks whether the reporter's own Purchase Type mapping is a mistake, and Q-011 asks how an environment is set up. No Blocking question is open.
+- The acceptance criteria still win over the build:
+  - The page must show client fields (Q-001) and a 'Generate Contract' button (Q-003), so AP2225_003 and AP2225_007 stay FAIL.
+  - All 17 contract-page items stay required (Q-008).
+  - An error page or an HTTP 5xx is still a FAIL (Q-005, Q-007).
+- Two delivered later Stories replace two points of the 2025 text. Both are Done and explicitly about the Road side protection page:
+  - AP-2241 removes the Classification Date field.
+  - AP-2240 says "The backend should not create new autoshield lenders VIA the API anymore". This replaces the create-lender step.
+- AP-2505 (QC, not delivered) describes a separate Generate Contract page. It changes no acceptance criterion and is recorded only as a note in the run state.
+- The orchestrator made this ticket analysis-only in this batch. Stages s2 to s7 were not set back to pending, and nothing was executed. A run-state note tells the next design pass to:
+  - turn the record-only steps on the Accepted questions into record-and-accept steps;
+  - revise AP2225_013, which expects a new lender ID (AP-2240);
+  - drop Classification Date from AP2225_002 (AP-2241).
 
 **Left behind**
-- Test data on Dev (v2dev): quotes 6451, 6452 and 6453. No AutoShield contract was created; no configuration changed.
-- Observations that are not failures: AP2225_004 is BLOCKED because Dev requires a Delivery date on the quote's vehicle step; from the quote hub the Roadside Protection pencil opens the page in a modal; the Vehicle box's Make picker shows "Choose" for a Ford Focus; every Road side protection page warns that contracts #2697 and #2698 (created on staging) exist for VIN 1FAHP35NX8W239204.
-- Knowledge files added or changed: None in this run (s5 → s7).
+- Test data on Dev: none created in this run. The 2026-11-01 records remain: quotes 6451, 6452 and 6453, with no AutoShield contract.
+- Ticket changes since the 2026-11-01 capture: no change to the description or the acceptance criteria. The only new activity is the QA account's comments 19444 (2026-11-01) and 19527 (2026-11-08), plus the AP-2508 link. They are recorded in the capture's new section "Ticket changes since capture — 2026-11-15".
+- Knowledge files added or changed: none.
 
 **Files**
-- [AP-2225_test-report.md](qa-artifacts/5-testing-report/AP-2225_test-report.md)
-- [AP-2225_bug-report.md](qa-artifacts/5-testing-report/AP-2225_bug-report.md)
-- [execution log](qa-artifacts/4-execution-results/3.0.0/execution-log_AP-2225_2026-11-01.md)
+- [requirements analysis](qa-artifacts/1-requirements-analysis/AP-2225_requirements-analysis.md) (re-run 2026-11-15)
+- [requirement capture](requirements/AP-2225-dealer-area-autoshield-create-contract.md) (section added 2026-11-15)
+- [AP-2225_test-report.md](qa-artifacts/5-testing-report/AP-2225_test-report.md) (2026-11-01)
+- [AP-2225_bug-report.md](qa-artifacts/5-testing-report/AP-2225_bug-report.md) (2026-11-01)
+- [execution log](qa-artifacts/4-execution-results/3.0.0/execution-log_AP-2225_2026-11-01.md) (2026-11-01)
 - [run state](qa-artifacts/.pipeline/AP-2225.md)
 
 ## Automation
-- Spec: `playwright-automation/src/tests/dealer/roadSideProtection_AP2225.spec.ts`, tag `@AP-2225` (runs on Dev (v2dev) only; read-only — never presses Save or any Generate button).
-- 1 of 1 PASSED cases automated — 1 passing, 0 fixme (lint pass; `--repeat-each=2` 2/2 passed; reviewer R5 APPROVE 0/0/1).
-- Not automated: AP2225_002, _003, _005, _006, _007, _008, _014 — FAIL manually (AP-2508); AP2225_004 — BLOCKED (Dev requires a Delivery date); AP2225_009–013, _015 — BLOCKED by AP-2508.
-- PR skipped: gh CLI not installed.
+- Spec: `playwright-automation/src/tests/dealer/roadSideProtection_AP2225.spec.ts`, tag `@AP-2225`. It runs on Dev (v2dev) only and is read-only: it never presses Save or any Generate button.
+- 1 of 1 PASSED cases automated: 1 passing, 0 fixme. Lint passed, `--repeat-each=2` passed 2 of 2, and reviewer R5 approved with 0/0/1.
+- Not automated:
+  - AP2225_002, _003, _005, _006, _007, _008 and _014 FAILED manually (AP-2508).
+  - AP2225_004 is BLOCKED because Dev requires a Delivery date.
+  - AP2225_009 to _013 and _015 are BLOCKED by AP-2508.
+- PR skipped: the gh CLI is not installed.

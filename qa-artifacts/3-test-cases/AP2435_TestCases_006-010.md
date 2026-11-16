@@ -20,15 +20,15 @@ executor should not need a second file open to run this batch._
 |---|---|---|
 | **Portal** | The admin API only. The reference contract values come from the AP2435_001 entry of the execution log (dealer portal `/warranty` — the only warranty contract list in the `navigation` source) | `navigation` |
 | **Entry route** | Not applicable — no page is opened in this batch unless AP2435_001 has not run, in which case perform its steps 1 and 2 (dealer login `/login` → **Contracts → Warranty** `/warranty`, then the header probe) | `navigation` |
-| **API endpoint** | `GET https://v2staging.garantieavantageplus.ca/api/admin/search-warranty?query=<value>` — host and path exactly as in the ticket's example call | capture |
+| **API endpoint** | `GET https://v2dev.garantieavantageplus.ca/api/admin/search-warranty?query=<value>` — host and path exactly as in the ticket's example call | capture |
 | **Request recipe (R)** | One Bash (Git Bash) command per request — the shell keeps **no** variables between commands, so the key is loaded (and any wrong key is built) inside every command. Replace `<TC>`, `<n>`, `<value>` and `<KEY_HEADER>`; change nothing else. See the block below this table | test plan §3.3 |
 | **`<KEY_HEADER>`** | `XK` = `-H "X-API-KEY: $AVP_ADMIN_API_KEY"` · `BR` = `-H "Authorization: Bearer $AVP_ADMIN_API_KEY"` · `NONE` = nothing (delete the placeholder) · `WXK` / `WBR` = `-H "X-API-KEY: $WRONG"` / `-H "Authorization: Bearer $WRONG"`. **The accepted form** is the one AP2435_001 step 2 recorded as accepted (Q-001) — `XK` when both were | capture · Q-001 |
 | **Valid send** | A request counts as sent only when the command prints `send=OK`: curl exit code 0 **and** the saved file starts with an HTTP status line (`HTTP/1.1 NNN` or `HTTP/2 NNN`). Anything else (non-zero exit, empty file, no status line) is retried once; if it still fails, the step is **BLOCKED (environment)** — never PASS, never FAIL. `STOP: AVP_ADMIN_API_KEY is empty` → the case is **BLOCKED by Q-012**, no retry. `send=INVALID key echoed` (the response still held part of the key after redaction, so the file was replaced by a notice) → **BLOCKED (environment)**, no retry. This matters most for AP2435_008–010, whose expected result is an absence: an unanswered request must not pass them | review F-1 · R2 round 2 F-3, F-4 |
 | **Status** | The `http_code=` value on the `--- curl` trailer line at the end of the saved file. The body is the text between the blank line after the headers and that trailer line | — |
 | **Result rules** | (1) Status 5xx → FAIL. (2) Status 401 or 403 on a request sent with the accepted key form (AP2435_006 and 010) → **BLOCKED** (key refused; confirm the key is still active on `/admin/api-keys` and record it with Q-012), never PASS or FAIL. (3) "Valid JSON" is asserted only when the status is 2xx. (4) Record the number of entries and any paging fields (`total`, `page`, `next`, `limit` — Q-008) for every 2xx response | review F-3, F-4, F-8 |
 | **Viewport** | 1280 × 800 (only if AP2435_001 step 1 must be performed) | `navigation` |
-| **Environment** | v2staging (`https://v2staging.garantieavantageplus.ca`) | `env` |
-| **Login** | Admin API key: read by the recipe from the gitignored `/.env` variable **`AVP_ADMIN_API_KEY`**, by name only — never `echo` it or `$WRONG`, never use `curl -v`, never write either into an artifact. **Not known** today: `/.env` has no such variable (Q-012) | `env` |
+| **Environment** | Dev (`https://v2dev.garantieavantageplus.ca`) — `execution_env: Dev` in `qa-config/tools.md`. The cases were designed against v2staging (2026-11-01); the 2026-11-05 run used Dev with the same path | `env` · `tools.md` |
+| **Login** | Admin API key: read by the recipe from the gitignored `/.env` variable **`AVP_ADMIN_API_KEY`**, by name only — never `echo` it or `$WRONG`, never use `curl -v`, never write either into an artifact. **Known** (Q-012 resolved 2026-11-05): `/.env` holds the Dev admin API key `QA-automation` (expires 2026-12-05) as `AVP_ADMIN_API_KEY` — value never shown here | `env` |
 | **Test data** | Reference contract `<C>`, `<VIN>`, `<PC>`, `<TEL>` and the accepted key form, recorded by AP2435_001 steps 1–2 | test plan §8.1 |
 | **Language** | The API returns JSON | — |
 | **Leaves behind** | Nothing — searches change no data | `cleanup` (missing) |
@@ -43,7 +43,7 @@ WRONG="QA-AP2435-INVALID-KEY-"; while [ ${#WRONG} -lt ${#AVP_ADMIN_API_KEY} ]; d
 [ "$WRONG" != "$AVP_ADMIN_API_KEY" ] || { echo "STOP: the fixed wrong key equals the real key - BLOCKED (environment)"; exit 1; }
 OUT="qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2435/<TC>_step<n>_response.txt"
 mkdir -p "$(dirname "$OUT")"
-curl -sS -i --max-time 30 -G "https://v2staging.garantieavantageplus.ca/api/admin/search-warranty" \
+curl -sS -i --max-time 30 -G "https://v2dev.garantieavantageplus.ca/api/admin/search-warranty" \
   --data-urlencode "query=<value>" -H "accept: application/json" <KEY_HEADER> \
   -w '\n--- curl url_effective=%{url_effective} http_code=%{http_code}\n' > "$OUT"
 RC=$?; echo "curl_exit=$RC" >> "$OUT"
@@ -57,20 +57,16 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 
 `WRONG` is a fixed, obviously fake value — `QA-AP2435-INVALID-KEY-` padded with `0` (or cut) to the real key's length. It takes only the **length** of the real key, never a character of it, so a server that echoes the key it received cannot expose the real key in AP2435_009's evidence; it is built in the same command that uses it. `--data-urlencode` encodes a space as `+` and `+` as `%2B`; the exact URL sent is in the trailer line (`url_effective=`). The saved file holds response headers and body only — the request headers are never written. A server may still echo the key it received, so before anything reads the file the recipe replaces every 8-character run of the key found in it with `<redacted>` and prints `redacted=YES` (note that in the execution log); if any 8-character run is still present afterwards, the whole file is replaced by a one-line notice and the command prints `send=INVALID key echoed`. These checks never print the key.
 
-**Known blockers** — a fact these test cases need that nobody has supplied yet:
+**Known blockers** — a fact these test cases needed that was not supplied at design time:
 
 | # | Missing fact | Affects | Status |
 |---|---|---|---|
-| 1 | A staging admin API key for QA | AP2435_006 – AP2435_010 | Open — Q-012. Raised 2026-11-01 |
+| 1 | A Dev admin API key for QA | AP2435_006 – AP2435_010 | **Resolved 2026-11-05** — Q-012: Dev key `QA-automation` (expires 2026-12-05) stored in `/.env` as `AVP_ADMIN_API_KEY`. Raised 2026-11-01 |
 
-> Every case below ships with **Status: BLOCKED** and **Blocked by: Q-012**.
+> No open blocker. The cases shipped BLOCKED by Q-012 on 2026-11-01, went back to **Not Run** on 2026-11-05 when the key was supplied, and were executed on Dev the same day (see Revisions).
 >
-> **How the block is lifted:** the QA decides to create a staging admin API key (for
-> example on the Admin Portal page **Manage API keys**, `/admin/api-keys`) or obtains one
-> from the ticket's author, and stores it in the gitignored `/.env` as
-> `AVP_ADMIN_API_KEY=<value>`. Then every case in this file goes back to **Not Run** and
-> the run resumes with `AP-2435 --from s4`. The test cases never create a key and never
-> write `/.env` — creating a real credential is the QA's decision.
+> If the key expires or is revoked, the cases go back to **BLOCKED by Q-012** until a new key is stored in `/.env` as
+> `AVP_ADMIN_API_KEY`. The test cases never create a key and never write `/.env` — creating a real credential is the QA's decision.
 
 ---
 
@@ -78,11 +74,11 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 
 | TC ID | Title | Type | Priority | Status |
 |---|---|---|:---:|:---:|
-| AP2435_006 | Partial, lower-case and country-code forms of the postal code and telephone — results are recorded | Edge-case | Medium | BLOCKED |
-| AP2435_007 | A telephone search with the key in the Authorization Bearer header — whether it is accepted is recorded | Negative | Medium | BLOCKED |
-| AP2435_008 | A search with no API key returns no contract data | Negative | High | BLOCKED |
-| AP2435_009 | A search with a wrong API key returns no contract data | Negative | High | BLOCKED |
-| AP2435_010 | A search that matches no VIN, postal code or telephone lists no contracts | Negative | Medium | BLOCKED |
+| AP2435_006 | Partial, lower-case and country-code forms of the postal code and telephone — results are recorded | Edge-case | Medium | PASS |
+| AP2435_007 | A telephone search with the key in the Authorization Bearer header — whether it is accepted is recorded | Negative | Medium | PASS |
+| AP2435_008 | A search with no API key returns no contract data | Negative | High | PASS |
+| AP2435_009 | A search with a wrong API key returns no contract data | Negative | High | PASS |
+| AP2435_010 | A search that matches no VIN, postal code or telephone lists no contracts | Negative | Medium | PASS |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -102,10 +98,10 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 | **Route** | `GET /api/admin/search-warranty` |
 | **Type** | Edge-case |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-012 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-012 resolved 2026-11-05: Dev admin API key stored in `/.env` as `AVP_ADMIN_API_KEY`) |
+| **Executed on** | 2026-11-05 — Dev (`https://v2dev.garantieavantageplus.ca`), see `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md` |
+| **Result** | PASS (record-only) — lower-case postal matches; H7L, 514690 and +1 514-690-6330 return an empty list |
 
 **Why this matters:** The ticket says postal code and telephone must match "fully" but does not say what a partial value, a lower-case postal code or a `+1` country code does. These results are **record-only**: the case passes when no objective fault occurs (every request is sent, no status is 5xx, every 2xx body is valid JSON), and the recorded behaviour goes to the author with Q-004, Q-005 and Q-007. A partial value may still match a VIN by coincidence, so the fragments are chosen to be absent from `<VIN>`.
 
@@ -139,10 +135,10 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 | **Route** | `GET /api/admin/search-warranty` |
 | **Type** | Negative · API |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-012 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-012 resolved 2026-11-05: Dev admin API key stored in `/.env` as `AVP_ADMIN_API_KEY`) |
+| **Executed on** | 2026-11-05 — Dev (`https://v2dev.garantieavantageplus.ca`), see `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md` |
+| **Result** | PASS (record-only) — Bearer form 401 "Missing API key" (Q-001) |
 
 **Why this matters:** The ticket's text says the key goes in the Authorization Bearer header, while its example call sends `X-API-KEY`. AP2435_001 step 2 already tries both forms on a VIN query and fails only if neither is accepted while the key is confirmed active on `/admin/api-keys`. This case repeats the Bearer form on the ticket's own example query (a plain telephone) and records the result for Q-001, without judging which form is correct. It does not fail on a refused Bearer form — that verdict belongs to AP2435_001.
 
@@ -173,10 +169,10 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 | **Route** | `GET /api/admin/search-warranty` |
 | **Type** | Negative · API |
 | **Priority** | High |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-012 — no staging admin API key available to QA (needed for the comparison in step 1) |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-012 resolved 2026-11-05: Dev admin API key stored in `/.env` as `AVP_ADMIN_API_KEY`) |
+| **Executed on** | 2026-11-05 — Dev (`https://v2dev.garantieavantageplus.ca`), see `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md` |
+| **Result** | PASS — no key: 401 "Missing API key", no contract data |
 
 **Why this matters:** The search returns client postal codes and phone numbers matched to contracts. If it answers without a key, anyone on the internet can look up whose contract a phone number belongs to. The exact status code and message are not stated (Q-002) and are recorded; returning the contract is an objective security fault. The send must be valid: an unanswered request proves nothing and is BLOCKED, never PASS.
 
@@ -207,10 +203,10 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 | **Route** | `GET /api/admin/search-warranty` |
 | **Type** | Negative · API |
 | **Priority** | High |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-012 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-012 resolved 2026-11-05: Dev admin API key stored in `/.env` as `AVP_ADMIN_API_KEY`) |
+| **Executed on** | 2026-11-05 — Dev (`https://v2dev.garantieavantageplus.ca`), see `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md` |
+| **Result** | PASS — wrong key: 401 "Invalid API key" (X-API-KEY) / "Missing API key" (Bearer), no contract data |
 
 **Why this matters:** A key check that accepts any value is no check at all. The exact rejection is not stated (Q-002) and is recorded; returning the contract for a wrong key is an objective security fault. Both header forms are tried, because either may be the one the build reads (Q-001).
 
@@ -242,10 +238,10 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 | **Route** | `GET /api/admin/search-warranty` |
 | **Type** | Negative · API |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-012 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-012 resolved 2026-11-05: Dev admin API key stored in `/.env` as `AVP_ADMIN_API_KEY`) |
+| **Executed on** | 2026-11-05 — Dev (`https://v2dev.garantieavantageplus.ca`), see `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md` |
+| **Result** | PASS — 200 {"items":[]} |
 
 **Why this matters:** When nothing is found, the list of contracts found is empty. A contract listed for a query that cannot match anything would mean the filter is not applied. The query contains `Q`, a letter VINs never use, and is neither a postal code nor a telephone. Whether "nothing found" is an empty list with HTTP 200 or an error status is not stated (Q-010) and is recorded. A refused key (401/403) proves nothing about the no-match result, so it cannot pass this case.
 
@@ -262,3 +258,13 @@ if [ "$RC" -eq 0 ] && head -n 1 "$OUT" | grep -Eq '^HTTP/[0-9.]+ [0-9]{3}'; then
 | 1 | [Pre-Condition] Read the accepted key form from the AP2435_001 entry of the execution log. If AP2435_001 has not run, perform its steps 1 and 2 first | The accepted form is known |
 | 2 | Run recipe R with `<TC>`=`AP2435_010`, `<n>`=`2`, `<value>` = `ZZQA2435NOMATCH`, `<KEY_HEADER>` = the accepted form | `send=OK`; the status is not 5xx. A 401 or 403 → BLOCKED (result rule 2), never PASS |
 | 3 | [Verification] Read the saved response | The status is 2xx, or a 4xx other than 401/403; and the body holds no `contractNumber` value. If 2xx, the body is valid JSON. Record the status and the exact body, for example `{"items": []}` or `[]` (Q-009, Q-010) |
+
+---
+
+## Revisions
+
+| Date | TC ID | Change | Reason |
+|---|---|---|---|
+| 2026-11-05 | AP2435_006–010 | Status BLOCKED → Not Run; *Blocked by* Q-012 cleared | Q-012 resolved: Dev admin API key (`QA-automation`, expires 2026-12-05) stored in `/.env` as `AVP_ADMIN_API_KEY` — s4 worker, before execution |
+| 2026-11-05 | AP2435_006–010 | Status Not Run → PASS; *Executed on* and *Result* filled | s4 run on Dev — execution log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md` |
+| 2026-11-05 | Execution Context — **API endpoint**, **Environment**, **Login**, request recipe host, **Known blockers** | Host changed from v2staging to Dev; key marked known (`/.env` `AVP_ADMIN_API_KEY`, value not shown); Q-012 blocker marked resolved 2026-11-05 | R3 finding F-2 (stale context after the Dev run) — s6 worker. No step or expected result changed |

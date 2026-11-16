@@ -79,8 +79,13 @@ project     : <from 4b>
 subject     : "[BUG-XXX][TC ID] — <short title>"
 type        : bug
 priority    : <canonical value from the severity mapping>
-description : <full bug report section in Markdown>
+description : <the BUG-XXX section condensed to the bug description shape>
 ```
+
+The description is **not** the full bug-report section. It is condensed to the *bug
+description shape* in [../tracker-manage-child-ticket/template.md](../tracker-manage-child-ticket/template.md)
+(about 15 lines plus images) by that skill's Rule 1. The full section, with analysis and
+root cause, stays in the bug report on disk.
 
 Map Severity to the canonical priority using [../mcp-tools.md](../mcp-tools.md) → §4
 "Bug severity to priority". The adapter translates that value into whatever the

@@ -1,0 +1,4 @@
+AP2506_005 step 3 — Environment: Dev (v2dev) — captured 2026-11-08T03:21Z
+GET https://v2dev.garantieavantageplus.ca/quote/6692/details => 200
+GET https://v2dev.garantieavantageplus.ca/quote/6692/permaplate-create-contract => 200
+Quote 6692 vehicle step saved Price 25000 (quote page row "Ford Focus 2008 ... CA$25,000.00"); contract page "Vehicle details" shows "Vehicle Price" = 10000.00 and summary line "Ford · Focus · 2008 · 1FAHP35NX8W239204 · CA$10,000.00"

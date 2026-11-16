@@ -1,5 +1,5 @@
 # Run Summary — AP-2493: Cancelling a product from a quote
-Updated: 2026-11-01T20:12:47Z · Run folder: no-sprint · Stages run: s5 → s7 · Run status: complete
+Updated: 2026-11-15T09:56:00Z · Run folder: no-sprint · Stages run: analyze → analyze · Run status: complete (re-analysis only; execution results below are from the 2026-11-01/02 run)
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -7,43 +7,39 @@ Updated: 2026-11-01T20:12:47Z · Run folder: no-sprint · Stages run: s5 → s7 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Requirements : 3 REQ · 2 High risks
  Test cases   : 14 designed · 8 proposed by review
- Execution    : 12 PASS · 2 FAIL · 0 BLOCKED
- Bugs         : 1 filed · 0 linked to existing · 0 not a bug
+ Execution    : 12 PASS · 2 FAIL · 0 BLOCKED (2026-11-02 run, not re-run)
+ Bugs         : 1 filed · 0 linked to existing · 0 not a bug (2026-11-01 run)
  Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS
- Verdict      : FAIL
- Tickets      : AP-2493 unchanged (QC) · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s7 (complete)
+ Verdict      : FAIL (unchanged from the 2026-11-01 run)
+ Tickets      : AP-2493 unchanged (QC) · 0 bugs updated
+ Stopped at   : analyze (--until analyze)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Result:** AP-2493 FAIL — 12 of 14 test cases passed on Dev (v2dev), missing the 90% threshold (86%). 1 bug filed (AP-2516). Ticket comment posted and verified.
+**Stopped:** at analyze — `--until analyze` (batch qa-agent 2026-11-15, analysis only, group B: no re-execution). The open questions were re-checked against Jira; the analysis waits for the independent Gate A review (R1). Resume with "AP-2493".
 
 **What passed**
-- Cancel action placement: a "Delete" action is offered on a product without a contract for all five products — extended warranty, Roadside Protection, Esthetic protection (Permaplate), creditor insurance and GAP — and is absent on a creditor product with a generated contract, which keeps its download link.
-- Confirmation: choosing Delete always opens a confirmation window first; answering "No", pressing Escape or clicking outside closes it and leaves the product and the Subtotal unchanged.
-- Cancelling: confirming deletes the product, brings back its "+" add action, and lowers the Subtotal by the product's amount (warranty, GAP); cancelling GAP leaves the creditor insurance on the same quote in place.
-- Re-adding: after a cancellation a new product of the same type can be added and appears as a new row with its own values (warranty re-added with Sale price 1,800).
-- An archived quote with a product opens without an error.
+- This run executed nothing. The latest execution (Dev (v2dev), 2026-11-02) stands: 12 of 14 cases PASS (86 %) — the cancel action, its confirmation window, the deletion and the re-add all work for the five products.
 
 **Failures**
-- AP2493_011 — after the 80$ Permaplate product was cancelled, the Subtotal stayed at CA$21,500.00 because it never included the 80$ in the first place. Gate C: filed as AP-2516.
-- AP2493_012 — after a new 145$ Permaplate product was added, the Subtotal stayed at CA$21,500.00. Gate C: filed as AP-2516 (same root cause; the re-add itself worked).
+- AP2493_011, AP2493_012 — the quote Subtotal never includes the Permaplate cost (2026-11-02 run). Gate C: filed as AP-2516 (unchanged; not touched in this run).
 
 **Decisions made**
-- Gate A (rule A3): Continue — no Blocking question open (Q-001 Answered: hard delete); 7 Judgement and 2 Info questions not posted at Gate A. Decided in an earlier run.
-- Gate B (rule B3): Execute the current cases — no uncovered acceptance criterion, no High proposal; 8 proposals not promoted. Decided in an earlier run.
-- Gate C (rule C4 for AP2493_011 and AP2493_012, by the reviewer, R3 round 2 APPROVE): one new bug written about the Subtotal, not the cancel action — no capture sentence or non-developer comment says the Permaplate cost stays out of the Subtotal, and no open or closed bug names the quote details Subtotal.
-- Gate D (rules, automatic; R4 APPROVE run inline): AP-2493 not moved: pass rate 86% (needs 90%). Result comment posted; status left in QC and assignee unchanged. AP-2516 is Medium and fails only the last step, so it is not a stopping bug. No bug-ticket action — AP-2516 is in Backlog.
-- Environment: Dev (v2dev) by the user's decision; run folder no-sprint (no sprint, no fix version).
+- Knowledge lookup (analysis Steps 3b–3c, 2026-11-15): Q-002–Q-010 searched in Jira Stories and Tasks with two to four word sets each; no Story or Task defines any of them, so all nine move from Open to **Accepted** — the behaviour seen on Dev on 2026-11-02 is the expected result. Nothing posted to Jira.
+- Q-003 limit: the description says the Subtotal "reflects only active products", so the Permaplate cost missing from the Subtotal is not accepted; AP2493_011/_012 stay FAIL and AP-2516 stays open.
+- Later Stories AP-2535, AP-2536, AP-2543 and AP-2537 cancel a generated contract, which AP-2493 puts out of scope; none overrides an AP-2493 acceptance criterion.
+- Gate A: not decided here — the orchestrator's qa-reviewer (R1) decides it. Questions now: 0 Blocking + Open (Q-001 Answered), 9 Accepted.
+- s2–s7 were not re-marked pending (orchestrator decision). The next design pass should turn record-only steps on Accepted questions into record-and-accept steps (noted in the run state).
+- Environment: Dev (v2dev) for the standing results; no browser opened in this run.
 
 **Left behind**
-- Test data on Dev (v2dev): quotes 6461–6469 (clients client.stage.947–955@yopmail.com), Chubb creditor contract AVP000169 on quote 6466 (permanent), and quote 6467's new warranty (Sale price 1,800). Quotes cannot be deleted.
-- Observations that are not failures: Q-002 — the cancel action is a red "Delete" item in each row's "⋯" menu. Q-003 — the Subtotal uses the row amount (warranty sale price, Roadside policy sale price, GAP premium, creditor monthly premium); Permaplate is not counted (AP-2516). Q-004 — Delete is offered and enabled on archived quote 6245. Q-005 — modal "Cancel a product - {product}" with "Yes, cancel the product" / "No", no × icon. Q-006 — financing is not recalculated. Q-007 — the creditor premium stays 20.88$/month after the GAP is cancelled. Q-008 — the message is "The product has been cancelled". All were posted on AP-2493 for the product owner.
-- Observations that are not failures: the Permaplate page saved a product with no option ticked as "Cost: CA$0.00$" (quote 6463); whether the Permaplate Subtotal gap predates AP-2493 could not be proven on Dev.
-- Knowledge files added or changed: None in this run (s5–s7).
-- Test data on Dev from the automation (s8): quotes 6470–6478 for vehicle 915 (clients qa.ap2493.<tc>.<timestamp>@yopmail.com), no contracts.
+- Test data on Dev (v2dev): none new in this run. Earlier runs left quotes 6461–6469, Chubb contract AVP000169 (quote 6466) and automation quotes 6470–6478.
+- Observations that are not failures: accepted current behaviour — "Delete" in each row's "⋯" menu (Q-002); Subtotal = row amount (Q-003, Permaplate excepted); Delete offered on an archived quote (Q-004); modal "Cancel a product - {product}" with "Yes, cancel the product" / "No" (Q-005); financing not recalculated (Q-006); creditor premium unchanged after a GAP cancel (Q-007); flash "The product has been cancelled" (Q-008); a creditor product with a contract shows no Delete (Q-009); linked records — recorded at execution (Q-010).
+- Knowledge files added or changed: None. The requirement capture got an appended "Ticket changes since capture — 2026-11-15" section (QA comments and screenshots only; description and AC unchanged).
 
 **Files**
+- [AP-2493_requirements-analysis.md](qa-artifacts/1-requirements-analysis/AP-2493_requirements-analysis.md)
+- [requirement capture](requirements/AP-2493-cancelling-a-product-from-a-quote.md)
 - [AP-2493_test-report.md](qa-artifacts/5-testing-report/AP-2493_test-report.md)
 - [AP-2493_bug-report.md](qa-artifacts/5-testing-report/AP-2493_bug-report.md)
 - [execution log](qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2493_2026-11-02.md)

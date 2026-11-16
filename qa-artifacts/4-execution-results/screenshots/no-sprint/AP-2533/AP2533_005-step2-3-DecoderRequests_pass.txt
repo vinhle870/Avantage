@@ -1,0 +1,4 @@
+AP2533_005 decoder requests (method, URL, status only) — Environment: Dev — 2026-11-07
+Step 2 (VIN ABC123, 11:11:39Z): POST https://v2dev.garantieavantageplus.ca/quote/new/edit-vehicle => 200
+Step 3 (VIN empty, 11:12:07Z): POST https://v2dev.garantieavantageplus.ca/quote/new/edit-vehicle => 200
+(no redirect either time; page URL stayed /quote/new/edit-vehicle; no message shown)

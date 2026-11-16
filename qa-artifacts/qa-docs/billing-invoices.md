@@ -85,3 +85,9 @@ Dev facts only; staging not checked. Dealer 1380, vehicle 915. Source:
   `#PNA-…` link to `/quote/{quoteId}/permaplate-contract-download` (the contract PDF, HTTP 500 on Dev —
   AP-2512). The Admin detail page's footer link goes to `/admin/permaplate-contract/{n}` instead.
 - Records made by AP-2501 on Dev: invoice **941** (quote 6555, contract PNA-0000000020, admin contract id 20).
+- **Dev, 2026-11-15 (AP-2501 s4):** a second term confirms the Description reads each invoice's own term — invoice
+  **956** (quote 6709, contract PNA-0000000028) shows "PNA-0000000028" then "5 ans"; 941 still shows "10 ans". Both
+  lists show the six lines in full (`white-space: normal`, nothing clipped); 956 is first on page 1, 941 on page 2.
+  `/admin/invoice/941/pdf` and `/admin/invoice/956/pdf` still answer **HTTP 500** (AP-2529, open). The Admin invoice page's
+  history listed an "Invoice PDF exported" entry dated 2026-11-02 00:45 for 941 (a log of the attempt, not a PDF). In the Admin sidebar, "Invoices" sits inside the
+  collapsed group "Billing" (with "Payment history").

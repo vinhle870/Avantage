@@ -66,3 +66,175 @@ This is the final allowed round for R2. All four round-2 findings were re-checke
 | # | Severity | Where | What is wrong | Required fix |
 |---|---|---|---|---|
 | F-1 | Minor | AP2435_TestCases_006-010.md — AP2435_008 step 1 and AP2435_009 step 1 | The pre-condition asks the executor to confirm that AP2435_004 step 3 listed `<C>`, but it does not say what to do if AP2435_004 was BLOCKED or FAILED. The security assertion ("no `contractNumber` value") is valid without that confirmation, so no result changes. Only the comparison that the same query returns `<C>` with a key is lost. | If convenient, add to both pre-conditions: "If AP2435_004 step 3 did not list `<C>`, run the case anyway and note in the execution log that the with-key comparison is unavailable." |
+
+## R3 — Execution results — round 1 (independent reviewer) — 2026-11-05T06:13:13Z
+Reviewed: qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md, all 25 *_response.txt and 3 PNG files in qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2435/, qa-artifacts/3-test-cases/AP2435_TestCases_001-005.md, _006-010.md, _011-012.md (and their git diffs), qa-artifacts/.pipeline/AP-2435.md, requirements/AP-2435-admin-api-warranty-search.md, qa-artifacts/1-requirements-analysis/AP-2435_requirements-analysis.md (Open Questions), qa-artifacts/qa-docs/admin-api.md and admin-portal.md (diffs: additions only), qa-artifacts/base-test/test-centralized.md (836/827 rows), qa-artifacts/7-reviews/AP-2434_review.md (R3 Bearer ruling, for comparison), .claude/skills/stlc-ticket-pipeline/routing.md §3 Gate C
+Verdict: **APPROVE** · Gate C: nothing to file — the log has no FAIL (Gate C skipped by its own rule); s4c stays skipped
+Findings: 0 blocker · 0 major · 3 minor
+
+The run can be trusted. All 12 cases ran and the counts (12 PASS / 0 FAIL / 0 BLOCKED, 100%) match the per-case rows and the test-case Status fields. I parsed every saved response myself: each has curl exit 0 and an HTTP status line, the statuses match the log, every 2xx body is valid JSON of shape {"items":[…]}, APOP01-836 is listed wherever the log says it is, and every returned entry really matches its query (all 10 postal-code and telephone hits carry postal code H7L 0C4/H7L0C4 and the queried home or work number; both VIN hits carry VIN BKVG64C7AKB4145G5), so no wrong-data fault hides behind a PASS. Every PASS row states the observed status and values, and every evidence path in the log exists on disk.
+
+Rulings on the points raised:
+1. Bearer header (D-5; 001 step 2, 007, 009 step 3): **PASS / record-only stands.** Unlike AP-2434 (whose capture shows only the Bearer form and whose Q-001 was about the path, so the Bearer wording was stated AC there), AP-2435's own When clause contradicts itself: the text says "in the Authorization Bearer header" and the example call directly beneath it sends `-H 'X-API-KEY: xxx'`. The build accepts the form the ticket's example shows (200) and refuses the other (401 {"error":"Missing API key"}), so no single stated sentence is broken. The analyst classed this as Q-001 Judgement (approved at R1 and R2), the cases make it record-only (001 fails only if neither form gets a 2xx; 007 "A 401/403 is recorded, not failed"), and routing §3 Gate C allows a FAIL on a record-only point only for an objective fault, which a refused alternate header form is not. No bug is filed and AP-2549 is not linked. The s7 story comment should report O-2 under Q-001 and name AP-2549 as the same Bearer refusal already filed for the warranty-notes endpoint, so the author settles both together.
+2. Extra response fields (O-3): **observation for the author, not a fault.** The ticket says the list is returned "matching the following" and shows only `contractNumber`; it never says no other field may be returned, Q-009 already asks "Are other fields returned besides contractNumber?" (Judgement), and 001 step 3 makes the extra fields record-only. Returning 24 fields (client name, email, street address, postal code, both phones, prices) to a key-holding admin caller is a scope and data-exposure question only the author can answer. It must appear prominently in the s7 comment under Q-009.
+3. Other observations: all correctly PASS or record-only. Q-008: the 10-item cap with no total or paging is record-only in 012; note the stronger evidence for the author — the work-phone search lists VATP-794, VATP-767 and VATP-766, whose stored home phone is 5146906330, yet the home-phone search (004 step 3) omits them, so the cap drops contracts that match. Q-006 (home and work phone both searched, stepobs3), Q-004 (VIN and postal code case-insensitive, 002 step 3 and 006 A), Q-005/Q-007 (partial postal, partial phone and the `+1` form return {"items":[]}, 006 B–D) and Q-010 (no match → 200 {"items":[]}, 010; empty or missing query → 400 {"success":false,"error":"Missing query parameter"}, 011) are all record-only in their case text, and no objective fault (no 5xx, no wrong data) occurred. 008 and 009 judge a stated point (no contract data without a valid key) and both bodies hold no contract data.
+4. Test data and deviations: warranty 836 is named in the hand-off and recorded in the `test-data` source as this ticket's read-only reference; 827 was rightly rejected (placeholder data, and it is used by AP-2434). D-1 (Dev instead of staging) follows `execution_env: Dev` in tools.md §2. Replacing the shared account email in file 001-005's Login row with a reference to the `env` source is a credential-policy cleanup with a Revisions row and changes no step or expected result — accepted. Knowledge write-backs to admin-api.md and admin-portal.md are additions only.
+
+Credential check (compared without printing): every 12-character window of the 64-character AVP_ADMIN_API_KEY was searched in 38 AP-2435 files (execution log, three test-case files, run state, run summary, analysis, test plan, requirement capture, review record, all 25 response files, admin-api.md, admin-portal.md): 0 hits.
+
+| # | Severity | Where | What is wrong | Required fix |
+|---|---|---|---|---|
+| F-1 | Minor | execution-log_AP-2435_2026-11-05.md:99 — AP2435_001 step 1 screenshot list | The log describes AP2435_001-step1-Warranty836VinPostalTel_pass.png as showing "the Vehicle and Client sections open (VIN, postal code, both telephones)", but the image shows the Client accordion closed: only the VIN is visible. The step's values are still proven by the list-row capture (phone 5146906330, VIN, APOP01-836) and by the API bodies (APOP01-836 with postal code H7L 0C4, home 5146906330, work 124-123-1234), so no result changes. | When the log is next touched, describe the capture as "Vehicle section only; Client values confirmed from the API response body", or recapture with the Client accordion open at the next re-test. |
+| F-2 | Minor | AP2435_TestCases_001-005.md, _006-010.md, _011-012.md — Execution Context | The context rows are stale after the run: Environment and API endpoint still name v2staging, the Login row still says the key is "Not known today", and file 001-005's Known blockers table still marks Q-012 "Open" with "Every case below ships with Status: BLOCKED". The log covers this as D-1 and the Revisions rows record Q-012 as resolved. | Refresh these rows (Dev host, key present, blocker closed) when the files are next touched for s4c or a re-test. No rework now. |
+| F-3 | Minor | execution-log_AP-2435_2026-11-05.md:251 — O-1 | O-1 says results come "newest contract first", but the bodies are ordered by record number, highest first, not by date: APOP01-847 (date_start 2026-10-03) is listed before APOP01-846 (2026-11-09) in AP2435_012_stepobs1_response.txt. | Word it "highest record number first" in the s6 report and the s7 comment. |
+
+Screenshots inspected: AP2435_001-step1-Warranty836VinPostalTel_pass.png — partly matches (VIN BKVG64C7AKB4145G5 shown; postal code and telephones not shown, see F-1); AP2435_001-step1-ListRowAPOP01-836_pass.png — matches (Ken Nguyen, 5146906330, Honda CR-V 2024, VIN BKVG64C7AKB4145G5, APOP01-836, Invoice #917 Paid, Approved); AP2435_008-step3-NoKeyBrowser401NoContract_pass.png — matches ({"error":"Missing API key"}, no contract data). API verification evidence (all 25 response files) parsed and matches the log for 001 step 3, 002–006 step 4, 007 step 3, 008 step 3, 009 step 4, 010 step 3, 011 step 4 and 012 step 3.
+
+Gate C: the log has no FAIL, so Gate C has nothing to decide and nothing to file; no duplicate search was needed. s4c stays skipped (no C1 decision). s5 records "no bugs filed"; s6 and s7 carry O-1 to O-7 to the author as Judgement observations, with O-1 (the cap drops matching contracts), O-2 (Bearer refused, same as AP-2549) and O-3 (24 fields incl. client PII) named first.
+
+## R4 — Outcome plan — round 1 (independent reviewer) — 2026-11-05T06:20:08Z
+Reviewed: qa-artifacts/5-testing-report/AP-2435_test-report.md, qa-artifacts/5-testing-report/AP-2435_bug-report.md, qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md (summary and per-case table), qa-artifacts/3-test-cases/AP2435_TestCases_001-005.md, _006-010.md, _011-012.md (Status fields), qa-artifacts/1-requirements-analysis/AP-2435_requirements-analysis.md (Open Questions), requirements/AP-2435-admin-api-warranty-search.md, qa-artifacts/.pipeline/AP-2435.md, qa-artifacts/qa-config/tools.md §2 (QA outcome rules), .claude/skills/stlc-ticket-pipeline/routing.md §3 Gate D, .claude/skills/stlc-ticket-pipeline/template.md §4.1, this review record (R1–R3), the worker's planned Gate D actions from the orchestrator hand-off
+Verdict: **APPROVE** · Gate D: move AP-2435 to Ready for release and assign to Ken Nguyen — rule §3.1 (all three checks pass)
+Findings: 0 blocker · 0 major · 1 minor
+
+The outcome plan can be applied as written. I recomputed the pass rate from the test-case files themselves: 12 Status fields, all PASS, none SKIPPED, BLOCKED or Not Run, so 12 ÷ (12 − 0) × 100 = 100%, equal to the report, the execution log and the planned comment, and above the 90% threshold. The bug report lists no bug, so there is no stopping bug and nothing linked to this run; the analysis has 0 Blocking questions (11 Judgement, 2 Info), so no Blocking question is open. All three §3.1 checks pass, and the plan follows tools.md §2 exactly: status `Ready for release` (story_pass_status), then assignee Ken Nguyen (story_pass_assign, accountId 5ae11c42b076312e0e25c600) only after a successful move, apply_mode automatic, comment first, read back after each write, a refused transition reported and not retried. This also matches the user's standing rule (story PASS → Ready for release, without asking).
+
+Rulings on the points raised:
+1. O-3 (client personal data in each result, Q-009) and O-1 (10-item cap drops VATP-794, VATP-767, VATP-766 from the home-phone search, Q-008) do **not** block the move under any stated rule. Gate D has exactly three checks (pass rate, stopping bug, open Blocking question). Neither observation is a bug: R3 ruled both record-only (no stated sentence of the ticket forbids extra fields or a result cap; "The list of contracts found is returned" does not state that every match must be returned without a limit), and Q-008 and Q-009 are Judgement questions, not Blocking. Re-classing either now would answer a product question by assumption. The plan correctly carries both, with Q-001, to the author in the comment's Questions line, which is the rule's channel for a Judgement question whose answer could change a result.
+2. Comment content (checklist 4.5): the header, totals line, Passed line (001–012, i.e. every case), Bugs: None, at most three Questions with the author's mention, and the Next line "Moved to Ready for release." follow template §4.1. O-1 uses the R3 F-3 wording-compatible facts (the dropped contracts are named). AP-2549 is named as a reference only, not linked, as R3 ruled.
+3. Checklist 4.2 and 4.6 do not apply: no FAIL, no bug ticket, no re-assignment of a bug. Ken Nguyen is in not_developers, which restricts only bug re-assignment, not story_pass_assign.
+
+Credential check (compared without printing): every 12-character window of the 64-character AVP_ADMIN_API_KEY from /.env was searched in 47 files (all files named AP-2435 / AP2435 under qa-artifacts, the 25 response files and 3 screenshots under screenshots/5.0.0/AP-2435/, the requirement capture, qa-docs/admin-api.md, qa-docs/admin-portal.md, base-test/*.md): 0 hits. The planned comment holds no key value.
+
+| # | Severity | Where | What is wrong | Required fix |
+|---|---|---|---|---|
+| F-1 | Minor | Planned story comment (template §4.1) | The plan drops the template's "*Failed / blocked:*" line because there are none; the template has no explicit "none" form for it, so this is a presentation choice, not an error. | Optional: the updater may write "*Failed / blocked:* none" for template fidelity. No rework. |
+
+Gate D: apply in this order — (1) post the story result comment as planned; (2) move AP-2435 from QC to Ready for release; (3) only if (2) is read back as Ready for release, assign AP-2435 to Ken Nguyen (accountId 5ae11c42b076312e0e25c600); read back after each write; a refused transition is reported with the current status and not retried, and the assignee then stays Vinh Le - QC.
+
+## R5 — Automation specs — round 1 (independent reviewer) — 2026-11-05T06:32:05Z
+Reviewed: qa-artifacts/6-automation/AP-2435_automation-report.md, playwright-automation/src/api/AdminWarrantySearchApi.ts, playwright-automation/src/flows/WarrantySearchApiFlow.ts, playwright-automation/src/tests/admin/warrantySearchApi_AP2435.spec.ts, playwright-automation/playwright.config.ts, playwright-automation/src/core/fixtures/test-fixtures.ts, playwright-automation/src/data/config.ts (getEnvConfig), qa-artifacts/3-test-cases/AP2435_TestCases_001-005.md, _006-010.md, _011-012.md, qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md, qa-artifacts/.pipeline/AP-2435.md, earlier sections of this record (R3, R4), qa-artifacts/6-automation/AP-2377_automation-report.md, playwright-automation/src/tests/client/buyOnline_AP2377.spec.ts (shared test data)
+Verdict: **REWORK** · Gate —: — (R5 has no gate table; the PR waits for round 2)
+Findings: 0 blocker · 1 major · 2 minor
+
+The specs are well built. Lint is clean, all 12 tests passed twice in the reviewer's own run, and every test traces to a case that PASSED manually. The layering (API object → flow → spec) follows the framework, record-only points stay annotations exactly as R3 ruled, and no piece of the real key was found in any report or new file after the run. They cannot be approved yet for one reason. When a request fails at the transport level (Dev unreachable, a DNS failure or the 30-second timeout), Playwright records its own failed-request step in the HTML report, and that step's error carries the full call log, including the `X-API-KEY` header value. The custom error replacement in `AdminWarrantySearchApi.search` only cleans the error that the test throws; it cannot clean the step that Playwright has already recorded. The reviewer proved this with a fake key against an unreachable origin (details under F-1).
+
+| # | Severity | Where | What is wrong | Required fix |
+|---|---|---|---|---|
+| F-1 | Major | playwright-automation/src/api/AdminWarrantySearchApi.ts:68–75 (`this.request.get(...)` inside try/catch) | On a transport failure the admin API key is written in clear text into `playwright-report/index.html`. The reviewer's proof: a throwaway spec in the scratchpad (its own config and report folder, with `test.use({ trace:'off', screenshot:'off', video:'off' })` exactly as in the spec) called `WarrantySearchApiFlow.open(playwright, 'http://127.0.0.1:9', <fake 34-character key>)` and then `searchListsContract('x','C')`. The console showed only the redacted one-line error. But the HTML report's embedded zip held the fake key twice, as `- X-API-KEY: <key>`, in the `error` of the step `GET "/api/admin/search-warranty?query=x"` (Playwright's own API-call step) and in the `error` of its parent `test.step`. Playwright records that step error before the catch block runs, so neither the catch nor `trace:'off'` can remove it. A successful or HTTP-error response does not leak (the reviewer's real run scanned clean). Only a request that gets no answer at all leaks, which is exactly when Dev is down and the report is most likely to be shared. | Send the requests that carry a key without Playwright's instrumented request API. For example, call Node's built-in `fetch(url, { headers, signal: AbortSignal.timeout(30_000) })` inside `AdminWarrantySearchApi.search`. Keep the same `ApiAnswer` shape, the same label and the same one-line error with the key removed on a failed send, and strip the key from the whole message and any `cause`, not only the first line. The flow's existing `test.step` still shows one step per request in the report. Then prove the fix: run a throwaway spec (never committed) that points the flow at an unreachable origin with a fake key. Scan `playwright-report/`, including the decoded embedded zip, for that fake key and confirm 0 hits. Record that check in the automation report next to the existing key check. Keep `test.use({ trace:'off', ... })`. |
+| F-2 | Minor | playwright-automation/src/flows/WarrantySearchApiFlow.ts:58–65 (`summary`) — AP2435_001 step 3, AP2435_011 step 4, AP2435_012 step 3 | On a 2xx the cases ask to record three things: the top-level shape (`items` object or bare list, Q-009), any paging fields (`total`, `page`, `next`, `limit`, Q-008) and, in 001 step 3, the fields besides `contractNumber`. The annotation records only the status, entry count and contract numbers, so the report cannot answer Q-008 or Q-009 on a later build. No result changes. | Optional: add the body's top-level keys and the first entry's field names to the 2xx summary. Write names only, never values, because the entries hold client personal data. |
+| F-3 | Minor | qa-artifacts/6-automation/AP-2435_automation-report.md — *Maintenance risks*, "The 10-item cap" | The risk is real, not hypothetical. The AP-2377 automation (`buyOnline_AP2377.spec.ts`, lines 31 and 42–43) uses the same postal code `H7L0C4` and telephone `5146906330` on Dev and leaves 7 purchase sessions per run. Nobody knows whether an unpaid session becomes a searchable contract. If one ever does, APOP01-836 (4th of 10) falls out of the results after one AP-2377 run and 003–005 fail. The reviewer accepts the assertion as written: manual result rule 4 also ends in FAIL when the cap hides `<C>` and no longer query exists, and the failure message already names the cap (O-1). | Name the AP-2377 data overlap in the maintenance-risk paragraph, so whoever triages a 003–005 failure checks it first. No code change is required. |
+
+Rulings on the orchestrator's specific points:
+1. **Key handling.**
+   - The key is read only through the existing `getEnvConfig('AVP_ADMIN_API_KEY')` and held in a private `#key` field.
+   - It is sent per request, with no `extraHTTPHeaders` on the context.
+   - It never goes into a label, annotation, step title or assertion message. Assertion messages hold the label, the status and up to 200 characters of the response body. The 401 bodies (`Missing API key`, `Invalid API key`) do not echo the key.
+   - The file-level `test.use({ trace:'off', screenshot:'off', video:'off' })` does override the config's `trace: 'retain-on-failure'`, because a file-level `test.use` takes precedence over the project and config `use`. The reviewer's run left no trace in `test-results/`, which is empty.
+   - That setting is enough for traces but not for the report's API-call step errors (see F-1).
+   - None of the three files has a `console.*` call.
+2. **Skip on 401/403 with `X-API-KEY`.** Appropriate. Result rule 2 of AP2435_TestCases_001-005.md makes a refused key on the accepted form BLOCKED, never PASS or FAIL. For AP2435_001 the case adds "listed as active on `/admin/api-keys` → FAIL". The automation cannot make that read-only portal check, and the skip expresses the case's own fallback ("not confirmable → BLOCKED by Q-012"). A real auth regression would therefore show as ten skipped tests with "BLOCKED by Q-012 … HTTP 401" in the report, never as passes, and 008 and 009 still run. The manual rule is carried over faithfully, so this is not a finding.
+3. **Record-only observations.** These match R3. The 10-item cap (O-1), the Bearer 401 (O-2, Q-001) and the 24 fields (O-3, Q-009) are annotations only. AP2435_001 asserts only that at least one form gets a 2xx and that it lists APOP01-836. AP2435_007 asserts only no 5xx and valid JSON on a 2xx. Correct.
+4. **Data fragility.** The assertion is accepted as written (see F-3).
+5. **Conventions.**
+   - The API object holds no `expect` and no `test.step`. Every flow method wraps one `test.step` and owns the assertions, and the spec only calls the flow.
+   - Titles follow `{TC_ID}_<PascalCaseTitle>` and the describe carries `@admin @AP-2435`.
+   - None of the files has `waitForTimeout`, `test.only`, a hard-coded URL (the origin comes from `config.baseUrl`) or a `test.fixme`. Workers stay at 1 from the config.
+   - Nothing is created on Dev and there are no locators, so checks 5.7 and 5.9 do not apply.
+   - `git status` shows no tracked file under `playwright-automation/` modified. The AP-2441 and AP-2495 untracked files were last written at 00:22–00:51 local time, before the AP-2435 files (13:25–13:26), so they were not touched.
+
+Credential check: after the reviewer's run, every 12-character piece of the 64-character key (53 pieces) was searched for, without printing, in these places. All had 0 hits. The key was exported only inside the run command, and neither `.env` was printed.
+- `test-results/` (empty)
+- `playwright-report/`: index.html and the 2 entries of its decoded embedded zip
+- `csv-report/` (absent, because no CSV reporter is configured)
+- the three new source files
+- the automation report and the execution log
+- the AP-2435 evidence folder
+- this record
+
+Run: `npm run lint` — clean (tsc --noEmit, exit 0). `AVP_ADMIN_API_KEY="$(sed -n 's/^AVP_ADMIN_API_KEY=//p' ../.env | tr -d '\r')" npx playwright test --project=chromium --grep @AP-2435 --repeat-each=2` — 24 passed, 0 failed, 0 fixme, 25.7 s, no flaky tests.
+Traceability:
+| TC ID | Step | Expected result | Assertion |
+|---|---|---|---|
+| AP2435_001 | 2 | Neither form 5xx; at least one form 2xx; both 401/403 → BLOCKED | `probeKeyHeaderForms` — `expect(is5xx).toBe(false)` per form; `test.skip(refused)`; `expect(accepted.length).toBeGreaterThan(0)` |
+| AP2435_001 | 3 | Valid JSON, every entry has `contractNumber`, lists APOP01-836 | `expectAnsweredWithoutServerError` (JSON defined, items/list, `typeof contractNumber === 'string'`); `expect(numbers).toContain(contract)` |
+| AP2435_002 | 4 (step 2) | Whole VIN: 2xx, valid JSON, lists `<C>` | `searchListsContract` — `expect(is2xx).toBe(true)`, shape check, `toContain(contract)` |
+| AP2435_002 | 4 (step 3) | Lower-case fragment recorded; JSON on 2xx | `recordSearch` — no 5xx + shape check; listed/not listed annotated |
+| AP2435_003 | 4 | Both postal spellings 2xx, JSON, list `<C>` | `searchListsContract` × 2 |
+| AP2435_004 | 4 | Hyphens and plain digits 2xx, JSON, list `<C>` | `searchListsContract` × 2 |
+| AP2435_005 | 4 | Dots and parentheses 2xx, JSON, list `<C>` | `searchListsContract` × 2 |
+| AP2435_006 | 4 | Every 2xx body valid JSON; A–D recorded | `recordSearch` × 4 — no 5xx + shape check; annotations |
+| AP2435_007 | 3 | 2xx body valid JSON; 401/403 recorded, not failed | `recordSearch(…, 'bearer')` — no 5xx + shape check on 2xx; no skip or fail on 401 |
+| AP2435_008 | 3 | Body holds neither `<C>` nor any `contractNumber` | `searchReturnsNoContractData` — `not.toContain(contract)`, `not.toContain('contractNumber')`, no 5xx |
+| AP2435_009 | 4 | Neither wrong-key body holds `<C>` or `contractNumber` | `searchReturnsNoContractData` × 2 (wrongXApiKey, wrongBearer) |
+| AP2435_010 | 3 | 2xx or a 4xx other than 401/403; no `contractNumber`; JSON on 2xx | `searchListsNoContracts` — skip on 401/403, status in 200–499, `not.toContain('contractNumber')`, shape check + `entries.length === 0` on 2xx |
+| AP2435_011 | 4 | 2xx → JSON + `contractNumber` per entry; 4xx recorded | `recordSearch('')`, `recordSearch(undefined)` — no 5xx + shape check on 2xx |
+| AP2435_012 | 3 | 2xx → JSON + `contractNumber` per entry; count, paging and prefixes recorded | `recordSearch('KB')` — no 5xx + shape check; count and contract numbers annotated (paging fields not recorded — F-2) |
+
+Rework scope for s8 (`--review external`, round 2): F-1 only. That means AdminWarrantySearchApi.ts, WarrantySearchApiFlow.ts if the step wrapping has to move, and the key-check paragraph of the automation report. F-2 and F-3 are optional. Do not change the spec's tests, titles, tags or assertions, and do not touch any other file.
+
+## R5 — Automation specs — round 2 (independent reviewer) — 2026-11-05T06:49:01Z
+Reviewed: playwright-automation/src/api/AdminWarrantySearchApi.ts, playwright-automation/src/flows/WarrantySearchApiFlow.ts, playwright-automation/src/tests/admin/warrantySearchApi_AP2435.spec.ts (unchanged since round 1, 13:26:03), playwright-automation/playwright.config.ts, playwright-automation/.gitignore, qa-artifacts/6-automation/AP-2435_automation-report.md, qa-artifacts/5-testing-report/AP-2435_run-summary.md, qa-artifacts/.pipeline/AP-2435.md, the round 1 section of this record, the reviewer's own throwaway outputs in the session scratchpad (rv2r5/), the HTML report of the reviewer's real run (decoded embedded zip)
+Verdict: **APPROVE** · Gate —: — (R5 has no gate table; the PR may be opened)
+Findings: 0 blocker · 0 major · 1 minor
+
+All three round 1 findings are fixed, and the reviewer proved the F-1 fix independently. The requests now go through Node's `fetch`, which the test runner does not record, so a request that gets no answer can no longer write the API key into the HTML report, the trace or the console. A second look at the whole set found no new Blocker or Major. One Minor remains (F-4): every passing 2xx check puts the first 200 characters of the response body into an `expect` message. Playwright shows that message as a step title in the HTML report, so a passing report holds the first entry's VIN and vehicle details. It holds no client name, e-mail, telephone or address today, and the report folder is git-ignored, so this does not block the PR.
+
+Round 1 findings, re-checked:
+- **F-1 (Major) — fixed.** `AdminWarrantySearchApi.search` (lines 97–118) calls `fetch(url, { method: 'GET', headers, signal: AbortSignal.timeout(30_000) })`, and `response.text()` sits inside the same try block. On any failure it throws one new `Error` with no `cause`. The message is the label plus `describeFailure(e)`: the name, message and string `code` of the error and of up to 5 levels of `cause`, joined, with every occurrence of the key replaced by `<redacted>` and line breaks folded. The original error is dropped, so Playwright cannot serialise its chain. Undici's header-validation error ("… is an invalid header value") would quote the header value, but it is raised inside the try and its message goes through `redact`. The bearer form `Bearer <key>` still contains the key as one piece, so it is redacted too.
+  - **The reviewer's proof** used its own throwaway in `C:\Users\Admin\AppData\Local\Temp\claude\3f7642d4fd0c329b\e0768658-724f-44b8-b6f2-cf64a5051828\scratchpad\rv2r5\`, not the automator's `leak2`.
+    - It had its own config with the HTML and JSON reporters, and `trace: 'retain-on-failure'` at the config level.
+    - A random 46-character fake key came from an environment variable.
+    - 12 tests drove the real `WarrantySearchApiFlow`. Eight of them used the spec's `test.use({ trace:'off', … })`:
+      - port 9: fetch refuses the blocked port before sending
+      - a real `ECONNREFUSED` on 127.0.0.1:59998, through the two-form probe
+      - `localhost:59998`, which produces an `AggregateError` cause
+      - a DNS `ENOTFOUND`
+      - a local server that never answers (the 30 s `TimeoutError`)
+      - a local server that sends 200 headers and then stalls the body (the abort fires inside `text()`)
+      - a server that destroys the socket (`UND_ERR_SOCKET`)
+      - a plain HTTP 400
+    - Two more tests ran with tracing on, to check whether `fetch` reaches a trace at all.
+  - **Result:** every failure gave one clean line, for example `… was not answered (send invalid — BLOCKED (environment)): TypeError: fetch failed <- caused by: Error: connect ECONNREFUSED 127.0.0.1:59998 [ECONNREFUSED]`.
+  - **Scan:** these places were searched for the whole fake key and for each of its 35 twelve-character pieces:
+    - `playwright-report/`: index.html, its decoded embedded zip, and the trace zip under `data/`
+    - `test-results/`, including both trace.zip files, opened
+    - the JSON results
+    - the captured console output
+
+    There were 0 hits. `X-API-KEY:` (with the colon) had 0 hits. The decoded report did contain the markers of every scenario (`ECONNREFUSED` 17, `ENOTFOUND` 6, `AggregateError` 5, `TimeoutError` 6, `other side closed` 3), so the scan read the right data. The scanner found all 35 pieces in the key file itself (positive control). The only `X-API-KEY` text in the report is the source snippet of `headersFor`.
+- **F-2 (Minor) — fixed.** On a 2xx, `shapeOf` adds the top-level shape and keys, the paging field names (case-insensitive list) and the entry field names besides `contractNumber`. The real-run annotation for the lower-case postal code reads `shape: object {items}; paging fields: (none); entry fields besides contractNumber (23): date_start, vehicle_make, …, sale_price`. Those are names only. The annotations hold no client name, e-mail or telephone value.
+- **F-3 (Minor) — fixed.** The maintenance-risk paragraph of the automation report names the AP-2377 overlap (`buyOnline_AP2377.spec.ts` lines 31, 42–43, 7 purchase sessions per run).
+
+Whole set, checked again:
+- **5.1 (the run):** lint is clean, with `npx tsc --noEmit` exiting 0. The real-key run passed 24 of 24 in 25.6 s, with no flaky tests (see *Run* below).
+- **5.2 (test titles and tag):** unchanged. 12 titles `AP2435_0nn_…`, every case PASS in the execution log; the describe carries `@admin @AP-2435`.
+- **5.3 (traceability):** unchanged. The spec and every assertion in the flow are byte-for-byte the round 1 logic; only `open`, `dispose`, `summary` and `shapeOf` changed. The round 1 traceability table stands in full.
+- **5.4 (forbidden calls and hard-coded values):**
+  - There is no `waitForTimeout`, no `test.only` and no `console.*` call.
+  - The origin is still `new URL(config.baseUrl).origin`. `fetch` builds an absolute URL from it, and no URL is hard-coded.
+  - The key still comes only from `getEnvConfig('AVP_ADMIN_API_KEY')`.
+  - Both skip rules (Dev only, key missing) are unchanged, and so is the per-step skip on 401/403.
+  - The 30 s per-request limit matches the cases. Workers stay at 1.
+- **5.5 (layering):** the API object has no `expect` and no `test.step`. Every flow method wraps one `test.step`, and the spec only calls the flow. `open(_playwright, …)` keeps the spec's call unchanged.
+- **5.6 (existing methods):** `git diff --stat` lists no file under `playwright-automation/`.
+  - The only files written since round 1 (13:32 local) are AdminWarrantySearchApi.ts, WarrantySearchApiFlow.ts, AP-2435_automation-report.md and AP-2435_run-summary.md (all AP-2435).
+  - The QA's untracked AP-2441 and AP-2495 files keep their 00:22–00:51 timestamps, so they were not touched.
+- **5.7 and 5.9:** not applicable. Nothing is created and there are no locators.
+- **5.8:** no `test.fixme`.
+
+| # | Severity | Where | What is wrong | Required fix |
+|---|---|---|---|---|
+| F-4 | Minor | playwright-automation/src/flows/WarrantySearchApiFlow.ts:113 and :115 (`expectAnsweredWithoutServerError`) and :159 (`searchListsContract`) — AP2435_001–006, 011, 012 | These three `expect` messages are built eagerly with `answer.text.slice(0, 200)`. Playwright uses an `expect` message as the step title in the HTML report, so every passing 2xx check writes the first 200 characters of the body into the report. After the reviewer's real run, the decoded report held 60 `— got: {…}` snippets. Each shows the first entry's contract number, start date, make, model, year, VIN and kilometres, with 2 distinct VINs. No `client_*` value appears, because those fields come after `vehicle_price`. This contradicts the flow's own note ("never response values"). If the API ever reorders its fields, client names and e-mails would appear in every passing report. In AP2435_008 and 009, a failing `expect(answer.text).not.toContain(…)` would also print the whole body, but only when the endpoint already leaks contract data. The report folder is git-ignored, and the data is Dev data. | Optional (not blocking): put the body in the message only when the check fails. For example, give `expect(answer.json, …)` the message `answer.json === undefined ? '<label>: … got: <first 200 characters>' : '<label>: the 2xx body is valid JSON'`, and use the same pattern for lines 115 and 159. Leave the assertions themselves unchanged. |
+
+Credential check (real key): the key was exported only inside the run command. Every 12-character piece of the 64-character key (53 pieces) was searched for, without printing, in these places. There were 0 hits in 1,825 files (1,827 units scanned).
+- `playwright-automation/test-results/` and `playwright-automation/playwright-report/` (index.html and its decoded embedded zip)
+- `playwright-automation/src/`
+- all of `qa-artifacts/`, which includes the automation report, the run summary, the execution log, this record and the AP-2435 evidence
+
+`csv-report/` does not exist, because no CSV reporter is configured. Neither `.env` was printed.
+
+Run: `npm run lint` — clean (exit 0). `AVP_ADMIN_API_KEY="$(sed -n 's/^AVP_ADMIN_API_KEY=//p' ../.env | tr -d '\r')" npx playwright test --project=chromium --grep @AP-2435 --repeat-each=2` — 24 passed, 0 failed, 0 fixme, 25.6 s, no flaky tests.
+Traceability: unchanged from round 1 (same 14 step → assertion pairs; the round 1 table applies as written, and the AP2435_012 paging fields are now recorded by `shapeOf`).
+
+The PR may be opened. F-4 is optional and may go in the same PR or a follow-up. If the automator changes the flow for F-4, it must run lint and `--grep @AP-2435` once more before opening the PR.

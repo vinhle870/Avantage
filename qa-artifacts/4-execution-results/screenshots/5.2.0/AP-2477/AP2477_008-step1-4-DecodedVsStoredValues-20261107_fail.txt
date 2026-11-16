@@ -1,0 +1,28 @@
+AP2477_008 - decoded hidden inputs vs stored vehicle values
+Environment: Dev (v2dev) - https://v2dev.garantieavantageplus.ca/
+Run: 2026-11-07, AP-2477 re-test after fix (execution log execution-log_AP-2477_2026-11-07.md)
+No cookies, tokens or credentials are recorded in this file.
+
+Step 1 - form /quote/new/edit-vehicle after "Decoder" with VIN 1FAHP35NX8W239204 (read from the DOM at 09:53Z, before saving)
+  Visible: Brand = Ford, Model = Focus, Year = 2008, VIN = 1FAHP35NX8W239204
+  Hidden quote_vehicle[transmission]   = automatic
+  Hidden quote_vehicle[cylinders]      = 4
+  Hidden quote_vehicle[engineSize]     = 2
+  Hidden quote_vehicle[engineSizeUnit] = kW
+  Hidden quote_vehicle[fuelType]       = GASOLINE
+  Hidden quote_vehicle[id]             = 863   (an existing inventory vehicle with the same VIN; it was NOT changed by the save - re-read at 09:57Z)
+  No hidden turbo / 4x4 / AWD input was present.
+
+Network (method, URL, status only)
+  POST https://v2dev.garantieavantageplus.ca/quote/new/edit-vehicle  -> 200   (the decode; body carried only quote_name, VIN and novalidate=true)
+  Save: POST /quote/new/edit-vehicle -> redirect -> GET https://v2dev.garantieavantageplus.ca/quote/6591/details (page loaded, banner "Vehicle saved")
+
+Step 4 - stored vehicle /vehicle/1146/edit (read-only, not saved)
+  VIN = 1FAHP35NX8W239204, Brand Ford, Model Focus, Year 2008
+  Fuel type = GASOLINE            (matches)
+  Transmission = Automatic        (matches)
+  Cylinders = 4                   (matches)
+  Engine size = 2                 (matches)
+  Engine size unit = Litre ("l", option carries the selected attribute)   <-- decoded value was kW: MISMATCH
+  Turbo / 4x4 / AWD = unticked    (no decoded value to compare)
+  Vehicle Price = empty, Kilometers = empty, Condition = no option selected (displays "new"), Designation = "Particular" pre-selected on the edit form; the details page /vehicle/1146/details shows "Mileage: km" and "Designation:" blank

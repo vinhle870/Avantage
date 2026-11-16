@@ -40,6 +40,7 @@ executor should not need a second file open to run this batch._
 | Date | Change | Reason | Confirmed by |
 |---|---|---|---|
 | 2026-11-01 | Execution Context → Login: the clear-text dealer username and password were removed and replaced with a reference to the `env` source (`execute.env.md`) | Credential policy — a credential must never be copied into an artifact | QA Agent (pipeline s4, dev run), per the batch instruction |
+| 2026-11-07 | Every case's Status reset to `Not Run`; Executed on / Result now hold the previous result for reference only. Execution Log table reset | Retest after fix (orchestrator plan rule P5): AP-2507 is in QC as fixed, so the whole AP-2477 set is re-executed on Dev in a new log dated 2026-11-07 | QA Agent (stlc-worker, s4), per the orchestrator hand-off |
 
 ---
 
@@ -73,8 +74,8 @@ executor should not need a second file open to run this batch._
 | **Priority** | High |
 | **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
-| **Result** | PASS — the form at /quote/new/edit-vehicle shows exactly Quote name, VIN (with "Décoder"), Brand*, Model*, Year*, then Save; none of the removed fields is visible. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
+| **Result** | PASS (2026-11-07) — the five vehicle fields Quote name, VIN (with "Décoder"), Brand*, Model*, Year* then Save; no removed field visible. The Vehicle type select now sits inside the form above Quote name (AP-2533 layout) — recorded, not failed. Previous (2026-11-01): PASS — the form at /quote/new/edit-vehicle shows exactly Quote name, VIN (with "Décoder"), Brand*, Model*, Year*, then Save; none of the removed fields is visible. |
 
 **Why this matters:** The form is the first thing a dealer sees when starting a quote. Every leftover field (price, kilometres, warranty dates) is friction the ticket exists to remove.
 
@@ -106,8 +107,8 @@ executor should not need a second file open to run this batch._
 | **Priority** | Medium |
 | **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
-| **Result** | PASS — only Brand*, Model* and Year* carry the marker and the HTML required attribute; Quote name and VIN carry neither. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
+| **Result** | PASS (2026-11-07) — only Brand*, Model* and Year* carry the marker and `required`. Previous (2026-11-01): PASS — only Brand*, Model* and Year* carry the marker and the HTML required attribute; Quote name and VIN carry neither. |
 
 **Why this matters:** A star on Quote name or NIV tells dealers those are mandatory, so they will hunt for a VIN they do not have yet. The mockup still shows those stars, but the ticket's Assumptions say only Brand, Model and Year should be marked.
 
@@ -138,8 +139,8 @@ executor should not need a second file open to run this batch._
 | **Priority** | High |
 | **Status** | PASS |
 | **Blocked by** | — (the user allowed the `/quotes` → "Create a quote" entry on dev on 2026-11-01) |
-| **Executed on** | 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
-| **Result** | PASS — quote 6438 (Toyota Corolla 2020, no name) saved from Brand/Model/Year only, opened at /quote/6438/details and is the newest quote. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
+| **Result** | PASS (2026-11-07) — quote 6588 (vehicle 1143, Toyota Corolla 2020, no name) saved and opened; newest row. Previous (2026-11-01): PASS — quote 6438 (Toyota Corolla 2020, no name) saved from Brand/Model/Year only, opened at /quote/6438/details and is the newest quote. |
 
 **Why this matters:** This is the core promise of the ticket. The ticket also warns that the quote-vehicle price column was not nullable; if that fix was missed, this save fails with an error page and no dealer can start a quote this way.
 
@@ -173,8 +174,8 @@ executor should not need a second file open to run this batch._
 | **Priority** | High |
 | **Status** | PASS |
 | **Blocked by** | — (the user allowed the `/quotes` → "Create a quote" entry on dev on 2026-11-01) |
-| **Executed on** | 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
-| **Result** | PASS — vehicle 1069 (quote 6439 "QA-AP2477-004-145431"): price and kilometres empty, mileage and designation blank on the details page, no condition stored. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
+| **Result** | PASS (2026-11-07) — vehicle 1144 (quote 6589 "QA-AP2477-004-095118"): price and km empty, no condition, designation blank on details. Previous (2026-11-01): PASS — vehicle 1069 (quote 6439 "QA-AP2477-004-145431"): price and kilometres empty, mileage and designation blank on the details page, no condition stored. |
 
 **Why this matters:** The ticket requires these four values to be stored empty (NULL), not filled with a default. A silent default — `0` km, "New", a price of 0 — would make warranty eligibility and pricing look valid when the dealer never entered anything.
 
@@ -207,8 +208,8 @@ executor should not need a second file open to run this batch._
 | **Priority** | Medium |
 | **Status** | PASS |
 | **Blocked by** | — (the user allowed the `/quotes` → "Create a quote" entry on dev on 2026-11-01) |
-| **Executed on** | 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
-| **Result** | PASS — server refused with "This value should not be blank." at Brand and Model; no quote created. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
+| **Result** | PASS (2026-11-07) — server refused at Brand and Model; no quote created. Previous (2026-11-01): PASS — server refused with "This value should not be blank." at Brand and Model; no quote created. |
 
 **Why this matters:** A quote with no make cannot be priced. If the save goes through anyway, the dealer is left with a broken quote they cannot delete.
 
@@ -253,8 +254,8 @@ one we currently have no way of proving works._
 
 | TC ID | Result | Screenshot |
 |---|:---:|---|
-| AP2477_001 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_001-step3-FiveFieldsOnly_pass.png` |
-| AP2477_002 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_002-step2-RequiredMarkersBrandModelYear_pass.png` |
-| AP2477_003 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_003-step3-QuotesListNewest6438_pass.png` |
-| AP2477_004 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_004-step3-VehicleEdit1069PriceKmEmpty_pass.png` |
-| AP2477_005 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_005-step3-NoNewQuoteNewest6440_pass.png` |
+| AP2477_001 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_001-step3-FiveFieldsTypeSelectInForm-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |
+| AP2477_002 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_002-step2-RequiredMarkersBrandModelYear-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |
+| AP2477_003 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_003-step3-QuotesListNewest6588-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |
+| AP2477_004 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_004-step3-VehicleEdit1144PriceKmEmpty-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |
+| AP2477_005 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_005-step2-BrandModelBlankRefused-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |

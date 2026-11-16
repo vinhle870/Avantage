@@ -20,11 +20,11 @@ complete the executor should not need a second file open to run this batch._
 | **Portal** | Dealer | `navigation` |
 | **Entry route** | `/vehicle/915/details` → **Create quote** → `/quote/new/client?fromVehicleId=915` (never a bare `/quote/new/client`, which returns HTTP 500 on the quote page) → `/quote/{id}/details`. On the quote page, the card **"Summary of products"** has the rows **"Gap Insurance"** and **"Creditors insurance"**, each with a **+** button that opens the add modal (ticket screenshots). The stand-alone financing page is `/quote/{id}/financing` | `navigation` → `domain` (quote-creation.md); the modal is not yet mapped — taken from the ticket screenshots |
 | **Viewport** | 1280 × 800 | `navigation` |
-| **Environment** | v2staging — dealer portal URL from the `env` source | `env` |
+| **Environment** | Dev (v2dev) — the registry's `execution_env`; dealer portal URL from the "Dev Environment" section of the `env` source | `env`, `qa-config/tools.md` |
 | **Login** | The shared dealer account (dealer 1380, "Test QA staging"), Chubb-configured with creditor forms PM30 and PM50, named in the `env` source; the password is read from there at run time and never written into the log | `env`, `domain` (chubb-insurance.md §6) |
 | **Test data** | Vehicle **915** (Ford Focus 2008, VIN `1FAHP35NX8W239204`) — used only as the vehicle each new quote is created from | `test-data` |
 | **Language** | EN for every judgement; `?_locale=en` on any dealer URL switches the session to English | `domain` (quote-creation.md) |
-| **Leaves behind** | One client and one quote per case; a financing on the quotes of 006–009; a priced Chubb creditors quote (007), a priced GAP quote (008) and possibly a failed insurance request (009) on the Chubb side. The `cleanup` source is missing — nothing is removed | `cleanup` (missing) |
+| **Leaves behind** | One client and one quote per case; a financing on the quotes of 006–009; a priced Chubb creditors quote (007), a priced GAP quote (008); for 009 (re-designed 2026-11-15) a financing with no date of birth, if the build stores it, and a refused — or, if Chubb prices it, a saved — creditors quote request. The 2026-11-02 run left quotes 6538–6542. The `cleanup` source is missing — nothing is removed | `cleanup` (missing) |
 
 **Shared client values** — First name `Gap`, Last name as given in the case, Email
 `client.stage.NNN@yopmail.com` (next unused number, recorded), Address `100 Rue Test`, City
@@ -53,10 +53,10 @@ other GAP field the modal requires gets its first non-empty option, recorded.
 | # | Missing fact | Affects | Status |
 |---|---|---|---|
 | 1 | The GAP / creditors add modal is not mapped in `domain` | AP2499_006–010 | Not blocking at design — reached through the **+** buttons; mapped at run time |
-| 2 | How to make the GAP / creditors quote fail on purpose | AP2499_009 | Open — Q-007 (Judgement). Not blocking at design: the case tries one likely trigger (Life term 999). If Chubb returns a priced result instead of a failure, AP2499_009 is recorded **BLOCKED** with reason "failure not reproduced with Life term 999 — Q-007" — never PASS, because the failure branch of REQ-005 was not exercised |
+| 2 | How to make the GAP / creditors quote fail on purpose | AP2499_009 | **Answered** — Q-007 (AP-2405 developer comment, 2026-01-22): a creditors quote whose borrower has no date of birth is refused. Not known whether Dev stores a financing without a date of birth (R1 F-2): step 2 records a refusal and step 3 reads the stored Date of birth in the modal's financing form after **Edit** (the Financing card never shows it); a refusal, or a date shown at step 3, makes the case BLOCKED with that reason; a priced result at step 5 is BLOCKED too, never PASS. No GAP trigger is defined, so the case is creditors only |
 | 3 | Whether dealer 1380 is configured for GAP (only creditor forms PM30 / PM50 have been seen) | AP2499_008 | Not blocking at design — if the modal offers no GAP quote for this dealer, the case is recorded BLOCKED at run time with that reason |
 
-> Designed with no case BLOCKED; executed 2026-11-02 on Dev (v2dev) — see the Execution Log below and `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2499_2026-11-02.md`.
+> Designed with no case BLOCKED; executed 2026-11-02 on Dev (v2dev); AP2499_009 re-designed 2026-11-15 and set to Not Run — see the Execution Log below and `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2499_2026-11-02.md`.
 
 ---
 
@@ -67,7 +67,7 @@ other GAP field the modal requires gets its first non-empty option, recorded.
 | AP2499_006 | Correcting the base amount of an existing financing in the creditors modal saves the new amount on the quote | Functional | High | FAIL |
 | AP2499_007 | A creditors insurance quote on a saved financing shows its result below the form in the same modal | Functional | High | FAIL |
 | AP2499_008 | A GAP insurance quote on a saved financing shows its result below the form in the same modal | Functional | High | FAIL |
-| AP2499_009 | When the insurance quote fails, the modal shows an error and keeps the values the dealer entered | Negative | Medium | BLOCKED |
+| AP2499_009 | A creditors quote for a borrower with no date of birth shows an error in the modal and keeps the entered values | Negative | Medium | BLOCKED |
 | AP2499_010 | Submitting an empty financing form shows an error on each required field left empty and saves nothing on the quote | Negative | High | PASS |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
@@ -202,45 +202,56 @@ reason rather than failed.
 
 ---
 
-### AP2499_009 — When the insurance quote fails, the modal shows an error and keeps the values the dealer entered
+### AP2499_009 — A creditors quote for a borrower with no date of birth shows an error in the modal and keeps the entered values
 
 | Field | Value |
 |---|---|
 | **TC ID** | AP2499_009 |
-| **Title** | When the insurance quote fails, the modal shows an error and keeps the values the dealer entered |
-| **Requirement** | AP2499 — REQ-005, AC "…on failure an error is shown without discarding the entered values" |
-| **Route** | `/quote/{id}/details` — Summary of products → Creditors insurance **+** |
+| **Title** | A creditors quote for a borrower with no date of birth shows an error in the modal and keeps the entered values |
+| **Requirement** | AP2499 — REQ-005, AC "Insurance results render below the form": "on failure an error is shown without discarding the entered values". Failure trigger from Q-007 (Answered): AP-2405 developer comment, Minh Lưu, 2026-01-22 — a creditors quote fails when the borrower has no date of birth ("DOB of Debtor is required for insurance coverage") or the co-applicant has none ("DOB of Co-Debtor is required for insurance coverage."). Creditors only — no GAP failure trigger is defined |
+| **Route** | `/quote/{id}/financing`, then `/quote/{id}/details` — Summary of products → Creditors insurance **+** |
 | **Type** | Negative |
 | **Priority** | Medium |
 | **Status** | BLOCKED |
-| **Blocked by** | Q-007 — failure not reproduced with Life term 999 |
-| **Executed on** | 2026-11-02 — Dev (v2dev) |
-| **Result** | BLOCKED — failure not reproduced with Life term 999 — Q-007 (priced 18.58$/m, quote 6541) |
+| **Blocked by** | AP-2566 — a financing saved with Date of birth empty comes back with today's date, so the AP-2405 trigger (Q-007, no borrower date of birth) cannot be set up |
+| **Executed on** | 2026-11-15, Dev (v2dev), quote 6711 |
+| **Result** | BLOCKED at step 3 — Date of birth shows 2026-11-15 after Edit; Get Quote not clicked |
 
 **Why this matters:** A provider error that wipes the form makes the dealer re-type
-everything — the detour this ticket removes, by another route. What makes the quote fail is
-not stated (Q-007), so the case tries one likely trigger (a life term far above the 60-month
-financing term). The trigger is a guess, so a priced result is not a FAIL — but it is not a
-PASS either: the failure branch was never exercised, so the case is then recorded
-**BLOCKED** ("failure not reproduced with Life term 999 — Q-007"). Only if a failure does
-happen are the error and the kept values judged, and only then can the case pass.
+everything — the detour this ticket removes, by another route. The developer of the Chubb
+integration (AP-2405) names the trigger: no borrower date of birth on the quote. So the
+financing is saved here **without a date of birth**. Two things can stop the trigger from
+being set up, and neither is a product failure: the build may refuse a financing with no
+date of birth, or Chubb may still price the request. Either one makes the case **BLOCKED**
+with its reason, never PASS (R1 F-2). The co-applicant trigger is not used: the
+co-applicant form requires a date of birth (`domain`, quote-creation.md), so a co-applicant
+without one cannot be made. "Get Quote" in this modal reloads the quote page and closes the
+modal on a successful quote (known bug AP-2528). The AC does not say where the error must
+appear, so if the modal closes, the case re-opens it and judges what the AC does say: an
+error is shown and the entered values are still there. The closed modal is recorded and
+linked to AP-2528, not failed again here. The error wording is the AC's; AP-2405's message
+text is recorded, not required. A re-opened creditors form shows its opening values anyway
+(Form PM30, For Borrower only, Language English, Tax exempt No), so "kept" can only be judged
+on fields entered with a value different from the one the form opens with: step 3 records
+the opening values first, and the creditors values are chosen to differ from them (R2 F-1).
 
 **Test Data:**
 
 | Variable | Value |
 |---|---|
-| Client last name | `Gap2499-009` |
-| Stored financing | F1 (term 60) |
-| Creditors insurance | Shared creditors values, but Life term `999` |
+| Client last name | `Gap2499-009b` (a new client; quote 6541 of the 2026-11-02 run is not reused — it has a date of birth and a priced creditors quote) |
+| Stored financing | Shared financing values F1 with Residual amount `0` and **Date of birth left empty** |
+| Creditors insurance | Chosen to differ from the form's opening values (recorded at step 3): Language "Français", Tax exempt "Yes", Life type "Decreasing", Life term `48` (not the loan term 60), Life for "Borrower"; Critical illness and Disability left empty. Form stays on "Monthly Premium PM30" — a re-opened form never restores the saved Form on this build (AP-2410 map, quote-creation.md), so PM50 would fail for a known reason. If Language or Tax exempt already opens on the value above, enter its other option and record it |
 
 **Steps:**
 
 | # | Action | Expected Result |
 |---|---|---|
-| 1 | [Pre-Condition] Sign in to the Dealer portal, open `/vehicle/915/details`, click **Create quote**, fill the shared client values (last name `Gap2499-009`) → **Save**, set the vehicle step → **Save**, then save F1 on the quote as described under "Saving F1 on a new quote" | `/quote/{id}/details` shows a financing; the quote id and page URL are recorded |
-| 2 | Click the **+** button on the "Creditors insurance" row; enter the shared creditors values with Life term `999` | The modal opens without an error page or HTTP 5xx; Life term shows `999` |
-| 3 | Click the insurance form's submit control, wait up to 30 seconds, then take a screenshot of the whole modal | No HTTP 5xx error page replaces the quote page; the browser URL is unchanged. Record which of three outcomes occurred: a priced result (no failure), a field-level validation message, or a provider error message (record its full text, searching by `alert` role and the text "HTTP" as well as by "error") |
-| 4 | [Verification] Inspect the modal after the answer | If a provider error or a validation message is shown: it is visible inside the modal, and the creditors form still holds Language English, Tax exempt No, Form PM30, Life DECREASING, Life term `999`, BORROWER, and the financing form still holds F1 — no field was emptied or reset — the case passes only on this. **If a priced result was returned instead:** stop and record the case **BLOCKED** with reason "failure not reproduced with Life term 999 — Q-007" (not PASS); record the priced figures shown. An objective fault seen on the way (an error page, HTTP 5xx, URL change, or a field emptied without a failure) is still a FAIL |
+| 1 | [Pre-Condition] Sign in to the Dealer portal, open `/vehicle/915/details`, click **Create quote**, fill the shared client values (last name `Gap2499-009b`) → **Save**, then on `/quote/{id}/vehicle` set Delivered at `2026-11-01`, Price `20000` → **Save** | `/quote/{id}/details` loads with no financing; the quote id, the page URL and the client e-mail are recorded |
+| 2 | [Pre-Condition] Open `/quote/{id}/financing`, enter F1 but leave **Date of birth** empty (Residual `0`) → **Save**, then read the Financing card on `/quote/{id}/details`. If the page cannot be used (disabled, redirect or error — record which), enter the same values in the Creditors insurance **+** modal's financing form → **Save** and close the modal. **If the save is refused because Date of birth is empty, record the message and stop: BLOCKED — "a financing without a date of birth cannot be stored on Dev — the AP-2405 trigger (Q-007) cannot be set up"** | Flash "Financing saved"; the Financing card shows Type (recorded), Financed amount 25,000, Residual 0, Term 60, Interest rate 6.99 and a Payment amount (the card never shows the date of birth — quote-creation.md, AP-2410 map; it is read at step 3); the route used is recorded |
+| 3 | Click the **+** button on the "Creditors insurance" row and wait for the heading "Creditors Insurance Quote". If the "Financing" block is folded into one summary line, record that (AP-2526) and click its **Edit** link; read Date of birth and the F1 values. **If Date of birth shows a date, record it and stop: BLOCKED — "a date of birth is stored on the financing — the AP-2405 trigger (Q-007) cannot be set up"**. Before typing, take screenshot `AP2499_009-step3-OpeningValues` of the creditors form and record the value each field opens with (Form, Language, Tax exempt, Life type, Life term, Life for). Then enter the creditors test data (Form left as it is) and take a second screenshot | The modal opens on the same page (URL unchanged) without an error page or HTTP 5xx; the "Financing" block is first (folded or open — recorded, AP-2526); after **Edit** Date of birth is blank and the F1 values are recorded; each entered creditors value shows in its field. Record the **judged fields**: those whose entered value differs from its opening value (expected: at least Language, Tax exempt and Life term). If no field can be given a value different from its opening value, record that and stop: BLOCKED — "kept values cannot be told from the form's opening values", never PASS |
+| 4 | Click the creditors form's **Get Quote** (not a financing submit), wait up to 30 seconds for the answer, record the browser URL, then take a screenshot of the modal — or of the page shown if the modal has closed — and save the network request lines of the submit (method, URL, status only) to a `.txt` next to the screenshot. If the modal has closed and the browser is on `/quote/{id}/details`, re-open the Creditors insurance **+** modal, wait for the heading "Creditors Insurance Quote", click **Edit** on a folded "Financing" block (AP-2526) and take a second screenshot | No HTTP 5xx error page; the screenshots and the request lines are saved. Record which outcome occurred: (a) an error inside the open modal; (b) the quote page reloaded with the modal closed (with or without a message); (c) the browser left `/quote/{id}/details` (URL recorded, e.g. `/quote/{id}/insurance` drawn as a full page) — nothing is re-opened and step 5 judges the page shown; (d) a priced result. Record the full text of any message (search by `alert` role and by the words "DOB", "required" and "error") |
+| 5 | [Verification] Look at the step-4 screenshots (the open modal, the page shown at outcome (c), or the re-opened modal) from top to bottom and compare them with the step-3 opening-values screenshot | An error is shown (where — inside the open modal, on the reloaded quote page, or on the page shown at outcome (c) — is recorded), and no entered value was discarded: every **judged field** from step 3 still shows its entered value (e.g. Français, Yes, `48`), not its opening value or empty. Recorded, not judged: Form (a re-opened form shows PM30 whatever was saved — AP-2410 map), Life for (Borrower is the only option without a co-applicant), any field whose entered value equals its opening value, and the "Financing" block's F1 values and Date of birth, read after **Edit** — a folded block is recorded against AP-2526, not failed. The message text is recorded; AP-2405 names "DOB of Debtor is required for insurance coverage", and different wording is not a failure. A closed modal or a page change on **Get Quote** is reported to Gate C as an observation related to AP-2528, not judged here. **If a priced result was returned instead:** record the figures and stop BLOCKED — "failure not reproduced: Chubb priced a creditors quote with no borrower date of birth — Q-007 (AP-2405 trigger)", never PASS. The case **fails** if no error is shown, if any judged field shows its opening value or is empty, or on an error page or HTTP 5xx |
 
 ---
 
@@ -295,7 +306,7 @@ one we currently have no way of proving works._
 | Requirement / AC | Functional | Negative | Edge-case | Regression |
 |---|:---:|:---:|:---:|:---:|
 | REQ-004 — Submit saves and continues (correction) | AP2499_006 | — | — | — |
-| REQ-005 — Insurance result below the form | AP2499_007, AP2499_008 | AP2499_009 | — | AP2499_007 (Summary of products row) |
+| REQ-005 — Insurance result below the form; failure keeps the values (009: creditors, AP-2405 trigger) | AP2499_007, AP2499_008 | AP2499_009 | — | AP2499_007 (Summary of products row) |
 | REQ-006 — Financing validation, nothing saved | — | AP2499_010 | — | — |
 
 ---
@@ -309,6 +320,10 @@ one we currently have no way of proving works._
 | 2026-11-01 | AP2499_010 | Title, test data, "Why this matters", steps 2–3: a drop-down that cannot be emptied is recorded, and an error is expected only next to each field actually left empty; step 5 "nothing stored" stays the main check | Reviewer R2 REWORK F-3 — drop-down opening state is Q-004 (Open) |
 | 2026-11-01 | AP2499_007, AP2499_008 | Step 3 now says to take the screenshot of the modal that step 5 reads | Reviewer R2 REWORK F-5 |
 | 2026-11-02 | AP2499_009 | **Blocked by** set to "Q-007 — failure not reproduced with Life term 999" (was "—"); no step or expected result changed | Independent R3 F-3 — the blocker was named only in the Result field |
+| 2026-11-15 | AP2499_009 | Re-designed on the AP-2405 trigger: the financing is saved with **no date of birth** (Life term back to `60`, the 999 trigger dropped); step 2 records whether a financing and quote client without a date of birth can be stored (refused or a date of birth shown → BLOCKED); a priced result stays BLOCKED, never PASS; the expected result is REQ-005 AC 1's own wording — an error is shown and every entered value is kept, checked in the open or re-opened modal (where the error appears is recorded, since the AC does not say; a closed modal is recorded against AP-2528); the record-only outcome list became an assertion; network request lines saved at step 4; new client `Gap2499-009b`. Status back to Not Run; **Blocked by**, **Executed on** and **Result** cleared — the Execution Log row below is the 2026-11-02 run of the old design | 2026-11-15 re-analysis — Q-007 Answered (AP-2405, Minh Lưu, 2026-01-22); reviewer R1 F-2 |
+| 2026-11-15 | File | Execution Context: Environment row now Dev (v2dev) (was v2staging); Leaves behind updated for 009; Known blockers row 2 updated to the Q-007 answer. AP2499_006–008 and 010 unchanged and keep their 2026-11-02 results | Registry `execution_env: Dev`; Q-007 Answered |
+| 2026-11-15 | AP2499_009 | Test data and steps 2–5 reworked: creditors values now chosen to differ from the form's opening values (Language Français, Tax exempt Yes, Life term `48`; Form kept on PM30); step 3 records the opening values (screenshot) before typing and lists the judged fields — none → BLOCKED "kept values cannot be told from the form's opening values"; step 5 judges "not discarded" only on the judged fields and records Form, For and the stored financing values. Steps 3–4 wait for the "Creditors Insurance Quote" heading and click **Edit** on a folded Financing block (AP-2526, recorded not failed). Step 2 expects only the card fields the domain lists; the stored Date of birth is read in the modal after **Edit** at step 3 (a date shown → BLOCKED). Step 4 adds outcome (c) "the browser left `/quote/{id}/details`" (URL recorded, step 5 judged on the page shown); a closed modal or page change goes to Gate C as an observation related to AP-2528. Why this matters and Known blockers row 2 updated. Still Not Run | Reviewer R2 round 1 REWORK F-1, F-2 (Major), F-3, F-4 (Minor) — qa-artifacts/7-reviews/AP-2499_review.md |
+| 2026-11-15 | AP2499_009 | **Blocked by** set to AP-2566 (the bug filed for AP2499_005's failure); no step or expected result changed | Independent R3 round 1 minor F-3 — the blocker named only the behaviour, not the bug |
 
 ---
 
@@ -321,5 +336,5 @@ one we currently have no way of proving works._
 | AP2499_006 | FAIL | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_006-step3-ModalRendersQuotePage_fail.png` |
 | AP2499_007 | FAIL | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_007-step3-PageReloadedModalClosed_fail.png` |
 | AP2499_008 | FAIL | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_008-step3-PageReloadedModalClosed_fail.png` |
-| AP2499_009 | BLOCKED | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_009-step4-LifeTerm999Priced_blocked.png` |
+| AP2499_009 | BLOCKED | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_009-step3-Nov15-DOBShowsTodayDate_blocked.png` (2026-11-15, re-designed case) |
 | AP2499_010 | PASS | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_010-step5-NothingStored_pass.png` |

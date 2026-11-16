@@ -49,8 +49,8 @@ Implements the `tracker` capability group. Bound to a project through
 | `tracker.list_projects` | `jira.sh project list` | No `--plain` flag on this subcommand — output is already tab-separated |
 | `tracker.list_sprints` | `jira.sh sprint list --table --plain --state active,closed,future` | Needs a **board**. Returns "No result found" for a classic project without one — fall back to JQL on the `sprint` field and say the board is missing |
 | `tracker.list_sprint_tickets` | `jira.sh sprint list <SPRINT_ID> --plain` | Or `jira.sh issue list -q 'sprint = "<name>"' --plain` |
-| `tracker.get_ticket` | `jira.sh issue view $K --plain` | Add `--comments N` for comments. Takes a key, not a number |
-| `tracker.search_tickets` | `jira.sh issue list -q '<JQL>' --plain --no-headers --no-truncate --columns key,status,summary` | Duplicate check JQL (the wrapper already scopes to `$P`): `type = Bug AND statusCategory != Done AND text ~ "<3-5 words>"`. Escape double quotes inside the words. Verified on AP 2026-10-03. QA orchestrator selection, each followed by ` AND issuetype in (Story, Bug, Task)`: default `(status = "QC" OR assignee = currentUser()) AND statusCategory != Done` · `--mine` `assignee = currentUser() AND statusCategory != Done` · `--status-only` `status = "QC"`. Verified on AP 2026-10-31 — 26 tickets; without the type clause ~100, mostly Xray tests. `currentUser()` is `$JIRA_LOGIN`, the `qa_account`. No `ORDER BY` (see the `-q` pitfall). Add `--paginate 0:100` and page on while 100 come back |
+| `tracker.get_ticket` | `jira.sh issue view $K --plain` | Add `--comments N` for comments. Takes a key, not a number. **`--plain` hides the Acceptance Criteria field (`customfield_10150`)** — when the AC matters (knowledge lookup, capture), read it with `jira.sh issue view $K --raw` or REST `fields=customfield_10150` (verified on AP-2477, 2026-11-15) |
+| `tracker.search_tickets` | `jira.sh issue list -q '<JQL>' --plain --no-headers --no-truncate --columns key,status,summary` | Duplicate check JQL (the wrapper already scopes to `$P`): `type = Bug AND statusCategory != Done AND text ~ "<3-5 words>"`. Escape double quotes inside the words. Verified on AP 2026-10-03. QA orchestrator selection, each followed by ` AND issuetype in (Story, Bug, Task)`: default `(status = "QC" OR assignee = currentUser()) AND statusCategory != Done` · `--mine` `assignee = currentUser() AND statusCategory != Done` · `--status-only` `status = "QC"`. Verified on AP 2026-10-31 — 26 tickets; without the type clause ~100, mostly Xray tests. `currentUser()` is `$JIRA_LOGIN`, the `qa_account`. **Knowledge lookup** (analyst Step 3c): `issuetype in (Story, Task) AND text ~ "<3-5 words>"` with `--columns key,type,status,summary`, any status — verified on AP 2026-11-15. No `ORDER BY` (see the `-q` pitfall). Add `--paginate 0:100` and page on while 100 come back |
 | `tracker.list_tickets` | `jira.sh issue list -p $P --plain --no-headers --columns key,status,summary` | Filters: `-s`, `-t`, `-y`, `-a`, `-l`, `--created`, `--updated` |
 | `tracker.create_ticket` | `jira.sh issue create -t Bug -s "<summary>" -b "<body>" -y High -l qa-agent --no-input` | `--no-input` is **required** in an agent context, else it prompts and hangs. `-P $PARENT` for a sub-task |
 | `tracker.update_ticket` | `jira.sh issue edit $K -s "<summary>" -b "<body>" --no-input` | `-l` **appends** labels; `-C` **replaces** components |
@@ -139,14 +139,25 @@ v3 that the ADF has `orderedList` nodes and no stray `heading` level 1.
 
 ## Embedding an attachment in a description
 
-The recipe `tracker-manage-child-ticket` uses for bug evidence. **Verified working on
+The recipe `tracker-manage-child-ticket` uses for bug evidence.
+
+**In a comment** (question screenshots, `stlc-ticket-pipeline` routing.md → *Question
+screenshot*): attach the file to the issue (step 2), then POST the comment with
+`!<returned filename>|width=700!` already in its wiki markup — no PUT needed. Verify by
+reading the comment back through v3: a `mediaSingle`/`media` node with a resolved
+`attrs.id`.
+
+**Literal braces:** wiki markup renders `{{text}}` as monospace. Escape braces that are
+meant literally (e.g. a `{{STATUS}}` placeholder quoted in a question) as `\{\{…\}\}`. **Verified working on
 this project 2026-09-06.**
 
 **An image cannot be referenced before it exists**, so the order is fixed: create, then
 attach, then rewrite the description. There is no way to do it in one call.
 
-**1. Create the issue** with the description ending in an `h3. Evidence` heading and
-nothing under it.
+**1. Create the issue** with the description already condensed to the *bug description
+shape* (`tracker-manage-child-ticket` → template.md, about 15 lines). End it with the
+evidence caption line and nothing under it. This recipe only appends images. It never
+replaces the text with a fuller bug-report section.
 
 **2. Attach each screenshot** using the upload call in the previous section. Keep the
 `filename` each response returns — that string, not the local path, is what the markup

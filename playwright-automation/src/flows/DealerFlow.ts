@@ -95,7 +95,16 @@ export class DealerFlow {
             if (!submit) return;
 
             await expect(this.page, 'Quote was not created').toHaveURL(/\/quote\/\d+\/details/);
+            const quoteDetailsUrl = this.page.url();
             vehicle.vehicleId = await this.quoteDetailPage.getVehicleId();
+            test.info().annotations.push({ type: 'test-data-left',
+                description: `quote ${new URL(quoteDetailsUrl).pathname.split('/')[2]}, vehicle ${vehicle.vehicleId}` });
+
+            // The new-quote form keeps only VIN / Brand / Model / Year (AP-2477, AP-2533):
+            // the other vehicle values of the test data are entered on the vehicle's edit form
+            const status = await this.newQuotePage.completeVehicleDetails(vehicle.vehicleId, vehicle);
+            expect(status, 'Vehicle edit form saved without a server error').toBeLessThan(400);
+            await this.page.goto(quoteDetailsUrl);
             await this.addQuoteClient(quoteInfo.quoteClient);
         });
     }

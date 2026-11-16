@@ -156,3 +156,39 @@ acceptance criteria. `[attachment]` marks where an inline image sits in the desc
 | 2026-08-11 | Minh Lưu | Has updated the PR. |
 | 2026-08-14 | Vinh Le - QC | Reports that no Permaplate contract is shown and asks whether a configuration is needed (screenshot attached). |
 | 2026-08-18 | Vinh Le - QC | Reports that submitting Generate Contract shows an error (screenshot attached). No reply from the developer or reporter is recorded. |
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:50 (UTC-05:00) · **Previous capture:** 2026-11-01
+
+The description and acceptance criteria are unchanged. No new comment comes from the
+reporter or the developer. The three comments added since the capture were all posted by
+the QA account, and none of them answers a question:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 | Vinh Le - QC | Comment 19434: posts Blocking questions Q-001 to Q-003 (Year prefill, tax rules, AP-2456 retail conflict). |
+| 2026-11-01 | Vinh Le - QC | Comment 19447: QA result FAIL on Dev (9 of 15 passed). Lists AP-2512 to AP-2515 and repeats Q-001 to Q-003. |
+| 2026-11-08 | Vinh Le - QC | Comment 19538: re-posts Q-001 to Q-010 with a screenshot for each. Says the questions are "unchanged". |
+
+**Knowledge lookup — 2026-11-15 (no Jira change).** The open questions were checked
+against Jira Story and Task tickets (stlc-requirements-analyst Step 3c). Nothing was
+posted to AP-2428. The results are recorded in
+`qa-artifacts/1-requirements-analysis/AP-2428_requirements-analysis.md`, under *Open
+Questions* and *Knowledge lookup — 2026-11-15*. Two later stories bear on this ticket's
+acceptance criteria. They are quoted here without changing the transcription above:
+
+- **AP-2456** (Story, Done, reporter Ken Nguyen, created 2026-09-02). Summary: "Remove
+  retail pricing on permaplate contracts and invoices". Acceptance criterion: "When
+  Permaplate PDF is generated, remove the retail pricing and taxes displayed on the PDF".
+  It names the PDF, not the contract form. This conflicts with the "Retails Price /
+  Subtotal / Taxes / Grand Total" lines of the Program Summary above; the AC above still
+  stands until the author answers (Q-003, Blocking + Open).
+- **AP-2506** (Story, status QA, created 2026-10-29, with its own open question).
+  Acceptance criterion: "The “Program Summary” shows: Program Term / Start Date / End
+  date / Selected protection products / Total". This also conflicts with the lines above
+  (Q-003). The description says "The “Generate Contract” action for Esthetic protection on
+  the dealer quote should match Esthetic Protection: open a dedicated page (no modal)" and
+  "Contract creation, invoice, financing, and PDF behaviour stay unchanged" (Q-004).

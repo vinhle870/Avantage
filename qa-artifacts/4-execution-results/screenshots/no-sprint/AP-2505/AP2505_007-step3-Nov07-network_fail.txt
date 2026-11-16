@@ -1,0 +1,5 @@
+AP2505_007 step 3 — Environment: Dev — 2026-11-07 (request lines only)
+POST https://v2dev.garantieavantageplus.ca/quote/6597/road-side-protection-create-contract => 200 (page re-rendered with "This value should not be blank." under Stock number and In service date; fields flagged is-invalid: stockNumber, inServiceDate)
+GET /road-side-protection-contracts => 200 — rows: 2698, 2697 only (same as step 1)
+GET /invoice => 200 — top row 944 (same as step 1)
+AP2505_008 own build: POST /quote/6599/road-side-protection-create-contract => 200, same two field errors, no contract

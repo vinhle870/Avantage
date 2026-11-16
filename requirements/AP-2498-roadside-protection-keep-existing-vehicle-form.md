@@ -107,3 +107,26 @@ The ticket's development panel shows 1 Bitbucket Cloud pull request in state MER
 > **Note from capture (2026-11-01):** the screenshot of today's no-products state shows
 > Make and Model marked required (\*). The acceptance criteria require that Year/Make/Model
 > carry no `required` constraint in the new form, and that only VIN is required.
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:48:35-05:00 · **Previous capture:** 2026-11-01 by stlc-ticket-pipeline
+
+Re-read on 2026-11-15 with `--raw` (description and the Acceptance Criteria field
+`customfield_10150`). **The summary, the description and the acceptance criteria are
+unchanged** — every sentence transcribed above still stands; nothing is replaced. Status
+is still QC, assignee Vinh Le - QC. The changes are QA's own activity only; no developer
+or product comment has been added, so no open question is answered on the ticket itself.
+
+New comments:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 | Vinh Le - QC | QA result comment 19453 (FAIL, 2 of 14, Dev) posted by the s7 stage of the 2026-11-01 run. No requirement content |
+| 2026-11-08 | Vinh Le - QC | Comment 19534 "QA questions — screenshots · 2026-11-08": the open questions Q-001–Q-013, each with a highlighted screenshot of what Dev shows today (Q-010 without one). Asks for answers; no requirement content |
+
+New attachments (2026-11-08, Vinh Le - QC): `AP-2498_Q-001_highlighted.png` … `AP-2498_Q-013_highlighted.png`
+(12 files, no Q-010) — QA's question screenshots, not requirement material. New links:
+*Relates* → AP-2523, AP-2524, AP-2525 (the bugs filed by the 2026-11-01 run).

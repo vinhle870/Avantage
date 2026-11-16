@@ -58,3 +58,24 @@ markup):
 > EDIT: English version provided in the ticket.
 >
 > ready for dev!
+
+---
+
+## Ticket changes since capture — 2026-11-07
+
+**Ticket last updated:** 2026-11-03T22:30:00 −05:00 · **Previous capture:** 2026-11-03 by stlc-ticket-pipeline
+
+Re-read on 2026-11-07T09:45Z (description, acceptance-criteria field `customfield_10150`,
+attachments, comments, links). **The requirement did not change.**
+
+- **Description:** unchanged — identical to "Original requirement text" above.
+- **Acceptance criteria:** unchanged — same Given/When/Then lines, same two embedded files, same GC6201 line.
+- **Attachments:** unchanged — the same two files (`GC960S_AMFFS_F_DC2020.pdf`, 1,030,019 bytes; `Let's Talk Insurance and Summary Plan GC960, Anglais.pdf`, 329,297 bytes), no new file.
+- **Assignee:** Ken Nguyen → **Vinh Le - QC** (the QA account), changed 2026-11-03T22:30 −05:00 by Ken Nguyen. This replaces "Assignee: Ken Nguyen" in the header above. No comment explains the reassignment.
+- **Status:** still **QC**. Priority still Medium. Still no sprint or fix version (`no-sprint`).
+- **Links:** "Links: none" above is replaced by **Relates → AP-2542** — the bug this pipeline filed on 2026-11-03 (HTTP 500 opening the Send compliance documents form on Dev). AP-2542 is in **Deploy to staging** (Highest, assignee Ken Nguyen), not yet QC.
+- **New comments:** one, and it is the QA's own result comment — no new external comment, and no answer to open questions Q-001–Q-009:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-03 00:14 −05:00 | Vinh Le - QC | Pipeline result comment 19463: FAIL 0 of 5 on Dev, bug AP-2542, the nine open questions addressed to Ken Nguyen |

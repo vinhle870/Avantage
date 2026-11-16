@@ -27,7 +27,7 @@ the nine open questions blocks testing: seven are **Judgement** questions (the t
 what the build does on that point instead of guessing) and two are **Info**. The largest
 practical risk is test data, not wording: the test cases must change dealer 1380's Chubb
 creditor-form assignment on Dev and restore it, and nobody has yet seen a "960 form" in
-the Dev admin list. If none exists there, the GC960 cases will be BLOCKED for missing test
+the Dev admin list (superseded 2026-11-07 — see re-check: four GC960 forms on Dev). If none exists there, the GC960 cases will be BLOCKED for missing test
 data. Overall testability is rated **Medium** — clear outcomes, but the PDF content must be
 read from email attachments, and the trigger (which forms count as "960 forms") is named
 only loosely.
@@ -66,7 +66,7 @@ names the insurance product offered.
 
 | Risk | Severity | Recommendation |
 |---|:---:|---|
-| "One of the 960 forms" is not tied to a form code. The admin list seen on Staging (2026-10-02) held `PM30`, `PM50`, `S30`, `S45`, `M25`, `M30`, `GAP`, and only `GC6201MQ:…` values have been seen on the dealer side. Nobody has seen a code containing "960" yet (Q-001). | High | The test cases select only a form whose label or value contains "960" and go BLOCKED for missing test data when none exists — never guess that `S30` or `M30` is a 960 form. |
+| "One of the 960 forms" is not tied to a form code. The admin list seen on Staging (2026-10-02) held `PM30`, `PM50`, `S30`, `S45`, `M25`, `M30`, `GAP`, and only `GC6201MQ:…` values have been seen on the dealer side. Nobody has seen a code containing "960" yet (Q-001) (superseded 2026-11-07 — see re-check: four GC960 forms on Dev). | High | The test cases select only a form whose label or value contains "960" and go BLOCKED for missing test data when none exists — never guess that `S30` or `M30` is a 960 form. |
 | The document's content can only be checked by opening the PDF attachments of the email; the product line is page text, not a form field. | Medium | Download each attachment from the Yopmail inbox and read its text; compare the summary footer and title with the attached source files. |
 | No error or empty-state path is described (a dealer with no creditor form). | Low | Q-008 — a record-only negative case. |
 
@@ -209,10 +209,36 @@ stands. Each one is a requirement we cannot honestly sign off until it is clarif
 
 | Requirement | Risk | Severity | Status |
 |---|---|:---:|:---:|
-| REQ-001 | "960 forms" is not tied to a form code, and no 960 form has been seen on any environment yet (Q-001) — if Dev has none, the GC960 cases cannot run | High | Open |
+| REQ-001 | "960 forms" is not tied to a form code, and no 960 form has been seen on any environment yet (Q-001) (superseded 2026-11-07 — see re-check: four GC960 forms on Dev) — if Dev has none, the GC960 cases cannot run | High | Data part mitigated on Dev (see 2026-11-07 re-check); Q-001 still open |
 | REQ-001, REQ-002, REQ-003 | The product line text is checked by reading PDF attachments from an email; its exact wording is unstated (Q-002) | Medium | Open |
 | REQ-004 | The two GC960 source files differ in form fields and product version (Q-003, Q-005) | Medium | Open |
 | REQ-003 | Attachment naming and count with both families unstated (Q-004) | Low | Open |
+
+
+---
+
+## Re-check against the ticket — 2026-11-07
+
+Re-analysis after the ticket was updated on 2026-11-03T22:30 −05:00 (capture section
+"Ticket changes since capture — 2026-11-07").
+
+- **Requirements: no change.** The description, the acceptance criteria and the two
+  attachments are identical to the 2026-11-03 capture, so REQ-001–REQ-004, their
+  acceptance criteria and priorities stand as written. Still 4 REQ.
+- **Open questions: no change.** No comment from Ken Nguyen or anyone else since the
+  capture; the only new comment (19463) is the QA's own result comment, which carried
+  Q-001–Q-009 to Ken Nguyen. All nine stay **Open**: 0 Blocking, 7 Judgement
+  (Q-001–Q-004, Q-007–Q-009), 2 Info (Q-005, Q-006). No new question.
+- **Ticket metadata that changed:** the assignee is now the QA account (Vinh Le - QC)
+  instead of Ken Nguyen, with no explanatory comment; status is still QC. The ticket now
+  relates to AP-2542 (the HTTP 500 on the Send compliance documents form, filed by the
+  2026-11-03 run), which is in Deploy to staging — not in QC — so the fix may not be on
+  Dev yet. Every AP-2502 content check depends on that form opening.
+- **Testability risk update (from the 2026-11-03 Dev run, not from the ticket):** Dev has
+  four creditor forms whose value contains "960" (`GC960S:S30`, `GC960S:S45`,
+  `GC960M:M25`, `GC960M:M30`), so the GC960 cases are no longer at risk of BLOCKED for
+  missing test data. Q-001 itself (which codes the author means by "the 960 forms") is
+  still unanswered by the ticket.
 
 ---
 

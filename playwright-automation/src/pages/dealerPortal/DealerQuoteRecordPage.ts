@@ -34,6 +34,12 @@ export class DealerQuoteRecordPage {
     readonly txtVehiclePrice: Locator;
     readonly txtVehicleKilometers: Locator;
     readonly optVehicleConditionSelected: Locator;
+    // AP-2507 — /vehicle/{id}/edit, read only (verified on Dev 2026-11-07, count 1 each)
+    readonly txtVehicleVin: Locator;
+    readonly selVehicleMake: Locator;
+    readonly selVehicleModel: Locator;
+    readonly txtVehicleYear: Locator;
+    readonly vehicleDetailFields: Record<string, Locator>;
 
     constructor(page: Page) {
         this.page = page;
@@ -57,6 +63,51 @@ export class DealerQuoteRecordPage {
         this.txtVehiclePrice = page.locator('#vehicle_price');
         this.txtVehicleKilometers = page.locator('#vehicle_kilometers');
         this.optVehicleConditionSelected = page.locator('#vehicle_condition option[selected]');
+
+        this.txtVehicleVin = page.locator('#vehicle_VIN');
+        this.selVehicleMake = page.locator('#vehicle_make');
+        this.selVehicleModel = page.locator('#vehicle_model');
+        this.txtVehicleYear = page.locator('#vehicle_year');
+        this.vehicleDetailFields = {
+            'Fuel type': page.locator('#vehicle_fuelType'),
+            Transmission: page.locator('#vehicle_transmission'),
+            'Engine size': page.locator('#vehicle_engineSize'),
+            'Engine size unit': page.locator('#vehicle_engineSizeUnit'),
+            Cylinders: page.locator('#vehicle_cylinders'),
+            Turbo: page.locator('#vehicle_isTurbo'),
+        };
+    }
+
+    /** Id and text of every row of the first /quotes page (the id is only in the cells' data-href). */
+    async quoteRows(): Promise<{ id: number; text: string }[]> {
+        return this.cellQuoteRows.evaluateAll(cells => {
+            const rows = new Map<Element, { id: number; text: string }>();
+            for (const cell of cells) {
+                const tr = cell.closest('tr') ?? cell;
+                if (rows.has(tr)) continue;
+                const id = Number(/\/quote\/(\d+)\/details/.exec(cell.getAttribute('data-href') ?? '')?.[1] ?? NaN);
+                rows.set(tr, { id, text: (tr as HTMLElement).innerText.replace(/\s+/g, ' ').trim() });
+            }
+            return [...rows.values()];
+        });
+    }
+
+    /** Label of the chosen option of a select on the vehicle edit form. */
+    async chosenOption(select: Locator): Promise<string> {
+        return (await select.locator('option:checked').innerText()).trim();
+    }
+
+    /** Shown value of each record-only vehicle detail (select label, input value, checkbox state). */
+    async vehicleDetailValues(): Promise<Record<string, string>> {
+        const values: Record<string, string> = {};
+        for (const [label, field] of Object.entries(this.vehicleDetailFields)) {
+            values[label] = await field.evaluate(e => {
+                if (e instanceof HTMLSelectElement) return e.selectedOptions[0]?.textContent?.trim() ?? '';
+                if (e instanceof HTMLInputElement && e.type === 'checkbox') return String(e.checked);
+                return (e as HTMLInputElement).value;
+            });
+        }
+        return values;
     }
 
     async openQuotesList(): Promise<void> {

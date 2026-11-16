@@ -1,0 +1,6 @@
+AP2507_001 step 4 - /quotes top rows read from each row's data-href (list has no id column) - Dev - 2026-11-07T10:59:15Z
+GET https://v2dev.garantieavantageplus.ca/quotes => 200
+1. /quote/6599/details  Toyota Corolla 2022 VIN 2T1BURHE0NC505008 (AP-2505 data)
+2. /quote/6598/details  Toyota Corolla 2022 VIN 2T1BURHE0NC505009 (AP-2505 data)
+3. /quote/6597/details  Toyota Corolla 2022 VIN 2T1BURHE0NC505007 (AP-2505 data)
+Baseline read at 10:57:41Z = 6599. No row above the baseline; no unnamed quote with VIN 1FAHP35NX8W239204 added by the decode.

@@ -29,7 +29,7 @@ complete the executor should not need a second file open to run this batch._
 | **Known bugs** | **AP-2518** (High, open) — on Dev the page under test returned HTTP 500 and the ⋯ dialog stayed on "Loading...". **AP-2508** (High, open) — roadside product form lacks contract fields/button. AP-2518 split (same in both files and the test plan): opening the page is the **step under test** in AP2505_001 step 3 and AP2505_002 step 4 (file 1) and in **AP2505_010 step 3** here — a 500 there is a **FAIL** (Gate C compares it with AP-2518). In **AP2505_006 step 3** it is a FAIL only when the 500 is specific to the missing financing, otherwise BLOCKED — AP-2518 (rule in that case). In **AP2505_007 – AP2505_009 step 2** (and AP2505_003 – _005 step 2 in file 1) opening the page is **setup**: a 500 makes the case **BLOCKED — AP-2518**. A roadside product that cannot be saved → **BLOCKED — AP-2508** | tracker; `domain` |
 | **AutoShield** | Contract creation calls AutoShield, an outside service. A submit refused with a message that names the VIN or AutoShield (e.g. VIN not accepted, duplicate VIN) is an outside-service refusal of test data: record the message and mark the case **BLOCKED — "AutoShield refused test VIN"**. Any other failure at submit (error page, HTTP 5xx, no message, no contract) is a FAIL | analysis Q-010 |
 | **Not to be used** | Vehicle 915 (VIN already has AutoShield contracts 2697, 2698); vehicles 1106–1118 and quotes 6514–6526 (AP-2498); quotes 6479–6483 (AP-2494); quotes A and B of AP2505_001/_002; any record of another ticket. Never pick a record by "newest" | `test-data`; `domain` |
-| **Leaves behind** | Quote C (AP2505_006, no contract), quote D (AP2505_007 — **one AutoShield roadside contract and possibly an invoice**, reused by _008 and _010), quote E (AP2505_009 — a contract only if the build accepts an empty last name). **Possible second contract:** only if AP2505_007 made none, AP2505_008 builds its own quote (`{NNN}` = `008`, last name `Owner2505-008`) and submits it — **one more AutoShield roadside contract and possibly an invoice**, then reused by AP2505_010. Each quote with its own vehicle, client and roadside product (and a financing, except quote C). Any VIN may carry the +100 change (`…505{NNN+100}`). The `cleanup` source is missing — nothing is removed. Record every vehicle id, VIN, quote id, client email, contract id and invoice number in the execution log | `cleanup` (missing) |
+| **Leaves behind** | Quote C (AP2505_006, no contract), quote D (AP2505_007 — **one AutoShield roadside contract and possibly an invoice**, reused by _008 and _010), quote E (AP2505_009 — a contract only if the build accepts an empty last name). **Possible second contract:** only if AP2505_007 made none, AP2505_008 builds its own quote (`{NNN}` = `008`, last name `Owner2505-008`) and submits it — **one more AutoShield roadside contract and possibly an invoice**, then reused by AP2505_010. Each quote with its own vehicle, client and roadside product (and a financing, except quote C). Any VIN may carry the +100 change (`…505{NNN+100}`). Also left on Dev by the 2026-11-07 first pass: a stray build used by no case — vehicle 1149 (VIN `2T1BURHE0NC505undefined`) and quote 6594 (client `Roadside Owner2505-undefined`, financing and roadside product, no contract); never reuse it. Left on Dev by the 2026-11-07 re-run after review R3 round 2: AutoShield roadside contract **2782** (RHTWQ-2782) on quote 6597 (vehicle 1152, VIN `2T1BURHE0NC505007`), no invoice; quote 6597's client Home phone is now `514-555-0501`. The `cleanup` source is missing — nothing is removed. Record every vehicle id, VIN, quote id, client email, contract id and invoice number in the execution log | `cleanup` (missing) |
 
 **Shared build values — vehicle (one per quote).** Open `/vehicle/new/edit/PASSENGER?_locale=en`
 and enter: VIN `2T1BURHE0NC505{NNN}` (`{NNN}` = the case number given in the case), Brand
@@ -75,11 +75,11 @@ AP-2508**.
 
 | TC ID | Title | Type | Priority | Status |
 |---|---|---|:---:|:---:|
-| AP2505_006 | On a quote with no financing, the roadside contract page opens pre-filled with the vehicle and client | Edge-case | Medium | BLOCKED |
-| AP2505_007 | Clicking "Generate Contract" with the pre-filled values creates the roadside contract, shown on the quote and the contract list | Functional | High | BLOCKED |
-| AP2505_008 | The roadside contract created from the new page has a details page whose PDF opens | Regression | High | BLOCKED |
-| AP2505_009 | Submitting the roadside contract page with the owner's last name emptied gives no server error and no unnamed contract | Negative | Medium | BLOCKED |
-| AP2505_010 | After its roadside contract exists, the quote cannot make a second contract by reopening the page | Edge-case | Medium | BLOCKED |
+| AP2505_006 | On a quote with no financing, the roadside contract page opens pre-filled with the vehicle and client | Edge-case | Medium | PASS |
+| AP2505_007 | Clicking "Generate Contract" with the pre-filled values creates the roadside contract, shown on the quote and the contract list | Functional | High | PASS |
+| AP2505_008 | The roadside contract created from the new page has a details page whose PDF opens | Regression | High | PASS |
+| AP2505_009 | Submitting the roadside contract page with the owner's last name emptied gives no server error and no unnamed contract | Negative | Medium | PASS |
+| AP2505_010 | After its roadside contract exists, the quote cannot make a second contract by reopening the page | Edge-case | Medium | PASS |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -98,6 +98,16 @@ AP-2508**.
 | 2026-11-03 | AP2505_010 | Step 3: opening the page is the step under test — HTTP 500 is a FAIL compared with AP-2518 at Gate C | Review R2 round 1, F-3 — align with the AP-2518 split |
 | 2026-11-03 | — (Execution Context) | "Known bugs": AP-2518 split stated per case and step, identical in both files and the test plan | Review R2 round 1, F-3 |
 | 2026-11-03 | — (Execution Context) | "Leaves behind": adds AP2505_008's possible second contract (and its quote) and the +100 VIN change | Review R2 round 1, F-6 |
+| 2026-11-07 | All (AP2505_006 – AP2505_010) | Status reset to Not Run; the 2026-11-03 result is kept in each case's Result line as "previous run" | Retest after fix (plan rule P6): Ken Nguyen moved AP-2505 QC → Deploy to staging → QC on 2026-11-04; re-executed in full on the current Dev build |
+| 2026-11-07 | AP2505_007 | Step 3: record whether Stock number and In service date are empty and required (Q-008 / Q-009), then fill Stock number `STK2505007` and In service date `2022-06-01` (vehicle year 2022, per the page hint), every other value as pre-filled. Test Data (incl. reuse of quote 6597) and "Why this matters" updated; status reset to Not Run, first-pass FAIL withdrawn | Review R3 round 1, F-1 — the first-pass submit never had valid form values; the FAIL was neither an AC breach nor an objective fault |
+| 2026-11-07 | AP2505_008 | Test Data: the own-build fallback also fills Stock number `STK2505008` and In service date `2022-06-01`; quote 6599 may be reused. Status reset to Not Run, first-pass BLOCKED withdrawn | Review R3 round 1, F-1 |
+| 2026-11-07 | AP2505_010 | Status reset to Not Run, first-pass BLOCKED (no contract, caused by AP2505_007's incomplete submit) withdrawn; steps unchanged | Review R3 round 1, F-1 |
+| 2026-11-07 | — (Execution Context) | "Leaves behind": records the stray vehicle 1149 / quote 6594 of the first pass | Review R3 round 1, F-3 |
+| 2026-11-07 | AP2505_007 | Step 3 action also records the Home phone the page pre-fills and fills Home phone `514-555-0501`; Test Data row added; quote 6597 reused; status reset to Not Run (round-1 re-run BLOCKED withdrawn) | Review R3 round 2, F-13 |
+| 2026-11-07 | AP2505_008 | Own-build fallback fills `STK2505008`, `2022-06-01` and Home phone `514-555-0501` on quote 6599, with the same outcome rule as AP2505_007 step 3; status reset to Not Run | Review R3 round 2, F-13 and F-14 |
+| 2026-11-07 | AP2505_010 | Status reset to Not Run (round-1 re-run BLOCKED withdrawn); steps unchanged | Review R3 round 2, F-13 |
+| 2026-11-07 | AP2505_007 | Step 3 expected result replaced by the reviewer's outcome rule (refusal stating a format → correct only that field, at most 3 submits; any other failure → FAIL against AC 4; still refused after the third submit → BLOCKED). The added sentence "a refusal that names another field the case does not fill → BLOCKED for Gate C, not FAIL" deleted from step 3 and from the R3 round 1 row above. Execution Context "AutoShield" row unchanged | Review R3 round 2, F-14 |
+| 2026-11-07 | — (Execution Context) | "Leaves behind": records contract 2782 on quote 6597 made by the re-run after review R3 round 2 | Standing rule — record every record left behind |
 
 ---
 
@@ -115,10 +125,10 @@ AP-2508**.
 | **Route** | `/quote/{id}/road-side-protection-create-contract` |
 | **Type** | Edge-case |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — AP-2518 by the case rule: HTTP 500 at step 3 (quote 6570), and the financed quotes 6568/6569 returned the same 500 |
+| **Executed on** | 2026-11-07 — Environment: Dev — execution-log_AP-2505_2026-11-07.md (previous: 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md) |
+| **Result** | PASS — page opens (200, quote 6596); vehicle and owner values match; financing inputs empty (recorded under Q-006) (previous run 2026-11-03: BLOCKED — AP-2518 by the case rule: HTTP 500 at step 3 (quote 6570), and the financed quotes 6568/6569 returned the same 500) |
 
 **Why this matters:** AC 3 says "a vehicle, a client, **or** a financing" — a quote may
 have no financing, and the page must still render with what the quote does have. What the
@@ -165,14 +175,13 @@ BLOCKED — AP-2518, noted for Gate C.
 | **Route** | `/quote/{id}/road-side-protection-create-contract` → submit → quote page; `/road-side-protection-contracts`; `/invoice` |
 | **Type** | Functional · Regression |
 | **Priority** | High |
-| **Status** | BLOCKED |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — AP-2518: contract page HTTP 500 at setup step 2 (quote D 6571); no contract created |
+| **Executed on** | 2026-11-07 (re-run after R3 round 2 correction) — Environment: Dev — execution-log_AP-2505_2026-11-07.md, section "Re-run after review R3 round 2" (earlier: 2026-11-07 re-run after R3 round 1, withdrawn; 2026-11-07 first pass, withdrawn; 2026-11-03) |
+| **Result** | PASS — first submit with Stock number `STK2505007`, In service date `2022-06-01`, Home phone `514-555-0501` landed on quote 6597 with "The Roadside protection coverage has been saved successfully" and created AutoShield contract **2782** (list 2 → 3 rows, VIN 2T1BURHE0NC505007, Roadside Owner2505-007); no new invoice (top 944, Q-009). Withdrawn round-1 re-run result: BLOCKED at step 3 — with Stock number `STK2505007` and In service date `2022-06-01` filled, the submit (POST 302 → quote 6597 details) was refused: "One or more validation errors occurred.The phone number is invalid. Please ensure it follows the format: ###-###-####." (pre-filled Home phone `5145550501`); no contract, no invoice (list still 2698/2697, top invoice 944). 2026-11-07 first-pass result withdrawn: the submit without Stock number / In service date was refused ("This value should not be blank."), quote 6597; void, because step 3 did not supply the two required fields (review R3 round 1, F-1). Previous run 2026-11-03: BLOCKED — AP-2518 (quote D 6571) |
 
 **Why this matters:** Creating the AutoShield contract is what the page is for; a page that
-looks right but cannot create the contract fails the story. The values are the ones the
-page pre-fills from a quote the case builds itself, so they are valid by construction. The
+looks right but cannot create the contract fails the story. The values are the ones the page pre-fills from a quote the case builds itself, plus the two fields the page asks for and the quote does not carry — **Stock number** and **In service date** (Dev 2026-11-07: both shown empty and required; the page hint says "The date must be the same year as the vehicle's year."). The case also fills Home phone `514-555-0501`, in the `###-###-####` format the contract process stated when it refused the pre-filled `5145550501` (Dev 2026-11-07). It fills those three with fixed values and changes nothing else, so the submitted form is valid. Whether the page should pre-fill the phone in that format is a question to the developer, not judged here. Whether those two fields should be pre-filled or required is not stated by AP-2505 and is only recorded (Q-008 / Q-009). The
 landing page, message and invoice are recorded, not judged, because "the current process"
 has no Dev baseline (Q-009). Only the outcomes `domain` already records for roadside
 contracts are judged: a contract id on the quote, a row on the dealer's Road Side
@@ -187,6 +196,10 @@ AP2505_008 and AP2505_010.
 | `{NNN}` | `007` — VIN `2T1BURHE0NC505007`, email `client.stage.2505007@yopmail.com` |
 | Client last name | `Owner2505-007` |
 | Quote products | Financing and roadside product (shared values); no GAP quote |
+| Stock number (contract page) | `STK2505007` |
+| In service date (contract page) | `2022-06-01` — in the vehicle's year 2022, as the page hint requires (use the date picker's format if it differs; record what was entered) |
+| Home phone (contract page) | `514-555-0501` — the pre-filled `5145550501` in the `###-###-####` format the contract process stated on Dev 2026-11-07 (review R3 round 2, F-13) |
+| Reuse | Quote 6597 (vehicle 1152, VIN `2T1BURHE0NC505007`, built 2026-11-07 by this case's step 1, no contract) may be reused instead of a new build |
 
 **Steps:**
 
@@ -194,7 +207,7 @@ AP2505_008 and AP2505_010.
 |---|---|---|
 | 1 | [Pre-Condition] Sign in to the Dealer portal on Dev (`?_locale=en`). Build the vehicle (`{NNN}` = `007`), the client and quote (last name `Owner2505-007`), the vehicle step, the financing and the roadside product with the shared build values. Note the number of rows on `/road-side-protection-contracts` and the newest invoice number on `/invoice` | The Roadside Protection row of quote D shows the product with a "⋯" menu; vehicle id, VIN, quote id, tier, contract-list row count and invoice number recorded |
 | 2 | [Pre-Condition] Open **⋯** → **Generate Contract** on the Roadside Protection row (or type `/quote/{id}/road-side-protection-create-contract`) | The page loads pre-filled. HTTP 500 or an error page → BLOCKED — AP-2518 |
-| 3 | Without changing any value, click **Generate Contract** once and wait for the response (up to 30 s) | No error page and no HTTP 5xx. Record the page the browser lands on and every message shown (Q-009). An AutoShield refusal that names the VIN → BLOCKED as described in the Execution Context |
+| 3 | Record, without judging, whether Stock number and In service date are shown empty and marked required, and the Home phone value the page pre-fills (Q-008 / Q-009). Fill Stock number `STK2505007`, In service date `2022-06-01` and Home phone `514-555-0501`; leave every other value as pre-filled. Click Generate Contract once and wait up to 30 s. | No error page and no HTTP 5xx. Record the page the browser lands on and every message shown (Q-009). A refusal that names the VIN or AutoShield → BLOCKED as described in the Execution Context. A refusal that names one field and states its accepted format (for example '###-###-####'): record it, set only that field to a value in the stated format, and click Generate Contract again — at most 3 submits in all, each recorded. Any other failure (error page, HTTP 5xx, no message, no contract, a refusal of a value already in the stated format, or a refusal that states no format) is a FAIL against AC 4. A refusal that still names a field after the third submit → BLOCKED ('contract process refuses field <name> after 3 corrected submits'). |
 | 4 | Open `/quote/{id}/details` for quote D, then `/road-side-protection-contracts` | Both pages load |
 | 5 | [Verification] Check the contract list, quote D's Roadside Protection row and the invoice list | **`/road-side-protection-contracts`** has one more row than in step 1, with an Autoshield contract id, the VIN recorded for quote D in step 1 (`2T1BURHE0NC505007`, or `…505107` if the +100 change applied) and client `Roadside Owner2505-007` (name order ignored). Record, without judging: the contract id and price shown; what quote D's Roadside Protection row now shows (contract id, PDF link, whether "⋯ → Generate Contract" is still offered — Q-010); and whether a new invoice appeared on `/invoice` with its number, amount and description (Q-009) |
 
@@ -210,10 +223,10 @@ AP2505_008 and AP2505_010.
 | **Route** | `/road-side-protection-contracts` or quote D's Roadside row → `/quote/{quoteId}/auto-shield-contract/{contractId}` → PDF link |
 | **Type** | Regression |
 | **Priority** | High |
-| **Status** | BLOCKED |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — AP-2518: AP2505_007 made no contract; own quote 6572 hit the same HTTP 500 |
+| **Executed on** | 2026-11-07 (re-run after R3 round 2 correction) — Environment: Dev — execution-log_AP-2505_2026-11-07.md, section "Re-run after review R3 round 2" (earlier: 2026-11-07 re-run after R3 round 1, withdrawn; 2026-11-07 first pass, withdrawn; 2026-11-03) |
+| **Result** | PASS — contract 2782 details page (200) shows contract id, VIN and client; en (7 pages) and fr PDFs open and carry RHTWQ-2782, the VIN and the client. Withdrawn round-1 re-run result: BLOCKED at step 1 — AP2505_007 made no contract; the own-build fallback on quote 6599 (Stock number `STK2505008`, In service date `2022-06-01`) was refused with the same phone-format message; no contract. 2026-11-07 first-pass result withdrawn: BLOCKED only because AP2505_007's submit lacked the two required fields (own quote 6599 refused the same way); void (review R3 round 1, F-1). Previous run 2026-11-03: BLOCKED — AP-2518 |
 
 **Why this matters:** The contract PDF is the document the client signs; the story says
 its behaviour stays unchanged. The case judges only what `domain` records for roadside
@@ -225,7 +238,7 @@ AP2505_007 made none, this case builds its own quote and contract.
 
 | Variable | Value |
 |---|---|
-| Contract | The contract created by AP2505_007 on quote D, if it exists. Otherwise build a new quote exactly as AP2505_007 steps 1–3 with `{NNN}` = `008` and last name `Owner2505-008` (one more real contract) |
+| Contract | The contract created by AP2505_007 on quote D, if it exists. Otherwise build a new quote exactly as AP2505_007 steps 1–3 with `{NNN}` = `008`, last name `Owner2505-008`, Stock number `STK2505008`, In service date `2022-06-01` and Home phone `514-555-0501` (one more real contract). Quote 6599 (vehicle 1154, built 2026-11-07, no contract) may be reused for this fallback. Outcome rule of the fallback submit (same as AP2505_007 step 3): No error page and no HTTP 5xx. Record the page the browser lands on and every message shown (Q-009). A refusal that names the VIN or AutoShield → BLOCKED as described in the Execution Context. A refusal that names one field and states its accepted format (for example '###-###-####'): record it, set only that field to a value in the stated format, and click Generate Contract again — at most 3 submits in all, each recorded. Any other failure (error page, HTTP 5xx, no message, no contract, a refusal of a value already in the stated format, or a refusal that states no format) is a FAIL against AC 4. A refusal that still names a field after the third submit → BLOCKED ('contract process refuses field <name> after 3 corrected submits'). |
 
 **Steps:**
 
@@ -249,10 +262,10 @@ AP2505_007 made none, this case builds its own quote and contract.
 | **Route** | `/quote/{id}/road-side-protection-create-contract` |
 | **Type** | Negative |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — AP-2518: contract page HTTP 500 at setup step 2 (quote E 6573) |
+| **Executed on** | 2026-11-07 — Environment: Dev — execution-log_AP-2505_2026-11-07.md (previous: 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md) |
+| **Result** | PASS — emptied Last name refused server-side with "This value should not be blank."; no contract; other values kept (quote 6598) (previous run 2026-11-03: BLOCKED — AP-2518: contract page HTTP 500 at setup step 2 (quote E 6573)) |
 
 **Why this matters:** AC 4 only covers valid values; the story does not say which fields
 are required or how an error is shown (Q-008), so the page's response is recorded. Two
@@ -291,10 +304,10 @@ AP-2518).
 | **Route** | Quote D (or AP2505_008's quote) `/quote/{id}/details` → `/quote/{id}/road-side-protection-create-contract` |
 | **Type** | Edge-case |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
+| **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-03 — Environment: Dev — execution-log_AP-2505_2026-11-03.md |
-| **Result** | BLOCKED — AP-2518 (Test Data rule): no roadside contract on quote D or 008's quote; step 1 count 0 |
+| **Executed on** | 2026-11-07 (re-run after R3 round 2 correction) — Environment: Dev — execution-log_AP-2505_2026-11-07.md, section "Re-run after review R3 round 2" (earlier: 2026-11-07 re-run after R3 round 1, withdrawn; 2026-11-07 first pass, withdrawn; 2026-11-03) |
+| **Result** | PASS — quote 6597's row shows "Contract #2782" with no ⋯; typing the create-contract address redirects (302) to the contract 2782 details page; count for the VIN stays 1. Withdrawn round-1 re-run result: BLOCKED at step 1 — no contract on quote 6597 or 6599; rows for VIN `2T1BURHE0NC505007` on `/road-side-protection-contracts` = 0; steps 2–5 not run. 2026-11-07 first-pass result withdrawn: BLOCKED at step 1 (no contract, count 0) only because AP2505_007's submit lacked the two required fields; void (review R3 round 1, F-1). Previous run 2026-11-03: BLOCKED — AP-2518 (Test Data rule) |
 
 **Why this matters:** A dealer may reopen the page from history or a bookmark after the
 contract exists. What the page should then show is not stated (Q-010) and is recorded.

@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { Locator, Page, Response } from '@playwright/test';
 import { selectDropdownOption } from '../../core/utils/uiActions';
 
 /**
@@ -9,7 +9,13 @@ import { selectDropdownOption } from '../../core/utils/uiActions';
  * Kept apart from DealerNewQuotePage (whose `#vehicle_quote_name` locators predate the
  * deployed form) so that file is left untouched.
  *
- * Never click the "Décoder" button in automation: on dev it saves a quote (AP-2507).
+ * "Décoder" saved a quote on the 2026-11-01 build (AP-2507). Fixed on Dev by AP-2533 (build
+ * app.18b4959e.js, 2026-11-07): the decode now re-renders the form and saves nothing. Only the
+ * AP-2507 and AP-2533 specs click it (decode() and decodeOnCurrentForm()), each after checking
+ * the build for the fix (QuoteVinDecoderFlow.verifyDecoderFixInBuild).
+ *
+ * AP-2507 members (verified on Dev 2026-11-07, count 1 each): selVehicleTypeSwitch (the
+ * "Vehicle type" select that replaced the top-right type button), hiddenDetails, decode().
  */
 export class DealerQuoteVehicleFormPage {
     private readonly page: Page;
@@ -30,6 +36,14 @@ export class DealerQuoteVehicleFormPage {
     readonly btnSave: Locator;
     readonly txtPriceInForm: Locator;
     readonly txtKilometersInForm: Locator;
+    // AP-2507
+    readonly selVehicleTypeSwitch: Locator;
+    readonly hiddenDetails: Locator;
+    readonly scriptsFromBuild: Locator;
+    // AP-2533 (verified on Dev 2026-11-07, count 1 each)
+    readonly lblVehicleType: Locator;
+    readonly dpdVehicleType: Locator;
+    readonly lblSavedBanner: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -49,6 +63,100 @@ export class DealerQuoteVehicleFormPage {
         this.btnSave = this.frmQuoteVehicle.locator('[type="submit"]');
         this.txtPriceInForm = this.frmQuoteVehicle.locator('[name$="[price]"]');
         this.txtKilometersInForm = this.frmQuoteVehicle.locator('[name$="[kilometers]"]');
+        this.selVehicleTypeSwitch = page.locator('#vehicle_type_switch');
+        this.hiddenDetails = this.frmQuoteVehicle.locator('input[type="hidden"][name^="quote_vehicle["]');
+        this.scriptsFromBuild = page.locator('script[src^="/build/"]');
+        this.lblVehicleType = this.frmQuoteVehicle.locator('label[for="vehicle_type_switch"]');
+        this.dpdVehicleType = page.locator("//form[@name='quote_vehicle']//div[*[@for='vehicle_type_switch']]/div");
+        this.lblSavedBanner = page.locator('main [role="alert"]', { hasText: 'Vehicle saved' });
+    }
+
+    // ── AP-2533 ──────────────────────────────────────────────────────────────
+
+    /** Every option of the "Vehicle type" select: code, label, the URL it navigates to, and whether it is chosen. */
+    async vehicleTypeOptions(): Promise<{ value: string; label: string; url: string; selected: boolean }[]> {
+        return this.selVehicleTypeSwitch.locator('option').evaluateAll(els => els.map(e => ({
+            value: (e as HTMLOptionElement).value,
+            label: (e.textContent ?? '').trim(),
+            url: e.getAttribute('data-url') ?? '',
+            selected: (e as HTMLOptionElement).selected,
+        })));
+    }
+
+    /** Chooses a type in the "Vehicle type" Bootstrap-select; the page then navigates to that type's form. */
+    async chooseVehicleTypeInSelect(label: string): Promise<void> {
+        await selectDropdownOption(this.dpdVehicleType, label);
+    }
+
+    /** Whether the "Vehicle type" select comes before the Quote name field in the page structure. */
+    async vehicleTypeComesBeforeQuoteName(): Promise<boolean> {
+        return this.selVehicleTypeSwitch.evaluate(s => {
+            const name = document.querySelector('#quote_vehicle_quote_name');
+            return !!name && !!(s.compareDocumentPosition(name) & Node.DOCUMENT_POSITION_FOLLOWING);
+        });
+    }
+
+    /** On-screen boxes of the visible "Vehicle type" control and of the Quote name field. */
+    async vehicleTypeAndQuoteNameBoxes(): Promise<{ type: { x: number; y: number; height: number } | null;
+        name: { x: number; y: number; height: number } | null }> {
+        return { type: await this.dpdVehicleType.boundingBox(), name: await this.txtQuoteName.boundingBox() };
+    }
+
+    /**
+     * Clicks "Décoder" on whichever type's form is open and waits until the form is re-rendered:
+     * the decoder posts to the current form URL and replaces the whole `quote_vehicle` form, so the
+     * form is marked first and the mark's disappearance shows the re-render. Returns the post.
+     */
+    async decodeOnCurrentForm(): Promise<Response> {
+        const path = new URL(this.page.url()).pathname;
+        await this.frmQuoteVehicle.evaluate(f => f.setAttribute('data-qa-before-decode', '1'));
+        const post = this.page.waitForResponse(r => r.request().method() === 'POST'
+            && new URL(r.url()).pathname === path);
+        await this.btnDecoder.click();
+        const response = await post;
+        await this.page.locator('form[name="quote_vehicle"][data-qa-before-decode]').waitFor({ state: 'detached' });
+        await this.frmQuoteVehicle.waitFor();
+        return response;
+    }
+
+    /** Title shown by a Bootstrap-select (Brand / Model): the chosen label, or the "Choose" placeholder. */
+    async dropdownShown(dropdown: Locator): Promise<string> {
+        return ((await dropdown.locator('button').getAttribute('title')) ?? '').trim();
+    }
+
+    /** Texts of the validation messages shown in the form. */
+    async formErrorTexts(): Promise<string[]> {
+        return (await this.frmQuoteVehicle.locator('.form-error-message').allInnerTexts()).map(t => t.replace(/\s+/g, ' ').trim());
+    }
+
+    /** Label of the type chosen in the "Vehicle type" select (Bootstrap-select keeps the native select). */
+    async vehicleTypeShown(): Promise<string> {
+        return (await this.selVehicleTypeSwitch.locator('option:checked').innerText()).trim();
+    }
+
+    async fillVin(vin: string): Promise<void> {
+        await this.txtVin.fill(vin);
+    }
+
+    /** Clicks "Décoder" and returns the decoder's AJAX post (it re-renders the form in place). */
+    async decode(): Promise<Response> {
+        const post = this.page.waitForResponse(r => r.request().method() === 'POST'
+            && /\/quote\/new\/edit-vehicle$/.test(new URL(r.url()).pathname));
+        await this.btnDecoder.click();
+        return post;
+    }
+
+    /** `name=value` of every hidden `quote_vehicle[...]` input; the CSRF token value is masked. */
+    async hiddenDetailValues(): Promise<Record<string, string>> {
+        return this.hiddenDetails.evaluateAll(els => Object.fromEntries(els.map(e => {
+            const name = e.getAttribute('name') ?? '';
+            return [name, name.endsWith('[_token]') ? '***' : (e as HTMLInputElement).value];
+        })));
+    }
+
+    /** `src` of each application script the page loads from /build/ (the bundle hash changes per deploy). */
+    async buildScriptSources(): Promise<string[]> {
+        return this.scriptsFromBuild.evaluateAll(els => els.map(e => e.getAttribute('src') ?? ''));
     }
 
     /** Menu entry for a vehicle type: `''` = Passenger, else the type code (e.g. `RV_CLASS_A`). */
