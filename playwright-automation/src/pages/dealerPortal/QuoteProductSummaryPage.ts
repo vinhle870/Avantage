@@ -99,7 +99,7 @@ export class QuoteProductSummaryPage {
         this.txtWarrantySalePrice = this.mdlOpen.locator('#quote_warranty_salePrice');
         this.btnWarrantySave = this.mdlOpen.locator('form[name="quote_warranty"] button[type="submit"]');
 
-        this.lnkAddFinancing = page.locator('main a.btn[href$="/financing"]', { hasText: 'Add a financing' });
+        this.lnkAddFinancing = page.locator('main a.btn:is([href$="/financing"], [href*="/financing?"])', { hasText: 'Add a financing' });
         this.txtFinancingDateOfBirth = this.mdlOpen.locator('#quote_financing_applicant_dateOfBirthText');
         this.selFinancingType = this.mdlOpen.locator('#quote_financing_type');
         this.txtFinancingBaseAmount = this.mdlOpen.locator('#quote_financing_baseAmount');

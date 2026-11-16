@@ -36,7 +36,7 @@ export class QuoteDetailPage {
         // "Invoice #N ... is created" alert link shown after the contract is generated
         this.lnkGotoInvoice = page.locator('main a[href^="/invoice/"]').first();
         // "Client" section: Add (new quote) or Edit link to /quote/{id}/client
-        this.lnkAddClient = main.locator('a[href^="/quote/"][href$="/client"]').first();
+        this.lnkAddClient = main.locator('a[href^="/quote/"]:is([href$="/client"], [href*="/client?"])').first();
         // Vehicle section title links to /vehicle/{vehicleId}/details
         this.lnkVehicleDetails = main.locator('a[href^="/vehicle/"][href$="/details"]').first();
         // "Extended warranty" row of the summary, with its ⋯ actions menu
