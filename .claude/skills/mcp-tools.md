@@ -182,7 +182,7 @@ Stable across providers — a tracker switch does not change this table.
 
 `vcs` is used by two skills only: `stlc-test-automator` (create_branch · commit · push ·
 open_pr · get_pr · comment_pr · rebase — optional; without it the PR step is skipped) and
-`stlc-qa-orchestrator` (preflight · list_prs · get_pr — to find PRs waiting for fixes or merged).
+`qa-agent` (preflight · list_prs · get_pr — to find PRs waiting for fixes or merged).
 
 | `stlc-init-workspace` | — | — | — |
 | `stlc-baseline-generator` | — | — | — |
@@ -197,7 +197,7 @@ open_pr · get_pr · comment_pr · rebase — optional; without it the PR step i
 | `stlc-ticket-pipeline` | get · search · get_history · comment · set_status · assign (writes via `tracker-manage-child-ticket`) | **required** for s4; without it the run stops after s3b | optional (via s6) |
 | `stlc-test-automator` | — | optional — locator discovery; without it only steps covered by existing page objects are automated | — |
 | `stlc-qa-reviewer` | get · search (writes a PARK comment via `tracker-manage-child-ticket`) | — (reads screenshots from disk; R5 runs the Playwright suite itself) | — |
-| `stlc-qa-orchestrator` | search · get (workers use the `stlc-ticket-pipeline` set) | health check only — workers drive it one at a time | — |
+| `qa-agent` | search · get (workers use the `stlc-ticket-pipeline` set) | health check only — workers drive it one at a time | — |
 | `tracker-fetch-sprint-tickets` | list_projects · list_sprints · list_sprint_tickets | — | — |
 | `tracker-get-ticket` | get | — | — |
 | `tracker-manage-child-ticket` | create · update · comment · attach · resolve_user | — | — |

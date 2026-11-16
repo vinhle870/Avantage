@@ -1,0 +1,5 @@
+AP2503_007 step 3 — Environment: Dev (v2dev) — captured 2026-11-15 ~09:21Z (label corrected 2026-11-15T09:36Z from the file time; R3 F-5)
+Quote 6705 (no financing), "Generate Contract" clicked with the Financing company picker at "Choose"
+
+POST https://v2dev.garantieavantageplus.ca/quote/6705/warranty/generate-contract -> page re-rendered on the same address (no redirect)
+Page after the POST: /quote/6705/warranty/generate-contract, Financing company (Product Summary) shows "ERROR This value should not be blank."; red badge "1" on the Product Summary card; no invoice message; edited values kept (Start Date 2026-11-22, First name ContractEd, Address 300 Rue Edit, Work phone 5145550299)

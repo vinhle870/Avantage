@@ -50,8 +50,8 @@ Mark each of the following as **⚠ Risk**:
 ### Step 3b — Classify every open question
 
 Every place where the requirement is silent, vague or self-contradictory becomes an open
-question (`Q-001` …). **Never answer it yourself.** Not from a sibling ticket, not from the
-current build's behaviour, not from "the usual convention". Give each question an
+question (`Q-001` …). **Never answer it from a guess** or "the usual convention" — only
+from a quote, or by the knowledge lookup in Step 3c. Give each question an
 **Impact** with this fixed test, taking the first Yes:
 
 | # | Test | If Yes |
@@ -64,10 +64,44 @@ Set **Status**:
 - **`Answered`** only when a sentence in the capture, or in a ticket comment by someone not
   in the registry's `not_developers`, answers it. Quote that sentence and its source in
   the **Answer** column.
-- **`Open`** in every other case.
+- **`Answered`** also when the Step 3c lookup finds a Jira Story or Task that defines it.
+  Quote the sentence and give the ticket key in the **Answer** column.
+- **`Accepted`** when the Step 3c lookup finds no Story or Task that defines it: the
+  build's **current actual result is the expected result**. The Answer column reads
+  `No Story/Task defines it (searched: <query>) — current actual result accepted`, plus
+  the observed value when a recorded execution already shows it, else `recorded at execution`.
+- **`Open`** only when Step 3c could not run (tracker unavailable), or the question is not
+  about product knowledge (e.g. what an attachment shows, what a comment's author meant,
+  missing test data or access, or **the ticket's own text contradicts itself or reads two
+  ways** — the AC against the title or description, or inside the AC; its Impact follows
+  the Step 3b test) — say which in the Answer column.
 
 On a re-run, re-check every `Open` question against the capture's newer sections. Never
 flip a question to `Answered` on anything weaker than a quote.
+
+### Step 3c — Knowledge lookup — search Jira before raising a question
+
+Run this for every question about **unknown knowledge** — a field's meaning or allowed
+values, a default, a format, a validation, a function's workflow or what happens after an
+action — before setting its Status:
+
+1. Pick 3–5 distinctive words (the field label, the screen, the action) and call
+   **`tracker.search_tickets`** with the adapter's *knowledge lookup* query — Story and
+   Task tickets only, any status. Try a second word set if the first finds nothing.
+2. Read the description, the **acceptance-criteria field** and the comments of each
+   plausible hit (`tracker.get_ticket` — the adapter names how to include the AC field).
+   A hit **defines** the knowledge when a sentence states the value, rule or workflow.
+   Mentioning the field is not enough.
+3. Defined → `Answered`, quoting that sentence with its ticket key. Not defined →
+   `Accepted` (current actual result). Record the queries tried either way.
+
+An `Accepted` or lookup-`Answered` question is **never posted** to the tracker — no
+question comment, no screenshot. Three limits stay: where the ticket's own text (an
+acceptance criterion or a description sentence) states the result, it wins over the
+actual result; never use the actual
+result to choose between two readings of the ticket's own text (a contradiction or a
+two-way reading stays `Open`, its Impact set by the Step 3b test); and an objective fault (error page, HTTP 5xx, a value lost
+or changed from what was entered) is still a FAIL.
 
 The pipeline's gates read Impact and Status mechanically. A missing or wrongly raised
 Impact either stops a run that could continue or lets a guess through, so apply the test
@@ -100,7 +134,7 @@ Full rules and worked examples: [../output-style.md](../output-style.md).
 
 - IDs are sequential: REQ-001, REQ-002 …
 - Never invent acceptance criteria — flag the gap as a testability risk.
-- Never answer an open question yourself. Classify it by the Step 3b test, and mark it `Answered` only when a quoted sentence from the capture or a ticket comment answers it.
+- Never answer an open question from a guess. Classify it by the Step 3b test, run the Step 3c knowledge lookup, and mark it `Answered` (a quoted sentence from the capture, a ticket comment, or a Jira Story/Task) or `Accepted` (no Story/Task defines it — current actual result), or leave it `Open` where Step 3b allows. Never post an `Accepted` question.
 - Write every section even if empty ("None stated" / "None identified").
 - If multiple `.md` files describe the same feature, merge them and list all source files.
 

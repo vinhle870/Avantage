@@ -1,0 +1,5 @@
+AP2503_008 step 4 — Environment: Dev (v2dev) — captured 2026-11-15 ~09:23Z (label corrected 2026-11-15T09:36Z from the file time; R3 F-5)
+Quote 6706. Last name typed back as Owner2503-008, Start Date cleared, Financing company AutoCapital Canada, "Generate Contract" clicked.
+
+POST https://v2dev.garantieavantageplus.ca/quote/6706/warranty/generate-contract 500
+Page shown: error page "Erreur — Désolé, l'application éprouve des difficultés techniques. Veuillez recommencer une autre fois." with "Aller à l'accueil"; the address stays /quote/6706/warranty/generate-contract

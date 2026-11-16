@@ -1,7 +1,7 @@
 # Knowledge — Quote Creation Flow
 
 **Mapped:** 2026-08-29 (base flow), extended 2026-10-03 (entry-point gotcha), Staging
-(v2staging), dealer `vinhle870@gmail.com` ("Test QA staging"). Extended 2026-11-01 (Dev,
+(v2staging), the shared dealer account from the `env` source ("Test QA staging"). Extended 2026-11-01 (Dev,
 v2dev, AP-2477) — see *On Dev (v2dev)* below. Unless a section says otherwise, the facts
 here are **staging** facts.
 
@@ -178,6 +178,54 @@ AP-2477 **is deployed on v2dev**. What the live page does there (English UI):
 - The `/vehicle/{id}/details` → "Create quote" action still opens the old client form
   `/quote/new/client?fromVehicleId={id}`. The staging HTTP 500 on the bare `/quote` entry
   (above) was not seen on dev: quotes 6438–6440 saved and opened normally.
+
+- **Dev, 2026-11-07 (AP-2477 re-test after AP-2507 fix; AP-2533 "Update quote form UI" in QC) —
+  supersedes the "Décoder saves the quote" and "type button at the top right" bullets above for
+  the current Dev build:**
+  - The vehicle type is now a labelled select **"Vehicle type"** (`#vehicle_type_switch`, no
+    `name`, not submitted) at the **top of the form card, above Quote name**. Choosing a type
+    still navigates to `/quote/new/edit-vehicle/{TYPE}` (same 23 types).
+  - **"Décoder" no longer saves.** It posts by AJAX (`POST /quote/new/edit-vehicle` → 200, body
+    = quote name, VIN, token, `quote_vehicle[novalidate]=true`) and re-renders the form in place,
+    pre-filled (VIN `1FAHP35NX8W239204` → Ford / Focus / 2008). A Quote name typed before the
+    decode is kept. Clicking "Décoder" is safe again — no quote is created until Save.
+  - After a decode the form carries hidden `transmission`, `cylinders`, `engineSize`,
+    `engineSizeUnit`, `fuelType` and `id`. For `1FAHP35NX8W239204` they were automatic / 4 / 2 /
+    **kW** / GASOLINE / **863** (863 = an existing inventory vehicle with that VIN). Saving still
+    created a new vehicle (1146, 1147) and left 863 unchanged; the saved vehicle stored engine
+    size unit **Litre**, not kW (AP2477_008 FAIL, 2026-11-07, filed as **AP-2552**, Medium). No
+    turbo / 4x4 / AWD hidden input.
+  - The quotes list `/quotes` shows the quote name in the **Vehicle** column (with "-" under
+    Client; corrected 2026-11-07, R3 F-3) and opens rows through
+    `td[data-href="/quote/{id}/details"]` cells, not links.
+  - A freshly saved quote's details page can show a blue alert "No entities found" under
+    "Vehicle saved" (not an error page).
+  - **Dev, 2026-11-07 (AP-2507 s4) — how to check the decoder fix without clicking.** The
+    decoder code is bundled in `/build/app.18b4959e.js` (no separate `vinlookup.js`; loaded with
+    `/build/runtime.0c796a0d.js`). The fixed build builds the key from the form id —
+    `o.push({name:i+"[novalidate]",value:!0})` after serialising `#{i}_VIN`, `#{i}_quote_name`,
+    `#{i}__token` — so searching that bundle for `novalidate` tells a fixed build from the old
+    hardcoded `vehicle[novalidate]` one. The bundle hash changes with each deploy. Re-confirmed:
+    decode → 200, no quote saved; Save after decode created quotes 6600 / 6601 with new vehicles
+    1155 / 1156 (863 again not reused).
+  - **Dev, 2026-11-07 (AP-2533 s4, build `app.18b4959e.js`) — the updated "Create a quote" form.**
+    "Vehicle type" `select#vehicle_type_switch` (no `name`, Bootstrap-select, label `for` it) is
+    the first field of form `quote_vehicle` (`#vehiclesEditForm`), 80 px above Quote name; the old
+    top-right type button is gone. Default type Passenger; 23 types in this order: 3 wheels,
+    5TH WHEEL, ATV / UTV, Boat, Camion Lourd, eBike, Heavy Duty, LEISURE (`TEST_THIS`), Motorcycle,
+    Passenger, PWC, RV CLASS A, RV CLASS B, RV CLASS B +, RV CLASS C, Scooter, Snowmobile, TENT
+    CAMPER, test type ken, TOY HAULER, Tractor / construction, TRAVEL TRAILER, TRUCK CAMPER.
+    Choosing a type is a full page load to `/quote/new/edit-vehicle/{VALUE}` and **clears a typed
+    Quote name**. "Décoder" shows on Passenger and ATV / UTV, not on 3 wheels, 5TH WHEEL or RV
+    CLASS A (others not checked). Hidden `quote_vehicle[id]` is present (empty) before any decode.
+    Decoding the Tesla VIN `5YJ3E1EA0LF734293` adds hidden `fuelType` = BEV (no cylinders /
+    engineSize) and overwrites hand-chosen Brand/Model/Year; on the ATV / UTV form it sets Year
+    2020 but leaves Brand/Model on "Choose" with "This value is not valid." / "Choose a valid
+    model". An undecodable (`ABC123`) or empty VIN still posts the decoder (200) and shows no
+    message. In French (`?_locale=fr`) the labels are "Type de véhicule", **"Quote name"
+    (untranslated)**, "NIV", "Marque", "Modèle", "Année"; heading "Créer une cotation". Save with
+    Brand/Model/Year empty → "This value should not be blank." under each. Quote 6602 / vehicle
+    1157 (Tesla) were made by AP2533_004; afterwards a Tesla decode returns hidden id 1157.
 
 - **Warranty → contract on dev (AP-2374 s4, 2026-11-01).** The program list is filled only in
   the **modal** opened by the "+" next to "Extended warranty" on `/quote/{id}/details`; opening
@@ -371,6 +419,82 @@ Dev facts only; staging not re-checked. Dealer 1380, vehicle 915.
   (disabled until 17 is ticked). Contract **PNA-0000000020** (quote 6555, admin id 20, invoice 941,
   "Invoice #941 ($80) is created"); quote 6556 (client Terme Second1102) has no product.
 
+- **Dev, 2026-11-08 (AP-2459 s4) — the Permaplate contract form after the roadside-style redesign; supersedes the
+  "Contract form" and "leaving it is accepted on Dev" facts above for the current Dev build.** Route unchanged
+  (`/quote/{id}/permaplate-create-contract`, reached from the Esthetic protection row ⋯ → Generate Contract; there is no
+  "Create Contract" button). H1 "Esthetic protection Contract", "Back" → details. Left: H4 **"Vehicle identification"**
+  (collapsed line "Ford · Focus · 2008 · 1FAHP35NX8W239204 · CA$10,000.00" — the inventory price, not the quote's
+  Price 25000 — with a "Vehicle details" toggle; hidden-by-toggle VIN input `permaplate_contract[vehicleVIN]`) and H4
+  **"Owner identification"** (ownerFirstName*, ownerLastName*, ownerCompany, ownerAddress*, ownerCity*, ownerProvince*
+  (select), ownerPostalCode*, ownerEmail, ownerTelHome, ownerTelWork — pre-filled from the client). Right: H4
+  **"Product Summary"** (definition list: Program Term, Start Date, End date, **Financing company**
+  `permaplate_contract[financingInformation][financingCompany]` (select, "Choose" + 34 lenders incl. AutoCapital Canada
+  value 39), Selected protection products, Total) and the red "Generate Contract" button.
+  - **Blank Financing company is now refused:** `POST … => 200`, the form returns with "ERROR This value should not be
+    blank." above the Financing company select (red border, "1" badge on Product Summary); the other values are kept;
+    no contract, no invoice (quotes 6689, 6691). The label shows no "*".
+  - **With a company** (AutoCapital Canada): `POST … => 302` → details with "Esthetic protection contract generated
+    successfully" and "Invoice #945 ($80) is created"; contract **PNA-0000000021** (quote 6690), invoice 945 $91.98.
+  - PDF `/quote/6690/permaplate-contract-download` still answers **HTTP 500** (AP-2512) for a contract with a company.
+  - Records made by AP-2459 on Dev: quotes 6689–6691 (clients `client.stage.2459001/002/003@yopmail.com`, vehicle 915).
+
+- **Dev, 2026-11-08 (AP-2506 s4) — the redesigned Permaplate contract page in detail.** Source:
+  `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2506_2026-11-08.md`.
+  - **Option page order on `/quote/{id}/permaplate` for vehicle 915 (term "10 ans"):** 20 Antirouille – Rust+Sound
+    (combo) 80$ · 17 Peinture – Céramique + Graphene 75$ · 18 Extra care (5 ans couverture ) 70$ (disabled until 17 is
+    ticked). The first enabled option is **20**; ticking it ticks nothing else. Each option checkbox is covered by its
+    label — click `label[for=option_{id}]`, not the input.
+  - **Layout:** left `col-md-7` = H4 "Vehicle identification" + H4 "Owner identification"; right `col-md-5` (same top) =
+    H4 "Product Summary" + the submit button "Generate Contract". The page has a hidden `#myModal` shell ("Loading...",
+    display none) — not an open modal.
+  - **"Vehicle details" toggle, expanded:** read-only Odometer at delivery, Year, Make, Model, Delivery date (= quote
+    delivery date), Cylinders, Engine size, Engine size unit, Fuel type, Designation, **Vehicle Price (the inventory price,
+    10000.00 — not the quote's vehicle-step Price 25000)**, Transmission, Condition, Turbo engine, 4x4, All Wheel Drive,
+    Diesel, Injection; the only editable vehicle field is VIN.
+  - **Owner identification:** every field editable; pre-filled from the client (province as the select "Québec", phones
+    as stored, undashed). Required `*`: First name, Last name, Address, City, Province, Postal code.
+  - **Product Summary:** Program Term "10 ans", Start Date (= delivery date) and End date (start + term) are plain text —
+    the start date cannot be edited; Selected protection products lists the ticked options only (not the term); Total =
+    the quote's Esthetic protection cost, no tax.
+  - **Submit:** a blank Last name gets past the browser and the server answers `POST … => 200` with "This value should
+    not be blank." under the field, other values kept, nothing created. With a financing company the first submit is
+    accepted (no Stock number, In service date or dashed phone needed here, unlike the roadside page).
+  - **After a contract exists** the quote row shows the contract number as a link to `/quote/{id}/permaplate-contract`
+    beside the PDF icon; the ⋯ menu is gone, and typing `/quote/{id}/permaplate-create-contract` still redirects (302)
+    silently to the details page.
+  - **Quote page subtotal:** on quotes 6692–6695 the Esthetic protection row's amount is CA$80.00 and the subtotal counts
+    it (CA$25,080.00) — the "-" described under AP-2516 (2026-11-01) was not seen.
+  - Records made by AP-2506 on Dev: quotes 6692 (no contract), **6693** (contract **PNA-0000000022**, invoice **946** $80;
+    PDF download HTTP 500, AP-2512), 6694 and 6695 (submits refused, no contract).
+
+- **Dev, 2026-11-15 (AP-2501 s4) — a second term, the Permaplate contract page and the quote "check out" page.** Source:
+  `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2501_2026-11-15.md`. Dev facts only; staging not checked.
+  - **Linking a second term to dealer 1380:** `/admin/dealer/1380/permaplate` → "Link a product" opens a **modal**
+    (not a page) headed "Link a Esthetic protection product to dealer Test QA staging", select "Permaplate product*"
+    listing only the unlinked products ("2 ans (eligibility)", "3 ans", "3 Ans (Drive IP)", "5 ans", "Voici Vinh Le Corp
+    traduit en français") → Save → alert "Permaplate product linked". Row "Unlink" → modal "Unlink a Esthetic protection
+    product" ("Please confirm that you want to unlink dealer Test QA staging to the Esthetic protection 5 ans"), buttons
+    "Continue" / "No" → alert "**Esthetic protection** product unlinked". AP-2501 linked 2 "5 ans" at 10:44Z and unlinked it
+    at 10:46Z; dealer 1380 is back to **only 3 "10 ans"**.
+  - **Term "5 ans" for vehicle 915:** radio `permaplate_2`, listed **before** "10 ans" on `/quote/{id}/permaplate`. Options
+    in page order: 11 Intérieur – Fiberguard 35$ · 12 Intérieur – Leatherguard 40$ · 10 Paintguard premium plus 40$ ·
+    27 Extra care (5 ans couverture ) 75$ (disabled). No age or eligibility rule stopped it for vehicle 915 (2008). Option
+    11 alone → Cost 35$; contract Program Term "5 ans", End date = start + 5 years.
+  - **Permaplate contract page (row ⋯ → Generate Contract, `/quote/{id}/permaplate-create-contract`) on 2026-11-15:** same
+    two-column layout as 2026-11-08, with two changes — the collapsed vehicle line now shows the **quote's** price
+    ("Ford · Focus · 2008 · 1FAHP35NX8W239204 · CA$20,000.00"), and "Product Summary" is an **H3**. Financing company is
+    still `#permaplate_contract_financingInformation_financingCompany` ("Choose" + 33 lenders; AutoCapital Canada first).
+    Submit with AutoCapital Canada → details with "Esthetic protection contract generated successfully" and
+    "Invoice #956 ($35) is created"; contract **PNA-0000000028** (quote 6709).
+  - **Quote "check out" page (AP-2551):** the quote page header's "Generate Contract" goes to `/quote/{id}/checkout`, H1
+    "Checkout quote #{id}", "Back" → details, two cards **"Vehicle"** (make/model/year, VIN, Mileage, Designation; "Edit"
+    reveals `checkout_vehicle[vehicleVIN]`, `checkout_vehicle[vehicleDeliveredAt]`, Save) and **"Client"** (name, address,
+    email, phones; "Edit" reveals the `checkout_client_save[client][…]` form, Save). Seen on quote 6709 **after** its
+    Permaplate contract existed: no product or Financing company card was shown. The Permaplate contract is still made from
+    the Esthetic protection row's ⋯ menu.
+  - Records made by AP-2501 on Dev, 2026-11-15: quote **6709** (client `terme.second.1115@yopmail.com`), contract
+    **PNA-0000000028**, invoice **956** ($35.00, Grand Total $40.24).
+
 ### On Dev (v2dev) — quote details "Summary of products", product menus, cancel-product and GAP, mapped 2026-11-02 (AP-2493 s4)
 
 Dev facts only; staging not re-checked. Dealer 1380, vehicle 915, quotes 6461–6469.
@@ -539,6 +663,43 @@ Dev facts only; staging not checked. Dealer 1380. Source:
 - Records made by AP-2503 on Dev: vehicles 1125–1129, quotes 6557–6561 (clients `client.stage.2503001/004/007/008/009`);
   contracts **APOP01-845** (quote 6558, invoice 942), **APOP01-846** (6559, invoice 943), **APOP01-847** (6561, invoice 944).
 
+### On Dev (v2dev) — the extended-warranty Generate Contract page redesigned as the "check out" page, mapped 2026-11-15 (AP-2503 s4)
+
+Dev facts only; staging not checked. Dealer 1380. Supersedes the **page layout** of the 2026-11-02 section above (the
+action location, submit landing and `/warranty` list are unchanged). Source:
+`qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2503_2026-11-15.md`. Stories behind the change (all
+"Deploy to staging" on 2026-11-15): AP-2544 (vehicle card), AP-2545 (owner card), AP-2546 (financing card), AP-2559 /
+AP-2560 (errors inside the cards), AP-2551 / AP-2562 (quote checkout); AP-2550 and AP-2561 "In Progress".
+
+- **Left column:** H4 **"Vehicle identification"** — a collapsed card: summary line "Make · Model · Year · VIN · price",
+  chevron button "Vehicle details" reveals Kilometers, Year, Make, Model, Delivery date, Cylinders, Engine size, Engine
+  size unit, Fuel type, Designation, Vehicle Price, Transmission, Condition, Turbo engine, 4x4, All Wheel Drive as
+  **read-only text**, and **VIN** as the only input (`warranty_finalize[vehicleVIN]`, required, editable). H4 **"Owner
+  identification"** — `ownerFirstName*`, `ownerLastName*`, `ownerCompany`, `ownerAddress*`, `ownerAddress2`, `ownerCity*`,
+  `ownerProvince*` (select), `ownerPostalCode*`, `ownerEmail*`, `ownerTelHome*`, `ownerTelWork*`,
+  `ownerIndianStatusCertificate`, `ownerDriversLicense`, pre-filled from the quote client.
+- **Right column:** H4 **"Financing information"** only when the quote has a financing — a resume line ("AutoCapital
+  Canada · CA$25,000.00 · 60 months · 6.9900% · CA$494.91 Monthly") and, behind the "Financing details" chevron,
+  Financing company, Creditor address, Net amount financed including RDPRM, Payment frequency, Payment per period, Due
+  type, Financing type, Loan term, Residual value, Interest rate. **Absent** on a quote without financing. Then H3
+  **"Product Summary"** — Program Term, Program, Term, Start Date (`dateStart`, datepicker, defaults to the delivery
+  date, earlier dates accepted), End date (text), **Financing company** (`financingInformation][financingCompany]`,
+  required select; pre-selected from the quote financing, else "Choose"), Sale Price (text, **not editable**), Cost,
+  Commission. Then the button "Generate Contract" (`#warranty_finalize_save`). **No PDF preview and no "Open PDF in new
+  tab" link** (the draft `/quote/{id}/warranty/pdf` still answers 200).
+- **Validation is server-side:** the form POSTs even with an empty required field; the page comes back at the same
+  address with "ERROR This value should not be blank." under the field and a red count badge on its card. An empty
+  Financing company on a no-financing quote is refused this way (AP-2532). **An empty Start Date returns HTTP 500**
+  (error page "Erreur — Désolé, l'application éprouve des difficultés techniques"), 2026-11-15.
+- **Submit:** POST → 302 → `/quote/{id}/details`, "Invoice #N ($456.00) is created" (= warranty cost); the row shows
+  the contract link and PDF icon; **the quote's client is updated** with the owner values edited on the page (AP-2545).
+- The quote page header also has "Generate Contract" → `/quote/{id}/checkout` (AP-2551), not used by AP-2503.
+- The direct `/quote/{id}/warranty/edit` page lists the programs as empty headings (`#program-`); the add modal from the
+  row's "+" names them ("Garantie de base AP" first, option 1 → 100m/20000km).
+- Records made by AP-2503 on Dev, 2026-11-15: vehicles 1231–1235, quotes 6703–6707 (clients
+  `client.stage.2503001/004/007/008/009.111509@yopmail.com`); contracts **APOP01-848** (quote 6704, invoice 952),
+  **APOP01-849** (6705, invoice 953), **APOP01-850** (6707, invoice 954).
+
 ### On Dev (v2dev) — the add-roadside-protection modal after AP-2498 (VIN + Year form), mapped 2026-11-02 (AP-2498 s4)
 
 Dev facts only; staging not checked. Dealer 1380. Source:
@@ -612,6 +773,14 @@ Dev facts only; staging not checked. Dealer 1380, vehicle 915, quotes 6533–654
   financing prefills the modal.
 - Records made by AP-2499 on Dev: quotes 6533–6544 (clients `client.stage.2499001`–`2499012@yopmail.com`); creditor
   quotes (no contract) on 6539 and 6541, a GAP quote (no contract) on 6540. No Chubb contract created.
+- **Dev, 2026-11-15 (AP-2499 s4 re-run, quotes 6710 and 6711):** a financing saved on `/quote/{id}/financing` with
+  Date of birth **empty** is accepted ("Financing saved"), but from then on every financing form for that quote —
+  `/quote/{id}/financing`, `/quote/{id}/insurance`, and the GAP / creditors modals after **Edit** — shows Date of birth
+  = **today's date** (server-rendered `value`, e.g. 2026-11-15). The Financing card never shows the date of birth. So a
+  financing without a date of birth cannot be kept on this build (AP2499_005 FAIL, AP2499_009 BLOCKED). The Financing
+  block in both modals is still folded behind **Edit** (AP-2526). The new-quote client form's consent box now reads
+  "I confirm that I have provided a copy of FORM-L25, …" (plus an optional "Send a copy of the privacy policy to the
+  client's email address"), and its Save lands on `/quote/{id}/details`, not the vehicle step.
 
 ### On Dev (v2dev) — the GAP and creditor Generate Contract pages after AP-2504, and the co-applicant modal, mapped 2026-11-03 (AP-2504 s4)
 
@@ -680,3 +849,101 @@ Dev facts only; staging not checked. Dealer 1380. Source:
 - Records made by AP-2505 on Dev: vehicles 1130–1135 (VINs 2T1BURHE0NC505001/002/006/007/008/009), quotes 6568–6573 (clients
   `client.stage.2505001/002/006/007/008/009@yopmail.com`, Roadside Owner2505-NNN); roadside products (CA$250.00, no contract) on all six;
   financing on all but 6570; GAP quote (no contract) on 6568. No roadside contract, no invoice created.
+
+### On Dev (v2dev) — the roadside contract page after AP-2505 was redeployed, mapped 2026-11-07 (AP-2505 s4 re-test)
+
+Dev facts only; staging not checked. Dealer 1380. Supersedes the "AP-2505 change is not visible on Dev" bullet of the
+2026-11-03 section above for the current Dev build. Source:
+`qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2505_2026-11-07.md`.
+
+- **Action:** Roadside Protection row ⋯ → **Generate Contract** is now a plain `a.dropdown-item small` link to
+  `/quote/{id}/road-side-protection-create-contract` (no modal toggle, no `target`); Edit and Delete still open `#myModal`.
+  It opens in the **same tab** as a full page, **HTTP 200** (quotes 6593, 6595–6599, and the older 6568, 6570). AP-2518's
+  500 / "Loading..." symptom no longer reproduces. The action is offered with or without a GAP quote and without financing.
+- **Page:** H1 "Road Side protection program", "Back" → `/quote/{id}/details`. Form `quote_auto_shield_create_contract`
+  (POST to the same URL; inputs carry `required` but the button posts without browser validation). Left `col-md-7`:
+  H4 **"Vehicle identification"** — collapsed summary "{Make} · {Model} · {Year} · {VIN} · CA${price}", a "Vehicle details"
+  toggle expands Mileage, Year, Make, Model, Cylinders, Engine size (+unit), Fuel type, Designation, Purchase price,
+  Transmission, Condition, Turbo/4x4/AWD and the VIN input (`vehicleVIN`); H4 **"Owner identification"** — First name*,
+  Last name*, Address*, Address 2, City*, Province* (select), Postal code*, Email*, Home phone* (no Work phone), Drivers
+  license, Tax exemption band — all pre-filled from the client and editable. Right `col-md-5`: H4 **"Product Summary"**
+  (there is no "Program Summary" and no "Financing information" heading) — Road Side Protection Option (tier text), Delivery
+  date, Purchase date (both = quote delivery date), Policy Sale price* (250.00), Purchase type (select CASH / FINANCE / LEASE /
+  LINE OF CREDIT, defaults to **CASH** even on a financed quote), Financed amount (= financing base amount, e.g. 25000.00),
+  Interest rate (6.9900), Financing company (select, **"Choose"** — its list is Desjardins / BMO / Banque Scotia …, not the
+  quote financing list, so AutoCapital Canada cannot be shown), Stock number* (empty), In service date* (empty, hint "The date
+  must be the same year as the vehicle's year."); then the red **"Generate Contract"** button. Hidden `selectedTier` radios
+  (the saved tier checked). Every financing control is editable (AP2505_005 FAIL, 2026-11-07).
+- **No financing on the quote:** Financed amount and Interest rate empty, Financing company "Choose", Purchase type CASH;
+  the button stays enabled (AP2505_006).
+- **Submit with the pre-filled values:** `POST … => 200`, the page comes back with "This value should not be blank." under
+  **Stock number** and **In service date**; nothing is created. An emptied Last name gets the same message
+  under the field; the other values are kept (AP2505_009). No roadside contract has been created on Dev from this page yet.
+- **Dev, 2026-11-07 (AP-2505 re-run after review R3 round 1):** with Stock number filled (`STK2505007`, `STK2505008`) and
+  In service date `2022-06-01` (a gijgo datepicker text field, `yyyy-mm-dd`, typed directly), the submit goes through the
+  form check: `POST /quote/{id}/road-side-protection-create-contract => 302` → `/quote/{id}/details` (about 10 s) with the red
+  flash "One or more validation errors occurred.The phone number is invalid. Please ensure it follows the format:
+  ###-###-####." — the page pre-fills Home phone from the client as `5145550501` (no dashes) and the contract is refused.
+  No contract, no invoice (quotes 6597, 6599). The two existing contracts on the list (2697, 2698) carry phones as
+  `092-921-5333`. Whether a dashed phone then creates the contract is not yet known on Dev.
+- **Dev, 2026-11-07 (AP-2505 re-run after review R3 round 2):** with Home phone typed as `514-555-0501` (plus Stock number
+  `STK2505007`, In service date `2022-06-01`), one Generate Contract click on quote 6597 lands on `/quote/6597/details` after
+  about 20 s with the green alert "The Roadside protection coverage has been saved successfully" and creates AutoShield
+  contract **2782** (App Number RHTWQ-2782, status OPEN_SUBMITTED, 12 months). Afterwards: the Roadside row shows
+  "Contract #2782" (link `/quote/6597/auto-shield-contract/2782`) and a download icon
+  (`/quote/6597/road-side-protection-contract-download`), no ⋯; the dealer list `/road-side-protection-contracts` gains a row
+  (id, VIN, client, phone `514-555-0501`, price `250.00 $`, Details); **no invoice** is created (top invoice stays 944); the
+  client's Home phone on the quote is saved back as `514-555-0501`. The details page matches the staging description (Contract
+  ID, App Number, Status Code, dates, client/vehicle sub-fields, en/fr links via `/auto-shield-contract-pdf?pdfLink=…`, plus
+  an embedded PDF frame); en PDF 7 pages, fr PDF 5 pages. Typing `/quote/{id}/road-side-protection-create-contract` for a quote
+  that has its contract → `302` to `/quote/{id}/auto-shield-contract/{contractId}`, no message. A refused submit still saves
+  Stock number / In service date to the quote (shown again on reopening the page).
+- Records made by the AP-2505 re-test on Dev (2026-11-07): vehicles 1148–1154 and quotes 6593–6599 (clients
+  `client.stage.2505001/002/006/007/008/009@yopmail.com`; vehicle 1149 / quote 6594 is a stray build with "undefined" in its
+  VIN, email and last name); roadside products (CA$250.00, no contract) on all seven; GAP quote (no contract) on 6593; no
+  financing on 6596. The inventory form accepted VINs already used by vehicles 1130–1135 (no duplicate-VIN refusal).
+
+### On Dev (v2dev) — creditor insurance quote after the AP-2410 fix, mapped 2026-11-08 (AP-2410 s4)
+
+Dev facts only; staging not checked. Dealer 1380, vehicle 915, quote 6696. Source:
+`qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2410_2026-11-08.md`.
+
+- **The financing card updates at once** after the "Add a financing" modal's Save (flash "Financing saved"); it shows
+  Type, Financed amount, Residual, Term, Interest rate, Payment amount — **not** the date of birth (that is only in the
+  financing form, e.g. on `/quote/{id}/insurance` → Edit).
+- **Get Quote** on `/quote/{id}/insurance` (opened as a page) → `/quote/{id}/details` with "Chubb insurance quote saved
+  successfully"; no HTTP 400 seen for PM30 or PM50, English or Français, Tax exempt No or Yes, with borrower-only coverage
+  (AP2410_001–004 first run) and — after a co-applicant was added — with Critical illness for **Co borrower** and Disability
+  for **Both** (AP2410_004 re-run 2026-11-08T03:54Z: saved, CA$150.92 /m, no "years old" text). AP-2410 run 2026-11-08,
+  pending review.
+- **Co-applicant changes the "For" options:** without a co-applicant every "For" drop-down offers Borrower only; after
+  **Add co-applicant** (modal; First name, Last name, Date of birth* — a `type=date` input; Address, Address2, City,
+  Province, Postal code, Phone optional) → flash "Co-applicant saved", every "For" offers Borrower, Co borrower and Both.
+  The block then shows the name, "Date Of Birth : Saturday, April 9, 1988" for 1988-04-10 entered (one day early, known), and
+  an email `ken@nekken.ca` and phone `514-690-6330` that were not typed (quote 6696, co-applicant Coapp Retest2410). These are the email and phone of another client record on Dev (contract APOP01-836; the AP-2377 sample customer), not the dealer's.
+- **Where the coverage is shown:** the Creditors insurance row has a chevron (`data-target="#chubbDetails"`) whose details list
+  Form, Rate table, Language, Tax exempt and a Coverage table (Coverage Type, Coverage, Term Months, Monthly Premium, Tax,
+  Monthly Total) with Equivalent Single Premium and Commission. The reopened `/quote/{id}/insurance` page **and** the row ⋯ →
+  Edit modal show **no** Coverage table on this build (the AP-2499 mapping of 2026-11-02 said the modal did).
+- **The reopened form does not restore the saved Form (rate table):** no `formCompound` option is `selected`, so a saved PM50
+  quote reopens showing "Monthly Premium PM30". Language, Tax exempt and coverages are restored.
+- **Changing Form clears the Life type** (term and For kept).
+- **Coverage options (quote page):** Life = Decreasing (DECREASING_ACC "Decreasing Acc." listed but hidden); Critical illness =
+  Decreasing; Disability visible = 30 Day Retro, 30 Day Elim, 30 Day Elim 12M (nine more hidden); every "For" = **Borrower
+  only** when the financing has no co-applicant. No "Residual Value Coverage". Form labels: "Monthly Premium PM30" /
+  "Monthly Premium PM50" (values `GC6201MQ:PM30` / `GC6201MQ:PM50`); no RT option.
+- **Tax exempt Yes** still shows a Tax amount on each coverage row (e.g. 16.25$ + 1.46$).
+- Premiums seen (financing 25,000 / 12 months, Life Decreasing Borrower 12): PM30 English 15.74$/m; PM50 Français 21.78$/m;
+  PM30 Tax exempt Yes with Life + Critical illness + Disability 30D_RETRO = 96.54$/m (all Borrower, no co-applicant);
+  with co-applicant: Life Borrower 16.60$, Critical illness Co borrower 16.60$, Disability 30D_RETRO Both 117.72$ =
+  150.92$/m (Equivalent Single Premium 1,455.31$, Commission (30%) 436.59$).
+
+### On Dev (v2dev) — Generate Contract requires a Financing company, mapped 2026-11-15 (AP-2374 s4)
+
+- Extended warranty row ⋯ → **Generate Contract** (`/quote/{id}/warranty/generate-contract`, heading
+  "Extended Warranty Contract"): the Product Summary has a **Financing company** select
+  (`#warranty_finalize_financingInformation_financingCompany`, "Choose" by default). On 2026-11-15 a submit
+  with it empty was refused with "This value should not be blank."; choosing "Avantage Plus Testing" let the
+  contract save (flash "Invoice #955 ($1000.00) is created", contract `26df1-851` on quote 6708). On
+  2026-11-01 the same page saved without it. The ⋯ menu is a `[data-toggle=dropdown]` in the Extended
+  warranty row; the top-bar "Generate Contract" link goes to `/quote/{id}/checkout` instead.

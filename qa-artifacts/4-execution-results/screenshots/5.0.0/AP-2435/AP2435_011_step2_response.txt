@@ -1,0 +1,16 @@
+HTTP/1.1 400 Bad Request
+Date: Thu, 05 Nov 2026 06:03:33 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=DSFVU7r4LjCqdq4GoE8pyog%2FTOqle5pcH6g%2BkRQmoo39Z8CRxSfHWappZgayqlmzF7lvD7YMdiAKAslbWc1dO1ugVkvZpjcZFEnVNrTikKYDlz7Atl3DaHAm8QDtSBRcztxsz2W1QdFfBLCZkJhH7g%3D%3D"}]}
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a559a7ec4c843fe0-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"success":false,"error":"Missing query parameter"}
+--- curl url_effective=https://v2dev.garantieavantageplus.ca/api/admin/search-warranty?query= http_code=400 time_total=0.693282s
+curl_exit=0 sent_at=2026-11-05T06:03:33Z header_mode=XK

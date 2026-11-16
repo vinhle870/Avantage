@@ -1,0 +1,16 @@
+HTTP/1.1 405 Method Not Allowed
+Date: Thu, 05 Nov 2026 05:28:04 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=BhpYu%2FRIvmEhCnFvMel9qvl1JHQfrzBlBjPrJPczzSG0ihqg87o73KFbtjNNsgjOB0KlIvl7IwOUyj0og5daoBoTi8t4najujBJ8afPTZoSFPocc1f2bXrv2SyOVEzq0VtX2c%2FNglxKjDf8ejMbklg%3D%3D"}]}
+Vary: Accept
+Allow: GET
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a55973efbf8dc3c2-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"type":"https:\/\/tools.ietf.org\/html\/rfc2616#section-10","title":"An error occurred","status":405,"detail":"Method Not Allowed"}

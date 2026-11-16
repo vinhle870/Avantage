@@ -1,27 +1,28 @@
 # Bug Report
 
 **Project:** Avantage Plus v2 — Dealer portal, AP-2477: Simplify /quote/new/edit-vehicle to minimal fields with VIN decoder pre-fill
-**Report ID:** BR-20261101-001 (supersedes BR-20261012-001, whose BUG-001 is kept below unchanged)
-**Test Cycle:** AP-2477 single-ticket STLC run, run folder 5.2.0. First pass on v2staging on 2026-10-12 (12 BLOCKED — build missing). Second pass on **Dev (v2dev)** on 2026-11-01, by the user's decision: 9 PASS, 1 FAIL, 2 BLOCKED.
-**Date:** 2026-11-01
+**Report ID:** BR-20261107-001 (supersedes BR-20261101-001; BUG-001 and BUG-002 are kept below, BUG-003 is new)
+**Test Cycle:** AP-2477 single-ticket STLC run, run folder 5.2.0. First pass on v2staging on 2026-10-12 (12 BLOCKED — build missing). Second pass on Dev (v2dev) on 2026-11-01: 9 PASS, 1 FAIL, 2 BLOCKED. **Third pass — re-test after the AP-2507 fix — on Dev (v2dev) on 2026-11-07, 09:47–09:58 UTC: 11 PASS, 1 FAIL, 0 BLOCKED.**
+**Date:** 2026-11-07
 **Reported by:** QA Agent — Bug Reporter Skill
-**Source:** qa-artifacts/4-execution-results/5.2.0/execution-log_AP-2477_2026-11-01.md · qa-artifacts/4-execution-results/5.2.0/execution-log_AP-2477_2026-10-12.md · qa-artifacts/3-test-cases/AP2477_TestCases_*.md
+**Source:** qa-artifacts/4-execution-results/5.2.0/execution-log_AP-2477_2026-11-07.md (current) · execution-log_AP-2477_2026-11-01.md · execution-log_AP-2477_2026-10-12.md · qa-artifacts/3-test-cases/AP2477_TestCases_*.md
 
-**Tested on: Dev (v2dev)** for the 2026-11-01 results. BUG-001 was found on staging on 2026-10-12.
+**Environment: Dev (v2dev)** for the 2026-11-01 and 2026-11-07 results. BUG-001 was found on staging on 2026-10-12.
 
 | Metric | Value |
 |---|:---:|
-| Total defects | 2 |
+| Total defects | 3 |
 | Critical | 0 |
 | High | 2 |
-| Medium | 0 |
+| Medium | 1 |
 | Low | 0 |
-| Tracker tickets created | 2 (AP-2492 on 2026-10-12, AP-2507 on 2026-11-01) |
+| Tracker tickets created | 3 (AP-2492 on 2026-10-12, AP-2507 on 2026-11-01, AP-2552 on 2026-11-07) |
 
 **Decisions:**
 - 2026-10-12 (by the QA): all 12 cases were BLOCKED on staging because the AP-2477 form was not deployed there. The QA asked for the deployment gap to be filed as a bug (BUG-001, AP-2492).
-- 2026-11-01 (Gate C, by the reviewer — R3 APPROVE): the one FAIL, AP2477_007, is filed as a **new** bug (BUG-002) and linked to AP-2492 as *relates to*. Rule C3 → reviewer rule E2. AP-2492 names the same screen but a different wrong behaviour (the route returns HTTP 404 on staging), so it is not a duplicate. No capture sentence or comment says that decoding should save the quote, so rule C1 (not a bug) does not hold. Duplicate search for open bugs ("Décoder", "decode saves quote", "edit-vehicle", "VIN decode saves", "vinlookup") returned only AP-2492 and AP-2490 (client province list, unrelated).
-- AP2477_008 and AP2477_009 are BLOCKED by AP2477_007 and are not filed separately.
+- 2026-11-01 (Gate C, by the reviewer — R3 APPROVE): the one FAIL, AP2477_007, is filed as a **new** bug (BUG-002, AP-2507) and linked to AP-2492 as *relates to*. Rule C3 → reviewer rule E2.
+- **2026-11-07 (Gate C, by the reviewer — R3 round 1 APPROVE, 0 blocker / 0 major / 3 minor):** the one FAIL, AP2477_008, is filed as a **new** bug (BUG-003, **AP-2552**), linked *relates to* AP-2507 and AP-2477. Rule C3 → reviewer rule E2. AP-2507 names the same screen but a different wrong behaviour (there, "Décoder" saved a quote; here, the decoded engine size unit is not persisted when the dealer saves), so it is not a duplicate. No capture sentence or non-developer comment says storing "Litre" is intended, so rule C1 (not a bug) does not hold and correct-cases was skipped. The reviewer's duplicate search ("engine size unit", "engine size", "kW", "Litre", "vehicle unit", "decoded values not saved", "Décoder", "decoder", "VIN decode", "hidden inputs", "edit-vehicle") found only AP-2507 and AP-2492 on this screen.
+- 2026-11-07: AP2477_007 (the AP-2507 scenario) **passed** — the decode re-renders the form and saves nothing. This run makes **no change to AP-2507**: it is in QC and its own bug re-test (AP2507_001–003, later today) owns its verdict. AP-2492 was not re-tested (Dev only) and stays as filed.
 
 ---
 
@@ -29,8 +30,9 @@
 
 | Bug ID | TC ID | Title | Severity | Priority | Tracker Ticket | Status |
 |---|---|---|:---:|:---:|---|:---:|
-| BUG-001 | AP2477_001 (blocked AP2477_001–012 on staging) | The simplified new-quote vehicle form is missing on staging: /quote/new/edit-vehicle returns HTTP 404 | High | P1 | [AP-2492](https://garantieavantageplus.atlassian.net/browse/AP-2492) | Open |
-| BUG-002 | AP2477_007 (blocks AP2477_008, AP2477_009) | Clicking "Décoder" on the new-quote vehicle form saves a quote and empties the form instead of re-rendering it pre-filled | High | P1 | [AP-2507](https://garantieavantageplus.atlassian.net/browse/AP-2507) | Open |
+| BUG-001 | AP2477_001 (blocked AP2477_001–012 on staging) | The simplified new-quote vehicle form is missing on staging: /quote/new/edit-vehicle returns HTTP 404 | High | P1 | [AP-2492](https://garantieavantageplus.atlassian.net/browse/AP-2492) | Open (Backlog) |
+| BUG-002 | AP2477_007 (blocked AP2477_008, AP2477_009 on 2026-11-01) | Clicking "Décoder" on the new-quote vehicle form saves a quote and empties the form instead of re-rendering it pre-filled | High | P1 | [AP-2507](https://garantieavantageplus.atlassian.net/browse/AP-2507) | Open (QC — fix not reproduced 2026-11-07; awaiting its own re-test) |
+| BUG-003 | AP2477_008 | Saving a quote after "Décoder" stores the decoded engine size unit "kW" as "Litre" on the vehicle | Medium | P2 | [AP-2552](https://garantieavantageplus.atlassian.net/browse/AP-2552) | Open (Backlog) |
 
 ---
 
@@ -90,7 +92,7 @@ Step 2 opens the old client-first form at `/quote/new/client` (Client section, E
 | **Priority** | P1 — blocks the AP-2477 release; two other test cases cannot run until it is fixed |
 | **Environment** | Chromium (Playwright) · Windows 11 · **Dev (v2dev)** `https://v2dev.garantieavantageplus.ca/`, Dealer portal, Dealer ID 1380 ("Test QA staging") · footer "Avantage Plus System v2.0.0" |
 | **Tracker Ticket** | [AP-2507](https://garantieavantageplus.atlassian.net/browse/AP-2507) — Bug, priority High, labels qa-agent / stlc-automated, assigned to Ken Nguyen (`bug_new_assign`), linked Relates → AP-2492 and Relates → AP-2477; 2 screenshots embedded in the description (verified: 2 media nodes with ids) |
-| **Status** | Open |
+| **Status** | Open (QC since 2026-11-03 — fix not reproduced on 2026-11-07; its own re-test owns the verdict) |
 | **First found** | 2026-11-01 |
 | **Reproducibility** | Seen on the one click made (1 of 1). The click was deliberately not retried, because every attempt would create another quote that cannot be deleted |
 
@@ -127,6 +129,58 @@ Unknown — for dev investigation. A likely lead is that the `novalidate` short-
 - Test cases AP2477_008 (decoded extras kept after the dealer's own Save) and AP2477_009 (Quote name kept across a decode) cannot run until this is fixed.
 - **Observation for the AP2477_008 re-run (no verdict):** on `/quote/new/edit-vehicle` only `quote_vehicle[transmission]` and `quote_vehicle[engineSizeUnit]` are rendered as hidden inputs. Fuel type, cylinders, engine size and turbo are not on the page, although the Tech approach ("Keep the hidden children working") asks for those children to stay as hidden inputs. Vehicle 1067, saved by this decode, does hold fuel GASOLINE, Automatic, 4 cylinders, 2 L and turbo off, so the server merged them on this save path.
 - Test data left on Dev by this click: quote 6437 and vehicle 1067. Dealers cannot delete quotes.
+- **2026-11-07 re-test:** AP2477_007 passed on Dev at 09:47–09:58 UTC — "Décoder" posts by AJAX (200, no redirect), re-renders the form with Ford / Focus / 2008 and saves nothing (quotes 6588–6592 are all accounted for by deliberate saves). AP2477_008 and AP2477_009 ran; 008 found BUG-003. No change was made to AP-2507 by this run.
+
+---
+
+### BUG-003 — Saving a quote after "Décoder" stores the decoded engine size unit "kW" as "Litre" on the vehicle
+
+| Field | Value |
+|---|---|
+| **Bug ID** | BUG-003 |
+| **Test Case** | AP2477_008 (FAIL at step 4 of 4, the verification step; it blocks no other case) |
+| **Requirement** | AP-2477 REQ-003 — decoded values are kept and stored on the vehicle row when the quote is saved (acceptance criterion 2) |
+| **Severity** | Medium — the decode-and-save flow works and four of the five compared values are stored, but one decoded attribute, the engine size unit, is stored wrong without the dealer seeing it. The dealer can correct it on the vehicle's edit form, so there is a workaround; nothing is lost and no screen breaks. (The test plan's exit criteria describe a High bug as one where "quotes are saved with wrong vehicle data"; this is one hidden attribute out of five, so it was rated Medium under the bug-reporter's definitions — R4 may weigh this.) |
+| **Priority** | P2 — fix in the current cycle; it breaks the wording of acceptance criterion 2 but does not block the release of the rest of the story on its own |
+| **Environment** | Dev (v2dev) `https://v2dev.garantieavantageplus.ca/` · Dealer portal, dealer ID 1380 ("Test QA staging") · Chromium (Playwright) · Windows 11 · footer "Avantage Plus System v2.0.0" |
+| **Tracker Ticket** | [AP-2552](https://garantieavantageplus.atlassian.net/browse/AP-2552) — Bug, priority Medium, labels qa-agent / stlc-automated, assigned to Ken Nguyen (`bug_new_assign`), linked Relates → AP-2507 and Relates → AP-2477; description written in wiki markup through REST v2; the `_fail` screenshot embedded (read back: 2 media nodes with ids) and the DecodedVsStoredValues .txt attached |
+| **Status** | Open (Backlog) |
+| **First found** | 2026-11-07 |
+| **Reproducibility** | 1 of 1 save after a decode checked at this level of detail; the same VIN decoded to "kW" in all three decodes of the run |
+
+**Summary:**
+On Dev (v2dev), when a dealer clicks "Décoder" on the "Create a quote" vehicle form and then saves the quote, the vehicle is stored with engine size unit "Litre", although the decoder filled the form with engine size unit "kW".
+
+**Steps to Reproduce:**
+
+1. Open `https://v2dev.garantieavantageplus.ca/login` and sign in with a dealer account (the QA used dealer ID 1380, "Test QA staging").
+2. Open `https://v2dev.garantieavantageplus.ca/quotes` and click **Create a quote**. The browser goes to `/quote` and is redirected to `/quote/new/edit-vehicle`, heading "Create a quote", Vehicle type "Passenger".
+3. Leave **Brand** on "Choose". Type `1FAHP35NX8W239204` in **VIN** and click **Décoder**. Wait for the form to re-render with Brand Ford, Model Focus, Year 2008.
+4. In the browser developer tools, read the form's hidden inputs: `quote_vehicle[engineSizeUnit]` = "kW", `quote_vehicle[engineSize]` = "2", `quote_vehicle[cylinders]` = "4", `quote_vehicle[fuelType]` = "GASOLINE", `quote_vehicle[transmission]` = "automatic".
+5. Type `QA-AP2477-008-095303` in **Quote name** and click **Save**. The quote details page opens (`/quote/6591/details`, banner "Vehicle saved", Ford Focus 2008).
+6. From the quote's vehicle card, open the vehicle's edit page (`/vehicle/1146/edit`, heading "Vehicle #1146"). Do not save it. Read **Engine size unit**, **Engine size** and **Cylinders**.
+
+**Expected Result:**
+The saved vehicle holds the decoded engine size unit "kW", like the other decoded values. Acceptance criterion 2 says the decoded values "are kept and assigned to the App\Entity\Vehicle attributes — Brand, Model and Year, plus the decoded transmission, engine size, engine size unit, cylinders, fuel type and turbo — so they are stored on the vehicle row when the quote is saved, even though those extra fields are no longer displayed."
+
+**Actual Result:**
+Vehicle 1146 shows **Engine size unit = "Litre"** (option `l` carries `selected`), while the form submitted "kW". Value by value: **Cylinders 4 and Engine size 2 were carried over from the decode.** **Fuel type GASOLINE and Transmission Automatic** match the decode, but a vehicle saved from the same form without a decode (vehicle 1144, AP2477_004) shows the same two values, so this run cannot tell them apart from the form's defaults. **The engine size unit is the one value that differs** ("kW" submitted, "Litre" stored). Turbo / 4x4 / AWD are unticked, and the form carries no hidden input for them, so there is nothing to compare. Either the save drops the decoded unit and falls back to the default "l", or the decoder returns the wrong unit ("kW") for this gasoline 2.0 engine — the developer must say which. For an electric vehicle, a decoded kW figure would be stored as litres.
+
+**Evidence:**
+
+| Type | Path / Link |
+|---|---|
+| Screenshot | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_008-step4-Vehicle1146EngineUnitLitreNotKW-20261107_fail.png` — vehicle 1146 edit form (not saved): Engine size 2, unit Litre, Cylinders 4, Price and Kilometers empty. Embedded in AP-2552's description |
+| Text evidence | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_008-step1-4-DecodedVsStoredValues-20261107_fail.txt` — hidden values read before saving (kW) next to the stored values, plus request lines (method, URL, status only). Attached to AP-2552 |
+| Console log | None captured |
+
+**Suggested Root Cause:**
+Unknown — for dev investigation. Two leads: the save path does not map `quote_vehicle[engineSizeUnit]` onto the new vehicle (falling back to the entity default "l"), or the decoder maps VinAudit's engine data to "kW" for a combustion engine.
+
+**Notes:**
+- **Risk observation (no verdict):** after "Décoder", hidden `quote_vehicle[id]` holds **863**, an existing inventory vehicle of dealer 1380 with the same VIN (Ford Focus 2008, price 20000.00, 20000 km). Saving still created a new vehicle (1146) and vehicle 863 was unchanged when re-read at 09:57 UTC. No criterion says whether an existing vehicle should be reused; noted because a form carrying another vehicle's id could update that vehicle if the save path changes. Stated in AP-2552 too.
+- Related to AP-2507 (same screen, different behaviour: there the decode saved a quote; on this build it does not). AP2477_007, the AP-2507 scenario, passed on 2026-11-07.
+- Test data left on Dev: quote 6591 "QA-AP2477-008-095303" with vehicle 1146. Vehicle 863 was only read.
 
 ---
 
@@ -138,8 +192,8 @@ whether this is a few big problems or many small ones._
 | Severity | Count | Affected TCs |
 |---|:---:|---|
 | Critical | 0 | — |
-| High | 2 | AP2477_001–012 on staging (BUG-001); AP2477_007, 008, 009 on dev (BUG-002) |
-| Medium | 0 | — |
+| High | 2 | AP2477_001–012 on staging (BUG-001); AP2477_007, 008, 009 on dev on 2026-11-01 (BUG-002 — not reproduced on 2026-11-07) |
+| Medium | 1 | AP2477_008 on dev on 2026-11-07 (BUG-003) |
 | Low | 0 | — |
 
 ---
@@ -149,8 +203,8 @@ whether this is a few big problems or many small ones._
 | Requirement | Bug Count | Bug IDs |
 |---|:---:|---|
 | REQ-001 to REQ-007 — whole feature on staging | 1 | BUG-001 |
-| REQ-003 — Decode pre-fills and keeps hidden details | 1 | BUG-002 |
-| REQ-007 — Quote name kept across decode (blocked) | 1 | BUG-002 |
+| REQ-003 — Decode pre-fills and keeps hidden details | 2 | BUG-002, BUG-003 |
+| REQ-007 — Quote name kept across decode | 1 | BUG-002 (2026-11-01 only; passed 2026-11-07) |
 
 ---
 
@@ -159,10 +213,14 @@ whether this is a few big problems or many small ones._
 > _(Appended by **stlc-ticket-updater** skill. Do not edit manually.)_
 
 **Updated by:** QA Agent — Ticket Updater Skill
-**Date:** 2026-11-01 (pipeline s7, Gate D — `apply_mode: automatic`)
+**Date:** 2026-11-01 (pipeline s7, Gate D — `apply_mode: automatic`); 2026-11-07 (pipeline s5, Gate C filing — `apply_mode: automatic`); 2026-11-07 (pipeline s7, Gate D by reviewer R4 — `apply_mode: automatic`)
 
 | Bug ID | Ticket | Action | New Status | Updated on |
 |---|---|---|---|---|
 | BUG-001 | AP-2492 | No action — in Backlog, not in the QA status, so Gate D §3.2 does not apply | Backlog (unchanged) | 2026-11-01 |
 | BUG-002 | AP-2507 | Created, assigned to Ken Nguyen, linked Relates → AP-2492 and AP-2477, 2 screenshots embedded | Backlog (new) | 2026-11-01 |
 | — | AP-2477 (story) | Story result comment 19441 posted and read back (12 test-case rows); not moved — pass rate 75% (needs 90%), AP-2507 blocks AP2477_008–009 | QC (unchanged), assignee unchanged | 2026-11-01 |
+| BUG-003 | AP-2552 | Created (Gate C 2026-11-07, by reviewer), priority Medium, labels qa-agent / stlc-automated, assigned to Ken Nguyen, linked Relates → AP-2507 and AP-2477; description via REST v2 wiki markup; `_fail` screenshot embedded and .txt attached; read back 10:08 UTC | Backlog (new) | 2026-11-07 |
+| BUG-002 | AP-2507 | No action by this run — in QC, but its own bug re-test (AP2507_001–003) owns its verdict (orchestrator instruction) | QC (unchanged) | 2026-11-07 |
+| BUG-001 | AP-2492 | No action — not re-tested (Dev only), Backlog | Backlog (unchanged) | 2026-11-07 |
+| — | AP-2477 (story) | Story result comment 19511 posted via REST v2 wiki markup (11/12 = 91.7%; AP2477_008 → AP-2552) and read back via v3 (h3 heading, 2 bullet lists, issue links render); not moved — AP-2507 and AP-2492 (High) still open (Gate D rule D §3.1, by reviewer R4). No §3.2 action on AP-2492, AP-2507 or AP-2552 | QC (unchanged), assignee Vinh Le - QC (unchanged) | 2026-11-07 |

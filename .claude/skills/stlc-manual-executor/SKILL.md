@@ -201,6 +201,15 @@ For each step:
    against that question, and never mark FAIL because the outcome differs from what you
    would have expected. A case designed `BLOCKED` by an open question stays BLOCKED, even
    if you could run its steps.
+   A **record-and-accept** step (an `Accepted` question) records the actual value or flow
+   as the expected one, and PASSes unless an objective fault occurs or the AC text says
+   otherwise. When a step meets **unknown knowledge the case does not cover** (a field's
+   meaning, a default, a workflow), do not stop and do not raise a question: run the
+   knowledge lookup (`stlc-requirements-analyst` Step 3c). Found → judge against the
+   quoted Story/Task. Not found → record the actual result as accepted, subject to the
+   Step 3c limits (the ticket's text wins, a two-way reading stays open, an objective fault
+   is still a FAIL). Either way, log it
+   in the execution log as `Knowledge lookup: <words> → <ticket key | none — accepted>`.
 
 #### 2d. Capture screenshot evidence
 
@@ -229,6 +238,8 @@ Examples (always pass the full repo-root-relative path to `browser.screenshot`):
 - Every `[Verification]` step produces exactly one screenshot — always.
 - Always capture a screenshot of the **final state** of the TC (pass or fail) as the last screenshot.
 - If a page shows an error, dialog, or unexpected state — capture it immediately regardless of step type.
+- **A case or step BLOCKED by an open question, or a record-only step for one,** gets one extra screenshot of the screen the question is about, with the element outlined in red (`stlc-ticket-pipeline` routing.md Gate A → *Question screenshot*), named `{KEY}_Q-00N_highlighted.png`. One per question per run; skip it when that file already exists.
+- **Persistence steps need a values record too.** When a `[Verification]` step checks that saved values survive a save, reopen or reload, a screenshot alone is not proof: it can look the same as the before-save capture. Next to the screenshot, write `{TC_ID}-step{N}-values.txt` in the same folder. It holds the capture time, the URL, and each checked field as `field = value`, read from the snapshot after the reopen, or the request or response line that carried the values. List it under **Screenshots:** with the PNG.
 - Store all screenshots in the sprint+ticket subfolder: `qa-artifacts/4-execution-results/screenshots/{Sprint}/{TicketID}/`.
 
 **Screenshot log entry:** In the execution log, list every screenshot filename under the TC result with a one-line description. Always include the full path — this is also the value passed to `browser.screenshot` so the file lands in the correct sprint/ticket subfolder, not the project root:

@@ -1,0 +1,26 @@
+AP2410_004 (re-run) step 5 - reopened form re-capture, review R3 round 2 F-1
+Environment: Dev (v2dev)
+Captured: 2026-11-08T04:03:03Z (fresh sign-in; navigation start 2026-11-08T04:03:02.036Z, navigation type "navigate")
+No Get Quote and no Save pressed. No field touched. Focused element at capture: BODY (none).
+
+Request:
+GET https://v2dev.garantieavantageplus.ca/quote/6696/insurance -> 200
+
+Form values read from the DOM at capture (value | shown label):
+language            = E | English
+taxExempt           = 1 | Yes
+formCompound        = GC6201MQ:PM30 | Monthly Premium PM30   (no option marked selected - O-1)
+lifeType            = DECREASING | Decreasing
+lifeTerm            = 12
+lifeFor             = BORROWER | Borrower
+criticalIllnessType = DECREASING | Decreasing
+criticalIllnessTerm = 12
+criticalIllnessFor  = CO_BORROWER | Co borrower
+disabilityType      = 30D_RETRO | 30 Day Retro
+disabilityTerm      = 12
+disabilityFor       = BOTH | Both
+alert banners = none; "HTTP" in page = false; "years old" in page = false; is-invalid fields = none; Coverage table = not shown
+
+MD5 of the new full-page PNG = 2fda7610069c9e08bf8491f0017bd0e9, the same as the step-3 PNG.
+Nothing has focus, yet the Disability select draws an up caret, so the caret is the page's normal look, not a focus or open-list state.
+The reopened form in this state renders pixel for pixel like the step-3 form before Get Quote, so a full-page PNG of either gives the same bytes.

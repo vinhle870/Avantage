@@ -35,7 +35,7 @@ executor should not need a second file open to run this batch._
 
 | # | Missing fact | Affects | Status |
 |---|---|---|---|
-| 1 | A staging admin API key for QA (and confirmation of the API host) | AP2434_006 – AP2434_008 | Open — Q-002 (Info in the analysis, but it stops execution of every case). Raised 2026-11-01 |
+| 1 | A staging admin API key for QA (and confirmation of the API host) | AP2434_006 – AP2434_008 | Resolved 2026-11-05 — a Dev key (app "QA-automation", expires 2026-12-05) is in /.env as AVP_ADMIN_API_KEY; execution is on Dev |
 | 2 | The admin page that shows a warranty's notes | AP2434_006 – AP2434_008 | Open — Q-006 (Judgement). Recorded by AP2434_001 step 1 during s4 |
 
 > Every case below ships with **Status: BLOCKED** and **Blocked by: Q-002** until the key
@@ -47,9 +47,9 @@ executor should not need a second file open to run this batch._
 
 | TC ID | Title | Type | Priority | Status |
 |---|---|---|:---:|:---:|
-| AP2434_006 | Calls missing the warranty ID or the title — each response is recorded and no note lands with invented values | Negative | Medium | BLOCKED |
-| AP2434_007 | Calls with an unknown warranty ID or an is_public value other than true/false are recorded; no other warranty gets a note | Negative | Medium | BLOCKED |
-| AP2434_008 | A script tag in the HTML note text — how the admin area shows it is recorded without a server error | Edge-case | Medium | BLOCKED |
+| AP2434_006 | Calls missing the warranty ID or the title — each response is recorded and no note lands with invented values | Negative | Medium | PASS |
+| AP2434_007 | Calls with an unknown warranty ID or an is_public value other than true/false are recorded; no other warranty gets a note | Negative | Medium | FAIL |
+| AP2434_008 | A script tag in the HTML note text — how the admin area shows it is recorded without a server error | Edge-case | Medium | FAIL |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -69,10 +69,10 @@ executor should not need a second file open to run this batch._
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty page recorded in AP2434_001 |
 | **Type** | Negative |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | Both calls 400 "Missing required fields: warranty_id, title, description"; no note created |
 
 **Why this matters:** The ticket lists five fields but does not say which are required or how a bad request is refused (Q-004). This case records what the build does. It fails only on an objective fault: a server error, or a note that appears with a value nobody sent.
 
@@ -81,6 +81,7 @@ executor should not need a second file open to run this batch._
 | Date | Change | Reason |
 |---|---|---|
 | 2026-11-01 | Steps 2–3: fields sent with `--form-string` and `-sS`; the Request check applies | R2 independent F-1 — with `-F` nothing is sent and an empty response would look like a refusal |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -113,10 +114,10 @@ executor should not need a second file open to run this batch._
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty pages of `<W>` and `<W2>` |
 | **Type** | Negative |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | FAIL |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | Step 3 FAIL: is_public=maybe returns HTTP 500 (2 of 2); unknown warranty 999 returns 404 and no note lands anywhere |
 
 **Why this matters:** A note sent for a warranty that does not exist must not end up on somebody else's warranty — that would be a value nobody entered, and a privacy problem. The exact error is not stated (Q-004), so it is recorded only. `warranty_id` is a string and its real format is only known once AP2434_001 has run, so the unknown value is built in the same format as `<W>` rather than assumed numeric.
 
@@ -126,6 +127,7 @@ executor should not need a second file open to run this batch._
 |---|---|---|
 | 2026-11-01 | Steps 2–3: fields sent with `--form-string` and `-sS`; the Request check applies | R2 independent F-1 |
 | 2026-11-01 | Call A: the fixed `999999999` replaced by `<WX>`, built in the same format as `<W>` and confirmed to open no warranty | R2 independent F-7 — warranty IDs are not known to be numeric |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -158,10 +160,10 @@ executor should not need a second file open to run this batch._
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty page recorded in AP2434_001 |
 | **Type** | Edge-case · Security |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | FAIL |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | Step 3 FAIL: note 69 created but "Before", "bold", "After" all missing (body dropped); script did not run, tab title unchanged |
 
 **Why this matters:** Allowing HTML means an API caller can put markup in front of admin users. If a `<script>` tag is stored and run, any system holding a key could run code in an admin's browser (stored cross-site scripting). The ticket does not say whether such tags are removed (Q-008), so this case records what happens; a script that runs is reported as a security observation under Q-008.
 
@@ -170,6 +172,7 @@ executor should not need a second file open to run this batch._
 | Date | Change | Reason |
 |---|---|---|
 | 2026-11-01 | Step 2: fields sent with `--form-string` and `-sS`; the Request check applies | R2 independent F-1 — the `<p>…<script>` body would make `-F` read a local file |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -211,6 +214,6 @@ one we currently have no way of proving works._
 
 | TC ID | Result | Screenshot |
 |---|:---:|---|
-| AP2434_006 | _(pending)_ | — |
-| AP2434_007 | _(pending)_ | — |
-| AP2434_008 | _(pending)_ | — |
+| AP2434_006 | ✅ PASS | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_006-step4-NoNoteFromRefusedCalls_pass.png` |
+| AP2434_007 | ❌ FAIL | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_007-step3-IsPublicMaybeHttp500_fail.txt` |
+| AP2434_008 | ❌ FAIL | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_008-step3-ScriptNoteBodyMissing_fail.png` |

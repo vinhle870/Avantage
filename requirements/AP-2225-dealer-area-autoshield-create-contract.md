@@ -128,3 +128,38 @@ Not stated in the ticket.
 > Financing Company: QuoteFinancing->getInterestRate()->getFinancingCompany()
 >
 > These are the default values that can be overridden by the user when filling out the form
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T09:48:02Z (QA comment 19527) · **Previous capture:** 2026-11-01
+
+No change to the description or the acceptance criteria. Status QC, assignee Ken Nguyen.
+The description and the acceptance criteria above stand as transcribed. New linked issue:
+AP-2508 (Bug, High, Backlog — relates to AP-2225, filed by the 2026-11-01 run).
+
+New comments since capture (both by the QA account; no answer from the reporter or a developer):
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 | Vinh Le - QC (QA account) | QA result comment 19444: FAIL 1/15 on Dev (v2dev); AP-2508 filed; not moved to Ready for release |
+| 2026-11-08 | Vinh Le - QC (QA account) | Comment 19527 "QA questions — screenshots": asks Ken Nguyen again to answer Q-001–Q-004, Q-006, Q-008, Q-010 (each with a screenshot); Q-005, Q-007, Q-009, Q-011, Q-012 without a screenshot. Adds one observation: on the French page "Product info" and "Policy Sale price*" stay in English |
+
+> **Knowledge lookup — 2026-11-15 (scope clarification, not a ticket change).** The Jira
+> Story search run for the open questions (analysis, SKILL.md Step 3c) found two Stories
+> created after AP-2225, delivered (Done) and explicitly about the quote › road side
+> protection page. They replace two statements above:
+>
+> - **AP-2241** "Autoshield: remove classification date": "Given the user is on the quote ❭
+>   road side protection page When the user sees the form Then the classification date field
+>   is no longer available (not needed)". Replaces the line "Classification Date [ **Empty]**"
+>   of the 2025-04-14 field mapping.
+> - **AP-2240** "Autoshield get lenders from API instead of syncing from V2" (Given "A dealer
+>   user is on the quote ❭ road side protection page"): "The backend should not create new
+>   autoshield lenders VIA the API anymore". Replaces AC sub-point "If it’s empty, call create
+>   lender API, then store the returned lender ID". The page's financing-company list now
+>   comes from AutoShield's lender list API ("The value is the ID field from the response").
+>
+> Stories not delivered (AP-2505 QC, AP-2498 QC) change no statement above. Answers to the
+> open questions are in the analysis's Open Questions table; nothing was posted to Jira.

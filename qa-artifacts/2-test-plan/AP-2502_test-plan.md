@@ -235,3 +235,4 @@ Chubb API call is made — no Chubb quote or contract is needed for a send.
 |---|---|---|
 | 2026-11-03 | Created | stlc-worker (Wave 1) |
 | 2026-11-03T04:23Z | §1 objective 2: "and no GC960 document" replaced — whether a GC960 document is also attached for a GC6201-only dealer is recorded for Q-009, not asserted (R2 round 1, F-6) | stlc-worker (R2 rework) |
+| 2026-11-07T09:52Z | Re-checked 2026-11-07, no change. The requirement is unchanged since 2026-11-03 (P8 re-capture; R1 of 2026-11-07 confirmed only the assignee and a Relates link to AP-2542 changed). Objectives, scope (REQ-001–REQ-004), strategy, environment (Dev) and §8.1 data classification still hold. The R2 round-2 minor F-1 (§9 mitigation wording vs. the test cases' page-1 product-line rule) is still not applied; the test cases govern, so no result changes | stlc-worker (s2 re-check) |

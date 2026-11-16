@@ -92,3 +92,30 @@ The ticket's development panel shows 1 Bitbucket Cloud pull request in state MER
 > "financing present or absent". Both are transcribed as written; the analysis decides
 > how they combine. The second criterion names "Chubb or Humania dealer" — the dealer
 > accounts available for each provider are a test-data question for the analysis.
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:48:48-05:00 (2026-11-08T09:48:48Z) · **Previous capture:** 2026-11-01 · **Re-read:** 2026-11-15T09:35Z by stlc-ticket-pipeline (stlc-worker, `--from analyze --until analyze`)
+
+The description and the six acceptance criteria (customfield_10150) are unchanged — re-read
+word for word against the transcription above. The status is still **QC** and the
+assignee is still Vinh Le - QC. Nothing in the ticket's own text replaces an earlier
+statement. What changed:
+
+**New comments** (rows to add to the Comments table above):
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 (19:27 -05:00) | Vinh Le - QC | QA result — FAIL (2026-11-02) on Dev (v2dev): 5 PASS · 5 FAIL · 3 BLOCKED of 13; bugs AP-2526, AP-2527, AP-2528; Q-011 and Q-007 raised |
+| 2026-11-08 | Vinh Le - QC | "QA questions — screenshots · 2026-11-08": the open questions Q-003 to Q-014 re-posted to Nicolas-Eric Tain, each with a highlighted screenshot; Q-001, Q-002, Q-009 and Q-015 without a screenshot |
+
+Both comments are by the QA account (`not_developers`), so neither answers a question.
+No comment by the reporter or a developer has been added.
+
+**New attachments:** 11 QA screenshots `AP-2499_Q-0NN_highlighted.png` (2026-11-08), one per
+question in the 2026-11-08 comment — QA evidence, not requirement text.
+
+**New links:** relates to AP-2526, AP-2527 and AP-2528 (the bugs filed by the 2026-11-02 run,
+all Backlog).

@@ -1,0 +1,14 @@
+HTTP/1.1 400 Bad Request
+Date: Thu, 05 Nov 2026 05:30:03 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Bmy8rMZdyC2XpRlyUgj%2BhwioCWAML9JPVHvO4kXnKlccGMAjCVf%2BHMfBxW1utufwxBE%2FM%2FZ1fX62enzGXnznRBFuETUq091%2BjhS9zuGqKDDeOgKmlgAGgIMu2%2BUKo0x8qW61O6ZSvrR5XKokrNDKPQ%3D%3D"}]}
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a55976d30f0245e2-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"success":false,"error":"Missing required fields: warranty_id, title, description"}

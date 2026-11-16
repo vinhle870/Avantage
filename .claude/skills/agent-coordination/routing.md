@@ -162,7 +162,7 @@ Fallback to `last_skill_run` if `pipeline_stage` is missing or unrecognised:
 | `stlc-ticket-updater`         | After ticket update  |
 | `stlc-ticket-pipeline`        | After test report    |
 | `stlc-test-automator`         | After automation     |
-| `stlc-qa-orchestrator`        | After QA batch       |
+| `qa-agent`        | After QA batch       |
 | `stlc-qa-reviewer`            | After review         |
 
 If neither matches → skip suggestions and re-show the main menu.
@@ -238,5 +238,5 @@ op1 (active sprint), q1, q2, q4, op7, Post-Skill Completion Step 1.
 
 **Writes** `qa-artifacts/.session-state.md`:
 s1–s9 (incl. s3b) skills each write it via their own `## Next Move` block on completion.
-Workers dispatched by `stlc-qa-orchestrator` (s9) do not — the orchestrator writes it once at the end.
+Workers dispatched by `qa-agent` (s9) do not — the orchestrator writes it once at the end.
 Schema is in `template.md`.

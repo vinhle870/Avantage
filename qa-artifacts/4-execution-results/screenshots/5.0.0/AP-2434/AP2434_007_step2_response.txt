@@ -1,0 +1,14 @@
+HTTP/1.1 404 Not Found
+Date: Thu, 05 Nov 2026 05:30:30 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=s2a5YkIBpuydGgYbFxU5Ve9NelzjRreRYl%2Falbv8EV%2BKL56VKfEn35fohkP9NLa52hMK1VnE9SmsPanLlhDbdOfm%2BWJX9vyeUacU2X4qp9h1OPf%2Bc%2FSgOIFWSGH9S7E%2BVt1U2CJIEI%2FmDmnH%2FkDydA%3D%3D"}]}
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a55977804c775f32-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"success":false,"error":"Warranty contract not found"}

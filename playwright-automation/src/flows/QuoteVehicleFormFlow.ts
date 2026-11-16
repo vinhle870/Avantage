@@ -15,7 +15,12 @@ export interface MinimalVehicle {
 const NOT_BLANK = 'This value should not be blank.';
 /** Quote details heading "#6441 -" / "#6442-QA-…"; the h1 carries surrounding spaces and line breaks. */
 const quoteHeading = (id: number, name: string): RegExp => new RegExp(`^\\s*#${id}\\s*-\\s*${name}\\s*$`);
-const FIVE_FIELDS = ['Quote name', 'VIN', 'Brand', 'Model', 'Year'];
+/**
+ * Labels of the form, top to bottom. AP-2533 (deployed on Dev 2026-11-07) put the "Vehicle type"
+ * select first, above Quote name; it has no `name` and no required star, so FIVE_CONTROLS and the
+ * required checks are unchanged. The five vehicle fields below it are still the only other ones.
+ */
+const FIVE_FIELDS = ['Vehicle type', 'Quote name', 'VIN', 'Brand', 'Model', 'Year'];
 const FIVE_CONTROLS = [
     'quote_vehicle[quote_name]', 'quote_vehicle[VIN]', 'quote_vehicle[make]', 'quote_vehicle[model]', 'quote_vehicle[year]',
 ];
@@ -52,7 +57,8 @@ export class QuoteVehicleFormFlow {
             await this.quotesPage.openNewQuotePage();
             await expect(this.page, 'Create a quote opens the minimal vehicle form').toHaveURL(/\/quote\/new\/edit-vehicle$/);
             await expect(this.form.lblHeading, 'Form heading').toHaveText('Create a quote');
-            await expect(this.form.btnVehicleType, 'Vehicle type button').toHaveText('Passenger');
+            // AP-2533: the type is the "Vehicle type" select (the old top-right button is gone)
+            expect(await this.form.vehicleTypeShown(), 'Vehicle type').toBe('Passenger');
         });
     }
 
@@ -130,10 +136,11 @@ export class QuoteVehicleFormFlow {
     }
 
     async chooseVehicleType(typeCode: string, label: string): Promise<void> {
-        await test.step(`Dealer opens the type menu and chooses "${label}"`, async () => {
-            await this.form.chooseVehicleType(typeCode);
+        await test.step(`Dealer chooses "${label}" in "Vehicle type"`, async () => {
+            // AP-2533: the "Vehicle type" select replaced the top-right type menu
+            await this.form.chooseVehicleTypeInSelect(label);
             await expect(this.page, `${label} form`).toHaveURL(new RegExp(`/quote/new/edit-vehicle/${typeCode}$`));
-            await expect(this.form.btnVehicleType, 'Vehicle type button').toHaveText(label);
+            expect(await this.form.vehicleTypeShown(), 'Vehicle type').toBe(label);
         });
     }
 

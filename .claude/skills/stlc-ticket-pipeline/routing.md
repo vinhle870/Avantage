@@ -116,7 +116,7 @@ rules* ([../../../qa-artifacts/qa-config/tools.md](../../../qa-artifacts/qa-conf
   reason on `{KEY}`, mark the affected cases BLOCKED, continue. The stop points below
   never reach the user — the reviewer's rules in `stlc-qa-reviewer/checklists.md` §6
   replace them.
-  **Inside an `stlc-worker` dispatched by `stlc-qa-orchestrator`** — the orchestrator's
+  **Inside an `stlc-worker` dispatched by `qa-agent`** — the orchestrator's
   `qa-reviewer` decides every gate, so never review your own work: stop at the `--until`
   stage **before** its gate and return `DONE`. When the hand-off carries a *Gate … decided
   by qa-reviewer* line, apply that decision first (post the questions, promote the
@@ -155,8 +155,9 @@ rule:
 ### Gate A — after requirements analysis
 
 **Input:** the Open Questions table of `{KEY}_requirements-analysis.md`. Every question
-carries an **Impact** — `Blocking`, `Judgement` or `Info` — and a **Status** — `Open` or
-`Answered`. The analyst sets both by fixed tests
+carries an **Impact** — `Blocking`, `Judgement` or `Info` — and a **Status** — `Open`,
+`Answered` or `Accepted` (no Jira Story/Task defines it, so the current actual result is
+expected; never posted). The analyst sets both by fixed tests
 ([../stlc-requirements-analyst/SKILL.md](../stlc-requirements-analyst/SKILL.md) Step 3b).
 A requirement with **no acceptance criterion** always has a `Blocking` question. If the
 table has no Impact column, or any row has none, mark `s1` `failed` with "open questions
@@ -169,8 +170,8 @@ not classified" and re-run `s1`. Never classify a question yourself at the gate.
 | **A3** | No `Blocking` + `Open` question | **Continue** |
 
 `Judgement` and `Info` questions never stop the run and are never posted at Gate A. They
-reach the author in the s7 story comment. `s3` turns each `Judgement` question into
-*record-only* expected results, so no test result depends on a guessed answer.
+reach the author in the s7 story comment. `s3` turns each `Judgement` + `Open` question into
+*record-only* expected results (an `Accepted` one into *record-and-accept*), so no test result depends on a guessed answer.
 
 **Questions comment** — post once per run, through `tracker-manage-child-ticket`,
 following `apply_mode`. Before posting, read the ticket's comments. If a QA comment
@@ -184,8 +185,64 @@ Testing of {{KEY}} cannot judge the requirements below until these are answered:
 ||#||Question||Blocks||
 |Q-00N|{{question}}|REQ-00N — {{test cases that stay BLOCKED}}|
 
+*Q-00N* — {{one line: what the red box shows}}
+!{{KEY}}_Q-00N_highlighted.png|width=700!
+
 Please answer in a comment on this ticket. QA re-runs analysis once answered.
 ```
+
+**Question screenshot** — the one rule for every question posted to the tracker (this
+comment and the *Questions:* line of the s7 story comment, template.md §4.1). Each
+question carries **one screenshot with a red box around the area it is about** (the
+field, button, label or message), embedded under the table with a one-line caption.
+The reader must see the point without reading the whole page. One image per question;
+**up to 3 boxes** on it when the point spans several places (a field and its error
+message, two rows). Two questions may use the same source image with different boxes.
+
+1. **Pick the source image**, first that exists:
+   a. a screenshot of the same screen from **any ticket's** evidence, this run or an
+      earlier one (`qa-artifacts/4-execution-results/screenshots/…`);
+   b. a ticket attachment downloaded at intake;
+   c. none — Wave 1 never opens the browser for it. The executor captures it at s4
+      (`stlc-manual-executor` 2d) and the s7 comment embeds it.
+
+   **Missing element** (a field or button that should be there): box the area where it
+   should be; the caption says *not present*. **No screen to show** (email content, a
+   PDF's contents, an API field, account setup, a business rule): no image.
+   Every question left without an image goes on one line, the same wording everywhere:
+   `*No screenshot yet:* Q-00N, Q-00N — added at the next test run.`
+2. **Highlight it.** In a live browser (s4), outline the element before the screenshot
+   with `browser.evaluate` (`el.style.outline='4px solid red'`; never on a field holding
+   a credential). For an existing image, run
+   `.claude/skills/tracker-manage-child-ticket/scripts/highlight-image.ps1 -In <img> -Info`
+   for its size, then `-Out <…>_highlighted.png -Box "x,y,w,h"`. **Read the output image
+   and check the box frames the point**; adjust and redo if it does not.
+3. **Name and store it** `{KEY}_Q-00N_highlighted.png` in **this** ticket's screenshot
+   folder, even when the source came from another ticket. Never modify the original
+   evidence file. The caption describes what the image shows; when it differs from the
+   wording first posted, the caption follows the image.
+4. **Post it** — attach the file to `{KEY}` first, then post the comment that references
+   the returned filename (`providers/<tracker>.md` → *Embedding an attachment*), and read
+   it back to confirm the image resolved.
+
+**Questions already posted without screenshots** — post one follow-up comment per
+ticket; never edit the original comment, and skip the ticket if a comment starting
+`h3. QA questions — screenshots` already exists:
+
+```
+h3. QA questions — screenshots · {{DATE}}
+
+{{[~accountid:…] for EACH person the original questions were addressed to; the reporter when none was}} the open questions below are unchanged; each now shows the area it is about in a red box. Please answer in a comment on this ticket.
+
+*Q-00N* — {{the question in one line}}
+{{caption: what the red box shows}}
+!{{KEY}}_Q-00N_highlighted.png|width=700!
+
+*No screenshot yet:* {{Q-IDs}} — added at the next test run.
+```
+
+Only questions that were posted and are still `Open` in the requirements analysis. Omit
+the last line when empty; post nothing for a ticket that ends up with no image.
 
 A ticket that changed after capture (Intake §1.4) needs no gate rule: s1 has already read
 the appended section. Log the flag in the Gate A line.

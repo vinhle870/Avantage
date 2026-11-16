@@ -239,5 +239,6 @@ was not uploaded.
 ## Resources
 
 - Prompts, call shapes, result blocks: [template.md](template.md)
+- Red highlight box on a question screenshot: [scripts/highlight-image.ps1](scripts/highlight-image.ps1) — rule in `stlc-ticket-pipeline` routing.md → *Question screenshot*
 - Capability vocabulary, canonical values, resolution rule: [../mcp-tools.md](../mcp-tools.md)
 - Provider bindings for this project: [../../../qa-artifacts/qa-config/tools.md](../../../qa-artifacts/qa-config/tools.md)

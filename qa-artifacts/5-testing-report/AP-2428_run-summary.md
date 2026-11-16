@@ -1,51 +1,47 @@
 # Run Summary — AP-2428: Dealer Permaplate Contract
-Updated: 2026-11-02T01:50+07:00 · Run folder: 5.0.0 · Stages run: s5 → s7 (s1–s4 on 2026-11-01/02, earlier run) · Run status: complete
+Updated: 2026-11-15T09:18Z · Run folder: 5.0.0 · Stages run: analyze → analyze (knowledge lookup re-run) · Run status: stopped_at_gate
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2428: Dealer Permaplate Contract
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 8 REQ · 5 High risks
- Test cases   : 15 designed · 10 proposed by review (1 promoted)
- Execution    : 9 PASS · 4 FAIL · 2 BLOCKED
- Bugs         : 4 filed · 0 linked to existing · 0 not a bug
+ Requirements : 8 REQ · 5 High risks (3 now settled: Q-001 and Q-002 Accepted, Q-003 Answered)
+ Test cases   : 15 designed (2026-11-01) · not re-designed in this run
+ Execution    : not run in this run (last run 2026-11-02 on Dev: 9 PASS · 4 FAIL · 2 BLOCKED)
+ Bugs         : 0 filed · 0 linked to existing · 0 not a bug (AP-2512 to AP-2515 untouched)
  Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS
- Verdict      : FAIL
+ Verdict      : — (not reached; last verdict FAIL on 2026-11-02)
  Tickets      : AP-2428 unchanged (QC) · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s7 (complete)
+ Stopped at   : analyze (--until analyze; Gate A is next, reviewed by qa-reviewer R1)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Result:** AP-2428 FAIL — 9 of 15 test cases passed on Dev (v2dev), missing the 90% threshold (60%). 4 bugs filed. Ticket comment posted and verified (comment 19447).
+**Stopped:** at analyze. The run was dispatched with --until analyze, and Gate A is next, reviewed by the orchestrator's qa-reviewer (R1). Resume with "AP-2428 --from plan" once Gate A is approved.
 
 **What passed**
-- Create contract control: a quote with a saved Permaplate selection offers "Generate Contract" (in the ⋯ menu of the Esthetic protection row on the quote details page), and it opens the contract form with its Vehicle, Owner and Program Summary sections (AP2428_001). Quotes with no selection, or with a contract already made, offer no control and redirect safely (AP2428_002, AP2428_013).
-- Vehicle prefill: Make, Model, VIN, Odometer and Delivery date are prefilled with the vehicle's values (AP2428_003).
-- Program summary: term, start date (= delivery date), end date and every selected option are shown as read-only text (AP2428_006).
-- Generate Contract: submitting returns the dealer to the quote details page with a PDF icon (AP2428_009); blank Last name or VIN is refused with no contract made (AP2428_011); a double click creates exactly one contract and one invoice (AP2428_015).
-- Stored values: an existing contract keeps its cost price (225.00$) after the admin changes the option's Dealer Cost (AP2428_014).
+- Not run in this run. The analysis was re-run only to apply the new knowledge lookup (Step 3c) to every open question. The browser was not used.
+- Lookup results: AP-2456 and AP-2506 answer Q-003. The contract form shows no Retail price, Subtotal, Taxes or Grand Total; its Program Summary ends with a "Total" line. AP-2506 also answers Q-004: the "Generate Contract" control is a row action on the quote details page.
+- No Story or Task defines Q-001, Q-002 or Q-005 to Q-009, so the build's current behaviour is accepted as the expected result. Year is the vehicle's year ("2008"). The form shows no tax line, and the invoice adds 14.975 % Québec taxes to the 225.00$ cost. The other accepted values come from the 2026-11-02 execution log.
 
 **Failures**
-- AP2428_010 — the contract PDF download returns HTTP 500 and a French technical-error page for every contract on Dev (quotes 6456, 6457, 6460 and the older 6284); the same link returned a PDF on staging on 2026-10-04. Gate C: filed as AP-2512 (High), relates to AP-2459.
-- AP2428_012 — the contract with an edited address is created, but its PDF download returns the same HTTP 500. Gate C: covered by AP-2512.
-- AP2428_005 — "Other name on file (Company's name)" is empty although the client's company is "Garage Test 2428 Inc", and Province is a free-text box instead of a dropdown. Gate C: filed as AP-2513 (Medium) and AP-2514 (Medium).
-- AP2428_007 — the Program Summary has no "Cost Price" label; the correct amount (225.00$, equal to the quote Cost) is labelled "Total". Gate C: filed as AP-2515 (Low).
+- None in this run. The four failures of 2026-11-02 (AP2428_005, _007, _010, _012) and their bugs AP-2512 (High), AP-2513, AP-2514 and AP-2515 are unchanged and were not touched.
 
 **Decisions made**
-- Gate A (rule A2, by the reviewer R1): 3 Blocking questions (Q-001–Q-003) posted on AP-2428 on 2026-11-01 and the run continued — 3 Blocking, 7 Judgement, 2 Info.
-- Gate B (rule B2, by the reviewer R2): the one High review proposal (double-click Generate Contract) was promoted as AP2428_015; 9 Medium/Low proposals not promoted.
-- Gate C (rule C4 for every FAIL, by the reviewer R3): AP2428_010 + AP2428_012 → one new bug AP-2512; AP2428_005 → two new bugs AP-2513 and AP-2514 (two fields, two fixes); AP2428_007 → new bug AP-2515. No capture sentence or comment says any actual result is intended, and 17 duplicate searches found no matching open bug.
-- Gate D (rules, automatic, by the reviewer R4): AP-2428 not moved — pass rate 60% (needs 90%), AP-2512 (High) open, and Q-001, Q-002, Q-003 (Blocking) unanswered. Status stays QC, assignee unchanged. AP-2512 to AP-2515 are in Backlog, so no bug-ticket action.
-- Environment: executed on Dev (v2dev) by the user's decision; staging was not opened. Run folder 5.0.0 from the fix version. s4c skipped (no "not a bug" decision). R3 minor findings F-1 and F-5 applied to the execution log; F-2's question posted in the s7 comment as a Judgement item.
+- Gate A: not decided here. It is due next and goes to the orchestrator's qa-reviewer (R1). Questions now: 0 Blocking Open (Q-001 and Q-002 Accepted, Q-003 Answered); Judgement: Q-004 Answered, Q-005 to Q-009 Accepted, Q-010 Open; Info: Q-011 and Q-012 Open. Q-010 to Q-012 are not about product knowledge: the PDF content is shown only in unread attachments, one question asks about fix status, and one is a library note. Nothing was posted to Jira.
+- Stages plan through update-ticket were marked pending as stale. AP2428_004 and AP2428_008 (BLOCKED until now) can be redesigned with the new expected results at the next design dispatch.
+- For Gate C later: AP-2506 lists the Program Summary money line as "Total". That may make AP-2515 (AP2428_007, "no Cost Price label") a "not a bug" case under rule C1. It is recorded in the run state, not acted on.
+- Environment: Dev (execution_env), not used. Run folder 5.0.0 from the fix version.
 
 **Left behind**
-- Test data on Dev (v2dev): quotes 6456–6460; contracts PNA-0000000017, PNA-0000000018 and PNA-0000000019; invoices #938, #939 and #940 ($258.69 each). Option 20's Dealer Cost was changed and restored to 80.00.
-- Observations that are not failures: the invoice is $258.69 (225 + 14.975 % Quebec taxes) while the banner says "Invoice #N ($225) is created"; the quote details row prints the currency twice ("Cost: CA$225.00$"); the vehicle section is titled "Vehicle identification"; Make, Model and Delivery date are read-only (asked as a Judgement item); Q-001–Q-003 are still unanswered — Ken Nguyen reminded in comment 19447.
-- Knowledge files added or changed: None in this run (s4 added the Dev facts to qa-docs/quote-creation.md, base-test/navigation-map.md and base-test/test-centralized.md).
+- Test data on Dev: none created in this run.
+- Observations that are not failures: AP-2428 carries QA comment 19538 (2026-11-08), which re-posted Q-001 to Q-010 with screenshots. It was not in the capture and is now recorded there. Step 3c now says Accepted questions are never posted, and the comment was left as it is.
+- Knowledge files added or changed: None.
 
 **Files**
-- [AP-2428_test-report.md](qa-artifacts/5-testing-report/AP-2428_test-report.md)
-- [AP-2428_bug-report.md](qa-artifacts/5-testing-report/AP-2428_bug-report.md)
+- [requirements analysis](qa-artifacts/1-requirements-analysis/AP-2428_requirements-analysis.md)
+- [requirement capture](requirements/AP-2428-dealer-permaplate-contract.md)
+- [AP-2428_test-report.md](qa-artifacts/5-testing-report/AP-2428_test-report.md) (2026-11-02, stale)
+- [AP-2428_bug-report.md](qa-artifacts/5-testing-report/AP-2428_bug-report.md) (2026-11-02)
 - [execution log](qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2428_2026-11-02.md)
 - [run state](qa-artifacts/.pipeline/AP-2428.md)
 

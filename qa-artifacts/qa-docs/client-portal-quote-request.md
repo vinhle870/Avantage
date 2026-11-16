@@ -95,3 +95,13 @@ All steps are full pages; no modals. The vehicle select opens a dropdown list wi
   and the year it needs must exist in that list.
 - Selecting a card: clicking the card heading checks the hidden radio (`input[type=radio]:checked`).
 - To compare prices, go through Client Info to the Summary page; there is no price earlier in the flow.
+
+## Dev facts — 2026-11-15 (AP-1948 run)
+
+- Terms offered for "2022 TESLA Model 3 / Long Range" (id 80) and "2023 TESLA Model Y" (id 81): 16 and CVE 122–126 — CVE terms are still offered on Dev although the reporter disabled the program (AP-1948 comment 19544).
+- Dev, 2026-11-15 (AP-1948 Run 2): Category B Teslas — "2022 TESLA Model S LONG RANGE" (id 91 → vehicle model #3127) and "2022 TESLA Model X Plaid" (id 94 → #4725) — are offered term 16 and CVE B terms 129–133 ("CVE B 12/24/36/48/60m/0km", tick only Category B); CVE A terms 122–126 are offered only to Category A models. On every term of the four Tesla models checked, the Summary Subtotal equals the term's admin "Suggested retail price".
+- Dev, 2026-11-15: the hidden term radio's `price` attribute is **not** the suggested retail price (term 16 = 625.00, 122 = 2500.00, 129 = 0.00) and is not shown to the customer — read the price from the Summary Subtotal, never from that attribute.
+- The term list follows the vehicle model's **category** (admin `/admin/vehicle-model-edit/{id}/edit`, see [admin-portal.md](admin-portal.md)): a term is offered only when its `eligibilityCategory[]` ticks that category. Fuel type does not filter the list (term 16 ticks GASOLINE, DIESEL only and is offered for a BEV Tesla).
+- When no term matches, "Select Coverage" shows the heading and "Please choose the program" with **no card and no message**; Continue then answers HTTP 422 with "ERROR This value is not valid." and stays on `/program`.
+- "Continue with payment" on the Summary redirects to a Stripe sandbox checkout (`checkout.stripe.com/c/pay/cs_test_…`) showing the Summary **Total** (taxes included, e.g. CA$1,178.49 for Subtotal CA$1,025.00) and the line "{first} {last} TESLA"; the term is not shown. No Stripe test card is in `test-data`.
+

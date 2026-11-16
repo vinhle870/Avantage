@@ -1,0 +1,9 @@
+AP2507_002 / AP2507_003 - /quotes rows read from each row's data-href (no id column) - Environment: Dev (v2dev)
+2026-11-07T11:00:21Z GET /quotes => 200 (after AP2507_002 Save)
+1. /quote/6600/details  QA-AP2507-002-105955 Ford Focus 2008 VIN 1FAHP35NX8W239204
+2. /quote/6599/details  (baseline, AP-2505 data)
+2026-11-07T11:01:24Z GET /quotes => 200 (after AP2507_003 Save)
+1. /quote/6601/details  QA-AP2507-003-110048 Ford Focus 2008 VIN 1FAHP35NX8W239204
+2. /quote/6600/details  QA-AP2507-002-105955 Ford Focus 2008 VIN 1FAHP35NX8W239204
+3. /quote/6599/details  (baseline)
+Save: after each click on "Save" the browser landed on /quote/6600/details and /quote/6601/details (status of the save post itself not captured).

@@ -1,0 +1,5 @@
+AP2506_006 — Environment: Dev (v2dev) — captured 2026-11-08T03:23Z
+POST https://v2dev.garantieavantageplus.ca/quote/6693/permaplate-create-contract => 302
+GET  https://v2dev.garantieavantageplus.ca/quote/6693/details => 200
+GET  https://v2dev.garantieavantageplus.ca/permaplate-contracts => 200
+GET  https://v2dev.garantieavantageplus.ca/quote/6693/permaplate-contract-download => 500

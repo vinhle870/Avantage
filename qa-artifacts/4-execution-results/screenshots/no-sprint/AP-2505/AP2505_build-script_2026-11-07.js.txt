@@ -1,0 +1,77 @@
+// AP-2505 re-test 2026-11-07 (Environment: Dev) — the Playwright snippet used to build each case's test data
+// with the shared build values of the AP2505 test-case files. Run through browser_run_code_unsafe after the
+// login was typed into the login form (no credential appears here). One copy per case, with CFG fixed:
+//   002 {fin:true, gap:false} · 006 {fin:false, gap:false} · 007/008/009 {fin:true, gap:false}
+// Quote A (001) was built step by step with the same values (incl. the GAP quote at /quote/{id}/gap-insurance)
+// and its roadside product through the "+" modal by hand.
+// Known slip: a first attempt passed CFG through globalThis, which is not shared between calls, so NNN was
+// "undefined" — that built the stray vehicle 1149 / quote 6594 (see the execution log, "Records left on Dev").
+async (page) => {
+  const CFG = {NNN: '007', fin: true, gap: false, rs: true};
+  const NNN = CFG.NNN, last = 'Owner2505-' + NNN;
+  const base = 'https://v2dev.garantieavantageplus.ca';
+  const log = {NNN};
+  const alerts = async () => (await page.$$eval('.alert', els => els.map(e => e.innerText.replace('×','').trim()).filter(Boolean)));
+  // vehicle — /vehicle/new/edit/PASSENGER
+  const vin = '2T1BURHE0NC505' + NNN;
+  await page.goto(base + '/vehicle/new/edit/PASSENGER?_locale=en');
+  await page.fill('#vehicle_VIN', vin);
+  await page.selectOption('#vehicle_make', /* Toyota */ await page.$eval('#vehicle_make', s => Array.from(s.options).find(o => o.text.trim().toLowerCase() === 'toyota')?.value));
+  await page.waitForFunction(() => Array.from(document.querySelector('#vehicle_model').options).some(o => /^corolla$/i.test(o.text.trim())));
+  await page.selectOption('#vehicle_model', await page.$eval('#vehicle_model', s => Array.from(s.options).find(o => /^corolla$/i.test(o.text.trim()))?.value));
+  await page.fill('#vehicle_year', '2022'); await page.fill('#vehicle_price', '20000'); await page.fill('#vehicle_kilometers', '15000');
+  await page.selectOption('#vehicle_condition', 'used'); await page.selectOption('#vehicle_fuelType', 'GASOLINE');
+  await page.selectOption('#vehicle_transmission', 'automatic'); await page.fill('#vehicle_cylinders', '4');
+  await page.fill('#vehicle_engineSize', '1.8'); await page.selectOption('#vehicle_engineSizeUnit', 'l');
+  await page.selectOption('#vehicle_designation', 'PARTICULAR');
+  await Promise.all([page.waitForLoadState('load'), page.click('form:has(#vehicle_VIN) button[type=submit]')]);
+  log.vehicleId = page.url().match(/vehicle\/(\d+)\/details/)[1];
+  // client — "Create quote" on /vehicle/{id}/details (= /quote/new/client?fromVehicleId={id})
+  await page.goto(base + '/vehicle/' + log.vehicleId + '/details?_locale=en');
+  await Promise.all([page.waitForURL(/quote\/new\/client/), page.click('a:has-text("Create quote")')]);
+  await page.fill('#quote_client_email', 'client.stage.2505' + NNN + '@yopmail.com');
+  await page.fill('#quote_client_firstName', 'Roadside'); await page.fill('#quote_client_lastName', last);
+  await page.fill('#quote_client_address', '300 Rue Test'); await page.fill('#quote_client_city', 'Montréal');
+  await page.selectOption('#quote_client_province', '1'); await page.fill('#quote_client_postalCode', 'H2X 1Y4');
+  await page.fill('#quote_client_telHome', '5145550501'); await page.fill('#quote_client_telWork', '5145550502');
+  await page.check('#quote_client_isAgreePolicy');
+  await Promise.all([page.waitForURL(/quote\/\d+/), page.click('form:has(#quote_client_email) button[type=submit]')]);
+  log.quoteId = page.url().match(/quote\/(\d+)/)[1];
+  const Q = base + '/quote/' + log.quoteId;
+  // vehicle step — keep attached vehicle, Delivered at = run date (pre-filled), Price 20000
+  await page.goto(Q + '/vehicle');
+  await Promise.all([page.waitForLoadState('load'), page.click('form:has(#quote_vehicle_price) button[type=submit]')]);
+  if (CFG.fin) { // financing — /quote/{id}/financing
+    await page.goto(Q + '/financing');
+    await page.fill('#quote_financing_applicant_dateOfBirthText', '1985-06-15'); await page.keyboard.press('Escape');
+    await page.selectOption('#quote_financing_applicant_province', '1'); await page.selectOption('#quote_financing_type', 'TYPE_FINANCING');
+    await page.fill('#quote_financing_baseAmount', '25000'); await page.fill('#quote_financing_residualAmount', '0');
+    await page.selectOption('#quote_financing_paymentFrequency', 'FREQUENCY_MONTHLY'); await page.selectOption('#quote_financing_termMonths', '60');
+    await page.fill('#quote_financing_interestRate', '6.99'); await page.selectOption('#quote_financing_financingCompany', '39'); // AutoCapital Canada
+    await Promise.all([page.waitForLoadState('load'), page.click('form:has(#quote_financing_baseAmount) button[type=submit]')]);
+  }
+  if (CFG.gap) { // GAP quote — /quote/{id}/gap-insurance, TGGAP / English / tax exempt No / term 60 → Get Quote
+    await page.goto(Q + '/gap-insurance');
+    await page.selectOption('#quote_financing_insurance_gap_rateTable', 'TGGAP'); await page.selectOption('#quote_financing_insurance_gap_language', 'E');
+    await page.selectOption('#quote_financing_insurance_gap_taxExempt', '0'); await page.fill('#quote_financing_insurance_gap_gapTerm', '60');
+    await Promise.all([page.waitForLoadState('load'), page.click('form[name=quote_financing_insurance_gap] button[type=submit]')]);
+  }
+  // roadside product — red "+" on the Roadside Protection row → modal: Make Toyota, Model Corolla, Year 2022 → Continue → first tier, 250 → Save
+  await page.goto(Q + '/details?_locale=en');
+  await page.click('a.btn[href="/quote/' + log.quoteId + '/road-side-protection"]');
+  const m = page.locator('#myModal');
+  const mk = m.locator('select[name="quote_auto_shield_make_model[vehicleMake]"]');
+  await mk.selectOption(await mk.evaluate(s => Array.from(s.options).find(o => o.text.trim().toLowerCase() === 'toyota')?.value));
+  await mk.dispatchEvent('change');
+  await page.waitForFunction(() => Array.from(document.querySelector('#myModal select[name="quote_auto_shield_make_model[vehicleModel]"]').options).some(o => /^corolla$/i.test(o.text.trim())));
+  const md = m.locator('select[name="quote_auto_shield_make_model[vehicleModel]"]');
+  await md.selectOption(await md.evaluate(s => Array.from(s.options).find(o => /^corolla$/i.test(o.text.trim()))?.value));
+  await m.locator('input[name="quote_auto_shield_make_model[vehicleYear]"]').fill('2022');
+  await m.locator('button:has-text("Continue")').click();
+  await m.locator('input[type=radio]').first().waitFor({state: 'visible'});
+  await m.locator('input[type=radio]').first().check();
+  await m.locator('input[name="quote_auto_shield[salePrice]"]').fill('250');
+  await Promise.all([page.waitForLoadState('load'), m.locator('button:has-text("Save")').click()]);
+  log.msgs = await alerts();
+  return log;
+}

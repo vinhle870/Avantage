@@ -1,0 +1,4 @@
+AP2434_007 step 3 - network lines (method, URL, status only). Environment: Dev
+2026-11-05T05:30:30Z  POST https://v2dev.garantieavantageplus.ca/api/admin/warranty-notes  -> 500 Internal Server Error  (warranty_id=827, is_public=maybe)
+2026-11-05T05:30:40Z  POST https://v2dev.garantieavantageplus.ca/api/admin/warranty-notes  -> 500 Internal Server Error  (retry, same payload with a new title)
+Full responses: AP2434_007_step3_response.txt, AP2434_007_step3b_retry_response.txt

@@ -7,7 +7,7 @@ description: >-
   automation specs (re-running them itself). Returns APPROVE, REWORK with numbered
   findings, or PARK, and writes a review record. Use when the user says "review the
   results for AP-1234", "review the automation specs", "review AP-1234", or when
-  gate_mode is reviewer and stlc-ticket-pipeline, stlc-qa-orchestrator or
+  gate_mode is reviewer and stlc-ticket-pipeline, qa-agent or
   stlc-test-automator reaches a checkpoint. Part of the STLC QA pipeline.
 ---
 

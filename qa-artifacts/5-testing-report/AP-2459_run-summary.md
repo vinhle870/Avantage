@@ -1,50 +1,50 @@
 # Run Summary — AP-2459: [BUG-001][AP2446_001] Permaplate contract generation returns HTTP 500 when Financing company is left unselected
-Updated: 2026-11-01T01:48:39Z · Run folder: no-sprint · Stages run: intake → s3 (s3b skipped, bug flow) · Run status: complete
+Updated: 2026-11-08T03:20:23Z · Run folder: no-sprint · Stages run: update-ticket → update-ticket · Run status: complete
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2459: Permaplate contract generation returns HTTP 500 when Financing company is left unselected
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 0 REQ (bug re-test — s1 skipped) · 0 High risks
+ Requirements : 0 REQ (bug re-test — analyze skipped) · 0 High risks
  Test cases   : 3 designed · 0 proposed by review
- Execution    : 0 PASS · 0 FAIL · 0 BLOCKED (not run — design only)
+ Execution    : 2 PASS · 0 FAIL · 0 BLOCKED · 1 SKIPPED (Environment: Dev)
  Bugs         : 0 filed · 0 linked to existing · 0 not a bug
  Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS
- Verdict      : — (not executed)
- Tickets      : AP-2459 unchanged · 0 bugs updated (0 closed → Done, 0 reopened → In Progress)
- Stopped at   : s3b (--until s3b — Jira status "QA" is not ready for QA, so the build may not contain the fix)
+ Verdict      : PASS (2 of 2 counted, 100%; threshold 90%)
+ Tickets      : AP-2459 → Done · 0 bugs updated (0 → Done, 0 → In Progress); AP-2512 commented, unchanged
+ Stopped at   : update-ticket (complete)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Stopped:** at s3b — this was a design-only run: AP-2459 is in Jira status "QA", which this project does not treat as ready for QA, so the re-test was designed but not executed. Resume with "AP-2459 --from s4" once the ticket reaches QC.
+**Result:** AP-2459 PASS — 2 of 3 test cases passed on Dev (2 of 2 counted, 100%; the third was skipped by its own rule), meeting the 90% threshold. 0 bugs filed. Ticket comment posted and verified, and AP-2459 moved to Done.
 
 **What passed**
-- None — nothing was executed in this run.
+- Esthetic protection (Permaplate) contract with no financing company (AP2459_001, the reported scenario): on Dev the dealer no longer gets the French "technical difficulties" error page. The form refuses the submission with "This value should not be blank." directly above the Financing company field, keeps every other value, and creates no contract and no invoice.
+- Esthetic protection contract with a financing company chosen (AP2459_002): choosing "AutoCapital Canada" still generates contract PNA-0000000021 and invoice 945 ($91.98).
 
 **Failures**
-- None — nothing was executed in this run.
+- None. AP2459_003 (PDF of a contract made with no financing company) is SKIPPED by its own step 2 rule, because such a contract can no longer be created.
 
 **Decisions made**
-- Intake: the ticket is a Bug, so the bug re-test flow applied — requirements analysis (s1), test plan (s2) and peer review (s3b) were skipped, and the ticket's steps to reproduce and Expected Result are the requirement.
-- Intake: Jira status "QA" has no canonical mapping (only "QC" means ready for QA), so the run stopped after design.
-- Intake: run folder set to `no-sprint` — the ticket has no sprint and no fix version, and the registry has no default run folder (reviewer rule E3).
-- Intake: the login and password written in the ticket's step 1 were redacted from the requirement capture; the test cases point to the `env` source instead.
-- Gate A (rule —): not reached — s1 is skipped for a bug.
-- Gate B (rule B3, reviewer R2 APPROVE): execute the current cases — no review-findings file exists because the bug flow skips s3b, so there is no uncovered requirement and no High proposal; 2 Minor findings recorded.
-- Gate C: not reached — nothing executed.
-- Gate D: not reached — AP-2459's status and assignee were not changed.
-- Design: the cases enter the quote through `/vehicle/915/details` → Create quote rather than the ticket's bare `/quote/new/client`, which has crashed on the quote details page since 2026-10-03 and would block the re-test before the step under test.
+- Gate B (rule B3, decided by qa-reviewer R2 round 1): execute the current cases.
+- Gate C (decided by qa-reviewer R3 round 1): not reached — no failures; file-bugs wrote a zero-defect bug report.
+- Gate D (rules, automatic; approved by qa-reviewer R4 round 1, rule §3.2 All PASS): AP-2459 → Done, assignee unchanged (Vinh Le - QC); bug re-test comment posted with the one observation that the Financing company label has no "*". The prepared note was posted on AP-2512 unchanged; AP-2512 stays in Backlog, assigned to Minh Lưu.
+- R4 minor finding F-1 applied: the comment's Evidence line names screenshot files only, each "What was checked" cell is one line, and nothing else from the test report's Risks section was added.
+- Bug re-test run on the QA's decision of 2026-11-08 although AP-2459 was in Jira status "QA" (not "QC"); the normal outcome rules applied. Run folder no-sprint. The browser was not used in this run.
 
 **Left behind**
-- Test data on v2staging: None — nothing was executed.
-- Observations that are not failures: The ticket accepts two outcomes for a blank financing company (contract created, or refused with a message beside the field); AP2459_001 passes on either and records which one the build chose. On the related story AP-2446, the re-test of 2026-09-13 already saw the blank submission succeed ("Esthetic protection contract generated successfully"); this run must confirm it again when the ticket reaches QC. Dealer 1380's "10 ans" product link is shared with AP-2428 — the cases link it only when missing and unlink only what they linked.
+- Test data on Dev: quote 6689 (Perma Retest2459, `client.stage.2459001@yopmail.com`, no contract); quote 6690 (Perma Finance2459, `client.stage.2459002@yopmail.com`, contract PNA-0000000021, invoice 945 Payment pending); quote 6691 (Perma Pdf2459, `client.stage.2459003@yopmail.com`, no contract). All on vehicle 915. Dealer 1380's "10 ans" link left unchanged. Nothing new was created by this run.
+- Observations that are not failures: the Financing company label has no "*" although the field is now required; the PDF of PNA-0000000021 returns HTTP 500 (AP-2512, High, Backlog); the contract page's vehicle line shows CA$10,000.00 though the quote price is 25000. In the posted Jira comments, the CLI rendered the `*Environment:*`-style labels in italics rather than bold; the content is unchanged.
 - Knowledge files added or changed: None.
 
 **Files**
-- [requirement capture](../../requirements/AP-2459-permaplate-contract-generation-returns-http-500.md)
-- [AP2459_TestCases_001-003.md](../3-test-cases/AP2459_TestCases_001-003.md)
-- [review record](../7-reviews/AP-2459_review.md)
+- [AP-2459_test-report.md](AP-2459_test-report.md)
+- [AP-2459_bug-report.md](AP-2459_bug-report.md)
+- [execution log](../4-execution-results/no-sprint/execution-log_AP-2459_2026-11-08.md)
 - [run state](../.pipeline/AP-2459.md)
 
 ## Automation
-Not run yet.
+- Spec: `playwright-automation/src/tests/dealer/permaplateFinancingCompany_AP2459.spec.ts` · tag `@AP-2459`
+- 2 of 2 PASSED cases automated — 2 passing, 0 fixme (awaiting the independent R5 review)
+- AP2459_003 — not automated: SKIPPED manually by its own rule (a contract without a financing company can no longer be created)
+- PR skipped: vcs not available (gh not logged in); run with `--review external --no-pr`

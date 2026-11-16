@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Date: Thu, 05 Nov 2026 06:03:27 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=d%2Fitynbwvupcn88BFzOKw%2F7Vtb52TEfHkifXiqwkdPL0A3wnlyK1xq9mT1UyY1QhRwBdCVzfAPqYV0nGTwe9l3YNEKnyAVwc6kkOFvaIWP92hPTOnGRVe0UwGNmzPedtJYZfJoBilQz1F2V4Lv9wWQ%3D%3D"}]}
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a559a7c63addad69-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"items":[]}
+--- curl url_effective=https://v2dev.garantieavantageplus.ca/api/admin/search-warranty?query=%2B1+514-690-6330 http_code=200 time_total=0.642559s
+curl_exit=0 sent_at=2026-11-05T06:03:27Z header_mode=XK

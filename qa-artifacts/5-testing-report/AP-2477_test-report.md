@@ -1,11 +1,11 @@
 # Test Execution Report
 
-**Report ID:** TR-20261101-001
+**Report ID:** TR-20261107-001 (supersedes TR-20261101-001)
 **Project:** Avantage Plus v2 — Dealer portal
-**Test Cycle:** AP-2477 — Simplify /quote/new/edit-vehicle to minimal fields with VIN decoder pre-fill. Run folder 5.2.0, single-ticket STLC run
+**Test Cycle:** AP-2477 — Simplify /quote/new/edit-vehicle to minimal fields with VIN decoder pre-fill. Run folder 5.2.0, single-ticket STLC run — re-test after the AP-2507 fix (orchestrator plan rule P5)
 **Application version:** Not known. The page footer reads "Avantage Plus System v2.0.0", and no build ID is shown
-**Tested on:** Dev (v2dev) — `https://v2dev.garantieavantageplus.ca/`, by the user's decision. On 2026-10-28 the developer side commented on AP-2477 that the feature "is now on v2dev" and "is not ready for staging yet". Staging was not used for these results
-**Date:** 2026-11-01
+**Tested on:** Environment: Dev (v2dev) — `https://v2dev.garantieavantageplus.ca/`, the registry's `execution_env`. Executed 2026-11-07, 09:47–09:58 UTC. Staging was not opened
+**Date:** 2026-11-07
 **Prepared by:** QA Agent — Test Reporter Skill
 
 ---
@@ -14,13 +14,13 @@
 
 > # ❌ FAIL — Not Ready for Release
 
-**Rationale:** 9 of 12 test cases passed (75%), which is below the 90% release threshold. Two High-severity bugs are open: AP-2507 (the "Décoder" button saves a quote) on dev and AP-2492 (the form is missing on staging). AP-2507 also stopped two more test cases from running.
+**Rationale:** 11 of 12 test cases passed (91.7%), which **meets** the 90% release threshold. But the test plan's exit criteria also require no open High-severity bug, and two are still open in the tracker: AP-2507 (the "Décoder" button saved a quote — fixed on this build and passed here, but still in QC until its own re-test closes it later today) and AP-2492 (the form is missing on staging, Backlog). In addition, the second acceptance criterion is not fully met: the decoded engine size unit is stored wrong (new bug AP-2552, Medium). What is risked by releasing now: decoded vehicles carry a wrong engine size unit, and the feature is still absent on staging.
 
 ---
 
 ## Executive Summary
 
-We tested the new, shorter "Create a quote" vehicle form on the Dev environment. It asks the dealer for only a quote name, a VIN (the vehicle identification number), a brand, a model and a year. Nine of the twelve checks passed. The form shows exactly the five intended fields. It saves a quote with only brand, model and year. It refuses to save when one of those is missing. Other screens, such as adding a vehicle to inventory, keep their full set of fields. A quote made this way opens its warranty step without an error and asks for the missing kilometres. One important check failed. When a dealer types a VIN and clicks "Décoder" to fill in the vehicle automatically, the system immediately saves a quote with no name, instead of filling in the form for the dealer to review. Dealers cannot delete quotes, so every click leaves an unwanted quote behind. This failure (AP-2507, High) also stopped two related checks from running. The feature should not be released until AP-2507 is fixed and those three checks are re-run.
+We re-tested the new, shorter "Create a quote" vehicle form on the Dev environment after the developers fixed the problem found last week. The form asks the dealer for only a quote name, a VIN (the vehicle identification number), a brand, a model and a year. Eleven of the twelve checks passed. The fix works: clicking "Décoder" now fills in Ford, Focus and 2008 on the form for the dealer to review, and no longer saves an unwanted quote. A quote name typed before decoding is kept. The form saves with only brand, model and year, refuses to save when one is missing, and the resulting quote opens its warranty step without an error. Other screens, such as adding a vehicle to inventory, are unchanged. One check failed: after decoding and saving, the vehicle's engine size unit is stored as "Litre" although the decoder said "kW". The other decoded details were stored. This is a smaller problem (Medium) that a dealer could correct by hand, but it breaks the ticket's promise that decoded values are stored. Before release, AP-2552 needs a fix or a developer decision, AP-2507 needs its own re-test to close it, and the team must decide what to do about the staging gap (AP-2492).
 
 ---
 
@@ -28,15 +28,15 @@ We tested the new, shorter "Create a quote" vehicle form on the Dev environment.
 
 | Metric | Value |
 |---|:---:|
-| Requirements covered | 5 of 7 fully passed; REQ-002 partly (1 of 2 cases passed); REQ-003 and REQ-007 not proven (0 cases passed) |
+| Requirements covered | 6 of 7 fully passed; REQ-003 partly (1 of 2 cases passed) |
 | Total test cases | 12 |
-| Passed | 9 (75%) |
-| Failed | 1 (8%) |
-| Blocked | 2 |
+| Passed | 11 (91.7%) |
+| Failed | 1 (8.3%) |
+| Blocked | 0 |
 | Skipped | 0 |
-| **Pass rate** | **75%** (9 of 12; pass rate = cases passed ÷ all cases except skipped) |
+| **Pass rate** | **91.7%** (11 of 12; pass rate = cases passed ÷ all cases except skipped) |
 | Pass rate threshold | 90% |
-| Threshold met? | ❌ No |
+| Threshold met? | ✅ Yes |
 
 **Defect Metrics:**
 
@@ -44,11 +44,13 @@ We tested the new, shorter "Create a quote" vehicle form on the Dev environment.
 |---|:---:|:---:|:---:|
 | Critical | 0 | 0 | 0 |
 | High | 2 | 0 | 2 |
-| Medium | 0 | 0 | 0 |
+| Medium | 1 | 0 | 1 |
 | Low | 0 | 0 | 0 |
-| **Total** | **2** | **0** | **2** |
+| **Total** | **3** | **0** | **3** |
 
-Defect density (bugs per test case): 2 ÷ 12 = 0.17.
+"Resolved" counts only bugs in the tracker's Done status. AP-2507 is fixed on this build (not reproduced) but stays open until its own re-test moves it.
+
+Defect density (bugs per test case): 3 ÷ 12 = 0.25 over the whole cycle; 1 ÷ 12 = 0.08 found in this run.
 
 ---
 
@@ -59,11 +61,12 @@ and whether each one actually holds. Anything marked ❌ is a reason not to ship
 
 | Criterion | Target | Actual | Met? |
 |---|---|---|:---:|
-| All High-priority TCs executed | 100% | 83% (5 of 6: AP2477_008 is BLOCKED) | ❌ |
-| Pass rate | ≥ 90% | 75% (9 of 12) | ❌ |
+| All High-priority TCs executed | 100% | 100% (6 of 6: 001, 003, 004, 007, 008, 012) | ✅ |
+| Pass rate | ≥ 90% | 91.7% (11 of 12) | ✅ |
 | Critical bugs open | 0 | 0 | ✅ |
-| High bugs open | ≤ 0 | 2 (AP-2507, AP-2492) | ❌ |
+| High bugs open | ≤ 0 | 2 (AP-2507 in QC awaiting its own re-test; AP-2492 in Backlog) | ❌ |
 | Test report generated | Yes | Yes | ✅ |
+| All tracker tickets created | Yes | Yes — AP-2552 filed for the one new failure | ✅ |
 
 ---
 
@@ -77,13 +80,13 @@ Some test cases cover two requirements, so the per-requirement rows add up to mo
 | Requirement | Test Cases | Passed | Failed | Blocked | Coverage |
 |---|:---:|:---:|:---:|:---:|:---:|
 | REQ-001 — Five fields, in a fixed order | 2 | 2 | 0 | 0 | 100% |
-| REQ-002 — "Décoder" only for decoder-enabled vehicle types | 2 | 1 | 1 | 0 | 50% |
-| REQ-003 — Decoding a VIN pre-fills and keeps the hidden details | 2 | 0 | 1 | 1 | 0% |
+| REQ-002 — "Décoder" only for decoder-enabled vehicle types | 2 | 2 | 0 | 0 | 100% |
+| REQ-003 — Decoding a VIN pre-fills and keeps the hidden details | 2 | 1 | 1 | 0 | 50% |
 | REQ-004 — Only Brand, Model and Year required | 4 | 4 | 0 | 0 | 100% |
 | REQ-005 — A missing required field is refused | 2 | 2 | 0 | 0 | 100% |
 | REQ-006 — The other vehicle forms are unchanged | 1 | 1 | 0 | 0 | 100% |
-| REQ-007 — Quote name kept across a decode | 1 | 0 | 0 | 1 | 0% |
-| **Total (unique test cases)** | **12** | **9** | **1** | **2** | **75%** |
+| REQ-007 — Quote name kept across a decode | 1 | 1 | 0 | 0 | 100% |
+| **Total (unique test cases)** | **12** | **11** | **1** | **0** | **91.7%** |
 
 **Per test case:**
 
@@ -95,12 +98,14 @@ Some test cases cover two requirements, so the per-requirement rows add up to mo
 | AP2477_004 | A vehicle saved from the minimal form has no kilometres, condition, designation or price | High | PASS | — |
 | AP2477_005 | Saving without a Brand is refused with an error and no quote is created | Medium | PASS | — |
 | AP2477_006 | Saving with Brand and Model but no Year is refused and no quote is created | Medium | PASS | — |
-| AP2477_007 | Clicking "Décoder" with a valid VIN fills Brand, Model and Year | High | FAIL | AP-2507 |
-| AP2477_008 | A quote saved after decoding keeps the decoded transmission, engine, fuel, cylinders and turbo | High | BLOCKED | AP-2507 |
-| AP2477_009 | A Quote name typed before "Décoder" is kept and saved with the quote | Medium | BLOCKED | AP-2507 |
+| AP2477_007 | Clicking "Décoder" with a valid VIN fills Brand, Model and Year (the AP-2507 scenario) | High | PASS | — (AP-2507 not reproduced) |
+| AP2477_008 | A quote saved after decoding keeps the decoded transmission, engine, fuel, cylinders and turbo | High | FAIL | AP-2552 |
+| AP2477_009 | A Quote name typed before "Décoder" is kept and saved with the quote | Medium | PASS | — |
 | AP2477_010 | "Décoder" shows for a car type but not for an RV, boat or construction type | Medium | PASS | — |
 | AP2477_011 | The inventory "add vehicle" form still shows Price and Kilometers and requires them | Medium | PASS | — |
 | AP2477_012 | A quote from the minimal form opens its details and warranty step without an error page | High | PASS | — |
+
+**Compared with 2026-11-01:** AP2477_007 FAIL → PASS; AP2477_008 BLOCKED → FAIL; AP2477_009 BLOCKED → PASS; the other nine unchanged (PASS). Pass rate 75% → 91.7%.
 
 ---
 
@@ -108,8 +113,9 @@ Some test cases cover two requirements, so the per-requirement rows add up to mo
 
 | Bug ID | Title | Severity | Priority | Requirement | Tracker | Status |
 |---|---|:---:|:---:|---|---|:---:|
-| BUG-001 | The simplified new-quote vehicle form is missing on staging: /quote/new/edit-vehicle returns HTTP 404 | High | P1 | REQ-001 to REQ-007 (staging) | [AP-2492](https://garantieavantageplus.atlassian.net/browse/AP-2492) | Open (Backlog) |
-| BUG-002 | Clicking "Décoder" on the new-quote vehicle form saves a quote and empties the form instead of re-rendering it pre-filled | High | P1 | REQ-003, REQ-007 | [AP-2507](https://garantieavantageplus.atlassian.net/browse/AP-2507) | Open (Backlog) |
+| BUG-001 | The simplified new-quote vehicle form is missing on staging: /quote/new/edit-vehicle returns HTTP 404 | High | P1 | REQ-001 to REQ-007 (staging) | [AP-2492](https://garantieavantageplus.atlassian.net/browse/AP-2492) | Open (Backlog) — not re-tested, Dev only |
+| BUG-002 | Clicking "Décoder" on the new-quote vehicle form saves a quote and empties the form instead of re-rendering it pre-filled | High | P1 | REQ-003, REQ-007 | [AP-2507](https://garantieavantageplus.atlassian.net/browse/AP-2507) | Open (QC) — not reproduced 2026-11-07; its own re-test owns the verdict |
+| BUG-003 | Saving a quote after "Décoder" stores the decoded engine size unit "kW" as "Litre" on the vehicle | Medium | P2 | REQ-003 | [AP-2552](https://garantieavantageplus.atlassian.net/browse/AP-2552) | Open (Backlog, new) |
 
 ---
 
@@ -119,32 +125,35 @@ Some test cases cover two requirements, so the per-requirement rows add up to mo
 |---|---|---|
 | Requirements Analysis | `qa-artifacts/1-requirements-analysis/AP-2477_requirements-analysis.md` | 2026-10-11 |
 | Test Plan | `qa-artifacts/2-test-plan/AP-2477_test-plan.md` | 2026-10-12 |
-| Test Cases | `qa-artifacts/3-test-cases/AP2477_TestCases_001-005.md`, `_006-010.md`, `_011-012.md` | 2026-10-12 (results 2026-11-01) |
-| Execution Log | `qa-artifacts/4-execution-results/5.2.0/execution-log_AP-2477_2026-11-01.md` (the 2026-10-12 staging log is kept for the record) | 2026-11-01 |
-| Bug Report | `qa-artifacts/5-testing-report/AP-2477_bug-report.md` | 2026-11-01 |
-| Review record | `qa-artifacts/7-reviews/AP-2477_review.md` (R3 APPROVE) | 2026-11-01 |
-| Screenshots | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/` (20 files from the dev run, plus 4 from the staging run) | 2026-11-01 |
-| **This Report** | `qa-artifacts/5-testing-report/AP-2477_test-report.md` | 2026-11-01 |
+| Test Cases | `qa-artifacts/3-test-cases/AP2477_TestCases_001-005.md`, `_006-010.md`, `_011-012.md` | 2026-10-12 (results 2026-11-07) |
+| Execution Log | `qa-artifacts/4-execution-results/5.2.0/execution-log_AP-2477_2026-11-07.md` (the 2026-11-01 and 2026-10-12 logs are kept for the record) | 2026-11-07 |
+| Bug Report | `qa-artifacts/5-testing-report/AP-2477_bug-report.md` | 2026-11-07 |
+| Review record | `qa-artifacts/7-reviews/AP-2477_review.md` (R3 round 1 APPROVE, 2026-11-07) | 2026-11-07 |
+| Screenshots | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/` — 23 `-20261107_*.png` files and `AP2477_008-step1-4-DecodedVsStoredValues-20261107_fail.txt` | 2026-11-07 |
+| **This Report** | `qa-artifacts/5-testing-report/AP-2477_test-report.md` | 2026-11-07 |
 
 ---
 
 ## Risks and Observations
 
-- **Results are from Dev, not staging.** On staging the form does not exist yet (AP-2492). The developer comment of 2026-10-28 says that the feature "is not ready for staging yet". Once it reaches staging, the High-priority cases should be run again there.
-- **Test data left on Dev.** Dealers cannot delete quotes. Quote 6437 and vehicle 1067 (Ford Focus 2008) were created without intent by the one "Décoder" click. Quotes 6438, 6439 "QA-AP2477-004-145431" and 6440 "QA-AP2477-012-145539", with vehicles 1068, 1069 and 1070 (Toyota Corolla 2020), were created on purpose. A vehicle saved from this form also appears in the dealer's Vehicle Inventory (seen for vehicle 1067).
-- **Hidden decoded details may be incomplete (observation for the AP2477_008 re-run).** The form renders only transmission and engine-size unit as hidden inputs. Fuel type, cylinders, engine size and turbo are not on the page, although the ticket asks for them to stay as hidden inputs. Vehicle 1067 did store those values on the save that the decode triggered. Whether they survive the dealer's own Save can only be checked once AP-2507 is fixed.
-- **Edit-form defaults.** A vehicle saved from the minimal form has no condition and no designation. The full vehicle edit form displays "new" and "Particular" for these empty values. A dealer who opens that form and presses Save would store those values without choosing them.
-- **Inventory "Create quote" still opens the old client-first form.** For inventory vehicle 915, "Create quote" leads to `/quote/new/client?fromVehicleId=915`. This is outside the ticket's stated scope, so it is recorded here and not filed.
-- **Open questions are not classified.** The analysis lists six open questions (Q-001 to Q-006) without a Blocking, Judgement or Info impact. The dev run answered Q-001, Q-002, Q-003 and Q-006 by observation. Q-004 (quote name across a decode) is blocked by AP-2507, and Q-005 (accepted years) was not observed.
+- **AP-2507 context only.** AP2477_007, the AP-2507 scenario, passed on 2026-11-07 between 09:47 and 09:58 UTC: "Décoder" re-renders the form and saves nothing. This run did not change AP-2507; it is in QC and its own bug re-test (AP2507_001–003, later today) decides whether it closes.
+- **Results are from Dev, not staging.** The form does not exist on staging (AP-2492, not re-tested). Once it reaches staging, the High-priority cases should be run there.
+- **Decoder carries an existing vehicle id.** After "Décoder", the hidden `quote_vehicle[id]` holds 863, an existing inventory vehicle with the same VIN. Saving created new vehicles (1146, 1147) and left 863 unchanged. No criterion covers reuse; noted as a risk in AP-2552.
+- **Fuel type and transmission cannot be proven decoded.** A vehicle saved without a decode shows the same GASOLINE / Automatic, so only cylinders and engine size are proven to come from the decode (R3 F-1).
+- **Form layout changed by AP-2533.** The Vehicle type select now sits above Quote name, labels are English and input ids are `#quote_vehicle_*`. No result was affected. The case wording should be refreshed in the next design maintenance run (R3 F-2); correct-cases was not run, because it is only for failures confirmed as not a bug.
+- **Test data left on Dev.** Quotes 6588 (no name), 6589 "QA-AP2477-004-095118", 6590 "QA-AP2477-012-095207", 6591 "QA-AP2477-008-095303", 6592 "QA-AP2477-009-095457", with vehicles 1143–1147. Dealers cannot delete quotes.
+- **Edit-form defaults and "No entities found".** Unchanged from 2026-11-01: the full vehicle edit form displays "new" and "Particular" for empty condition and designation, and a blue "No entities found" alert shows on a freshly saved quote. Neither is an error page.
+- **Open questions are not classified.** The analysis lists Q-001 to Q-006 without a Blocking / Judgement / Info impact. This run answered Q-001, Q-002, Q-003, Q-004 and Q-006 by observation; Q-005 (accepted years) was not observed.
 
 ---
 
 ## Recommendations
 
-1. Fix AP-2507: "Décoder" must re-render the form pre-filled without saving. Check first whether the `novalidate` flag reaches the server under the form's real name, `quote_vehicle`.
-2. Once AP-2507 is fixed, re-run AP2477_007, AP2477_008 and AP2477_009 on dev with `AP-2477 --from s4`. During AP2477_008, check whether fuel type, cylinders, engine size and turbo are rendered as hidden inputs and are stored after the dealer's own Save.
+1. Fix AP-2552, or have the developer state which unit is correct: check whether the save maps `quote_vehicle[engineSizeUnit]` onto the new vehicle, and whether the decoder should return "kW" for a combustion engine. Then re-run AP2477_008 with `AP-2477 --from execute`.
+2. Let AP-2507's own re-test (AP2507_001–003) close it; this run's AP2477_007 PASS supports that.
 3. Decide what happens to AP-2492, since the team says the feature is not meant for staging yet. Re-run the High-priority cases on staging when it is deployed there.
-4. Ask the developer (Minh Lưu) to confirm the accepted Year range (Q-005), so a boundary case can be added.
+4. Refresh the test-case wording for the AP-2533 layout in the next design maintenance run.
+5. Ask the developer (Minh Lưu) to confirm the accepted Year range (Q-005), so a boundary case can be added.
 
 ---
 
@@ -152,7 +161,7 @@ Some test cases cover two requirements, so the per-requirement rows add up to mo
 
 | Role | Name | Decision | Signature | Date |
 |---|---|:---:|:---:|---|
-| QA Agent | QA Agent (Automated) | FAIL | _(automated)_ | 2026-11-01 |
+| QA Agent | QA Agent (Automated) | FAIL | _(automated)_ | 2026-11-07 |
 | QA Lead | Vinh Le | Pending | | |
 | Development Lead | Minh Lưu | Pending | | |
 | Product Owner | Nicolas-Eric Tain | Pending | | |

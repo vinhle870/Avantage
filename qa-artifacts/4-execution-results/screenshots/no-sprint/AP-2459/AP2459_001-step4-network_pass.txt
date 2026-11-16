@@ -1,0 +1,4 @@
+AP2459_001 step 4 — Environment: Dev (v2dev) — 2026-11-08 ~03:06Z — request lines only (method, URL, status)
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6689/permaplate-create-contract => 200
+[POST] https://v2dev.garantieavantageplus.ca/quote/6689/permaplate-create-contract => 200   (Financing company left on "Choose")
+Result page: same form re-rendered, Financing company select marked is-invalid, message "ERROR This value should not be blank." directly above the select in the same cell; no 5xx, no "Erreur — Désolé" page.

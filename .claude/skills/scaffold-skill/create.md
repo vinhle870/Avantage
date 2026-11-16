@@ -145,7 +145,7 @@ Valid `pipeline_stage` values:
 | `tickets-updated`       | stlc-ticket-updater         |
 | `sprint-fetched`        | tracker-fetch-sprint-tickets |
 | `automation-done`       | stlc-test-automator         |
-| `batch-done`            | stlc-qa-orchestrator        |
+| `batch-done`            | qa-agent        |
 | `review-done`           | stlc-qa-reviewer            |
 
 ---

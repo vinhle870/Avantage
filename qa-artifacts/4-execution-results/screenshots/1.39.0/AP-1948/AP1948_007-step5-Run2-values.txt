@@ -1,0 +1,14 @@
+AP1948_007 Run2 - Dev (v2dev) - captured 2026-11-15T09:55Z-09:59Z
+Admin (read only):
+  /admin/vehicle-model-edit/3124/edit  Model 3  category = Category A
+  /admin/vehicle-model-edit/3126/edit  Model Y  category = Category A
+  /admin/program-term/16/edit   Suggested retail price = 1025  categories = A,B,C
+  /admin/program-term/122/edit  Suggested retail price = 2700  categories = A
+  /admin/program-term/123/edit  Suggested retail price = 2500  categories = A
+  /admin/program-term/124/edit  Suggested retail price = 2700  categories = A
+  /admin/program-term/125/edit  Suggested retail price = 2900  categories = A
+  /admin/program-term/126/edit  Suggested retail price = 3200  categories = A
+Portal Summary (/customer/1493/quote-request/payment, HTTP 200 each):
+  Model 3 (entry 80, client.stage.1948105): 16 CA$1,025.00 | 122 CA$2,700.00 | 123 CA$2,500.00 | 124 CA$2,700.00 | 125 CA$2,900.00 | 126 CA$3,200.00
+  Model Y (entry 81, client.stage.1948106): 16 CA$1,025.00 | 122 CA$2,700.00 | 123 CA$2,500.00 | 124 CA$2,700.00 | 125 CA$2,900.00 | 126 CA$3,200.00
+Comparison: 12 of 12 Subtotals = suggested retail price; difference 0 on every term.

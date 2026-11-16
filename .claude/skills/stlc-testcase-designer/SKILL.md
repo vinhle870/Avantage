@@ -125,12 +125,19 @@ Read the Open Questions table of the requirements analysis. For every question w
 | **Info** | No effect on the case. Name the question in "Why this matters" if it helps the reader |
 
 A question with Status `Answered` is part of the requirement: assert its quoted answer
-like any acceptance criterion, and cite the quote in the case's Requirement row.
+like any acceptance criterion, and cite the quote (capture, comment or Story/Task key) in
+the case's Requirement row.
+
+A question with Status **`Accepted`** (no Story/Task defines it — analyst Step 3c) is
+**record-and-accept**: the step records the value or flow the build shows and accepts it
+as expected. When the analysis already holds the observed value, assert that value. The
+step fails only on an objective fault, or where the ticket's AC text states a different
+result (the AC wins). It is never BLOCKED for the question.
 
 **Self-check before writing a file:** read every Expected Result and ask, *"Does this cell
 assert something the capture does not say?"* If yes, it depends on an unlisted question.
 Add the question to the analysis's Open Questions (classified by the analyst's Step 3b
-test) and apply the table above. Never ship the assumption.
+test, looked up by its Step 3c) and apply the rules above. Never ship the assumption.
 
 ### Step 2 — Determine the spec ID and TC ID format
 
@@ -368,7 +375,7 @@ Full rules and worked examples: [../output-style.md](../output-style.md).
 - Step actions must quote exact UI labels: `Click "Save Changes"`, `Enter "John" in "First Name"`.
 - Expected results must be observable — no vague phrases like "it works".
 - Test data must be complete. For sensitive values: `[SET IN .env: VAR_NAME]`.
-- **Never assert an unanswered question's answer.** An expected result that depends on an `Open` question is BLOCKED (Blocking) or record-only (Judgement) — Step 1c.
+- **Never assert an unanswered question's answer.** An expected result that depends on an `Open` question is BLOCKED (Blocking) or record-only (Judgement); on an `Accepted` question it is record-and-accept — Step 1c.
 - Status is `Not Run` at design time, except cases set to `BLOCKED` by Step 1b or 1c. Status values (`PASS`, `FAIL`, `BLOCKED`, `SKIPPED`) are reference data — see template.md.
 
 ---

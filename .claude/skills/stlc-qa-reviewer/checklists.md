@@ -27,7 +27,8 @@ Input: `{KEY}_requirements-analysis.md` + the requirement capture.
 | 1.2 | No `REQ` states behaviour that the capture does not contain (invented scope) | Blocker |
 | 1.3 | Every Open Question has an Impact (`Blocking` / `Judgement` / `Info`) and a Status | Blocker |
 | 1.4 | Every requirement without an acceptance criterion has a `Blocking` question | Major |
-| 1.5 | A question marked `Answered` quotes the comment or capture sentence that answers it | Major |
+| 1.5 | A question marked `Answered` quotes the comment, capture or Jira Story/Task sentence (with its key) that answers it | Major |
+| 1.6 | Every knowledge question went through the knowledge lookup (analyst Step 3c): `Accepted` names the queries searched, and no `Accepted` or lookup-answered question is posted to the tracker | Major |
 
 Rework stage: `s1`.
 
@@ -43,7 +44,7 @@ Input: every `{SPEC}_TestCases_*.md`, the analysis, the test plan and `{SPEC}_Re
 | 2.2 | Every expected result is observable and concrete — a value, a message text, a visible element, a URL. "Works correctly", "as expected", "is saved properly" fail | Major |
 | 2.3 | Each file has ≤ 5 cases, each case ≤ 5 steps, IDs follow `{SPEC}_NNN` with no gaps or duplicates | Minor |
 | 2.4 | A case depending on a `Blocking` + `Open` question is `BLOCKED` and names the question in **Blocked by** | Blocker |
-| 2.5 | A `Judgement` question's expected result is *record-only* — no PASS/FAIL hangs on a guessed answer | Blocker |
+| 2.5 | A `Judgement` + `Open` question's expected result is *record-only*, and an `Accepted` question's is *record-and-accept* (fails only on an objective fault or contrary AC text) — no PASS/FAIL hangs on a guessed answer | Blocker |
 | 2.6 | Every **High** Pass 2 proposal in the review findings was promoted or has a logged reason | Major |
 | 2.7 | Test data and entry route come from the `test-data` / `navigation` sources, or are created in a `[Pre-Condition]` step | Major |
 
@@ -62,6 +63,7 @@ Input: the latest execution log for `{KEY}`, its screenshots folder, the test-ca
 | 3.3 | Every PASS step's **Actual Result** states the observed value and matches its **Expected Result**. "As expected", "OK", "correct", a copy of the expected text with no observed value, or an empty cell fail | Major |
 | 3.4 | Every screenshot path in the log exists on disk | Major |
 | 3.5 | **Look at the screenshots** (Read the image): every FAIL, and the last `[Verification]` step of every High-priority PASS, at most 10 images. The image must show what the Actual Result claims | Blocker |
+| 3.5a | Every PASS on a step that checks saved values survive a save, reopen or reload has a `{TC_ID}-step{N}-values.txt` next to its screenshot (`stlc-manual-executor` 2d), with a capture time and the checked values, and those values match the Actual Result. A screenshot alone does not prove persistence | Major |
 | 3.6 | Every FAIL names the failing step, and its Actual Result differs from the Expected Result in a stated way | Major |
 | 3.7 | No environment failure is recorded as FAIL — a login failure, timeout or HTTP 5xx *before* the step under test is `BLOCKED`, retried once | Blocker |
 | 3.8 | Every BLOCKED case has a reason and names the bug, question or outage that blocks it | Major |
@@ -83,8 +85,10 @@ Input: the test report, the bug report, the analysis, the registry's *QA outcome
 | 4.4 | The planned status move matches all three checks — pass rate, no stopping bug, no open Blocking question | Blocker |
 | 4.5 | The story comment lists every test case with its status and bug | Major |
 | 4.6 | Bug tickets: the re-assign target is not in `not_developers` | Blocker |
+| 4.6a | Every question the outcome comment lists (and every Gate A question posted this run) has a `{KEY}_Q-00N_highlighted.png` on disk. **Read the image**: a red box frames the field, button or message the question is about. A question without one is listed on the `*No screenshot yet:*` line and has a reason (not captured yet, or no screen to show); the s7 comment supplies the captured ones | Major |
+| 4.7 | Every bug filed in this run: read its tracker description back. It follows the *bug description shape* (`tracker-manage-child-ticket` → template.md): one-sentence summary, at most 6 steps, one line each for Expected and Actual, at most about 20 lines of text. It has no analysis, guessed root cause or local path. A reference to another ticket appears only in the template's optional Note line (e.g. "relates to AP-NNNN", at most 2 lines), never in the steps, Expected or Actual | Major |
 
-Rework stage: `s6` (report wrong) or `s5` (a FAIL without a bug).
+Rework stage: `s6` (report wrong) or `s5` (a FAIL without a bug, or a bug description that fails 4.7, which s5 rewrites).
 
 ---
 
@@ -119,5 +123,5 @@ With `gate_mode: reviewer`, no stop point reaches the user:
 | **E1** — every requirement blocked | `PARK` the ticket: the Blocking questions are already posted at Gate A. Record `waiting on author`; resume with `{KEY} --from analyze` once answered |
 | **E2** — partial duplicate | **File new**, linked to the candidate as *relates to*, with a line in the description naming the candidate and the difference. A duplicate costs a triage minute; a lost bug costs a release |
 | **E3** — no run folder | Use `{RUN}` = `no-sprint` and log it. The folder name carries no test meaning |
-| **E4** — a worker question | Answer only from a quotable sentence in the capture, a ticket comment, or a `domain` / `navigation` source. Otherwise `PARK`: post the question on `{KEY}`, mark the affected cases BLOCKED |
+| **E4** — a worker question | Answer from a quotable sentence in the capture, a ticket comment, or a `domain` / `navigation` source. Otherwise, for unknown knowledge (field meaning or values, a workflow), run the knowledge lookup (analyst Step 3c): a Story/Task that defines it answers it, else the current actual result is accepted — no question posted, no PARK. `PARK` and post on `{KEY}` only for a question the lookup cannot settle (missing test data, access, or the ticket's own text contradicting itself or reading two ways — analyst Step 3b) |
 | **E5** — rejection without stated behaviour | `PARK` the test case: post on the **rejected bug** asking for the intended behaviour, keep the case BLOCKED, continue the run |

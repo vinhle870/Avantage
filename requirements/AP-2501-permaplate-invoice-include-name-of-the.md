@@ -46,3 +46,43 @@ From the Jira acceptance-criteria field (Given/When/Then), line breaks kept:
 | Date | Author | Summary (one line) |
 |---|---|---|
 | 2026-10-28 | Ken Nguyen | Asks Minh Lưu to start on the ticket. No requirement content |
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:50:47-05:00 · **Previous capture:** 2026-11-01
+
+No Jira change to the description, the acceptance criteria, the attachments or the status
+(QC). The two comments added since capture are the QA's own (they hold no answer), and no
+one outside QA has commented:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 | Vinh Le - QC | QA result comment 19455: FAIL, 1 of 6 passed on Dev; AP-2529 filed; Q-001 reminded, Q-007 raised |
+| 2026-11-08 | Vinh Le - QC | QA questions comment with screenshots for Q-001, Q-002, Q-005 and Q-007; asks the reporter to answer. No answer has been posted |
+
+> **2026-11-15 — knowledge lookup (no Jira change, nothing posted).** The open questions
+> were re-checked by the analyst's Step 3c knowledge lookup: Jira Story/Task tickets were
+> searched for a sentence that defines each answer. **Q-007** is answered by AP-2099
+> ("Generate invoice PDF"): the invoice PDF is the download button on the **Admin** invoice
+> details page. **Q-001** to **Q-006** found no defining Story/Task and are now `Accepted`,
+> meaning the build's current actual result is the expected result. For Q-001 the ticket
+> contradicts itself ("the name of the invoice" in the criterion, "the name of the term"
+> in the title and description); because the lookup found nothing, the current actual
+> result decides the reading under test: on invoice 941 the term "10 ans" is on the line
+> right after the contract number "PNA-0000000020". The criterion's own words still set
+> the result: the term must **follow the contract number** on every surface it names.
+> Details and the queries tried: `qa-artifacts/1-requirements-analysis/AP-2501_requirements-analysis.md`
+> → *Knowledge lookup — 2026-11-15*.
+
+> **Correction 2026-11-15T09:19Z (R1 round 1 REWORK, F-1).** The note above is wrong about
+> **Q-001**. Q-001 is not a gap in product knowledge: the ticket's own text contradicts
+> itself ("the name of the **invoice**" in the criterion, "the name of the **term**" in the
+> title and description), and the current actual result may never choose between two
+> readings of the ticket's text. Q-001 is again **Blocking + Open**, so REQ-004 (the
+> position check, AP2501_006) stays BLOCKED until the reporter answers. It was already asked
+> on 2026-11-01 (comment 19437) and on 2026-11-08, so it is not posted again. The other half
+> of the old Q-001 — whether "follow the contract number" means the very next line — is a
+> format question, now **Q-008** (Judgement, `Accepted`: the very next line, as observed on
+> invoice 941). Q-002 to Q-007 are unchanged.

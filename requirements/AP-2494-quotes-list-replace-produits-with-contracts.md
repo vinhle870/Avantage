@@ -56,3 +56,21 @@ Transcribed from the ticket's Acceptance Criteria field (customfield_10150).
 
 - Development panel: 1 Bitbucket Cloud pull request, state **MERGED**, last updated 2026-10-22.
 - No linked issues, no sub-tasks, no labels, no components.
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+> Re-read on 2026-11-15 by stlc-ticket-pipeline (`--from analyze --until analyze`, batch
+> qa-agent 2026-11-15). Nothing in the transcribed sections above changed.
+>
+> - **Description and acceptance criteria:** unchanged — same text, same nine criteria.
+> - **Status:** QC (unchanged). Last updated 2026-11-08.
+> - **Comments:** 2, both by the QA account (`not_developers`), so neither answers a
+>   question: the QA result comment of 2026-11-01 (id 19450) and a "QA questions —
+>   screenshots" comment of 2026-11-08 that repeats the open questions with screenshots.
+>   No comment from the reporter or a developer.
+> - **Attachments:** 14, all screenshots added with the QA comment of 2026-11-08.
+> - **Linked issues:** AP-2517 and AP-2518 (Relates), both filed by the QA run of 2026-11-01.
+> - **Effect on the analysis:** none from the ticket itself. The 2026-11-15 re-run changed
+>   question statuses only through the knowledge lookup in other Stories (AP-2493, AP-2477).

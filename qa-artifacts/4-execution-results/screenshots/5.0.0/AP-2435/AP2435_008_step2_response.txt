@@ -1,0 +1,16 @@
+HTTP/1.1 401 Unauthorized
+Date: Thu, 05 Nov 2026 06:03:29 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=okZMgw65QcoTZ8AqpQ7UpyjMk8iOLP7wVhtRdfYE60vsQdDbvCiM9Mu8kV46%2B5LHSM4cT78mXoIIUhIil6rwfG7tHzftIcRfQRmh92IjkbMZMJG8pB8WAZlPSupBxK6PEy7DsHXZb%2BZqKe0pIcARug%3D%3D"}]}
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a559a7d28e2c3104-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"error":"Missing API key"}
+--- curl url_effective=https://v2dev.garantieavantageplus.ca/api/admin/search-warranty?query=5146906330 http_code=401 time_total=0.579758s
+curl_exit=0 sent_at=2026-11-05T06:03:29Z header_mode=NONE

@@ -2,8 +2,8 @@
 
 **Plan ID:** TP-20261101-AP2499
 **Project:** Avantage Plus v2 — Dealer portal, financing form inside the add-GAP / add-creditors insurance modal of a quote (Jira AP-2499)
-**Version:** 1.0
-**Date:** 2026-11-01
+**Version:** 1.1
+**Date:** 2026-11-01 · updated 2026-11-15 (after the 2026-11-15 re-analysis: Q-007 Answered, Q-011 Accepted; execution on Dev)
 **Prepared by:** QA Agent — Test Plan Designer Skill
 **Based on:** qa-artifacts/1-requirements-analysis/AP-2499_requirements-analysis.md
 **Total requirements:** 6
@@ -16,9 +16,9 @@
 - Verify that the financing form is always the first thing in the modal, with the insurance form and its results below it, whether or not a financing exists and for a Chubb dealer and a Humania dealer (REQ-002).
 - Verify that each of the eight financing fields is prefilled with the value stored on the quote, and that a field with no stored value is left empty rather than filled with an invented value (REQ-003).
 - Verify that submitting the financing saves it on the quote (it survives a reload), moves the modal on to the insurance step, and does not navigate away from the quote page (REQ-004).
-- Verify that a GAP and a creditors insurance quote each render their result below the form in the same modal, and record what a provider failure does to the entered values (REQ-005).
+- Verify that a GAP and a creditors insurance quote each render their result below the form in the same modal, and that a creditors quote refused because the borrower has no date of birth (the AP-2405 trigger, Q-007 Answered) shows an error without discarding the entered values (REQ-005). No GAP failure trigger is defined, so the failure half is tested on creditors only.
 - Verify that missing financing fields give an error next to each field and save nothing — neither a new financing nor a change to an existing one (REQ-006).
-- Record what the build does on every Judgement question (Q-001 to Q-007, Q-009 to Q-012) so the author can confirm it, without failing a case on a guessed answer.
+- Assert the behaviour the build showed on 2026-11-02 for every Accepted question (Q-001, Q-003 to Q-006, Q-009 to Q-015 — record-and-accept), assert the quoted answers of Q-007 and Q-008, and keep Q-002 (Humania dealer, test data) open.
 
 ---
 
@@ -68,7 +68,7 @@ products" card once a financing exists.
 |---|---|---|
 | Functional | Execute each acceptance criterion step by step on a quote prepared for the case | playwright (browser provider) |
 | Negative | Each of the six validated financing fields left empty; non-numeric and negative base amount and interest rate; an invalid correction of an existing financing, to prove nothing is partly saved | playwright |
-| Edge-case | A stored financing with residual left empty (prefill record-only, Q-004); empty residual and date of birth on submit (record-only, Q-011); boundary values (record-only, Q-010) | playwright |
+| Edge-case | A stored financing with the applicant date of birth left empty — the field must open blank, as Q-004 (Accepted) observed for fields with no value; residual is required (Q-011 Accepted), so it is always stored as `0`; empty residual and date of birth on submit; boundary values (Q-010 Accepted) | playwright |
 | UI / Visual | Order of the blocks in the modal (financing form first), absence of the alert text, URL unchanged on submit | playwright snapshots and screenshots |
 | API | Not tested directly. The network log is read around each submit only to prove there was no full page navigation and to capture a provider error message | playwright network log |
 
@@ -127,7 +127,7 @@ _When we stop testing partway through because carrying on would waste time, and 
 
 | Component | Details |
 |---|---|
-| **Application URL** | Dealer portal URL from the `env` knowledge source (`qa-artifacts/base-test/execute.env.md`) — v2staging |
+| **Application URL** | Dealer portal URL from the "Dev Environment" section of the `env` knowledge source — Dev (v2dev), the registry's `execution_env` since 2026-11-01 (was v2staging in version 1.0) |
 | **Login** | The shared dealer account (dealer 1380) named in the `env` source; credentials are taken from there at run time and never copied into artifacts |
 | **Browser** | Chromium (Playwright default), viewport 1280 × 800 |
 | **OS** | Windows 11 (QA workstation) |
@@ -145,8 +145,8 @@ _When we stop testing partway through because carrying on would waste time, and 
 | Dealer login (Humania) | A dealer account configured for Humania | **Not known** — no Humania dealer appears in `env`, `test-data` or `domain` (Q-002). The Humania case is designed with this as a precondition and recorded BLOCKED if no account is available |
 | Vehicle 915 | Ford Focus 2008, VIN `1FAHP35NX8W239204`, the dealer's shared inventory vehicle (`test-data`) | Used only as the vehicle each new quote is created from. This story changes the quote's financing, not the vehicle, so the vehicle is not modified |
 | Quote without financing | A new quote on vehicle 915, entered from `/vehicle/915/details` → **Create quote** (`/quote/new/client?fromVehicleId=915`), which avoids the HTTP 500 of a quote with no vehicle | Created in a `[Pre-Condition]` step |
-| Quote with a stored financing | A new quote as above, plus a financing with known values for all eight fields (residual left empty in the prefill edge case) | Created in a `[Pre-Condition]` step through `/quote/{id}/financing` (`domain`: `quote-creation.md`). If "Add a financing" is disabled on the new quote, the step instead saves the financing once through the AP-2499 modal and re-opens it |
-| Financing values | A fixed valid set: type (first non-empty option), base amount 25000, residual 0 or empty, payment frequency monthly, term 60 months, interest rate 6.99, financing company (first non-empty option), applicant date of birth 1990-01-01 | Written into each case's steps |
+| Quote with a stored financing | A new quote as above, plus a financing with known values for all eight fields (in the prefill edge case and the insurance-failure case, the applicant date of birth is left empty; the residual cannot be left empty — Q-011) | Created in a `[Pre-Condition]` step through `/quote/{id}/financing` (`domain`: `quote-creation.md`). If "Add a financing" is disabled on the new quote, the step instead saves the financing once through the AP-2499 modal and re-opens it |
+| Financing values | A fixed valid set: type (first non-empty option), base amount 25000, residual 0 (required), payment frequency monthly, term 60 months, interest rate 6.99, financing company (first non-empty option), applicant date of birth 1990-01-01 | Written into each case's steps |
 | Insurance values | Creditors: form PM30, Life type DECREASING, term 60 (the working set in `chubb-insurance.md` §6). GAP: `gapTerm` 60 | Written into each case's steps |
 
 ### 8.1 Test Data Classification
@@ -161,6 +161,7 @@ _Decided once here, and inherited by every test case._
 | Quote (with or without financing) | Dynamic | Q1 — does not exist yet; Q3 — the case writes a financing onto it | Created per case in a `[Pre-Condition]` step. Cost: about 2 minutes (client form + vehicle), no third party. Left on staging (no `cleanup` source) |
 | Client of the quote | Dynamic | Q1 — does not exist yet | Entered in the same `[Pre-Condition]` step with the minimum required client fields from `domain` (`quote-creation.md`), using a unique Yopmail address |
 | Stored financing | Dynamic | Q2 — the prefill assertions depend on the values set at creation | Created in a `[Pre-Condition]` step with every value written into the step |
+| Stored financing **without** a date of birth | Dynamic | Q2 — the prefill check (AP2499_005) and the insurance failure (AP2499_009) happen *because* the date of birth was left empty at creation | Created in the case's own `[Pre-Condition]` step. Whether the build stores it at all is recorded there; if it is refused, or a date of birth is stored anyway, the case is BLOCKED with that reason |
 | GAP / creditors insurance quote | Dynamic | Q3 — produced by the run | Produced by the case itself. **Calls a third party** (the Chubb quote API), so each call adds a quote record on the provider side |
 | Dealer Chubb / Humania configuration | Configuration — read only | Q5 does not apply: no case changes it | Never changed by this plan |
 
@@ -176,7 +177,7 @@ quote. Every quote id is listed in the execution log, because nothing is cleaned
 | The GAP / creditors add modal is not mapped in the domain knowledge — rated High impact because every case starts there | High | High | Navigate by the ticket screenshots (Summary of products → Gap Insurance **+** / Creditors insurance **+**); the executor maps the modal on first use and writes it back to the `domain` source |
 | No Humania dealer is known on staging (Q-002) | High | Medium | Design the Humania case with an explicit precondition; record BLOCKED if no account exists, never substitute the Chubb dealer |
 | Dealer 1380 may not be configured for GAP (only PM30 / PM50 creditor forms have been seen) | Medium | High | The GAP case records what the modal offers; if the dealer has no GAP configuration the GAP insurance step is recorded BLOCKED with that reason |
-| A provider failure cannot be produced on purpose (Q-007) | High | Medium | The failure half of REQ-005 is a record-only step; if no failure appears it is recorded as not reproduced, never as PASS |
+| The AP-2405 failure trigger (missing borrower date of birth, Q-007) cannot be set up on Dev, or Chubb still prices the request | Medium | Medium | AP2499_009 records in its first steps whether a financing and quote client without a date of birth can be stored; if not, or if Chubb prices the request, the case is BLOCKED with that reason — never PASS. No GAP failure trigger is defined, so GAP failure is not tested |
 | The Chubb quote API is slow or failing (bug AP-2410 records errors on valid creditor submissions) | Medium | High | Retry once; an error before the step under test is BLOCKED, not FAIL. A failure on the step under test goes to Gate C, where AP-2410 is checked as a duplicate candidate |
 | "Add a financing" may be disabled on a new quote, so a stored financing cannot be prepared through the old page | Medium | Medium | Fall back to saving the financing once through the modal and re-opening it; note it in the log |
 | playwright unreachable | Low | High | Run the preflight before s4 |
@@ -203,7 +204,7 @@ quote. Every quote id is listed in the execution log, because nothing is cleaned
 |---|---|
 | QA Agent | Run the STLC skills and write every artifact |
 | QA Reviewer (stlc-qa-reviewer) | Approve gates A–D in place of the QA lead (`gate_mode: reviewer`) |
-| Developer | Fix defects; answer Q-005 (what "backed by the saved financing" shows), Q-006 (update or create) and Q-007 (failure trigger) |
+| Developer | Fix defects (AP-2526, AP-2527, AP-2528). Q-007 was answered by AP-2405 (developer comment, 2026-01-22); Q-005 and Q-006 are Accepted as observed |
 | Product Owner (Nicolas-Eric Tain) | Answer the Judgement questions, name a Humania dealer account (Q-002), accept the recorded behaviour |
 
 ---
@@ -216,3 +217,11 @@ quote. Every quote id is listed in the execution log, because nothing is cleaned
 - [ ] Entry criteria verified before execution
 - [ ] Exit criteria thresholds agreed (pass rate ≥ 90%)
 - [ ] Risk mitigations acknowledged by team
+
+---
+
+## 13. Revisions
+
+| Date | Section | Change | Reason |
+|---|---|---|---|
+| 2026-11-15 | 1, 3.2, 7, 8, 8.1, 9, 11 | REQ-005 failure half now asserted on the AP-2405 trigger (creditors only); prefill edge case moved from an empty residual to an empty date of birth; residual always `0`; execution environment Dev; new Dynamic data row for a financing without a date of birth; Q-007 risk and Developer role updated | 2026-11-15 re-analysis — Q-007 Answered (AP-2405), Q-011 Accepted (residual required); Gate A by reviewer (R1 round 1, F-2) |

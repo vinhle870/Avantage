@@ -1,0 +1,9 @@
+Environment: Dev (v2dev)
+Captured: 2026-11-15T08:47Z (admin program-term edit forms, read only)
+Model: /admin/vehicle-model-edit/3124/edit TESLA Model 3 category = CATEGORY_A (X); list entry 80 = /admin/manufacturer-vehicle/80/edit 2022 TESLA Model 3 Long Range, fuel BEV
+Term 16  L'Avantageuse AT 36m/60000km  SRP 1025  categories A,B,C  fuel GASOLINE,DIESEL  type Passenger  years 11  km 180000
+Term 122 CVE CVE A 12m/0km             SRP 2700  categories A      fuel BEV              type Passenger  years 10  km 200000
+Term 123 CVE CVE A 24m/0km             SRP 2500  categories A      fuel BEV              type Passenger  years 10  km 200000
+Term 124 CVE CVE A 36m/0km             SRP 2700  categories A      fuel GASOLINE,BEV,DIESEL,HYBRID  type Passenger  years 10  km 200000
+Term 125 CVE CVE A 48m/0km             SRP 2900  categories A      fuel BEV              type Passenger  years 10  km 200000
+Term 126 CVE CVE A 60m/0km             SRP 3200  categories A      fuel BEV              type Passenger  years 10  km 200000

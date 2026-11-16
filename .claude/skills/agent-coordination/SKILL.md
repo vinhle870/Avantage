@@ -5,7 +5,7 @@ description: >-
   No auto-detection on startup. After any STLC skill completes, automatically
   shows next-step suggestions based on the last pipeline stage. Use when the
   user says "initiate session", "start qa session", "agent coordination",
-  "qa agent", "daily standup", "what's my next move", or "qa next".
+  "daily standup", "what's my next move", or "qa next".
 ---
 
 # Skill — Agent Coordination
@@ -184,7 +184,7 @@ Route directly to the chosen STLC skill — no sub-menu:
 | s7  | `stlc-ticket-updater`        |
 | s0  | `stlc-ticket-pipeline` — ask _"Enter the ticket key:"_ first |
 | s8  | `stlc-test-automator` — ask _"Enter the ticket key:"_ first |
-| s9  | `stlc-qa-orchestrator` — no sprint needed; it selects the tickets itself |
+| s9  | `qa-agent` — no sprint needed; it selects the tickets itself |
 | rv  | `stlc-qa-reviewer` — ask _"Enter the ticket key and checkpoint (R1–R5, or all):"_ first |
 
 After any s1–s9 skill completes → trigger **Post-Skill Completion** (see [routing.md](routing.md)).

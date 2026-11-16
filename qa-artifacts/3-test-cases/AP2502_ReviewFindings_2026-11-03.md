@@ -61,3 +61,16 @@ proposal is High, so nothing needs promoting before execution. The single real r
 test data — if the Dev admin list has no form whose label or value contains "960", three
 of the five cases will be BLOCKED and the GC960 document will be unproven; the two Medium
 proposals (1 and 2) are worth adding in a later cycle once Q-001 is answered.
+
+---
+
+## Re-check — 2026-11-07
+
+Re-checked 2026-11-07, no change. The requirement is unchanged since 2026-11-03, so the
+review stands as written. Pass 1: still 0 gaps — every acceptance criterion of REQ-001 to
+REQ-004 has a case in the Coverage Matrix. Pass 2: the same 6 proposals (2 Medium, 4 Low,
+0 High), none promoted. One sentence in the Recommendation above is out of date: the
+test-data risk ("if the Dev admin list has no form whose label or value contains "960"")
+did not happen — the 2026-11-03 Dev run saw four GC960 forms (`GC960S:S30`, `GC960S:S45`,
+`GC960M:M25`, `GC960M:M30`). That makes proposal 2 (two 960 forms) possible to run on Dev
+later, but it stays Medium, because the ticket does not say what two 960 forms should do.

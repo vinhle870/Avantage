@@ -33,6 +33,7 @@ _Everything the executor needs that the steps themselves do not carry._
 | Date | Change | Reason | Confirmed by |
 |---|---|---|---|
 | 2026-11-01 | Execution Context → Login: the clear-text dealer username and password were removed and replaced with a reference to the `env` source (`execute.env.md`) | Credential policy — a credential must never be copied into an artifact | QA Agent (pipeline s4, dev run), per the batch instruction |
+| 2026-11-07 | Every case's Status reset to `Not Run`; Executed on / Result now hold the previous result for reference only. Execution Log table reset | Retest after fix (orchestrator plan rule P5): AP-2507 is in QC as fixed, so the whole AP-2477 set is re-executed on Dev in a new log dated 2026-11-07 | QA Agent (stlc-worker, s4), per the orchestrator hand-off |
 
 ---
 
@@ -63,8 +64,8 @@ _Everything the executor needs that the steps themselves do not carry._
 | **Priority** | Medium |
 | **Status** | PASS |
 | **Blocked by** | — |
-| **Executed on** | 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
-| **Result** | PASS — /vehicle/new/edit/PASSENGER still shows Vehicle Price* and Kilometers* (full field set); saving with both empty was refused by the server ("This value should not be blank.") and no vehicle was added. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380) |
+| **Result** | PASS (2026-11-07) — inventory form still shows Price* and Kilometers*; save with both blank refused by the server; nothing added. Previous (2026-11-01): PASS — /vehicle/new/edit/PASSENGER still shows Vehicle Price* and Kilometers* (full field set); saving with both empty was refused by the server ("This value should not be blank.") and no vehicle was added. |
 
 **Why this matters:** AP-2477 made four vehicle columns nullable for every flow and added a new validation group. If the inventory form picked up the minimal rules by mistake, dealers could stock vehicles with no price or kilometres, which breaks pricing later.
 
@@ -98,8 +99,8 @@ _Everything the executor needs that the steps themselves do not carry._
 | **Priority** | High |
 | **Status** | PASS |
 | **Blocked by** | — (the user allowed the `/quotes` → "Create a quote" entry on dev on 2026-11-01) |
-| **Executed on** | 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
-| **Result** | PASS — quote 6440 details loaded twice (HTTP 200); warranty step /quote/6440/warranty/edit opened and asks for Kilometers and Fuel type, no error page. |
+| **Executed on** | 2026-11-07 — Dev (v2dev), Chromium 1280×800, dealer account (Dealer ID 1380), re-test after fix. Previous: 2026-11-01 — Dev (v2dev), resumed s4 run. (2026-10-12 staging run: BLOCKED — build not deployed; superseded) |
+| **Result** | PASS (2026-11-07) — quote 6590 details loaded twice; warranty modal /quote/6590/warranty/edit asks Kilometers and Fuel type, no error page. Previous (2026-11-01): PASS — quote 6440 details loaded twice (HTTP 200); warranty step /quote/6440/warranty/edit opened and asks for Kilometers and Fuel type, no error page. |
 
 **Why this matters:** Quotes have never had a vehicle with no kilometres, condition or price before. The ticket names the warranty pricing, program terms and window sticker code as places that "must tolerate null". If any of them crashes, dealers can create a quote but not sell anything on it.
 
@@ -139,5 +140,5 @@ one we currently have no way of proving works._
 
 | TC ID | Result | Screenshot |
 |---|:---:|---|
-| AP2477_011 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_011-step3-PriceKmBlankRefused_pass.png` |
-| AP2477_012 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_012-step4-WarrantyModalAsksKmFuel_pass.png` |
+| AP2477_011 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_011-step3-PriceKmBlankRefused-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |
+| AP2477_012 | PASS | `qa-artifacts/4-execution-results/screenshots/5.2.0/AP-2477/AP2477_012-step4-WarrantyModalAsksKmFuel-20261107_pass.png` (2026-11-07; previous 2026-11-01: PASS) |

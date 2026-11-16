@@ -1,27 +1,28 @@
 # Bug Report
 
 **Project:** Avantage Plus v2 — Dealer portal, AP-2499: Add GAP/creditors insurance to a quote: embed the financing form in the add modal
-**Report ID:** BR-20261102-001
-**Test Cycle:** AP-2499 single-ticket STLC run, run folder no-sprint. Executed on **Dev (v2dev)** on 2026-11-02 (local time, UTC+7), by the user's decision: 5 PASS, 5 FAIL, 3 BLOCKED.
-**Date:** 2026-11-02
+**Report ID:** BR-20261102-001 (updated 2026-11-15 — BR-20261115-001 adds BUG-004)
+**Test Cycle:** AP-2499 single-ticket STLC run, run folder no-sprint. Executed on **Dev (v2dev)** on 2026-11-02 (local time, UTC+7), by the user's decision: 5 PASS, 5 FAIL, 3 BLOCKED. Re-run on **Dev (v2dev)** on 2026-11-15 (batch qa-agent 2026-11-15) for the re-designed AP2499_005 and AP2499_009 only: AP2499_005 FAIL (BUG-004), AP2499_009 BLOCKED by BUG-004. Totals now 5 PASS, 6 FAIL, 2 BLOCKED.
+**Date:** 2026-11-02, updated 2026-11-15
 **Reported by:** QA Agent — Bug Reporter Skill
-**Source:** qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2499_2026-11-02.md · qa-artifacts/3-test-cases/AP2499_TestCases_001-005.md, AP2499_TestCases_006-010.md, AP2499_TestCases_011-013.md
+**Source:** qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2499_2026-11-02.md · qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2499_2026-11-15.md · qa-artifacts/3-test-cases/AP2499_TestCases_001-005.md, AP2499_TestCases_006-010.md, AP2499_TestCases_011-013.md
 
-**Tested on: Dev (v2dev)** — `https://v2dev.garantieavantageplus.ca/`, Dealer portal, dealer 1380 ("Test QA staging"). Staging was not tested in this run.
+**Tested on: Dev (v2dev)** — `https://v2dev.garantieavantageplus.ca/`, Dealer portal, dealer 1380 ("Test QA staging"). Staging was not tested in either run.
 
 | Metric | Value |
 |---|:---:|
-| Total defects | 3 |
+| Total defects | 4 |
 | Critical | 0 |
 | High | 0 |
-| Medium | 3 |
+| Medium | 4 |
 | Low | 0 |
-| Tracker tickets created | 3 (AP-2526, AP-2527, AP-2528 — status Backlog) |
+| Tracker tickets created | 4 (AP-2526, AP-2527, AP-2528 on 2026-11-02; AP-2566 on 2026-11-15) |
 
 **Decisions:**
 - Gate C (by the independent reviewer — R3 round 1 APPROVE, the last R3 section of `qa-artifacts/7-reviews/AP-2499_review.md`): the five FAILs reduce to three defects, and each is filed as a **new** bug. Rule C1 (not a bug) does not hold: AP-2499 has no comments, and the requirement capture contains no sentence saying a collapsed financing form, a quote page drawn inside the modal or a page reload after Get Quote is intended. Defects 1 and 2 are rule C4 (no open bug names this modal). Defect 3 is rule C3 → reviewer rule E2: AP-2410 names the same Get Quote button on the same `/quote/{id}/insurance` route but describes a different behaviour (an error message), so it is filed new and linked.
 - Every bug is linked *relates to* AP-2499. BUG-001 is also linked *relates to* AP-2521 and AP-2524 (the same fold-behind-"Edit" pattern on the extended-warranty and roadside-protection modals, probably a shared component). BUG-003 is also linked *relates to* AP-2410. All three are assigned to Ken Nguyen (`bug_new_assign`).
-- The three BLOCKED cases are not bugs and are reported in the test report: AP2499_005 (Q-011 — an empty residual cannot be stored; is the residual meant to be optional?), AP2499_009 (Q-007 — failure not reproduced: Life term 999 was priced as a 60-month term) and AP2499_013 (Q-002 — no Humania dealer on Dev).
+- **2026-11-15 — Gate C (by the independent reviewer, R3 round 1):** AP2499_005 is filed **new** as BUG-004 → AP-2566 (rule C4): no sentence in the requirement capture or a ticket comment says an empty date of birth should come back as today's date (C1 fails), and no open bug names the date of birth (AP-2526, AP-2527 and AP-2528 concern the folded financing block, the quote page inside the modal and the page reload). BUG-004 is linked *relates to* AP-2499 and assigned to Minh Lưu (`bug_new_assign`, changed from Ken Nguyen on 2026-11-08). AP2499_009 is BLOCKED by the same behaviour and is **not** filed separately. No C1 decision, so no test case was corrected.
+- 2026-11-02: the three BLOCKED cases are not bugs and are reported in the test report: AP2499_005 (Q-011 — an empty residual cannot be stored; is the residual meant to be optional?), AP2499_009 (Q-007 — failure not reproduced: Life term 999 was priced as a 60-month term) and AP2499_013 (Q-002 — no Humania dealer on Dev).
 
 ---
 
@@ -32,6 +33,7 @@
 | BUG-001 | AP2499_003, AP2499_004 | Once a quote has a financing, the GAP/creditors add modal folds the financing form into one summary line behind an "Edit" link | Medium | P2 | [AP-2526](https://garantieavantageplus.atlassian.net/browse/AP-2526) | Open |
 | BUG-002 | AP2499_006 | Saving the financing in the creditors-insurance modal of a quote that already has a financing draws the whole quote page inside the modal | Medium | P2 | [AP-2527](https://garantieavantageplus.atlassian.net/browse/AP-2527) | Open |
 | BUG-003 | AP2499_007, AP2499_008 | "Get Quote" in the GAP/creditors add modal reloads the quote page and closes the modal, so the insurance result is never shown below the form | Medium | P2 | [AP-2528](https://garantieavantageplus.atlassian.net/browse/AP-2528) | Open |
+| BUG-004 | AP2499_005 (blocks AP2499_009) | A financing saved with Date of birth left empty comes back with today's date in the Date of birth field of the financing form | Medium | P2 | [AP-2566](https://garantieavantageplus.atlassian.net/browse/AP-2566) | Open |
 
 ---
 
@@ -185,15 +187,65 @@ Related bug: AP-2410 reports an error on Get Quote on this route (`/quote/{id}/i
 
 ---
 
+### BUG-004 — A financing saved with Date of birth left empty comes back with today's date in the Date of birth field of the financing form
+
+| Field | Value |
+|---|---|
+| **Bug ID** | BUG-004 |
+| **Test Case** | AP2499_005 (step 4); also blocks AP2499_009 (step 3) |
+| **Requirement** | AP-2499 REQ-003 — "Prefill from the existing financing", AC 1: "any field with no stored value falls back to its normal empty/placeholder state" |
+| **Severity** | Medium — the other financing values are correct and the dealer can type the borrower's real date of birth before quoting, but if nobody notices the invented date, a Get Quote sends today's date to the insurer as the borrower's date of birth, so the GAP or creditors premium is priced for a wrong age; it also hides the "no date of birth" error the insurer is meant to return (AP2499_009 cannot be tested) |
+| **Priority** | P2 — fix in the current sprint |
+| **Environment** | **Tested on: Dev (v2dev)** — `https://v2dev.garantieavantageplus.ca/`, Dealer portal, dealer 1380 ("Test QA staging") · Chromium (Playwright) · Windows 11 · viewport 1280 × 800 · UI in English (`?_locale=en`) |
+| **Tracker Ticket** | [AP-2566](https://garantieavantageplus.atlassian.net/browse/AP-2566) — Bug, priority Medium, labels qa-agent / stlc-automated, status Backlog, assigned to Minh Lưu (`bug_new_assign`), linked Relates → AP-2499; 1 screenshot (the AP2499_005 step-4 failure) embedded in the description (verified: 1 media node with id), filed 2026-11-15T11:17Z UTC |
+| **Status** | Open |
+| **First found** | 2026-11-15 |
+| **Reproducibility** | Always — 2 of 2 quotes in this run (6710 and 6711) |
+
+**Summary:**
+When a financing is saved on `/quote/{id}/financing` with the Date of birth field left empty, every financing form opened afterwards for that quote — on `/quote/{id}/financing`, on `/quote/{id}/insurance` and in the add-GAP and add-creditors-insurance modals of the quote page — shows today's date in Date of birth, a date the dealer never typed.
+
+**Steps to Reproduce:**
+
+1. Open `https://v2dev.garantieavantageplus.ca/login?_locale=en` and sign in with a dealer account that offers GAP and creditors insurance (the QA used dealer 1380, "Test QA staging").
+2. Open `https://v2dev.garantieavantageplus.ca/vehicle/915/details` (Ford Focus 2008, VIN `1FAHP35NX8W239204`) and click **Create quote** (it opens `/quote/new/client?fromVehicleId=915`). Fill First name `Gap`, Last name `Repro-004`, Email an unused address such as `client.stage.2499904@yopmail.com`, Address `100 Rue Test`, City `Montréal`, Province `Québec`, Postal code `H2X 1Y4`, Home phone `5145550101`, Work phone `5145550102`, tick the consent box "I confirm that I have provided a copy of FORM-L25…" and click **Save**. Open `/quote/{id}/vehicle` (same quote id), set Delivery date `2026-11-01` and Price `20000`, and click **Save**.
+3. Open `https://v2dev.garantieavantageplus.ca/quote/{id}/financing`. Leave **Date of birth empty**. Fill Type `Financing`, Net amount financed including RDPRM `25000`, Residual `0`, Payment frequency `Monthly`, Term months `60`, Interest rate `6.99`, Financing company `AutoCapital Canada`, and click **Save**. The message "Financing saved" appears and the Financing card shows 25,000.00$ with no date of birth.
+4. On `/quote/{id}/details`, in the "Summary of products" card, click the **+** button on the "Gap Insurance" row. In the modal, click **Edit** in the "Financing" block (it opens folded to one summary line) and read the Date of birth field.
+5. Open `https://v2dev.garantieavantageplus.ca/quote/{id}/financing` and `https://v2dev.garantieavantageplus.ca/quote/{id}/insurance` and read the Date of birth field on each; repeat step 4 with the **+** button on the "Creditors insurance" row.
+
+**Expected Result:**
+Date of birth is empty, because no date of birth was entered or stored, and every other field shows its stored value. The acceptance criterion "Prefill from the existing financing" says: "each field shows the stored value — type, base amount, residual, payment frequency, term months, interest rate, financing company, applicant date of birth — and any field with no stored value falls back to its normal empty/placeholder state."
+
+**Actual Result:**
+Date of birth shows today's date (on 2026-11-15 it showed `2026-11-15`) in all four places: the GAP modal, the creditors modal, `/quote/{id}/financing` and `/quote/{id}/insurance`. The server returns the date as the field's value in the page HTML (`GET /quote/{id}/financing` 200 and `GET /quote/{id}/insurance` 200 both carry `value="2026-11-15"`); it is not typed by the browser. The other seven fields show the stored values (Type Financing, Net amount 25000, Residual 0, Payment frequency Monthly, Term months 60, Interest rate 6.99, Financing company AutoCapital Canada). Whether today's date is also stored on the financing cannot be told from the screens; either way, a **Get Quote** clicked in the modal would send this date to the insurer as the borrower's date of birth.
+
+**Evidence:**
+
+| Type | Path / Link |
+|---|---|
+| Screenshot | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_005-step4-Nov15-DOBShowsTodayDate_fail.png` — the GAP modal on quote 6710 after "Edit": Date of birth shows 2026-11-15 although it was saved empty |
+| Screenshot | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_005-step2-Nov15-FinancingSavedNoDOB_pass.png` — quote 6710 after the financing Save: "Financing saved", no date of birth on the card |
+| Network lines | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_005-step4-Nov15-values.txt` — each field's value after "Edit", and the Date of birth value returned by `GET /quote/6710/financing` and `GET /quote/6710/insurance` (method, URL, status, value only) |
+| Screenshot | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2499/AP2499_009-step3-Nov15-DOBShowsTodayDate_blocked.png` — the same on quote 6711, creditors modal (AP2499_009, blocked by this bug) |
+| Console log | None captured |
+
+**Suggested Root Cause:**
+Unknown — for dev investigation. The financing form seems to give the date-of-birth field a default of "today" when the stored value is empty (for example a date field built with a "now" default), instead of leaving it empty.
+
+**Notes:**
+AP2499_009 (a creditors quote for a borrower with no date of birth must show the insurer's error and keep the entered values — the AP-2405 trigger) is BLOCKED by this bug: the borrower never reaches the insurer without a date of birth, so the error path cannot be set up. The 2026-11-02 run did not show it, because the empty-date-of-birth submit there was refused for an empty residual first. The financing block opens folded behind "Edit" because of AP-2526 (recorded, not part of this bug). Test data left on Dev: quotes 6710 and 6711 on vehicle 915, each with a financing saved with no date of birth; no insurance quote, no contract.
+
+---
+
 ## Defect Distribution
 
-_How the bugs break down by how serious they are: three medium problems in the same GAP/creditors add modal; none loses data — each one breaks the "stay in one modal" flow the story is about._
+_How the bugs break down by how serious they are: four medium problems in the GAP/creditors add modal and its financing form. Three break the "stay in one modal" flow the story is about; the fourth (BUG-004) fills an empty date of birth with today's date, which would price the insurance on a wrong age._
 
 | Severity | Count | Affected TCs |
 |---|:---:|---|
 | Critical | 0 | — |
 | High | 0 | — |
-| Medium | 3 | AP2499_003, 004, 006, 007, 008 |
+| Medium | 4 | AP2499_003, 004, 005, 006, 007, 008 |
 | Low | 0 | — |
 
 ---
@@ -203,9 +255,9 @@ _How the bugs break down by how serious they are: three medium problems in the s
 | Requirement | Bug Count | Bug IDs |
 |---|:---:|---|
 | REQ-002 — Financing form always present above the insurance form | 1 | BUG-001 |
-| REQ-003 — Prefill from the existing financing | 1 | BUG-001 |
+| REQ-003 — Prefill from the existing financing | 2 | BUG-001, BUG-004 |
 | REQ-004 — Submit persists and continues in the modal | 1 | BUG-002 |
-| REQ-005 — Insurance results render below the form | 1 | BUG-003 |
+| REQ-005 — Insurance results render below the form | 1 | BUG-003 (BUG-004 blocks its failure half, AP2499_009) |
 
 ---
 
@@ -221,4 +273,5 @@ _How the bugs break down by how serious they are: three medium problems in the s
 | BUG-001 | AP-2526 | Filed in s5; no Gate D action — the bug is in Backlog, not in the QA status (routing §3.2) | Backlog | 2026-11-02T00:27Z |
 | BUG-002 | AP-2527 | Filed in s5; no Gate D action — the bug is in Backlog, not in the QA status (routing §3.2) | Backlog | 2026-11-02T00:27Z |
 | BUG-003 | AP-2528 | Filed in s5; no Gate D action — the bug is in Backlog, not in the QA status (routing §3.2) | Backlog | 2026-11-02T00:27Z |
+| BUG-004 | AP-2566 | Filed in s5 on 2026-11-15 (Gate C rule C4, by reviewer); description read back, 1 embedded image verified | Backlog | 2026-11-15 |
 | — (story) | AP-2499 | Story result comment 19454 posted (FAIL, 5/13, Tested on: Dev (v2dev); Q-011 raised; Life term 999 pricing recorded under Q-007) and read back; status not changed — pass rate 38% (needs 90%) | QC (unchanged) | 2026-11-02T00:27Z |

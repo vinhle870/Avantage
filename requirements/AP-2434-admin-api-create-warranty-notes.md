@@ -60,3 +60,18 @@ The Given / When / Then block above is the only acceptance criterion in the tick
 |---|---|---|
 | 2026-07-27 | Ken Nguyen | Asks Minh Lưu to work on this ticket next. |
 | 2026-08-08 | Vinh Le - QC | Says the QA is working on it today, mentioning Ken Nguyen. |
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08 · **Previous capture:** 2026-11-01
+
+The description and the Given/When/Then are unchanged, word for word. Status is still **QC**, assignee still Vinh Le - QC. Two comments were added, both by the QA account, so neither answers a question (the QA account is in `not_developers`):
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-05 | Vinh Le - QC | QA result FAIL on Dev, 3/8 passed; lists bugs AP-2547, AP-2548, AP-2549 and asks Ken Nguyen Q-007 and Q-001 (comment 19473). |
+| 2026-11-08 | Vinh Le - QC | "QA questions — screenshots": repeats Q-007 with a marked screenshot of the note card and says Q-001's screenshot comes at the next test run. |
+
+Three links were added: AP-2434 *relates to* AP-2547, AP-2548 and AP-2549 (all Bug, Backlog). No earlier statement is replaced.

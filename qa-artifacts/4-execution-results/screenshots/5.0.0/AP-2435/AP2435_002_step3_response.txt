@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Date: Thu, 05 Nov 2026 06:02:52 GMT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=2SxkRR9R3BHX1stJnucLOD8nMAC1EwF5lVHLPER5jOHGehTobPbCiNOPx3qQXcYyBlVvTwjT3k%2BKMBy63Y6Cc75b11GZV5W6PokdBUD4wX6WqFetNsk2IsmI0bOHk%2BK3DcAvBCHEIl5ck%2FAzMcJQRw%3D%3D"}]}
+Cache-Control: no-cache, private
+cf-cache-status: DYNAMIC
+CF-RAY: a559a6ea7c19a8de-SIN
+alt-svc: h3=":443"; ma=86400
+
+{"items":[{"contractNumber":"APOP01-836","date_start":"2026-09-04 00:00:00","vehicle_make":"Honda","vehicle_model":"CR-V","vehicle_year":"2024","vehicle_vin":"BKVG64C7AKB4145G5","vehicle_kilometers":15000,"vehicle_price":"25000.00","client_email":"ken@nekken.ca","client_last_name":"Nguyen","client_first_name":"Ken","client_company":null,"client_address":"2280 Rue de la Rousserolle","client_address2":null,"client_city":"Laval","client_postal_code":"H7L 0C4","client_tel_home":"5146906330","client_tel_work":"124-123-1234","term_months":100,"term_km":20000,"franchise_amount":"1000.00","repair_amount_per_visit":"1000.00","repair_amount_total":"1111.00","sale_price":"1111.00"},{"contractNumber":"APOP01-834","date_start":"2026-08-16 00:00:00","vehicle_make":"Honda","vehicle_model":"CR-V","vehicle_year":"2024","vehicle_vin":"BKVG64C7AKB4145G5","vehicle_kilometers":15000,"vehicle_price":"25000.00","client_email":"e2e-test+1786132149642@example.com","client_last_name":"Tester","client_first_name":"Playwright","client_company":null,"client_address":"123 Test St","client_address2":null,"client_city":"Montreal","client_postal_code":"H1H 1H1","client_tel_home":"5145551234","client_tel_work":"5145551234","term_months":100,"term_km":20000,"franchise_amount":"1000.00","repair_amount_per_visit":"1000.00","repair_amount_total":"1111.00","sale_price":"1111.00"}]}
+--- curl url_effective=https://v2dev.garantieavantageplus.ca/api/admin/search-warranty?query=c7akb4 http_code=200 time_total=0.704392s
+curl_exit=0 sent_at=2026-11-05T06:02:52Z header_mode=XK

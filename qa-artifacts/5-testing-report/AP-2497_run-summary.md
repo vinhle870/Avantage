@@ -1,22 +1,24 @@
 # Run Summary — AP-2497: Add extended warranty to a quote: capture missing vehicle fields instead of a dead end
-Updated: 2026-11-01T22:58:00Z · Run folder: no-sprint · Stages run: s5 → s7 (this run; intake → s4 ran earlier, s4c skipped) · Run status: complete
+Updated: 2026-11-15T10:02:00Z · Run folder: no-sprint · Stages run: analyze → analyze (this run, 2026-11-15, analysis only; intake → update-ticket ran 2026-11-01, correct-cases skipped) · Run status: complete — stopped by --until analyze; the execution, bugs and ticket results below are from the 2026-11-01 run and still stand
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2497: Add extended warranty to a quote: capture missing vehicle fields instead of a dead end
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 5 REQ · 2 High risks
+ Requirements : 5 REQ · 2 High risks · 12 questions: 3 Answered, 8 Accepted, 1 Open (2026-11-15)
  Test cases   : 15 designed · 10 proposed by review (1 promoted as AP2497_015)
  Execution    : 4 PASS · 11 FAIL · 0 BLOCKED
  Bugs         : 3 filed · 0 linked to existing · 0 not a bug
  Corrected    : 0 test cases rewritten · 0 retired · re-run —
  Verdict      : FAIL
  Tickets      : AP-2497 unchanged (QC) · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s7 (complete)
+ Stopped at   : analyze (--until analyze; analysis-only re-run 2026-11-15, Gate A awaits review)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Result:** AP-2497 FAIL — 4 of 15 test cases passed on Dev (v2dev), missing the 90% threshold (27%). 3 bugs filed. Ticket comment posted and verified (comment 19452); the story stays in QC.
+**Stopped:** at analyze — analysis-only re-run on 2026-11-15 for the Jira knowledge lookup on every open question; Gate A is left to the reviewer. Resume with "AP-2497". The rest of this summary is the latest full run (2026-11-01).
+
+**Result (2026-11-01 run):** AP-2497 FAIL — 4 of 15 test cases passed on Dev (v2dev), missing the 90% threshold (27%). 3 bugs filed. Ticket comment posted and verified (comment 19452); the story stays in QC.
 
 **What passed**
 - Saving from the add-extended-warranty window: values typed in the vehicle form are saved on the vehicle and survive a reload (AP2497_005 step 4–5, AP2497_006 step 4–5, AP2497_007).
@@ -37,6 +39,7 @@ Updated: 2026-11-01T22:58:00Z · Run folder: no-sprint · Stages run: s5 → s7 
 - AP2497_011 — Model Camry with an empty Year is not saved, but the Year error is hidden. Gate C: filed as AP-2522.
 
 **Decisions made**
+- 2026-11-15 analysis re-run (no browser, nothing posted): Q-002 Answered from the ticket's own AC; Q-003 Answered by AP-211, AP-529 and AP-2533; Q-006 (eligibility rules) Answered by AP-257 comment 10699, AP-530, AP-706 and AP-810; Q-001, Q-004, Q-007–Q-012 Accepted as the current build behaviour (no Story or Task defines them; Q-012 is the French-label part split from Q-003); Q-005 stays Open because it asks what the author meant. No test result changes: the Vehicle type, visible-form and visible-error FAILs rest on the ticket's own criteria. Later checkout-page Stories (AP-2544, AP-2559, AP-2562, AP-2550) do not redesign this modal, so they override nothing.
 - Gate A (rule A3, by the reviewer — R1 APPROVE): continue — 0 Blocking, 9 Judgement, 2 Info questions; none posted.
 - Gate B (rule B2, by the reviewer — R2 APPROVE): High proposal #1 promoted as AP2497_015, then executed; Medium/Low proposals not promoted.
 - Gate C (rule C4 for all 11 FAILs, by the reviewer — R3 round 2 APPROVE): file new ×3. C1 does not hold (AP-2497 has 0 comments; no capture sentence calls the behaviour intended); C2/C3 do not hold (no open bug names the add-extended-warranty modal's vehicle form). AP-2520 (Vehicle type missing) for 001, 003, 004, 006 (+005, 007); AP-2521 (form collapsed) for 002, 005, 006, 007, quoting both acceptance-criterion sentences and leaving the call to the author; AP-2522 (hidden field error) for 008–011 with 012–014 as extra reproductions, linked *relates to* AP-2521. All three are Medium, linked *relates to* AP-2497 and assigned to Ken Nguyen.
@@ -46,9 +49,10 @@ Updated: 2026-11-01T22:58:00Z · Run folder: no-sprint · Stages run: s5 → s7 
 **Left behind**
 - Test data on Dev (v2dev): vehicles 1082–1097, quotes 6490–6505 (clients client.stage.970–984). Vehicles 1085 and 1096 at 25000 km, 1086 now Honda Civic 2019, 48000 km, Diesel, 1093 at 0 km; quote 6491 holds an extended warranty without a contract.
 - Observations that are not failures: the ticket's central path (a vehicle with no mileage, Kilometers filled in the window, the "no eligible program" notice replaced by programs) was only observed on extra vehicle 1097 / quote 6505, not run as a test case (R3 F-5) — the re-test should make the vehicle through `/quote/new/edit-vehicle`. AP-2521 may be deliberate (a no-mileage vehicle opens expanded). Saving changes the inventory vehicle itself (Q-007). The Honda Model list has a blank option and "Civic" twice.
-- Knowledge files added or changed: None in this run (the s4 run added the AP-2497 Dev section to `qa-artifacts/qa-docs/quote-creation.md`; the navigation index row is still not refreshed — R3 F-7).
+- Knowledge files added or changed: None in the 2026-11-15 re-run (it changed the analysis and appended a dated note to the requirement capture). None in the 2026-11-01 run (the s4 run added the AP-2497 Dev section to `qa-artifacts/qa-docs/quote-creation.md`; the navigation index row is still not refreshed — R3 F-7).
 
 **Files**
+- [requirements analysis](qa-artifacts/1-requirements-analysis/AP-2497_requirements-analysis.md)
 - [AP-2497_test-report.md](qa-artifacts/5-testing-report/AP-2497_test-report.md)
 - [AP-2497_bug-report.md](qa-artifacts/5-testing-report/AP-2497_bug-report.md)
 - [execution log](qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2497_2026-11-02.md)

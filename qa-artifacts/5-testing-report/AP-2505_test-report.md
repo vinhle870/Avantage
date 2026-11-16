@@ -1,12 +1,12 @@
 # Test Execution Report
 
-**Report ID:** TR-20261103-002
+**Report ID:** TR-20261107-001 (replaces TR-20261103-002)
 **Project:** Avantage Plus v2 — Dealer portal
-**Test Cycle:** AP-2505 — Generate contract for a quote's Roadside protection product (single-ticket STLC run, run folder no-sprint)
-**Application version:** Not known — Dev does not show a build number, and AP-2505 shows one Bitbucket branch (last updated 2026-10-30) and no pull request, so its change does not appear to be deployed to Dev
-**Date:** 2026-11-03
+**Test Cycle:** AP-2505 — Generate contract for a quote's Roadside protection product — re-test after fix (test plan rule P6), run folder no-sprint
+**Application version:** Avantage Plus System v2.0.0 (page footer on Dev; no build number shown). AP-2505 was moved QC → Deploy to staging → QC by Ken Nguyen on 2026-11-04, and its change is now visible on Dev
+**Date:** 2026-11-07
 **Prepared by:** QA Agent — Test Reporter Skill
-**Environment:** Dev — `https://v2dev.garantieavantageplus.ca/`, Dealer portal (dealer 1380, "Test QA staging"). Staging was not checked.
+**Environment:** Dev — `https://v2dev.garantieavantageplus.ca/`, Dealer portal (dealer 1380, "Test QA staging"), Chromium 1280 × 800. Staging was not checked.
 
 ---
 
@@ -14,13 +14,13 @@
 
 > # ❌ FAIL — Not Ready for Release
 
-**Rationale:** 0 of 10 test cases passed (0%), far below the 90% pass rate this story needs. The roadside contract page answers with a server error (HTTP 500) on Dev, which is the open High bug AP-2518, and the Blocking question Q-001 on acceptance criterion 2 is still unanswered. The change this story describes does not appear to be on Dev yet, so the story could not really be tested.
+**Rationale:** 5 of 10 test cases passed (50%), below the 90% this story needs. Two new bugs are open: AP-2554 (High) means a contract can be saved with the wrong financing, and AP-2553 (Medium) means the page's sections do not match acceptance criterion 2. The Blocking question Q-001 on criterion 2 is also still unanswered. Shipping now would risk roadside contracts that record a financed sale as a cash sale with no lender.
 
 ---
 
 ## Executive Summary
 
-The QA agent tried to test the new full-page "Generate Contract" screen for roadside protection on the Dev site, with 10 test cases covering all 4 requirements of the story. None of them could pass. When a dealer chooses "Generate Contract" on a quote's Roadside Protection row, Dev still opens a pop-up, as before the change, and the pop-up never stops showing "Loading..." because the page behind it fails with a technical-error page. Typing the page's address directly gives the same error. This was seen on all six quotes built for the test, with and without a GAP insurance quote and with and without financing, and on brand-new vehicles that have no earlier roadside contract. That last point matters: the existing bug report (AP-2518, High) guessed that earlier contracts on the same vehicle caused the error, and this run shows they do not. Two test cases are recorded as failed and seven as blocked by that bug; one more waits for the story's author to say which column the "Vehicle identification" section belongs in (question Q-001). No new bug was filed, because the fault is already reported as AP-2518; the new evidence was added there and the two tickets were linked. The developer is asked whether the AP-2505 change has been merged and deployed to Dev. The story should stay in QC and be re-tested once it is.
+The QA agent re-tested the new full-page "Generate Contract" screen for roadside protection on the Dev site, with 10 test cases covering all 4 requirements of the story. The fault that stopped the first test round on 2026-11-03 is gone. The screen now opens as its own page in the same browser tab, with no pop-up, and it works with and without a GAP insurance quote. A contract was created from it (contract 2782), its details page and its English and French PDFs open, and reopening the screen for the same quote leads to the existing contract instead of creating a second one. Five test cases passed. Four failed, on two problems. First, the screen's section names and columns differ from what the story asks for: "Product Summary" instead of "Program Summary", "Owner identification" instead of "Owner information", and no "Financing information" section on the left (new bug AP-2553, Medium). Second, the financing is not copied from the quote and can be changed, although the story says it must be pre-filled and read-only. Because of this, the contract created in the test was saved as a cash sale with no lender, although the quote was financed by AutoCapital Canada (new bug AP-2554, High). One test case is waiting for the story's author to say which column "Vehicle identification" belongs in (question Q-001). The story should stay in QC until both bugs are fixed and Q-001 is answered.
 
 ---
 
@@ -30,13 +30,13 @@ _The pass rate is the share of test cases that passed, out of all cases except s
 
 | Metric | Value |
 |---|:---:|
-| Requirements covered | 4 of 4 (by design); 1 of 4 reached in execution (REQ-001) |
+| Requirements covered | 4 of 4 (by design); 4 of 4 reached in execution |
 | Total test cases | 10 |
-| Passed | 0 (0%) |
-| Failed | 2 (20%) |
-| Blocked | 8 (80%) |
+| Passed | 5 (50%) |
+| Failed | 4 (40%) |
+| Blocked | 1 (10%) |
 | Skipped | 0 |
-| **Pass rate** | **0%** |
+| **Pass rate** | **50% (5 of 10)** |
 | Pass rate threshold | 90% |
 | Threshold met? | ❌ No |
 
@@ -45,12 +45,12 @@ _The pass rate is the share of test cases that passed, out of all cases except s
 | Severity | Open | Resolved | Total Found |
 |---|:---:|:---:|:---:|
 | Critical | 0 | 0 | 0 |
-| High | 1 | 0 | 1 |
-| Medium | 0 | 0 | 0 |
+| High | 2 | 0 | 2 |
+| Medium | 1 | 0 | 1 |
 | Low | 0 | 0 | 0 |
-| **Total** | **1** | **0** | **1** |
+| **Total** | **3** | **0** | **3** |
 
-Defect density: 1 bug over 10 test cases (0.1 per case). The one bug is the existing AP-2518 (High, Backlog), linked to this run; no new ticket was created.
+High: AP-2554 (new) and AP-2518 (filed 2026-11-02, still open in Backlog, but **not reproduced on 2026-11-07** — a candidate for closure by the triager). Medium: AP-2553 (new). Defect density: 2 new bugs over 10 test cases (0.2 per case); 3 bugs counting AP-2518.
 
 ---
 
@@ -61,13 +61,13 @@ and whether each one actually holds. Anything marked ❌ is a reason not to ship
 
 | Criterion | Target | Actual | Met? |
 |---|---|---|:---:|
-| All High-priority TCs executed | 100% | 25% (1 of 4 — AP2505_001 ran to its step under test; AP2505_005, _007, _008 blocked by AP-2518) | ❌ |
-| Pass rate | ≥ 90% | 0% (0 of 10) | ❌ |
+| All High-priority TCs executed | 100% | 100% (4 of 4 — AP2505_001 and _005 FAIL, _007 and _008 PASS) | ✅ |
+| Pass rate | ≥ 90% | 50% (5 of 10) | ❌ |
 | Critical bugs open | 0 | 0 | ✅ |
-| High bugs open | 0 | 1 (AP-2518, blocks 9 of 10 cases) | ❌ |
+| High bugs open | 0 | 2 (AP-2554 new; AP-2518 open but not reproduced) | ❌ |
 | Test report generated | Yes | Yes | ✅ |
 
-Test-plan criteria: every case has a status other than Not Run ✅; every FAIL is filed or linked (AP-2518, Gate C rule C2) ✅; pass rate ≥ 90% and Q-001 answered ❌; report written and result comment on AP-2505 — done in stage s7.
+Test-plan criteria (§5): every case has a status other than Not Run ✅; every FAIL is filed (AP-2553, AP-2554 — Gate C rule C4, decided by the independent reviewer) ✅; pass rate ≥ 90%, no open stopping bug and Q-001 answered ❌; report written ✅, result comment on AP-2505 — stage update-ticket, not run in this dispatch.
 
 ---
 
@@ -79,10 +79,27 @@ we cannot yet say whether that requirement works, not that it is broken._ Covera
 | Requirement | Test Cases | Passed | Failed | Blocked | Coverage |
 |---|:---:|:---:|:---:|:---:|:---:|
 | REQ-001 — Dedicated page at the unchanged address | 2 (001, 002) | 0 | 2 | 0 | 100% |
-| REQ-002 — Two-column layout | 2 (003, 004) | 0 | 0 | 2 | 0% |
-| REQ-003 — Pre-fill and read-only financing | 2 (005, 006) | 0 | 0 | 2 | 0% |
-| REQ-004 — Submit creates the contract | 4 (007, 008, 009, 010) | 0 | 0 | 4 | 0% |
-| **Total** | **10** | **0** | **2** | **8** | **20%** |
+| REQ-002 — Two-column layout | 2 (003, 004) | 0 | 1 | 1 | 50% |
+| REQ-003 — Pre-fill and read-only financing | 2 (005, 006) | 1 | 1 | 0 | 100% |
+| REQ-004 — Submit creates the contract | 4 (007, 008, 009, 010) | 4 | 0 | 0 | 100% |
+| **Total** | **10** | **5** | **4** | **1** | **90%** |
+
+REQ-001 note: the navigation itself works (same tab, no pop-up, address unchanged, HTTP 200). AP2505_001 and _002 fail only because their final check looks for the "Program Summary" heading of criterion 2 (AP-2553).
+
+Per case:
+
+| TC ID | Priority | Result | Reason |
+|---|:---:|:---:|---|
+| AP2505_001 | High | ❌ FAIL | Page opens correctly; no "Program Summary" (titled "Product Summary") — AP-2553 |
+| AP2505_002 | Medium | ❌ FAIL | Same without a GAP quote — AP-2553 |
+| AP2505_003 | Medium | ❌ FAIL | "Owner identification", no "Financing information" in the left column, "Product Summary" on the right — AP-2553 |
+| AP2505_004 | Medium | 🚫 BLOCKED | Q-001 (Blocking) unanswered — which column holds "Vehicle identification" |
+| AP2505_005 | High | ❌ FAIL | Financing company "Choose", Purchase type CASH; all financing values editable — AP-2554 |
+| AP2505_006 | Medium | ✅ PASS | No-financing quote: vehicle and owner pre-filled, financing empty |
+| AP2505_007 | High | ✅ PASS | Contract 2782 created on the first submit (Stock number, In service date, Home phone 514-555-0501 filled) |
+| AP2505_008 | High | ✅ PASS | Contract 2782 details page and en/fr PDFs open with the right contract, VIN and client |
+| AP2505_009 | Medium | ✅ PASS | Empty last name refused with "This value should not be blank."; nothing created |
+| AP2505_010 | Medium | ✅ PASS | Reopening the address redirects to contract 2782; no second contract |
 
 ---
 
@@ -90,7 +107,9 @@ we cannot yet say whether that requirement works, not that it is broken._ Covera
 
 | Bug ID | Title | Severity | Priority | Requirement | Tracker | Status |
 |---|---|:---:|:---:|---|---|:---:|
-| BUG-001 | Opening the roadside contract page of a quote returns HTTP 500, and its "Generate Contract" pop-up stays on "Loading..." (existing bug — commented with new evidence, linked to AP-2505) | High | P1 | REQ-001 (blocks REQ-002–REQ-004) | [AP-2518](https://garantieavantageplus.atlassian.net/browse/AP-2518) | Open (Backlog) |
+| BUG-001 | Opening the roadside contract page returns HTTP 500 and its "Generate Contract" pop-up stays on "Loading..." — not reproduced 2026-11-07 (comment 19512 added; no status change by QA) | High | P1 | REQ-001 | [AP-2518](https://garantieavantageplus.atlassian.net/browse/AP-2518) | Open (Backlog) |
+| BUG-002 | The roadside contract page shows "Product Summary" and "Owner identification" and has no "Financing information" section in the left column | Medium | P2 | REQ-002 | [AP-2553](https://garantieavantageplus.atlassian.net/browse/AP-2553) | Open (Backlog) |
+| BUG-003 | The roadside contract page does not pre-fill the quote's financing, lets the dealer change it, and saves the contract as "Cash" with no lender | High | P1 | REQ-003 | [AP-2554](https://garantieavantageplus.atlassian.net/browse/AP-2554) | Open (Backlog) |
 
 ---
 
@@ -100,33 +119,37 @@ we cannot yet say whether that requirement works, not that it is broken._ Covera
 |---|---|---|
 | Requirements Analysis | `qa-artifacts/1-requirements-analysis/AP-2505_requirements-analysis.md` | 2026-11-03 |
 | Test Plan | `qa-artifacts/2-test-plan/AP-2505_test-plan.md` | 2026-11-03 |
-| Test Cases | `qa-artifacts/3-test-cases/AP2505_TestCases_001-005.md`, `AP2505_TestCases_006-010.md` | 2026-11-03 |
+| Test Cases | `qa-artifacts/3-test-cases/AP2505_TestCases_001-005.md`, `AP2505_TestCases_006-010.md` (AP2505_007/_008 corrected after review R3 rounds 1–2) | 2026-11-03, revised 2026-11-07 |
 | Test-case review | `qa-artifacts/3-test-cases/AP2505_ReviewFindings_2026-11-03.md` | 2026-11-03 |
-| Execution Log | `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2505_2026-11-03.md` | 2026-11-03 |
-| Bug Report | `qa-artifacts/5-testing-report/AP-2505_bug-report.md` | 2026-11-03 |
-| Screenshots | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2505/` (11 screenshots, 1 network .txt file) | 2026-11-03 |
-| Review record | `qa-artifacts/7-reviews/AP-2505_review.md` (R2 rounds 1–2, R3 round 1 — APPROVE) | 2026-11-03 |
-| **This Report** | `qa-artifacts/5-testing-report/AP-2505_test-report.md` | 2026-11-03 |
+| Execution Log | `qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2505_2026-11-07.md` (first pass + re-runs after R3 rounds 1 and 2; the round-2 re-run results are final) | 2026-11-07 |
+| Bug Report | `qa-artifacts/5-testing-report/AP-2505_bug-report.md` | 2026-11-07 |
+| Screenshots | `qa-artifacts/4-execution-results/screenshots/no-sprint/AP-2505/` (27 screenshots and 3 network .txt files with `Nov07` in the name, plus the build snippet `AP2505_build-script_2026-11-07.js.txt`) | 2026-11-07 |
+| Review record | `qa-artifacts/7-reviews/AP-2505_review.md` (R3 rounds 1–3 of 2026-11-07; round 3 APPROVE) | 2026-11-07 |
+| Previous cycle | `execution-log_AP-2505_2026-11-03.md` (0 of 10, AP-2518) | 2026-11-03 |
+| **This Report** | `qa-artifacts/5-testing-report/AP-2505_test-report.md` | 2026-11-07 |
 
 ---
 
 ## Risks and Observations
 
-- **The AP-2505 change does not appear to be on Dev.** The Roadside row's "Generate Contract" link is still a pop-up link (`data-toggle="modal" data-target="#myModal"`), while the GAP row's link on the same quote is a plain link to its own page. AP-2505 shows one Bitbucket branch (last updated 2026-10-30) and no pull request. The developer is asked in the AP-2505 comment whether it is merged and deployed.
-- **AP-2518's suggested cause is ruled out.** It suggested existing roadside contracts on the same VIN; the six VINs used here (`2T1BURHE0NC505001/002/006/007/008/009`) had none, and every one failed. This evidence was added to AP-2518 (comment 19464, with screenshots).
-- **Acceptance criterion 2 cannot be fully judged.** The description puts "vehicle and owner information on the left", while AC 2 puts "Vehicle identification" in the right column. AP2505_004 stays BLOCKED until the author answers Q-001 (asked on AP-2505 on 2026-11-03, no reply yet).
-- **Test data left on Dev.** Vehicles 1130–1135 and quotes 6568–6573 (clients `client.stage.2505001/002/006/007/008/009@yopmail.com`), each with a roadside product of CA$250.00; financing on all except 6570; a GAP quote on 6568. No contract and no invoice were created. The cleanup source is missing, so nothing was removed.
-- **Evidence quality (reviewer minors).** F-11: two screenshots (`AP2505_002-step4-DirectAddressHttp500_fail.png`, `AP2505_008-step1-ContractPageHttp500_blocked.png`) were captured while the error page was still fading in, so the text is faint, and no screenshot shows the address bar — the quote id of each error page rests on the execution log and the network .txt. F-12: the Playwright script that built the six quotes was not kept on disk, so what it typed is known only from the log. Both are to be fixed on the re-run.
-- The technical-error page shows in French even when the session is set to English.
+- **Wrong financing on generated contracts (AP-2554).** Contract 2782 on quote 6597 was saved with purchaseType CASH and an empty lender, and both PDFs tick "Cash" / "Comptant", although the quote is financed (AutoCapital Canada, 60 months). The page's Financing company list does not contain AutoCapital Canada, so a dealer cannot correct it either.
+- **Pre-filled phone refused (not filed — question to the developer).** The page pre-fills Home phone `5145550501` from the client, and Generate Contract then refuses it: "The phone number is invalid. Please ensure it follows the format: ###-###-####." With `514-555-0501` the contract was created. A dealer who keeps the pre-filled values cannot generate the contract. This goes to the developer as a question in the AP-2505 result comment.
+- **Four more observations, recorded but not judged** (the story states no value for them): a refused submit still saved Stock number and In service date to the quote; contract 2782's details page shows Total Tax CAD 0 while both PDFs show Taxes 29.95; the contract carries vehicleConditionCode "used" together with purchaseState "New" and isNew 1; the French PDF viewer shows 5 pages while its footer reads "Page 1 de 8".
+- **AP-2518 no longer reproduces.** HTTP 200 on 8 quotes, including 6568 and 6570, which failed on 2026-11-03. Comment 19512 says so on AP-2518; closing it is for the triager.
+- **Acceptance criterion 2 is still partly undecided.** The description puts "vehicle and owner information on the left", while AC 2 puts "Vehicle identification" on the right. AP2505_004 stays BLOCKED until the author answers Q-001 (asked 2026-11-03). On Dev, "Vehicle identification" is the first section of the left column.
+- **Evidence quality (reviewer minors, R3 round 3).** F-16: `AP2505_010-step5-Nov07r3CountStill1_pass.png` is byte-identical to `AP2505_007-step5-Nov07r3ContractList3Rows_pass.png` (md5 bad4cd3b…). The one image of the contract list (2782, 2698, 2697) serves both steps, and the 302 redirect in AP2505_010 step 3 rests on the log's request line. F-15: no image shows the form after Stock number, In service date and Home phone were typed, just before the submit. The saved contract and the saved client phone prove what was submitted. In the same way, `AP2505_005-step3-Nov07PrefillCompanyEmptyCash_fail.png` is byte-identical to `AP2505_003-step3-Nov07ColumnsNoFinancingSection_fail.png` (md5 6ca30ea8…). It is the same unsubmitted page of quote 6593 and shows both the columns and the pre-filled financing.
+- **Test data left on Dev** (no cleanup source): vehicles 1148–1154 and quotes 6593–6599 (6594 / vehicle 1149 is a stray build used by no case, VIN `2T1BURHE0NC505undefined`). Each has a roadside product of CA$250.00. AutoShield roadside contract **2782** (RHTWQ-2782) is on quote 6597, and no invoice was created. Quote 6597's client Home phone is now `514-555-0501`. The records from 2026-11-03 (vehicles 1130–1135, quotes 6568–6573) are also still there.
 
 ---
 
 ## Recommendations
 
-1. Developer of AP-2505: confirm whether the branch has been merged and deployed to Dev. Today the Roadside row still opens a pop-up. Once it is deployed, re-test with `AP-2505 --from s4`.
-2. Fix AP-2518 (High): the page `/quote/{id}/road-side-protection-create-contract` answers HTTP 500 on every quote, not only on VINs with earlier contracts. It may be fixed by the AP-2505 change itself (question Q-012) — the developer should say which.
-3. Ask the author of AP-2505 (Nicolas-Eric Tain) to answer Q-001, which column holds "Vehicle identification", so AP2505_004 can run; the story cannot move to Ready for release while it is open.
-4. On the re-run, wait for each error page to finish rendering before the screenshot and capture the address (F-11), and keep the quote-building script without credentials next to the screenshots (F-12).
+1. Fix AP-2554 (High) before release. Pre-fill the quote's financing (lender, purchase type, amount, rate) on the roadside contract page, make it read-only as AC 3 says, and make sure the contract and its PDFs carry it. Then re-test with `AP-2505 --from execute`.
+2. Fix AP-2553 (Medium). Rename the sections to "Program Summary" and "Owner information", and add a "Financing information" section in the left column, as AC 2 says.
+3. Ask the author of AP-2505 (Nicolas-Eric Tain) to answer Q-001, which column holds "Vehicle identification", so AP2505_004 can run. The story cannot move to Ready for release while Q-001 is open.
+4. Developer: answer the pre-filled phone question in the AP-2505 result comment, and confirm whether any of the four recorded observations (tax 0 vs 29.95, used/New, French PDF page count, Stock number saved on a refused submit) is unintended. QA files a bug for any the developer confirms.
+5. Triager: AP-2518 can be re-tested and closed on the 2026-11-07 evidence (comment 19512).
+6. On the next run, capture the filled form just before each submit click (F-15), and give each step its own capture or say in the log when one image serves two steps (F-16).
 
 ---
 
@@ -134,7 +157,7 @@ we cannot yet say whether that requirement works, not that it is broken._ Covera
 
 | Role | Name | Decision | Signature | Date |
 |---|---|:---:|:---:|---|
-| QA Agent | QA Agent (Automated) | FAIL | _(automated)_ | 2026-11-03 |
+| QA Agent | QA Agent (Automated) | FAIL | _(automated)_ | 2026-11-07 |
 | QA Lead | Not known — not named in the registry | Pending | | |
 | Development Lead | Not known — not named in the registry | Pending | | |
 | Product Owner | Nicolas-Eric Tain (ticket reporter) | Pending | | |

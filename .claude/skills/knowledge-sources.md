@@ -96,7 +96,10 @@ independent sources:
    know how a specific function or flow actually works, resolve `navigation` first — it is
    the index. Find the feature area in its table and read the `domain` file it points to.
 2. **A feature with no index row is a declared gap**, not a reason to stop. Proceed with
-   the task anyway — never block test design or execution on missing docs — but say
+   the task anyway — never block test design or execution on missing docs. When the gap is
+   what a field means or how a function behaves, run the tracker knowledge lookup
+   (`stlc-requirements-analyst` Step 3c): a Story/Task that defines it is the answer,
+   otherwise the current actual result is accepted and no question is posted. Say
    explicitly that the knowledge is missing, and the gap must be closed per point 3 before
    the *overall task* (not just the knowledge lookup) is considered finished.
 3. **Mandatory write-back.** Before a manual-execution run or an ad-hoc live-exploration
@@ -119,7 +122,8 @@ browser exploration performed outside a named skill, in the same session.
   The one exception is this document and the registry itself.
 - **Never treat `missing` as empty.** Empty means "there is nothing to know"; missing
   means "we do not know". A test case built on a missing source is `BLOCKED`, not
-  `PASS`.
+  `PASS` — except a gap in what a field means or how a function behaves, which the
+  knowledge lookup settles (§4 point 2).
 - **Declare your load set.** A skill that reads a source not listed in its §2 row is a
   registry bug — fix the registry, do not work around it in the skill.
 - **Keep `Always` short.** Everything in it is paid for on every single run. If a

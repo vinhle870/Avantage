@@ -1,52 +1,62 @@
 # Run Summary — AP-2410: [AP-2405] Dealer portal - Chubb Insurance Quote - page, although fill all required options but still receive an error message when submit
-Updated: 2026-11-01T01:56:55Z · Run folder: no-sprint · Stages run: s3 (rework) → s3b · Run status: complete
+Updated: 2026-11-08T04:15:54Z · Run folder: no-sprint · Stages run: update-ticket → update-ticket · Run status: complete
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2410: Chubb Insurance Quote page shows an error on a valid submit
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : bug re-test — steps to reproduce + expected result · s1 skipped
- Test cases   : 4 designed, reworked twice after review · 0 proposed (s3b skipped)
- Execution    : 0 PASS · 0 FAIL · 0 BLOCKED (not run — design only)
- Bugs         : 0 filed · 0 linked to existing · 0 not a bug
+ Requirements : bug re-test — steps to reproduce + expected result · analyze skipped
+ Test cases   : 4 executed · 0 proposed (review-cases skipped)
+ Execution    : 4 PASS · 0 FAIL · 0 BLOCKED (Environment: Dev, v2dev)
+ Bugs         : 2 filed (AP-2557, AP-2558 — Medium) · 0 linked to existing · 0 not a bug
  Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS
- Verdict      : — (not executed)
- Tickets      : AP-2410 unchanged · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s3b (--until s3b — design only, ticket is in Jira status QA, not QC)
+ Verdict      : PASS
+ Tickets      : AP-2410 → Done · 0 bugs updated (0 → Done, 0 → In Progress)
+ Stopped at   : update-ticket (complete)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Stopped:** at s3b — design only, because AP-2410 is in Jira status "QA", which this project does not map to ready for QA, so the fix may not be on staging yet. Resume with "AP-2410 --from s4" once the ticket reaches QC.
+**Result:** AP-2410 PASS — 4 of 4 test cases passed on Dev (v2dev), meeting the 90% pass-rate threshold. 2 bugs filed (AP-2557, AP-2558, Medium). Ticket comment posted and verified (id 19523); AP-2410 moved to Done.
 
 **What passed**
-- None. No test case was executed in this run.
+- Chubb creditors insurance quote on a dealer quote with PM30 in English (AP2410_001): Get Quote saved it with "Chubb insurance quote saved successfully" at CA$15.74 /m, with no error.
+- The same with PM50 in French (AP2410_002): saved at CA$21.78 /m, with no error.
+- Insurance Quick Quote (AP2410_003, regression): PM30 with Life, Critical illness and Disability priced in two result tables, with no error.
+- Replay of the reported 2026-03-29 inputs (AP2410_004): with a co-applicant on the financing, Critical illness for the Co borrower and Disability for Both saved at CA$150.92 /m. "Debtor is -1 years old" and the HTTP 400 did not appear. Only Life "Residual Value Coverage" was replaced (by "Decreasing"), because Dev does not offer it.
 
 **Failures**
-- None. No test case was executed in this run.
+- None. Both bugs below come from observations on passing cases, filed by the reviewer's Gate C decision:
+  - AP-2557 (BUG-001, Medium) — reopening a quote saved with PM50 shows Form "Monthly Premium PM30", so Get Quote would re-price it as PM30. Seen in AP2410_002.
+  - AP-2558 (BUG-002, Medium) — a co-applicant saved with only a name and date of birth shows another client's email and phone in the quote's Co-applicant block. Seen in AP2410_004.
 
 **Decisions made**
-- Intake: AP-2410 is a Bug, so the run followed the bug re-test flow — requirements analysis (s1), test plan (s2) and peer review (s3b) were skipped, and the bug's steps to reproduce and its expected result "Submit successfully" are the requirement.
-- Run folder: `no-sprint` — the ticket has no sprint and no fix version, and the registry sets no default run folder (reviewer rule E3).
-- Gate A: not applicable — s1 skipped by the bug re-test flow.
-- Gate B (rule B3, after rework): the first inline review approved the cases, but an independent review (round 1) asked for rework — 1 Major and 2 Minor findings. That earlier approval is superseded. Fixed: step 1 of AP2410_001 and AP2410_002 no longer requires the "Add creditors insurance" link (two knowledge sources disagree on whether it is shown, and step 2 opens the page by URL), so it only records whether the link appears; the ticket's two screenshots were read and the original errors are named in the test cases; step 4 of every case records the full text of any error banner; AP2410_002 step 3 confirms each field was changed from the restored PM30 / English values. s3b was not re-run.
-- Gate B (rule B3, after round-2 rework): the independent review (round 2) asked for rework again — 2 Major and 1 Minor findings; the round-1 approval is superseded. Fixed: step 1 of every quote case now records the financing's term, date of birth and co-borrower, and every coverage term uses that recorded term, because the contract setup guide says the Life term must match the financing term (a financing this batch adds uses 12 months, the term in the reported screenshot); a new High re-test, AP2410_004, replays the exact inputs that produced "Debtor is -1 years old" (Tax exempt Yes, co-borrower and Both coverage); AP2410_003's Disability is now fixed to 30D_RETRO. The file was renamed to AP2410_TestCases_001-004.md. s3b was not re-run.
-- Original errors, from the screenshots: on 2026-02-07 rate table RT50 returned "To sign up for creditor program please contact Unity at 1 (888) 561-1101." (HTTP 400); on 2026-03-29 rate table PM30 returned "Debtor is -1 years old. Age of Debtor is not within the plan limits." (HTTP 400). The second is the one the fix must remove.
-- Gate C: not reached — no execution.
-- Gate D: not reached — the ticket's status and assignee were not changed.
-- Test design: the two re-test cases run the ticket's own steps on quote 6167, once with rate table PM30 in English and once with PM50 in French, because the developer asked on 2026-03-23 to "try PM50 or PM30". A fourth, AP2410_004, replays the inputs from the 2026-03-29 screenshot, because the first two use borrower-only coverage and would pass even if only that path were fixed. A regression case (AP2410_003) sends the same Chubb rating call from the Insurance Quick Quote page.
-- One open question, Q-001 (Judgement): the developer wrote "RT is not available right now", but nothing says whether an RT rate table should still be offered. AP2410_001 only records the options the Form dropdown lists; no result depends on the answer.
-- A second open question, Q-002 (Judgement), applies only if quote 6167's financing has no co-borrower: nothing says whether co-borrower or Both coverage should then be accepted or refused. AP2410_004 then records the outcome and fails only on objective faults, such as an impossible age like "-1 years old".
+- Gate A: not applicable — analyze is skipped by the bug re-test flow.
+- Gate B (rule B3, by reviewer — R2 round 2): execute the current cases AP2410_001–004.
+- Gate C (by reviewer — R3 round 3, APPROVE): no FAIL, so rules C1–C4 were not triggered by any case. O-1 → File new (rule C4) → AP-2557, relates to AP-2410 and AP-2528. O-7 → File new (stop rule E2 settled by the reviewer: AP-2541 names the same block with another behaviour) → AP-2558, relates to AP-2410 and AP-2541. O-2, O-3, O-4, O-5, O-6 and O-8 recorded, not filed. No stopping bug.
+- Filing (apply_mode automatic): both bugs created as Medium, assigned to Minh Lưu (`bug_new_assign`, account id read back), labels qa-agent and stlc-automated. Each description is condensed to the bug description shape, and its screenshots are embedded in the description and verified through the read-back (AP-2557: 2 of 2; AP-2558: 1 of 1). At the orchestrator's request, the AP-2558 summary carries no contact values. Its description states them once and says whose they are.
+- Verdict (s6): PASS under the default exit criteria (no test plan in the bug re-test flow): 100% pass rate, 0 Critical and 0 High bugs open.
+- Gate D (rules, automatic — decided by reviewer R4 round 1, routing.md §3.2 All PASS): AP-2410 → Done (QA → Done, read back), assignee unchanged (Vinh Le - QC). The bug re-test comment (REST v2 wiki markup, read back) lists the 4 PASS cases, the line "Not replayed: Life Residual Value Coverage (not offered on Dev; Decreasing used). Tested on Dev, not staging.", questions O-2, O-8 and Q-001, and the related bugs AP-2557 and AP-2558 (Medium, not stopping). No action on AP-2557/AP-2558.
 
 **Left behind**
-- Test data on Staging: None — nothing was executed. When s4 runs it will add a financing to quote 6167 if it has none and save a Chubb insurance quote on it (PM50 / Français after AP2410_002, replaced by the AP2410_004 replay if that saves).
-- Observations that are not failures: None.
-- Knowledge files added or changed: None.
+- Test data on Dev: quote 6696 (client Retest Chubb2410-001, `client.stage.2410001@yopmail.com`, on vehicle 915, which was not edited). The quote carries its financing (25,000.00$, Term 12, AutoCapital Canada), the co-applicant Coapp Retest2410 (born 1988-04-10) and a saved Chubb creditor quote (PM30, English, Tax exempt Yes, CA$150.92 /m). No contract was generated. This run created no new test data; it wrote only to Jira.
+- Questions for the developer (posted in the AP-2410 comment, with Q-001 — only PM30/PM50 offered, no RT table; is RT meant to return?):
+  - O-2: Tax exempt "Yes" still shows 9 % tax on every coverage row. Should it remove the tax?
+  - O-8: the Borrower's Life premium went from 16.25$ to 16.60$ once a co-applicant existed, with the same Life inputs. Is that intended?
+- Observations that are not failures:
+  - O-3: the reopened insurance page shows no Coverage table; it is shown only in the row details.
+  - O-4: changing the Form clears the Life type.
+  - O-5: some coverage options are hidden; Residual Value Coverage is not offered on Dev; "For" offers only Borrower until the financing has a co-applicant.
+  - O-6: the Quick Quote result is in French although the UI is in English.
+- Knowledge files added or changed: none in this run (update-ticket wrote only to Jira). The earlier s4 runs wrote `quote-creation.md`, `chubb-insurance.md` and `test-centralized.md`.
 
 **Files**
-- [AP2410_TestCases_001-004.md](qa-artifacts/3-test-cases/AP2410_TestCases_001-004.md)
-- [requirement capture](requirements/AP-2410-ap-2405-dealer-portal-chubb-insurance-quote.md)
-- [review record](qa-artifacts/7-reviews/AP-2410_review.md)
+- [AP-2410_test-report.md](qa-artifacts/5-testing-report/AP-2410_test-report.md)
+- [AP-2410_bug-report.md](qa-artifacts/5-testing-report/AP-2410_bug-report.md)
+- [execution log](qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2410_2026-11-08.md)
 - [run state](qa-artifacts/.pipeline/AP-2410.md)
 
 ## Automation
-Not run yet.
+- Spec: `playwright-automation/src/tests/dealer/chubbInsuranceQuote_AP2410.spec.ts` · tag `@AP-2410`
+- 4 of 4 PASSED cases automated — 4 passing, 0 fixme (lint clean, two full runs green)
+- Not automated: none. AP2410_001 step 1 (create quote + financing) and AP2410_004 step 1 (add co-applicant) are replaced by read-only guards on quote 6696, which the manual run left on Dev
+- PR skipped: vcs not available (gh not logged in); awaiting R5 review (`--review external --no-pr`)

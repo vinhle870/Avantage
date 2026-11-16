@@ -225,6 +225,18 @@ There is no separate insurance quote-details page.
 The Gap tab takes a smaller set: borrowerDOB, coBorrowerDOB, monthlyPayment, termMonths,
 residualAmount, `gapTerm`.
 
+> **Dev — 2026-11-08 (AP-2410 s4).** `/quick-insurance-quote` on Dev: Form `GC6201MQ:PM30` "Monthly Premium PM30" /
+> `GC6201MQ:PM50` "Monthly Premium PM50" (no RT); fields `quick_insurance_chubb[...]` form, borrowerDOB, coBorrowerDOB,
+> monthlyPayment, termMonths, residualAmount (pre-filled 0), lifeType (Decreasing, Decreasing Residual; Acc. variants hidden),
+> criticalIllnessType (Decreasing, Decreasing Residual), disabilityType (12 values, 3 visible). PM30, DOB 1990-01-01, 500/month,
+> 60 months, Life/CI Decreasing 60, Disability 30D_RETRO 60 → two tables in place: 20.53$ / 20.53$ / 32.03$ monthly premium,
+> Equivalent Single Premium 3,506.24$, Commission (30%) 1,051.87$. The quote-page creditor form on Dev is in
+> `quote-creation.md` (AP-2410 block).
+> **Language of the quick-quote result (Dev, 2026-11-08, AP-2410 s4, added after review R3 F-4):** with the UI in English
+> and no Language field on the quick-quote page, the priced result is titled "Primes par garantie" and reads
+> "Language: Français" (AP2410_003 step 5 screenshot). Recorded as a fact only — no source states which language the
+> quick-quote result should use.
+
 ## 7. Sources
 
 Derived from Jira: AP-2400, AP-2405, AP-2410, AP-2431, AP-2436, AP-2437, AP-2449

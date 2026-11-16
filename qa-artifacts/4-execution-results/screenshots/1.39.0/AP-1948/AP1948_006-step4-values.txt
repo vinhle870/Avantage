@@ -1,0 +1,8 @@
+Environment: Dev (v2dev)
+Captured: 2026-11-15T08:53Z-08:54Z (read back from the re-opened form after each save)
+URL: https://v2dev.garantieavantageplus.ca/admin/vehicle-model-edit/3124/edit (Vehicle model #3124, TESLA Model 3)
+Original        vehicle_model[category] = CATEGORY_A (equals AP1948_004's X)
+After change    POST save -> /admin/vehicle-model 200 "Vehicle model saved"; re-opened category = CATEGORY_E
+Portal (Y=E)    GET /customer/1493/quote-request/program 200 - no term card, no message; POST Continue with no term -> 422, inline "ERROR This value is not valid." (twice), page stays on /program
+After restore   POST save -> /admin/vehicle-model 200 "Vehicle model saved"; re-opened category = CATEGORY_A; full form identical to original
+Portal (X=A)    /customer/1493/quote-request/program 200 - terms 16,122,123,124,125,126 listed (same as step 1) at 2026-11-15T08:54:39Z

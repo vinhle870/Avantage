@@ -1,0 +1,8 @@
+AP2507_001 step 1 - read-only build check (no "Decoder" click) - Environment: Dev (v2dev)
+Time: 2026-11-07T10:58Z  Page: GET https://v2dev.garantieavantageplus.ca/quote/new/edit-vehicle (via /quote 302)
+Scripts loaded by the page (src): freshchat widget.js (cross-origin, not readable), /build/runtime.0c796a0d.js (no novalidate),
+  /build/app.18b4959e.js, fw-cdn.com 4882018.js (cross-origin, not readable), cloudflare beacon.min.js (no novalidate). No separate vinlookup.js.
+Matches for "novalidate" in /build/app.18b4959e.js (fetched with cache:reload), word for word:
+ [a] var t=e.closest("form"),r=t.attr("name"),i={};i=t.serializeArray(),r?i.push({name:r+"[novalidate]",value:!0}):i.push({name:"[novalidate]",value:!0}),$.ajax({url:t.at...
+ [b] ...d(":input[id='"+i+"_VIN'], :input[id='"+i+"_quote_name'], :input[id='"+i+"__token']").serializeArray();o.push({name:i+"[novalidate]",value:!0}),$.ajax({url:r.at...
+No hardcoded "vehicle[novalidate]" found. Build-check table row 1 -> fix present.

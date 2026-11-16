@@ -1,7 +1,7 @@
 # Requirements Analysis Report
 
 **Project:** Avantage Plus v2 — Dealer portal, quote page `/quote/{id}/details`, "Summary of products" → Gap Insurance / Creditors insurance add modal (Jira AP-2499)
-**Date:** 2026-11-01
+**Date:** 2026-11-01 · re-analysed 2026-11-15 (open questions re-checked by the Step 3c knowledge lookup)
 **Analyst:** QA Agent — Requirements Analyst Skill
 **Source files:** `requirements/AP-2499-add-gap-creditors-insurance-financing-form.md`
 **Total requirements found:** 6
@@ -50,6 +50,16 @@ the project's knowledge or test data, so the Humania half of REQ-002 may have no
 to run on and would be recorded BLOCKED. Third, every submit writes a real financing,
 and possibly a Chubb insurance quote, onto a quote; each case must create its own quote
 from its own vehicle so no other ticket's data changes.
+
+**Re-analysis 2026-11-15.** The ticket text is unchanged since capture (only QA comments,
+QA screenshots and links to the three filed bugs were added). Every open question was
+re-checked against Jira Stories and Tasks. Two are now answered by AP-2405 (the Chubb
+creditor-insurance Story): what makes a creditors quote fail (Q-007), and that a returned
+result is kept when the form is re-opened (Q-008). Twelve are accepted as the build's
+current behaviour because no Story defines them. Q-002 stays open because it is missing
+test data (no Humania dealer), not missing knowledge. Still no question blocks testing.
+AP2499_009 can now be re-designed with a known failure trigger, and AP2499_005 can be
+re-designed around Date of birth, since the residual turned out to be required.
 
 Overall testability is rated **MEDIUM**: the main outcomes are easy to see on screen,
 but the validation rules, the provider failure path and the Humania account are not
@@ -257,21 +267,63 @@ testable, and the test records what the build does on this point instead of gues
 
 | # | Question | Raised against | Impact | Status | Answer (quoted, with source) | Assigned to |
 |---|---|---|---|---|---|---|
-| Q-001 | Must other entry points to GAP/creditors insurance (for example the creditor page `/quote/{id}/insurance` reached by URL) also show the financing form, or only the modal opened from "Summary of products"? | REQ-001 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-002 | Which dealer account on staging is configured for Humania, so the "Humania dealer" case of the criterion can be run? | REQ-002 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-003 | Before the first insurance quote is submitted, what sits below the financing form — the insurance form only, or the form plus an empty result area? | REQ-002 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-004 | What is the "normal empty/placeholder state" of each financing field with no stored value — in particular the type, payment frequency and financing company drop-downs? | REQ-003 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-005 | What does "the insurance step backed by the saved financing" show — are insurance fields such as monthly payment, term or residual filled from the financing? | REQ-004 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-006 | When a dealer corrects an existing financing in the modal, is the same financing updated, or is a new one created? | REQ-004 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-007 | What makes the GAP/creditors quote fail, so the "error shown without discarding the entered values" branch can be tested on staging? | REQ-005 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-008 | After an insurance result is returned, does closing and re-opening the modal still show that result? | REQ-005 | Info | Open | — | Nicolas-Eric Tain |
-| Q-009 | If the dealer edits the financing form but submits the insurance form without submitting the financing first, which financing values does the insurance quote use? | REQ-005 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-010 | What counts as "invalid" for base amount, term, interest rate and the drop-downs (zero, negative, non-numeric, decimals, upper limits)? | REQ-006 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-011 | Are residual and applicant date of birth optional? The Validation criterion does not list them. | REQ-006 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-012 | What are the exact field labels and error texts in the French UI of the modal? | REQ-001, REQ-006 | Judgement | Open | — | Nicolas-Eric Tain |
-| Q-013 | Does the creditors-insurance notice "Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance." change with this story? It shows on every quote today (`chubb-insurance.md` §5). | REQ-001 | Info | Open | — | Nicolas-Eric Tain |
-| Q-014 | Does the existing financing page `/quote/{id}/financing` (the Financing card's "Add a financing") keep working unchanged? | REQ-004 | Info | Open | — | Nicolas-Eric Tain |
-| Q-015 | What does the modal show for a dealer configured for neither Chubb nor Humania? | REQ-002 | Info | Open | — | Nicolas-Eric Tain |
+| Q-001 | Must other entry points to GAP/creditors insurance (for example the creditor page `/quote/{id}/insurance` reached by URL) also show the financing form, or only the modal opened from "Summary of products"? | REQ-001 | Judgement | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "creditor insurance modal"`, plus 2 more word sets — see the lookup log, Q-001) — current actual result accepted. Observed on Dev, 2026-11-02 (AP2499_002 step 3): `/quote/{id}/insurance` opened directly answers HTTP 200 and shows the financing form alone, not the alert. | — |
+| Q-002 | Which dealer account on staging is configured for Humania, so the "Humania dealer" case of the criterion can be run? | REQ-002 | Judgement | Open | Not a knowledge question — missing **test data**: no dealer account configured for Humania is known in the `env` or `test-data` sources, and none was found on Dev on 2026-11-02 (dealer 1380's admin pages offer only a Chubb configuration). The lookup was still run (`text ~ "Humania"`, `text ~ "Humania dealer"`): AP-1667 (Story, Done) says "The dealer user is set up with a humania commission rate (A,B,C,D,E,F)" — a hint at how such a dealer is configured, not an account to test with. AP2499_013 stays BLOCKED. | Nicolas-Eric Tain |
+| Q-003 | Before the first insurance quote is submitted, what sits below the financing form — the insurance form only, or the form plus an empty result area? | REQ-002 | Judgement | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "insurance quote form results"`, plus 2 more — lookup log, Q-003) — current actual result accepted. Observed on Dev, 2026-11-02: with no financing, nothing is shown below the financing form (AP2499_001 step 3, AP2499_002 step 4); with a financing, the GAP or creditors insurance form sits below the financing block, with no result area (AP2499_003 step 3). | — |
+| Q-004 | What is the "normal empty/placeholder state" of each financing field with no stored value — in particular the type, payment frequency and financing company drop-downs? | REQ-003 | Judgement | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "financing form empty"`, plus 1 more — lookup log, Q-004) — current actual result accepted. Observed on Dev, 2026-11-02 (AP2499_001 step 3, AP2499_010 step 2): text fields blank; Type, Payment frequency, Term months and Financing company on "Choose"; Province pre-selected "Québec". | — |
+| Q-005 | What does "the insurance step backed by the saved financing" show — are insurance fields such as monthly payment, term or residual filled from the financing? | REQ-004 | Judgement | Accepted | No Story/Task defines what the step shows (searched: `issuetype in (Story, Task) AND text ~ "gap term"`, plus 2 more — lookup log, Q-005) — current actual result accepted. Observed on Dev, 2026-11-02 (AP2499_003 step 3): the GAP step shows Rate table "TGGAP", Language "English", Tax exempt "No" and an empty Gap Term although the financing has a 60-month term — no insurance field is filled from the financing. AP-2405 (Story, Done) says ""loan" is the financing info" about the Chubb API request; that defines what the request sends, not what the form shows, so it is not used as the answer. | — |
+| Q-006 | When a dealer corrects an existing financing in the modal, is the same financing updated, or is a new one created? | REQ-004 | Judgement | Accepted | No Story/Task defines it for the quote financing (searched: `issuetype in (Story, Task) AND text ~ "edit financing"`, plus 1 more — lookup log, Q-006) — current actual result accepted. Observed on Dev, 2026-11-02 (AP2499_006 step 5): the same financing is updated — one financing on the quote, base amount 30,000.00$ after correcting 25000. | — |
+| Q-007 | What makes the GAP/creditors quote fail, so the "error shown without discarding the entered values" branch can be tested on staging? | REQ-005 | Judgement | Answered | AP-2405 (Story, Done — "Chubb financing insurance"), comment by Minh Lưu (developer), 2026-01-22: "borrower must has dob but quoteClient doesn't have (Error msg: DOB of Debtor is required for insurance coverage)" and "borrower co-applicant is required (Error Msg: "DOB of Co-Debtor is required for insurance coverage.")". So the Chubb (creditors) quote is refused when the borrower has no date of birth, or when a co-borrower's date of birth is needed and missing. The expected result on failure stays the AC's own: "on failure an error is shown without discarding the entered values". This covers the creditors quote only; no Story defines a GAP failure trigger. Earlier observation, not a failure: Life term 999 was priced on the 60-month loan term (AP2499_009 step 4). | — |
+| Q-008 | After an insurance result is returned, does closing and re-opening the modal still show that result? | REQ-005 | Info | Answered | AP-2405 (Story, Done), description: "The request and response should be saved in a table and then retrieved when the user leaves the page and reopens the form". Matches Dev, 2026-11-02 (AP2499_007 step 4: the "Coverage" table is shown again in the re-opened modal). Where the result is first shown is decided by AP-2499's own AC ("the result renders below the form in the same modal"), not by AP-2405's "The response is displayed in a table in the quote details page" — the AC wins. **Scope: creditors only; GAP re-open recorded at execution** — AP-2405 defines only the Chubb creditors form, and no Story defines what the GAP modal shows on re-open (R1 F-1, 2026-11-15). Note: the AP-2410 mapping of 2026-11-08 on Dev saw no "Coverage" table in the re-opened creditors modal (`domain` quote-creation.md), so what the re-opened modal shows is also recorded at execution. | — |
+| Q-009 | If the dealer edits the financing form but submits the insurance form without submitting the financing first, which financing values does the insurance quote use? | REQ-005 | Judgement | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "unsaved financing insurance"`, plus 1 more — lookup log, Q-009) — current actual result accepted, recorded at execution (no run has observed it yet). | — |
+| Q-010 | What counts as "invalid" for base amount, term, interest rate and the drop-downs (zero, negative, non-numeric, decimals, upper limits)? | REQ-006 | Judgement | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "interest rate validation"`, plus 2 more — lookup log, Q-010) — current actual result accepted. Observed on Dev, 2026-11-02 (AP2499_011 step 3 and the modal map): letters in the base amount are refused with "This value is not valid."; an interest rate of -5 is not refused; Term months is a drop-down of 3 to 240 in steps of 3, so no free value can be typed. | — |
+| Q-011 | Are residual and applicant date of birth optional? The Validation criterion does not list them. | REQ-006 | Judgement | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "residual required"`, plus 2 more — lookup log, Q-011) — current actual result accepted. Observed on Dev, 2026-11-02: Residual is required — an empty residual is refused with "This value should not be blank." in the modal (AP2499_010 step 3, AP2499_012 step 3) and on the financing page (AP2499_005 step 2); an empty Date of birth is not flagged (AP2499_012 step 3). The Prefill AC names residual among the fields but does not say it may be empty, so the AC does not contradict this result. | — |
+| Q-012 | What are the exact field labels and error texts in the French UI of the modal? | REQ-001, REQ-006 | Judgement | Accepted | No Story/Task defines them (searched: `issuetype in (Story, Task) AND text ~ "French financing labels"`, plus 1 more — lookup log, Q-012) — current actual result accepted. Observed in English on Dev, 2026-11-02: "This value should not be blank." and "This value is not valid." (AP2499_010, AP2499_011). The French labels and texts are recorded at execution. | — |
+| Q-013 | Does the creditors-insurance notice "Please make sure you create the GAP insurance first to include the GAP premium amount in the creditors insurance." change with this story? It shows on every quote today (`chubb-insurance.md` §5). | REQ-001 | Info | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "create the GAP insurance first"`, plus 1 more — lookup log, Q-013) — current actual result accepted, recorded at execution (the 2026-11-02 execution log does not record the notice). | — |
+| Q-014 | Does the existing financing page `/quote/{id}/financing` (the Financing card's "Add a financing") keep working unchanged? | REQ-004 | Info | Accepted | No Story/Task defines it (searched: `issuetype in (Story, Task) AND text ~ "add a financing"`, plus 1 more — lookup log, Q-014) — current actual result accepted. Observed on Dev, 2026-11-02 (AP2499_004 step 2): `/quote/{id}/financing` loads and saves ("Financing saved"), and the saved financing then shows in the modal. | — |
+| Q-015 | What does the modal show for a dealer configured for neither Chubb nor Humania? | REQ-002 | Info | Accepted | No Story/Task defines it for the add modal (searched: `issuetype in (Story, Task) AND text ~ "insurance configuration dealer"`, plus 1 more — lookup log, Q-015) — current actual result accepted, recorded at execution. AP-2431 (Done) defines "Your account is not configured with creditors insurance. Please contact support." for the contract index pages only, so it is not used. | — |
+
+**Status after the 2026-11-15 knowledge lookup:** 2 Answered (Q-007, Q-008) · 12 Accepted · 1 Open (Q-002, test data) · 0 Blocking. Nothing is posted to Jira: Accepted and lookup-Answered questions are never posted, and Q-002 is a test-data gap, not a question for the product owner.
+
+### Knowledge lookup log — 2026-11-15
+
+Every query is `jira.sh issue list -q 'issuetype in (Story, Task) AND text ~ "<words>"'`
+(Story and Task only, any status). "Read" lists the hits whose description and comments
+were read in full.
+
+| Q | Word sets tried | Plausible hits read | Result |
+|---|---|---|---|
+| Q-001 | "financing form modal" · "creditor insurance modal" · "insurance financing form" | AP-2405, AP-2400, AP-2504, AP-2546, AP-2559 | Not defined → Accepted |
+| Q-002 | "Humania" · "Humania dealer" | AP-1667, AP-1676, AP-1486 | Test data — stays Open |
+| Q-003 | "insurance quote form results" · "GAP insurance quote" · "GAP insurance financing" | AP-2405, AP-2504, AP-2536, AP-2493 | Not defined → Accepted |
+| Q-004 | "financing form empty" · "financing company dropdown" | AP-2405, AP-2376 | Not defined → Accepted |
+| Q-005 | "gap term" · "monthly payment insurance" · "creditors insurance financing" | AP-2405, AP-2504, AP-2431 | Not defined for the form → Accepted |
+| Q-006 | "edit financing" · "financing update quote" | AP-2376, AP-2546, AP-2405 | Not defined → Accepted |
+| Q-007 | "Chubb error" · "insurance coverage error" · "DOB Debtor" | AP-2405 | **Defined** — AP-2405 comment (Minh Lưu, 2026-01-22) → Answered |
+| Q-008 | "insurance response saved" · "reopens the form" | AP-2405 | **Defined** — AP-2405 description → Answered |
+| Q-009 | "unsaved financing insurance" (no result) · "insurance financing form" | AP-2405 | Not defined → Accepted |
+| Q-010 | "interest rate validation" · "financing validation" · "base amount" | AP-2504, AP-2442 (title only, no description) | Not defined → Accepted |
+| Q-011 | "residual required" · "residual amount" · "date of birth financing" | AP-2504, AP-2405 | Not defined → Accepted |
+| Q-012 | "French financing labels" · "financement" | AP-2504, AP-2546 | Not defined → Accepted |
+| Q-013 | "create the GAP insurance first" · "GAP premium creditors" | AP-2504, AP-2493 | Not defined → Accepted |
+| Q-014 | "add a financing" · "financing page" | AP-2376, AP-2101, AP-967, AP-2491 | Not defined → Accepted |
+| Q-015 | "insurance configuration dealer" · "dealer insurance provider" | AP-2400, AP-2431, AP-2536 | Not defined for the modal → Accepted |
+
+**Later Stories checked for superseding this ticket's AC — none does.** AP-2546
+("Standardize the Financing section when generating a contract", Deploy to staging) shows
+the financing as a collapsed summary on the contract **checkout** page, and AP-2559 (Deploy
+to staging) changes the checkout vehicle card; neither redesigns the GAP/creditors add
+modal, so AC 2 ("the financing form does not disappear when a financing already exists")
+still stands and bug AP-2526 is untouched. AP-2550 and AP-2561 are In Progress (not
+delivered) and also concern the checkout page.
+
+**What this changes for the blocked test cases**
+
+| TC | Blocked by | After the lookup |
+|---|---|---|
+| AP2499_009 | Q-007 | **Becomes runnable after a design update.** Q-007 is Answered: the case must swap its trigger (Life term 999) for the AP-2405 one — a creditors quote whose borrower has no date of birth (the financing form does not flag an empty date of birth, Q-011), or one that needs a co-borrower's date of birth that is missing. Expected result: the AC's "an error is shown without discarding the entered values". If Chubb still prices the request, record BLOCKED again with the observed answer. |
+| AP2499_005 | Q-011 | **Needs a design update.** Q-011 is Accepted: the residual is required, so a stored financing with no residual cannot exist on this build and the residual check is unreachable. The Prefill AC's "any field with no stored value falls back to its normal empty/placeholder state" can still be tested on Date of birth, which is not required; whether a financing without a date of birth can be stored is recorded at execution (refused → BLOCKED with that reason). |
+| AP2499_013 | Q-002 | Unchanged — BLOCKED, test data: no dealer configured for Humania on Dev. |
 
 ---
 
@@ -285,7 +337,7 @@ stands. Each one is a requirement we cannot honestly sign off until it is clarif
 | REQ-001 | The GAP/creditors add modal is not mapped in the domain knowledge; navigation relies on the ticket screenshots | High | Open |
 | REQ-002 | No Humania dealer is known on staging; the Humania half of the criterion may be BLOCKED | High | Open |
 | REQ-004, REQ-006 | Every submit writes a real financing (and possibly a Chubb quote) on a quote; each case needs its own quote and vehicle | High | Open |
-| REQ-005 | The insurance failure path has no known trigger; it may be BLOCKED | Medium | Open |
+| REQ-005 | The insurance failure path had no known trigger; since 2026-11-15 AP-2405 gives one for the creditors quote (missing borrower or co-borrower date of birth, Q-007) — none is known for GAP | Medium | Partly resolved |
 | REQ-004 | "Backed by the saved financing" has no observable definition; update-versus-create on correction not stated | Medium | Open |
 | REQ-006 | "Invalid" is not defined; residual and date of birth validation not stated | Medium | Open |
 | REQ-003 | Empty/placeholder state of each field not described | Medium | Open |
@@ -297,6 +349,6 @@ stands. Each one is a requirement we cannot honestly sign off until it is clarif
 - [x] All requirements have at least one acceptance criterion
 - [x] All requirements have a priority assigned
 - [x] Testability risks have been logged
-- [x] Open questions have been assigned to stakeholders
+- [x] Open questions have been assigned to stakeholders (2026-11-15: 14 of 15 settled by the knowledge lookup; Q-002 is test data)
 - [ ] Recommended test types reviewed by QA Lead
 - [x] Ready to proceed to Test Plan Design — no Blocking question

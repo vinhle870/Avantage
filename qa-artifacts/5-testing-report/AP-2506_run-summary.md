@@ -1,51 +1,44 @@
 # Run Summary — AP-2506: Generate contract for a quote's Esthetic protection product
-Updated: 2026-11-01T01:57:16Z · Run folder: no-sprint · Stages run: intake → s3b · Run status: complete (design only, stopped by --until s3b)
+Updated: 2026-11-15T09:41:11Z · Run folder: no-sprint · Stages run: analyze → analyze · Run status: stopped by --until analyze (before Gate A, awaiting the independent R1 review) · Environment: Dev (v2dev) — no browser used in this run
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2506: Generate contract for a quote's Esthetic protection product
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 5 REQ · 3 High risks
- Test cases   : 9 designed (8 Not Run, 1 BLOCKED) · 10 proposed by review
- Execution    : not run — design only
- Bugs         : 0 filed · 0 linked to existing · 0 not a bug
- Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS
- Verdict      : — (s6 not run)
- Tickets      : AP-2506 unchanged (status QA) · 1 questions comment posted · 0 bugs updated
- Stopped at   : s3b (--until s3b — ticket is in QA, not QC, so the build may not contain the change)
+ Requirements : 5 REQ · 12 questions: 1 Blocking Open (Q-001) · 2 other Open (Q-002, Q-012) · 4 Answered · 5 Accepted
+ Test cases   : 9 designed (unchanged) · AP2506_002 still BLOCKED by Q-001
+ Execution    : not re-run — last run 2026-11-08: 5 PASS · 3 FAIL · 1 BLOCKED (Environment: Dev)
+ Bugs         : none filed or changed by this run
+ Corrected    : 0 test cases rewritten
+ Verdict      : — (last verdict 2026-11-08: FAIL, 55.6%)
+ Tickets      : AP-2506 unchanged (QA, Vinh Le - QC) · nothing posted
+ Stopped at   : analyze (--until)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Stopped:** at s3b — this was a design-only run, because AP-2506 is in status QA, which this project does not treat as ready for testing, and it links no pull request. Resume with "AP-2506 --from s4" once the ticket reaches QC, or "AP-2506 --from s1" once the author answers Q-001.
+**Result:** On the QA's instruction of 2026-11-15, the analysis of AP-2506 was re-checked: every open question went through the knowledge lookup (a search of Jira Story and Task tickets for a sentence that answers it). Nine of the twelve questions are now settled, but the one Blocking question, Q-001, stays open, so the blocked test case cannot run yet. Nothing was posted to Jira and no browser was used.
 
 **What passed**
-- Nothing was executed. Nine test cases are ready: eight can run as soon as the ticket reaches QC, and one waits on the author's answer to Q-001.
+- Nothing was executed in this run. The 2026-11-08 results stand: 5 of 9 cases passed on Dev.
 
 **Failures**
-- None — no test case was executed.
+- None new. AP2506_003 (headings, bug AP-2555), AP2506_005 (vehicle price, bug AP-2556) and AP2506_006 (PDF HTTP 500, bug AP-2512) stay failed; the acceptance criteria still decide them, so the lookup changes none of them.
 
 **Decisions made**
-- Gate A (rule A2, by the reviewer): continue, and the Blocking question was posted on AP-2506. Acceptance criterion 1 starts from the Extended Warranty row and an extended-warranty quote, but expects the Esthetic protection page; the description is about the Esthetic protection action. The author must say which row is meant (Q-001). Counts: 1 Blocking, 9 Judgement, 2 Info. The comment was read back on the ticket; the status was not changed.
-- Gate B (rule B3, by the reviewer after one rework round): execute the current cases. No acceptance criterion lacks a test case and no review proposal is High. The first review found one Blocker: AP2506_008 required a refusal message to appear beside "Financing company", which guessed an open answer. It was rewritten to record the message instead. Ten proposals were not promoted (4 Medium, 6 Low), led by "several options on one quote" and "double-click Generate Contract".
-- Gate C: not reached, because nothing was executed.
-- Gate D: not reached. AP-2506 stays in QA and nothing was assigned.
-- Run folder `no-sprint`: the ticket has no sprint, no fix version and no `default_run_folder` (reviewer rule E3).
-- Status check: QA has no canonical equivalent (ready for QA is QC), so the run was design only.
-- Test data: every quote is built from test-data vehicle 915 through `/vehicle/915/details` → **Create quote**. No case touches quote 6276 or another ticket's quotes. Cases that use the Generate Contract action fall back to the address `/quote/{id}/permaplate-create-contract` when the action is not shown. AP2506_001 is the exception: it exists to prove the action itself.
+- Q-001 (Blocking) stays Open. It is not missing product knowledge: the ticket contradicts itself. Acceptance criterion 1 starts from "a quote with an extended warranty quote" and tells the dealer to use "the Extended Warranty row actions", yet expects the Esthetic protection address, while the description talks about the Esthetic protection action. The search found no answer, and no delivered Story explicitly redesigns this entry point (AP-2551 adds a separate quote-level checkout; AP-2550 and AP-2561 are still In Progress). The behaviour of the build is never used to pick one reading. AP2506_002 stays BLOCKED. The question was already asked on 2026-11-01 and 2026-11-08, so nothing new is posted.
+- Answered from other Stories: Q-003 (no "Financing information" card on a quote without GAP/Creditor insurance) by AP-2559 and AP-2546; Q-004 (start date = delivery date, not editable) by AP-2428; Q-007 (vehicle read-only except the VIN, owner fields editable) by AP-2544 and AP-2545; Q-009 (back to the quote page with a PDF download, invoice created and announced) by AP-2428 and AP-2446.
+- Accepted as the expected result (no Story defines them, so what Dev showed on 2026-11-08 is correct): Q-005 (end date = start + term), Q-006 (Total = the Cost, no tax), Q-008 (blank required field refused with "This value should not be blank."), Q-010 (action withdrawn, address redirects to the quote), Q-011 (row ⋯ menu "Generate Contract").
+- Q-002 (the description says the action "should match Esthetic Protection", naming itself) and Q-012 (whether the change is deployed) are not product knowledge and stay Open.
+- Gate A is left to the independent reviewer (R1). No later stage was set back to pending, because no test case became runnable.
 
 **Left behind**
-- Test data on v2staging: None. No browser was used.
-- Observations that are not failures: The description says the Esthetic protection action "should match Esthetic Protection", which compares the product with itself (Q-002, Judgement). Known defect AP-2459 (HTTP 500 when "Financing company" is left on "Choose", status QA) may fail AP2506_008; at Gate C, compare that failure with AP-2459 before filing a new bug.
-- Knowledge files added or changed: None. After s4, add the create-contract action's location and the new page's sections to the `domain` file quote-creation.md.
+- No test data, no Jira change, no knowledge-file change. For the next Dev run: Stories delivered after 2026-11-08 (AP-2559, AP-2544, AP-2551, AP-2562) may have changed the page or its entry point; they are listed in the analysis.
 
 **Files**
-- [requirement capture](../../requirements/AP-2506-generate-contract-for-a-quotes-esthetic.md)
-- [AP-2506_requirements-analysis.md](../1-requirements-analysis/AP-2506_requirements-analysis.md)
-- [AP-2506_test-plan.md](../2-test-plan/AP-2506_test-plan.md)
-- [AP2506_TestCases_001-005.md](../3-test-cases/AP2506_TestCases_001-005.md) · [AP2506_TestCases_006-009.md](../3-test-cases/AP2506_TestCases_006-009.md)
-- [AP2506_ReviewFindings_2026-11-01.md](../3-test-cases/AP2506_ReviewFindings_2026-11-01.md)
-- [review record](../7-reviews/AP-2506_review.md)
-- [run state](../.pipeline/AP-2506.md)
+- [requirements analysis](qa-artifacts/1-requirements-analysis/AP-2506_requirements-analysis.md) — see *Knowledge lookup — 2026-11-15* for every query tried
+- [requirement capture](requirements/AP-2506-generate-contract-for-a-quotes-esthetic.md) — *Ticket changes since capture — 2026-11-15*
+- [run state](qa-artifacts/.pipeline/AP-2506.md)
+- Last test report: [AP-2506_test-report.md](qa-artifacts/5-testing-report/AP-2506_test-report.md)
 
 ## Automation
 Not run yet.

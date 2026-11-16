@@ -81,7 +81,7 @@ testable, and the test records what the build does on this point instead of gues
 
 | # | Question | Raised against | Impact | Status | Answer (quoted, with source) | Assigned to |
 |---|---|---|---|---|---|---|
-| Q-001 | {{QUESTION}} | REQ-00X | Blocking / Judgement / Info | Open / Answered | {{"quote" — ticket comment by NAME, DATE; or —}} | {{PERSON}} |
+| Q-001 | {{QUESTION}} | REQ-00X | Blocking / Judgement / Info | Open / Answered / Accepted | {{"quote" — ticket comment by NAME, DATE, or Story/Task KEY; or "No Story/Task defines it (searched: …) — current actual result accepted"; or —}} | {{PERSON}} |
 
 _(Write "None" if no questions)_
 

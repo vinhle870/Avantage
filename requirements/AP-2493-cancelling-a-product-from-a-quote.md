@@ -67,3 +67,36 @@ Taken from the ticket's Acceptance Criteria field (customfield_10150).
 | 2026-10-23 | Minh Lưu | Says he updated the PR. |
 
 Ticket metadata: one Bitbucket pull request linked, state MERGED (last updated 2026-10-26).
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:50:42-05:00 (2026-11-08T09:50:42Z) · **Previous capture:** 2026-11-01 · **Re-read:** 2026-11-15T09:45Z by stlc-ticket-pipeline (stlc-worker, `--from analyze --until analyze`)
+
+The description and the three acceptance criteria (customfield_10150) are unchanged —
+re-read word for word against the transcription above. The status is still **QC** and the
+assignee is still Vinh Le - QC. Nothing in the ticket's own text replaces an earlier
+statement. What changed:
+
+**New comments** (rows to add to the Comments table above):
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 (15:12 -05:00) | Vinh Le - QC | QA result — FAIL (2026-11-02) on Dev (v2dev): 12 PASS · 2 FAIL · 0 BLOCKED of 14 (86 %); bug AP-2516; Q-002–Q-008 listed with the recorded behaviour; not moved to Ready for release |
+| 2026-11-08 (04:50 -05:00) | Vinh Le - QC | "QA questions — screenshots · 2026-11-08": the open questions Q-002 to Q-008 re-posted to Nicolas-Eric Tain, each with a highlighted screenshot |
+
+Both comments are by the QA account (`not_developers`), so neither answers a question.
+No comment by the reporter or a developer has been added since 2026-10-23.
+
+**New attachments:** 7 QA screenshots `AP-2493_Q-002_highlighted.png` … `AP-2493_Q-008_highlighted.png`
+(2026-11-08), one per question in the 2026-11-08 comment — QA evidence, not requirement text.
+
+**New links:** relates to AP-2516 (the bug filed by the 2026-11-02 run, Backlog).
+
+> Knowledge lookup (2026-11-15): the open questions were searched for in Jira Stories and
+> Tasks; none is defined there, so Q-002–Q-010 are Accepted in the requirements analysis
+> (Q-003 except the Permaplate Subtotal gap, which the description's Subtotal sentence
+> keeps as a failure). Related later Stories found — AP-2535, AP-2536, AP-2543, AP-2537 —
+> cancel a *generated contract*, which this ticket puts out of scope; they change nothing
+> here.

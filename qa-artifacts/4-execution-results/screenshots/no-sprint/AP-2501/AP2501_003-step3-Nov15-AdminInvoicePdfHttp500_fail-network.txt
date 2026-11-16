@@ -1,0 +1,5 @@
+AP2501_003 step 3 - Admin invoice PDF requests, Dev (v2dev), 2026-11-15 (UTC 10:46-10:47)
+Method, URL, status, content-type only. No cookies, tokens or credentials.
+
+GET https://v2dev.garantieavantageplus.ca/admin/invoice/941/pdf  -> 500  text/html; charset=UTF-8   (opened by the "PDF" button, target=_blank, new tab; page "Erreur - Desole, l'application eprouve des difficultes techniques")
+GET https://v2dev.garantieavantageplus.ca/admin/invoice/956/pdf  -> 500  text/html; charset=UTF-8   (control check on the TERM_B invoice made by AP2501_002 today)

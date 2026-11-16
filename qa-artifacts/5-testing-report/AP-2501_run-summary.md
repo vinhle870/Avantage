@@ -1,50 +1,51 @@
 # Run Summary — AP-2501: Permaplate invoice - include name of the term in the description
-Updated: 2026-11-02T00:58:00Z · Run folder: no-sprint · Stages run: s5 → s7 · Run status: complete · Environment: Dev (v2dev)
+Updated: 2026-11-15T11:05:40Z · Run folder: no-sprint · Stages run: update-ticket (file-bugs → report ran earlier the same day, 10:56–10:59Z) · Run status: complete · Environment: Dev (v2dev)
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2501: Permaplate invoice - include name of the term in the description
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
- Requirements : 4 REQ · 1 High risk (REQ-004, Q-001 Blocking open)
- Test cases   : 6 designed · 5 proposed by review (none promoted)
- Execution    : 1 PASS · 1 FAIL · 4 BLOCKED
- Bugs         : 1 filed (AP-2529) · 0 linked to existing · 0 not a bug
- Corrected    : 0 test cases rewritten · 0 retired · s4c skipped (no C1 decision)
+ Requirements : 4 REQ · 1 High risk open (REQ-004 — Q-001, Blocking)
+ Test cases   : 6 designed · 0 proposed by review promoted (Gate B rule B3)
+ Execution    : 4 PASS · 1 FAIL · 1 BLOCKED — 66.7% (4 of 6)
+ Bugs         : 0 filed · 1 linked to existing (AP-2529, re-check comment 19587) · 0 not a bug
+ Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS (correct-cases skipped)
  Verdict      : FAIL
- Tickets      : AP-2501 unchanged (QC) · 0 bugs updated
- Stopped at   : s7 (complete)
+ Tickets      : AP-2501 unchanged (QC, comment 19588) · 0 bugs updated (AP-2529 commented only — Backlog, Minh Lưu, unchanged)
+ Stopped at   : update-ticket (complete)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Result:** AP-2501 FAIL. 1 of 6 test cases passed on Dev (v2dev), well below the 90% threshold. Staging was not checked. 1 bug filed (AP-2529, High). The ticket comment (19455) was posted and verified, and AP-2501 stays in QC.
+**Result:** AP-2501 FAIL — 4 of 6 test cases passed on Dev, missing the 90% threshold (66.7%). 0 bugs filed (1 linked to the existing AP-2529). Ticket comment posted and verified (comment 19588).
 
 **What passed**
-- Invoice details page (AP2501_001): a new Permaplate invoice (941) names the term sold. The description reads client · vehicle · VIN · contract number "PNA-0000000020" · **"10 ans"** · dealer, with the real contract number and no retail price. The Dealer and Admin invoice lists show the same lines in full for that invoice. They were not counted as passes, because no second-term invoice could be compared.
+- AP2501_001 (carried from 2026-11-02): invoice 941's details page names the term "10 ans" on the line after the contract number PNA-0000000020, with no retail price.
+- AP2501_002: a contract sold with a second term, "5 ans", produced invoice 956 whose description reads "5 ans" and never "10 ans", next to its own contract number PNA-0000000028. The invoice names the term actually sold.
+- AP2501_004 and AP2501_005: the Dealer Portal and Admin invoice lists show "5 ans" on invoice 956 and "10 ans" on invoice 941, each description in full on six lines.
 
 **Failures**
-- AP2501_003: the invoice PDF cannot be opened. The Admin "PDF" button (`GET /admin/invoice/941/pdf → 500 text/html`) shows the French "Erreur" page for every invoice tried, warranty invoices included, so nobody could check whether the PDF names the term. Gate C: filed as AP-2529 (rule C4).
+- AP2501_003 — the Admin invoice page's "PDF" button still answers HTTP 500 with the French "technical difficulties" page, for invoice 941 and for today's invoice 956, so no invoice PDF exists to check the term on. Gate C: linked to AP-2529 (rule C2) — re-check comment 19587 posted with the screenshot and request lines, and read back.
 
 **Decisions made**
-- Gate A (rule A2, earlier run): Q-001 was posted as comment 19437 on 2026-11-01. It is still unanswered, so AP2501_006 stays BLOCKED.
-- Gate B (rule B3, earlier run, after the R2 rework): the cases were run as designed. Nothing was promoted.
-- Gate C (rule C4, by the independent R3 reviewer, APPROVE): AP2501_003 was filed as new bug **AP-2529**, "[BUG-001][AP2501_003] — Admin invoice PDF button (/admin/invoice/{id}/pdf) returns an HTTP 500 error page on Dev for every invoice". It is High, assigned to Ken Nguyen and linked as *relates to* AP-2501 and AP-2512, and the screenshot is embedded and verified. No open bug names this route. AP-2512 (contract download) and AP-2519 (all-documents download) are different screens. A second search at s5 found no new candidate.
-- Gate D (rules, automatic; R4 inline APPROVE): AP-2501 was not moved to Ready for release. The pass rate is 17% (needs 90%), AP-2529 is a stopping bug (High, and it blocks AP2501_003 steps 3–4 and the PDF part of AP2501_006), and Q-001 (Blocking) is unanswered. The comment reminds the author of Q-001 and raises the new question Q-007, which is now recorded in the analysis as Judgement against REQ-002. AP-2529 is in Backlog, so it got no Gate D action.
-- Environment: Dev (v2dev) only, by the user's decision. Staging was not checked, and the test-case files still name v2staging (R3 F-2).
+- Gate A (rule A2, decided by the independent reviewer, R1 round 2, 2026-11-15): continue; Q-001 (Blocking, REQ-004) not posted again as a questions comment — already asked 2026-11-01 (comment 19437) and 2026-11-08.
+- Gate B (rule B3, decided by the independent reviewer, R2 round 1): execute the current cases; no proposal promoted.
+- Gate C (rule C2, decided by the independent reviewer, R3 round 1): AP2501_003 → comment on the existing AP-2529 (open, Backlog, High, already linked to AP-2501, same screen and same fault). No new bug; AP-2529's status and assignee were not changed.
+- Gate D (rule §3.1, decided by the independent reviewer, R4 round 1, applied automatically): AP-2501 not moved to Ready for release — pass rate 66.7% (needs 90%), AP-2529 (High) open, Q-001 (Blocking) open. Story result comment 19588 posted with the reviewer's correction (F-1: Q-003 added to the settled-questions line) and read back: one inline image (AP-2501_Q-001_highlighted.png, attached 2026-11-08, not re-uploaded) and the mention of Ken Nguyen. Status QC and assignee Vinh Le - QC unchanged; no action on AP-2529.
+- Before posting, AP-2501's comments were checked: none was dated 2026-11-15, so the comment is not a duplicate.
+- Automation: the gate is not met (66.7% < 90%, AP-2529 High open), so no automation run follows this execution.
 
 **Left behind**
-- Test data on Dev: quote 6555 (client Terme Invoice1102) with Permaplate contract PNA-0000000020 and unpaid invoice 941 ($91.98), plus quote 6556 (client Terme Second1102) with no product. These cannot be deleted.
-- AP2501_002, 004 and 005 stay BLOCKED because dealer 1380 has only one Permaplate term ("10 ans") linked on Dev. To unblock them, the QA decides whether to link a second enabled term (for example "5 ans") under Admin → dealer → Esthetic protection, then re-runs with "AP-2501 --from s4". AP2501_006 stays BLOCKED on Q-001.
-- Observations that are not failures: the Dealer invoice page has no invoice PDF, only Print (`window.print()`), which is asked as Q-007. The contract download returns HTTP 500 (known AP-2512). The Permaplate cost is missing from the quote Subtotal (known AP-2516).
-- Knowledge files added or changed: none in this run. `qa-artifacts/1-requirements-analysis/AP-2501_requirements-analysis.md` gained the Q-007 row.
+- Test data on Dev (2026-11-15): client terme.second.1115@yopmail.com (Terme Second1115), quote 6709, Permaplate contract PNA-0000000028 (term "5 ans", Financing company AutoCapital Canada) and unpaid invoice 956 ($40.24) — invoices are permanent. The temporary "5 ans" link on dealer 1380 was removed and the restore verified (only "10 ans" remains). Earlier records remain: quotes 6555 and 6556, contract PNA-0000000020, invoice 941.
+- Observations that are not failures: AP2501_006 stays BLOCKED on Q-001; on every surface that could be read, the term sits on the line right after the contract number. Q-002, Q-003, Q-005 and Q-007 are settled and the ticket comment says they need no answer. AP-2529's assignee is now Minh Lưu (the bug report's 2026-11-02 record said Ken Nguyen; the change was made in Jira, not by QA).
+- Knowledge files added or changed: None in this run (the 2026-11-15 execution write-backs to `quote-creation.md`, `billing-invoices.md` and `navigation-map.md` were made at execute).
 
 **Files**
 - [AP-2501_test-report.md](qa-artifacts/5-testing-report/AP-2501_test-report.md)
 - [AP-2501_bug-report.md](qa-artifacts/5-testing-report/AP-2501_bug-report.md)
-- [execution log](qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2501_2026-11-02.md)
+- [execution log](qa-artifacts/4-execution-results/no-sprint/execution-log_AP-2501_2026-11-15.md)
+- [AP-2501 comment body (19588)](qa-artifacts/4-execution-results/comment_AP-2501_2026-11-15.md)
+- [AP-2529 comment body (19587)](qa-artifacts/4-execution-results/comment_AP-2529_2026-11-15.md)
 - [run state](qa-artifacts/.pipeline/AP-2501.md)
 
 ## Automation
-- Spec: `playwright-automation/src/tests/dealer/permaplateInvoiceTerm_AP2501.spec.ts`, tag `@AP-2501`. It is read-only, checks invoice 941 and quote 6555, and runs on Dev (v2dev) only.
-- 1 of 1 PASSED cases automated — 1 passing, 0 fixme. Lint is clean, `--repeat-each=2` passed, and the inline R5 review approved it.
-- Not automated: AP2501_003 FAILED manually (AP-2529), and AP2501_002, 004, 005 and 006 were BLOCKED manually, so none of them has a confirmed expected behaviour.
-- PR skipped: gh CLI not installed.
+Not run for the 2026-11-15 execution: the automation gate is not met (pass rate 66.7%, needs 90%; AP-2529 High open). The existing spec `playwright-automation/src/tests/dealer/permaplateInvoiceTerm_AP2501.spec.ts` (`@AP-2501`, AP2501_001 only, 2026-11-02) is unchanged.

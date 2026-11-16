@@ -5,8 +5,11 @@ description: >-
   GOLDEN best practices and project conventions. Create mode generates SKILL.md,
   optional support files, and registers in ARCHITECTURE.md. Review mode audits an
   existing skill against the GOLDEN checklist and offers to fix violations.
+  Defect mode traces a skill's misbehaviour during real use to the conflicting or
+  stale lines across skills, agents and adapters, and proposes the fix.
   Use when the user says "create a new skill", "scaffold a skill", "add a skill",
-  "review a skill", "audit a skill", or "check skill quality".
+  "review a skill", "audit a skill", "check skill quality", "why did the skill do
+  this", "the skill output is wrong", or when the Skill Defect Rule fires.
 ---
 
 # Skill — Scaffold Skill
@@ -32,6 +35,11 @@ AskQuestion:
 ```
 
 **Claude Code:** ask _"Create a new skill or review an existing one?"_
+
+**Defect mode** — skip the question when called by the *Skill Defect Rule*
+(QA_AGENTS.md), or when given a skill name together with evidence of misbehaviour. Follow
+[defect-audit.md](defect-audit.md): map every file that governs the failed step,
+trace the cause, run the GOLDEN checklist, and propose a fix to apply after approval.
 
 ---
 
@@ -133,6 +141,8 @@ Apply chosen fixes, then re-run Step R2 to confirm all ❌ are resolved.
 - **[create.md](create.md)** — full Create workflow: requirements gathering,
   file structure, SKILL.md template, Next Move block template, ARCHITECTURE.md
   registration steps.
+- **[defect-audit.md](defect-audit.md)** — Defect mode: evidence → step map →
+  causes → fix proposal, applied only after approval.
 - **[checklist.md](checklist.md)** — GOLDEN verification checklist, project
   conventions by skill type, description formula, anti-patterns, reference
   examples.

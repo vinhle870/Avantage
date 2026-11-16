@@ -1,50 +1,57 @@
 # Run Summary — AP-2435: Admin API - warranty search
-Updated: 2026-11-01T02:00:00Z · Run folder: 5.0.0 · Stages run: intake → s3b · Run status: stopped_at_gate
+Updated: 2026-11-05T06:22:40Z · Run folder: 5.0.0 · Stages run: update-ticket · Run status: complete
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PIPELINE — AP-2435: Admin API - warranty search
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  Requirements : 5 REQ · 1 High risks
- Test cases   : 12 designed (all BLOCKED by Q-012) · 8 proposed by review
- Execution    : 0 PASS · 0 FAIL · 12 BLOCKED (Q-012; not executed — design only)
+ Test cases   : 12 designed · 8 proposed by review (not promoted)
+ Execution    : 12 PASS · 0 FAIL · 0 BLOCKED (Environment: Dev) — 100% (12 of 12)
  Bugs         : 0 filed · 0 linked to existing · 0 not a bug
- Corrected    : 12 test cases reworked (review R2 F-1–F-8) · 0 retired · re-run 0/0 PASS
- Verdict      : — (not executed)
- Tickets      : AP-2435 unchanged · 0 bugs updated (0 → Done, 0 → In Progress)
- Stopped at   : s3b (--until s3b — design only, by the run's instruction)
+ Corrected    : 0 test cases rewritten · 0 retired · re-run 0/0 PASS
+ Verdict      : PASS
+ Tickets      : AP-2435 → Ready for release, assigned to Ken Nguyen · 0 bugs updated
+ Stopped at   : — (complete after update-ticket)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**Stopped:** at s3b — the run was limited to design (`--until s3b`), so nothing was executed. Resume with "AP-2435" (it continues from s4), but only after QA has a staging admin API key stored in `/.env` as `AVP_ADMIN_API_KEY`: every test case is BLOCKED without one.
+**Done:** the ticket outcome was applied as the independent R4 review decided (Gate D). All 12 test cases passed on Dev (Environment: Dev), no bug was filed, and the verdict is PASS. The result comment is on AP-2435 (comment 19474), the ticket moved from QC to Ready for release, and it is now assigned to Ken Nguyen, who is asked about Q-008, Q-001 and Q-009 in the comment.
 
 **What passed**
-- None. No test case has been executed yet. Twelve test cases are designed and approved. Five check the ticket's stated match rules: part of a contract vehicle's VIN and the whole VIN return the contract (AP2435_001–002), the client's postal code with and without its space returns it (AP2435_003), and the client's telephone in all four formats the ticket lists returns it (AP2435_004–005). Seven record what the build does where the ticket is silent, and fail only on objective faults: partial, lower-case and `+1` forms (AP2435_006), the key in the Authorization Bearer header (AP2435_007), no key and a wrong key — which must return no contract data (AP2435_008–009), a query that matches nothing (AP2435_010), an empty or missing query (AP2435_011), and a short fragment's result count and paging (AP2435_012).
+- Finding a contract by its vehicle (Environment: Dev): part of the VIN, the whole VIN, a lower-case fragment and a two-letter fragment all return contract APOP01-836 (AP2435_001, 002, 012).
+- Finding a contract by the client's postal code: with and without its space, and in lower case, the search returns the same contracts, including APOP01-836; a partial postal code returns nothing, as "full match" requires (AP2435_003, 006).
+- Finding a contract by the client's telephone: hyphens, plain digits, dots and parentheses all return APOP01-836; a partial number or one with `+1` returns nothing (AP2435_004, 005, 006).
+- Protecting client data with the key: no key and a wrong key are both refused with 401 and no contract data, and an admin portal session in the browser does not open the API either (AP2435_008, 009).
+- Clean answers for edge inputs: no match → 200 `{"items":[]}`; empty or missing query → 400 "Missing query parameter"; no server error anywhere (AP2435_010, 011).
 
 **Failures**
-- None. Execution has not run.
+None.
 
 **Decisions made**
-- Gate A (rule A3, by reviewer R1 round 1 — APPROVE, 0 blocker / 0 major / 2 minor): continue — 0 Blocking questions, 11 Judgement, 2 Info; nothing posted to the ticket. The ticket contradicts itself on the key header ("Authorization Bearer header" in the text, `X-API-KEY` in the example call) and on the response shape ("a JSON array" vs an object with `items`); both are Judgement, and the tests record which form the build uses.
-- Gate B (rule B3, by reviewer R2 round 1 — APPROVE, 0 blocker / 0 major / 2 minor): execute the current cases — every acceptance criterion has a case, and the review found no gap citing an acceptance criterion and no High proposal. Eight Medium/Low proposals were not promoted: wildcard and quote characters, telephone with spaces only, a client with two contracts, first/last 6 VIN characters, a revoked key, stored postal code spelling, a 1,000-character query, extra spaces in a postal code.
-- Gate B rework (independent reviewer R2, REWORK — 4 blocker / 1 major / 3 minor): the request recipe was rebuilt so a request that never got an answer can never PASS or FAIL a case (it is BLOCKED instead), the key is loaded from `/.env` by name inside every command and never printed, AP2435_001 now tries both key headers the ticket names and fails only if neither works, and a JSON body is required only for a 2xx answer. The test plan and the cases now both read the reference contract on the dealer `/warranty` page. Rule B3 stands; the coverage review was not re-run. No test case creates an API key: creating a real credential is the QA's decision.
-- Gate C: not reached — no execution.
-- Gate D: not reached — AP-2435 unchanged.
-- Run folder 5.0.0, taken from the ticket's fix version (no sprint). Status QC maps to ready for QA, so no design-only rule applied; the run stopped at s3b only because of `--until s3b`.
+- Gate A (rule A3, by the reviewer) and Gate B (rule B3, by the reviewer): unchanged from the 2026-11-01 run — see the run state's Gate log.
+- Gate C (by the reviewer, R3 round 1, APPROVE): nothing to file — the execution log has no FAIL (12 PASS / 0 FAIL / 0 BLOCKED), so Gate C is skipped by its own rule; correct-cases stays skipped. The refused Bearer header was ruled record-only for this ticket (its own text and example contradict each other), so no bug was filed and AP-2549 was not linked.
+- file-bugs: the bug report records no bugs filed; no tracker search, ticket or comment was made.
+- report: verdict PASS — 12 of 12 passed (100%, threshold 90%), no open bug, no open Blocking question. Observations O-1, O-2 and O-3 are listed first, as the reviewer asked.
+- The reviewer's three minor findings were applied: F-1 — the execution log no longer says the record-836 screenshot shows the Client section; it shows the Vehicle section only, and the client values are proven by the list-row capture and the API answers. F-2 — the Execution Context of all three test-case files now names the Dev host, says the key is known (`/.env` `AVP_ADMIN_API_KEY`, value never shown) and marks Q-012 resolved on 2026-11-05, each with a Revisions row; no step or expected result changed. F-3 — O-1 now says results are ordered by record number, highest first (APOP01-847, dated 2026-10-03, comes before APOP01-846, dated 2026-11-09), in the log, the report and `qa-docs/admin-api.md`.
+- Gate D (rule §3.1, by the reviewer, R4 round 1, APPROVE): pass rate 100% (needs 90%), no stopping bug, no open Blocking question. Applied in order on 2026-11-05 (Environment: Dev): (1) story result comment 19474 posted through REST v2 — read back through REST v3 with an h3 heading, bold labels, the mention of Ken Nguyen and AP-2549 rendered as an issue reference (named only, not linked); no client personal value and no API key value in it; (2) QC → Ready for release, read back as Ready for release; (3) assigned to Ken Nguyen (accountId 5ae11c42b076312e0e25c600), read back as Ken Nguyen. No QA comment existed before posting, so there is no duplicate.
 
 **Left behind**
-- Test data on staging: None.
-- Observations that are not failures: no staging admin API key is known to QA (Q-012); the admin portal has a "Manage API keys" page at `/admin/api-keys` (seen in a 2026-10-02 page snapshot) where one may be created. The dealer warranty contract list (`/warranty`) is not yet mapped, so the executor must record where the VIN, postal code and telephone appear on a contract page.
-- Knowledge files added or changed: None. Test plan §3, §6, §7 and §8 updated to match the reworked cases.
+- Test data on Dev: None. The update-ticket run touched only Jira; the earlier execute run made 25 read-only searches and only viewed the admin portal.
+- Observations that are not failures: **O-1 (Q-008)** — results stop at 10, ordered by record number (highest first), with no total or paging field, so matching contracts are dropped: VATP-794, VATP-767 and VATP-766 have the queried home telephone stored, yet the home-telephone search does not list them. **O-2 (Q-001)** — the `Authorization: Bearer` header named in the ticket's text is refused with 401 "Missing API key"; only `X-API-KEY` works — the same behaviour as AP-2549 on the warranty-notes endpoint. **O-3 (Q-009)** — each result has 24 fields, including the client's name, email, street address and both telephones (field names `client_first_name`, `client_last_name`, `client_email`, `client_address`, `client_tel_home`, `client_tel_work` and others), while the ticket shows only `contractNumber`. Also: both telephones are searched (Q-006); VIN and postal searches ignore case (Q-004); `+1` stops a telephone matching (Q-007); some contract numbers contain a space.
+- Knowledge files added or changed: `qa-artifacts/qa-docs/admin-api.md` (§3.2 result-size row reworded: record-number order, matches beyond the 10th dropped).
+- Key check (2026-11-05T06:18Z): every AP-2435 artifact written or changed by this run was scanned for each 12-character piece of the key without printing it. No piece was found.
+- The Dev admin API key `QA-automation` expires on 2026-12-05; a re-test after that needs a new key.
 
 **Files**
-- [requirement capture](requirements/AP-2435-admin-api-warranty-search.md)
-- [requirements analysis](qa-artifacts/1-requirements-analysis/AP-2435_requirements-analysis.md)
-- [test plan](qa-artifacts/2-test-plan/AP-2435_test-plan.md)
-- [test cases 001–005](qa-artifacts/3-test-cases/AP2435_TestCases_001-005.md) · [006–010](qa-artifacts/3-test-cases/AP2435_TestCases_006-010.md) · [011–012](qa-artifacts/3-test-cases/AP2435_TestCases_011-012.md)
-- [review findings](qa-artifacts/3-test-cases/AP2435_ReviewFindings_2026-11-01.md)
-- [review record](qa-artifacts/7-reviews/AP-2435_review.md)
+- [AP-2435_test-report.md](qa-artifacts/5-testing-report/AP-2435_test-report.md)
+- [AP-2435_bug-report.md](qa-artifacts/5-testing-report/AP-2435_bug-report.md)
+- [execution log](qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2435_2026-11-05.md)
 - [run state](qa-artifacts/.pipeline/AP-2435.md)
 
 ## Automation
-Not run yet.
+- Spec: `playwright-automation/src/tests/admin/warrantySearchApi_AP2435.spec.ts` · tag `@AP-2435` (Dev only; needs `AVP_ADMIN_API_KEY` exported for the run)
+- 12 of 12 PASSED cases automated — 12 passing, 0 fixme (lint clean, two separate full runs on Dev 2026-11-05, 12/12 each)
+- Rework round 1 after R5 REWORK (2026-11-05): requests now sent with Node `fetch`, so a failed send cannot write the key into the HTML report (F-1, proven with a fake key against unreachable origins: 0 hits); 2xx annotations record field names only (F-2); AP-2377 data overlap named as a maintenance risk (F-3). Re-run: lint clean, 12/12 in two separate runs, real-key scan 0 hits
+- Not automated: none
+- PR: not opened — awaiting R5 (`--review external`; report: [AP-2435_automation-report.md](qa-artifacts/6-automation/AP-2435_automation-report.md))

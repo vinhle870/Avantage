@@ -9,7 +9,7 @@ description: >-
   automation report.
   Use when the user says "automate the test cases for AP-1234", "write automation for
   this ticket", "automate AP-1234", or after stlc-ticket-pipeline finishes. Stage s8 of
-  the STLC QA pipeline; stlc-qa-orchestrator runs it inside each ticket's worker.
+  the STLC QA pipeline; qa-agent runs it inside each ticket's worker.
 ---
 
 # Skill — Test Automator
@@ -28,7 +28,7 @@ Convert one ticket's PASSED manual test cases into a passing, tagged Playwright 
 | `--tc <ids>` | No | `--tc AP2487_001,AP2487_004` — automate only these |
 | `--fix-pr` | No | Address the QA's comments or a merge conflict on the ticket's open PR — follow [pr.md](pr.md) §3 instead of Steps 0–7 |
 | `--no-pr` | No | Write and test the code, but skip Step 7 |
-| `--review external` | No | The caller (`stlc-qa-orchestrator`) runs R5 through its own `qa-reviewer`: skip Step 5b and Step 7 — stop after Step 6 with no PR. Rework findings in the hand-off → fix only those, re-run Step 5, rewrite Step 6 |
+| `--review external` | No | The caller (`qa-agent`) runs R5 through its own `qa-reviewer`: skip Step 5b and Step 7 — stop after Step 6 with no PR. Rework findings in the hand-off → fix only those, re-run Step 5, rewrite Step 6 |
 | `--pr-only` | No | The specs passed R5: run the workbench check ([pr.md](pr.md) §1), then Step 7 only. Tests R5 parked → mark them `test.fixme()` with the park reason first |
 
 ---
@@ -133,7 +133,7 @@ Say which cases were automated, which were not and why, and what to fix for each
 ## Next Move
 
 Before printing this block, update `qa-artifacts/.session-state.md` — **skip this when
-running inside a `stlc-qa-orchestrator` worker**:
+running inside a `qa-agent` worker**:
 - `pipeline_stage: automation-done`
 - `last_skill_run: stlc-test-automator`
 - `last_action: {KEY} — automated <M> test cases, <P> passing`

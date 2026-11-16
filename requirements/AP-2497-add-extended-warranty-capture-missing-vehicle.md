@@ -80,3 +80,26 @@ The ticket's development panel lists 4 Bitbucket Cloud repository links (last up
 > properties in "Required fields" above", but neither the description nor the acceptance
 > criteria contain a section named "Required fields". The six fields are listed by name in
 > the criterion itself.
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:48:21-05:00 · **Previous capture:** 2026-11-01
+
+Re-read on 2026-11-15T09:58Z (`tracker.get_ticket` with comments). **The description and the
+acceptance criteria are unchanged** — compared word for word with the transcription above.
+Status is still QC and the assignee is still Vinh Le - QC. Every change since capture was made
+by the QA account; nobody outside QA has commented, so no earlier statement is replaced and no
+open question gets an answer from the ticket itself.
+
+New comments (both by the QA account):
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-01 | Vinh Le - QC | QA result comment 19452 (s7): FAIL on Dev, 4 of 15 passed, bugs AP-2520, AP-2521, AP-2522, open questions Q-001–Q-011 listed with today's behaviour |
+| 2026-11-08 | Vinh Le - QC | Comment 19531 "QA questions — screenshots": Q-001–Q-010 repeated with a highlighted screenshot each and a request to answer on the ticket; no reply |
+
+Other changes: issue links *Relates* → AP-2520, AP-2521, AP-2522 (added by s5 on 2026-11-01);
+ten QA attachments `AP-2497_Q-001_highlighted.png` … `AP-2497_Q-010_highlighted.png`
+(2026-11-08). The two original attachments are unchanged.

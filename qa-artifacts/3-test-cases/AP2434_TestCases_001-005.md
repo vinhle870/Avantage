@@ -35,7 +35,7 @@ executor should not need a second file open to run this batch._
 
 | # | Missing fact | Affects | Status |
 |---|---|---|---|
-| 1 | A staging admin API key for QA (and confirmation of the API host) | AP2434_001 – AP2434_005 | Open — Q-002 (Info in the analysis, but it stops execution of every case). Raised 2026-11-01 |
+| 1 | A staging admin API key for QA (and confirmation of the API host) | AP2434_001 – AP2434_005 | Resolved 2026-11-05 — a Dev key (app "QA-automation", expires 2026-12-05) is in /.env as AVP_ADMIN_API_KEY; execution is on Dev |
 | 2 | The admin page that shows a warranty's notes | AP2434_001 – AP2434_005 | Open — Q-006 (Judgement). Not a stopper on its own: the executor can locate it in the admin portal during s4 |
 
 > Every case below ships with **Status: BLOCKED** and **Blocked by: Q-002** until the key
@@ -47,11 +47,11 @@ executor should not need a second file open to run this batch._
 
 | TC ID | Title | Type | Priority | Status |
 |---|---|---|:---:|:---:|
-| AP2434_001 | A valid API call with the key creates a public note that appears on the warranty in the admin area | Functional | High | BLOCKED |
-| AP2434_002 | A note sent with is_public "false" is also created and appears on the warranty in the admin area | Functional | Medium | BLOCKED |
-| AP2434_003 | HTML note text just over 255 characters is kept in full, and a 2,000-character note is not silently cut | Edge-case | High | BLOCKED |
-| AP2434_004 | A call with no API key — the response and whether any note appears are recorded | Negative | High | BLOCKED |
-| AP2434_005 | A call with a wrong API key — the response and whether any note appears are recorded | Negative | Medium | BLOCKED |
+| AP2434_001 | A valid API call with the key creates a public note that appears on the warranty in the admin area | Functional | High | FAIL |
+| AP2434_002 | A note sent with is_public "false" is also created and appears on the warranty in the admin area | Functional | Medium | FAIL |
+| AP2434_003 | HTML note text just over 255 characters is kept in full, and a 2,000-character note is not silently cut | Edge-case | High | FAIL |
+| AP2434_004 | A call with no API key — the response and whether any note appears are recorded | Negative | High | PASS |
+| AP2434_005 | A call with a wrong API key — the response and whether any note appears are recorded | Negative | Medium | PASS |
 
 > Status values: `Not Run` · `PASS` · `FAIL` · `BLOCKED` · `SKIPPED`
 
@@ -71,10 +71,10 @@ executor should not need a second file open to run this batch._
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty page (route recorded at execution) |
 | **Type** | Functional · Regression |
 | **Priority** | High |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | FAIL |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | Step 2 FAIL (re-run 2026-11-05T05:41:02Z after R3 round 1 F-1): key in the Authorization Bearer header (as the ticket states) is refused: HTTP 401 {"error":"Missing API key"}; only X-API-KEY is accepted (`AP2434_001_step2d_response.txt`). Step 4 FAIL: note 64 created with X-API-KEY (201 on /api/admin/warranty-notes) and shown with title, description and Public, but the file_content HTML body is stored and shown nowhere. Q-001 observation: ticket path /api/admin/warranty/-notes answered 405 (Allow: GET) |
 
 **Why this matters:** This is the whole story in one case: an outside system with an API key writes a note, and an admin can see it. The HTTP response is recorded rather than judged, because the ticket names no status code or response body (Q-003). Which fields the admin area shows is recorded too (Q-006, Q-007). The request goes to the path exactly as the ticket writes it; if that path answers "not found", the case fails against the ticket's own text and the bug asks the author whether the path is a typo (Q-001). The ticket only says "the ID of the warranty", and the admin page may show a number that differs from the record ID in its URL, so both are recorded and a "warranty not found" is kept apart from a "route not found".
 
@@ -85,6 +85,7 @@ executor should not need a second file open to run this batch._
 | 2026-11-01 | Step 2: fields sent with `--form-string` and `-sS`; a response with no HTTP status line is BLOCKED (environment) | R2 independent F-1 — `-F "file_content=<…"` makes curl read a local file and send nothing |
 | 2026-11-01 | Steps 1–2: record the URL record ID and the displayed number; send the URL ID, retry once with the displayed number on "warranty not found"; only a route "not found" fails for Q-001 | R2 independent F-3 |
 | 2026-11-01 | Step 4: the HTML body matches when either the rendered text or the raw markup is shown | R2 independent F-6 |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -117,10 +118,10 @@ executor should not need a second file open to run this batch._
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty page recorded in AP2434_001 |
 | **Type** | Functional |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | FAIL |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | Step 3 FAIL: note 68 shown with a Private badge; file_content body missing |
 
 **Why this matters:** The ticket allows both values of `is_public`. A private note must still be created and visible to admins. What "public" changes outside the admin area is not stated (Q-010) and is not tested here.
 
@@ -130,6 +131,7 @@ executor should not need a second file open to run this batch._
 |---|---|---|
 | 2026-11-01 | Step 2: fields sent with `--form-string` and `-sS`; the Request check applies | R2 independent F-1 |
 | 2026-11-01 | Step 3: the HTML body matches when either the rendered text or the raw markup is shown | R2 independent F-6 |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -161,10 +163,10 @@ executor should not need a second file open to run this batch._
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty page recorded in AP2434_001 |
 | **Type** | Edge-case |
 | **Priority** | High |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | FAIL |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | Step 4 FAIL: 255/256/2,000-char bodies all accepted (201, notes 65-67) but no body is shown or kept |
 
 **Why this matters:** The ticket says outright that more than 255 characters must be allowed, which suggests an older limit cut notes short. 255 is the last length under that limit and 256 the first one over it — the 256-character note is the check the ticket demands. The 2,000-character note is a realistic long note; because the ticket states no upper limit (Q-009), its acceptance or refusal is recorded, and it fails only if it is stored but silently cut short. Whether the HTML is shown formatted or as raw tags is not stated (Q-008) and is recorded only.
 
@@ -174,6 +176,7 @@ executor should not need a second file open to run this batch._
 |---|---|---|
 | 2026-11-01 | Steps 3–4: the 2,000-character result made record-only, except for silent truncation | R2 round 1 F-1 — a refusal at 2,000 characters depends on Q-009 (Judgement, Open) |
 | 2026-11-01 | Steps 2–3: the generated body is sent with `--form-string` and `-sS`; the Request check applies to all three calls | R2 independent F-1 |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -211,10 +214,10 @@ Each body is `<p><b>QA</b>` + the letter `a` repeated + `</p>`, sized to the exa
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty page recorded in AP2434_001 |
 | **Type** | Negative |
 | **Priority** | High |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA (needed to confirm the endpoint works at all, through AP2434_001, before this negative case means anything) |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | 401 {"error":"Missing API key"}; no note stored |
 
 **Why this matters:** If the endpoint accepts calls without a key, anyone on the internet could write notes onto customer warranties. The ticket does not say what the rejection should look like (Q-005), so this case records the response and whether a note was created; it fails only on an objective fault. One such fault is named in test plan §3.2: a note stored even though the API refused the call (a 4xx answer followed by the note on `<W>`) — the caller is told "no" while the data is written anyway. A note created after a 2xx answer without a key is reported as a security observation under Q-005 for the author to judge.
 
@@ -225,6 +228,7 @@ Each body is `<p><b>QA</b>` + the letter `a` repeated + `</p>`, sized to the exa
 | 2026-11-01 | Step 1 records the listed note titles that step 3 checks | R2 independent F-5 |
 | 2026-11-01 | Step 2: fields sent with `--form-string` and `-sS`; the Request check applies | R2 independent F-1 — with `-F` nothing is sent and an empty response would look like a refusal |
 | 2026-11-01 | Step 3: a note stored after a 4xx refusal fails the step | R2 independent F-2 — test plan §3.2 |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -257,10 +261,10 @@ Each body is `<p><b>QA</b>` + the letter `a` repeated + `</p>`, sized to the exa
 | **Route** | `POST /api/admin/warranty/-notes`, then the admin warranty page recorded in AP2434_001 |
 | **Type** | Negative |
 | **Priority** | Medium |
-| **Status** | BLOCKED |
-| **Blocked by** | Q-002 — no staging admin API key available to QA (the wrong key is the real key with its last character changed) |
-| **Executed on** | _(filled by executor)_ |
-| **Result** | _(filled by executor)_ |
+| **Status** | PASS |
+| **Blocked by** | — (Q-002 resolved 2026-11-05: Dev admin API key stored in /.env as AVP_ADMIN_API_KEY) |
+| **Executed on** | 2026-11-05, Dev (`https://v2dev.garantieavantageplus.ca`), warranty contract 827 — log `qa-artifacts/4-execution-results/5.0.0/execution-log_AP-2434_2026-11-05.md` |
+| **Result** | 401 {"error":"Invalid API key"}; no note stored |
 
 **Why this matters:** A key that is almost right must not be treated as right. As in AP2434_004, the expected rejection is not stated (Q-005), so the response is recorded and a note created after a 2xx answer with a wrong key is reported as a security observation. A note stored after the API refused the wrong key (4xx) is an objective fault under test plan §3.2 and fails the case.
 
@@ -271,6 +275,7 @@ Each body is `<p><b>QA</b>` + the letter `a` repeated + `</p>`, sized to the exa
 | 2026-11-01 | Step 1 records the listed note titles that step 3 checks | R2 independent F-5 |
 | 2026-11-01 | Step 2: fields sent with `--form-string` and `-sS`; the Request check applies | R2 independent F-1 |
 | 2026-11-01 | Step 3: a note stored after a 4xx refusal fails the step | R2 independent F-2 — test plan §3.2 |
+| 2026-11-05 | Status reset from BLOCKED to Not Run before execution; Blocked by cleared | Q-002 resolved — Dev admin API key in /.env as AVP_ADMIN_API_KEY (orchestrator hand-off 2026-11-05) |
 
 **Test Data:**
 
@@ -313,8 +318,8 @@ one we currently have no way of proving works._
 
 | TC ID | Result | Screenshot |
 |---|:---:|---|
-| AP2434_001 | _(pending)_ | — |
-| AP2434_002 | _(pending)_ | — |
-| AP2434_003 | _(pending)_ | — |
-| AP2434_004 | _(pending)_ | — |
-| AP2434_005 | _(pending)_ | — |
+| AP2434_001 | ❌ FAIL | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_001-step4-NoteShownBodyMissing_fail.png` |
+| AP2434_002 | ❌ FAIL | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_002-step3-PrivateNoteBodyMissing_fail.png` |
+| AP2434_003 | ❌ FAIL | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_003-step4-LengthNotesNoBody_fail.png` |
+| AP2434_004 | ✅ PASS | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_004-step3-NoKeyNoNoteStored_pass.png` |
+| AP2434_005 | ✅ PASS | `qa-artifacts/4-execution-results/screenshots/5.0.0/AP-2434/AP2434_005-step3-WrongKeyNoNoteStored_pass.png` |

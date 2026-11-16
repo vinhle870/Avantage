@@ -65,3 +65,31 @@ Transcribed from the ticket's Acceptance Criteria field (customfield_10150). Spe
 | Date | By | Change |
 |---|---|---|
 | 2026-11-02 | Ken Nguyen | QA → QC the same day; assigned to Vinh Le - QC |
+
+---
+
+## Ticket changes since capture — 2026-11-15
+
+**Ticket last updated:** 2026-11-08T04:48:39-05:00 · **Previous capture:** 2026-11-03 by stlc-ticket-pipeline
+
+No change to the description or the acceptance criteria. Status is still QC, assignee
+Vinh Le - QC. The ticket now has 4 comments, all from the QA account; none answers a
+question:
+
+| Date | Author | Summary (one line) |
+|---|---|---|
+| 2026-11-02 (Jira time; 2026-11-03 UTC) | Vinh Le - QC | QA questions before testing — Q-001 (Blocking) (comment 19461) |
+| 2026-11-03 | Vinh Le - QC | QA result — FAIL, 2026-11-03 run (comment 19465) |
+| 2026-11-07 | Vinh Le - QC | QA result — FAIL 50%, Dev (comment 19513) |
+| 2026-11-08 | Vinh Le - QC | QA questions with highlighted screenshots — the open questions unchanged (comment 19535) |
+
+**Knowledge lookup (no Jira change).** On 2026-11-15 the open questions were checked
+against Jira Story and Task tickets (requirements analyst Steps 3b–3c). Nothing was
+posted. The lookup found stories that define parts of this page: AP-2544, AP-2545 and
+AP-2546 (standardised Vehicle, Owner and Financing sections when generating a contract,
+AP-2544 and AP-2546 with a Roadside Protection exception) and AP-2504 (the route name). Their quotes,
+the queries tried and the new status of each question are in
+`qa-artifacts/1-requirements-analysis/AP-2505_requirements-analysis.md` →
+*Open Questions* and *Knowledge lookup — 2026-11-15*. These quotes add knowledge. They
+replace no statement of AP-2505: where they differ from its acceptance criteria, the
+acceptance criteria still apply to this ticket.

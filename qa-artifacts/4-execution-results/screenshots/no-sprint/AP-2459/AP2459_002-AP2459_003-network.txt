@@ -1,0 +1,10 @@
+AP-2459 — Environment: Dev (v2dev) — 2026-11-08 — request lines only (method, URL, status)
+AP2459_002 step 4 (Financing company = AutoCapital Canada, value 39):
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6690/permaplate-create-contract => 200
+[POST] https://v2dev.garantieavantageplus.ca/quote/6690/permaplate-create-contract => 302
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6690/details => 200   (alerts "Esthetic protection contract generated successfully", "Invoice #945 ($80) is created")
+AP2459_003 step 2 (fallback quote 6691, Financing company left on "Choose"):
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6691/permaplate-create-contract => 200
+[POST] https://v2dev.garantieavantageplus.ca/quote/6691/permaplate-create-contract => 200   (form re-rendered, "This value should not be blank." on Financing company only)
+Observation (not a case step) — PDF of the AP2459_002 contract (with a financing company):
+[GET]  https://v2dev.garantieavantageplus.ca/quote/6690/permaplate-contract-download => 500   (French "Erreur — Désolé, l'application éprouve des difficultés techniques" page; known bug AP-2512)

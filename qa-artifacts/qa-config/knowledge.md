@@ -56,7 +56,7 @@ What each skill reads. **Always** is paid for on every run — keep it short.
 | `stlc-ticket-pipeline` | — | `env` (status check before s4 only — each stage loads its own set) |
 | `stlc-test-automator` | `navigation` | `domain`, `test-data` |
 | `stlc-qa-reviewer` | — | `domain`, `navigation` (E4 answers and R2 checks only) |
-| `stlc-qa-orchestrator` | — | `env` (health check before Wave 2 only — each worker loads its own set) |
+| `qa-agent` | — | `env` (health check before Wave 2 only — each worker loads its own set) |
 | `agent-coordination` | — | — |
 | `tracker-*` | — | — |
 

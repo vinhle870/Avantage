@@ -1,0 +1,18 @@
+AP2499_005 step 4 values record — Environment: Dev (v2dev)
+Captured: 2026-11-15T11:08:30Z (approx.), after clicking Edit on the folded Financing block in the Gap Insurance modal
+URL: https://v2dev.garantieavantageplus.ca/quote/6710/details (modal loaded from /quote/6710/gap-insurance)
+Saved at step 2 on /quote/6710/financing with Date of birth left EMPTY (flash "Financing saved", 2026-11-15T11:08:09Z)
+
+Date of birth = 2026-11-15   (server-rendered value attribute; today's date, never typed)
+Province = Québec
+Type = Financing
+Net amount financed including RDPRM = 25000
+Residual = 0
+Payment frequency = Monthly
+Term months = 60
+Interest rate = 6.99
+Financing company = AutoCapital Canada 200-11, Church Street Toronto
+
+Cross-check (same-origin GET, value attribute of quote_financing[applicant][dateOfBirthText]):
+GET /quote/6710/financing  200  value=2026-11-15
+GET /quote/6710/insurance  200  value=2026-11-15

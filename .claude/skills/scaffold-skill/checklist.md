@@ -61,6 +61,9 @@ Run through every item. Fix all ❌ before finishing.
 - [ ] It ends with `Full rules and worked examples:
       [../output-style.md](../output-style.md).`
 - [ ] `../output-style.md` is also listed under `## Resources`
+- [ ] Every step this skill shares with another skill, agent or adapter (a hand-off,
+      a tracker write, a shared artifact) is defined in one place. The others link to
+      it, and none of them gives a different instruction
 - [ ] Nothing in the skill or its `template.md` contradicts a rule in
       `output-style.md` — if a table cell must stay short, the skill says so
       explicitly and points at the rule-1 exception rather than leaving the
@@ -82,7 +85,7 @@ Run through every item. Fix all ❌ before finishing.
 | `tickets-updated`      | stlc-ticket-updater        |
 | `sprint-fetched`       | tracker-fetch-sprint-tickets |
 | `automation-done`      | stlc-test-automator        |
-| `batch-done`           | stlc-qa-orchestrator       |
+| `batch-done`           | qa-agent       |
 | `review-done`          | stlc-qa-reviewer           |
 
 ### Tracker Skills (tracker-*)

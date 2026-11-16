@@ -1,0 +1,3 @@
+AP2533_001 step 3 — decoder request (method, URL, status only) — Environment: Dev — 2026-11-07T11:08:47Z
+POST https://v2dev.garantieavantageplus.ca/quote/new/edit-vehicle => 200
+(no redirect; page URL stayed /quote/new/edit-vehicle)
